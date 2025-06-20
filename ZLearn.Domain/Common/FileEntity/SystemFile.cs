@@ -1,4 +1,7 @@
-﻿namespace ZLearn.Domain.Common.FileModel
+﻿using ZLearn.Domain.Common.FileEntity;
+using ZLearn.Domain.Enums;
+
+namespace ZLearn.Domain.Common.FileModel
 {
     public class SystemFile
     {
@@ -54,10 +57,50 @@
             Type = type;
         }
 
+        public SystemFile(string name, string url, string mime, FileType type)
+        {
+            Extension = mime switch
+            {
+                FileRules.MimeType.IMAGE_PNG => FileRules.Extension.IMAGE_PNG_EXTENSION,
+                FileRules.MimeType.IMAGE_JPEG => FileRules.Extension.IMAGE_JPEG_EXTENSION,
+                FileRules.MimeType.IMAGE_GIF => FileRules.Extension.IMAGE_GIF_EXTENSION,
+                FileRules.MimeType.IMAGE_SVG => FileRules.Extension.IMAGE_SVG_EXTENSION,
+                FileRules.MimeType.AUDIO_MP3 => FileRules.Extension.AUDIO_MP3_EXTENSION,
+                FileRules.MimeType.AUDIO_WAV => FileRules.Extension.AUDIO_WAV_EXTENSION,
+                FileRules.MimeType.AUDIO_OGG => FileRules.Extension.AUDIO_OGG_EXTENSION,
+                FileRules.MimeType.VIDEO_MP4 => FileRules.Extension.VIDEO_MP4_EXTENSION,
+                _ => throw new ArgumentException("Unknown mime type.")
+            };
+
+            if (type == FileType.Audio)
+            {
+                if (mime != FileRules.MimeType.AUDIO_MP3 &&
+                    mime != FileRules.MimeType.AUDIO_WAV &&
+                    mime != FileRules.MimeType.AUDIO_OGG)
+                    throw new ArgumentException("Invalid audio file mime.");
+            }
+            if (type == FileType.Video)
+            {
+                if (mime != FileRules.MimeType.VIDEO_MP4)
+                    throw new ArgumentException("Invalid video file mime.");
+            }
+            if (type == FileType.Video)
+            {
+                if (mime == FileRules.MimeType.VIDEO_MP4)
+                    throw new ArgumentException("Invalid video file mime.");
+            }
+
+            Name = name;
+            Url = url;
+            Mime = mime;
+            Type = type;
+        }
+
         public string Name { get; private set; }
         public string Extension { get; private set; }
-        public byte[] Data { get; private set; }
+        public byte[]? Data { get; private set; }
         public string Mime { get; private set; }
+        public string? Url { get; private set; }
         public FileType Type { get; private set; }
 
         public double GetSize(SizeType typeOfSize)

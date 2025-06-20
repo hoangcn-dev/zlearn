@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZLearn.Domain.Common.FileModel
+namespace ZLearn.Domain.Enums
 {
-    public enum SizeType
+    public enum FileType
     {
-        Mb,
-        Gb,
-        Byte,
-        Kb
+        Image,
+        Audio,
+        Video
     }
 }
