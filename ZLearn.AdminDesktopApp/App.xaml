@@ -1,0 +1,105 @@
+﻿<Application 
+    x:Class="ZLearn.AdminDesktopApp.App"  
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
+    xmlns:viewmodels="clr-namespace:ZLearn.AdminDesktopApp.ViewModels"
+    xmlns:local="clr-namespace:ZLearn.AdminDesktopApp" 
+    xmlns:converters="clr-namespace:ZLearn.AdminDesktopApp.Converters" 
+    xmlns:components="clr-namespace:ZLearn.AdminDesktopApp.Components"
+    
+    xmlns:views="clr-namespace:ZLearn.AdminDesktopApp.Views">
+    <Application.Resources>
+
+        <Style x:Key="Default" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+        </Style>
+
+        <Style x:Key="CenterCheckBox" TargetType="CheckBox">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style x:Key="CenterText" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style x:Key="RightAlignedText" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <converters:BoolToVisibilityCoonverter x:Key="BoolToVisibilityConverter"/>
+        <converters:RowIndexConverter x:Key="RowIndexConverter"/>
+        <converters:UtcToLocalTimeConverter x:Key="UtcToLocalTimeConverter"/>
+
+        <Style x:Key="LoadingButtonStyle" TargetType="components:LoadingButton" BasedOn="{StaticResource Default}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="components:LoadingButton">
+                        <Grid>
+                            <!-- Normal button content -->
+                            <Border x:Name="BorderElement"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter x:Name="ButtonContent"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Margin="{TemplateBinding Padding}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                            </Border>
+
+                            <!-- Circular loading indicator -->
+                            <Grid x:Name="LoadingIndicator" Visibility="Collapsed" Width="16" Height="16"
+                                HorizontalAlignment="Center" VerticalAlignment="Center">
+                                
+                                <Path x:Name="SpinningArc" 
+                                      Data="M 8,0 A 8,8 0 0 1 16,8" 
+                                      Stroke="{TemplateBinding Foreground}" 
+                                      StrokeThickness="2">  
+                                    <Path.RenderTransform>
+                                        <RotateTransform CenterX="8" CenterY="8"/>
+                                    </Path.RenderTransform>
+                                    <Path.Triggers>
+                                        <EventTrigger RoutedEvent="Loaded">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation 
+                                                        Storyboard.TargetName="SpinningArc"
+                                                        Storyboard.TargetProperty="(RenderTransform).(RotateTransform.Angle)"
+                                                        From="0" To="360" Duration="0:0:0.8"
+                                                        RepeatBehavior="Forever"/>  
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </Path.Triggers>
+                                </Path>
+                            </Grid>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsLoading" Value="True">
+                                <Setter TargetName="LoadingIndicator" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="BorderElement" Property="Opacity" Value="0.6"/>
+                                <Setter Property="Cursor" Value="Wait"/>
+                            </Trigger>
+                            <MultiTrigger >
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsLoading" Value="False"/>
+                                    <Condition SourceName="BorderElement" Property="IsMouseOver" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" Value="LightGray"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Application.Resources>  
+</Application>

@@ -1,10 +1,4 @@
-﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ZLearn.Application.Categories.DTOs;
+﻿using ZLearn.Application.Categories.DTOs;
 using ZLearn.Application.Categories.Queries.GetPaginatedCate;
 
 namespace ZLearn.Application.Categories.Queries.GetAllCates
@@ -22,8 +16,17 @@ namespace ZLearn.Application.Categories.Queries.GetAllCates
 
         public async Task<IEnumerable<CateListItemDto>> Handle(GetAllCatesQuery request, CancellationToken cancellationToken)
         {
-            var cates = await _repo.GetAll();
-            return cates.Select(c => _mapper.Map<CateListItemDto>(c));
+            var cates = await _repo.GetAll(
+                orderBy: e => e.CreatedAt,
+                isAsc: false,
+                projector: e => new CateListItemDto
+                {
+                    Id = e.Id,
+                    Name = e.Name,
+                    QuizCount = e.Quizzes.Count,
+                    LastModifiedAt = e.LastModifiedAt
+                });
+            return cates;
         }
     }
 }

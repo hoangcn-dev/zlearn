@@ -18,8 +18,6 @@ namespace ZLearn.API
             services.AddApplicationServices();
             services.AddPostgreSQLDataServices();
 
-            
-            // Configure API behavior and serialization
             services.AddControllers()
                 .AddJsonOptions(options =>
                 {
@@ -27,7 +25,6 @@ namespace ZLearn.API
                     options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
                 });
 
-            // Configure documentation
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen(c =>
             {
@@ -42,6 +39,11 @@ namespace ZLearn.API
                         Email = "support@zlearn.com"
                     }
                 });
+            });
+
+            services.AddRouting(opt =>
+            {
+                opt.LowercaseUrls = true;
             });
 
             var app = builder.Build();

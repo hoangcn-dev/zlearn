@@ -1,5 +1,6 @@
-﻿using AutoMapper;
+﻿ using AutoMapper;
 using ZLearn.Application.Common.Model;
+using ZLearn.Application.Temp.DTOs;
 using ZLearn.Domain.Common;
 namespace ZLearn.Application.Common.Mappings
 {
@@ -8,6 +9,8 @@ namespace ZLearn.Application.Common.Mappings
         public CommandResultMapping()
         {
             CreateMap<BaseEntity, CreateResponseDto>();
+            CreateMap<AuditableEntity, UpdateResponseDto>()
+                .ForMember(r => r.UpdatedAt, opt => opt.MapFrom(e => e.LastModifiedAt));
         }
     }
 }

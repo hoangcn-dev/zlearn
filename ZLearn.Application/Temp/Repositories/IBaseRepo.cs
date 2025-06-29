@@ -8,7 +8,7 @@ namespace ZLearn.Application.Temp.Repositories
         Task<List<TModel>> GetAll();
         Task<TModel?> Get(string id);
         Task<UpdateResultDTO> Update(TModel model);
-        Task<DeleteResultDTO> Delete(TModel model);
+        Task<DeleteResultDto> Delete(TModel model);
         Task SaveDbChanges();
     }
 }

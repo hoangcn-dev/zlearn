@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZLearn.Application.Temp.DTOs
+namespace ZLearn.Application.Common.Model
 {
-    public class DeleteResultDto
+    public class UpdateResponseDto
     {
         public string Id { get; set; }
-        public DateTime DeletedAt { get; set; }
+        public DateTimeOffset UpdatedAt { get; set; }
     }
 }

@@ -7,12 +7,15 @@ namespace ZLearn.Application.Categories.DTOs
     {
         public string Id { get; set; }
         public string Name { get; set; }
+        public int QuizCount { get; set; }
+        public DateTimeOffset? LastModifiedAt { get; set; }
 
         private class Mapping : Profile
         {
             public Mapping()
             {
-                CreateMap<Category, CateListItemDto>();
+                CreateMap<Category, CateListItemDto>()
+                    .ForMember(c => c.QuizCount, opt => opt.MapFrom(e => e.Quizzes.Count));
             }
         }
     }

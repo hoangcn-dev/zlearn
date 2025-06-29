@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="ZLearn.AdminDesktopApp.Views.QuizView.QuizCateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZLearn.AdminDesktopApp.Views.QuizView" 
+             xmlns:viewmodels="clr-namespace:ZLearn.AdminDesktopApp.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:QuizCateViewModel}"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 0 0 5">
+            <Button Content="Tạo mới" Width="80" Style="{StaticResource Default}" Command="{Binding AddNewCateCommand}"/>
+            <Button Content="Xóa" Visibility="{Binding ShowDeleteButton}" Width="80" Margin="5 0 0 0" Style="{StaticResource Default}" Command="{Binding DeleteCateCommand}"/>
+            <Button Content="Cập nhật" Visibility="{Binding ShowUpdateButton}" Width="80" Margin="5 0 0 0" Style="{StaticResource Default}" Command="{Binding UpdateCateCommand}"/>
+        </StackPanel>
+
+        <DataGrid
+              Grid.Row="1" 
+              AutoGenerateColumns="False" 
+              IsReadOnly="True"
+              CanUserAddRows="False"
+              CanUserDeleteRows="False"
+              CanUserReorderColumns="True"
+              CanUserResizeColumns="True"
+              CanUserSortColumns="True"
+              AlternatingRowBackground="White"
+              BorderThickness="1"
+              ItemsSource="{Binding Categories}"
+              BorderBrush="LightGray">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn 
+                            Header="" 
+                            Width="30"
+                            ElementStyle="{StaticResource CenterCheckBox}"
+                            Binding="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                <DataGridTextColumn 
+                            Header="STT" 
+                            Width="Auto" 
+                            Binding="{Binding Index}"
+                            ElementStyle="{StaticResource CenterText}"/>
+                <DataGridTextColumn Header="ID" 
+                            Width="100" 
+                            Binding="{Binding Data.Id}"/>
+                <DataGridTextColumn Header="Tên danh mục" 
+                            Width="*" 
+                            Binding="{Binding Data.Name}"/>
+                <DataGridTextColumn Header="Số lượng đề" 
+                            Width="Auto" 
+                            Binding="{Binding Data.QuizCount}"/>  
+                <DataGridTextColumn Header="Cập nhật" 
+                            Width="150"
+                            Binding="{Binding Data.LastModifiedAt, StringFormat=\{0:dd/MM/yyyy HH:mm\}, Converter={StaticResource UtcToLocalTimeConverter}}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+
+    
+</UserControl>
