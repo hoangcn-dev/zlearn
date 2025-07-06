@@ -16,7 +16,10 @@ namespace ZLearn.API
 
             services.AddExceptionMiddleware();
             services.AddApplicationServices();
-            services.AddPostgreSQLDataServices();
+
+            builder.AddRedisService();
+            builder.AddIdentityService();
+            builder.AddPostgreSQLDataServices();
 
             services.AddControllers()
                 .AddJsonOptions(options =>
@@ -58,13 +61,14 @@ namespace ZLearn.API
             app.UseExceptionMiddleware();
             app.UseHttpsRedirection();
             app.UseRouting();
-            app.UseCors("AllowAll");
             app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllers();
 
+            app.InitializeDatabase();
             app.Run();
+
         }
     }
 }

@@ -16,11 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Base\" />
+    <ProjectReference Include="..\ZLearn.Application\ZLearn.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ZLearn.Application\ZLearn.Application.csproj" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>

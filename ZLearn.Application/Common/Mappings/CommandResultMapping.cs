@@ -1,6 +1,4 @@
-﻿ using AutoMapper;
-using ZLearn.Application.Common.Model;
-using ZLearn.Application.Temp.DTOs;
+﻿using ZLearn.Application.Common.Model;
 using ZLearn.Domain.Common;
 namespace ZLearn.Application.Common.Mappings
 {

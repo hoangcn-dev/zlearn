@@ -482,3 +482,9 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# docker-compose
+docker-compose.dev.yaml
+
+# redis
+redis.conf

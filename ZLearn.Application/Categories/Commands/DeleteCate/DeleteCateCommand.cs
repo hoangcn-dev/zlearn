@@ -1,5 +1,4 @@
 ﻿using ZLearn.Application.Common.Model;
-using ZLearn.Application.Temp.DTOs;
 
 namespace ZLearn.Application.Categories.Commands.DeleteCate
 {

@@ -1,10 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore.Design;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ZLearn.Application.Common.Utils;
 
 namespace ZLearn.Infras.Data
 {
@@ -13,7 +7,7 @@ namespace ZLearn.Infras.Data
         public AppDbContext CreateDbContext(string[] args)
         {
             var optionBuilder = new DbContextOptionsBuilder<AppDbContext>();
-            optionBuilder.UseNpgsql(EnvVariableHelper.GetValue(EnvVariableHelper.Names.POSTGRESQL_CONNECTION_STRING));
+            optionBuilder.UseNpgsql(Environment.GetEnvironmentVariable("POSTGRESQL_CONNECTION_STRING")!);
             return new AppDbContext(optionBuilder.Options);
         }
     }

@@ -34,6 +34,11 @@ namespace ZLearn.API.Middlewares
                 context.Response.StatusCode = StatusCodes.Status401Unauthorized;
                 await WriteResponseAsync(context, Result<NoData>.Failure(ex.Message));
             }
+            catch (InvalidCredentialsException ex)
+            {
+                context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                await WriteResponseAsync(context, Result<NoData>.Failure(ex.Message));
+            }
             catch (ForbiddenException ex)
             {
                 context.Response.StatusCode = StatusCodes.Status403Forbidden;

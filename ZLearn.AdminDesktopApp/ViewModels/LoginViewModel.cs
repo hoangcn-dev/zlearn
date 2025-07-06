@@ -1,16 +1,17 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using System.Windows;
 using System.Windows.Input;
+using ZLearn.AdminDesktopApp.Helpers;
 using ZLearn.AdminDesktopApp.Services;
 using ZLearn.AdminDesktopApp.Stores;
 using ZLearn.AdminDesktopApp.Views;
+using ZLearn.Application.Auth.DTOs;
 
 namespace ZLearn.AdminDesktopApp.ViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
         private readonly IManageWindowService _manageWindowService;
-        private readonly TaskStatusStore _taskStatusStore;
+        private readonly IAuthApiService _authApiService;
 
         private string _userName;
         public string UserName 
@@ -37,6 +38,7 @@ namespace ZLearn.AdminDesktopApp.ViewModels
         private string _remember;
         public string Remember { get => _remember; set => SetProperty(ref _remember, value); }
 
+        public bool IsLoading => _taskStatusStore.Loading;
 
         public IAsyncRelayCommand LoginCommand { get; }
         public ICommand CloseWindowCommand { get; }
@@ -45,10 +47,12 @@ namespace ZLearn.AdminDesktopApp.ViewModels
 
         public LoginViewModel(
             VariableStore store,
-            IManageWindowService manageWindowService, 
-            TaskStatusStore taskStatusStore) : base(taskStatusStore, store)
+            IManageWindowService manageWindowService,
+            TaskStatusStore taskStatusStore,
+            IAuthApiService authApiService) : base(taskStatusStore, store)
         {
             _manageWindowService = manageWindowService;
+            _authApiService = authApiService;
 
             LoginCommand = new AsyncRelayCommand(LoginAsync, CanLogin);
             NavigateToMainWindowCommand = new RelayCommand(() => _manageWindowService.ShowWindow<MainWindow>());
@@ -57,9 +61,22 @@ namespace ZLearn.AdminDesktopApp.ViewModels
 
         private async Task LoginAsync()
         {
-            await Task.Delay(1500);
-            NavigateToMainWindowCommand.Execute(null);
-            CloseWindowCommand.Execute(null);
+            var data = new SignInRequestDto
+            {
+                Password = Password,
+                UserName = UserName,
+            };
+            var res = await ExecuteAsync(() => _authApiService.SignInAsync(data));
+            if (res is not null && res.Succeeded)
+            {
+                DialogHelper.ShowSuccessMess($"Đăng nhập thành công, xin chào {res.Data!.UserName}");
+                NavigateToMainWindowCommand.Execute(null);
+                CloseWindowCommand.Execute(null);
+            }
+            else
+            {
+                DialogHelper.ShowErrorMess($"Đăng nhập thất bại: {res!.Message}");
+            }
         }
 
         private bool CanLogin() =>

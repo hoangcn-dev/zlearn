@@ -18,10 +18,4 @@
     <ProjectReference Include="..\ZLearn.Domain\ZLearn.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Temp\Exceptions\" />
-    <Folder Include="Temp\Extensions\" />
-    <Folder Include="Temp\UseCases\Cate\" />
-  </ItemGroup>
-
 </Project>

@@ -1,9 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using ZLearn.AdminDesktopApp.Features.QuizFeature.Services;
+using ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels;
+using ZLearn.AdminDesktopApp.Features.QuizFeature.Views;
 using ZLearn.AdminDesktopApp.Services;
 using ZLearn.AdminDesktopApp.Stores;
 using ZLearn.AdminDesktopApp.ViewModels;
 using ZLearn.AdminDesktopApp.Views;
-using ZLearn.AdminDesktopApp.Views.QuizView;
 
 namespace ZLearn.AdminDesktopApp
 {
@@ -27,6 +29,7 @@ namespace ZLearn.AdminDesktopApp
                 client.Timeout = TimeSpan.FromSeconds(30);
             });
             services.AddSingleton<IQuizApiService, QuizApiService>();
+            services.AddSingleton<IAuthApiService, AuthApiService>();
 
 
             // Register viewmodels
@@ -35,8 +38,8 @@ namespace ZLearn.AdminDesktopApp
             services.AddTransient<LoginViewModel>();
             services.AddTransient<QuizCateViewModel>();
             services.AddTransient<QuizStatViewModel>();
-            services.AddTransient<AddQuizCategoryViewModel>();
-            services.AddTransient<UpdateQuizCategoryViewModel>();
+            services.AddTransient<AddQuizCateViewModel>();
+            services.AddTransient<UpdateQuizCateViewModel>();
 
             // Register views
             services.AddSingleton<MainWindow>(s => new()
@@ -59,13 +62,13 @@ namespace ZLearn.AdminDesktopApp
             {
                 DataContext = s.GetRequiredService<QuizStatViewModel>()
             });
-            services.AddTransient<AddQuizCategoryWindow>(s => new()
+            services.AddTransient<AddQuizCateWindow>(s => new()
             {
-                DataContext = s.GetRequiredService<AddQuizCategoryViewModel>()
+                DataContext = s.GetRequiredService<AddQuizCateViewModel>()
             });
-            services.AddTransient<UpdateQuizCategoryWindow>(s => new()
+            services.AddTransient<UpdateQuizCateWindow>(s => new()
             {
-                DataContext = s.GetRequiredService<UpdateQuizCategoryViewModel>()
+                DataContext = s.GetRequiredService<UpdateQuizCateViewModel>()
             });
 
             _serviceProvider = services.BuildServiceProvider();
@@ -80,7 +83,7 @@ namespace ZLearn.AdminDesktopApp
             navigation.CurrentDestination = Enums.NavDestination.QuizCate;
 
             var windowManager = _serviceProvider.GetRequiredService<IManageWindowService>();
-            windowManager.ShowWindow<MainWindow>();
+            windowManager.ShowWindow<SplashWindow>();
         }
     }
 }

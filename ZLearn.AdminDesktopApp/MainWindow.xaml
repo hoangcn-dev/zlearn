@@ -11,15 +11,16 @@
         d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         xmlns:views="clr-namespace:ZLearn.AdminDesktopApp.Views" 
         xmlns:com="clr-namespace:ZLearn.AdminDesktopApp.Components" 
-        xmlns:ucviews="clr-namespace:ZLearn.AdminDesktopApp.Views.QuizView" 
+        xmlns:ucviews="clr-namespace:ZLearn.AdminDesktopApp.Features.QuizFeature.Views" 
+        xmlns:ucviewmodels="clr-namespace:ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels" 
         xmlns:enums="clr-namespace:ZLearn.AdminDesktopApp.Enums"
         xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
-        <DataTemplate DataType="{x:Type viewmodels:QuizCateViewModel}">
+        <DataTemplate DataType="{x:Type ucviewmodels:QuizCateViewModel}">
             <ucviews:QuizCateView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodels:QuizStatViewModel}">
+        <DataTemplate DataType="{x:Type ucviewmodels:QuizStatViewModel}">
             <ucviews:QuizStatView/>
         </DataTemplate>
 

@@ -35,13 +35,14 @@ namespace ZLearn.AdminDesktopApp.ViewModels
         private async Task LoadApplicationData()
         {
             // Simulate loading tasks
+            _taskStatusStore.Loading = true;
             LoadingMessage = "Setting up services...";
             await Task.Delay(1000);
             LoadingMessage = "Connecting to API...";
             await Task.Delay(1000);
             LoadingMessage = "Loading UI...";
             await Task.Delay(500);
-
+            _taskStatusStore.Loading = false;
             NavigateToLoginWindowCommand.Execute(null);
             CloseWindowCommand.Execute(null);
         }

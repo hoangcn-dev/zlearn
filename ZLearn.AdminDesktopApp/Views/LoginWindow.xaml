@@ -5,19 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZLearn.AdminDesktopApp.Views" 
         xmlns:viewmodels="clr-namespace:ZLearn.AdminDesktopApp.ViewModels" 
+        xmlns:components="clr-namespace:ZLearn.AdminDesktopApp.Components"
         d:DataContext="{d:DesignInstance Type=viewmodels:LoginViewModel}"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        FontSize="18"
-        Title="Đăng nhập ZA" Width="500">
+        FontSize="14"
+        Height="Auto"
+        Title="Đăng nhập ZA" Width="400">
     <Border VerticalAlignment="Top" CornerRadius="5" Padding="20 30">
         <StackPanel>
             <TextBlock 
                 Text="Đăng nhập vào hệ thống" 
                 HorizontalAlignment="Center" 
                 Padding="10" Margin="20 10" 
-                FontSize="30" FontWeight="ExtraBold"/>
+                FontSize="20" FontWeight="ExtraBold"/>
             <TextBlock 
                 Text="Tên đăng nhập" 
                 Margin="0 5 0 5"/>
@@ -31,19 +33,21 @@
             <PasswordBox 
                 Padding="5" Margin="0 0 0 5" 
                 PasswordChanged="PasswordBox_PasswordChanged"/>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" >
                 <CheckBox 
                     IsChecked="{Binding Remember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                     VerticalAlignment="Center" 
-                    Margin="10" Width="18" Height="18"/>
+                    Margin="0 0 5 0" Width="18" Height="18"/>
                 <TextBlock 
                     Text="Ghi nhớ mật khẩu" 
-                    FontSize="18" Margin="0 5 0 5"/>
+                    Margin="0 5 0 5"/>
             </StackPanel>
-            <Button 
+            <components:LoadingButton 
                 Content="Đăng nhập" 
-                FontSize="18" Padding="5" Margin="0 30 0 10"
-                Command="{Binding LoginCommand}"/>
+                Padding="5" Margin="0 30 0 10"
+                Command="{Binding LoginCommand}"
+                Style="{StaticResource LoadingButtonStyle}"
+                IsLoading="{Binding IsLoading}"/>
         </StackPanel>
     </Border>
 </Window>
