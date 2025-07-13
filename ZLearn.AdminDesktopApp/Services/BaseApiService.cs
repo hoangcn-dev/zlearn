@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Json;
 using ZLearn.AdminDesktopApp.Exceptions;
-using ZLearn.Application.Common.Model;
+using ZLearn.Application.Common.DTOs;
 
 namespace ZLearn.AdminDesktopApp.Services
 {

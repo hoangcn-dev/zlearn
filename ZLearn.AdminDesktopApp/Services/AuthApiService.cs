@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using ZLearn.Application.Auth.Commands.SignIn;
 using ZLearn.Application.Auth.DTOs;
-using ZLearn.Application.Common.Model;
+using ZLearn.Application.Common.DTOs;
 
 namespace ZLearn.AdminDesktopApp.Services
 {

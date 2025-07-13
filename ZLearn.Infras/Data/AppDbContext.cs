@@ -14,6 +14,7 @@ namespace ZLearn.Infras.Data
         }
 
         public DbSet<Category> Categories => Set<Category>();
+        public DbSet<MediaFile> MediaFiles => Set<MediaFile>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

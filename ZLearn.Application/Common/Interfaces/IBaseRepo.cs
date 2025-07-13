@@ -5,7 +5,9 @@ namespace ZLearn.Application.Common.Interfaces
 {
     public interface IBaseRepo<TEntity> where TEntity : BaseEntity
     {
+        Task<bool> Any(Expression<Func<TEntity, bool>> filter);
         void Create(TEntity entity);
+        void CreateRange(IEnumerable<TEntity> entities);
         Task<List<TEntity>> GetAll(Expression<Func<TEntity, object>>? orderBy = null, bool isAsc = true);
         Task<List<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, object>>? orderBy = null, bool isAsc = true);
         Task<List<TDto>> GetAll<TDto>(Expression<Func<TEntity, TDto>> projector, Expression<Func<TEntity, object>>? orderBy = null, bool isAsc = true);

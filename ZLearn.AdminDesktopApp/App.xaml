@@ -83,6 +83,9 @@
                                 <Setter TargetName="BorderElement" Property="Opacity" Value="0.6"/>
                                 <Setter Property="Cursor" Value="Wait"/>
                             </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="BorderElement" Property="Opacity" Value="0.6"/>
+                            </Trigger>
                             <MultiTrigger >
                                 <MultiTrigger.Conditions>
                                     <Condition Property="IsLoading" Value="False"/>

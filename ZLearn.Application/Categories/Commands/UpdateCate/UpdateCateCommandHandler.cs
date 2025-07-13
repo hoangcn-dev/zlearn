@@ -1,19 +1,20 @@
 ﻿using ZLearn.API.Exceptions;
-using ZLearn.Application.Common.Model;
+using ZLearn.Application.Common.Commands;
+using ZLearn.Application.Common.DTOs;
 using ZLearn.Domain.Entities;
 using ZLearn.Domain.Events.Cate;
 
 namespace ZLearn.Application.Categories.Commands.UpdateCate
 {
-    public class UpdateCateCommandHandler : IRequestHandler<UpdateCateCommand, UpdateResponseDto>
+    public class UpdateCateCommandHandler: BaseCommandHandler, IRequestHandler<UpdateCateCommand, UpdateResponseDto>
     {
         private readonly ICateRepo _cateRepo;
-        private readonly IMapper _mapper;
 
-        public UpdateCateCommandHandler(ICateRepo cateRepo, IMapper mapper)
+        public UpdateCateCommandHandler(
+            IMapper mapper, IMediator mediator, 
+            ICateRepo cateRepo) : base(mapper, mediator)
         {
             _cateRepo = cateRepo;
-            _mapper = mapper;
         }
 
         public async Task<UpdateResponseDto> Handle(UpdateCateCommand request, CancellationToken cancellationToken)

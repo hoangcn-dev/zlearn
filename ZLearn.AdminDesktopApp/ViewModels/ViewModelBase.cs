@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using ZLearn.AdminDesktopApp.Stores;
-using ZLearn.Application.Common.Model;
+using ZLearn.Application.Common.DTOs;
 
 namespace ZLearn.AdminDesktopApp.ViewModels
 {

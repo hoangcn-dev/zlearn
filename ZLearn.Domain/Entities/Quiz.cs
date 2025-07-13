@@ -7,7 +7,7 @@ namespace ZLearn.Domain.Entities
         public string Name { get; set; }
         public string CategoryId { get; set; }
         public Category Category { get; set; }
-        public List<Tag> Tags { get; set; }
-        public List<Question> Questions { get; set; }
+        public List<Tag> Tags { get; set; } = new List<Tag>();
+        public List<Question> Questions { get; set; } = new List<Question>();
     }
 }

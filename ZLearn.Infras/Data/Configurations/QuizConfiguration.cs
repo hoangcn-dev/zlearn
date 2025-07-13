@@ -14,6 +14,8 @@ namespace ZLearn.Infras.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Quiz> builder)
         {
+            builder.ToTable("Quizzes");
+
             builder.Property(q => q.Name)
                 .HasMaxLength(StringLengths.QuizNameMaxLength)
                 .IsRequired();

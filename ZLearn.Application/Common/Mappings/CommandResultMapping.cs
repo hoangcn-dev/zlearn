@@ -1,4 +1,4 @@
-﻿using ZLearn.Application.Common.Model;
+﻿using ZLearn.Application.Common.DTOs;
 using ZLearn.Domain.Common;
 namespace ZLearn.Application.Common.Mappings
 {

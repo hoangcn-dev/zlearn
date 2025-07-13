@@ -1,6 +1,7 @@
-﻿using System.Text.Json;
+﻿using FluentValidation;
+using System.Text.Json;
 using ZLearn.API.Exceptions;
-using ZLearn.Application.Common.Model;
+using ZLearn.Application.Common.DTOs;
 
 namespace ZLearn.API.Middlewares
 {
@@ -74,6 +75,17 @@ namespace ZLearn.API.Middlewares
             {
                 _logger.LogError(ex, "Internal server error occurred: {Message}", ex.Message);
                 context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+                await WriteResponseAsync(context, Result<NoData>.Failure(ex.Message));
+            }
+            catch (ValidationException ex)
+            {
+                context.Response.StatusCode = StatusCodes.Status400BadRequest;
+                var errors = ex.Errors.Select(e => new { e.PropertyName, e.ErrorMessage });
+                await WriteResponseAsync(context, Result<NoData>.Failure(errors.First().ErrorMessage));
+            }
+            catch (ArgumentException ex)
+            {
+                context.Response.StatusCode = StatusCodes.Status400BadRequest;
                 await WriteResponseAsync(context, Result<NoData>.Failure(ex.Message));
             }
             catch (Exception ex)

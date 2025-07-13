@@ -1,20 +1,21 @@
 ﻿
 using ZLearn.API.Exceptions;
-using ZLearn.Application.Common.Model;
+using ZLearn.Application.Common.Commands;
+using ZLearn.Application.Common.DTOs;
 using ZLearn.Domain.Entities;
 using ZLearn.Domain.Events.Cate;
 
 namespace ZLearn.Application.Categories.Commands.DeleteCate
 {
-    public class DeleteCateCommandHandler : IRequestHandler<DeleteCateCommand, DeleteResponseDto>
+    public class DeleteCateCommandHandler: BaseCommandHandler, IRequestHandler<DeleteCateCommand, DeleteResponseDto>
     {
         private readonly ICateRepo _cateRepo;
-        private readonly IMapper _mapper;
 
-        public DeleteCateCommandHandler(ICateRepo cateRepo, IMapper mapper)
+        public DeleteCateCommandHandler(
+            IMapper mapper, IMediator mediator, 
+            ICateRepo cateRepo) : base(mapper, mediator)
         {
             _cateRepo = cateRepo;
-            _mapper = mapper;
         }
 
         public async Task<DeleteResponseDto> Handle(DeleteCateCommand request, CancellationToken cancellationToken)

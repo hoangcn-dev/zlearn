@@ -22,6 +22,9 @@ namespace ZLearn.Application.Common.Utils
         public const string REDIS_CONNECTION_PASSWORD = nameof(REDIS_CONNECTION_PASSWORD);
         public const string GOOGLE_CLIENT_ID = nameof(GOOGLE_CLIENT_ID);
         public const string GOOGLE_CLIENT_SECRET = nameof(GOOGLE_CLIENT_SECRET);
+        public const string CLOUDINARY_NAME = nameof(CLOUDINARY_NAME);
+        public const string CLOUDINARY_API_KEY = nameof(CLOUDINARY_API_KEY);
+        public const string CLOUDINARY_API_SECRET = nameof(CLOUDINARY_API_SECRET);
     }
 
 }

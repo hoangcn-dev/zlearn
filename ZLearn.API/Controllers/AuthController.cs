@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ZLearn.Application.Auth.Commands.SignIn;
 using ZLearn.Application.Auth.DTOs;
-using ZLearn.Application.Common.Model;
+using ZLearn.Application.Common.DTOs;
 
 namespace ZLearn.API.Controllers
 {

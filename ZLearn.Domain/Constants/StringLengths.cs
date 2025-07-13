@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ZLearn.Domain.Constants
+﻿namespace ZLearn.Domain.Constants
 {
     public abstract class StringLengths
     {
@@ -19,5 +13,7 @@ namespace ZLearn.Domain.Constants
 
         public const int UrlMaxLength = 2048;
         public const int IdMaxLength = 20;
+
+        public const int FileNameMaxLength = 100;
     }
 }

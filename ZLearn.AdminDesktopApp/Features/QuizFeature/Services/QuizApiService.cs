@@ -3,7 +3,7 @@ using ZLearn.AdminDesktopApp.Services;
 using ZLearn.Application.Categories.Commands.CreateCate;
 using ZLearn.Application.Categories.Commands.UpdateCate;
 using ZLearn.Application.Categories.DTOs;
-using ZLearn.Application.Common.Model;
+using ZLearn.Application.Common.DTOs;
 
 namespace ZLearn.AdminDesktopApp.Features.QuizFeature.Services
 {

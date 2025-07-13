@@ -1,22 +1,23 @@
 ﻿using AutoMapper;
 using ZLearn.API.Exceptions;
 using ZLearn.Application.Common.Interfaces;
-using ZLearn.Application.Common.Model;
+using ZLearn.Application.Common.DTOs;
 using ZLearn.Application.Common.Utils;
 using ZLearn.Domain.Entities;
 using ZLearn.Domain.Events.Cate;
+using ZLearn.Application.Common.Commands;
 
 namespace ZLearn.Application.Categories.Commands.CreateCate
 {
-    public class CreateCateCommandHandler : IRequestHandler<CreateCateCommand, CreateResponseDto>
+    public class CreateCateCommandHandler: BaseCommandHandler, IRequestHandler<CreateCateCommand, CreateResponseDto>
     {
         private readonly ICateRepo _repo;
-        private readonly IMapper _mapper;
 
-        public CreateCateCommandHandler(ICateRepo repo, IMapper mapper)
+        public CreateCateCommandHandler(
+            IMapper mapper, IMediator mediator, 
+            ICateRepo repo) : base(mapper, mediator)
         {
             _repo = repo;
-            _mapper = mapper;
         }
 
         public async Task<CreateResponseDto> Handle(CreateCateCommand request, CancellationToken cancellationToken)

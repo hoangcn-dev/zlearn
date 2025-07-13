@@ -9,12 +9,7 @@ namespace ZLearn.Infras.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Question> builder)
         {
-            builder.Property(q => q.ImageUrl)
-                .HasMaxLength(StringLengths.UrlMaxLength);
-
-            builder.Property(q => q.AudioUrl)
-                .HasMaxLength(StringLengths.UrlMaxLength);
-
+            builder.ToTable("Questions");
             builder
                 .HasOne(q => q.Quiz)
                 .WithMany(qz => qz.Questions)

@@ -53,10 +53,19 @@ namespace ZLearn.AdminDesktopApp.ViewModels
         {
             _manageWindowService = manageWindowService;
             _authApiService = authApiService;
+            _taskStatusStore.PropertyChanged += TaskStatusStore_PropertyChanged;
 
             LoginCommand = new AsyncRelayCommand(LoginAsync, CanLogin);
             NavigateToMainWindowCommand = new RelayCommand(() => _manageWindowService.ShowWindow<MainWindow>());
             CloseWindowCommand = new RelayCommand(() => _manageWindowService.CloseWindow<LoginWindow>());
+        }
+
+        private void TaskStatusStore_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(TaskStatusStore.Loading)) 
+            {
+                OnPropertyChanged(nameof(IsLoading));
+            }
         }
 
         private async Task LoginAsync()

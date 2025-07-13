@@ -3,7 +3,7 @@ using Ardalis.GuardClauses;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
 using System.Text.Json;
-using ZLearn.Application.Common.Model;
+using ZLearn.Application.Common.DTOs;
 
 namespace ZLearn.Application.Common.Behavours
 {

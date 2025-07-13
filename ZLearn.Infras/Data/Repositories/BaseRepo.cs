@@ -13,9 +13,20 @@ namespace ZLearn.Infras.Data.Repositories
             _context = context;
         }
 
+        public async Task<bool> Any(Expression<Func<TEntity, bool>> filter)
+        {
+            return await _context.Set<TEntity>().AsNoTracking()
+                .AnyAsync(filter);
+        }
+
         public virtual void Create(TEntity entity)
         {
             _context.Set<TEntity>().Add(entity);
+        }
+
+        public void CreateRange(IEnumerable<TEntity> entities)
+        {
+            _context.Set<TEntity>().AddRange(entities);
         }
 
         public virtual void Delete(IEnumerable<TEntity> entities)

@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ZLearn.Domain.Constants;
+﻿using ZLearn.Domain.Constants;
 using ZLearn.Domain.Entities;
 
 namespace ZLearn.Infras.Data.Configurations
@@ -9,6 +7,7 @@ namespace ZLearn.Infras.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
+            builder.ToTable("Categories");
             builder.Property(c => c.Name)
                 .IsRequired()
                 .HasMaxLength(StringLengths.QuizNameMaxLength);

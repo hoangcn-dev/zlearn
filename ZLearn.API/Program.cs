@@ -20,6 +20,7 @@ namespace ZLearn.API
             builder.AddRedisService();
             builder.AddIdentityService();
             builder.AddPostgreSQLDataServices();
+            builder.AddCloudinaryService();
 
             services.AddControllers()
                 .AddJsonOptions(options =>

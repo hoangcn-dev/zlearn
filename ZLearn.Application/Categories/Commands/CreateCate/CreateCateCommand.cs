@@ -1,4 +1,4 @@
-﻿using ZLearn.Application.Common.Model;
+﻿using ZLearn.Application.Common.DTOs;
 
 namespace ZLearn.Application.Categories.Commands.CreateCate
 {
