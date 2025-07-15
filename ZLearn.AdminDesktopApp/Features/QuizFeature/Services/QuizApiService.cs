@@ -13,7 +13,9 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.Services
     public interface IQuizApiService
     {
         Task<Result<CreateResponseDto>> CreateNewQuizAsync(CreateQuizDto data);
-        Task<Result<PaginatedDto<QuizListItemDto>>> GetListQuizzes(GetListQuizQuery query);
+        Task<Result<PaginatedDto<QuizListItemDto>>> GetListQuizzesAsync(GetListQuizQuery query);
+        Task<Result<DeleteResponseDto>> DeleteQuizAsync(DeleteRequestDto data);
+
         Task<Result<List<CateListItemDto>>> GetAllCategoriesAsync();
         Task<Result<CreateResponseDto>> CreateNewCategoryAsync(string name);
         Task<Result<DeleteResponseDto>> DeleteCategoryAsync(IEnumerable<string> cateIds);
@@ -61,7 +63,7 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.Services
             return res;
         }
 
-        public async Task<Result<PaginatedDto<QuizListItemDto>>> GetListQuizzes(GetListQuizQuery query)
+        public async Task<Result<PaginatedDto<QuizListItemDto>>> GetListQuizzesAsync(GetListQuizQuery query)
         {
             var res = await GetAsync<PaginatedDto<QuizListItemDto>>("quizzes", query);
             return res;
@@ -77,6 +79,12 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.Services
         {
             var command = new CreateQuizCommand { Data = data };
             var res = await PostAsync<CreateResponseDto>("quizzes", command);
+            return res;
+        }
+
+        public Task<Result<DeleteResponseDto>> DeleteQuizAsync(DeleteRequestDto data)
+        {
+            var res = PostAsync<DeleteResponseDto>("quizzes/delete", data);
             return res;
         }
     }

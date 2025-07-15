@@ -69,7 +69,7 @@ namespace ZLearn.API.Controllers
                 Ids = data.Ids
             };
             var res = await _mediator.Send(command);
-            return Ok(Result<DeleteResponseDto>.Success("Delete quizzes successfully.", res));
+            return Ok(Result<DeleteResponseDto>.Success("Delete quizz successfully.", res));
         }
 
         [HttpGet("tags")]

@@ -15,7 +15,7 @@
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 0 0 5">
             <Button Content="Tạo mới" Width="80" Style="{StaticResource Default}" Command="{Binding ShowAddQuizCommand}"/>
-            <Button Content="Xóa" Visibility="{Binding ShowDeleteButton}" Width="80" Margin="5 0 0 0" Style="{StaticResource Default}" Command="{Binding DeleteCateCommand}"/>
+            <Button Content="Xóa" Visibility="{Binding ShowDeleteButton}" Width="80" Margin="5 0 0 0" Style="{StaticResource Default}" Command="{Binding DeleteCommand}"/>
             <Button Content="Xem chi tiết" Style="{StaticResource Default}" Width="80" Margin="5 0 0 0" Visibility="{Binding ShowDeleteButton}" />
             <Button Content="Cập nhật" Visibility="{Binding ShowUpdateButton}" Width="80" Margin="5 0 0 0" Style="{StaticResource Default}" Command="{Binding UpdateCateCommand}"/>
         </StackPanel>

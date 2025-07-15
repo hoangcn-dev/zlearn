@@ -5,6 +5,7 @@ using System.Windows.Input;
 using ZLearn.AdminDesktopApp.Features.QuizFeature.Models;
 using ZLearn.AdminDesktopApp.Features.QuizFeature.Services;
 using ZLearn.AdminDesktopApp.Features.QuizFeature.Views;
+using ZLearn.AdminDesktopApp.Helpers;
 using ZLearn.AdminDesktopApp.Services;
 using ZLearn.AdminDesktopApp.Stores;
 using ZLearn.AdminDesktopApp.ViewModels;
@@ -61,6 +62,7 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
         {
             _manageWindowService.ShowSubWindow<AddQuizWindow>(async () => await Search());
         });
+        public ICommand DeleteCommand { get; }
 
 
         public ListQuizViewModel(
@@ -74,6 +76,7 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
 
             SearchCommand = new AsyncRelayCommand(Search, CanSearch);
             ResetCommand = new RelayCommand(ResetSearch);
+            DeleteCommand = new RelayCommand(DeleteQuiz);
 
             LoadCategoriesData();
             LoadQuizzesData();
@@ -89,6 +92,27 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
             OnPropertyChanged(nameof(ShowUpdateButton));
             OnPropertyChanged(nameof(SearchButtonText));
             OnPropertyChanged(nameof(CanEditSearchText));
+        }
+
+
+        private void DeleteQuiz()
+        {
+            var quizNames = string.Join(", ", Quizzes
+                .Where(q => SelectedIds.Contains(q.Data.Id))
+                .Select(q => q.Data.Name));
+            DialogHelper.ShowConfirm($"Xác nhận xóa các đề: {quizNames}?", async () =>
+            {
+                var res = await ExecuteAsync(() => _quizApiService.DeleteQuizAsync(new()
+                {
+                    Ids = SelectedIds.ToList()
+                }));
+                if (res is not null && res.Succeeded)
+                {
+                    DialogHelper.ShowSuccessMess("Xóa đề thành công.");
+                    await LoadQuizzesData();
+                }
+                else DialogHelper.ShowErrorMess("Xóa đề thất bại.");
+            });
         }
 
         private async Task Search()
@@ -112,7 +136,7 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
         public async Task LoadQuizzesData()
         {
             // Load quizzes
-            var quizzesResult = await ExecuteAsync(() => _quizApiService.GetListQuizzes(new()
+            var quizzesResult = await ExecuteAsync(() => _quizApiService.GetListQuizzesAsync(new()
             {
                 Name = Key,
                 CategoryId = _selectedCategory?.Id,
