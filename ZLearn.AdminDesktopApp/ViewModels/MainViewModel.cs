@@ -72,6 +72,10 @@ namespace ZLearn.AdminDesktopApp.ViewModels
             {
                 _navStore.CurrentViewModel = _serviceProvider.GetRequiredService<QuizStatViewModel>();
             }
+            else if (destination == NavDestination.QuizManage)
+            {
+                _navStore.CurrentViewModel = _serviceProvider.GetRequiredService<ListQuizViewModel>();
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using ZLearn.AdminDesktopApp.Views;
 
 namespace ZLearn.AdminDesktopApp.Helpers
 {
@@ -25,6 +26,11 @@ namespace ZLearn.AdminDesktopApp.Helpers
         public static void ShowErrorMess(string message)
         {
             MessageBox.Show(message, "Thông báo thất bại", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        public static void ShowErrors(List<string> errors)
+        {
+            new ErrorListWindow(errors).ShowDialog();
         }
     }
 }

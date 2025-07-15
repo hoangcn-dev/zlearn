@@ -11,6 +11,8 @@ using ZLearn.Application.Quizzes.Commands.Create;
 using ZLearn.Application.Quizzes.Commands.Delete;
 using ZLearn.Application.Quizzes.Commands.Update;
 using ZLearn.Application.Quizzes.DTOs;
+using ZLearn.Application.Quizzes.Queries.GetAllTags;
+using ZLearn.Application.Quizzes.Queries.GetListQuiz;
 using ZLearn.Application.Quizzes.Queries.GetUpdateQuizContent;
 
 namespace ZLearn.API.Controllers
@@ -24,6 +26,13 @@ namespace ZLearn.API.Controllers
         public QuizzesController(IMediator mediator)
         {
             _mediator = mediator;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllQuizzes([FromQuery] GetListQuizQuery query)
+        {
+            var res = await _mediator.Send(query);
+            return Ok(Result<PaginatedDto<QuizListItemDto>>.Success("Get all quizzes successfully.", res));
         }
 
         [HttpGet("{id}")]
@@ -63,6 +72,13 @@ namespace ZLearn.API.Controllers
             return Ok(Result<DeleteResponseDto>.Success("Delete quizzes successfully.", res));
         }
 
+        [HttpGet("tags")]
+        public async Task<IActionResult> GetAllTags()
+        {
+            var query = new GetAllTagsQuery();
+            var res = await _mediator.Send(query);
+            return Ok(Result<IEnumerable<string>>.Success("Get all tags successfully.", res));
+        }
 
         #region Cate
         [HttpPost("categories")]

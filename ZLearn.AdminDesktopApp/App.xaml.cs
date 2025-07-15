@@ -29,6 +29,7 @@ namespace ZLearn.AdminDesktopApp
                 client.Timeout = TimeSpan.FromSeconds(30);
             });
             services.AddSingleton<IQuizApiService, QuizApiService>();
+            services.AddSingleton<IFileApiService, FileApiService>();
             services.AddSingleton<IAuthApiService, AuthApiService>();
 
 
@@ -40,6 +41,8 @@ namespace ZLearn.AdminDesktopApp
             services.AddTransient<QuizStatViewModel>();
             services.AddTransient<AddQuizCateViewModel>();
             services.AddTransient<UpdateQuizCateViewModel>();
+            services.AddTransient<ListQuizViewModel>();
+            services.AddTransient<AddQuizViewModel>();
 
             // Register views
             services.AddSingleton<MainWindow>(s => new()
@@ -70,6 +73,14 @@ namespace ZLearn.AdminDesktopApp
             {
                 DataContext = s.GetRequiredService<UpdateQuizCateViewModel>()
             });
+            services.AddTransient<ListQuizView>(s => new()
+            {
+                DataContext = s.GetRequiredService<ListQuizViewModel>()
+            });
+            services.AddTransient<AddQuizWindow>(s => new()
+            {
+                DataContext = s.GetRequiredService<AddQuizViewModel>()
+            });
 
             _serviceProvider = services.BuildServiceProvider();
         }
@@ -79,11 +90,11 @@ namespace ZLearn.AdminDesktopApp
             base.OnStartup(e);
 
             var navigation = _serviceProvider.GetRequiredService<NavigationStore>();
-            navigation.CurrentViewModel = _serviceProvider.GetRequiredService<QuizCateViewModel>();
-            navigation.CurrentDestination = Enums.NavDestination.QuizCate;
+            navigation.CurrentViewModel = _serviceProvider.GetRequiredService<ListQuizViewModel>();
+            navigation.CurrentDestination = Enums.NavDestination.QuizManage;
 
             var windowManager = _serviceProvider.GetRequiredService<IManageWindowService>();
-            windowManager.ShowWindow<SplashWindow>();
+            windowManager.ShowWindow<MainWindow>();
         }
     }
 }

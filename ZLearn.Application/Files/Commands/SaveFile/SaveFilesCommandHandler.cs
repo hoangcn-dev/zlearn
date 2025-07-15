@@ -25,7 +25,6 @@ namespace ZLearn.Application.Files.Commands.SaveFile
 
         public async Task<ListSavedFileDto> Handle(SaveFilesCommand request, CancellationToken cancellationToken)
         {
-            var errors = new Dictionary<string, string>();
             var mediaFiles = new List<MediaFile>();
             try
             {
@@ -34,19 +33,18 @@ namespace ZLearn.Application.Files.Commands.SaveFile
                     throw new ValidationException("No files were uploaded.");
                 }
 
-                foreach ( var file in request.Files)
+                // Validate files
+                var preparedFile = new List<(SaveFileRequestItemDto, MediaType)>();
+                foreach (var file in request.Files)
                 {
-                    try
-                    {
-                        var mediaType = ValidateMediaFile(file.Data);
-                        var mediaFile = await _mediaStoreService.SaveFile(file, mediaType, cancellationToken);
-                        mediaFile.Type = mediaType;
-                        mediaFiles.Add(mediaFile);
-                    } 
-                    catch (Exception ex)
-                    {
-                        errors[file.Name ?? file.Data.FileName] = ex.Message;
-                    }
+                    preparedFile.Add((file, ValidateMediaFile(file.Data)));
+                }
+
+                foreach (var (file, mediaType) in preparedFile)
+                {
+                    var mediaFile = await _mediaStoreService.SaveFile(file, mediaType, cancellationToken);
+                    mediaFile.Type = mediaType;
+                    mediaFiles.Add(mediaFile);
                 }
 
                 if (mediaFiles.Count != 0)
@@ -56,7 +54,6 @@ namespace ZLearn.Application.Files.Commands.SaveFile
                 }
                 return new ListSavedFileDto
                 {
-                    Errors = errors,
                     Files = mediaFiles.Select(mf => _mapper.Map<SavedFileDto>(mf)).ToList()
                 };
             }

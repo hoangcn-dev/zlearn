@@ -23,6 +23,9 @@
         <DataTemplate DataType="{x:Type ucviewmodels:QuizStatViewModel}">
             <ucviews:QuizStatView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type ucviewmodels:ListQuizViewModel}">
+            <ucviews:ListQuizView/>
+        </DataTemplate>
 
         <!-- NavButtonStyle -->
         <Style x:Key="NavButtonStyle" TargetType="Button">

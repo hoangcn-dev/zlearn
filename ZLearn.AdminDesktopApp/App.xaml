@@ -100,5 +100,8 @@
             </Setter>
         </Style>
 
+        <Style TargetType="ComboBox">
+            <Setter Property="Background" Value="White"/>
+        </Style>
     </Application.Resources>  
 </Application>

@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using ZLearn.Application.Common.DTOs;
 using ZLearn.Domain.Common;
 
 namespace ZLearn.Application.Common.Interfaces
@@ -12,6 +13,7 @@ namespace ZLearn.Application.Common.Interfaces
         Task<List<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, object>>? orderBy = null, bool isAsc = true);
         Task<List<TDto>> GetAll<TDto>(Expression<Func<TEntity, TDto>> projector, Expression<Func<TEntity, object>>? orderBy = null, bool isAsc = true);
         Task<List<TDto>> GetAll<TDto>(Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, TDto>> projector, Expression<Func<TEntity, object>>? orderBy = null, bool isAsc = true);
+        Task<PaginatedDto<TDto>> GetPaging<TDto>(int page, int size, Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, TDto>> projector, Expression<Func<TEntity, object>>? orderBy = null, bool isAsc = true);
         Task<TEntity?> Get(string id);
         Task<TDto?> Get<TDto>(string id, Expression<Func<TEntity, TDto>> projector);
         Task<TEntity?> Get(Expression<Func<TEntity, bool>> filter);

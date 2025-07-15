@@ -1,13 +1,14 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Json;
 using ZLearn.AdminDesktopApp.Exceptions;
+using ZLearn.AdminDesktopApp.Helpers;
 using ZLearn.Application.Common.DTOs;
 
 namespace ZLearn.AdminDesktopApp.Services
 {
-    public class BaseApiService
+    public abstract class BaseApiService
     {
-        private readonly HttpClient _httpClient;
+        protected readonly HttpClient _httpClient;
 
         public BaseApiService(IHttpClientFactory httpClientFactory)
         {
@@ -28,6 +29,17 @@ namespace ZLearn.AdminDesktopApp.Services
         public async Task<Result<TResponse>?> GetAsync<TResponse>(string endpoint)
         {
             var response = await _httpClient.GetAsync(endpoint);
+            if (response is not null)
+            {
+                var result = await response.Content.ReadFromJsonAsync<Result<TResponse>>();
+                return result;
+            }
+            throw new ConvertApiResultException();
+        }
+
+        public async Task<Result<TResponse>?> GetAsync<TResponse>(string endpoint, object query)
+        {
+            var response = await _httpClient.GetAsync($"{endpoint}?{StringHelper.ToQueryString(query)}");
             if (response is not null)
             {
                 var result = await response.Content.ReadFromJsonAsync<Result<TResponse>>();

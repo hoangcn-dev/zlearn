@@ -10,6 +10,13 @@ namespace ZLearn.Infras.Data.Repositories
         {
         }
 
+        public Task<List<string>> GetAllTagsAsync()
+        {
+            return _context.Set<Tag>()
+                .Select(t => t.Name)
+                .ToListAsync();
+        }
+
         public async Task<Quiz?> GetFullQuizContent(string quizId)
         {
             return await _context.Set<Quiz>()

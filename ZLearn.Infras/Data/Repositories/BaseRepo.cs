@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using ZLearn.Application.Common.DTOs;
 using ZLearn.Application.Common.Interfaces;
 using ZLearn.Domain.Common;
 
@@ -96,6 +97,29 @@ namespace ZLearn.Infras.Data.Repositories
             if (isAsc) query = query.OrderBy(orderBy);
             else query = query.OrderByDescending(orderBy);
             return await query.Select(projector).ToListAsync();
+        }
+
+        public async Task<PaginatedDto<TDto>> GetPaging<TDto>(int page, int size, Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, TDto>> projector, Expression<Func<TEntity, object>>? orderBy = null, bool isAsc = true)
+        {
+            var query = _context.Set<TEntity>().AsQueryable().AsNoTracking();
+            query = query.Where(filter);
+            orderBy ??= e => e.Id;
+            if (isAsc) query = query.OrderBy(orderBy);
+            else query = query.OrderByDescending(orderBy);
+
+            var totalCount = await query.CountAsync();
+            var items = await query
+                .Select(projector)
+                .Skip((page - 1) * size)
+                .Take(size).ToListAsync();
+
+            return new PaginatedDto<TDto>
+            {
+                Items = items,
+                PageIndex = page,
+                PageSize = size,
+                TotalItems = totalCount
+            };
         }
 
         public virtual async Task<int> SaveChanges()

@@ -7,5 +7,6 @@ namespace ZLearn.Application.Quizzes
     {
         Task<Quiz?> GetFullQuizContent(string quizId);
         Task SetQuestionsTagAsync(Quiz quiz, List<string> tags);
+        Task<List<string>> GetAllTagsAsync();
     }
 }

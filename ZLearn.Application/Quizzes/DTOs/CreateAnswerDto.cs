@@ -4,6 +4,6 @@
     {
         public int Key { get; set; }
         public string? StringContent { get; set; }
-        public List<string> ImageIds { get; set; }
+        public List<string> ImageIds { get; set; } = new();
     }
 }

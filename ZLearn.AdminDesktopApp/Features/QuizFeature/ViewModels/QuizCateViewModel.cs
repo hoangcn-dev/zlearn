@@ -15,7 +15,6 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
 {
     public class QuizCateViewModel : ViewModelBase
     {
-        private readonly IServiceProvider _serviceProvider;
         private readonly IQuizApiService _quizApiService;
         private readonly IManageWindowService _manageWindowService;
 
@@ -39,9 +38,7 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
             TaskStatusStore taskStatusStore,
             IManageWindowService manageWindowService) : base(taskStatusStore, store)
         {
-            _serviceProvider = serviceProvider;
             _manageWindowService = manageWindowService;
-            _serviceProvider = serviceProvider;
             _quizApiService = quizApiService;
 
             AddNewCateCommand = new RelayCommand(ShowAddCateWindow, CanOpenAddCateWindow);

@@ -9,7 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
+    <Page Remove="Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+    <PackageReference Include="DotNetProjects.WpfToolkit.Input" Version="6.1.94" />
     <PackageReference Include="MahApps.Metro.IconPacks" Version="5.1.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.2" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.1" />
@@ -17,10 +25,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ZLearn.Application\ZLearn.Application.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>

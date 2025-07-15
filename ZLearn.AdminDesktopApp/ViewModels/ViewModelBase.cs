@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System.Windows.Input;
 using ZLearn.AdminDesktopApp.Stores;
 using ZLearn.Application.Common.DTOs;
 
@@ -39,6 +40,7 @@ namespace ZLearn.AdminDesktopApp.ViewModels
 
         protected async Task<Result<T>?> ExecuteAsync<T>(Func<Task<Result<T>>> action)
         {
+            Mouse.OverrideCursor = Cursors.Wait;
             _taskStatusStore.Loading = true;
             try
             {
@@ -56,6 +58,7 @@ namespace ZLearn.AdminDesktopApp.ViewModels
             finally
             {
                 _taskStatusStore.Loading = false;
+                Mouse.OverrideCursor = null;
             }
         }
 
