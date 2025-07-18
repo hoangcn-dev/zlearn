@@ -11,7 +11,7 @@ namespace ZLearn.Application.Files
         /// <param name="fileIds">Media file IDs</param>
         /// <exception cref="NotFoundException"></exception>
         /// <returns>A dictionary with keys are file id and values are url</returns>
-        Task<Dictionary<string, string>> GetFileUrlsAsync(List<string> fileIds);
+        Task<Dictionary<string, MediaFile>> GetFileUrlsAsync(List<string> fileIds);
 
         /// <summary>
         /// Checks the existence of files based on their unique identifiers.

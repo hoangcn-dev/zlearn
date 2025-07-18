@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZLearn.AdminDesktopApp.Features.QuizFeature.Views" 
         xmlns:viewmodels="clr-namespace:ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels" 
-        xmlns:components="clr-namespace:ZLearn.AdminDesktopApp.Components"
+        xmlns:components="clr-namespace:ZLearn.AdminDesktopApp.Components" xmlns:views="clr-namespace:ZLearn.AdminDesktopApp.Views"
         d:DataContext="{d:DesignInstance Type=viewmodels:UpdateQuizCateViewModel}"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         FontSize="12"
-        Title="Thông tin chi tiết danh mục" Height="400" Width="600">
+        Title="Thông tin chi tiết danh mục" Height="700" Width="600">
     <Border Margin="20">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -26,6 +26,7 @@
                 <RowDefinition MinHeight="30"/>
                 <RowDefinition MinHeight="30"/>
                 <RowDefinition MinHeight="30"/>
+                <RowDefinition MinHeight="300"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
@@ -36,6 +37,7 @@
             <TextBlock Grid.Row="4" Grid.Column="0" Text="Thay đổi cuối:" FontWeight="Bold" VerticalAlignment="Center"/>
             <TextBlock Grid.Row="5" Grid.Column="0" Text="Tạo bởi:" FontWeight="Bold" VerticalAlignment="Center"/>
             <TextBlock Grid.Row="6" Grid.Column="0" Text="Cập nhật lần cuối bởi:" FontWeight="Bold" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="7" Grid.Column="0" Text="Ảnh bìa:" FontWeight="Bold" VerticalAlignment="Center"/>
 
             <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Data.Id}" VerticalAlignment="Center"/>
             <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding UpdatingName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" VerticalAlignment="Center" Padding="5"/>
@@ -44,10 +46,24 @@
             <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Data.LastModifiedAt, StringFormat=\{0:dd/MM/yyyy HH:mm\}}" VerticalAlignment="Center"/>
             <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding Data.CreatedBy}" VerticalAlignment="Center"/>
             <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding Data.ModifiedBy}" VerticalAlignment="Center"/>
+            <StackPanel Grid.Row="7" Grid.Column="1">
+                <Border BorderThickness="1" BorderBrush="Black">
+                    <Image Source="{Binding ThumbnailUrl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="Auto" Height="260" VerticalAlignment="Center" Margin="5"/>
+                </Border>
+                <StackPanel Orientation="Horizontal" Margin="0 2">
+                    <components:LoadingButton
+                        Style="{StaticResource LoadingButtonStyle}"
+                        Command="{Binding UploadThumbnailFileCommand}"
+                        Content="Đổi ảnh" Width="100"/>
+                    <views:SuccessTextBlock 
+                        Message="{Binding UploadFileName}" 
+                        Visibility="{Binding ShowFileUploadedMessage}" VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
 
             <components:LoadingButton
                 Grid.ColumnSpan="2"
-                Grid.Row="7"
+                Grid.Row="8"
                 Grid.Column="0"
                 Margin="10 30 10 0"
                 Width="200"

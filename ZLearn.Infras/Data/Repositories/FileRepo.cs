@@ -25,13 +25,13 @@ namespace ZLearn.Infras.Data.Repositories
             return Task.CompletedTask;
         }
 
-        public Task<Dictionary<string, string>> GetFileUrlsAsync(List<string> fileIds)
+        public async Task<Dictionary<string, MediaFile>> GetFileUrlsAsync(List<string> fileIds)
         {
-            var map = _context.Set<MediaFile>()
+            var map = await _context.Set<MediaFile>()
                 .AsNoTracking()
                 .Where(file => fileIds.Contains(file.Id))
-                .ToDictionaryAsync(file => file.Id, file => file.SourceUrl);
-            if (map.Result.Count != fileIds.Count)
+                .ToDictionaryAsync(file => file.Id, file => file);
+            if (map.Count != fileIds.Count)
                 throw new ArgumentException("Some file IDs do not exist in the database.");
             return map;
         }

@@ -6,6 +6,8 @@ namespace ZLearn.Domain.Entities
     {
         public string Name { get; set; }
         public string CategoryId { get; set; }
+        public int DownloadCount { get; set; }
+        public bool IsPublic { get; set; }
         public Category Category { get; set; }
         public List<Tag> Tags { get; set; } = new List<Tag>();
         public List<Question> Questions { get; set; } = new List<Question>();

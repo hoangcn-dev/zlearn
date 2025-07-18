@@ -37,6 +37,7 @@ namespace ZLearn.Infras
             builder.Services.AddScoped<ICateRepo, CateRepo>();
             builder.Services.AddScoped<IFileRepo, FileRepo>();
             builder.Services.AddScoped<IQuizRepo, QuizRepo>();
+            builder.Services.AddScoped<IQuestionRepo, QuestionRepo>();
             builder.Services.AddDbContext<AppDbContext>((sp, options) =>
             {
                 options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());

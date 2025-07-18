@@ -37,13 +37,13 @@ namespace ZLearn.Infras.Data.Repositories
 
         public virtual async Task<TEntity?> Get(string id)
         {
-            return await _context.Set<TEntity>().FindAsync(id);
+            return await _context.Set<TEntity>().FindAsync(id.ToUpper());
         }
 
         public async Task<TDto?> Get<TDto>(string id, Expression<Func<TEntity, TDto>> projector)
         {
             return await _context.Set<TEntity>()
-                .Where(e => e.Id == id)
+                .Where(e => e.Id == id.ToUpper())
                 .Select(projector)
                 .FirstOrDefaultAsync();
         }

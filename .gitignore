@@ -3,6 +3,10 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
+**/*.mp4
+**/*.mp3
+**/lib
+
 # dotenv files
 .env
 

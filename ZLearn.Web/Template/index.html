@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="icon" type="image/x-icon" href="logo.ico"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Top bar -->
+    <section>
+        <div class="w-100" style="background-color: var(--main-color)">
+            <div class="container py-2">
+                <div class="d-flex align-items-center">
+                    <!-- Banner -->
+                    <a href="#"><img src="banner-light.png" alt="" height="50"></a>
+
+                    <!-- Search -->
+                    <div class="d-flex ms-5 flex-fill">
+                        <div class="position-relative ms-3 w-75">
+                            <input type="text" class="rounded-1 w-100 border-0 ps-3 py-1" style="padding-right: 30px;" placeholder="Tìm kiếm theo tên đề, tên danh mục, tags, ...">
+                            <i title="Tìm kiếm" class="opacity-hover fa-solid fa-magnifying-glass position-absolute end-0 top-50 translate-middle-y me-2"></i>
+                        </div>
+                    </div>
+
+                    <!-- Status -->
+                    <i class="fa-solid fa-bell text-white opacity-hover" title="Thông báo"></i>
+                    <div class="d-flex ms-3 align-items-center">
+                        <img src="" alt="" width="36" height="36" class="rounded-pill">
+                        <div class="d-flex flex-column mx-2">
+                            <div class="fw-light text-white">B22DCCN589</div>
+                            <div class="fw-bold" style="font-size: 11px; color: var(--secondary-color)">Admin</div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down fs-6 text-white opacity-hover"></i>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <section>
+        <div class="w-100 shadow-sm">
+            <div class="container">
+                <div id="navigation-tab" class="d-flex justify-content-between fw-bold">
+                    <div class="flex-fill mx-1 text-center nav-tab selected">Đề thi trắc nghiệm</div>
+                    <div class="flex-fill mx-1 text-center nav-tab">Tài liệu</div>
+                    <div class="flex-fill mx-1 text-center nav-tab">Cộng đồng</div>
+                    <div class="flex-fill mx-1 text-center nav-tab">Tutorials</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section>
+        <div class="vh-100 mt-5">
+            <div class="container">
+                <div class="row g-3">
+
+                    <div class="col-3">
+                        <div class="card card-body shadow-sm overflow-hidden highlight-hover bg-with-image" style="height: 200px; background-image: url(test.jpg);">
+                            <!-- Title -->
+                            <div class="content position-absolute align-content-center bg-black text-light start-0 w-100 top-50 translate-middle-y p-3
+                            text-center" style="opacity: 0.5; transition: opacity 0.6s ease;">
+                                <!-- Name -->
+                                <div class="max-3-lines fw-bold name" style="font-size: 18px;">Đề trắc nghiệm</div>
+                                <!-- Stat -->
+                                <div class="d-flex justify-content-center" style="font-size: 12px;">
+                                    <div ><i class="fa-solid fa-list me-1"></i>32 Đề</div>
+                                    <div class="mx-1">|</div>
+                                    <div ><i class="fa-solid fa-fire me-1"></i>32.345 Lượt làm</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section>
+        <div class="w-100 text-white" style="background-color: var(--main-color);">
+            <div class="container pt-5">
+                <div class="row g-3">
+
+                    <!-- Intro -->
+                    <div class="col-4">
+                        <a href="#"><img src="banner-light.png" alt="" height="50"></a>
+                        <p class="mt-2 fw-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. A perferendis similique voluptas officiis doloribus dolores, consectetur, magni assumenda cupiditate illum dolorum optio sit. Excepturi commodi, impedit fugiat a nam quasi?</p>
+                        <div class="d-flex">
+                            <i class="fa-brands fa-facebook me-2 opacity-hover" title="Facebook"></i>
+                            <i class="fa-brands fa-instagram me-2 opacity-hover"></i>
+                            <i class="fa-brands fa-twitter me-2 opacity-hover"></i>
+                            <i class="fa-brands fa-youtube me-2 opacity-hover"></i>
+                        </div>
+                    </div>
+
+                    <!-- Products -->
+                    <div class="col-4">
+                        <h5 class="mb-3">Websites</h5>
+                        <div class="d-flex flex-column">
+                            <a href="" class="text-decoration-none text-light opacity-hover mb-2 fw-light">Giới thiệu</a>
+                            <a href="" class="text-decoration-none text-light opacity-hover mb-2 fw-light">ZTools - Công cụ hỗ trợ chuyển đổi và tải xuống</a>
+                            <a href="" class="text-decoration-none text-light opacity-hover mb-2 fw-light">ZBlog - Chia sẻ kiến thức và tin tức</a>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-4">
+                        <h5 class="mb-3">Tương tác</h5>
+                        <div class="d-flex flex-column">
+                            <div class="text-light fw-light mb-1">Đăng kí nhận thông báo qua email</div>
+                            <input type="email" placeholder="Email của bạn" class="px-2 py-1 border-0 mb-2">
+                            <button class="border-0 text-white py-1" style="background-color: var(--secondary-color);">Đăng kí</button>
+                        </div>
+                        
+                        <h5 class="mb-3 mt-4">Liên hệ</h5>
+                        <div class="d-flex flex-column">
+                            <a href="" class="text-decoration-none text-light opacity-hover mb-2 fw-light">
+                                <i class="fa-solid fa-envelope me-2"></i>hoangcn.dev@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <!-- Copyright -->
+                    <div class="col-12">
+                        <p class="text-center border-top pt-2">&copy; Copyright 2024, All Rights Reserved by HoangCN - Version 1.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -17,9 +17,9 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.Services
         Task<Result<DeleteResponseDto>> DeleteQuizAsync(DeleteRequestDto data);
 
         Task<Result<List<CateListItemDto>>> GetAllCategoriesAsync();
-        Task<Result<CreateResponseDto>> CreateNewCategoryAsync(string name);
+        Task<Result<CreateResponseDto>> CreateNewCategoryAsync(string name, string thumbId);
         Task<Result<DeleteResponseDto>> DeleteCategoryAsync(IEnumerable<string> cateIds);
-        Task<Result<UpdateResponseDto>> UpdateCategoryAsync(string cateId, string name);
+        Task<Result<UpdateResponseDto>> UpdateCategoryAsync(string cateId, string name, string? thumbnailId);
         Task<Result<CateDetailDto>> GetCategoryDetailAsync(string cateId);
         Task<Result<List<string>>> GetAllTagsAsync();
     }
@@ -42,9 +42,13 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.Services
             return res;
         }
 
-        public async Task<Result<CreateResponseDto>> CreateNewCategoryAsync(string name)
+        public async Task<Result<CreateResponseDto>> CreateNewCategoryAsync(string name, string thumbId)
         {
-            var data = new CreateCateCommand { Name = name };
+            var data = new CreateCateCommand 
+            { 
+                Name = name,
+                ThumbnailId = thumbId
+            };
             var res = await PostAsync<CreateResponseDto>("quizzes/categories", data);
             return res;
         }
@@ -56,9 +60,9 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.Services
             return res;
         }
 
-        public async Task<Result<UpdateResponseDto>> UpdateCategoryAsync(string cateId, string name)
+        public async Task<Result<UpdateResponseDto>> UpdateCategoryAsync(string cateId, string name, string? thumbnailId)
         {
-            var data = new UpdateCateCommand { Name = name };
+            var data = new UpdateCateCommand { Name = name, ThumbnailId = thumbnailId };
             var res = await PutAsync<UpdateResponseDto>($"quizzes/categories/{cateId}", data);
             return res;
         }

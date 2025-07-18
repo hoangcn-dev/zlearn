@@ -11,6 +11,7 @@ namespace ZLearn.Application.Quizzes.DTOs
     {
         public string Name { get; set; }
         public string CategoryId { get; set; }
+        public bool IsPublic { get; set; }
         public List<string> Tags { get; set; }
         public List<CreateQuestionDto> Questions { get; set; }
     }

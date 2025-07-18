@@ -59,6 +59,17 @@ namespace ZLearn.AdminDesktopApp.Services
             throw new ConvertApiResultException();
         }
 
+        public async Task<Result<TResponse>?> PostAsync<TResponse>(string endpoint, MultipartFormDataContent data)
+        {
+            var response = await _httpClient.PostAsJsonAsync(endpoint, data);
+            if (response is not null)
+            {
+                var result = await response.Content.ReadFromJsonAsync<Result<TResponse>>();
+                return result;
+            }
+            throw new ConvertApiResultException();
+        }
+
         public async Task<Result<TResponse>?> PutAsync<TResponse>(string endpoint, object data)
         {
             var response = await _httpClient.PutAsJsonAsync(endpoint, data);

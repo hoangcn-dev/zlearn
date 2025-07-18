@@ -29,14 +29,12 @@ namespace ZLearn.Application.Quizzes.Commands.Delete
                 var fileIdsToRemove = new List<string>();
                 foreach (var q in quiz.Questions)
                 {
-                    if (q.ImageIds is not null)
-                        fileIdsToRemove.AddRange(q.ImageIds.Split(","));
-                    if (q.AudioIds is not null)
-                        fileIdsToRemove.AddRange(q.AudioIds.Split(","));
+                    if (q.MediaFileIds is not null)
+                        fileIdsToRemove.AddRange(q.MediaFileIds.Split(","));
                     foreach (var a in q.Answers)
                     {
-                        if (a.ImageIds is not null)
-                            fileIdsToRemove.AddRange(a.ImageIds.Split(","));
+                        if (a.MediaFileIds is not null)
+                            fileIdsToRemove.AddRange(a.MediaFileIds.Split(","));
                     }
                 }
                 await _fileRepo.DeleteFileByIds(fileIdsToRemove);

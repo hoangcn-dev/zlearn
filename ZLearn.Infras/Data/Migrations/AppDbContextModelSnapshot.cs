@@ -8,7 +8,7 @@ using ZLearn.Infras.Data;
 
 #nullable disable
 
-namespace ZLearn.Infras.Data.Migrations
+namespace ZLearn.Infras.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
@@ -156,15 +156,15 @@ namespace ZLearn.Infras.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("ImageIds")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<int>("Key")
                         .HasColumnType("integer");
 
                     b.Property<DateTimeOffset?>("LastModifiedAt")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("MediaFileIds")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("ModifiedBy")
                         .HasColumnType("text");
@@ -196,6 +196,9 @@ namespace ZLearn.Infras.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
                     b.Property<DateTimeOffset?>("LastModifiedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -206,6 +209,9 @@ namespace ZLearn.Infras.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("character varying(255)");
+
+                    b.Property<string>("ThumbnailId")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -278,9 +284,8 @@ namespace ZLearn.Infras.Data.Migrations
                         .HasMaxLength(16)
                         .HasColumnType("character varying(16)");
 
-                    b.Property<string>("AudioIds")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("AttemptCount")
+                        .HasColumnType("integer");
 
                     b.Property<int>("CorrectKey")
                         .HasColumnType("integer");
@@ -292,12 +297,15 @@ namespace ZLearn.Infras.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("ImageIds")
-                        .IsRequired()
+                    b.Property<string>("Explanation")
                         .HasColumnType("text");
 
                     b.Property<DateTimeOffset?>("LastModifiedAt")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("MediaFileIds")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("ModifiedBy")
                         .HasColumnType("text");
@@ -335,6 +343,12 @@ namespace ZLearn.Infras.Data.Migrations
                     b.Property<string>("CreatedBy")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("DownloadCount")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("IsPublic")
+                        .HasColumnType("boolean");
 
                     b.Property<DateTimeOffset?>("LastModifiedAt")
                         .HasColumnType("timestamp with time zone");

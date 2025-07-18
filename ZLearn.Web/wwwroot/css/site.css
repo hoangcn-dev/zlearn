@@ -1,0 +1,91 @@
+﻿:root {
+    --main-color: #095a71;
+    --bg-color: #F6F6F6;
+    --secondary-color: #00B0F0;
+    --success-color: #00e87f;
+    --error-color: #f00000;
+    --main-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+body {
+    font-family: var(--main-font-family);
+    background-color: var(--bg-color) !important;
+}
+
+input {
+    outline: none;
+}
+
+.opacity-hover:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.highlight-hover:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 5px var(--secondary-color) !important;
+    .content {
+        opacity: 1 !important;
+    }
+}
+
+.question-index-selected {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.nav-tab {
+    opacity: 0.6;
+    padding: 10px 0px;
+}
+
+.nav-tab:not(.nav-tab.selected):hover {
+    opacity: 1;
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+.nav-tab.selected {
+    opacity: 1;
+    color: var(--main-color);
+    border-bottom: 3px solid var(--main-color);
+}
+
+.max-3-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bg-with-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.media-item {
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.selected-answer {
+    border: #00B0F0 2px solid !important;
+}
+
+.selected-answer::before {
+    content: "Đã chọn";
+    top: 0;
+    left: 0;
+    position: absolute;
+    font-size: 10px;
+    padding: 2px 3px;
+    color: white;
+    background: var(--secondary-color);
+}

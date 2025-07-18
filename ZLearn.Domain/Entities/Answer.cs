@@ -6,8 +6,8 @@ namespace ZLearn.Domain.Entities
     {
         public int Key { get; set; }
         public string? StringContent { get; set; }
-        public string ImageIds { get; set; }
         public string QuestionId { get; set; }
         public Question Question { get; set; }
+        public string MediaFileIds { get; set; }
     }
 }

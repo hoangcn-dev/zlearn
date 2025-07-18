@@ -36,7 +36,7 @@ namespace ZLearn.Application.Quizzes.Queries.GetListQuiz
                 {
                     Id = q.Id,
                     Name = q.Name,
-                    AttempCount = 0,
+                    AttemptCount = q.Questions.Select(qu => qu.AttemptCount).Sum(),
                     CategoryId = q.CategoryId,
                     CategoryName = q.Category.Name,
                     QuestionCount = q.Questions.Count

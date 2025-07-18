@@ -46,14 +46,12 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                 if (!question.Answers.Any(a => a.Key == question.CorrectKey))
                     throw new ArgumentException($"Question {question.Order} does not have a valid correct answer key.");
                 // Add question media file IDs
-                if (question.ImageIds.Count > 0)
-                    fileIds.AddRange(question.ImageIds);
-                if (question.AudioIds.Count > 0)
-                    fileIds.AddRange(question.AudioIds);
+                if (question.MediaFileIds.Count > 0)
+                    fileIds.AddRange(question.MediaFileIds);
                 question.Answers.ForEach(a =>
                 {
-                    if (a.ImageIds.Count > 0)
-                        fileIds.AddRange(a.ImageIds);
+                    if (a.MediaFileIds.Count > 0)
+                        fileIds.AddRange(a.MediaFileIds);
                 });
             }
             var distinctFileIds = fileIds.ToHashSet();
@@ -65,14 +63,12 @@ namespace ZLearn.Application.Quizzes.Commands.Update
             var fileIdsToRemove = new List<string>();
             foreach (var q in quiz.Questions)
             {
-                if (q.ImageIds is not null)
-                    fileIdsToRemove.AddRange(q.ImageIds.Split(","));
-                if (q.AudioIds is not null)
-                    fileIdsToRemove.AddRange(q.AudioIds.Split(","));
+                if (q.MediaFileIds is not null)
+                    fileIdsToRemove.AddRange(q.MediaFileIds.Split(","));
                 foreach (var a in q.Answers)
                 {
-                    if (a.ImageIds is not null)
-                        fileIdsToRemove.AddRange(a.ImageIds.Split(","));
+                    if (a.MediaFileIds is not null)
+                        fileIdsToRemove.AddRange(a.MediaFileIds.Split(","));
                 }
             }
             await _fileRepo.DeleteFileByIds(fileIdsToRemove.Where(id => !distinctFileIds.Contains(id)));
@@ -96,14 +92,13 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                         Id = IdGenerator.Generate("QUE"),
                         Order = q.Order,
                         StringContent = q.StringContent,
-                        ImageIds = string.Join(",", q.ImageIds),
-                        AudioIds = string.Join(",", q.AudioIds),
+                        MediaFileIds = string.Join(",", q.MediaFileIds),
                         Answers = q.Answers.Select(a => new Answer
                         {
                             Id = IdGenerator.Generate("ANS"),
                             Key = a.Key,
                             StringContent = a.StringContent,
-                            ImageIds = string.Join(",", a.ImageIds),
+                            MediaFileIds = string.Join(",", a.MediaFileIds),
                         }).ToList()
                     });
                 }
@@ -112,8 +107,7 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                     // Update existing question
                     existingQuestion.Order = q.Order;
                     existingQuestion.StringContent = q.StringContent;
-                    existingQuestion.ImageIds = string.Join(",", q.ImageIds);
-                    existingQuestion.AudioIds = string.Join(",", q.AudioIds);
+                    existingQuestion.MediaFileIds = string.Join(",", q.MediaFileIds);
                     existingQuestion.CorrectKey = q.CorrectKey;
                     // Update answers
                     existingQuestion.Answers.Clear();
@@ -127,7 +121,7 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                                 Id = IdGenerator.Generate("ANS"),
                                 Key = a.Key,
                                 StringContent = a.StringContent,
-                                ImageIds = string.Join(",", a.ImageIds)
+                                MediaFileIds = string.Join(",", a.MediaFileIds)
                             });
                         }
                         else if (answers.TryGetValue(a.Id, out var existingAnswer))
@@ -135,7 +129,7 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                             // Update existing answer
                             existingAnswer.Key = a.Key;
                             existingAnswer.StringContent = a.StringContent;
-                            existingAnswer.ImageIds = string.Join(",", a.ImageIds);
+                            existingAnswer.MediaFileIds = string.Join(",", a.MediaFileIds);
                             existingQuestion.Answers.Add(existingAnswer);
                         }
                     }

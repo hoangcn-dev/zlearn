@@ -40,14 +40,12 @@ namespace ZLearn.Application.Quizzes.Commands.Create
                 if (!question.Answers.Any(a => a.Key == question.CorrectKey))
                     throw new ArgumentException($"Question {question.Order} does not have a valid correct answer key.");
                 // Add question media file IDs
-                if (question.ImageIds.Count > 0)
-                    fileIds.AddRange(question.ImageIds);
-                if (question.AudioIds.Count > 0)
-                    fileIds.AddRange(question.AudioIds);
+                if (question.MediaFileIds.Count > 0)
+                    fileIds.AddRange(question.MediaFileIds);
                 question.Answers.ForEach(a =>
                 {
-                    if (a.ImageIds.Count > 0)
-                        fileIds.AddRange(a.ImageIds);
+                    if (a.MediaFileIds.Count > 0)
+                        fileIds.AddRange(a.MediaFileIds);
                 });
             }
 
@@ -61,6 +59,7 @@ namespace ZLearn.Application.Quizzes.Commands.Create
             {
                 Id = IdGenerator.Generate("QUI"),
                 Name = data.Name,
+                IsPublic = data.IsPublic,
                 CategoryId = data.CategoryId,
             };
             await _quizRepo.SetQuestionsTagAsync(quiz, data.Tags);
@@ -69,15 +68,14 @@ namespace ZLearn.Application.Quizzes.Commands.Create
                 Id = IdGenerator.Generate("QUE"),
                 Order = q.Order,
                 StringContent = q.StringContent,
-                ImageIds = string.Join(",", q.ImageIds),
-                AudioIds = string.Join(",", q.AudioIds),
+                MediaFileIds = string.Join(",", q.MediaFileIds),
                 CorrectKey = q.CorrectKey,
                 Answers = q.Answers.Select(a => new Answer
                 {
                     Id = IdGenerator.Generate("ANS"),
                     Key = a.Key,
                     StringContent = a.StringContent,
-                    ImageIds = string.Join(",", a.ImageIds),
+                    MediaFileIds = string.Join(",", a.MediaFileIds),
                 }).ToList()
             }).ToList();
 

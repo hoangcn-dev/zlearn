@@ -223,8 +223,7 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
             {
                 Filter = "Image files (*.png;*.jpg;*.jpeg;*.gif;*.svg)|*.png;*.jpg;*.jpeg;*.gif;*.svg|"
                       + "Audio files (*.mp3;*.wav;*.ogg)|*.mp3;*.wav;*.ogg|"
-                      + "Video files (*.mp4)|*.mp4|"
-                      + "All files (*.*)|*.*",
+                      + "Video files (*.mp4)|*.mp4",
                 InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
                 Multiselect = true
             };
@@ -291,13 +290,13 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
                 for (int i = 0; i < data.Count; i++)
                 {
                     var question = data[i];
-                    if (string.IsNullOrEmpty(question.StringContent) && question.ImageIds.Count == 0 && question.AudioIds.Count == 0)
+                    if (string.IsNullOrEmpty(question.StringContent) && question.MediaFileIds.Count == 0)
                         errors.Add($"Câu hỏi {i + 1}: Không có nội dung hoặc tệp đính kèm nào.");
                     if (question.Answers.Count < 2)
                         errors.Add($"Câu hỏi {i + 1}: Ít hơn 2 đáp án.");
                     if (!question.Answers.Any(a => a.Key == question.CorrectKey))
                         errors.Add($"Câu hỏi {i + 1}: Key đáp án không hợp lệ.");
-                    if (question.Answers.Any(a => a.ImageIds.Count == 0 && string.IsNullOrEmpty(a.StringContent)))
+                    if (question.Answers.Any(a => a.MediaFileIds.Count == 0 && string.IsNullOrEmpty(a.StringContent)))
                         errors.Add($"Câu hỏi {i + 1}: Tồn tại đáp án không có nội dung hoặc tệp đính kèm nào.");
                 }
 
