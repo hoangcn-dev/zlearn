@@ -204,8 +204,8 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" Text="Quản lý danh mục đề"/>
                         <StackPanel Grid.Column="1" Orientation="Horizontal">
-                            <TextBlock FontSize="10" Text="Admin" Margin="5 0 5 0" Background="Black" Foreground="White" Padding="5 2"/>
-                            <TextBlock Text="nguyencao142" Margin="5 0 10 0" Foreground="Gray"/>
+                            <TextBlock FontSize="10" Text="{Binding Role}" Margin="5 0 5 0" Background="Black" Foreground="White" Padding="5 2"/>
+                            <TextBlock Text="{Binding UserName}" Margin="5 0 10 0" Foreground="Gray"/>
                             <iconPacks:PackIconFontAwesome Kind="ArrowRightFromBracketSolid" />
                         </StackPanel>
                     </Grid>

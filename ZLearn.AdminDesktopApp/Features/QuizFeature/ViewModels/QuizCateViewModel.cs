@@ -51,6 +51,7 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
 
         private async void LoadData()
         {
+            if (!_store.ContainsKey("AccessToken")) return;
             var res = await ExecuteAsync(() => _quizApiService.GetAllCategoriesAsync());
             if (res is not null && res.Succeeded)
             {

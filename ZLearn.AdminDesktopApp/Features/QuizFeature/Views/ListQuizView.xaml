@@ -76,10 +76,10 @@
                     Binding="{Binding Data.Name}"/>
                 <DataGridTextColumn Header="Số lượt làm" 
                     Width="Auto"
-                    Binding="{Binding Data.QuestionCount}"/>
+                    Binding="{Binding Data.AttemptCount}"/>
                 <DataGridTextColumn Header="Số lượng câu hỏi" 
                     Width="Auto" 
-                    Binding="{Binding Data.AttempCount}"/>
+                    Binding="{Binding Data.QuestionCount}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

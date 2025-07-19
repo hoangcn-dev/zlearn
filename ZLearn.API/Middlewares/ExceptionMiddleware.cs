@@ -23,21 +23,16 @@ namespace ZLearn.API.Middlewares
             catch (UnauthorizedException ex)
             {
                 context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                await WriteResponseAsync(context, Result<NoData>.Failure(ex.Message));
-            }
-            catch (RequireLoginException ex)
-            {
-                context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                await WriteResponseAsync(context, Result<NoData>.Failure(ex.Message));
+                await WriteResponseAsync(context, Result<NoData>.Failure(ex.Message, ErrorCodes.UNAUTHORIZED));
             }
             catch (TokenExpiredException ex)
             {
                 context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                await WriteResponseAsync(context, Result<NoData>.Failure(ex.Message));
+                await WriteResponseAsync(context, Result<NoData>.Failure(ex.Message, ErrorCodes.TOKEN_EXPIRED));
             }
             catch (InvalidCredentialsException ex)
             {
-                context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                context.Response.StatusCode = StatusCodes.Status400BadRequest;
                 await WriteResponseAsync(context, Result<NoData>.Failure(ex.Message));
             }
             catch (ForbiddenException ex)

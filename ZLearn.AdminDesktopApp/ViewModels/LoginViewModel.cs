@@ -12,6 +12,7 @@ namespace ZLearn.AdminDesktopApp.ViewModels
     {
         private readonly IManageWindowService _manageWindowService;
         private readonly IAuthApiService _authApiService;
+        private readonly VariableStore _varStore;
 
         private string _userName;
         public string UserName 
@@ -49,11 +50,13 @@ namespace ZLearn.AdminDesktopApp.ViewModels
             VariableStore store,
             IManageWindowService manageWindowService,
             TaskStatusStore taskStatusStore,
-            IAuthApiService authApiService) : base(taskStatusStore, store)
+            IAuthApiService authApiService,
+            VariableStore varStore) : base(taskStatusStore, store)
         {
             _manageWindowService = manageWindowService;
             _authApiService = authApiService;
             _taskStatusStore.PropertyChanged += TaskStatusStore_PropertyChanged;
+            _varStore = varStore;
 
             LoginCommand = new AsyncRelayCommand(LoginAsync, CanLogin);
             NavigateToMainWindowCommand = new RelayCommand(() => _manageWindowService.ShowWindow<MainWindow>());
@@ -79,6 +82,12 @@ namespace ZLearn.AdminDesktopApp.ViewModels
             if (res is not null && res.Succeeded)
             {
                 DialogHelper.ShowSuccessMess($"Đăng nhập thành công, xin chào {res.Data!.UserName}");
+                _varStore.Add(VariableStore.Keys.AccessToken, res.Data.Token.AccessToken);
+                _varStore.Add(VariableStore.Keys.RefreshToken, res.Data.Token.RefreshToken);
+                _varStore.Add(VariableStore.Keys.UserName, res.Data.UserName);
+                _varStore.Add(VariableStore.Keys.Role, res.Data.Roles.First());
+                _varStore.Add(VariableStore.Keys.UserId, res.Data.Id);
+                _varStore.Add(VariableStore.Keys.ImageUrl, res.Data.ImagePath);
                 NavigateToMainWindowCommand.Execute(null);
                 CloseWindowCommand.Execute(null);
             }

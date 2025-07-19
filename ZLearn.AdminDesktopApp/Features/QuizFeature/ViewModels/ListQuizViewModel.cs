@@ -117,6 +117,7 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
 
         private async Task Search()
         {
+            if (!_store.ContainsKey("AccessToken")) return;
             if (_isSearching)
             {
                 Key = null;

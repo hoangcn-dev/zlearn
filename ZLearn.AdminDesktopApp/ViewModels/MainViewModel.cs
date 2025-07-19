@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 using System.Windows.Input;
@@ -8,10 +9,16 @@ using ZLearn.AdminDesktopApp.Stores;
 
 namespace ZLearn.AdminDesktopApp.ViewModels
 {
-    public class MainViewModel : ViewModelBase
+    public partial class MainViewModel : ViewModelBase
     {
         private readonly NavigationStore _navStore;
         private readonly IServiceProvider _serviceProvider;
+
+        [ObservableProperty]
+        private string userName;
+
+        [ObservableProperty]
+        private string role;
 
         public ViewModelBase CurrentViewModel => _navStore.CurrentViewModel;
         public NavDestination CurrentDestination => _navStore.CurrentDestination;
@@ -32,6 +39,12 @@ namespace ZLearn.AdminDesktopApp.ViewModels
             _navStore = navStore;
             _navStore.PropertyChanged += NavStore_PropertyChanged;
             _serviceProvider = serviceProvider;
+
+            _navStore.CurrentViewModel = _serviceProvider.GetRequiredService<QuizCateViewModel>();
+            _navStore.CurrentDestination = NavDestination.QuizCate;
+
+            UserName = _store.Get<string>(VariableStore.Keys.UserName, false)!;
+            Role = _store.Get<string>(VariableStore.Keys.Role, false)!;
             NavigateCommand = new RelayCommand<NavDestination>(NavigateToView, CanNavigate);
         }
 

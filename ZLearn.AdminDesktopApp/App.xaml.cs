@@ -2,6 +2,7 @@
 using ZLearn.AdminDesktopApp.Features.QuizFeature.Services;
 using ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels;
 using ZLearn.AdminDesktopApp.Features.QuizFeature.Views;
+using ZLearn.AdminDesktopApp.Interceptors;
 using ZLearn.AdminDesktopApp.Services;
 using ZLearn.AdminDesktopApp.Stores;
 using ZLearn.AdminDesktopApp.ViewModels;
@@ -21,13 +22,14 @@ namespace ZLearn.AdminDesktopApp
             services.AddSingleton<VariableStore>();
             services.AddSingleton<TaskStatusStore>();
             services.AddSingleton<NavigationStore>();
+            services.AddTransient<AuthInterceptor>();
             services.AddSingleton<IManageWindowService, ManageWindowService>();            
             services.AddHttpClient("", client =>
             {
-                client.BaseAddress = new Uri("http://localhost:5074/api/");
+                client.BaseAddress = new Uri("https://localhost:7037/api/");
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
-                client.Timeout = TimeSpan.FromSeconds(30);
-            });
+                client.Timeout = TimeSpan.FromSeconds(60);
+            }).AddHttpMessageHandler<AuthInterceptor>();
             services.AddSingleton<IQuizApiService, QuizApiService>();
             services.AddSingleton<IFileApiService, FileApiService>();
             services.AddSingleton<IAuthApiService, AuthApiService>();
@@ -89,12 +91,12 @@ namespace ZLearn.AdminDesktopApp
         {
             base.OnStartup(e);
 
-            var navigation = _serviceProvider.GetRequiredService<NavigationStore>();
-            navigation.CurrentViewModel = _serviceProvider.GetRequiredService<ListQuizViewModel>();
-            navigation.CurrentDestination = Enums.NavDestination.QuizManage;
+            //var navigation = _serviceProvider.GetRequiredService<NavigationStore>();
+            //navigation.CurrentViewModel = _serviceProvider.GetRequiredService<ListQuizViewModel>();
+            //navigation.CurrentDestination = Enums.NavDestination.QuizManage;
 
             var windowManager = _serviceProvider.GetRequiredService<IManageWindowService>();
-            windowManager.ShowWindow<MainWindow>();
+            windowManager.ShowWindow<LoginWindow>();
         }
     }
 }

@@ -8,9 +8,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using StackExchange.Redis;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
+using ZLearn.API.Exceptions;
 using ZLearn.Application.Categories;
+using ZLearn.Application.Common.DTOs;
 using ZLearn.Application.Common.Identity;
 using ZLearn.Application.Common.Interfaces;
 using ZLearn.Application.Common.Services;
@@ -20,6 +24,7 @@ using ZLearn.Application.Quizzes;
 using ZLearn.Infras.Data;
 using ZLearn.Infras.Data.Interceptors;
 using ZLearn.Infras.Data.Repositories;
+using ZLearn.Infras.Data.Services;
 using ZLearn.Infras.External.CloudinaryStore;
 using ZLearn.Infras.External.Redis;
 using ZLearn.Infras.Identity;
@@ -77,6 +82,7 @@ namespace ZLearn.Infras
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
             builder.Services.AddScoped<IIdentityService, IdentityService>();
+            builder.Services.AddHttpContextAccessor();
             builder.Services.AddSingleton<JwtManager>();
             builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JWT"));
             builder.Services
@@ -98,6 +104,25 @@ namespace ZLearn.Infras
                         ClockSkew = TimeSpan.Zero,
                         IssuerSigningKey = new SymmetricSecurityKey(
                             Encoding.UTF8.GetBytes(EnvVariableHelper.GetValue(EnvVariableNames.JWT_SECRET_KEY)))
+                    };
+
+                    opt.Events = new JwtBearerEvents
+                    {
+                        OnAuthenticationFailed = async context =>
+                        {
+                            var jsonOptions = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
+                            if (context.Exception is SecurityTokenExpiredException)
+                            {
+                                context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                                context.Response.ContentType = "application/json";
+                                var result = JsonSerializer.Serialize(Result<NoData>.Failure("", ErrorCodes.TOKEN_EXPIRED), jsonOptions);
+                                await context.Response.WriteAsync(result);
+                                return;
+                            }
+                            context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                            context.Response.ContentType = "application/json";
+                            await context.Response.WriteAsync(JsonSerializer.Serialize(Result<NoData>.Failure("", ErrorCodes.UNAUTHORIZED), jsonOptions));
+                        },
                     };
                 })
                 .AddCookie(opt =>
@@ -128,6 +153,12 @@ namespace ZLearn.Infras
             var initializer = scope.ServiceProvider.GetRequiredService<Initializer>();
             await initializer.InitializeDatabaseAsync();
             await initializer.InitializeDataAsync();
+        }
+
+        public static void AddDatabaseBackupService(this WebApplicationBuilder builder)
+        {
+            builder.Services.Configure<DatabasebackupConfiguration>(builder.Configuration.GetSection("Backup"));
+            builder.Services.AddHostedService<DatabaseBackupService>();
         }
     }
 }

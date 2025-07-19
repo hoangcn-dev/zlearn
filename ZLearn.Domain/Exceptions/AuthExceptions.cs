@@ -9,14 +9,6 @@ namespace ZLearn.API.Exceptions
         }
     }
 
-    public class RequireLoginException : BaseException
-    {
-        public RequireLoginException(string message = "Login is required to access this resource") 
-            : base(message, ErrorCodes.UNAUTHORIZED)
-        {
-        }
-    }
-
     public class ForbiddenException : BaseException
     {
         public ForbiddenException(string message = "You don't have permission to access this resource") 
@@ -37,14 +29,6 @@ namespace ZLearn.API.Exceptions
     {
         public InvalidCredentialsException(string message = "Invalid username or password") 
             : base(message, ErrorCodes.INVALID_CREDENTIALS)
-        {
-        }
-    }
-
-    public class SessionExpiredException : BaseException
-    {
-        public SessionExpiredException() 
-            : base("Your session has expired, please login again", ErrorCodes.SESSION_EXPIRED)
         {
         }
     }

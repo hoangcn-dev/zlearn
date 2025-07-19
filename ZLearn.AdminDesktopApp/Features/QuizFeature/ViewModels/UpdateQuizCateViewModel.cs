@@ -132,7 +132,7 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
 
         private async void LoadData()
         {
-            var id = _store.Get<string>("UpdateCateId");
+            var id = _store.Get<string>("UpdateCateId", clearAfterGet: true);
             if (string.IsNullOrEmpty(id))
             {
                 _windowManager.CloseWindow<UpdateQuizCateWindow>();

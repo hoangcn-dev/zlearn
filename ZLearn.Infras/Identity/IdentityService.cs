@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 using ZLearn.API.Exceptions;
+using ZLearn.Application.Auth.Commands.RefreshToken;
 using ZLearn.Application.Auth.Commands.SignIn;
+using ZLearn.Application.Auth.Commands.SignOut;
 using ZLearn.Application.Auth.DTOs;
 using ZLearn.Application.Common.Identity;
 using ZLearn.Application.Common.Identity.DTOs;
@@ -60,9 +63,29 @@ namespace ZLearn.Infras.Identity
             throw new NotImplementedException();
         }
 
+        public async Task EndSessionAsync(SignOutCommand data)
+        {
+            await _jwtManager.RevokeToken(data.AccessToken);
+        }
+
         public Task<bool> IsInRoleAsync(string userId, string roleName)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<JwtTokenDto> RefreshToken(RefreshTokenCommand data)
+        {
+            // Validate access token and refresh token
+            var info = _jwtManager.ValidateAccessToken(data.AccessToken)
+                ?? throw new TokenExpiredException();
+            var user = await _userManager.FindByIdAsync(info.FindFirstValue(ClaimTypes.NameIdentifier))
+                ?? throw new TokenExpiredException();
+            if (!await _jwtManager.ValidateRefreshToken(data.RefreshToken, user.Id))
+                throw new TokenExpiredException();
+
+            var roles = await _userManager.GetRolesAsync(user);
+            var token = _jwtManager.IssueToken(user, roles, isLogin: false);
+            return token;
         }
 
         public Task<bool> SetUserStatus(string userId, bool isLockout)

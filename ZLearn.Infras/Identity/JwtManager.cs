@@ -40,7 +40,7 @@ namespace ZLearn.Infras.Identity
             SymmetricSecurityKey tokenKey = new(bytes);
 
             // Expiration time
-            DateTime expireAt = DateTime.Now.AddMinutes(_jwtConfig.ATExpirationMinutes);
+            DateTime expireAt = DateTime.UtcNow.AddMinutes(_jwtConfig.ATExpirationMinutes);
 
             // Gen new access token & refresh token
             JwtSecurityToken token = new

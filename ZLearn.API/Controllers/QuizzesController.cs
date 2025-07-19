@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ZLearn.Application.Categories.Commands.CreateCate;
 using ZLearn.Application.Categories.Commands.DeleteCate;
@@ -36,6 +37,7 @@ namespace ZLearn.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> GetUpdateData(string id)
         {
             var query = new GetUpdateQuizContentQuery
@@ -47,6 +49,7 @@ namespace ZLearn.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> CreateNewQuiz([FromBody] CreateQuizCommand command)
         {
             var res = await _mediator.Send(command);
@@ -54,6 +57,7 @@ namespace ZLearn.API.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> Update(string id, [FromBody] UpdateQuizCommand command)
         {
             command.Data.Id = id;
@@ -62,6 +66,7 @@ namespace ZLearn.API.Controllers
         }
 
         [HttpPost("delete")]
+        [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> DeleteQuizzes([FromBody] DeleteRequestDto data)
         {
             var command = new DeleteQuizCommand
@@ -73,6 +78,7 @@ namespace ZLearn.API.Controllers
         }
 
         [HttpGet("tags")]
+        [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> GetAllTags()
         {
             var query = new GetAllTagsQuery();
@@ -82,6 +88,7 @@ namespace ZLearn.API.Controllers
 
         #region Cate
         [HttpPost("categories")]
+        [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> CreateNewCate([FromBody] CreateCateCommand command)
         {
             var res = await _mediator.Send(command);
@@ -90,6 +97,7 @@ namespace ZLearn.API.Controllers
 
 
         [HttpGet("categories")]
+        [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> GetAllCate([FromQuery] GetAllCatesQuery query)
         {
             var res = await _mediator.Send(query);
@@ -98,8 +106,10 @@ namespace ZLearn.API.Controllers
 
 
         [HttpGet("categories/{id}")]
+        [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> GetCateDetail(string id)
         {
+            var user = Request.HttpContext.User;
             var query = new GetCateByIdQuery
             {
                 CateId = id
@@ -110,6 +120,7 @@ namespace ZLearn.API.Controllers
 
 
         [HttpPut("categories/{id}")]
+        [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> UpdateCate(string id, [FromBody] UpdateCateCommand command)
         {
             command.CateId = id;
@@ -119,6 +130,7 @@ namespace ZLearn.API.Controllers
 
 
         [HttpPost("categories/delete")]
+        [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> DeleteCate([FromBody] DeleteRequestDto data)
         {
             var command = new DeleteCateCommand

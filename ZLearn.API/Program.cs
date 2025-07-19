@@ -15,12 +15,14 @@ namespace ZLearn.API
             var services = builder.Services;
 
             services.AddExceptionMiddleware();
+            services.AddJwtMiddleware();
             services.AddApplicationServices();
 
             builder.AddRedisService();
             builder.AddIdentityService();
             builder.AddPostgreSQLDataServices();
             builder.AddCloudinaryService();
+            builder.AddDatabaseBackupService();
 
             services.AddControllers()
                 .AddJsonOptions(options =>
@@ -56,17 +58,15 @@ namespace ZLearn.API
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
-                app.UseDeveloperExceptionPage();
             }
 
             app.UseExceptionMiddleware();
+            app.UseJwtMiddleware();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.MapControllers();
-
             app.InitializeDatabase();
             app.Run();
 
