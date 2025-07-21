@@ -52,6 +52,15 @@ namespace ZLearn.API
                 opt.LowercaseUrls = true;
             });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowLocal",
+                    builder => builder.WithOrigins("https://localhost:7284")
+                                      .AllowCredentials()
+                                      .AllowAnyMethod()
+                                      .AllowAnyHeader());
+            });
+
             var app = builder.Build();
 
             if (app.Environment.IsDevelopment())
@@ -60,6 +69,7 @@ namespace ZLearn.API
                 app.UseSwaggerUI();
             }
 
+            app.UseCors("AllowLocal");
             app.UseExceptionMiddleware();
             app.UseJwtMiddleware();
             app.UseHttpsRedirection();

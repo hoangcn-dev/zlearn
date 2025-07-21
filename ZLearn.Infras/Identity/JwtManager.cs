@@ -28,7 +28,13 @@ namespace ZLearn.Infras.Identity
             // Prepare claims
             List<Claim> claims = new()
             {
-                new(ClaimTypes.NameIdentifier, user.Id.ToString())
+                new(ClaimTypes.NameIdentifier, user.Id),
+                new(nameof(user.UserName), user.UserName),
+                new(nameof(user.FirstName), user.FirstName ?? string.Empty),
+                new(nameof(user.LastName), user.LastName ?? string.Empty),
+                new(nameof(user.UserName), user.UserName),
+                new(nameof(user.ImageId), user.ImageId ?? string.Empty),
+                new(nameof(user.Email), user.Email),
             };
             foreach (var roleName in userRoleNames)
             {

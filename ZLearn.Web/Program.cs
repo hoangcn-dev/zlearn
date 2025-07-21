@@ -11,6 +11,7 @@ namespace ZLearn.Web
             var services = builder.Services;
             builder.Services.AddControllersWithViews();
 
+            //services.AddDistributedMemoryCache();
             services.AddApplicationServices();
             services.AddRouting(opt =>
             {
@@ -29,6 +30,8 @@ namespace ZLearn.Web
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+            //app.UseSession();
+            //services.AddSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();

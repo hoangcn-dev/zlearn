@@ -25,26 +25,26 @@ namespace ZLearn.Web.Controllers
             return View(content);
         }
 
-        [HttpGet("data")]
-        public async Task<IActionResult> GetQuestionData(string id)
-        {
-            var query = new GetQuestionContentQuery
-            {
-                Id = id
-            };
-            var content = await _mediator.Send(query);
-            return Json(content);
-        }
+        //[HttpGet("data")]
+        //public async Task<IActionResult> GetQuestionData(string id)
+        //{
+        //    var query = new GetQuestionContentQuery
+        //    {
+        //        Id = id
+        //    };
+        //    var content = await _mediator.Send(query);
+        //    return Json(content);
+        //}
 
-        [HttpGet("correct-key")]
-        public async Task<IActionResult> GetCorrectKey(string id)
-        {
-            var query = new GetQuestionAnswerKeyQuery
-            {
-                QuestionId = id
-            };
-            var key = await _mediator.Send(query);
-            return Json(key);
-        }
+        //[HttpGet("correct-key")]
+        //public async Task<IActionResult> GetCorrectKey(string id)
+        //{
+        //    var query = new GetQuestionAnswerKeyQuery
+        //    {
+        //        QuestionId = id
+        //    };
+        //    var key = await _mediator.Send(query);
+        //    return Json(key);
+        //}
     }
 }

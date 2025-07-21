@@ -45,15 +45,15 @@ namespace ZLearn.Web.Controllers
                 });
         }
 
-        [HttpGet("question-map")]
-        public async Task<IActionResult> GetQuestionMapAsync(string id)
-        {
-            var query = new GetQuizDetailQuery
-            {
-                Id = id
-            };
-            var quiz = await _mediator.Send(query);
-            return Json(quiz);
-        }
+        //[HttpGet("question-map")]
+        //public async Task<IActionResult> GetQuestionMapAsync(string id)
+        //{
+        //    var query = new GetQuizDetailQuery
+        //    {
+        //        Id = id
+        //    };
+        //    var quiz = await _mediator.Send(query);
+        //    return Json(quiz);
+        //}
     }
 }

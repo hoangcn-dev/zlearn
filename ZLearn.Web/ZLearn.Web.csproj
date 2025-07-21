@@ -15,6 +15,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\images\logo-light-blue.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="6.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ZLearn.Application\ZLearn.Application.csproj" />
     <ProjectReference Include="..\ZLearn.Infras\ZLearn.Infras.csproj" />
   </ItemGroup>

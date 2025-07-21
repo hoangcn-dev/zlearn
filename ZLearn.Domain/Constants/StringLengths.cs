@@ -15,5 +15,10 @@
         public const int IdMaxLength = 20;
 
         public const int FileNameMaxLength = 100;
+
+        public const int UserNameMaxLength = 25;
+        public const int FirstNameMaxLength = 50;
+        public const int LastNameMaxLength = 50;
+        public const int NickNameMaxLength = 50;
     }
 }

@@ -17,7 +17,6 @@ using ZLearn.Application.Categories;
 using ZLearn.Application.Common.DTOs;
 using ZLearn.Application.Common.Identity;
 using ZLearn.Application.Common.Interfaces;
-using ZLearn.Application.Common.Services;
 using ZLearn.Application.Common.Utils;
 using ZLearn.Application.Files;
 using ZLearn.Application.Quizzes;
@@ -84,6 +83,7 @@ namespace ZLearn.Infras
             builder.Services.AddScoped<IIdentityService, IdentityService>();
             builder.Services.AddHttpContextAccessor();
             builder.Services.AddSingleton<JwtManager>();
+            builder.Services.AddSingleton<HttpClient>();
             builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JWT"));
             builder.Services
                 .AddAuthentication(opt =>

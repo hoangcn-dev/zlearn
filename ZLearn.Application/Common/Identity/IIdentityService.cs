@@ -1,4 +1,5 @@
-﻿using ZLearn.Application.Auth.Commands.RefreshToken;
+﻿using Microsoft.AspNetCore.Authentication;
+using ZLearn.Application.Auth.Commands.RefreshToken;
 using ZLearn.Application.Auth.Commands.SignIn;
 using ZLearn.Application.Auth.Commands.SignOut;
 using ZLearn.Application.Auth.DTOs;
@@ -10,6 +11,7 @@ namespace ZLearn.Application.Common.Identity
 {
     public interface IIdentityService
     {
+        Task<UserSessionDataDto> AuthenticateWithGoogle(AuthenticateResult? authenticateResult);
         Task<bool> IsInRoleAsync(string userId, string roleName);
         Task<bool> AuthorizeAsync(string userId, string policyName);
         Task<UserSessionDataDto> AuthenticateAsync(SignInCommand data);

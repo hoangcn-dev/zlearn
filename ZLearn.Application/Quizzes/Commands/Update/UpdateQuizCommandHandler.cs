@@ -1,8 +1,6 @@
-﻿using ZLearn.API.Exceptions;
-using ZLearn.Application.Categories;
+﻿using ZLearn.Application.Categories;
 using ZLearn.Application.Common.Commands;
 using ZLearn.Application.Common.DTOs;
-using ZLearn.Application.Common.Services;
 using ZLearn.Application.Common.Utils;
 using ZLearn.Application.Files;
 using ZLearn.Domain.Entities;

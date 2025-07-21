@@ -32,7 +32,6 @@ namespace ZLearn.Infras.Data
         {
             try
             {
-                Console.WriteLine();
                 await _context.Database.MigrateAsync();
             }
             catch (Exception ex)
@@ -59,16 +58,57 @@ namespace ZLearn.Infras.Data
                         throw new DatabaseErrorException("Failed to create default admin role.");
                 }
 
+                // Default user role
+                if (!await _roleManager.RoleExistsAsync(nameof(UserRole.User)))
+                {
+                    var createRoleResult = await _roleManager.CreateAsync(new AppRole
+                    {
+                        Name = nameof(UserRole.User),
+                        Id = IdGenerator.Generate("ROL"),
+                    });
+                    if (!createRoleResult.Succeeded)
+                        throw new DatabaseErrorException("Failed to create default user role.");
+                }
+
+                // Default student role
+                if (!await _roleManager.RoleExistsAsync(nameof(UserRole.Student)))
+                {
+                    var createRoleResult = await _roleManager.CreateAsync(new AppRole
+                    {
+                        Name = nameof(UserRole.Student),
+                        Id = IdGenerator.Generate("ROL"),
+                    });
+                    if (!createRoleResult.Succeeded)
+                        throw new DatabaseErrorException("Failed to create default student role.");
+                }
+
+                // Default teacher role
+                if (!await _roleManager.RoleExistsAsync(nameof(UserRole.Teacher)))
+                {
+                    var createRoleResult = await _roleManager.CreateAsync(new AppRole
+                    {
+                        Name = nameof(UserRole.Teacher),
+                        Id = IdGenerator.Generate("ROL"),
+                    });
+                    if (!createRoleResult.Succeeded)
+                        throw new DatabaseErrorException("Failed to create default teacher role.");
+                }
+
                 // Default admin account
                 if (!await _userManager.Users.AnyAsync(u => u.UserName == nameof(UserRole.Admin)))
                 {
                     var adminAccount = new AppUser
                     {
                         Id = IdGenerator.Generate("ACC"),
-                        UserName = nameof(UserRole.Admin),
+                        UserName = "Admin",
+                        FirstName = "Admin",
+                        LastName = "System",
+                        NickName = "Bình nước màu xanh",
+                        IsShowNickName = true,
                         Email = "dever.z.ckpt.526@gmail.com",
                         EmailConfirmed = true,
-                        ImagePath = "https://res.cloudinary.com/dvk5yt0oi/image/upload/v1751492653/b2e0meuozqt0ti4r7her_qhbicx.jpg"
+                        ImageId = null,
+                        LastLogin = DateTimeOffset.UtcNow
                     };
                     var createAdminResult = await _userManager.CreateAsync(adminAccount, "Admin@123");
                     if (!createAdminResult.Succeeded)

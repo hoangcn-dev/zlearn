@@ -14,6 +14,9 @@ using ZLearn.Application.Quizzes.Commands.Update;
 using ZLearn.Application.Quizzes.DTOs;
 using ZLearn.Application.Quizzes.Queries.GetAllTags;
 using ZLearn.Application.Quizzes.Queries.GetListQuiz;
+using ZLearn.Application.Quizzes.Queries.GetQuestionAnswerKey;
+using ZLearn.Application.Quizzes.Queries.GetQuestionContent;
+using ZLearn.Application.Quizzes.Queries.GetQuizDetail;
 using ZLearn.Application.Quizzes.Queries.GetUpdateQuizContent;
 
 namespace ZLearn.API.Controllers
@@ -46,6 +49,17 @@ namespace ZLearn.API.Controllers
             };
             var res = await _mediator.Send(query);
             return Ok(Result<UpdateQuizDto>.Success("Get quiz content successfully.", res));
+        }
+
+        [HttpGet("{id}/detail")]
+        public async Task<IActionResult> GetQuestionMapAsync(string id)
+        {
+            var query = new GetQuizDetailQuery
+            {
+                Id = id
+            };
+            var quiz = await _mediator.Send(query);
+            return Ok(Result<QuizDetailDto>.Success("Get quiz detail successfully.", quiz));
         }
 
         [HttpPost]
@@ -85,6 +99,31 @@ namespace ZLearn.API.Controllers
             var res = await _mediator.Send(query);
             return Ok(Result<IEnumerable<string>>.Success("Get all tags successfully.", res));
         }
+
+        #region Question
+        [HttpGet("questions/{id}")]
+        public async Task<IActionResult> GetQuestionData(string id)
+        {
+            var query = new GetQuestionContentQuery
+            {
+                Id = id
+            };
+            var content = await _mediator.Send(query);
+            Console.WriteLine(Request.Cookies["access-token"]);
+            return Ok(Result<QuestionContentDto>.Success("Get question content successfully", content));
+        }
+
+        [HttpGet("questions/{id}/correct-key")]
+        public async Task<IActionResult> GetQuestionCorrectKey(string id)
+        {
+            var query = new GetQuestionAnswerKeyQuery
+            {
+                QuestionId = id
+            };
+            var key = await _mediator.Send(query);
+            return Ok(Result<CorrectAnswerKeyDto>.Success("Get question key successfully", key));
+        }
+        #endregion
 
         #region Cate
         [HttpPost("categories")]

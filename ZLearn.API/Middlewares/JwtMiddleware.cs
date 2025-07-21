@@ -14,8 +14,13 @@ namespace ZLearn.API.Middlewares
 
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
-            var token = context.Request.Headers["Authorization"].FirstOrDefault();
-            Console.WriteLine(token);
+            var token = context.Request.Cookies["token"];
+            if (!string.IsNullOrEmpty(token))
+            {
+                Console.WriteLine("Cookie: " + token);
+                context.Request.Headers.Authorization = "Bearer " + token;
+            }
+            Console.WriteLine("Authorization: " + token);
             await next(context);
         }
     }

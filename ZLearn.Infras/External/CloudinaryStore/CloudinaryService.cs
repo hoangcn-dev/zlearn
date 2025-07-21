@@ -2,8 +2,8 @@
 using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using ZLearn.Application.Common.Services;
 using ZLearn.Application.Common.Utils;
+using ZLearn.Application.Files;
 using ZLearn.Application.Files.DTOs;
 using ZLearn.Domain.Entities;
 using ZLearn.Domain.Enums;
@@ -103,6 +103,54 @@ namespace ZLearn.Infras.External.CloudinaryStore
                     Extension = Path.GetExtension(file.Data.FileName)!.ToUpper(),
                     Height = type == MediaType.Audio? null : result.Height,
                     Width = type == MediaType.Audio? null : result.Width,
+                    SecDuration = duration,
+                    CreatedAt = DateTimeOffset.UtcNow,
+                };
+            }
+            _logger.LogError(result.Error.Message);
+            throw new Exception($"Failed to upload file: {result.Error.Message}");
+        }
+
+        public async Task<MediaFile> SaveFile(Stream fileStream, string fileName, MediaType type, CancellationToken cancellation)
+        {
+            var uploadParam = type switch
+            {
+                MediaType.Image => new ImageUploadParams
+                {
+                    Folder = "zlearn/images",
+                    File = new FileDescription(fileName, fileStream),
+                },
+                MediaType.Video => new VideoUploadParams
+                {
+                    Folder = "zlearn/videos",
+                    File = new FileDescription(fileName, fileStream),
+                },
+                MediaType.Audio => new VideoUploadParams
+                {
+                    Folder = "zlearn/audios",
+                    File = new FileDescription(fileName, fileStream),
+                },
+                _ => throw new ArgumentException("Unsupported media type", nameof(type))
+            };
+
+            var result = await _cloudinary.UploadAsync(uploadParam);
+
+            double? duration = null;
+            if (type is MediaType.Audio or MediaType.Video)
+            {
+                duration = result.JsonObj["duration"]?.ToObject<double?>();
+            }
+            if (result.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                return new MediaFile
+                {
+                    Id = IdGenerator.Generate("FIL"),
+                    SourceUrl = result.SecureUrl.ToString(),
+                    FileName = fileName,
+                    FileByteSize = result.Bytes,
+                    Extension = Path.GetExtension(fileName)!.ToUpper(),
+                    Height = type == MediaType.Audio ? null : result.Height,
+                    Width = type == MediaType.Audio ? null : result.Width,
                     SecDuration = duration,
                     CreatedAt = DateTimeOffset.UtcNow,
                 };

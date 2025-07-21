@@ -1,7 +1,6 @@
 ﻿using ZLearn.API.Exceptions;
 using ZLearn.Application.Common.Commands;
 using ZLearn.Application.Common.DTOs;
-using ZLearn.Application.Common.Services;
 using ZLearn.Domain.Entities;
 
 namespace ZLearn.Application.Files.Commands.DeleteFile

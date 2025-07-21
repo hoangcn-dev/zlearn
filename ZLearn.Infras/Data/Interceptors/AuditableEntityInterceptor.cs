@@ -29,7 +29,7 @@ namespace ZLearn.Infras.Data.Interceptors
         private void UpdateAuditableEntities(DbContext? context)
         {
             if (context == null) return;
-            var userId = _contextAccessor.HttpContext!.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = _contextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
             foreach (var entry in context.ChangeTracker.Entries<AuditableEntity>())
             {
                 if (entry.State is EntityState.Added or EntityState.Modified ||
@@ -38,10 +38,10 @@ namespace ZLearn.Infras.Data.Interceptors
                     var current = DateTimeOffset.UtcNow;
                     if (entry.State is EntityState.Added)
                     {
-                        entry.Entity.CreatedBy = userId;
+                        entry.Entity.CreatedBy = userId ?? "unknown";
                         entry.Entity.CreatedAt = current;
                     }
-                    entry.Entity.ModifiedBy = userId;
+                    entry.Entity.ModifiedBy = userId ?? "unknown";
                     entry.Entity.LastModifiedAt = current;
                 }
             }

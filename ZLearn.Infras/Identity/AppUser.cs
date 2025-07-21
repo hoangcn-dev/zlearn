@@ -5,6 +5,11 @@ namespace ZLearn.Infras.Identity
 {
     public class AppUser : IdentityUser<string>, IAppUser
     {
-        public string ImagePath { get; set; }
+        public string? ImageId { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public string NickName { get; set; }
+        public bool IsShowNickName { get; set; }
+        public DateTimeOffset LastLogin { get; set; }
     }
 }
