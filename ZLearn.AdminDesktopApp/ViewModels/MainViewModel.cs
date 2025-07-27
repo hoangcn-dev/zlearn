@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Input;
 using ZLearn.AdminDesktopApp.Enums;
 using ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels;
+using ZLearn.AdminDesktopApp.Features.SystemFeature.ViewModels;
 using ZLearn.AdminDesktopApp.Stores;
 
 namespace ZLearn.AdminDesktopApp.ViewModels
@@ -40,12 +41,10 @@ namespace ZLearn.AdminDesktopApp.ViewModels
             _navStore.PropertyChanged += NavStore_PropertyChanged;
             _serviceProvider = serviceProvider;
 
-            _navStore.CurrentViewModel = _serviceProvider.GetRequiredService<QuizCateViewModel>();
-            _navStore.CurrentDestination = NavDestination.QuizCate;
-
             UserName = _store.Get<string>(VariableStore.Keys.UserName, false)!;
             Role = _store.Get<string>(VariableStore.Keys.Role, false)!;
             NavigateCommand = new RelayCommand<NavDestination>(NavigateToView, CanNavigate);
+            NavigateToView(NavDestination.SystemLog);
         }
 
         private void TaskStatusStore_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -89,6 +88,19 @@ namespace ZLearn.AdminDesktopApp.ViewModels
             {
                 _navStore.CurrentViewModel = _serviceProvider.GetRequiredService<ListQuizViewModel>();
             }
+            else if (destination == NavDestination.SystemAnal)
+            {
+                _navStore.CurrentViewModel = _serviceProvider.GetRequiredService<SystemStatViewModel>();
+            }
+            else if (destination == NavDestination.SystemLog)
+            {
+                _navStore.CurrentViewModel = _serviceProvider.GetRequiredService<ListLogsViewModel>();
+            }
+            else if (destination == NavDestination.SystemUser)
+            {
+                _navStore.CurrentViewModel = _serviceProvider.GetRequiredService<ListUsersViewModel>();
+            }
+
         }
     }
 }

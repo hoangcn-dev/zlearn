@@ -1,5 +1,8 @@
+using System.Text.Json.Serialization;
 using ZLearn.Application;
 using ZLearn.Infras;
+using ZLearn.Infras.Log;
+using ZLearn.Web.Middlewares;
 
 namespace ZLearn.Web
 {
@@ -9,20 +12,38 @@ namespace ZLearn.Web
         {
             var builder = WebApplication.CreateBuilder(args);
             var services = builder.Services;
-            builder.Services.AddControllersWithViews();
 
-            //services.AddDistributedMemoryCache();
+            services.AddExceptionMiddleware();
+            services.AddJwtMiddleware();
             services.AddApplicationServices();
-            services.AddRouting(opt =>
+            services.AddRouting(opt => opt.LowercaseUrls = true);
+            services.AddCors(options =>
             {
-                opt.LowercaseUrls = true;
+                options.AddPolicy("AllowLocal",
+                    builder => builder
+                        .WithOrigins("https://localhost:7284")
+                        .AllowCredentials()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
             });
 
             builder.AddRedisService();
             builder.AddIdentityService();
             builder.AddPostgreSQLDataServices();
             builder.AddCloudinaryService();
+            builder.AddDatabaseBackupService();
+            builder.AddAccessTrackingService();
+            builder.AddRealtimeServices();
+            builder.AddLogService();
 
+            services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                    options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+                });
+            builder.Services.AddControllersWithViews();
+            
 
             var app = builder.Build();
             if (!app.Environment.IsDevelopment())
@@ -30,15 +51,20 @@ namespace ZLearn.Web
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-            //app.UseSession();
-            //services.AddSession();
+
+            app.UseExceptionMiddleware();
+            app.UseJwtMiddleware();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseLogMiddleware();
+            app.UseAccessTracking();
             app.UseAuthorization();
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}");
+            app.MapControllers();
             app.Run();
         }
     }

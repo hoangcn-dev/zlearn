@@ -31,6 +31,7 @@
         <converters:BoolToVisibilityCoonverter x:Key="BoolToVisibilityConverter"/>
         <converters:RowIndexConverter x:Key="RowIndexConverter"/>
         <converters:UtcToLocalTimeConverter x:Key="UtcToLocalTimeConverter"/>
+        <converters:ListToStringConverter x:Key="ListToStringConverter"/>
 
         <Style x:Key="LoadingButtonStyle" TargetType="components:LoadingButton" BasedOn="{StaticResource Default}">
             <Setter Property="Template">
@@ -100,6 +101,34 @@
             </Setter>
         </Style>
 
+        <Style x:Key="VerticalBoxStyle" TargetType="components:VerticalBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="components:VerticalBox">
+                        <Border Background="{TemplateBinding Background}"
+                                Padding="{TemplateBinding Padding}"
+                                CornerRadius="2"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock 
+                                    Text="{TemplateBinding Title}"
+                                    FontSize="14"/>
+                                <TextBlock 
+                                    Text="{TemplateBinding Value}" 
+                                    FontWeight="Bold"
+                                    FontSize="20"/>
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
         <Style TargetType="ComboBox">
             <Setter Property="Background" Value="White"/>
         </Style>

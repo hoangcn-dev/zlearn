@@ -27,6 +27,10 @@ function getData(url, callback) {
             }
         },
         error: error => {
+            if (error.status === 403) {
+                removeSessionData();
+                window.location.href = "/forbidden";
+            }
             hideLoading();
             console.error(error);
         }

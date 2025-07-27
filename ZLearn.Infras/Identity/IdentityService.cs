@@ -7,7 +7,11 @@ using ZLearn.API.Exceptions;
 using ZLearn.Application.Auth.Commands.RefreshToken;
 using ZLearn.Application.Auth.Commands.SignIn;
 using ZLearn.Application.Auth.Commands.SignOut;
+using ZLearn.Application.Auth.Commands.UpdateUser;
+using ZLearn.Application.Auth.Commands.UpdateUserProfile;
 using ZLearn.Application.Auth.DTOs;
+using ZLearn.Application.Auth.Queries.GetListUsers;
+using ZLearn.Application.Common.DTOs;
 using ZLearn.Application.Common.Identity;
 using ZLearn.Application.Common.Identity.DTOs;
 using ZLearn.Application.Common.Interfaces;
@@ -22,6 +26,7 @@ namespace ZLearn.Infras.Identity
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly RoleManager<AppRole> _roleManager;
         private readonly JwtManager _jwtManager;
         private readonly HttpClient _httpClient;
         private readonly IFileRepo _fileRepo;
@@ -33,7 +38,8 @@ namespace ZLearn.Infras.Identity
             JwtManager jwtManager,
             HttpClient httpClient,
             IFileRepo fileRepo,
-            IMediaStoreService mediaStoreService)
+            IMediaStoreService mediaStoreService,
+            RoleManager<AppRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -41,6 +47,7 @@ namespace ZLearn.Infras.Identity
             _httpClient = httpClient;
             _fileRepo = fileRepo;
             _mediaStoreService = mediaStoreService;
+            _roleManager = roleManager;
         }
 
         public async Task<UserSessionDataDto> AuthenticateAsync(SignInCommand data)
@@ -91,7 +98,8 @@ namespace ZLearn.Infras.Identity
                     LastName = claims.FirstOrDefault(c => c.Type == ClaimTypes.GivenName)?.Value ?? "",
                     NickName = StringHelper.GetRandomNickName(),
                     IsShowNickName = true,
-                    EmailConfirmed = true
+                    EmailConfirmed = true,
+                    IsActive = true,
                 };
                 var createResult = await _userManager.CreateAsync(user);
                 if (!createResult.Succeeded)
@@ -99,6 +107,11 @@ namespace ZLearn.Infras.Identity
                 var assignRoleResult = await _userManager.AddToRoleAsync(user, nameof(UserRole.User));
                 if (!assignRoleResult.Succeeded)
                     throw new DatabaseErrorException("Failed to assign user role.");
+            }
+
+            if (user.IsActive == false)
+            {
+                throw new ForbiddenException("User account is locked.");
             }
 
             user.LastLogin = DateTimeOffset.UtcNow;
@@ -173,6 +186,167 @@ namespace ZLearn.Infras.Identity
         public Task<bool> SetUserStatus(string userId, bool isLockout)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<List<string>> GetAllSystemRoles()
+        {
+            return await _roleManager.Roles
+                .Select(r => r.Name)
+                .ToListAsync();
+        }
+
+        public async Task<PaginatedDto<UserListItemDto>> GetAllUsers(GetListUsersQuery request)
+        {
+            var filterBuilder = new FilterBuilder<AppUser>();
+            if (!string.IsNullOrEmpty(request.Email))
+            {
+                filterBuilder.AndCondition(u => u.Email.Contains(request.Email));
+            }
+
+            var query = _userManager.Users.AsNoTracking();
+            query = query.Where(filterBuilder.GetPredicateOrDefault());
+
+            var totalItems = await query.CountAsync();
+            var pagedUsers = await query
+                .OrderBy(u => u.UserName)
+                .Skip((request.PageIndex - 1) * request.PageSize)
+                .Take(request.PageSize)
+                .ToListAsync();
+
+            var items = new List<UserListItemDto>();
+            foreach (var user in pagedUsers)
+            {
+                var roles = (List<string>)await _userManager.GetRolesAsync(user);
+                items.Add(new UserListItemDto
+                {
+                    Id = user.Id,
+                    UserName = user.UserName,
+                    Email = user.Email,
+                    FirstName = user.FirstName ?? string.Empty,
+                    LastName = user.LastName ?? string.Empty,
+                    NickName = user.NickName,
+                    EmailConfirmed = user.EmailConfirmed,
+                    IsActive = user.IsActive,
+                    LastLogin = user.LastLogin,
+                    Roles = roles
+                });
+            }
+
+            return new PaginatedDto<UserListItemDto>
+            {
+                TotalItems = totalItems,
+                Items = items,
+                PageIndex = request.PageIndex,
+                PageSize = request.PageSize
+            };
+        }
+
+        public async Task<UserDetailDto> GetUserDetail(string id)
+        {
+            var user = await _userManager.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.Id == id)
+                ?? throw new NotFoundException("User", id);
+            var roles = await _userManager.GetRolesAsync(user);
+            return new UserDetailDto
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                Email = user.Email,
+                FirstName = user.FirstName ?? string.Empty,
+                LastName = user.LastName ?? string.Empty,
+                NickName = user.NickName,
+                PhoneNumber = user.PhoneNumber,
+                ImagePath = string.IsNullOrEmpty(user.ImageId) ?
+                    StringHelper.GetDefaultImageUrl() :
+                    await _fileRepo.Get(user.ImageId, f => f.SourceUrl) ?? StringHelper.GetDefaultImageUrl(),
+                EmailConfirmed = user.EmailConfirmed,
+                IsActive = user.IsActive,
+                LastLogin = user.LastLogin,
+                Roles = roles.ToList(),
+                IsShowNickName = user.IsShowNickName,
+            };
+        }
+
+        public async Task<UpdateResponseDto> UpdateUser(UpdateUserConmand request)
+        {
+            var user = await _userManager.Users
+                .FirstOrDefaultAsync(u => u.Id == request.Id)
+                ?? throw new NotFoundException("User", request.Id);
+
+            var data = request.UpdateData;
+            if (data.UserName != user.UserName && await _userManager.Users.AnyAsync(u => u.UserName == data.UserName))
+                throw new ResourceConflictException("UserName already exists.");
+            
+            if (!string.IsNullOrEmpty(data.ImageId))
+            {
+                if (user.ImageId != null)
+                    await _fileRepo.DeleteFileByIds(new List<string> { user.ImageId });
+                user.ImageId = data.ImageId;
+            }
+
+            user.UserName = data.UserName;
+            user.IsActive = data.IsActive;
+            user.FirstName = data.FirstName;
+            user.LastName = data.LastName;
+            user.NickName = data.NickName;
+            user.IsActive = data.IsActive;
+            user.EmailConfirmed = data.EmailConfirmed;
+            user.PhoneNumber = data.PhoneNumber;
+
+            // Update user roles
+            var oldRoles = (await _userManager.GetRolesAsync(user)).ToHashSet();
+            foreach (var newRole in data.Roles)
+            {
+                if (oldRoles.Contains(newRole))
+                {
+                    oldRoles.Remove(newRole);
+                }
+                else
+                {
+                    var assignRoleResult = await _userManager.AddToRoleAsync(user, newRole);
+                    if (!assignRoleResult.Succeeded)
+                        throw new DatabaseErrorException($"Failed to assign role {newRole} to user {user.UserName}.");
+                }
+            }
+            await _userManager.RemoveFromRolesAsync(user, oldRoles);
+            await _userManager.UpdateAsync(user);
+
+            return new UpdateResponseDto
+            {
+                Id = user.Id,
+                UpdatedAt = DateTimeOffset.UtcNow
+            };
+        }
+
+        public async Task<UpdateResponseDto> UpdateUserProfile(UpdateUserProfileCommand request)
+        {
+            var user = await _userManager.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.Id == request.Id)
+                ?? throw new NotFoundException("User", request.Id);
+
+            var data = request.UpdateData;
+
+            if (!string.IsNullOrEmpty(data.ImageId))
+            {
+                if (user.ImageId != null)
+                    await _fileRepo.DeleteFileByIds(new List<string> { user.ImageId });
+                user.ImageId = data.ImageId;
+            }
+
+            user.FirstName = data.FirstName;
+            user.LastName = data.LastName;
+            user.NickName = data.NickName;
+            user.PhoneNumber = data.PhoneNumber;
+
+            await _userManager.UpdateAsync(user);
+
+            return new UpdateResponseDto
+            {
+                Id = user.Id,
+                UpdatedAt = DateTimeOffset.UtcNow
+            };
         }
     }
 }

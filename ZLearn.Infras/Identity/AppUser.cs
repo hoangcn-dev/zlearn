@@ -11,5 +11,6 @@ namespace ZLearn.Infras.Identity
         public string NickName { get; set; }
         public bool IsShowNickName { get; set; }
         public DateTimeOffset LastLogin { get; set; }
+        public bool IsActive { get; set; }
     }
 }

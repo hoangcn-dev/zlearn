@@ -5,13 +5,14 @@ using System.Threading.Tasks;
 using ZLearn.Application.Common.Utils;
 using ZLearn.Application.Realtime;
 using ZLearn.Domain.Entities;
+using ZLearn.Infras.Realtime.AccessTracking;
 
 namespace ZLearn.Infras.Data.Services
 {
     public class AutoSaveAccessCountService : BackgroundService
     {
         private readonly ILogger<AutoSaveAccessCountService> _logger;
-        private readonly AutoSaveAccessCountServiceConfig _config;
+        private readonly AccessTrackingConfig _config;
         private Timer? _timer;
         private readonly IAccessTrackingService _accessTrackingService;
         private readonly IServiceProvider _serviceProvider;
@@ -19,7 +20,7 @@ namespace ZLearn.Infras.Data.Services
 
         public AutoSaveAccessCountService(
             ILogger<AutoSaveAccessCountService> logger,
-            IOptions<AutoSaveAccessCountServiceConfig> options,
+            IOptions<AccessTrackingConfig> options,
             IAccessTrackingService accessTrackingService,
             IServiceProvider serviceProvider)
         {
@@ -37,7 +38,7 @@ namespace ZLearn.Infras.Data.Services
                 return Task.CompletedTask;
             }
             _logger.LogInformation("Auto save access history service is starting");
-            _timer = new Timer(AutoSaveAccessCount, null, TimeSpan.Zero, TimeSpan.FromMinutes(_config.IntervalMinutes));
+            _timer = new Timer(AutoSaveAccessCount, null, TimeSpan.Zero, TimeSpan.FromMinutes(_config.AutoSaveIntervalMinutes));
             return Task.CompletedTask;
         }
 
@@ -76,9 +77,5 @@ namespace ZLearn.Infras.Data.Services
         }
     }
 
-    public class AutoSaveAccessCountServiceConfig
-    {
-        public int IntervalMinutes { get; set; }
-        public bool Enabled { get; set; }
-    }
+    
 }

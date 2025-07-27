@@ -61,6 +61,8 @@ namespace ZLearn.AdminDesktopApp.ViewModels
             LoginCommand = new AsyncRelayCommand(LoginAsync, CanLogin);
             NavigateToMainWindowCommand = new RelayCommand(() => _manageWindowService.ShowWindow<MainWindow>());
             CloseWindowCommand = new RelayCommand(() => _manageWindowService.CloseWindow<LoginWindow>());
+            UserName = "admin";
+            Password = "Admin@123";
         }
 
         private void TaskStatusStore_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)

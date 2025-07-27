@@ -3,7 +3,7 @@ using ZLearn.Application.Auth.DTOs;
 
 namespace ZLearn.Application.Auth.Commands.GetAuthData
 {
-    public class GetAuthDataCommand : IRequest<UserSessionDataDto>
+    public class GetAuthDataQuery : IRequest<UserSessionDataDto>
     {
         public ClaimsPrincipal Claims { get; set; }
     }

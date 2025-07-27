@@ -11,20 +11,32 @@
         d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         xmlns:views="clr-namespace:ZLearn.AdminDesktopApp.Views" 
         xmlns:com="clr-namespace:ZLearn.AdminDesktopApp.Components" 
-        xmlns:ucviews="clr-namespace:ZLearn.AdminDesktopApp.Features.QuizFeature.Views" 
-        xmlns:ucviewmodels="clr-namespace:ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels" 
+        xmlns:quizviews="clr-namespace:ZLearn.AdminDesktopApp.Features.QuizFeature.Views" 
+        xmlns:quizviewmodels="clr-namespace:ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels" 
+        xmlns:systemviews="clr-namespace:ZLearn.AdminDesktopApp.Features.SystemFeature.Views" 
+        xmlns:systemviewmodels="clr-namespace:ZLearn.AdminDesktopApp.Features.SystemFeature.ViewModels" 
         xmlns:enums="clr-namespace:ZLearn.AdminDesktopApp.Enums"
         xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
-        <DataTemplate DataType="{x:Type ucviewmodels:QuizCateViewModel}">
-            <ucviews:QuizCateView/>
+        <DataTemplate DataType="{x:Type quizviewmodels:QuizCateViewModel}">
+            <quizviews:QuizCateView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type ucviewmodels:QuizStatViewModel}">
-            <ucviews:QuizStatView/>
+        <DataTemplate DataType="{x:Type quizviewmodels:QuizStatViewModel}">
+            <quizviews:QuizStatView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type ucviewmodels:ListQuizViewModel}">
-            <ucviews:ListQuizView/>
+        <DataTemplate DataType="{x:Type quizviewmodels:ListQuizViewModel}">
+            <quizviews:ListQuizView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type systemviewmodels:ListLogsViewModel}">
+            <systemviews:ListLogsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type systemviewmodels:ListUsersViewModel}">
+            <systemviews:ListUsersView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type systemviewmodels:SystemStatViewModel}">
+            <systemviews:SystemStatView/>
         </DataTemplate>
 
         <!-- NavButtonStyle -->
@@ -136,18 +148,21 @@
                         <com:NavigationButton 
                             Content="Thống kê"
                             Click="OnNavigate"
+                            NavDestination="SystemAnal"
                             Style="{StaticResource NavButtonItemStyle}"
                             Command="{Binding NavigateCommand}"
                             CommandParameter="{x:Static enums:NavDestination.SystemAnal}"/>
                         <com:NavigationButton 
                             Content="Người dùng"
                             Click="OnNavigate"
+                            NavDestination="SystemUser"
                             Style="{StaticResource NavButtonItemStyle}"
                             Command="{Binding NavigateCommand}"
                             CommandParameter="{x:Static enums:NavDestination.SystemUser}"/>
                         <com:NavigationButton 
                             Content="Logging"
                             Click="OnNavigate"
+                            NavDestination="SystemLog"
                             Style="{StaticResource NavButtonItemStyle}"
                             Command="{Binding NavigateCommand}"
                             CommandParameter="{x:Static enums:NavDestination.SystemLog}"/>
@@ -165,7 +180,7 @@
                     <StackPanel x:Name="spQuizTestItem" Visibility="Collapsed" Orientation="Vertical">
                         <com:NavigationButton 
                             Content="Thống kê"
-                            NavDestination="SystemAnal"
+                            NavDestination="QuizAnal"
                             Style="{StaticResource NavButtonItemStyle}"
                             Command="{Binding NavigateCommand}"
                             Click="OnNavigate"

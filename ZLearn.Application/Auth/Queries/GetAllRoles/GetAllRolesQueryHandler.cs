@@ -1,13 +1,13 @@
 ﻿using ZLearn.Application.Common.Commands;
 using ZLearn.Application.Common.Identity;
 
-namespace ZLearn.Application.Auth.Commands.GetAllRoles
+namespace ZLearn.Application.Auth.Queries.GetAllRoles
 {
-    public class GetAllRolesCommandHandler : BaseCommandHandler, IRequestHandler<GetAllRolesCommand, List<string>>
+    public class GetAllRolesQueryHandler : BaseCommandHandler, IRequestHandler<GetAllRolesQuery, List<string>>
     {
         private readonly IIdentityService _identityService;
 
-        public GetAllRolesCommandHandler(
+        public GetAllRolesQueryHandler(
             IMapper mapper,
             IMediator mediator,
             IIdentityService identityService) : base(mapper, mediator)
@@ -15,7 +15,7 @@ namespace ZLearn.Application.Auth.Commands.GetAllRoles
             _identityService = identityService;
         }
 
-        public async Task<List<string>> Handle(GetAllRolesCommand request, CancellationToken cancellationToken)
+        public async Task<List<string>> Handle(GetAllRolesQuery request, CancellationToken cancellationToken)
         {
             var roles = await _identityService.GetAllSystemRoles();
             return roles;

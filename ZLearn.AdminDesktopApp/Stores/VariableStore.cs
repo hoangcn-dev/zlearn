@@ -50,6 +50,8 @@
 
         public class Keys
         {
+            public const string SelectedUserId = nameof(SelectedUserId);
+
             public const string AccessToken = nameof(AccessToken);
             public const string RefreshToken = nameof(RefreshToken);
             public const string UserName = nameof(UserName);

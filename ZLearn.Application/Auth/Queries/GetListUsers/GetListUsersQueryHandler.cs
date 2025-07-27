@@ -1,8 +1,6 @@
 ﻿using ZLearn.Application.Auth.DTOs;
 using ZLearn.Application.Common.DTOs;
 using ZLearn.Application.Common.Identity;
-using ZLearn.Application.Common.Interfaces;
-using ZLearn.Application.Common.Utils;
 
 namespace ZLearn.Application.Auth.Queries.GetListUsers
 {

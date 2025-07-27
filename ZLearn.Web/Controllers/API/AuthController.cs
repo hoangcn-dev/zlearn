@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using ZLearn.Application.Auth.Commands.GetAllRoles;
 using ZLearn.Application.Auth.Commands.GetAuthData;
 using ZLearn.Application.Auth.Commands.GoogleSignIn;
 using ZLearn.Application.Auth.Commands.SignIn;
 using ZLearn.Application.Auth.Commands.UpdateUser;
 using ZLearn.Application.Auth.DTOs;
+using ZLearn.Application.Auth.Queries.GetAllRoles;
 using ZLearn.Application.Auth.Queries.GetListUsers;
 using ZLearn.Application.Auth.Queries.GetUserDetail;
 using ZLearn.Application.Common.DTOs;
@@ -47,7 +47,7 @@ namespace ZLearn.Web.Controllers.API
         [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> GetAllRoles()
         {
-            var res = await _mediator.Send(new GetAllRolesCommand());
+            var res = await _mediator.Send(new GetAllRolesQuery());
             return Ok(Result<List<string>>.Success("Get list roles successfully.", res));
         }
 
@@ -147,7 +147,7 @@ namespace ZLearn.Web.Controllers.API
         [Authorize]
         public async Task<IActionResult> GetGoogleAuthResult()
         {
-            var command = new GetAuthDataCommand
+            var command = new GetAuthDataQuery
             {
                 Claims = User
             };

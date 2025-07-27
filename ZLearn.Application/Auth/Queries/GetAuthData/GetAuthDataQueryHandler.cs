@@ -1,18 +1,16 @@
-﻿using MediatR;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using ZLearn.Application.Auth.DTOs;
-using ZLearn.Application.Common.Commands;
-using ZLearn.Application.Common.Identity.DTOs;
+using ZLearn.Application.Common.Queries;
 using ZLearn.Application.Common.Utils;
 using ZLearn.Application.Files;
 
 namespace ZLearn.Application.Auth.Commands.GetAuthData
 {
-    public class GetAuthDataCommandHandler : BaseCommandHandler, IRequestHandler<GetAuthDataCommand, UserSessionDataDto>
+    public class GetAuthDataQueryHandler : BaseQueryHandler, IRequestHandler<GetAuthDataQuery, UserSessionDataDto>
     {
         private readonly IFileRepo _fileRepo;
 
-        public GetAuthDataCommandHandler(
+        public GetAuthDataQueryHandler(
             IMapper mapper,
             IMediator mediator,
             IFileRepo fileRepo) : base(mapper, mediator)
@@ -20,7 +18,7 @@ namespace ZLearn.Application.Auth.Commands.GetAuthData
             _fileRepo = fileRepo;
         }
 
-        public async Task<UserSessionDataDto> Handle(GetAuthDataCommand request, CancellationToken cancellationToken)
+        public async Task<UserSessionDataDto> Handle(GetAuthDataQuery request, CancellationToken cancellationToken)
         {
             var imageId = request.Claims.FindFirst("ImageId")!.Value;
             var sessionData = new UserSessionDataDto

@@ -118,7 +118,7 @@
                 $(this).addClass('selected-answer')
                 $('.ans').removeClass('highlight-hover')
                 isAnsSelected = true;
-                getData(`/quizzes/questions/${qId}/correct-key`, () => {
+                getData(`/quizzes/questions/${qId}/correct-key`, res => {
                     const correctDiv = $(`.ans[data-key="${res.correctKey}"]`)
                     const message = res.correctKey == $(this).data('key')?
                         '<span class="fw-bold" style="color: var(--success-color);"><i class="fa-solid fa-check"></i> Bạn đã chọn đúng</span>':
@@ -139,32 +139,6 @@
 
                     scrollTo('#result')
                 });
-                // $.ajax({
-                //     url: `/quizzes/questions/${qId}/correct-key`,
-                //     method: 'GET',
-                //     success: res => {
-                //         const correctDiv = $(`.ans[data-key="${res.correctKey}"]`)
-                //         const message = res.correctKey == $(this).data('key')?
-                //             '<span class="fw-bold" style="color: var(--success-color);"><i class="fa-solid fa-check"></i> Bạn đã chọn đúng</span>':
-                //             '<span class="fw-bold" style="color: var(--error-color);"><i class="fa-solid fa-xmark"></i> Bạn đã chọn sai</span>'
-
-                //         $('#result').append(`
-                //             <div class="d-flex flex-column">
-                //                 <!-- Key -->
-                //                 ${message}
-                //                 <span class="fw-light my-2"> Đáp án đúng ${correctDiv.data("label")}</span>
-                //                 <!-- Explaination -->
-                //                 <span class="fw-light my-2"><i class="fa-solid fa-lightbulb text-warning"></i> Giải thích</span>
-                //                 <div class="card card-body fw-light mb-2 fst-italic">
-                //                     ${res.explanation}
-                //                 </div>
-                //             </div>
-                //         `);
-
-                //         scrollTo('#result')
-                //     },
-                //     error: error => console.log(error)
-                // });
             });
 
             // Add media display toggle btn
@@ -205,33 +179,6 @@
                 }
                 questionMap = res.questions;
             });
-            // $.ajax({
-            //     url: "/quizzes/@Model.QuizId/detail",
-            //     method: "GET",
-            //     success: result => {
-            //         const res = result.data;
-            //         $('#quizName').text(res.name);
-            //         $('#questionMap').empty();
-            //         res.questions.forEach(q => {
-            //             const questionDiv = $(`<div data-order="${q.order}" data-url="${q.url}" class="q-index text-center text-decoration-none fw-light align-content-center highlight-hover me-2 mb-2 border-1 border rounded-1" style="width: 32px; height: 32px;">${q.order}</div>`);
-            //             questionDiv.on('click', () => loadQuestionData(q.id));
-            //             if (q.order == @Model.Order) {
-            //                 questionDiv.addClass('question-index-selected');
-            //             }
-            //             $('#questionMap').append(questionDiv);
-            //         });
-            //         if (currentOrder > 1) {
-            //             $('#btnPrev').show();
-            //             $('#btnPrev').on('click', () => loadQuestionData(res.questions[currentOrder-2].id));
-            //         }
-            //         if (currentOrder < res.questions.length) {
-            //             $('#btnNext').show();
-            //             $('#btnNext').on('click', () => loadQuestionData(res.questions[currentOrder].id));
-            //         }
-            //         questionMap = res.questions;
-            //     },
-            //     error: error => console.log(error)
-            // });
         });
 
         function loadQuestionData(id) {
@@ -316,32 +263,6 @@
 
                             scrollTo('#result')
                         });
-                        // $.ajax({
-                        //     url: `/quizzes/questions/${qId}/correct-key`,
-                        //     method: 'GET',
-                        //     success: res => {
-                        //         const correctDiv = $(`.ans[data-key="${res.correctKey}"]`)
-                        //         const message = res.correctKey == $(this).data('key')?
-                        //             '<span class="fw-bold" style="color: var(--success-color);"><i class="fa-solid fa-check"></i> Bạn đã chọn đúng</span>':
-                        //             '<span class="fw-bold" style="color: var(--error-color);"><i class="fa-solid fa-xmark"></i> Bạn đã chọn sai</span>'
-
-                        //         $('#result').append(`
-                        //             <div class="d-flex flex-column">
-                        //                 <!-- Key -->
-                        //                 ${message}
-                        //                 <span class="fw-light my-2"> Đáp án đúng ${correctDiv.data("label")}</span>
-                        //                 <!-- Explaination -->
-                        //                 <span class="fw-light my-2"><i class="fa-solid fa-lightbulb text-warning"></i> Giải thích</span>
-                        //                 <div class="card card-body fw-light mb-2 fst-italic">
-                        //                     ${res.explanation}
-                        //                 </div>
-                        //             </div>
-                        //         `);
-
-                        //         scrollTo('#result')
-                        //     },
-                        //     error: error => console.log(error)
-                        // });
                     });
                     $('#answer').append(ansDiv);
                 });
@@ -363,121 +284,6 @@
                 $('.q-index').eq(res.order-1).addClass('question-index-selected');
                 scrollTo('header');
             });
-            // $.ajax({
-            //     url: `/quizzes/questions/${id}`,
-            //     xhrFields: { withCredentials: true },
-            //     method: 'GET',
-            //     cache: true,
-            //     success: result => {
-            //         Update status
-            //         const res = result.data;
-            //         qId = res.id;
-            //         currentOrder = res.order;
-            //         isAnsSelected = false;
-
-            //         Update UI
-            //         $('#attempt').text(`${res.attemptCount} Lượt làm`);
-            //         $('#order').text(`Câu ${res.order}: `);
-            //         $('#stringContent').text(res.stringContent);
-            //         $('#audio').empty();
-            //         res.audioUrls.forEach(url => {
-            //             $('#audio').append(`
-            //                 <audio controls class="mb-3 shadow-sm rounded-5 bg-white">
-            //                     <source src="${url}" type="audio/mpeg">
-            //                     Your browser does not support the audio element.
-            //                 </audio>
-            //             `);
-            //         });
-            //         $('#image-video').empty();
-            //         res.imageUrls.forEach(url => {
-            //             $('#image-video').append(`
-            //                 <div class="col-6">
-            //                     <img src="${url}" alt="" class="shadow-sm w-100">
-            //                 </div>
-            //             `);
-            //         });
-            //         res.videoUrls.forEach(url => {
-            //             $('#image-video').append(`
-            //                 <div class="col-6">
-            //                     <video controls class="shadow-sm w-100">
-            //                         <source src="${url}">
-            //                     </video>
-            //                 </div>
-            //             `);
-            //         });
-            //         $('#answer').empty();
-            //         res.answers.forEach(ans => {
-            //             const ansDiv = $(`
-            //                 <div class="ans card card-body highlight-hover fw-light mb-2" data-key="${ans.key}" data-label="${ans.label}">
-            //                     <div>${ans.label}. ${ans.stringContent}</div>
-            //                 </div>
-            //             `);
-            //             if (ans.imageUrls.length > 0) {
-            //                 const imageHtml = ans.imageUrls.map(imgUrl => `
-            //                     <div class="col-4">
-            //                         <img src="${imgUrl}" alt="" class="shadow-sm w-100">
-            //                     </div>
-            //                 `).join('');
-            //                 ansDiv.append(`
-            //                     <div class="row g-2 mt-2">
-            //                         ${imageHtml}
-            //                     </div>
-            //                 `);
-            //             }
-            //             ansDiv.on('click', function() {
-            //                 if (isAnsSelected) return;
-            //                 $(this).addClass('selected-answer')
-            //                 $('.ans').removeClass('highlight-hover')
-            //                 isAnsSelected = true;
-            //                 $.ajax({
-            //                     url: `/quizzes/questions/${qId}/correct-key`,
-            //                     method: 'GET',
-            //                     success: res => {
-            //                         const correctDiv = $(`.ans[data-key="${res.correctKey}"]`)
-            //                         const message = res.correctKey == $(this).data('key')?
-            //                             '<span class="fw-bold" style="color: var(--success-color);"><i class="fa-solid fa-check"></i> Bạn đã chọn đúng</span>':
-            //                             '<span class="fw-bold" style="color: var(--error-color);"><i class="fa-solid fa-xmark"></i> Bạn đã chọn sai</span>'
-
-            //                         $('#result').append(`
-            //                             <div class="d-flex flex-column">
-            //                                 <!-- Key -->
-            //                                 ${message}
-            //                                 <span class="fw-light my-2"> Đáp án đúng ${correctDiv.data("label")}</span>
-            //                                 <!-- Explaination -->
-            //                                 <span class="fw-light my-2"><i class="fa-solid fa-lightbulb text-warning"></i> Giải thích</span>
-            //                                 <div class="card card-body fw-light mb-2 fst-italic">
-            //                                     ${res.explanation}
-            //                                 </div>
-            //                             </div>
-            //                         `);
-
-            //                         scrollTo('#result')
-            //                     },
-            //                     error: error => console.log(error)
-            //                 });
-            //             });
-            //             $('#answer').append(ansDiv);
-            //         });
-
-            //         $("#result").empty();
-            //         $('#btnToggeMediaDisplay').html(`<i class="fa-solid fa-chevron-up"></i> Ẩn`);
-            //         $('#media').show();
-            //         $('#btnPrev').hide();
-            //         $('#btnNext').hide();
-            //         if (currentOrder > 1) {
-            //             $('#btnPrev').show();
-            //             $('#btnPrev').on('click', () => loadQuestionData(questionMap[currentOrder-2].id));
-            //         }
-            //         if (currentOrder < questionMap.length) {
-            //             $('#btnNext').show();
-            //             $('#btnNext').on('click', () => loadQuestionData(questionMap[currentOrder].id));
-            //         }
-            //         $('.q-index.question-index-selected').removeClass('question-index-selected');
-            //         $('.q-index').eq(res.order-1).addClass('question-index-selected');
-            //         scrollTo('header');
-            //     },
-            //     error: error => console.log(error)
-            // })
         }
     </script>
 }

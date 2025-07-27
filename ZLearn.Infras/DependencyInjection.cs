@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
 using StackExchange.Redis;
 using System.Linq;
 using System.Security.Claims;
@@ -19,14 +20,19 @@ using ZLearn.Application.Common.Identity;
 using ZLearn.Application.Common.Interfaces;
 using ZLearn.Application.Common.Utils;
 using ZLearn.Application.Files;
+using ZLearn.Application.Logs;
 using ZLearn.Application.Quizzes;
+using ZLearn.Application.Realtime;
 using ZLearn.Infras.Data;
 using ZLearn.Infras.Data.Interceptors;
 using ZLearn.Infras.Data.Repositories;
 using ZLearn.Infras.Data.Services;
 using ZLearn.Infras.External.CloudinaryStore;
 using ZLearn.Infras.External.Redis;
+using ZLearn.Infras.External.SignalR;
 using ZLearn.Infras.Identity;
+using ZLearn.Infras.Log;
+using ZLearn.Infras.Realtime.AccessTracking;
 
 namespace ZLearn.Infras
 {
@@ -42,6 +48,7 @@ namespace ZLearn.Infras
             builder.Services.AddScoped<IFileRepo, FileRepo>();
             builder.Services.AddScoped<IQuizRepo, QuizRepo>();
             builder.Services.AddScoped<IQuestionRepo, QuestionRepo>();
+            builder.Services.AddScoped<IAccessHistoryRepo, AccessHistoryRepo>();
             builder.Services.AddDbContext<AppDbContext>((sp, options) =>
             {
                 options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
@@ -160,5 +167,43 @@ namespace ZLearn.Infras
             builder.Services.Configure<DatabasebackupConfiguration>(builder.Configuration.GetSection("Backup"));
             builder.Services.AddHostedService<DatabaseBackupService>();
         }
+
+        public static void AddRealtimeServices(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddSignalR();
+        }
+
+        #region Access Tracking
+        public static void AddAccessTrackingService(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddSingleton<IAccessTrackingService, AccessTrackingService>();
+            builder.Services.Configure<AccessTrackingConfig>(
+                builder.Configuration.GetSection("AccessTrackingConfig"));
+            builder.Services.AddHostedService<AutoSaveAccessCountService>();
+        }
+        public static void UseAccessTracking(this WebApplication app)
+        {
+            app.MapHub<AccessTrackingHub>("/access-tracking");
+        }
+        #endregion
+
+        #region Log
+        public static void AddLogService(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddSingleton<ILogService, LogService>();
+            builder.Services.AddTransient<LogMiddleware>();
+            builder.Host.UseSerilog((services, configuration) =>
+            {
+                configuration
+                    .ReadFrom.Configuration(builder.Configuration);
+
+            });
+        }
+
+        public static void UseLogMiddleware(this WebApplication app)
+        {
+            app.UseMiddleware<LogMiddleware>();
+        } 
+        #endregion
     }
 }

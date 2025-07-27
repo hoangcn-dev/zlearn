@@ -30,10 +30,12 @@
 
                     <!-- Search -->
                     <div class="d-flex ms-5 flex-fill">
-                        <div class="position-relative ms-3 w-75">
+                        @* <div class="position-relative ms-3 w-75">
                             <input type="text" class="rounded-1 w-100 border-0 ps-3 py-1" style="padding-right: 30px;" placeholder="Tìm kiếm theo tên đề, tên danh mục, tags, ...">
                             <i title="Tìm kiếm" class="opacity-hover fa-solid fa-magnifying-glass position-absolute end-0 top-50 translate-middle-y me-2"></i>
-                        </div>
+                        </div> *@
+
+
                     </div>
 
                     <!-- Status -->
@@ -105,6 +107,7 @@
                             <i class="fa-brands fa-twitter me-2 opacity-hover"></i>
                             <i class="fa-brands fa-youtube me-2 opacity-hover"></i>
                         </div>
+                        <i class="fw-light mt-1">Đang truy cập: <b id="current_access_count">0</b></i>
                     </div>
 
                     <!-- Products -->
@@ -146,9 +149,22 @@
     <!-- Loading -->
     @await Html.PartialAsync("_Loader")
 
+    <script asp-append-version="true" src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.7/signalr.min.js" integrity="sha512-7SRCYIJtR6F8ocwW7UxW6wGKqbSyqREDbfCORCbGLatU0iugBLwyOXpzhkPyHIFdBO0K2VCu57fvP2Twgx1o2A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    <script asp-append-version="true">
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("@Configuration["AccessTrackingConfig:TrackingPath"]") // URL của Hub, ví dụ: "/chathub"
+            .configureLogging(signalR.LogLevel.Information) // Cấu hình logging (tuỳ chọn)
+            .build();
+        connection.on("UpdateAccessCount", (message) => {
+            $('#current_access_count').text(message);
+        });
+        connection.start();
+    </script>
+
     <script asp-append-version="true">
         showLoading();
 

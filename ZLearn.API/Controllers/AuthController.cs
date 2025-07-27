@@ -85,7 +85,7 @@ namespace ZLearn.API.Controllers
         [Authorize]
         public async Task<IActionResult> GetGoogleAuthResult()
         {
-            var command = new GetAuthDataCommand
+            var command = new GetAuthDataQuery
             {
                 Claims = User
             };

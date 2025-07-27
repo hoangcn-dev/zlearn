@@ -2,6 +2,9 @@
 using ZLearn.AdminDesktopApp.Features.QuizFeature.Services;
 using ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels;
 using ZLearn.AdminDesktopApp.Features.QuizFeature.Views;
+using ZLearn.AdminDesktopApp.Features.SystemFeature.Services;
+using ZLearn.AdminDesktopApp.Features.SystemFeature.ViewModels;
+using ZLearn.AdminDesktopApp.Features.SystemFeature.Views;
 using ZLearn.AdminDesktopApp.Interceptors;
 using ZLearn.AdminDesktopApp.Services;
 using ZLearn.AdminDesktopApp.Stores;
@@ -26,13 +29,16 @@ namespace ZLearn.AdminDesktopApp
             services.AddSingleton<IManageWindowService, ManageWindowService>();            
             services.AddHttpClient("", client =>
             {
-                client.BaseAddress = new Uri("https://localhost:7037/api/");
+                client.BaseAddress = new Uri("https://localhost:7284/api/");
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
                 client.Timeout = TimeSpan.FromSeconds(60);
             }).AddHttpMessageHandler<AuthInterceptor>();
             services.AddSingleton<IQuizApiService, QuizApiService>();
             services.AddSingleton<IFileApiService, FileApiService>();
             services.AddSingleton<IAuthApiService, AuthApiService>();
+            services.AddSingleton<ISystemApiService, SystemApiService>();
+            services.AddSingleton<ILogApiService, LogApiService>();
+            services.AddSingleton<IUserApiService, UserApiService>();
 
 
             // Register viewmodels
@@ -45,6 +51,11 @@ namespace ZLearn.AdminDesktopApp
             services.AddTransient<UpdateQuizCateViewModel>();
             services.AddTransient<ListQuizViewModel>();
             services.AddTransient<AddQuizViewModel>();
+
+            services.AddTransient<ListUsersViewModel>();
+            services.AddTransient<ListLogsViewModel>();
+            services.AddTransient<SystemStatViewModel>();
+            services.AddTransient<UpdateUserViewModel>();
 
             // Register views
             services.AddSingleton<MainWindow>(s => new()
@@ -83,6 +94,22 @@ namespace ZLearn.AdminDesktopApp
             {
                 DataContext = s.GetRequiredService<AddQuizViewModel>()
             });
+            services.AddTransient<ListUsersView>(s => new()
+            {
+                DataContext = s.GetRequiredService<ListUsersViewModel>()
+            });
+            services.AddTransient<ListLogsView>(s => new()
+            {
+                DataContext = s.GetRequiredService<ListLogsViewModel>()
+            });
+            services.AddTransient<SystemStatView>(s => new()
+            {
+                DataContext = s.GetRequiredService<SystemStatViewModel>()
+            });
+            services.AddTransient<UpdateUserWindow>(s => new()
+            {
+                DataContext = s.GetRequiredService<UpdateUserViewModel>()
+            });
 
             _serviceProvider = services.BuildServiceProvider();
         }
@@ -90,11 +117,6 @@ namespace ZLearn.AdminDesktopApp
         protected override void OnStartup(System.Windows.StartupEventArgs e)
         {
             base.OnStartup(e);
-
-            //var navigation = _serviceProvider.GetRequiredService<NavigationStore>();
-            //navigation.CurrentViewModel = _serviceProvider.GetRequiredService<ListQuizViewModel>();
-            //navigation.CurrentDestination = Enums.NavDestination.QuizManage;
-
             var windowManager = _serviceProvider.GetRequiredService<IManageWindowService>();
             windowManager.ShowWindow<LoginWindow>();
         }

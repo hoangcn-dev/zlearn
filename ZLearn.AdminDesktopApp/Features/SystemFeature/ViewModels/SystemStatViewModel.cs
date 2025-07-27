@@ -45,9 +45,10 @@ namespace ZLearn.AdminDesktopApp.Features.SystemFeature.ViewModels
         private async void InitSignalR()
         {
             _hubConnection = new HubConnectionBuilder()
-                .WithUrl("https://localhost:7284/visitor-tracking")
+                .WithUrl("https://localhost:7284/access-tracking")
                 .WithAutomaticReconnect()
                 .Build();
+
             _hubConnection.On<object>("UpdateAccessCount", (data) =>
             {
                 CurrentAccessCount = ((JsonElement)data).GetInt64();

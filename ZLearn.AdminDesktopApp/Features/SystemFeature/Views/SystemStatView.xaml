@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ZLearn.AdminDesktopApp.Features.SystemFeature.Views" xmlns:components="clr-namespace:ZLearn.AdminDesktopApp.Components" xmlns:viewmodels="clr-namespace:ZLearn.AdminDesktopApp.Features.SystemFeature.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:SystemStatViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Border Background="LightGray" Padding="5">
+    <Border Background="LightGray">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>

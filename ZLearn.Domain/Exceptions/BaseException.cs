@@ -24,6 +24,7 @@
         public const string FORBIDDEN = nameof(FORBIDDEN);
         public const string INVALID_CREDENTIALS = nameof(INVALID_CREDENTIALS);
         public const string TOKEN_EXPIRED = nameof(TOKEN_EXPIRED);
+        public const string ACCOUNT_LOCKED = nameof(ACCOUNT_LOCKED);
 
         // Resource errors
         public const string NOT_FOUND = nameof(NOT_FOUND);
