@@ -40,7 +40,6 @@ namespace ZLearn.AdminDesktopApp.ViewModels
             _navStore = navStore;
             _navStore.PropertyChanged += NavStore_PropertyChanged;
             _serviceProvider = serviceProvider;
-
             UserName = _store.Get<string>(VariableStore.Keys.UserName, false)!;
             Role = _store.Get<string>(VariableStore.Keys.Role, false)!;
             NavigateCommand = new RelayCommand<NavDestination>(NavigateToView, CanNavigate);
@@ -100,7 +99,6 @@ namespace ZLearn.AdminDesktopApp.ViewModels
             {
                 _navStore.CurrentViewModel = _serviceProvider.GetRequiredService<ListUsersViewModel>();
             }
-
         }
     }
 }

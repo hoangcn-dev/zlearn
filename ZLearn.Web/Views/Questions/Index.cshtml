@@ -1,6 +1,10 @@
 ﻿@using ZLearn.Application.Quizzes.DTOs
 @model QuestionContentDto
 
+@{
+    ViewData["Title"] = $"Câu {Model.Order}: {Model.StringContent}";
+}
+
 <div class="container">
     <div class="row g-3">
         <div class="col-12">

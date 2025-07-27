@@ -12,7 +12,7 @@ function hideLoading() {
     $('#loader-container').hide();
 }
 
-function getData(url, callback) {
+function getData(url, callback, isShowMess = false) {
     showLoading();
     $.ajax({
         url: url,
@@ -25,11 +25,19 @@ function getData(url, callback) {
             } else {
                 console.error(res.message);
             }
+
+            if (isShowMess) {
+                showMess(res.message, res.succeeded);
+            }
         },
         error: error => {
             if (error.status === 403) {
                 removeSessionData();
                 window.location.href = "/forbidden";
+            }
+            else if (error.status == 401) {
+                $('#login-dialog').show()
+                
             }
             hideLoading();
             console.error(error);
@@ -77,4 +85,29 @@ function removeSessionData() {
     sessionStorage.removeItem('imagePath');
     sessionStorage.removeItem('userName');
     sessionStorage.removeItem('roles');
+}
+
+function showMess(msg, isSuccess = true) {
+    const iconHtml = isSuccess
+        ? '<i class="fa-solid fa-circle-check" style="color: rgb(0, 183, 43);"></i>'
+        : '<i class="fa-solid fa-triangle-exclamation" style="color: red;"></i>';
+    const uniqueId = `msg-${Date.now()}`;
+    const div = $(`
+        <div id="${uniqueId}" class="position-fixed start-50 top-0 translate-middle-x shadow-sm" style="margin-top: 40px; z-index: 1;">
+            <div class="d-flex bg-white align-items-center px-2 py-1">
+                ${iconHtml}
+                <div class="mx-2" style="font-size: 14px;">${msg}</div>
+                <i class="fa-solid fa-xmark ms-1 text-secondary opacity-hover close-btn"></i>
+            </div>
+        </div>
+    `);
+    $('body').append(div);
+    div.hide();
+    div.slideDown(500);
+    setTimeout(() => {
+        div.slideUp(500, () => div.remove());
+    }, 3000);
+    div.find('.close-btn').click(() => {
+        div.slideUp(500, () => div.remove());
+    });
 }

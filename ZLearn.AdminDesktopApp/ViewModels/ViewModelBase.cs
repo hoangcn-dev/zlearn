@@ -40,25 +40,38 @@ namespace ZLearn.AdminDesktopApp.ViewModels
 
         protected async Task<Result<T>?> ExecuteAsync<T>(Func<Task<Result<T>>> action)
         {
-            Mouse.OverrideCursor = Cursors.Wait;
-            _taskStatusStore.Loading = true;
+            System.Windows.Application.Current.Dispatcher.Invoke(() =>
+            {
+                Mouse.OverrideCursor = Cursors.Wait;
+                _taskStatusStore.Loading = true;
+            });
+
             try
             {
-                var res = await action();
-                _taskStatusStore.SetSuccessStatus(res.Message ?? "Thực hiện tác vụ thành công");
-                _taskStatusStore.Loading = false;
+                var res = await Task.Run(async () => await action());
+                System.Windows.Application.Current.Dispatcher.Invoke(() =>
+                {
+                    _taskStatusStore.SetSuccessStatus(res.Message ?? "Thực hiện tác vụ thành công");
+                    _taskStatusStore.Loading = false;
+                });
                 return res;
             }
             catch (Exception ex)
             {
-                _taskStatusStore.SetErrorStatus(ex.Message);
-                _taskStatusStore.Loading = false;
+                System.Windows.Application.Current.Dispatcher.Invoke(() =>
+                {
+                    _taskStatusStore.SetErrorStatus(ex.Message);
+                    _taskStatusStore.Loading = false;
+                });
                 return Result<T>.Failure("Đã có lỗi xảy ra");
             }
             finally
             {
-                _taskStatusStore.Loading = false;
-                Mouse.OverrideCursor = null;
+                System.Windows.Application.Current.Dispatcher.Invoke(() =>
+                {
+                    _taskStatusStore.Loading = false;
+                    Mouse.OverrideCursor = null;
+                });
             }
         }
 
