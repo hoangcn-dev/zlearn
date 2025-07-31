@@ -18,7 +18,6 @@ namespace ZLearn.Infras.Realtime.AccessTracking
 
         public async Task UpdateAccessCount()
         {
-            Console.WriteLine(_accessCountStatus.Where(a => a.Value != 0).Count());
             await _hubContext.Clients.All.SendAsync("UpdateAccessCount", _accessCountStatus.Where(a => a.Value != 0).Count());
         }
 

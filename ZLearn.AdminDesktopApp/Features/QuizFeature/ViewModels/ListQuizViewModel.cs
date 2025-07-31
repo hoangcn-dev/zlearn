@@ -60,7 +60,7 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
         public ICommand ResetCommand { get; }
         public ICommand ShowAddQuizCommand => new RelayCommand(() =>
         {
-            _manageWindowService.ShowSubWindow<AddQuizWindow>(async () => await Search());
+            _manageWindowService.ShowSubWindow<MainWindow, AddQuizWindow>(async () => await Search());
         });
         public ICommand DeleteCommand { get; }
 

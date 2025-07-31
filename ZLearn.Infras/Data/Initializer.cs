@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
 using ZLearn.API.Exceptions;
 using ZLearn.Application.Common.Identity;
 using ZLearn.Application.Common.Utils;
@@ -110,7 +108,7 @@ namespace ZLearn.Infras.Data
                         ImageId = null,
                         LastLogin = DateTimeOffset.UtcNow
                     };
-                    var createAdminResult = await _userManager.CreateAsync(adminAccount, "Admin@123");
+                    var createAdminResult = await _userManager.CreateAsync(adminAccount, EnvVariableHelper.GetValue(EnvVariableNames.ADMIN_PASSWORD));
                     if (!createAdminResult.Succeeded)
                         throw new DatabaseErrorException("Failed to create default admin account.");
                     var assignRoleResult = await _userManager.AddToRoleAsync(adminAccount, nameof(UserRole.Admin));

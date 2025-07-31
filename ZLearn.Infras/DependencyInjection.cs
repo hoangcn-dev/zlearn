@@ -5,11 +5,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using StackExchange.Redis;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
@@ -192,11 +190,20 @@ namespace ZLearn.Infras
         {
             builder.Services.AddSingleton<ILogService, LogService>();
             builder.Services.AddTransient<LogMiddleware>();
-            builder.Host.UseSerilog((services, configuration) =>
+            builder.Host.UseSerilog((services, config) =>
             {
-                configuration
-                    .ReadFrom.Configuration(builder.Configuration);
-
+                config
+                    .MinimumLevel.Information()
+                    .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning) // Loại bỏ log Information từ Microsoft
+                    .MinimumLevel.Override("System", Serilog.Events.LogEventLevel.Warning)
+                    .WriteTo.File(
+                        path: Path.Combine(AppDomain.CurrentDomain.BaseDirectory, builder.Configuration["Serilog:WriteTo:0:Args:path"]),
+                        rollingInterval: (RollingInterval)Enum.Parse(typeof(RollingInterval), builder.Configuration["Serilog:WriteTo:0:Args:rollingInterval"], true),
+                        outputTemplate: builder.Configuration["Serilog:WriteTo:0:Args:outputTemplate"]
+                    )
+                    .WriteTo.Console(
+                        outputTemplate: builder.Configuration["Serilog:WriteTo:1:Args:outputTemplate"]
+                    );
             });
         }
 

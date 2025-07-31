@@ -36,6 +36,7 @@ namespace ZLearn.Application.Categories.Commands.UpdateCate
             }
 
             cate.Name = request.Name;
+            cate.Description = request.Description;
             cate.AddEvent(new CateUpdatedEvent(cate));
             _cateRepo.Update(cate);
             await _cateRepo.SaveChanges();

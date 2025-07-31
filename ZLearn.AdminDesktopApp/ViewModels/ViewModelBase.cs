@@ -63,7 +63,7 @@ namespace ZLearn.AdminDesktopApp.ViewModels
                     _taskStatusStore.SetErrorStatus(ex.Message);
                     _taskStatusStore.Loading = false;
                 });
-                return Result<T>.Failure("Đã có lỗi xảy ra");
+                return Result<T>.Failure($"Đã có lỗi xảy ra: {ex.Message}");
             }
             finally
             {

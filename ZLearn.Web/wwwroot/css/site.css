@@ -15,6 +15,11 @@ a {
 body {
     font-family: var(--main-font-family);
     background-color: var(--bg-color) !important;
+    scroll-behavior: smooth;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 input {
@@ -88,4 +93,8 @@ input {
     padding: 2px 3px;
     color: white;
     background: var(--secondary-color);
+}
+
+.dropdown-item:hover {
+    cursor: pointer;
 }

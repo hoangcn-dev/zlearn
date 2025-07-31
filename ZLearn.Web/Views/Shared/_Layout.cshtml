@@ -10,7 +10,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]</title>
+    <title>@ViewData["Title"] - Zlearn</title>
+    <meta name="description" content="@ViewBag.MetaDescription" />
 
     <link rel="icon" type="image/x-icon" href="~/logo.ico" asp-append-version="true"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -43,12 +44,19 @@
                     <div class="d-flex ms-3 align-items-center">
                         <!-- LogedIn -->
                         <div id="loggedInContainer" class="d-flex align-items-center">
-                            <img id="avt" src="" alt="" width="36" height="36" class="rounded-pill">
+                            <img id="avt" src="" alt="" width="36" height="36" class="rounded-pill object-fit-cover">
                             <div class="d-flex flex-column mx-2">
                                 <div id="userName" class="fw-light text-white">B22DCCN589</div>
                                 <div id="roles" class="fw-bold" style="font-size: 11px; color: var(--secondary-color)">Admin</div>
                             </div>
-                            <i class="fa-solid fa-chevron-down fs-6 text-white opacity-hover"></i> 
+                            <div class="dropdown">
+                                <i class="fa-solid fa-chevron-down fs-6 text-white opacity-hover" data-bs-toggle="dropdown"></i>
+                                <div id="account-actions" class="dropdown-menu rounded-0">
+                                    <a asp-controller="Users" asp-action="Profile" class="dropdown-item"><i class="fa-solid fa-user me-1"></i> Thông tin tài khoản</a>
+                                    <hr class="dropdown-divider">
+                                    <a onclick="sign_out()" class="dropdown-item"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i> Đăng xuất</a>
+                                </div>
+                            </div>
                         </div>
                         <!-- Login -->
                         <div id="btnLogin" class="fw-bold opacity-hover" style="font-size: 16px; color: var(--secondary-color)" onclick="document.getElementById('login-dialog').hidden = false">Đăng nhập</div>
@@ -71,7 +79,7 @@
     </header>
 
     <!-- Navigation -->
-    <section>
+    <section id="navbar">
         <div class="w-100 shadow-sm">
             <div class="container">
                 <div id="navigation-tab" class="d-flex justify-content-between fw-bold">
@@ -91,6 +99,12 @@
         </div>
     </section>
 
+    <!-- Bubble -->
+    <span id="bubble" class="position-fixed end-0 bottom-0 shadow-sm border-2 border-white border opacity-hover text-center align-content-center rounded-pill m-4 shadow-lg"
+          style="height: 50px; width: 50px; background-color: var(--main-color)" title="Cuộn về đầu trang">
+        <i class="fas fa-chevron-up fs-4 text-white"></i>
+    </span>
+
     <!-- Footer -->
     <section>
         <div class="w-100 text-white" style="background-color: var(--main-color);">
@@ -100,8 +114,8 @@
                     <!-- Intro -->
                     <div class="col-4">
                         <a href="#"><img src="/images/banner-light.png" alt="" height="50"></a>
-                        <p class="mt-2 fw-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. A perferendis similique voluptas officiis doloribus dolores, consectetur, magni assumenda cupiditate illum dolorum optio sit. Excepturi commodi, impedit fugiat a nam quasi?</p>
-                        <div class="d-flex">
+                        <p class="mt-2 fw-light">ZLearn là nền tảng học tập trực tuyến hàng đầu, cung cấp kho tàng tài nguyên phong phú giúp bạn chinh phục kiến thức trong mọi lĩnh vực. Từ các khóa học chuyên sâu, bài giảng video, đến tài liệu tham khảo và bài tập thực hành, ZLearn được thiết kế để hỗ trợ người học ở mọi cấp độ, từ cơ bản đến nâng cao. Với giao diện thân thiện, nội dung chất lượng cao được cập nhật liên tục, và cộng đồng học tập sôi động, ZLearn cam kết đồng hành cùng bạn trên hành trình khám phá tri thức và phát triển bản thân. Hãy tham gia ZLearn ngay hôm nay để mở ra cánh cửa đến với thế giới học tập không giới hạn!</p>
+                        <div class="d-flex mt-4">
                             <i class="fa-brands fa-facebook me-2 opacity-hover" title="Facebook"></i>
                             <i class="fa-brands fa-instagram me-2 opacity-hover"></i>
                             <i class="fa-brands fa-twitter me-2 opacity-hover"></i>
@@ -156,8 +170,8 @@
     
     <script asp-append-version="true">
         const connection = new signalR.HubConnectionBuilder()
-            .withUrl("@Configuration["AccessTrackingConfig:TrackingPath"]") // URL của Hub, ví dụ: "/chathub"
-            .configureLogging(signalR.LogLevel.Information) // Cấu hình logging (tuỳ chọn)
+            .withUrl("/@Configuration["AccessTrackingConfig:TrackingPath"]")
+            .configureLogging(signalR.LogLevel.None)
             .build();
         connection.on("UpdateAccessCount", (message) => {
             $('#current_access_count').text(message);
@@ -177,10 +191,9 @@
         });
 
         $(document).ready(() => {
+            // Handle google call back
             const urlParams = new URLSearchParams(window.location.search);
             $('#loggedInContainer').addClass('d-none');
-            getSessionData();
-            // Handle google call back
             if (urlParams.has('google-login-success')) {
                 const isSuccess = urlParams.get('google-login-success');
                 if (isSuccess) {
@@ -188,10 +201,19 @@
                 } else {
                     alert('Đăng nhập thất bại.');
                 }
+            } else if (!getSessionData()) {
+                saveSessionData();
             }
-
             hideLoading();
+
+            // Bubble
+            $('#bubble').on('click', () => scrollTo('header'));
         });
+
+
+        function sign_out() {
+            showConfirm("Xác nhận đăng xuất?", () => removeSessionData());
+        }
     </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

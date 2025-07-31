@@ -6,6 +6,7 @@ namespace ZLearn.Application.Categories.Commands.UpdateCate
     {
         public string? CateId { get; set; }
         public string Name { get; set; }
+        public string? Description { get; set; }
         public string? ThumbnailId { get; set; }
     }
 }

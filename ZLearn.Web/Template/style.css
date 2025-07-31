@@ -99,6 +99,31 @@ input {
     animation: rotation 1s linear infinite;
 }
 
+.menu-option.selected {
+    background-color: var(--bg-color);
+    border: 1px solid var(--bg-color);
+    box-shadow: none !important;
+}
+
+.dropdown-item:hover {
+    cursor: pointer;
+}
+
+#profile-img button {
+    opacity: 0.2;
+    background: transparent;
+}
+
+#profile-img:hover {
+    img {
+        box-shadow: 0px 0px 5px var(--main-color) !important;
+    }
+    button {
+        opacity: 1 !important;
+        background: white;
+    }
+}
+
 @keyframes rotation {
     0% {
         transform: rotate(0deg);

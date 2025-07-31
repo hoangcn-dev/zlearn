@@ -2,7 +2,8 @@
 @model QuestionContentDto
 
 @{
-    ViewData["Title"] = $"Câu {Model.Order}: {Model.StringContent}";
+    ViewData["Title"] = $"{Model.QuizName}: {Model.StringContent}";
+    ViewBag.MetaDescription = $"Câu hỏi trắc nghiệm số {Model.Order} trong đề thi {Model.QuizName}. Nội dung: {Model.StringContent}";
 }
 
 <div class="container">
@@ -110,7 +111,8 @@
 @section Scripts 
 {
     <script asp-append-version="true">
-        let qId = new URLSearchParams(window.location.search).get('id');
+        let params = new URLSearchParams(window.location.search);
+        let qId = params.get('id');
         let currentOrder = @Model.Order;
         let questionMap = [];
         let isAnsSelected = false;
@@ -141,7 +143,7 @@
                         </div>
                     `);
 
-                    scrollTo('#result')
+                    // scrollTo('#result')
                 });
             });
 
@@ -193,6 +195,8 @@
                 isAnsSelected = false;
 
                 // Update UI
+                document.title = `Câu ${res.order}: ${res.stringContent}`;
+                updateQueryParam("id", res.id);
                 $('#attempt').text(`${res.attemptCount} Lượt làm`);
                 $('#order').text(`Câu ${res.order}: `);
                 $('#stringContent').text(res.stringContent);
@@ -265,7 +269,7 @@
                                 </div>
                             `);
 
-                            scrollTo('#result')
+                            // scrollTo('#result')
                         });
                     });
                     $('#answer').append(ansDiv);

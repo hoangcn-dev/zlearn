@@ -14,6 +14,7 @@ namespace ZLearn.AdminDesktopApp
             _menuManager.Add(btnQuizTest, spQuizTestItem);
             _menuManager.Add(btnSystem, spSystem);
             Loaded += (s, e) => InitOriginState();
+            Closed += (s, e) => System.Windows.Application.Current.Shutdown();
         }
 
         private void OnMenuButtonClick(object sender, RoutedEventArgs e)

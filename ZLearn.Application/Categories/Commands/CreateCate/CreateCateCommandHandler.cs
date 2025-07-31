@@ -35,6 +35,7 @@ namespace ZLearn.Application.Categories.Commands.CreateCate
                 Id = IdGenerator.Generate("CAT"),
                 Name = request.Name,
                 ThumbnailId = request.ThumbnailId,
+                Description = request.Description
             };
 
             cate.AddEvent(new CateCreatedEvent(cate));

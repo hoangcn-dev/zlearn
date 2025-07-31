@@ -30,6 +30,7 @@ namespace ZLearn.Infras.Data.Repositories
         public async Task<Question?> GetQuestionWithAnswers(Expression<Func<Question, bool>> filter)
         {
             var q = await _context.Set<Question>()
+                .Include(q => q.Quiz)
                 .Include(q => q.Answers)
                 .FirstOrDefaultAsync(filter);
             return q;

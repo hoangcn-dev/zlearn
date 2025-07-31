@@ -16,7 +16,7 @@ namespace ZLearn.Infras.Log
         public async Task<List<LogListItemDto>> GetLogsOfDay(DateTime? date)
         {
             date ??= DateTime.Now;
-            string defaultPath = _configuration["Serilog:WriteTo:0:Args:path"];
+            string defaultPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, _configuration["Serilog:WriteTo:0:Args:path"]!);
             string filePath = $"{defaultPath}{date:yyyyMMdd}";
 
             var logs = new List<LogListItemDto>();

@@ -111,7 +111,6 @@ namespace ZLearn.Web.Controllers.API
                 Id = id
             };
             var content = await _mediator.Send(query);
-            Console.WriteLine(Request.Cookies["access-token"]);
             return Ok(Result<QuestionContentDto>.Success("Get question content successfully", content));
         }
 

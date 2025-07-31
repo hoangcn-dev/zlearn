@@ -78,7 +78,7 @@ namespace ZLearn.AdminDesktopApp.Features.SystemFeature.ViewModels
         {
             var userId = SelectedIds[0];
             _store.Add(VariableStore.Keys.SelectedUserId, userId);
-            _manageWindowService.ShowSubWindow<UpdateUserWindow>(LoadUsersData);
+            _manageWindowService.ShowSubWindow<MainWindow, UpdateUserWindow>(LoadUsersData);
         }
 
         private bool CanSearch() => !string.IsNullOrEmpty(Key);

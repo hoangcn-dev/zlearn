@@ -22,9 +22,8 @@ namespace ZLearn.Infras.Data.Services
         {
             _config = options.Value;
             _logger = logger;
-
             _connectionString = EnvVariableHelper.GetValue(EnvVariableNames.POSTGRESQL_CONNECTION_STRING);
-            _backupPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, _config.BackupDirectory);
+            _backupPath = Path.Combine(AppContext.BaseDirectory, _config.BackupDirectory);
             if (!Directory.Exists(_backupPath))
             {
                 Directory.CreateDirectory(_backupPath);

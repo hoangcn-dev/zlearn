@@ -43,7 +43,7 @@ namespace ZLearn.AdminDesktopApp.ViewModels
             UserName = _store.Get<string>(VariableStore.Keys.UserName, false)!;
             Role = _store.Get<string>(VariableStore.Keys.Role, false)!;
             NavigateCommand = new RelayCommand<NavDestination>(NavigateToView, CanNavigate);
-            NavigateToView(NavDestination.SystemLog);
+            NavigateToView(NavDestination.SystemAnal);
         }
 
         private void TaskStatusStore_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)

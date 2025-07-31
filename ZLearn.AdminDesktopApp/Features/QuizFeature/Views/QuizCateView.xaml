@@ -29,6 +29,7 @@
               CanUserReorderColumns="True"
               CanUserResizeColumns="True"
               CanUserSortColumns="True"
+              SelectionUnit="Cell"
               AlternatingRowBackground="White"
               BorderThickness="1"
               ItemsSource="{Binding Categories}"

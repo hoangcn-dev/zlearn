@@ -29,6 +29,7 @@ namespace ZLearn.Application.Categories.Queries.GetCateById
                     Id = c.Id,
                     Name = c.Name,
                     ThumbnailUrl = c.ThumbnailId ?? string.Empty,
+                    Description = c.Description ?? "Chưa có mô tả",
                     CreatedAt = c.CreatedAt,
                     CreatedBy = c.CreatedBy,
                     LastModifiedAt = c.LastModifiedAt,

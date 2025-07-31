@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\images\banner-light.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Template\" />
   </ItemGroup>
 

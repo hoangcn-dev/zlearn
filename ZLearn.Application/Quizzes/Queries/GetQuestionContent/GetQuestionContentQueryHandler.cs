@@ -47,6 +47,7 @@ namespace ZLearn.Application.Quizzes.Queries.GetQuestionContent
                 Id = question.Id,
                 StringContent = question.StringContent,
                 QuizId = question.QuizId,
+                QuizName = question.Quiz.Name,
                 AttemptCount = question.AttemptCount,
                 ImageUrls = question.MediaFileIds.Split(",")
                     .Where(id => files.ContainsKey(id))

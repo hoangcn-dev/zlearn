@@ -1,7 +1,7 @@
+using Microsoft.AspNetCore.HttpOverrides;
 using System.Text.Json.Serialization;
 using ZLearn.Application;
 using ZLearn.Infras;
-using ZLearn.Infras.Log;
 using ZLearn.Web.Middlewares;
 
 namespace ZLearn.Web
@@ -43,7 +43,15 @@ namespace ZLearn.Web
                     options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
                 });
             builder.Services.AddControllersWithViews();
-            
+
+            // Fix bug redirect_uri (gg auth) not correct, that cause by nginx redirect from https => http
+            builder.Services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto | ForwardedHeaders.XForwardedHost;
+                options.KnownNetworks.Clear();
+                options.KnownProxies.Clear();
+            });
+
 
             var app = builder.Build();
             if (!app.Environment.IsDevelopment())
@@ -52,6 +60,7 @@ namespace ZLearn.Web
                 app.UseHsts();
             }
 
+            app.UseForwardedHeaders();
             app.UseExceptionMiddleware();
             app.UseJwtMiddleware();
             app.UseHttpsRedirection();
@@ -65,6 +74,7 @@ namespace ZLearn.Web
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}");
             app.MapControllers();
+            app.InitializeDatabase();
             app.Run();
         }
     }

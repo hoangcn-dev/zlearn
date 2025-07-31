@@ -492,3 +492,10 @@ docker-compose.dev.yaml
 
 # redis
 redis.conf
+
+# net
+**/logs
+**/appsettings.Production.json
+docker-compose.yaml
+docker-compose.db.yaml
+nginx.conf

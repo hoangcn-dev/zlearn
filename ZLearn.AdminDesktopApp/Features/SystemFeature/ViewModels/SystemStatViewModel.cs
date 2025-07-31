@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.Extensions.Configuration;
 using System.Text.Json;
 using ZLearn.AdminDesktopApp.Features.SystemFeature.Services;
 using ZLearn.AdminDesktopApp.Helpers;
@@ -13,6 +14,7 @@ namespace ZLearn.AdminDesktopApp.Features.SystemFeature.ViewModels
     {
         private HubConnection _hubConnection;
         private readonly ISystemApiService _systemApiService;
+        private readonly IConfiguration _configuration;
 
         [ObservableProperty]
         private AccessCountStatDto history;
@@ -22,9 +24,11 @@ namespace ZLearn.AdminDesktopApp.Features.SystemFeature.ViewModels
         public SystemStatViewModel(
             TaskStatusStore taskStatusStore,
             VariableStore store,
-            ISystemApiService systemApiService) : base(taskStatusStore, store)
+            ISystemApiService systemApiService,
+            IConfiguration configuration) : base(taskStatusStore, store)
         {
             _systemApiService = systemApiService;
+            _configuration = configuration;
             LoadData();
             InitSignalR();
         }
@@ -45,7 +49,7 @@ namespace ZLearn.AdminDesktopApp.Features.SystemFeature.ViewModels
         private async void InitSignalR()
         {
             _hubConnection = new HubConnectionBuilder()
-                .WithUrl("https://localhost:7284/access-tracking")
+                .WithUrl($"{_configuration.GetSection("APIConfigs")["BaseSocketUrl"]}/access-tracking")
                 .WithAutomaticReconnect()
                 .Build();
 

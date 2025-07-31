@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using SixLabors.ImageSharp;
 using System.Security.Claims;
@@ -31,6 +32,7 @@ namespace ZLearn.Infras.Identity
         private readonly HttpClient _httpClient;
         private readonly IFileRepo _fileRepo;
         private readonly IMediaStoreService _mediaStoreService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
         public IdentityService(
             UserManager<AppUser> userManager,
@@ -39,7 +41,8 @@ namespace ZLearn.Infras.Identity
             HttpClient httpClient,
             IFileRepo fileRepo,
             IMediaStoreService mediaStoreService,
-            RoleManager<AppRole> roleManager)
+            RoleManager<AppRole> roleManager,
+            IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -48,6 +51,7 @@ namespace ZLearn.Infras.Identity
             _fileRepo = fileRepo;
             _mediaStoreService = mediaStoreService;
             _roleManager = roleManager;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<UserSessionDataDto> AuthenticateAsync(SignInCommand data)
@@ -322,7 +326,6 @@ namespace ZLearn.Infras.Identity
         public async Task<UpdateResponseDto> UpdateUserProfile(UpdateUserProfileCommand request)
         {
             var user = await _userManager.Users
-                .AsNoTracking()
                 .FirstOrDefaultAsync(u => u.Id == request.Id)
                 ?? throw new NotFoundException("User", request.Id);
 
@@ -339,6 +342,7 @@ namespace ZLearn.Infras.Identity
             user.LastName = data.LastName;
             user.NickName = data.NickName;
             user.PhoneNumber = data.PhoneNumber;
+            user.IsShowNickName = data.IsShowNickName;
 
             await _userManager.UpdateAsync(user);
 

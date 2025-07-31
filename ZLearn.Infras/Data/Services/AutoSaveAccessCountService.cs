@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System.Threading.Tasks;
 using ZLearn.Application.Common.Utils;
 using ZLearn.Application.Realtime;
 using ZLearn.Domain.Entities;

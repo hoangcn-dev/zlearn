@@ -17,6 +17,7 @@ namespace ZLearn.Application.Common.Utils
 
     public class EnvVariableNames
     {
+        public const string ADMIN_PASSWORD = nameof(ADMIN_PASSWORD);
         public const string POSTGRESQL_CONNECTION_STRING = nameof(POSTGRESQL_CONNECTION_STRING);
         public const string JWT_SECRET_KEY = nameof(JWT_SECRET_KEY);
         public const string REDIS_CONNECTION_PASSWORD = nameof(REDIS_CONNECTION_PASSWORD);

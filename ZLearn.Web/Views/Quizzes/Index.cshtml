@@ -1,8 +1,10 @@
-﻿@using ZLearn.Application.Common.DTOs
+﻿@using ZLearn.Application.Categories.DTOs
+@using ZLearn.Application.Common.DTOs
 @using ZLearn.Application.Quizzes.DTOs
-@model PaginatedDto<QuizListItemDto>
+@model (CateDetailDto, PaginatedDto<QuizListItemDto>)
 @{
-    ViewData["Title"] = "Danh sách đề thi";
+    ViewData["Title"] = $"{Model.Item1.Name}";
+    ViewBag.MetaDescription = $"{Model.Item1.Description}";
 }
 
 <div class="container">
@@ -17,7 +19,7 @@
 
     <div class="d-flex flex-wrap">
 
-        @foreach (var item in Model.Items)
+        @foreach (var item in Model.Item2.Items)
         {
             <a asp-action="Detail" asp-route-id="@item.Id" asp-controller="Quizzes" class="text-decoration-none d-flex flex-column mb-2 highlight-hover bg-white px-3 py-2 shadow-sm rounded-1 border-1 border me-2">
                 <div class="fw-bold mb-1 fs-5" style="color: var(--main-color);">@item.Name</div>
@@ -30,6 +32,5 @@
                 </div>
             </a>
         }
-
     </div>
 </div>

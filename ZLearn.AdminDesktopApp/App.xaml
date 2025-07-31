@@ -4,7 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
     xmlns:local="clr-namespace:ZLearn.AdminDesktopApp" 
     xmlns:converters="clr-namespace:ZLearn.AdminDesktopApp.Converters" 
-    xmlns:components="clr-namespace:ZLearn.AdminDesktopApp.Components">
+    xmlns:components="clr-namespace:ZLearn.AdminDesktopApp.Components"
+    >
     <Application.Resources>
 
         <Style x:Key="Default" TargetType="Button">

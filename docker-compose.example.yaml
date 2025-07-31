@@ -1,9 +1,25 @@
 version: "3.8"
 services:
-  redis:
-    image: redis:latest
+  zlearn_web:
+    container_name: 'zlearn_web'
+    image: hoangcndev/zlearn:zlearn_web-1.0
     ports:
-        - "6379:6379"
+      - "<out-port>:80"
     volumes:
-        - ./redis.conf:/usr/local/etc/redis/redis.conf
-    command: redis-server /usr/local/etc/redis/redis.conf
+      - /hoangcn/backup:/app/backup
+    environment:
+      - ADMIN_PASSWORD=
+      - ASPNETCORE_ENVIRONMENT=Production
+      - POSTGRESQL_CONNECTION_STRING=
+      - JWT_SECRET_KEY=
+      - REDIS_CONNECTION_PASSWORD=
+      - GOOGLE_CLIENT_ID=
+      - GOOGLE_CLIENT_SECRET=
+      - CLOUDINARY_NAME=
+      - CLOUDINARY_API_KEY=
+      - CLOUDINARY_API_SECRET=
+    networks:
+      - shared-network
+    depends_on:
+      - pgdb
+      - redis

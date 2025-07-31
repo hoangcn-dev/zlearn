@@ -75,14 +75,14 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
 
         private void ShowAddCateWindow()
         {
-            _manageWindowService.ShowSubWindow<AddQuizCateWindow>(LoadData);
+            _manageWindowService.ShowSubWindow<MainWindow, AddQuizCateWindow>(LoadData);
         }
 
 
         private void ShowUpdateCateWindow()
         {
             _store.Add("UpdateCateId", SelectedCateIds.First());
-            _manageWindowService.ShowSubWindow<UpdateQuizCateWindow>(LoadData);
+            _manageWindowService.ShowSubWindow<MainWindow, UpdateQuizCateWindow>(LoadData);
         }
 
         private void DeleteCategories()

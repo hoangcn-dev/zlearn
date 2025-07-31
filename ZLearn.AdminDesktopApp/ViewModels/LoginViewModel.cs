@@ -36,8 +36,8 @@ namespace ZLearn.AdminDesktopApp.ViewModels
             } 
         }
 
-        private string _remember;
-        public string Remember { get => _remember; set => SetProperty(ref _remember, value); }
+        private bool _remember;
+        public bool Remember { get => _remember; set => SetProperty(ref _remember, value); }
 
         public bool IsLoading => _taskStatusStore.Loading;
 
@@ -61,8 +61,6 @@ namespace ZLearn.AdminDesktopApp.ViewModels
             LoginCommand = new AsyncRelayCommand(LoginAsync, CanLogin);
             NavigateToMainWindowCommand = new RelayCommand(() => _manageWindowService.ShowWindow<MainWindow>());
             CloseWindowCommand = new RelayCommand(() => _manageWindowService.CloseWindow<LoginWindow>());
-            UserName = "admin";
-            Password = "Admin@123";
         }
 
         private void TaskStatusStore_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)

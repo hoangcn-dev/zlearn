@@ -1,4 +1,5 @@
-﻿using ZLearn.Infras.Identity;
+﻿using ZLearn.API.Exceptions;
+using ZLearn.Infras.Identity;
 
 namespace ZLearn.Web.Middlewares
 {
@@ -16,10 +17,13 @@ namespace ZLearn.Web.Middlewares
             var token = context.Request.Cookies["token"];
             if (!string.IsNullOrEmpty(token))
             {
-                Console.WriteLine("Cookie: " + token);
+                if (await _jwtService.IsRevokedToken(token))
+                {
+                    context.Response.Cookies.Delete("token");
+                    throw new UnauthorizedException("Access token has been revoked.");
+                }
                 context.Request.Headers.Authorization = "Bearer " + token;
             }
-            Console.WriteLine("Authorization: " + token);
             await next(context);
         }
     }

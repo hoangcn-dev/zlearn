@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using ZLearn.Application.Categories.Queries.GetCateById;
 using ZLearn.Application.Quizzes.Queries.GetListQuiz;
 using ZLearn.Application.Quizzes.Queries.GetQuizDetail;
 
@@ -25,7 +26,11 @@ namespace ZLearn.Web.Controllers
                 PageIndex = 1,
                 PageSize = 100
             });
-            return View(quizzes);
+            var cateDetail = await _mediator.Send(new GetCateByIdQuery
+            {
+                CateId = category
+            });
+            return View((cateDetail, quizzes));
         }
 
         [HttpGet("{id}")]

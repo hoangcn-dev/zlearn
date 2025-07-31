@@ -9,7 +9,7 @@ namespace ZLearn.AdminDesktopApp.Services
     {
         void CloseWindow<TWindow>() where TWindow : Window;
         Window ShowWindow<TWindow>(Action? onClose = null) where TWindow : Window;
-        Window ShowSubWindow<TWindow>(Action? onClose = null) where TWindow : Window;
+        Window ShowSubWindow<TWindow, TSubWindow>(Action? onClose = null) where TWindow : Window where TSubWindow : Window;
     }
     public class ManageWindowService : IManageWindowService
     {
@@ -36,10 +36,12 @@ namespace ZLearn.AdminDesktopApp.Services
             return win;
         }
 
-        public Window ShowSubWindow<TWindow>(Action? onClose = null) where TWindow : Window
+        public Window ShowSubWindow<TWindow, TSubWindow>(Action? onClose = null) where TWindow : Window where TSubWindow : Window
         {
-            var win = _serviceProvider.GetRequiredService<TWindow>();
-            win.Owner = System.Windows.Application.Current.MainWindow;
+            var win = _serviceProvider.GetRequiredService<TSubWindow>();
+            win.Owner = System.Windows.Application.Current.Windows.
+                OfType<TWindow>()
+                .FirstOrDefault();
             if (onClose is not null) win.Closed += (s, e) => onClose();
             win.ShowDialog();
             return win;

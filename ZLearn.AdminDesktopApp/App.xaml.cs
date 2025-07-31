@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System.Windows;
+using System.Windows.Threading;
 using ZLearn.AdminDesktopApp.Features.QuizFeature.Services;
 using ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels;
 using ZLearn.AdminDesktopApp.Features.QuizFeature.Views;
@@ -10,6 +13,7 @@ using ZLearn.AdminDesktopApp.Services;
 using ZLearn.AdminDesktopApp.Stores;
 using ZLearn.AdminDesktopApp.ViewModels;
 using ZLearn.AdminDesktopApp.Views;
+using ZLearn.Application.Common.Utils;
 
 namespace ZLearn.AdminDesktopApp
 {
@@ -19,9 +23,21 @@ namespace ZLearn.AdminDesktopApp
 
         public App()
         {
+            
+            string? env = null;
+#if DEBUG
+            env = "Development";
+#else
+            env = "Production";
+#endif
             var services = new ServiceCollection();
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(AppContext.BaseDirectory)
+                .AddJsonFile($"appsettings.{env}.json", optional: false, reloadOnChange: true)
+                .Build();
 
             // Register services
+            services.AddSingleton<IConfiguration>(configuration);
             services.AddSingleton<VariableStore>();
             services.AddSingleton<TaskStatusStore>();
             services.AddSingleton<NavigationStore>();
@@ -29,7 +45,7 @@ namespace ZLearn.AdminDesktopApp
             services.AddSingleton<IManageWindowService, ManageWindowService>();            
             services.AddHttpClient("", client =>
             {
-                client.BaseAddress = new Uri("https://localhost:7284/api/");
+                client.BaseAddress = new Uri(configuration.GetSection("APIConfigs")["BaseUrl"]);
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
                 client.Timeout = TimeSpan.FromSeconds(60);
             }).AddHttpMessageHandler<AuthInterceptor>();
@@ -116,9 +132,31 @@ namespace ZLearn.AdminDesktopApp
 
         protected override void OnStartup(System.Windows.StartupEventArgs e)
         {
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+            DispatcherUnhandledException += App_DispatcherUnhandledException;
+            TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
+
             base.OnStartup(e);
             var windowManager = _serviceProvider.GetRequiredService<IManageWindowService>();
             windowManager.ShowWindow<LoginWindow>();
+        }
+
+        private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Exception ex = e.ExceptionObject as Exception;
+            MessageBox.Show($"Unhandled exception: {ex?.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show($"Dispatcher exception: {e.Exception.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            e.Handled = true; // Prevents application from crashing
+        }
+
+        private void TaskScheduler_UnobservedTaskException(object? sender, UnobservedTaskExceptionEventArgs e)
+        {
+            MessageBox.Show($"Task exception: {e.Exception.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            e.SetObserved();
         }
     }
 }

@@ -7,6 +7,7 @@ using ZLearn.Application.Auth.Commands.GetAuthData;
 using ZLearn.Application.Auth.Commands.GoogleSignIn;
 using ZLearn.Application.Auth.Commands.SignIn;
 using ZLearn.Application.Auth.Commands.UpdateUser;
+using ZLearn.Application.Auth.Commands.UpdateUserProfile;
 using ZLearn.Application.Auth.DTOs;
 using ZLearn.Application.Auth.Queries.GetAllRoles;
 using ZLearn.Application.Auth.Queries.GetListUsers;
@@ -81,11 +82,11 @@ namespace ZLearn.Web.Controllers.API
             return Ok(Result<UpdateResponseDto>.Success("Update user successfully.", res));
         }
 
-        [HttpPost("users/{id}/profile")]
+        [HttpPost("user-profile")]
         [Authorize]
-        public async Task<IActionResult> UpdateUserProfile([FromBody] UserUpdateContentDto data)
+        public async Task<IActionResult> UpdateUserProfile([FromBody] UpdateUserProfileDto data)
         {
-            var command = new UpdateUserConmand
+            var command = new UpdateUserProfileCommand
             {
                 Id = User.FindFirstValue(ClaimTypes.NameIdentifier),
                 UpdateData = data
@@ -158,6 +159,7 @@ namespace ZLearn.Web.Controllers.API
         [HttpPost("sign-out")]
         public async Task<IActionResult> SignOut()
         {
+            Response.Cookies.Delete("token");
             return Ok(Result<NoData>.Success("Signed out successfully."));
         } 
         #endregion
