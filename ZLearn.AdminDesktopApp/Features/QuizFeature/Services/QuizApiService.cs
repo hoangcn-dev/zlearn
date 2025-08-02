@@ -17,9 +17,9 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.Services
         Task<Result<DeleteResponseDto>> DeleteQuizAsync(DeleteRequestDto data);
 
         Task<Result<List<CateListItemDto>>> GetAllCategoriesAsync();
-        Task<Result<CreateResponseDto>> CreateNewCategoryAsync(string name, string thumbId);
+        Task<Result<CreateResponseDto>> CreateNewCategoryAsync(CreateCateCommand data);
         Task<Result<DeleteResponseDto>> DeleteCategoryAsync(IEnumerable<string> cateIds);
-        Task<Result<UpdateResponseDto>> UpdateCategoryAsync(string cateId, string name, string? thumbnailId);
+        Task<Result<UpdateResponseDto>> UpdateCategoryAsync(string cateId, string name, string? thumbnailId, string? description);
         Task<Result<CateDetailDto>> GetCategoryDetailAsync(string cateId);
         Task<Result<List<string>>> GetAllTagsAsync();
     }
@@ -42,13 +42,8 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.Services
             return res;
         }
 
-        public async Task<Result<CreateResponseDto>> CreateNewCategoryAsync(string name, string thumbId)
+        public async Task<Result<CreateResponseDto>> CreateNewCategoryAsync(CreateCateCommand data)
         {
-            var data = new CreateCateCommand 
-            { 
-                Name = name,
-                ThumbnailId = thumbId
-            };
             var res = await PostAsync<CreateResponseDto>("quizzes/categories", data);
             return res;
         }
@@ -60,9 +55,13 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.Services
             return res;
         }
 
-        public async Task<Result<UpdateResponseDto>> UpdateCategoryAsync(string cateId, string name, string? thumbnailId)
+        public async Task<Result<UpdateResponseDto>> UpdateCategoryAsync(string cateId, string name, string? thumbnailId, string description)
         {
-            var data = new UpdateCateCommand { Name = name, ThumbnailId = thumbnailId };
+            var data = new UpdateCateCommand { 
+                Name = name, 
+                Description = description,
+                ThumbnailId = thumbnailId 
+            };
             var res = await PutAsync<UpdateResponseDto>($"quizzes/categories/{cateId}", data);
             return res;
         }

@@ -9,5 +9,13 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
 EXPOSE 80
+
+# Install postgresql-client to use pg_dump
+RUN apt update && apt install -y wget gnupg
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ bullseye-pgdg main" > /etc/apt/sources.list.d/pgdg.list \
+    && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
+    && apt update \
+    && apt install -y postgresql-client-16
+
 COPY --from=build /app/out .
 ENTRYPOINT [ "dotnet", "ZLearn.Web.dll" ]

@@ -5,8 +5,8 @@ namespace ZLearn.Application.Categories.Commands.CreateCate
 {
     public class CreateCateCommand : IRequest<CreateResponseDto>
     {
-        public string Name { get; init; }
-        public string? Description { get; init; }
-        public string ThumbnailId { get; init; }
+        public string Name { get; set; }
+        public string? Description { get; set; }
+        public string ThumbnailId { get; set; }
     }
 }

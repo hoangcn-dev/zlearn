@@ -5,15 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZLearn.AdminDesktopApp.Features.QuizFeature.Views" 
         xmlns:viewmodels="clr-namespace:ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels" 
-        xmlns:components="clr-namespace:ZLearn.AdminDesktopApp.Components" xmlns:views="clr-namespace:ZLearn.AdminDesktopApp.Views"
+        xmlns:components="clr-namespace:ZLearn.AdminDesktopApp.Components" xmlns:views="clr-namespace:ZLearn.AdminDesktopApp.Views" d:DataContext="{d:DesignInstance Type=viewmodels:AddQuizCateViewModel}"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        d:DataContext="{d:DesignData Type=viewmodels:AddQuizCateViewModel}"
         ResizeMode="NoResize"
-        Title="Thêm danh mục mới" Height="220" Width="400">
+        Title="Thêm danh mục mới" Height="320" Width="400">
     <StackPanel Margin="10">
         <TextBlock Text="Nhập tên danh mục mới"/>
-        <TextBox Margin="0 10" Padding="5" Text="{Binding CategoryName, Mode=TwoWay}"/>
+        <TextBox Margin="0 10" Padding="5" Text="{Binding Data.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Text="Tải ảnh bìa"/>
         <StackPanel Orientation="Horizontal" Margin="0 5 0 12">
@@ -25,6 +24,9 @@
                 Message="{Binding UploadFileName}" 
                 Visibility="{Binding ShowFileUploadedMessage}" VerticalAlignment="Center"/>
         </StackPanel>
+
+        <TextBlock Text="Mô tả"/>
+        <TextBox Margin="0 5" Padding="5" TextWrapping="Wrap" MaxLines="4" MinLines="4" Text="{Binding Data.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
         <components:LoadingButton 
             Content="Tạo mới" 

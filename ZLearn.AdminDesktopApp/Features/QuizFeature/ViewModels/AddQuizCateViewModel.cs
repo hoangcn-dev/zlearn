@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Microsoft.Win32;
 using System.IO;
 using System.Windows;
@@ -8,11 +9,11 @@ using ZLearn.AdminDesktopApp.Features.QuizFeature.Views;
 using ZLearn.AdminDesktopApp.Services;
 using ZLearn.AdminDesktopApp.Stores;
 using ZLearn.AdminDesktopApp.ViewModels;
-using ZLearn.Domain.Entities;
+using ZLearn.Application.Categories.Commands.CreateCate;
 
 namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
 {
-    public class AddQuizCateViewModel : ViewModelBase
+    public partial class AddQuizCateViewModel : ViewModelBase
     {
         private readonly IQuizApiService _quizApiService;
         private readonly IManageWindowService _windowManager;
@@ -20,17 +21,8 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
         private string _uploadFilePath = string.Empty;
         private string _uploadFileId = string.Empty;
 
-
-        private string _categoryName;
-        public string CategoryName 
-        { 
-            get => _categoryName;
-            set
-            {
-                SetProperty(ref _categoryName, value);
-                AddCateCommand.NotifyCanExecuteChanged();
-            }
-        }
+        [ObservableProperty]
+        private CreateCateCommand data;
 
         public bool IsLoading => _taskStatusStore.Loading;
         public string UploadFileName => $"Đã tải {Path.GetFileName(_uploadFilePath)}";
@@ -53,8 +45,14 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
             _fileApiService = fileApiService;
             _taskStatusStore.PropertyChanged += TaskStatusStore_PropertyChanged;
 
-            AddCateCommand = new AsyncRelayCommand(AddCateAsync, CanAddCate);
+            AddCateCommand = new AsyncRelayCommand(AddCateAsync);
             UploadThumbnailFileCommand = new RelayCommand(BrowserFile);
+            Data = new CreateCateCommand
+            {
+                Name = string.Empty,
+                Description = string.Empty,
+                ThumbnailId = string.Empty
+            };
         }
 
         private void BrowserFile()
@@ -80,13 +78,17 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
             }
         }
 
-        private bool CanAddCate() => true;
-
         private async Task AddCateAsync()
         {
-            if (string.IsNullOrEmpty(CategoryName))
+            if (string.IsNullOrEmpty(Data.Name))
             {
                 MessageBox.Show("Vui lòng không bỏ trống tên");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(Data.Description))
+            {
+                MessageBox.Show("Vui lòng không bỏ trống mô tả");
                 return;
             }
 
@@ -108,7 +110,8 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
                 _uploadFileId = saveFileRes.Data!.Files.First().Id;
             }
 
-            var res = await ExecuteAsync(() => _quizApiService.CreateNewCategoryAsync(CategoryName, _uploadFileId));
+            Data.ThumbnailId = _uploadFileId;
+            var res = await ExecuteAsync(() => _quizApiService.CreateNewCategoryAsync(Data));
             if (res is not null && res.Succeeded)
             {
                 MessageBox.Show("Tạo danh mục mới thành công");

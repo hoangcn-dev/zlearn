@@ -26,7 +26,7 @@ namespace ZLearn.Application.Quizzes.Commands.Update
 
         public async Task<UpdateResponseDto> Handle(UpdateQuizCommand request, CancellationToken cancellationToken)
         {
-            // Check if quiz exists and update it
+            // Check if quiz exists
             var quiz = await _quizRepo.GetFullQuizContent(request.Data.Id)
                 ?? throw new NotFoundException(nameof(Quiz), request.Data.Id);
 
@@ -74,6 +74,7 @@ namespace ZLearn.Application.Quizzes.Commands.Update
             // Update quiz properties
             quiz.Name = data.Name;
             quiz.CategoryId = data.CategoryId;
+
             await _quizRepo.SetQuestionsTagAsync(quiz, data.Tags);
 
             // Update questions

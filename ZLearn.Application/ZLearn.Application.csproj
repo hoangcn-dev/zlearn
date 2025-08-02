@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Files\Queries\" />
-    <Folder Include="Quizzes\Handlers\" />
   </ItemGroup>
 
 </Project>

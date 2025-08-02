@@ -46,6 +46,17 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
             }
         }
 
+        private string _updatingDesc;
+        public string UpdatingDesc
+        {
+            get => _updatingDesc;
+            set
+            {
+                SetProperty(ref _updatingDesc, value);
+                UpdateCommand.NotifyCanExecuteChanged();
+            }
+        }
+
         [ObservableProperty]
         private string thumbnailUrl;
 
@@ -62,21 +73,31 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
         {
             _quizApiService = quizApiService;
             _windowManager = windowManager;
+            _fileApiService = fileApiService;
             _taskStatusStore.PropertyChanged += TaskStatusStore_PropertyChanged;
 
-            UpdateCommand = new AsyncRelayCommand(UpdateCate, CanUpdateCate);
+            UpdateCommand = new AsyncRelayCommand(UpdateCate);
             UploadThumbnailFileCommand = new RelayCommand(BrowserFile);
             LoadData();
-            _fileApiService = fileApiService;
         }
-
-        private bool CanUpdateCate() => true;
 
         private async Task UpdateCate()
         {
             var result = MessageBox.Show("Xác nhận cập nhật?", "Confirm", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.Yes)
             {
+                // Validate inputs
+                if (string.IsNullOrEmpty(UpdatingName))
+                {
+                    MessageBox.Show("Vui lòng không bỏ trống tên danh mục");
+                    return;
+                }
+                if (string.IsNullOrEmpty(UpdatingDesc))
+                {
+                    MessageBox.Show("Vui lòng không bỏ trống mô tả danh mục");
+                    return;
+                }
+
                 //Save file to server
                 if (string.IsNullOrEmpty(_uploadFileId) && !string.IsNullOrEmpty(_uploadFilePath))
                 {
@@ -89,7 +110,11 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
                     _uploadFileId = saveFileRes.Data!.Files.First().Id;
                 }
 
-                var res = await ExecuteAsync(() => _quizApiService.UpdateCategoryAsync(Data!.Id, UpdatingName, _uploadFileId));
+                var res = await ExecuteAsync(() => _quizApiService.UpdateCategoryAsync(
+                    Data!.Id,
+                    UpdatingName,
+                    _uploadFileId,
+                    UpdatingDesc));
                 if (res is not null && res.Succeeded)
                 {
                     MessageBox.Show("Cập nhật thành công");
@@ -145,6 +170,7 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
             {
                 Data = res.Data!;
                 UpdatingName = Data.Name;
+                UpdatingDesc = Data.Description;
                 ThumbnailUrl = Data.ThumbnailUrl;
             }
             else

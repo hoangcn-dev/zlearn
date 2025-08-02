@@ -17,7 +17,6 @@ namespace ZLearn.Infras.Data.Services
 
         public DatabaseBackupService(
             IOptions<DatabasebackupConfiguration> options,
-            IServiceProvider serviceProvider,
             ILogger<DatabaseBackupService> logger)
         {
             _config = options.Value;
