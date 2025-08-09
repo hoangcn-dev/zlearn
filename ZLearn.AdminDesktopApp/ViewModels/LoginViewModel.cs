@@ -38,8 +38,8 @@ namespace ZLearn.AdminDesktopApp.ViewModels
 
         private bool _remember;
         public bool Remember { get => _remember; set => SetProperty(ref _remember, value); }
-
         public bool IsLoading => _taskStatusStore.Loading;
+
 
         public IAsyncRelayCommand LoginCommand { get; }
         public ICommand CloseWindowCommand { get; }

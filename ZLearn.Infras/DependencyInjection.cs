@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using StackExchange.Redis;
@@ -128,6 +129,10 @@ namespace ZLearn.Infras
                             context.Response.ContentType = "application/json";
                             await context.Response.WriteAsync(JsonSerializer.Serialize(Result<NoData>.Failure("", ErrorCodes.UNAUTHORIZED), jsonOptions));
                         },
+                        OnChallenge = context =>
+                        {
+                            throw new UnauthorizedException();
+                        }
                     };
                 })
                 .AddCookie(opt =>

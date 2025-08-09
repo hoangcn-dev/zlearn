@@ -13,7 +13,6 @@ using ZLearn.AdminDesktopApp.Services;
 using ZLearn.AdminDesktopApp.Stores;
 using ZLearn.AdminDesktopApp.ViewModels;
 using ZLearn.AdminDesktopApp.Views;
-using ZLearn.Application.Common.Utils;
 
 namespace ZLearn.AdminDesktopApp
 {

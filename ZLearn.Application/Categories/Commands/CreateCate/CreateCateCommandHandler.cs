@@ -25,16 +25,19 @@ namespace ZLearn.Application.Categories.Commands.CreateCate
 
         public async Task<CreateResponseDto> Handle(CreateCateCommand request, CancellationToken cancellationToken)
         {
-            if (await _repo.IsNameExists(request.Name))
+            if (await _repo.Any(c => c.Name == request.Name))
                 throw new DuplicateEntryException(nameof(Category), nameof(Category.Name));
-            if (!await _fileRepo.Any(f => f.Id == request.ThumbnailId))
-                throw new NotFoundException(nameof(File), request.ThumbnailId);
+            if (await _repo.Any(c => c.Slug == request.Slug))
+                throw new DuplicateEntryException(nameof(Category), nameof(Category.Slug));
+            if (!await _fileRepo.Any(f => f.SourceUrl == request.ThumbnailUrl))
+                throw new NotFoundException(nameof(File), request.ThumbnailUrl);
 
             var cate = new Category
             {
                 Id = IdGenerator.Generate("CAT"),
                 Name = request.Name,
-                ThumbnailId = request.ThumbnailId,
+                Slug = request.Slug ?? StringHelper.GenerateSlug(request.Name),
+                ThumbnailUrl = request.ThumbnailUrl,
                 Description = request.Description
             };
 

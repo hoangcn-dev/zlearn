@@ -6,18 +6,32 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ZLearn.Infras.Migrations
 {
-    public partial class ReInitSchema3 : Migration
+    public partial class ReInit6 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "AccessHistories",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "character varying(16)", maxLength: 16, nullable: false),
+                    Day = table.Column<DateOnly>(type: "date", nullable: false),
+                    AccessCount = table.Column<long>(type: "bigint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AccessHistories", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "character varying(16)", maxLength: 16, nullable: false),
                     Name = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: false),
+                    Slug = table.Column<string>(type: "text", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: true),
-                    ThumbnailId = table.Column<string>(type: "text", nullable: true),
+                    ThumbnailUrl = table.Column<string>(type: "text", nullable: true),
                     CreatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     LastModifiedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
                     CreatedBy = table.Column<string>(type: "text", nullable: false),
@@ -86,7 +100,13 @@ namespace ZLearn.Infras.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
-                    ImagePath = table.Column<string>(type: "text", nullable: false),
+                    ImageUrl = table.Column<string>(type: "text", nullable: true),
+                    FirstName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    LastName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    NickName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    IsShowNickName = table.Column<bool>(type: "boolean", nullable: false),
+                    LastLogin = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    IsActive = table.Column<bool>(type: "boolean", nullable: false),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
@@ -113,6 +133,7 @@ namespace ZLearn.Infras.Migrations
                 {
                     Id = table.Column<string>(type: "character varying(16)", maxLength: 16, nullable: false),
                     Name = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: false),
+                    Slug = table.Column<string>(type: "text", nullable: false),
                     CategoryId = table.Column<string>(type: "character varying(16)", nullable: false),
                     DownloadCount = table.Column<int>(type: "integer", nullable: false),
                     IsPublic = table.Column<bool>(type: "boolean", nullable: false),
@@ -243,13 +264,13 @@ namespace ZLearn.Infras.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "character varying(16)", maxLength: 16, nullable: false),
+                    Slug = table.Column<string>(type: "text", nullable: false),
                     StringContent = table.Column<string>(type: "text", nullable: true),
-                    MediaFileIds = table.Column<string>(type: "text", nullable: false),
+                    MediaFileUrls = table.Column<string>(type: "text", nullable: false),
                     CorrectKey = table.Column<int>(type: "integer", nullable: false),
                     Explanation = table.Column<string>(type: "text", nullable: true),
                     Order = table.Column<int>(type: "integer", nullable: false),
                     QuizId = table.Column<string>(type: "character varying(16)", nullable: false),
-                    ViewCount = table.Column<int>(type: "integer", nullable: false),
                     AttemptCount = table.Column<int>(type: "integer", nullable: false),
                     CreatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     LastModifiedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
@@ -299,7 +320,7 @@ namespace ZLearn.Infras.Migrations
                     Key = table.Column<int>(type: "integer", nullable: false),
                     StringContent = table.Column<string>(type: "text", nullable: true),
                     QuestionId = table.Column<string>(type: "character varying(16)", nullable: false),
-                    MediaFileIds = table.Column<string>(type: "text", nullable: false),
+                    MediaFileUrls = table.Column<string>(type: "text", nullable: false),
                     CreatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     LastModifiedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
                     CreatedBy = table.Column<string>(type: "text", nullable: false),
@@ -322,9 +343,9 @@ namespace ZLearn.Infras.Migrations
                 column: "QuestionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Categories_Name",
+                name: "IX_Categories_Slug",
                 table: "Categories",
-                column: "Name",
+                column: "Id",
                 unique: true);
 
             migrationBuilder.CreateIndex(
@@ -347,6 +368,12 @@ namespace ZLearn.Infras.Migrations
                 name: "IX_Quizzes_CategoryId",
                 table: "Quizzes",
                 column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Quizzes_Slug",
+                table: "Quizzes",
+                column: "Id",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_RoleClaims_RoleId",
@@ -388,6 +415,9 @@ namespace ZLearn.Infras.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AccessHistories");
+
             migrationBuilder.DropTable(
                 name: "Answers");
 

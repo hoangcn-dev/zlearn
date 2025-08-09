@@ -2,15 +2,12 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using System.Threading.Tasks;
-using ZLearn.Application.Auth.Commands.UpdateUserProfile;
-using ZLearn.Application.Auth.DTOs;
 using ZLearn.Application.Auth.Queries.GetUserDetail;
 
 namespace ZLearn.Web.Controllers
 {
     [Authorize]
-    [Route("[controller]")]
+    [Route("tai-khoan")]
     public class UsersController : Controller
     {
         private readonly IMediator _mediator;
@@ -25,7 +22,8 @@ namespace ZLearn.Web.Controllers
             return RedirectToAction(nameof(Profile));
         }
 
-        [HttpGet("profile")]
+        [HttpGet("ho-so")]
+        [Authorize]
         public async Task<IActionResult> Profile()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)!;
@@ -34,6 +32,18 @@ namespace ZLearn.Web.Controllers
                 Id = userId
             });
             return View(profile);
+        }
+
+        [HttpGet("de-da-tao")]
+        public async Task<IActionResult> MyQuiz()
+        {
+            return View();
+        }
+
+        [HttpGet("cap-nhat-de")]
+        public async Task<IActionResult> UpdateQuiz(string id)
+        {
+            return View();
         }
     }
 }

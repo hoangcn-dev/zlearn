@@ -1,5 +1,5 @@
 ﻿using System.Net.Http;
-using ZLearn.AdminDesktopApp.Services;
+using ZLearn.AdminDesktopApp.Services.APIs;
 using ZLearn.Application.Common.DTOs;
 using ZLearn.Application.Logs.DTOs;
 

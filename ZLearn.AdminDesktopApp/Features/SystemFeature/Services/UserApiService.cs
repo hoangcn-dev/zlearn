@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 using ZLearn.AdminDesktopApp.Helpers;
-using ZLearn.AdminDesktopApp.Services;
+using ZLearn.AdminDesktopApp.Services.APIs;
 using ZLearn.Application.Auth.Commands.UpdateUser;
 using ZLearn.Application.Auth.DTOs;
 using ZLearn.Application.Auth.Queries.GetListUsers;

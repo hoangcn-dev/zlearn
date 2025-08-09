@@ -1,0 +1,83 @@
+﻿@using ZLearn.Application.Common.DTOs
+@using ZLearn.Application.Quizzes.DTOs
+
+@model PaginatedDto<QuizListItemDto>
+
+@{
+    ViewBag.Title = "Đề đã tạo";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div id="myquiz">
+    <!-- Top action -->
+    <div class="d-flex align-items-center">
+        <select id="category" class="form-select w-auto me-2">
+            <option value="">Tất cả danh mục</option>
+            <option value="">Mới nhất</option>
+        </select>
+        <div class="position-relative w-auto h-auto">
+            <input id="nameToSearch" type="text" class="form-control ps-2 py-1 h-100" style="padding-right: 30px;" placeholder="Nhập tên đề">
+            <i title="Tìm kiếm" class="opacity-hover fa-solid fa-magnifying-glass position-absolute end-0 top-50 translate-middle-y me-2"></i>
+        </div>
+        <i class="fa-solid fa-arrow-rotate-left mx-2 fs-4 opacity-hover" title="Làm mới"></i>
+        <div class="flex-fill"></div>
+        <select id="order" class="form-select w-auto me-2">
+            <option selected value="CreatedAt">Mới nhất</option>
+            <option value="AttemptCount">Làm nhiều nhất</option>
+        </select>
+        <button class="btn text-light opacity-hover" style="background-color: var(--main-color);">Tạo mới <i class="fa-solid fa-plus"></i></button>
+    </div>
+
+    <!-- List quizzes -->
+    <div id="quizzes" class="d-flex flex-column mt-2"></div>
+</div>
+
+@section Scripts {
+    <script asp-append-version="true">
+        $(document).ready(() => {
+            // Get categories
+            getData(`/quizzes/categories`, res => {
+                res = res.data;
+                $('#category').empty();
+                $('#category').append(`<option value="">Tất cả danh mục</option>`);
+                res.forEach(c => {
+                    $('#category').append(`<option value="${c.id}">${c.name}</option>`);
+                });
+            }, false);
+            $('#order').on('change', () => loadQuiz());
+            $('#category').on('change', () => loadQuiz());
+            loadQuiz();
+        });
+
+        function loadQuiz() {
+            // load list quiz
+            const params = new URLSearchParams({
+                categoryId: $('#category').val(),
+                name: $('#nameToSearch').val(),
+                pageIndex: 1,
+                pageSize: 2,
+                orderBy: $('#order').val(),
+            });
+            getData('/quizzes/my-quiz?' + params.toString(), res => {
+                res = res.data;
+                $('#quizzes').empty();
+                res.items.forEach((q, index) => {
+                    const div = $(`
+                        <a class="d-flex mb-2">
+                            <span class="fw-bold align-content-center" style="width: 40px;">${index + 1}</span>
+                            <div class="card card-body highlight-hover d-flex flex-row py-2">
+                                <div class="name">${q.name}</div>
+                                <div class="flex-fill mx-2"></div>
+                                <div class="attempt">${q.attemptCount} lượt làm</div>
+                                <div class="ms-2 downCount">${q.downloadCount} <i class="fa-solid fa-download"></i></div>
+                            </div>
+                        </a>
+                    `);
+                    div.attr('href', `/tai-khoan/cap-nhat-de?id=${q.id}`);
+                    $('#quizzes').append(div);
+                });
+            });
+        }
+    </script>
+}
+        

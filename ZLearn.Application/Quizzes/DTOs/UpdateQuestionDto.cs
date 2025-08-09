@@ -1,10 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ZLearn.Domain.Entities;
+﻿using ZLearn.Domain.Entities;
 
 namespace ZLearn.Application.Quizzes.DTOs
 {
@@ -12,7 +6,8 @@ namespace ZLearn.Application.Quizzes.DTOs
     {
         public string? Id { get; set; }
         public string? StringContent { get; set; }
-        public List<string> MediaFileIds { get; set; } = new List<string>();
+        public string Slug { get; set; }
+        public List<string> MediaFileUrls { get; set; } = new List<string>();
         public int CorrectKey { get; set; }
         public int Order { get; set; }
         public List<UpdateAnswerDto> Answers { get; set; }
@@ -23,8 +18,8 @@ namespace ZLearn.Application.Quizzes.DTOs
         public UpdateQuestionMapping()
         {
             CreateMap<Question, UpdateQuestionDto>()
-            .ForMember(dest => dest.MediaFileIds, opt => opt.MapFrom(src =>
-                string.IsNullOrEmpty(src.MediaFileIds) ? new List<string>() : src.MediaFileIds.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()));
+            .ForMember(dest => dest.MediaFileUrls, opt => opt.MapFrom(src =>
+                string.IsNullOrEmpty(src.MediaFileUrls) ? new List<string>() : src.MediaFileUrls.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()));
         }
     }
 }

@@ -4,8 +4,9 @@ namespace ZLearn.Application.Quizzes.DTOs
 {
     public class UpdateQuizDto
     {
-        public string Id { get; set; }
+        public string? Id { get; set; }
         public string Name { get; set; }
+        public string Slug { get; set; }
         public string CategoryId { get; set; }
         public List<string> Tags { get; set; }
         public List<UpdateQuestionDto> Questions { get; set; }

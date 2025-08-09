@@ -14,13 +14,12 @@ namespace ZLearn.Infras.Data.Repositories
             _mediaStoreService = mediaStoreService;
         }
 
-        public Task CheckExistingByFileIds(HashSet<string> fileIds)
+        public Task CheckExistingByFileUrls(HashSet<string> fileUrls)
         {
-            var count = _context.Set<MediaFile>()
-                .AsNoTracking()
-                .Count(file => fileIds.Contains(file.Id));
-            if (count != fileIds.Count)
-                throw new ArgumentException("Some file IDs do not exist in the database.");
+            var count = _context.Set<MediaFile>().AsNoTracking()
+                .Count(file => fileUrls.Contains(file.SourceUrl));
+            if (count != fileUrls.Count)
+                throw new ArgumentException("Some file url do not exist in the database.");
             return Task.CompletedTask;
         }
 
@@ -35,10 +34,10 @@ namespace ZLearn.Infras.Data.Repositories
             return map;
         }
 
-        public async Task DeleteFileByIds(IEnumerable<string> ids)
+        public async Task DeleteFileByUrls(List<string> urls)
         {
             var files = await _context.Set<MediaFile>()
-                .Where(file => ids.Contains(file.Id))
+                .Where(file => urls.Contains(file.SourceUrl))
                 .ToListAsync();
             foreach (var e in files)
             {

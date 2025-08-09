@@ -140,7 +140,7 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
             var quizzesResult = await ExecuteAsync(() => _quizApiService.GetListQuizzesAsync(new()
             {
                 Name = Key,
-                CategoryId = _selectedCategory?.Id,
+                CategorySlug = _selectedCategory?.Id,
                 PageIndex = 1,
                 PageSize = 100
             }));

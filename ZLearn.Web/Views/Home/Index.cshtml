@@ -2,31 +2,5 @@
 @model List<CateListItemDto>
 
 @{
-    ViewData["Title"] = "Danh mục đề";
-    ViewBag.MetaDescription = "Danh sách các danh mục chủ đề đề thi trắc nghiệm trên ZLearn. Mỗi danh mục chứa nhiều đề thi khác nhau, giúp bạn ôn tập và nâng cao kiến thức một cách hiệu quả.";
+    ViewData["Title"] = "Trang chủ";
 }
-
-<div class="container">
-    <div class="row g-3">
-
-        @foreach (var item in Model)
-        {
-            <div class="col-3">
-                <a asp-controller="Quizzes" asp-action="Index" asp-route-category="@item.Id" class="card card-body shadow-sm overflow-hidden highlight-hover bg-with-image" style="height: 200px; background-image: url(@item.ThumbnailUrl);">
-                    <!-- Title -->
-                    <div class="content position-absolute align-content-center bg-black text-light start-0 w-100 top-50 translate-middle-y p-3
-                                text-center" style="opacity: 0.7; transition: opacity 0.6s ease;">
-                        <!-- Name -->
-                        <div class="max-3-lines fw-bold name" style="font-size: 18px;">@item.Name</div>
-                        <!-- Stat -->
-                        <div class="d-flex justify-content-center" style="font-size: 12px;">
-                            <div><i class="fa-solid fa-list me-1"></i>@item.QuizCount Đề</div>
-                            <div class="mx-1">|</div>
-                            <div><i class="fa-solid fa-fire me-1"></i>@item.AttemptCount Lượt làm</div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        }
-    </div>
-</div>

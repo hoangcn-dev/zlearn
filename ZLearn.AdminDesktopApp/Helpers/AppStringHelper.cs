@@ -2,7 +2,7 @@
 
 namespace ZLearn.AdminDesktopApp.Helpers
 {
-    public class StringHelper
+    public class AppStringHelper
     {
         public static string ToQueryString(object query)
         {

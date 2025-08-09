@@ -23,9 +23,9 @@ namespace ZLearn.Application.Quizzes.Queries.GetListQuiz
             {
                 filterBuilder.AndCondition(q => q.Name.Contains(request.Name));
             }
-            if (!string.IsNullOrEmpty(request.CategoryId))
+            if (!string.IsNullOrEmpty(request.CategorySlug))
             {
-                filterBuilder.AndCondition(q => q.CategoryId == request.CategoryId);
+                filterBuilder.AndCondition(q => q.Category.Slug == request.CategorySlug);
             }
 
             var quizzes = await _quizRepo.GetPaging(
@@ -35,10 +35,12 @@ namespace ZLearn.Application.Quizzes.Queries.GetListQuiz
                 projector: q => new QuizListItemDto
                 {
                     Id = q.Id,
+                    Slug = q.Slug,
                     Name = q.Name,
                     AttemptCount = q.Questions.Select(qu => qu.AttemptCount).Sum(),
                     CategoryId = q.CategoryId,
                     CategoryName = q.Category.Name,
+                    DownloadCount = q.DownloadCount,
                     QuestionCount = q.Questions.Count
                 },
                 isAsc: false,

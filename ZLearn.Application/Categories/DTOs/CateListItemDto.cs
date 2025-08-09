@@ -8,6 +8,7 @@ namespace ZLearn.Application.Categories.DTOs
         public string Id { get; set; }
         public string Name { get; set; }
         public int QuizCount { get; set; }
+        public string Slug { get; set; }
         public int AttemptCount { get; set; }
         public string ThumbnailUrl { get; set; }
         public DateTimeOffset? LastModifiedAt { get; set; }

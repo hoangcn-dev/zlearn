@@ -22,6 +22,7 @@ namespace ZLearn.Application.Quizzes.Commands.Delete
             var QuizzesToDelete = new List<Quiz>();
             foreach (var id in request.Ids)
             {
+                if (!await _quizRepo.Any(q => q.CreatedBy == request.OwnerId)) continue;
                 var quiz = await _quizRepo.GetFullQuizContent(id);
                 if (quiz is null) continue;
 
@@ -29,15 +30,15 @@ namespace ZLearn.Application.Quizzes.Commands.Delete
                 var fileIdsToRemove = new List<string>();
                 foreach (var q in quiz.Questions)
                 {
-                    if (q.MediaFileIds is not null)
-                        fileIdsToRemove.AddRange(q.MediaFileIds.Split(","));
+                    if (q.MediaFileUrls is not null)
+                        fileIdsToRemove.AddRange(q.MediaFileUrls.Split(","));
                     foreach (var a in q.Answers)
                     {
-                        if (a.MediaFileIds is not null)
-                            fileIdsToRemove.AddRange(a.MediaFileIds.Split(","));
+                        if (a.MediaFileUrls is not null)
+                            fileIdsToRemove.AddRange(a.MediaFileUrls.Split(","));
                     }
                 }
-                await _fileRepo.DeleteFileByIds(fileIdsToRemove);
+                await _fileRepo.DeleteFileByUrls(fileIdsToRemove);
                 QuizzesToDelete.Add(quiz);
             };
 

@@ -5,7 +5,7 @@ namespace ZLearn.Infras.Identity
 {
     public class AppUser : IdentityUser<string>, IAppUser
     {
-        public string? ImageId { get; set; }
+        public string? ImageUrl { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string NickName { get; set; }

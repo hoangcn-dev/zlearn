@@ -1,13 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using ZLearn.Application.Categories.Queries.GetCateById;
-using ZLearn.Application.Quizzes.Queries.GetListQuiz;
 using ZLearn.Application.Quizzes.Queries.GetQuizDetail;
 
 namespace ZLearn.Web.Controllers
 {
-    [Route("[controller]")]
+    [Route("de-trac-nghiem")]
     public class QuizzesController : BaseController
     {
         public QuizzesController(
@@ -16,29 +13,14 @@ namespace ZLearn.Web.Controllers
         {
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Index(string category)
-        {
-            var quizzes = await _mediator.Send(new GetListQuizQuery
-            {
-                CategoryId = category,
-                Name = null,
-                PageIndex = 1,
-                PageSize = 100
-            });
-            var cateDetail = await _mediator.Send(new GetCateByIdQuery
-            {
-                CateId = category
-            });
-            return View((cateDetail, quizzes));
-        }
+        
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Detail(string id)
+        [HttpGet("{slug}")]
+        public async Task<IActionResult> Detail(string slug)
         {
             var query = new GetQuizDetailQuery
             {
-                Id = id
+                Slug = slug
             };
             var quiz = await _mediator.Send(query);
             return RedirectToAction(
@@ -46,19 +28,8 @@ namespace ZLearn.Web.Controllers
                 actionName: "Index", 
                 routeValues: new
                 {
-                    id = quiz.Questions[0].Id
+                    slug = quiz.Questions[0].Slug
                 });
         }
-
-        //[HttpGet("question-map")]
-        //public async Task<IActionResult> GetQuestionMapAsync(string id)
-        //{
-        //    var query = new GetQuizDetailQuery
-        //    {
-        //        Id = id
-        //    };
-        //    var quiz = await _mediator.Send(query);
-        //    return Json(quiz);
-        //}
     }
 }

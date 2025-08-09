@@ -29,6 +29,8 @@ namespace ZLearn.Infras.Data.Configurations
             builder
                 .HasMany(q => q.Tags)
                 .WithMany(t => t.Quizzes);
+
+            builder.HasIndex(q => q.Slug).IsUnique();
         }
     }
 }

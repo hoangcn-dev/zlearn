@@ -105,7 +105,7 @@ namespace ZLearn.Infras.Data
                         IsShowNickName = true,
                         Email = "dever.z.ckpt.526@gmail.com",
                         EmailConfirmed = true,
-                        ImageId = null,
+                        ImageUrl = null,
                         LastLogin = DateTimeOffset.UtcNow
                     };
                     var createAdminResult = await _userManager.CreateAsync(adminAccount, EnvVariableHelper.GetValue(EnvVariableNames.ADMIN_PASSWORD));

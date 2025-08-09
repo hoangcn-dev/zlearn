@@ -28,6 +28,11 @@
             <StackPanel>
                 <TextBlock Text="Tên đề mới"/>
                 <TextBox Margin="0 5" Padding="5" Text="{Binding Name, Mode=TwoWay}"/>
+                
+                <TextBlock Text="Nhãn"/>
+                <TextBox Margin="0 5" Padding="5" Text="{Binding Slug, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Content="Tạo nhãn từ tên" Width="120" Command="{Binding GetSlugFromNameCommand}"/>
+                
                 <TextBlock Text="Danh mục"/>
                 <ComboBox 
                     Margin="0 5" Padding="5"

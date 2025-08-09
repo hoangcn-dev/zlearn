@@ -35,8 +35,6 @@
                             <input type="text" class="rounded-1 w-100 border-0 ps-3 py-1" style="padding-right: 30px;" placeholder="Tìm kiếm theo tên đề, tên danh mục, tags, ...">
                             <i title="Tìm kiếm" class="opacity-hover fa-solid fa-magnifying-glass position-absolute end-0 top-50 translate-middle-y me-2"></i>
                         </div> *@
-
-
                     </div>
 
                     <!-- Status -->
@@ -79,18 +77,20 @@
     </header>
 
     <!-- Navigation -->
-    <section id="navbar">
-        <div class="w-100 shadow-sm">
-            <div class="container">
-                <div id="navigation-tab" class="d-flex justify-content-between fw-bold">
-                    <div class="flex-fill mx-1 text-center nav-tab selected">Đề thi trắc nghiệm</div>
-                    <div class="flex-fill mx-1 text-center nav-tab">Tài liệu</div>
-                    <div class="flex-fill mx-1 text-center nav-tab">Cộng đồng</div>
-                    <div class="flex-fill mx-1 text-center nav-tab">Tutorials</div>
+    @if (!currentUrl.Contains("/users/")) {
+        <section id="navbar">
+            <div class="w-100 shadow-sm">
+                <div class="container">
+                    <div id="navigation-tab" class="d-flex justify-content-between fw-bold">
+                        <div class="flex-fill mx-1 text-center nav-tab selected">Đề thi trắc nghiệm</div>
+                        <div class="flex-fill mx-1 text-center nav-tab">Tài liệu</div>
+                        <div class="flex-fill mx-1 text-center nav-tab">Cộng đồng</div>
+                        <div class="flex-fill mx-1 text-center nav-tab">Tutorials</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    }
 
     <!-- Main Content -->
     <section>

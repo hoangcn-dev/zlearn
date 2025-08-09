@@ -26,6 +26,9 @@ namespace ZLearn.Application.Quizzes.Commands.Update
 
         public async Task<UpdateResponseDto> Handle(UpdateQuizCommand request, CancellationToken cancellationToken)
         {
+            if (!await _quizRepo.Any(q => q.CreatedBy == request.OwnerId))
+                throw new UnauthorizedAccessException("You do not have permission to access this quiz.");
+
             // Check if quiz exists
             var quiz = await _quizRepo.GetFullQuizContent(request.Data.Id)
                 ?? throw new NotFoundException(nameof(Quiz), request.Data.Id);
@@ -36,45 +39,47 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                 throw new ArgumentException($"Category with ID {data.CategoryId} does not exist.");
             if (quiz.Name != data.Name && await _quizRepo.Any(q => q.Name == data.Name && q.CategoryId == data.CategoryId))
                 throw new ArgumentException($"Quiz with name '{data.Name}' already exists in category with ID {data.CategoryId}.");
-            
+            if (quiz.Slug != data.Slug && await _quizRepo.Any(q => q.Slug == data.Slug))
+                throw new ArgumentException($"Quiz with slug '{data.Slug}' already exists");
+
             // Check question keys and media links
-            var fileIds = new List<string>();
+            var fileUrls = new List<string>();
             foreach (var question in data.Questions)
             {
                 if (!question.Answers.Any(a => a.Key == question.CorrectKey))
                     throw new ArgumentException($"Question {question.Order} does not have a valid correct answer key.");
                 // Add question media file IDs
-                if (question.MediaFileIds.Count > 0)
-                    fileIds.AddRange(question.MediaFileIds);
+                if (question.MediaFileUrls.Count > 0)
+                    fileUrls.AddRange(question.MediaFileUrls);
                 question.Answers.ForEach(a =>
                 {
-                    if (a.MediaFileIds.Count > 0)
-                        fileIds.AddRange(a.MediaFileIds);
+                    if (a.MediaFileUrls.Count > 0)
+                        fileUrls.AddRange(a.MediaFileUrls);
                 });
             }
-            var distinctFileIds = fileIds.ToHashSet();
-            if (distinctFileIds.Count != fileIds.Count)
+            var distinctFileUrls = fileUrls.ToHashSet();
+            if (distinctFileUrls.Count != fileUrls.Count)
                 throw new ResourceConflictException("Each file must be used one time");
-            await _fileRepo.CheckExistingByFileIds(distinctFileIds);
+            await _fileRepo.CheckExistingByFileUrls(distinctFileUrls);
 
             // Remove file not exist in data
-            var fileIdsToRemove = new List<string>();
+            var fileUrlsToRemove = new List<string>();
             foreach (var q in quiz.Questions)
             {
-                if (q.MediaFileIds is not null)
-                    fileIdsToRemove.AddRange(q.MediaFileIds.Split(","));
+                if (q.MediaFileUrls is not null)
+                    fileUrlsToRemove.AddRange(q.MediaFileUrls.Split(","));
                 foreach (var a in q.Answers)
                 {
-                    if (a.MediaFileIds is not null)
-                        fileIdsToRemove.AddRange(a.MediaFileIds.Split(","));
+                    if (a.MediaFileUrls is not null)
+                        fileUrlsToRemove.AddRange(a.MediaFileUrls.Split(","));
                 }
             }
-            await _fileRepo.DeleteFileByIds(fileIdsToRemove.Where(id => !distinctFileIds.Contains(id)));
+            await _fileRepo.DeleteFileByUrls(fileUrlsToRemove.Where(url => !distinctFileUrls.Contains(url)).ToList());
 
             // Update quiz properties
             quiz.Name = data.Name;
             quiz.CategoryId = data.CategoryId;
-
+            quiz.Slug = data.Slug ?? StringHelper.GenerateSlug(data.Name);
             await _quizRepo.SetQuestionsTagAsync(quiz, data.Tags);
 
             // Update questions
@@ -91,13 +96,14 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                         Id = IdGenerator.Generate("QUE"),
                         Order = q.Order,
                         StringContent = q.StringContent,
-                        MediaFileIds = string.Join(",", q.MediaFileIds),
+                        Slug = q.Slug,
+                        MediaFileUrls = string.Join(",", q.MediaFileUrls),
                         Answers = q.Answers.Select(a => new Answer
                         {
                             Id = IdGenerator.Generate("ANS"),
                             Key = a.Key,
                             StringContent = a.StringContent,
-                            MediaFileIds = string.Join(",", a.MediaFileIds),
+                            MediaFileUrls = string.Join(",", a.MediaFileUrls),
                         }).ToList()
                     });
                 }
@@ -106,9 +112,9 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                     // Update existing question
                     existingQuestion.Order = q.Order;
                     existingQuestion.StringContent = q.StringContent;
-                    existingQuestion.MediaFileIds = string.Join(",", q.MediaFileIds);
+                    existingQuestion.Slug = q.Slug;
+                    existingQuestion.MediaFileUrls = string.Join(",", q.MediaFileUrls);
                     existingQuestion.CorrectKey = q.CorrectKey;
-                    // Update answers
                     existingQuestion.Answers.Clear();
                     foreach (var a in q.Answers)
                     {
@@ -120,7 +126,7 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                                 Id = IdGenerator.Generate("ANS"),
                                 Key = a.Key,
                                 StringContent = a.StringContent,
-                                MediaFileIds = string.Join(",", a.MediaFileIds)
+                                MediaFileUrls = string.Join(",", a.MediaFileUrls)
                             });
                         }
                         else if (answers.TryGetValue(a.Id, out var existingAnswer))
@@ -128,12 +134,11 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                             // Update existing answer
                             existingAnswer.Key = a.Key;
                             existingAnswer.StringContent = a.StringContent;
-                            existingAnswer.MediaFileIds = string.Join(",", a.MediaFileIds);
+                            existingAnswer.MediaFileUrls = string.Join(",", a.MediaFileUrls);
                             existingQuestion.Answers.Add(existingAnswer);
                         }
                     }
                     quiz.Questions.Add(existingQuestion);
-
                 }
             }
 

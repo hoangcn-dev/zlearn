@@ -1,4 +1,5 @@
-﻿using ZLearn.Application.Common.Utils;
+﻿using ZLearn.Application.Common.Identity;
+using ZLearn.Application.Common.Utils;
 using ZLearn.Application.Quizzes;
 using ZLearn.Domain.Entities;
 
@@ -6,6 +7,7 @@ namespace ZLearn.Infras.Data.Repositories
 {
     public class QuizRepo : BaseRepo<Quiz>, IQuizRepo
     {
+
         public QuizRepo(AppDbContext context) : base(context)
         {
         }

@@ -22,8 +22,8 @@ namespace ZLearn.Application.Quizzes.Commands.Update
             RuleFor(x => x.Data.Questions)
                 .NotEmpty().WithMessage("At least one question is required.")
                 .Must(questions => questions.All(q => q.Answers.Count >= 2)).WithMessage("Each question must have at least two answers.")
-                .Must(questions => questions.All(q => q.Answers.All(a => !string.IsNullOrEmpty(q.StringContent) || q.MediaFileIds.Count > 0))).WithMessage("Each question answer must have string content or image.")
-                .Must(questions => questions.All(q => !string.IsNullOrEmpty(q.StringContent) || q.MediaFileIds.Count > 0)).WithMessage($"Each question must have string content or image/audio.");
+                .Must(questions => questions.All(q => q.Answers.All(a => !string.IsNullOrEmpty(q.StringContent) || q.MediaFileUrls.Count > 0))).WithMessage("Each question answer must have string content or image.")
+                .Must(questions => questions.All(q => !string.IsNullOrEmpty(q.StringContent) || q.MediaFileUrls.Count > 0)).WithMessage($"Each question must have string content or image/audio.");
         }
     }
 }

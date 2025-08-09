@@ -17,6 +17,7 @@ using ZLearn.AdminDesktopApp.Services;
 using ZLearn.AdminDesktopApp.Stores;
 using ZLearn.AdminDesktopApp.ViewModels;
 using ZLearn.Application.Categories.DTOs;
+using ZLearn.Application.Common.Utils;
 using ZLearn.Application.Quizzes.DTOs;
 
 namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
@@ -28,8 +29,11 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
         private readonly IFileApiService _fileApiService;
         private readonly IManageWindowService _manageWindowService;
 
+
         [ObservableProperty]
         private string name;
+        [ObservableProperty]
+        private string slug;
         [ObservableProperty]
         private CateListItemDto? selectedCategory = null;
         
@@ -52,6 +56,7 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
         public IRelayCommand AddTagCommand { get; }
         public ICommand RemoveTagCommand { get; }
         public IRelayCommand SaveQuizCommand { get; }
+        public IRelayCommand GetSlugFromNameCommand { get; }
 
 
         public AddQuizViewModel(
@@ -85,6 +90,17 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
                 });
             });
             SaveQuizCommand = new RelayCommand(SaveQuiz);
+            GetSlugFromNameCommand = new RelayCommand(() =>
+            {
+                if (string.IsNullOrEmpty(Name))
+                {
+                    MessageBox.Show("Vui lòng nhập tên danh mục trước khi lấy slug", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+                Slug = StringHelper.GenerateSlug(Name);
+                DialogHelper.ShowSuccessMess(Slug);
+                OnPropertyChanged(nameof(Slug));
+            });
 
             LoadCategoriesData();
             LoadTagsData();
@@ -137,7 +153,7 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
                 }
                 foreach (var question in Questions)
                 {
-                    question.ReplaceAllFileNameToFileId(savedFileNames);
+                    question.ReplaceAllFileNameToFileUrl(savedFileNames);
                 }
             }
 
@@ -146,6 +162,7 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
                 Name = Name,
                 CategoryId = SelectedCategory.Id,
                 Tags = Tags.ToList(),
+                Slug = Slug,
                 Questions = Questions.ToList()
             };
             var result = await ExecuteAsync(() => _quizApiService.CreateNewQuizAsync(quiz));
@@ -168,7 +185,7 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
             var result = await ExecuteAsync(() => _fileApiService.SaveFilesAsync(filePaths));
             if (result is not null && result.Succeeded)
             {
-                var savedFiles = result.Data.Files.ToDictionary(f => f.FileName, f => f.Id);
+                var savedFiles = result.Data.Files.ToDictionary(f => f.FileName, f => f.SourceUrl);
                 return savedFiles;
             }
             return null;
@@ -290,13 +307,13 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
                 for (int i = 0; i < data.Count; i++)
                 {
                     var question = data[i];
-                    if (string.IsNullOrEmpty(question.StringContent) && question.MediaFileIds.Count == 0)
+                    if (string.IsNullOrEmpty(question.StringContent) && question.MediaFileUrls.Count == 0)
                         errors.Add($"Câu hỏi {i + 1}: Không có nội dung hoặc tệp đính kèm nào.");
                     if (question.Answers.Count < 2)
                         errors.Add($"Câu hỏi {i + 1}: Ít hơn 2 đáp án.");
                     if (!question.Answers.Any(a => a.Key == question.CorrectKey))
                         errors.Add($"Câu hỏi {i + 1}: Key đáp án không hợp lệ.");
-                    if (question.Answers.Any(a => a.MediaFileIds.Count == 0 && string.IsNullOrEmpty(a.StringContent)))
+                    if (question.Answers.Any(a => a.MediaFileUrls.Count == 0 && string.IsNullOrEmpty(a.StringContent)))
                         errors.Add($"Câu hỏi {i + 1}: Tồn tại đáp án không có nội dung hoặc tệp đính kèm nào.");
                 }
 

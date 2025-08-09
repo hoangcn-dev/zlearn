@@ -87,7 +87,7 @@ namespace ZLearn.AdminDesktopApp.Features.SystemFeature.ViewModels
                     LastName = Data.LastName,
                     IsActive = Data.IsActive,
                     NickName = Data.NickName,
-                    ImageId = _uploadFileId,
+                    ImageUrl = _uploadFileId,
                     Roles = Roles.Where(r => r.IsSelected).Select(r => r.Name).ToList()
                 };
 

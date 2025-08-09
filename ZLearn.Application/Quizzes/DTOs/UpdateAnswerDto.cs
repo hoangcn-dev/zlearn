@@ -7,7 +7,7 @@ namespace ZLearn.Application.Quizzes.DTOs
         public string? Id { get; set; }
         public int Key { get; set; }
         public string? StringContent { get; set; }
-        public List<string> MediaFileIds { get; set; } = new List<string>();
+        public List<string> MediaFileUrls { get; set; } = new List<string>();
     }
 
     public class UpdateAnswerMapping : Profile
@@ -15,8 +15,8 @@ namespace ZLearn.Application.Quizzes.DTOs
         public UpdateAnswerMapping()
         {
             CreateMap<Answer, UpdateAnswerDto>()
-                .ForMember(dest => dest.MediaFileIds, opt => opt.MapFrom(src =>
-                    string.IsNullOrEmpty(src.MediaFileIds) ? new List<string>() : src.MediaFileIds.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()));
+                .ForMember(dest => dest.MediaFileUrls, opt => opt.MapFrom(src =>
+                    string.IsNullOrEmpty(src.MediaFileUrls) ? new List<string>() : src.MediaFileUrls.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()));
         }
     }
 }

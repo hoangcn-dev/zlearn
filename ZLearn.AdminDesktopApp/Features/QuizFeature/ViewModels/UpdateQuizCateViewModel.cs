@@ -4,12 +4,15 @@ using Microsoft.Win32;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
+using System.Xml.Linq;
 using ZLearn.AdminDesktopApp.Features.QuizFeature.Services;
 using ZLearn.AdminDesktopApp.Features.QuizFeature.Views;
+using ZLearn.AdminDesktopApp.Helpers;
 using ZLearn.AdminDesktopApp.Services;
 using ZLearn.AdminDesktopApp.Stores;
 using ZLearn.AdminDesktopApp.ViewModels;
 using ZLearn.Application.Categories.DTOs;
+using ZLearn.Application.Common.Utils;
 
 namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
 {
@@ -18,50 +21,30 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
         private readonly IQuizApiService _quizApiService;
         private readonly IManageWindowService _windowManager;
         private readonly IFileApiService _fileApiService;
-        private string _uploadFilePath = string.Empty;
-        private string? _uploadFileId = null;
 
 
         public bool IsLoading => _taskStatusStore.Loading;
-        public string UploadFileName => $"Đã tải {Path.GetFileName(_uploadFilePath)}";
-        public Visibility ShowFileUploadedMessage => !string.IsNullOrEmpty(_uploadFilePath) ? Visibility.Visible : Visibility.Collapsed;
+        public string UploadFileName => $"Đã tải {Path.GetFileName(UploadFileUrl)}";
+        public Visibility ShowFileUploadedMessage => !string.IsNullOrEmpty(UploadFileUrl) ? Visibility.Visible : Visibility.Collapsed;
 
-
-        private CateDetailDto? _data;
-        public CateDetailDto? Data 
-        { 
-            get => _data; 
-            set => SetProperty(ref _data, value); 
-        }
-
-
-        private string _updatingName;
-        public string UpdatingName 
-        { 
-            get => _updatingName;
-            set
-            {
-                SetProperty(ref _updatingName, value);
-                UpdateCommand.NotifyCanExecuteChanged();
-            }
-        }
-
-        private string _updatingDesc;
-        public string UpdatingDesc
-        {
-            get => _updatingDesc;
-            set
-            {
-                SetProperty(ref _updatingDesc, value);
-                UpdateCommand.NotifyCanExecuteChanged();
-            }
-        }
 
         [ObservableProperty]
-        private string thumbnailUrl;
+        private CateDetailDto? data;
+        [ObservableProperty]
+        private string updatingName;
+        [ObservableProperty]
+        private string updatingSlug;
+        [ObservableProperty]
+        private string updatingDesc;
+        [ObservableProperty]
+        private string thumbnailUrl = string.Empty;
+        [ObservableProperty]
+        private string? uploadFileUrl;
+
 
         public IAsyncRelayCommand UpdateCommand { get; }
         public ICommand UploadThumbnailFileCommand { get; }
+        public ICommand GetSlugFromNameCommand { get; }
 
 
         public UpdateQuizCateViewModel(
@@ -78,6 +61,15 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
 
             UpdateCommand = new AsyncRelayCommand(UpdateCate);
             UploadThumbnailFileCommand = new RelayCommand(BrowserFile);
+            GetSlugFromNameCommand = new RelayCommand(() =>
+            {
+                if (string.IsNullOrEmpty(UpdatingName))
+                {
+                    MessageBox.Show("Vui lòng nhập tên trước khi lấy slug", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+                UpdatingSlug = StringHelper.GenerateSlug(UpdatingName);
+            });
             LoadData();
         }
 
@@ -98,23 +90,27 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
                     return;
                 }
 
+
                 //Save file to server
-                if (string.IsNullOrEmpty(_uploadFileId) && !string.IsNullOrEmpty(_uploadFilePath))
+                if (!string.IsNullOrEmpty(UploadFileUrl))
                 {
-                    var saveFileRes = await ExecuteAsync(() => _fileApiService.SaveFilesAsync(new List<string> { _uploadFilePath }));
+                    var saveFileRes = await ExecuteAsync(() => _fileApiService.SaveFilesAsync(new List<string> { UploadFileUrl }));
                     if (saveFileRes is null || !saveFileRes.Succeeded)
                     {
                         MessageBox.Show($"Tải lên ảnh đại diện thất bại: {saveFileRes?.Message}", "Thất bại", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                     }
-                    _uploadFileId = saveFileRes.Data!.Files.First().Id;
+                    ThumbnailUrl = saveFileRes.Data!.Files.First().SourceUrl;
+                    UploadFileUrl = null;
                 }
 
-                var res = await ExecuteAsync(() => _quizApiService.UpdateCategoryAsync(
-                    Data!.Id,
-                    UpdatingName,
-                    _uploadFileId,
-                    UpdatingDesc));
+                var res = await ExecuteAsync(() => _quizApiService.UpdateCategoryAsync(Data!.Id, new UpdateCateDto
+                {
+                    Name = UpdatingName,
+                    Slug = UpdatingSlug,
+                    Description = UpdatingDesc,
+                    ThumbnailUrl = ThumbnailUrl
+                }));
                 if (res is not null && res.Succeeded)
                 {
                     MessageBox.Show("Cập nhật thành công");
@@ -146,10 +142,8 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
             };
             if (dialog.ShowDialog() == true)
             {
-                _uploadFilePath = dialog.FileName;
-                _uploadFileId = null;
+                UploadFileUrl = dialog.FileName;
                 ThumbnailUrl = dialog.FileName;
-                OnPropertyChanged(nameof(ThumbnailUrl));
                 OnPropertyChanged(nameof(UploadFileName));
                 OnPropertyChanged(nameof(ShowFileUploadedMessage));
             }
@@ -172,6 +166,7 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
                 UpdatingName = Data.Name;
                 UpdatingDesc = Data.Description;
                 ThumbnailUrl = Data.ThumbnailUrl;
+                UpdatingSlug = Data.Slug;
             }
             else
             {

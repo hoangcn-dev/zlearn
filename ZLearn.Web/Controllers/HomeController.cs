@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using ZLearn.Application.Categories.Queries.GetAllCates;
 using ZLearn.Web.Models;
 
 namespace ZLearn.Web.Controllers
@@ -18,8 +17,7 @@ namespace ZLearn.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var categories = await _mediator.Send(new GetAllCatesQuery());
-            return View(categories);
+            return RedirectToAction("Index", "QuizCate");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -33,6 +31,12 @@ namespace ZLearn.Web.Controllers
         public IActionResult Forbidden()
         {
             return View();
+        }
+
+        [Route("unauthoried")]
+        public IActionResult Unauthorized([FromQuery] string returnUrl)
+        {
+            return View(model: returnUrl);
         }
     }
 }

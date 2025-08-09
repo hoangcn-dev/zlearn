@@ -16,9 +16,9 @@ namespace ZLearn.Application.Files
         /// <summary>
         /// Checks the existence of files based on their unique identifiers.
         /// </summary>
-        /// <param name="fileIds">A list of file identifiers to check. Each identifier must be a non-null, non-empty string.</param>
+        /// <param name="fileUrls">A list of file identifiers to check. Each identifier must be a non-null, non-empty string.</param>
         /// <returns>A task that represents the asynchronous operation. The task completes when the existence check is finished.</returns>
-        Task CheckExistingByFileIds(HashSet<string> fileIds);
-        Task DeleteFileByIds(IEnumerable<string> ids);
+        Task CheckExistingByFileUrls(HashSet<string> fileUrls);
+        Task DeleteFileByUrls(List<string> urls);
     }
 }

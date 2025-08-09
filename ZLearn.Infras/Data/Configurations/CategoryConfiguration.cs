@@ -12,7 +12,7 @@ namespace ZLearn.Infras.Data.Configurations
                 .IsRequired()
                 .HasMaxLength(StringLengths.QuizNameMaxLength);
 
-            builder.HasIndex(c => c.Name).IsUnique();
+            builder.HasIndex(c => c.Slug).IsUnique();
         }
     }
 }

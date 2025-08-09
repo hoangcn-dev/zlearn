@@ -36,9 +36,12 @@ namespace ZLearn.AdminDesktopApp.Interceptors
             var response = await base.SendAsync(request, cancellationToken);
             if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
-                _variableStore.EndSession();
-                DialogHelper.ShowErrorMess("Vui lòng đăng nhập.");
-                _manageWindowService.ShowWindow<LoginWindow>();
+                System.Windows.Application.Current.Dispatcher.Invoke(() =>
+                {
+                    _variableStore.EndSession();
+                    DialogHelper.ShowErrorMess("Vui lòng đăng nhập.");
+                    _manageWindowService.ShowWindow<LoginWindow>();
+                });
                 return new HttpResponseMessage();
             }
 

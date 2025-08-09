@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using ZLearn.Application.Categories.Commands.CreateCate;
 using ZLearn.Application.Categories.Commands.DeleteCate;
 using ZLearn.Application.Categories.Commands.UpdateCate;
@@ -14,6 +15,7 @@ using ZLearn.Application.Quizzes.Commands.Update;
 using ZLearn.Application.Quizzes.DTOs;
 using ZLearn.Application.Quizzes.Queries.GetAllTags;
 using ZLearn.Application.Quizzes.Queries.GetListQuiz;
+using ZLearn.Application.Quizzes.Queries.GetMyQuiz;
 using ZLearn.Application.Quizzes.Queries.GetQuestionAnswerKey;
 using ZLearn.Application.Quizzes.Queries.GetQuestionContent;
 using ZLearn.Application.Quizzes.Queries.GetQuizDetail;
@@ -41,13 +43,28 @@ namespace ZLearn.Web.Controllers.API
             return Ok(Result<PaginatedDto<QuizListItemDto>>.Success("Get all quizzes successfully.", res));
         }
 
+        [HttpGet("my-quiz")]
+        [Authorize]
+        public async Task<IActionResult> GetMyQuizzes([FromQuery] QuizSearchDto data)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var query = new GetMyQuizQuery
+            {
+                OwnerId = userId,
+                Params = data
+            };
+            var res = await _mediator.Send(query);
+            return Ok(Result<PaginatedDto<QuizListItemDto>>.Success(null, res));
+        }
+
         [HttpGet("{id}")]
-        [Authorize(Policy = "OnlyAdmin")]
+        [Authorize]
         public async Task<IActionResult> GetUpdateData(string id)
         {
             var query = new GetUpdateQuizContentQuery
             {
-                Id = id
+                Id = id,
+                OwnerId = User.FindFirstValue(ClaimTypes.NameIdentifier)
             };
             var res = await _mediator.Send(query);
             return Ok(Result<UpdateQuizDto>.Success("Get quiz content successfully.", res));
@@ -73,11 +90,15 @@ namespace ZLearn.Web.Controllers.API
         }
 
         [HttpPut("{id}")]
-        [Authorize(Policy = "OnlyAdmin")]
-        public async Task<IActionResult> Update(string id, [FromBody] UpdateQuizCommand command)
+        [Authorize]
+        public async Task<IActionResult> Update(string id, [FromBody] UpdateQuizDto data)
         {
-            command.Data.Id = id;
-            var res = await _mediator.Send(command);
+            data.Id = id;
+            var res = await _mediator.Send(new UpdateQuizCommand
+            {
+                Data = data,
+                OwnerId = User.FindFirstValue(ClaimTypes.NameIdentifier)
+            });
             return Ok(Result<UpdateResponseDto>.Success("Update quiz successfully.", res));
         }
 
@@ -87,7 +108,8 @@ namespace ZLearn.Web.Controllers.API
         {
             var command = new DeleteQuizCommand
             {
-                Ids = data.Ids
+                Ids = data.Ids,
+                OwnerId = User.FindFirstValue(ClaimTypes.NameIdentifier)
             };
             var res = await _mediator.Send(command);
             return Ok(Result<DeleteResponseDto>.Success("Delete quizz successfully.", res));
@@ -153,7 +175,7 @@ namespace ZLearn.Web.Controllers.API
             var user = Request.HttpContext.User;
             var query = new GetCateByIdQuery
             {
-                CateId = id
+                Id = id
             };
             var res = await _mediator.Send(query);
             return Ok(Result<CateDetailDto>.Success("Get category detail information successfully.", res));
@@ -162,10 +184,13 @@ namespace ZLearn.Web.Controllers.API
 
         [HttpPut("categories/{id}")]
         [Authorize(Policy = "OnlyAdmin")]
-        public async Task<IActionResult> UpdateCate(string id, [FromBody] UpdateCateCommand command)
+        public async Task<IActionResult> UpdateCate(string id, [FromBody] UpdateCateDto data)
         {
-            command.CateId = id;
-            var res = await _mediator.Send(command);
+            var res = await _mediator.Send(new UpdateCateCommand
+            {
+                CateId = id,
+                Data = data
+            });
             return Ok(Result<UpdateResponseDto>.Success("Update category successfully.", res));
         }
 

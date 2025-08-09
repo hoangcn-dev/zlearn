@@ -20,7 +20,7 @@ namespace ZLearn.Application.Auth.Commands.GetAuthData
 
         public async Task<UserSessionDataDto> Handle(GetAuthDataQuery request, CancellationToken cancellationToken)
         {
-            var imageId = request.Claims.FindFirst("ImageId")!.Value;
+            var imageId = request.Claims.FindFirst("ImageUrl")!.Value;
             var sessionData = new UserSessionDataDto
             {
                 Id = request.Claims.FindFirst(ClaimTypes.NameIdentifier)!.Value,

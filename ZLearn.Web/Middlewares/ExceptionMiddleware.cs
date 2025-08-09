@@ -30,6 +30,19 @@ namespace ZLearn.Web.Middlewares
                 {
                     await next(context);
                 }
+                catch (UnauthorizedException ex)
+                {
+                    _logger.LogError(ex, "Authorize failed.");
+                    if (!context.Response.HasStarted)
+                    {
+                        var currentUrl = context.Request.Path + context.Request.QueryString;
+                        context.Response.Redirect($"/unauthoried?returnUrl={Uri.EscapeDataString(currentUrl)}");
+                    }
+                    else
+                    {
+                        await context.Response.WriteAsync("ALogin to continue.");
+                    }
+                }
                 catch (Exception ex)
                 {
                     _logger.LogError(ex, "An unhandled exception occurred while processing the request.");

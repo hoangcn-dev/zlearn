@@ -6,7 +6,7 @@
         public string LastName { get; set; }
         public string NickName { get; set; }
         public bool IsShowNickName { get; set; }
-        public string? ImageId { get; set; }
+        public string? ImageUrl { get; set; }
         public string? PhoneNumber { get; set; }
     }
 }

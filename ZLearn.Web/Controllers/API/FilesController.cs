@@ -20,6 +20,7 @@ namespace ZLearn.Web.Controllers.API
         }
 
         [HttpPost]
+        [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> SaveFiles([FromForm] SaveFilesCommand command)
         {
             var result = await _mediator.Send(command);

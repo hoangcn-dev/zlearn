@@ -22,29 +22,34 @@ namespace ZLearn.Application.Categories.Queries.GetCateById
 
         public async Task<CateDetailDto> Handle(GetCateByIdQuery request, CancellationToken cancellationToken)
         {
+            var filterBuilder = new FilterBuilder<Category>();
+            if (!string.IsNullOrEmpty(request.Slug))
+            {
+                filterBuilder.AndCondition(c => c.Slug == request.Slug);
+            }
+            else if (!string.IsNullOrEmpty(request.Id))
+            {
+                filterBuilder.AndCondition(c => c.Id == request.Id);
+            }
+            else
+            {
+                throw new ArgumentException("Category ID or Id must be provided.");
+            }
             var cate = await _cateRepo.Get(
-                id: request.CateId,
+                filter: filterBuilder.GetPredicateOrDefault(),
                 projector: c => new CateDetailDto
                 {
                     Id = c.Id,
                     Name = c.Name,
-                    ThumbnailUrl = c.ThumbnailId ?? string.Empty,
+                    ThumbnailUrl = c.ThumbnailUrl ?? StringHelper.GetDefaultImageUrl(),
+                    Slug = c.Slug,
                     Description = c.Description ?? "Chưa có mô tả",
                     CreatedAt = c.CreatedAt,
                     CreatedBy = c.CreatedBy,
                     LastModifiedAt = c.LastModifiedAt,
                     ModifiedBy = c.ModifiedBy,
                     QuizCount = c.Quizzes.Count,
-                }) ?? throw new NotFoundException(nameof(Category), request.CateId);
-            if (string.IsNullOrEmpty(cate.ThumbnailUrl))
-            {
-                cate.ThumbnailUrl = StringHelper.GetDefaultImageUrl();
-            }
-            else
-            {
-                cate.ThumbnailUrl = (await _fileRepo.Get(cate.ThumbnailUrl)
-                    ?? throw new InternalErrorException()).SourceUrl;
-            }
+                }) ?? throw new NotFoundException(nameof(Category), request.Id);
             return cate;
         }
     }

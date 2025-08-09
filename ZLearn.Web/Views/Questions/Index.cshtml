@@ -57,14 +57,14 @@
                     @foreach (var item in Model.ImageUrls)
                     {
                         <div class="col-6">
-                            <img src="@item" alt="" class="shadow-sm w-100">
+                            <img src="@item" alt="" class="shadow-sm w-100 media-size" onclick="previewMediaFile('@item')">
                         </div>
                     }
                     <!-- Video -->
                     @foreach (var item in Model.VideoUrls)
                     {
                         <div class="col-6">
-                            <video controls class="shadow-sm w-100">
+                            <video controls class="shadow-sm w-100 media-size" onclick="previewMediaFile('@item')">
                                 <source src="@item">
                             </video>
                         </div>
@@ -85,7 +85,7 @@
                                 @foreach (var url in item.ImageUrls)
                                 {
                                     <div class="col-4">
-                                        <img src="@url" alt="" class="shadow-sm w-100">
+                                        <img src="@url" alt="" class="shadow-sm w-100 object-fit-contain" height="200">
                                     </div>
                                 }
                             </div>
@@ -112,12 +112,12 @@
 {
     <script asp-append-version="true">
         let params = new URLSearchParams(window.location.search);
-        let qId = params.get('id');
+        let qId = "@Model.QuizId";
         let currentOrder = @Model.Order;
         let questionMap = [];
         let isAnsSelected = false;
 
-        $(document).ready(() => {
+        $(document).ready(async () => {
             // Add answer click lisnter
             $('.ans').on('click', function() {
                 if (isAnsSelected) return;
@@ -146,6 +146,10 @@
                     // scrollTo('#result')
                 });
             });
+            $('.ans img').on('click', function(e) {
+                e.stopPropagation();
+                previewMediaFile($(this).attr('src'));
+            });
 
             // Add media display toggle btn
             $('#btnToggeMediaDisplay').on('click', function() {
@@ -164,10 +168,11 @@
             // Get question map
             $('#btnPrev').hide();
             $('#btnNext').hide();
-            getData(`/quizzes/@Model.QuizId/detail`, res => {
-                $('#quizName').text(res.name);
+            await getData(`/quizzes/@Model.QuizId/detail`, res => {
+                $('#quizName').text(res.data.name);
                 $('#questionMap').empty();
-                res.questions.forEach(q => {
+
+                res.data.questions.forEach(q => {
                     const questionDiv = $(`<div data-order="${q.order}" data-url="${q.url}" class="q-index text-center text-decoration-none fw-light align-content-center highlight-hover me-2 mb-2 border-1 border rounded-1" style="width: 32px; height: 32px;">${q.order}</div>`);
                     questionDiv.on('click', () => loadQuestionData(q.id));
                     if (q.order == @Model.Order) {
@@ -177,18 +182,28 @@
                 });
                 if (currentOrder > 1) {
                     $('#btnPrev').show();
-                    $('#btnPrev').on('click', () => loadQuestionData(res.questions[currentOrder-2].id));
+                    $('#btnPrev').on('click', () => loadQuestionData(res.data.questions[currentOrder-2].id));
                 }
-                if (currentOrder < res.questions.length) {
+                if (currentOrder < res.data.questions.length) {
                     $('#btnNext').show();
-                    $('#btnNext').on('click', () => loadQuestionData(res.questions[currentOrder].id));
+                    $('#btnNext').on('click', () => loadQuestionData(res.data.questions[currentOrder].id));
                 }
-                questionMap = res.questions;
+                questionMap = res.data.questions;
             });
         });
 
-        function loadQuestionData(id) {
-            getData(`/quizzes/questions/${id}`, res => {
+        function updateLastUrlSegment(newSegment) {
+            const url = new URL(window.location.href);
+            const segments = url.pathname.split('/');
+            segments[segments.length - 1] = newSegment;
+            url.pathname = segments.join('/');
+            window.history.replaceState({}, '', url);
+        }
+
+        async function loadQuestionData(id) {
+            await getData(`/quizzes/questions/${id}`, response => {
+                const res = response.data;
+
                 // Update status
                 qId = res.id;
                 currentOrder = res.order;
@@ -196,7 +211,7 @@
 
                 // Update UI
                 document.title = `Câu ${res.order}: ${res.stringContent}`;
-                updateQueryParam("id", res.id);
+                updateLastUrlSegment(res.slug);
                 $('#attempt').text(`${res.attemptCount} Lượt làm`);
                 $('#order').text(`Câu ${res.order}: `);
                 $('#stringContent').text(res.stringContent);
@@ -213,14 +228,14 @@
                 res.imageUrls.forEach(url => {
                     $('#image-video').append(`
                         <div class="col-6">
-                            <img src="${url}" alt="" class="shadow-sm w-100">
+                            <img src="${url}" alt="" class="shadow-sm w-100" onclick="previewMediaFile('${url}')">
                         </div>
                     `);
                 });
                 res.videoUrls.forEach(url => {
                     $('#image-video').append(`
                         <div class="col-6">
-                            <video controls class="shadow-sm w-100">
+                            <video controls class="shadow-sm w-100" onclick="previewMediaFile('${url}')">
                                 <source src="${url}">
                             </video>
                         </div>
@@ -251,6 +266,7 @@
                         $('.ans').removeClass('highlight-hover')
                         isAnsSelected = true;
                         getData(`/quizzes/questions/${qId}/correct-key`, res => {
+                            res = res.data;
                             const correctDiv = $(`.ans[data-key="${res.correctKey}"]`)
                             const message = res.correctKey == $(this).data('key')?
                                 '<span class="fw-bold" style="color: var(--success-color);"><i class="fa-solid fa-check"></i> Bạn đã chọn đúng</span>':
@@ -294,4 +310,15 @@
             });
         }
     </script>
+}
+
+@section Styles {
+    <style>
+        .media-size{
+            height: 300px;
+            background-color: white;
+            object-fit: contain;
+            box-shadow: 0px 0px 5px gray;
+        }
+    </style>
 }

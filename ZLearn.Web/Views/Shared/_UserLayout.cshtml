@@ -1,0 +1,72 @@
+﻿@{
+    Layout = "_Layout";
+    bool isShowLeftOptions = ViewBag.ShowLeftOptions ?? true;
+}
+
+<div id="main-content" class="container-fluid px-4">
+    <div class="row g-3">
+        @if (isShowLeftOptions) {
+            <div class="col-2">
+                <div class="my-2 fw-bold text-secondary">Tùy chọn</div>
+                <a asp-controller="Users" asp-action="Profile" class="menu-option card card-body py-2 rounded-0 shadow-sm opacity-hover">
+                    Thông tin tài khoản
+                </a>
+                <a asp-controller="Users" asp-action="MyQuiz" class="menu-option card card-body py-2 rounded-0 shadow-sm opacity-hover">
+                    Đề đã tạo
+                </a>
+                <div class="menu-option card card-body py-2 rounded-0 shadow-sm border-top-0 opacity-hover">
+                    Liên hệ
+                </div>
+                <div class="menu-option card card-body py-2 rounded-0 shadow-sm border-top-0 opacity-hover">
+                    Tố cáo
+                </div>
+            </div>
+
+            <div class="col-10">
+                @RenderBody()
+            </div>
+        } else {
+            <div class="col-10 offset-1">
+                @RenderBody()
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script asp-append-version="true">
+        $(document).ready(() => {
+            // Init UI
+            $('#navbar').hide();
+            $('.menu-option').click(function () {
+                const currentOption =  $('.menu-option.selected');
+                currentOption.removeClass('selected')
+                currentOption.next('.menu-option').addClass('border-top-0');;
+                //
+                const option = $(this);
+                option.addClass('selected');
+                option.next('.menu-option').removeClass('border-top-0');
+            });
+            
+            // 
+            const url = window.location.pathname;
+            const currentOption = $('.menu-option').filter(function() {
+                return $(this).attr('href') === url;
+            });
+            currentOption.click();
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+}
+
+@section Styles {
+    <style>
+        .menu-option.selected {
+            background-color: var(--bg-color);
+            border: 1px solid var(--bg-color);
+            box-shadow: none !important;
+        }
+    </style>
+    @await RenderSectionAsync("Styles", required: false)
+}

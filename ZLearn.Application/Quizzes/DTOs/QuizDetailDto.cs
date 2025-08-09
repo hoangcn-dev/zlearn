@@ -9,7 +9,8 @@
     {
         public string Id { get; set; }
         public string Content { get; set; }
+        public string Slug { get; set; }
         public int Order { get; set; }
-        public string Url => $"/questions?id={Id}";
+        public string Url => $"/cau-hoi-trac-nghiem/{Slug}";
     }
 }

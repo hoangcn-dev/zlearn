@@ -8,14 +8,12 @@ namespace ZLearn.Application.Categories.Queries.GetAllCates
     public class GetAllCatesQueryHandler: BaseQueryHandler, IRequestHandler<GetAllCatesQuery, IEnumerable<CateListItemDto>>
     {
         private readonly ICateRepo _repo;
-        private readonly IFileRepo _fileRepo;
 
         public GetAllCatesQueryHandler(
             IMapper mapper, IMediator mediator,
             ICateRepo repo, IFileRepo fileRepo) : base(mapper, mediator)
         {
             _repo = repo;
-            _fileRepo = fileRepo;
         }
 
         public async Task<IEnumerable<CateListItemDto>> Handle(GetAllCatesQuery request, CancellationToken cancellationToken)
@@ -27,28 +25,12 @@ namespace ZLearn.Application.Categories.Queries.GetAllCates
                 {
                     Id = e.Id,
                     Name = e.Name,
-                    ThumbnailUrl = e.ThumbnailId ?? string.Empty,
+                    Slug = e.Slug,
+                    ThumbnailUrl = e.ThumbnailUrl ?? StringHelper.GetDefaultImageUrl(),
                     QuizCount = e.Quizzes.Count,
                     LastModifiedAt = e.LastModifiedAt,
                     AttemptCount = e.Quizzes.Select(q => q.Questions.Select(qu => qu.AttemptCount).Sum()).Sum()
                 });
-
-            // Get file urls from thumbnail ids in categories
-            var thumbnailUrls = await _fileRepo.GetFileUrlsAsync(cates
-                .Where(c => !string.IsNullOrEmpty(c.ThumbnailUrl))
-                .Select(c => c.ThumbnailUrl).ToList());
-            foreach (var cate in cates)
-            {
-                if (string.IsNullOrEmpty(cate.ThumbnailUrl) || !thumbnailUrls.ContainsKey(cate.ThumbnailUrl))
-                {
-                    cate.ThumbnailUrl = StringHelper.GetDefaultImageUrl();
-                }
-                else
-                {
-                    cate.ThumbnailUrl = thumbnailUrls[cate.ThumbnailUrl].SourceUrl;
-                }
-            }
-
             return cates;
         }
     }

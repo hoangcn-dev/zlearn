@@ -12,8 +12,8 @@ using ZLearn.Infras.Data;
 namespace ZLearn.Infras.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250724102239_AccessHis")]
-    partial class AccessHis
+    [Migration("20250809034808_ReInit6")]
+    partial class ReInit6
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -148,13 +148,14 @@ namespace ZLearn.Infras.Migrations
             modelBuilder.Entity("ZLearn.Domain.Entities.AccessHistory", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("text");
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)");
 
                     b.Property<long>("AccessCount")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTimeOffset>("Day")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("Day")
+                        .HasColumnType("date");
 
                     b.HasKey("Id");
 
@@ -180,7 +181,7 @@ namespace ZLearn.Infras.Migrations
                     b.Property<DateTimeOffset?>("LastModifiedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("MediaFileIds")
+                    b.Property<string>("MediaFileUrls")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -228,12 +229,16 @@ namespace ZLearn.Infras.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("character varying(255)");
 
-                    b.Property<string>("ThumbnailId")
+                    b.Property<string>("Id")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ThumbnailUrl")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Name")
+                    b.HasIndex("Id")
                         .IsUnique();
 
                     b.ToTable("Categories", (string)null);
@@ -321,7 +326,7 @@ namespace ZLearn.Infras.Migrations
                     b.Property<DateTimeOffset?>("LastModifiedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("MediaFileIds")
+                    b.Property<string>("MediaFileUrls")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -334,6 +339,10 @@ namespace ZLearn.Infras.Migrations
                     b.Property<string>("QuizId")
                         .IsRequired()
                         .HasColumnType("character varying(16)");
+
+                    b.Property<string>("Id")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("StringContent")
                         .HasColumnType("text");
@@ -379,9 +388,16 @@ namespace ZLearn.Infras.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("character varying(255)");
 
+                    b.Property<string>("Id")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("Id")
+                        .IsUnique();
 
                     b.ToTable("Quizzes", (string)null);
                 });
@@ -464,7 +480,7 @@ namespace ZLearn.Infras.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
-                    b.Property<string>("ImageId")
+                    b.Property<string>("ImageUrl")
                         .HasColumnType("text");
 
                     b.Property<bool>("IsActive")

@@ -6,6 +6,6 @@ namespace ZLearn.Application.Quizzes.Queries.GetListQuiz
     public class GetListQuizQuery : PagingRequestDto, IRequest<PaginatedDto<QuizListItemDto>>
     {
         public string? Name { get; set; }
-        public string? CategoryId { get; set; }
+        public string? CategorySlug { get; set; }
     }
 }

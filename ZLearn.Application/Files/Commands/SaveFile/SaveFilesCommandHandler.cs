@@ -73,20 +73,7 @@ namespace ZLearn.Application.Files.Commands.SaveFile
                 throw new ValidationException($"File name exceeds the maximum allowed length of {StringLengths.FileNameMaxLength} characters.");
             }
 
-            var mediaType = Path.GetExtension(file.FileName) switch
-            {
-                FileRules.Extension.IMAGE_PNG_EXTENSION => MediaType.Image,
-                FileRules.Extension.IMAGE_JPEG_EXTENSION => MediaType.Image,
-                FileRules.Extension.IMAGE_JPG_EXTENSION => MediaType.Image,
-                FileRules.Extension.IMAGE_GIF_EXTENSION => MediaType.Image,
-                FileRules.Extension.IMAGE_SVG_EXTENSION => MediaType.Image,
-                FileRules.Extension.AUDIO_MP3_EXTENSION => MediaType.Audio,
-                FileRules.Extension.AUDIO_WAV_EXTENSION => MediaType.Audio,
-                FileRules.Extension.AUDIO_OGG_EXTENSION => MediaType.Audio,
-                FileRules.Extension.VIDEO_MP4_EXTENSION => MediaType.Video,
-                _ => throw new ArgumentException("Unsupported file extension."),
-            };
-
+            var mediaType = FileHelper.GetMediaType(file.FileName);
             var maxSize = mediaType switch
             {
                 MediaType.Image => FileRules.MaxSize.MAX_IMAGE_FILE_SIZE_MB * 1024 * 1024,

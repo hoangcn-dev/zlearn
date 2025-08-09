@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -62,6 +64,36 @@ namespace ZLearn.Application.Common.Utils
             var charSuffix = defaultChars.ElementAt(random.Next(defaultChars.Count));
             var foodSuffix = defaultFoods.ElementAt(random.Next(defaultFoods.Count));
             return $"{name} {charSuffix} Thích {foodSuffix}";
+        }
+    
+        public static string GenerateSlug(string source)
+        {
+            // create en string from vi string
+            char[] vi = { 'à', 'á', 'ạ', 'ả', 'ã', 'â', 'ầ', 'ấ', 'ậ', 'ẩ', 'ẫ', 'ă', 'ằ', 'ắ', 'ặ', 'ẳ', 'ẵ', 'è', 'é', 'ẹ', 'ẻ', 'ẽ', 'ê', 'ề', 'ế', 'ệ', 'ể', 'ễ', 'ì', 'í', 'ị', 'ỉ', 'ĩ', 'ò', 'ó', 'ọ', 'ỏ', 'õ', 'ô', 'ồ', 'ố', 'ộ', 'ổ', 'ỗ', 'ơ', 'ờ', 'ớ', 'ợ', 'ở', 'ỡ', 'ù', 'ú', 'ụ', 'ủ', 'ũ', 'ư', 'ừ', 'ứ', 'ự', 'ử', 'ữ', 'ỳ', 'ý', 'ỵ', 'ỷ', 'ỹ', 'đ' };
+            char[] en = { 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i', 'i', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'u', 'u', 'u', 'u', 'u', 'u', 'u', 'u', 'u', 'u', 'u', 'y', 'y', 'y', 'y', 'y', 'd' };
+            var map = new Dictionary<char, char>();
+            for (int i = 0; i < vi.Length; i++)
+            {
+                map.Add(vi[i], en[i]);
+            }
+            string seo = "";
+            source = source.ToLower();
+            for (int i = 0; i < source.Length; i++)
+            {
+                if (map.TryGetValue(source[i], out char val))
+                {
+                    seo += val;
+                }
+                else
+                {
+                    seo += source[i];
+                }
+            }
+
+            seo = seo.Trim();
+            seo = Regex.Replace(seo, @"[^a-z0-9\s-]", ""); //remove special characters
+            seo = Regex.Replace(seo, @"\s+", "-");
+            return seo.Length > 50 ? seo[..50] : seo;
         }
     }
 }

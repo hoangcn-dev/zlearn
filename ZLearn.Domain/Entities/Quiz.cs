@@ -5,6 +5,7 @@ namespace ZLearn.Domain.Entities
     public class Quiz : AuditableEntity
     {
         public string Name { get; set; }
+        public string Slug { get; set; }
         public string CategoryId { get; set; }
         public int DownloadCount { get; set; }
         public bool IsPublic { get; set; }

@@ -68,9 +68,7 @@ namespace ZLearn.Infras.Identity
             return new UserSessionDataDto
             {
                 Id = user.Id,
-                ImagePath = string.IsNullOrEmpty(user.ImageId) ?
-                    StringHelper.GetDefaultImageUrl() :
-                    await _fileRepo.Get(user.ImageId, f => f.SourceUrl) ?? StringHelper.GetDefaultImageUrl(),
+                ImagePath = user.ImageUrl ?? StringHelper.GetDefaultImageUrl(),
                 Token = token,
                 UserName = data.UserName,
                 Roles = roles
@@ -96,7 +94,7 @@ namespace ZLearn.Infras.Identity
                 {
                     Id = IdGenerator.Generate("ACC"),
                     UserName = StringHelper.GetRandomUserName(),
-                    ImageId = string.IsNullOrEmpty(imageUrl)? null : await GetFileMediaFromUrl(imageUrl),
+                    ImageUrl = string.IsNullOrEmpty(imageUrl)? null : await GetFileMediaFromUrl(imageUrl),
                     Email = email,
                     FirstName = claims.FirstOrDefault(c => c.Type == ClaimTypes.Surname)?.Value ?? "Ẩn danh",
                     LastName = claims.FirstOrDefault(c => c.Type == ClaimTypes.GivenName)?.Value ?? "",
@@ -126,9 +124,7 @@ namespace ZLearn.Infras.Identity
             return new UserSessionDataDto
             {
                 Id = user.Id,
-                ImagePath = string.IsNullOrEmpty(user.ImageId)?
-                    StringHelper.GetDefaultImageUrl():
-                    await _fileRepo.Get(user.ImageId, f => f.SourceUrl) ?? StringHelper.GetDefaultImageUrl(),
+                ImagePath = user.ImageUrl ?? StringHelper.GetDefaultImageUrl(),
                 Token = token,
                 UserName = user.UserName,
                 Roles = roles
@@ -144,7 +140,7 @@ namespace ZLearn.Infras.Identity
             var file = await _mediaStoreService.SaveFile(stream, Path.GetFileName(url), MediaType.Image, CancellationToken.None);
             _fileRepo.Create(file);
             await _fileRepo.SaveChanges();
-            return file.Id;
+            return file.SourceUrl;
         }
 
         public Task<bool> AuthorizeAsync(string userId, string policyName)
@@ -261,9 +257,7 @@ namespace ZLearn.Infras.Identity
                 LastName = user.LastName ?? string.Empty,
                 NickName = user.NickName,
                 PhoneNumber = user.PhoneNumber,
-                ImagePath = string.IsNullOrEmpty(user.ImageId) ?
-                    StringHelper.GetDefaultImageUrl() :
-                    await _fileRepo.Get(user.ImageId, f => f.SourceUrl) ?? StringHelper.GetDefaultImageUrl(),
+                ImagePath = user.ImageUrl ?? StringHelper.GetDefaultImageUrl(),
                 EmailConfirmed = user.EmailConfirmed,
                 IsActive = user.IsActive,
                 LastLogin = user.LastLogin,
@@ -281,12 +275,11 @@ namespace ZLearn.Infras.Identity
             var data = request.UpdateData;
             if (data.UserName != user.UserName && await _userManager.Users.AnyAsync(u => u.UserName == data.UserName))
                 throw new ResourceConflictException("UserName already exists.");
-            
-            if (!string.IsNullOrEmpty(data.ImageId))
+            if (!string.IsNullOrEmpty(data.ImageUrl))
             {
-                if (user.ImageId != null)
-                    await _fileRepo.DeleteFileByIds(new List<string> { user.ImageId });
-                user.ImageId = data.ImageId;
+                if (user.ImageUrl != null)
+                    await _fileRepo.DeleteFileByUrls(new List<string> { user.ImageUrl });
+                user.ImageUrl = data.ImageUrl;
             }
 
             user.UserName = data.UserName;
@@ -331,11 +324,11 @@ namespace ZLearn.Infras.Identity
 
             var data = request.UpdateData;
 
-            if (!string.IsNullOrEmpty(data.ImageId))
+            if (!string.IsNullOrEmpty(data.ImageUrl))
             {
-                if (user.ImageId != null)
-                    await _fileRepo.DeleteFileByIds(new List<string> { user.ImageId });
-                user.ImageId = data.ImageId;
+                if (user.ImageUrl != null)
+                    await _fileRepo.DeleteFileByUrls(new List<string> { user.ImageUrl });
+                user.ImageUrl = data.ImageUrl;
             }
 
             user.FirstName = data.FirstName;

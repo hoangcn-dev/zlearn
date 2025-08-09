@@ -5,7 +5,7 @@ using ZLearn.Application.Quizzes.Queries.GetQuestionContent;
 
 namespace ZLearn.Web.Controllers
 {
-    [Route("[controller]")]
+    [Route("cau-hoi-trac-nghiem")]
     public class QuestionsController : BaseController
     {
         public QuestionsController(
@@ -14,12 +14,12 @@ namespace ZLearn.Web.Controllers
         {
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Index(string id)
+        [HttpGet("{slug}")]
+        public async Task<IActionResult> Index(string slug)
         {
             var query = new GetQuestionContentQuery
             {
-                Id = id
+                Slug = slug
             };
             var content = await _mediator.Send(query);
             return View(content);

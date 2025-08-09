@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using ZLearn.AdminDesktopApp.Exceptions;
+using ZLearn.AdminDesktopApp.Services.APIs;
 using ZLearn.Application.Common.DTOs;
 using ZLearn.Application.Files.Commands.SaveFile;
 using ZLearn.Application.Files.DTOs;
