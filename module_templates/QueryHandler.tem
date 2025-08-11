@@ -1,0 +1,18 @@
+using ZLearn.Application.Common.Queries;
+
+namespace $Name$
+{
+    public class $Name$QueryHandler : BaseQueryHandler, IRequestHandler<$Name$Query, $ReturnType$>
+    {
+        public $Name$QueryHandler(
+            IMapper mapper,
+            IMediator mediator) : base(mapper, mediator)
+        {
+        }
+
+        public async Task<$ReturnType$> Handle($Name$Query request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

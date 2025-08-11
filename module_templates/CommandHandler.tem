@@ -1,0 +1,18 @@
+using ZLearn.Application.Common.Commands;
+
+namespace $Name$
+{
+    public class $Name$CommandHandler : BaseCommandHandler, IRequestHandler<$Name$Command, $ReturnType$>
+    {
+        public $Name$CommandHandler(
+            IMapper mapper, 
+            IMediator mediator) : base(mapper, mediator)
+        {
+        }
+
+        public async Task<$ReturnType$> Handle($Name$Command request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

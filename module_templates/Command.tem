@@ -1,0 +1,6 @@
+namespace $Name$
+{
+    public class $Name$Command : IRequest<$ReturnType$>
+    {
+    }
+}

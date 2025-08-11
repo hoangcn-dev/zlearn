@@ -93,7 +93,7 @@ namespace ZLearn.Application.Common.Utils
             seo = seo.Trim();
             seo = Regex.Replace(seo, @"[^a-z0-9\s-]", ""); //remove special characters
             seo = Regex.Replace(seo, @"\s+", "-");
-            return seo.Length > 50 ? seo[..50] : seo;
+            return seo.Length > 100 ? seo[..100] : seo;
         }
     }
 }
