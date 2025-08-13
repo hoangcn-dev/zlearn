@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.Mvc;
 using System.Text.Json.Serialization;
 using ZLearn.Application;
+using ZLearn.Domain.Exceptions;
 using ZLearn.Infras;
 using ZLearn.Web.Middlewares;
 
@@ -33,6 +35,7 @@ namespace ZLearn.Web
             builder.AddCloudinaryService();
             builder.AddDatabaseBackupService();
             builder.AddAccessTrackingService();
+            builder.AddFileCleanupService();
             builder.AddRealtimeServices();
             builder.AddLogService();
 
@@ -52,6 +55,17 @@ namespace ZLearn.Web
                 options.KnownProxies.Clear();
             });
 
+            // Override validation error message
+            builder.Services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.InvalidModelStateResponseFactory = context =>
+                {
+                    var firstError = context.ModelState.Values
+                        .SelectMany(v => v.Errors)
+                        .FirstOrDefault()?.ErrorMessage ?? "Invalid request data.";
+                    throw new ValidationErrorException(firstError);
+                };
+            });
 
             var app = builder.Build();
             app.UseExceptionMiddleware();

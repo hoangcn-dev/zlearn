@@ -35,14 +35,6 @@ namespace ZLearn.Web.Controllers.API
             _logger = logger;
         }
 
-        [HttpGet("Test")]
-        [Authorize(Policy = "OnlyAdmin")]
-        public IActionResult Test()
-        {
-            return Ok("AuthController is working!");
-        }
-
-
         #region Users
         [HttpGet("roles")]
         [Authorize(Policy = "OnlyAdmin")]

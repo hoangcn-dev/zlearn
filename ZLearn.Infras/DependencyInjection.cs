@@ -171,6 +171,12 @@ namespace ZLearn.Infras
             builder.Services.AddHostedService<DatabaseBackupService>();
         }
 
+        public static void AddFileCleanupService(this WebApplicationBuilder builder)
+        {
+            builder.Services.Configure<FileCleanupConfiguration>(builder.Configuration.GetSection("FileCleanup"));
+            builder.Services.AddHostedService<RemoveUnusedFilesService>();
+        }
+
         public static void AddRealtimeServices(this WebApplicationBuilder builder)
         {
             builder.Services.AddSignalR();

@@ -109,8 +109,9 @@
 
         async function update() {
             showConfirm(
-                "Xác nhận cập nhật?", 
+                "Xác nhận cập nhật?",
                 async () => {
+
                     var updateData = {
                         name: $('input[name="quizName"]').val(),
                         categoryId: $('#category').val(),
@@ -213,13 +214,13 @@
                 </div>
             `);
             qDiv.find('.stringContent').on('change', function() {
-                q.stringContent = $(this).text();
+                questions[qIndex].stringContent = $(this).val();
             });
             qDiv.find('.explanation').on('change', function() {
-                q.explanation = $(this).text();
+                questions[qIndex].explanation = $(this).val();
             });
             $('#questions').on('change', `input[name="${qIndex}_correctKey"]`, function() {
-                q.correctKey = $(this).val();
+                questions[qIndex].correctKey = $(this).val();
             });
 
 
@@ -336,7 +337,7 @@
             $('body').append(input);
             input.click();
         }
-        
+
         function addTag(newTag) {
             if ($('#tags .name').filter((i, el) => $(el).text() === newTag).length > 0) {
                 showMess('Tag đã tồn tại!', false);

@@ -20,7 +20,6 @@ namespace ZLearn.Web.Controllers.API
         }
 
         [HttpPost]
-        [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> SaveFiles([FromForm] SaveFilesCommand command)
         {
             var result = await _mediator.Send(command);
@@ -29,10 +28,13 @@ namespace ZLearn.Web.Controllers.API
 
 
         [HttpPost("delete")]
-        [Authorize(Policy = "OnlyAdmin")]
-        public async Task<IActionResult> DeleteFiles([FromBody] DeleteFileCommand command)
+        public async Task<IActionResult> DeleteFiles([FromBody] DeleteFileRequestDto data)
         {
-            var result = await _mediator.Send(command);
+            var result = await _mediator.Send(new DeleteFileCommand
+            {
+                Claims = User,
+                FileIds = data.FileIds
+            });
             return Ok(Result<DeleteResponseDto>.Success("Delete files successfully.", result));
         }
     }

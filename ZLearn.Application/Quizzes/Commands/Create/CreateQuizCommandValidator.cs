@@ -7,23 +7,23 @@ namespace ZLearn.Application.Quizzes.Commands.Create
         public CreateQuizCommandValidator()
         {
             RuleFor(x => x.Data.Name)
-                .NotEmpty().WithMessage("Quiz name is required.")
-                .MaximumLength(StringLengths.QuizNameMaxLength).WithMessage($"Quiz name cannot exceed {StringLengths.QuizNameMaxLength} characters.")
-                .MinimumLength(StringLengths.QuizNameMinLength).WithMessage($"Quiz name cannot less {StringLengths.QuizNameMinLength} characters");
+                .NotEmpty().WithMessage("Tên đề trắc nghiệm trống.")
+                .MaximumLength(StringLengths.QuizNameMaxLength).WithMessage($"Tên đề có độ dài không vượt quá {StringLengths.QuizNameMaxLength} kí tự.")
+                .MinimumLength(StringLengths.QuizNameMinLength).WithMessage($"Tên đề có độ dài lớn hơn {StringLengths.QuizNameMinLength} kí tự");
 
             RuleFor(x => x.Data.CategoryId)
-                .NotEmpty().WithMessage("Category ID is required.");
+                .NotEmpty().WithMessage("Danh mục trống.");
 
             RuleFor(x => x.Data.Tags)
-                .NotEmpty().WithMessage("At least one tag is required.")
+                .NotEmpty().WithMessage("Vui lòng thêm ít nhất 1 tag.")
                 .Must(tags => tags.All(tag => tag.Length >= StringLengths.TagNameMinLength && tag.Length <= StringLengths.TagNameMaxLength))
-                .WithMessage($"Each tag must be between {StringLengths.TagNameMinLength} and {StringLengths.TagNameMaxLength} characters long.");
+                .WithMessage($"Độ dài tag phải nằm trong khoảng {StringLengths.TagNameMinLength} - {StringLengths.TagNameMaxLength} kí tự.");
 
             RuleFor(x => x.Data.Questions)
-                .NotEmpty().WithMessage("At least one question is required.")
-                .Must(questions => questions.All(q => q.Answers.Count >= 2)).WithMessage("Each question must have at least two answers.")
-                .Must(questions => questions.All(q => q.Answers.All(a => !string.IsNullOrEmpty(q.StringContent) || q.MediaFileUrls.Count > 0))).WithMessage("Each question answer must have string content or image.")
-                .Must(questions => questions.All(q => !string.IsNullOrEmpty(q.StringContent) || q.MediaFileUrls.Count > 0)).WithMessage($"Each question must have string content or image/audio.");
+                .NotEmpty().WithMessage("Chưa thêm câu hỏi nào.")
+                .Must(questions => questions.All(q => q.Answers.Count >= 2)).WithMessage("Mỗi câu hỏi trắc nghiệm phải có ít nhất 2 lựa chọn.")
+                .Must(questions => questions.All(q => q.Answers.All(a => !string.IsNullOrEmpty(q.StringContent) || q.MediaFileUrls.Count > 0))).WithMessage("Mỗi đáp án phải có nội dung văn bản hoặc ảnh.")
+                .Must(questions => questions.All(q => !string.IsNullOrEmpty(q.StringContent) || q.MediaFileUrls.Count > 0)).WithMessage($"Mỗi câu hỏi trắc nghiệm phải có nội dung văn bản hoặc media.");
         }
     }
 }

@@ -33,17 +33,6 @@ namespace ZLearn.Web.Controllers
             });
             return View(profile);
         }
-
-        [HttpGet("de-da-tao")]
-        public async Task<IActionResult> MyQuiz()
-        {
-            return View();
-        }
-
-        [HttpGet("cap-nhat-de")]
-        public async Task<IActionResult> UpdateQuiz(string id)
-        {
-            return View();
-        }
+        
     }
 }

@@ -40,6 +40,7 @@ namespace ZLearn.Application.Categories.Commands.CreateCate
                 ThumbnailUrl = request.ThumbnailUrl,
                 Description = request.Description
             };
+            await _fileRepo.SetUsing(new List<string> { cate.ThumbnailUrl });
 
             cate.AddEvent(new CateCreatedEvent(cate));
             _repo.Create(cate);

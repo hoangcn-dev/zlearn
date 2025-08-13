@@ -25,15 +25,28 @@
             <option selected value="CreatedAt">Mới nhất</option>
             <option value="AttemptCount">Làm nhiều nhất</option>
         </select>
-        <button class="btn text-light opacity-hover" style="background-color: var(--main-color);">Tạo mới <i class="fa-solid fa-plus"></i></button>
+        <a asp-action="Create" asp-controller="Quizzes" class="btn text-light opacity-hover" style="background-color: var(--main-color);">Tạo mới <i class="fa-solid fa-plus"></i></a>
     </div>
 
     <!-- List quizzes -->
     <div id="quizzes" class="d-flex flex-column mt-2"></div>
+
+    <!-- View more -->
+    <div class="d-flex flex-column align-items-center">
+        <div id="load-container">
+            @* <div class="loader my-3"></div> *@
+        </div>
+        <button id="viewMore" onclick="loadMore()" class="btn rounded-0 bg-white highlight-hover border py-1 px-2 fw-light"><i class="fa-solid fa-caret-down"></i> Xem thêm</button>
+    </div>
 </div>
 
 @section Scripts {
     <script asp-append-version="true">
+        let pageIndex = 1;
+        let pageSize = 10;
+        let totalPages = 1;
+        let totalItems = 1;
+
         $(document).ready(() => {
             // Get categories
             getData(`/quizzes/categories`, res => {
@@ -44,27 +57,45 @@
                     $('#category').append(`<option value="${c.id}">${c.name}</option>`);
                 });
             }, false);
-            $('#order').on('change', () => loadQuiz());
-            $('#category').on('change', () => loadQuiz());
+            $('#order').on('change', () => {
+                pageIndex = 1;
+                $('#quizzes').empty();
+                loadQuiz();
+            });
+            $('#category').on('change', () => {
+                pageIndex = 1;
+                $('#quizzes').empty();
+                loadQuiz();
+            });
             loadQuiz();
         });
+
+        function loadMore() {
+            if (pageIndex < totalPages) {
+                pageIndex += 1;
+                $('#load-container').empty();
+                $('#load-container').append(`<div class="loader my-3"></div>`);
+                loadQuiz();
+            }
+        }
 
         function loadQuiz() {
             // load list quiz
             const params = new URLSearchParams({
                 categoryId: $('#category').val(),
                 name: $('#nameToSearch').val(),
-                pageIndex: 1,
-                pageSize: 2,
+                pageIndex: pageIndex,
+                pageSize: pageSize,
                 orderBy: $('#order').val(),
             });
+            $('#viewMore').show();
             getData('/quizzes/my-quiz?' + params.toString(), res => {
+                $('#load-container').empty();
                 res = res.data;
-                $('#quizzes').empty();
                 res.items.forEach((q, index) => {
                     const div = $(`
                         <a class="d-flex mb-2">
-                            <span class="fw-bold align-content-center" style="width: 40px;">${index + 1}</span>
+                            <span class="fw-bold align-content-center" style="width: 40px;">${1 + $('#quizzes').children().length}</span>
                             <div class="card card-body highlight-hover d-flex flex-row py-2">
                                 <div class="name">${q.name}</div>
                                 <div class="flex-fill mx-2"></div>
@@ -73,11 +104,18 @@
                             </div>
                         </a>
                     `);
-                    div.attr('href', `/tai-khoan/cap-nhat-de?id=${q.id}`);
+                    div.attr('href', `/de-trac-nghiem/cap-nhat-de?id=${q.id}`);
                     $('#quizzes').append(div);
                 });
+                totalPages = res.totalPages;
+                totalItems = res.totalItems;
+                if (totalPages == pageIndex) {
+                    $('#viewMore').hide();
+                }
             });
         }
     </script>
+
+
 }
         

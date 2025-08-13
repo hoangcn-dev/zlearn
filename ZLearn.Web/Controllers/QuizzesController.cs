@@ -13,7 +13,26 @@ namespace ZLearn.Web.Controllers
         {
         }
 
-        
+        [HttpGet("tao-moi")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+
+        [HttpGet("de-da-tao")]
+        public async Task<IActionResult> MyQuiz()
+        {
+            return View();
+        }
+
+
+        [HttpGet("cap-nhat-de")]
+        public async Task<IActionResult> Update(string id)
+        {
+            return View();
+        }
+
 
         [HttpGet("{slug}")]
         public async Task<IActionResult> Detail(string slug)
@@ -24,8 +43,8 @@ namespace ZLearn.Web.Controllers
             };
             var quiz = await _mediator.Send(query);
             return RedirectToAction(
-                controllerName: "Questions", 
-                actionName: "Index", 
+                controllerName: "Questions",
+                actionName: "Index",
                 routeValues: new
                 {
                     slug = quiz.Questions[0].Slug

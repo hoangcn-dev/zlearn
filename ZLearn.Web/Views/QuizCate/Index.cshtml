@@ -2,11 +2,17 @@
 @model List<CateListItemDto>
 
 @{
-    ViewData["Title"] = "Danh mục đề";
+    ViewData["Title"] = "Danh mục đề trắc nghiệm";
     ViewBag.MetaDescription = "Danh sách các danh mục chủ đề đề thi trắc nghiệm trên ZLearn. Mỗi danh mục chứa nhiều đề thi khác nhau, giúp bạn ôn tập và nâng cao kiến thức một cách hiệu quả.";
 }
 
 <div class="container">
+
+    <div class="d-flex mb-3">
+        <a asp-action="Create" asp-controller="Quizzes" class="btn bg-white border rounded-0 me-2 shadow-sm highlight-hover"><i class="fa-solid fa-plus"></i> Tạo đề mới</a>
+        <a asp-action="Profile" asp-controller="Quizzes" class="btn bg-white border rounded-0 me-2 shadow-sm highlight-hover"><i class="fa-regular fa-calendar-plus"></i> Tạo bài kiểm tra mới</a>
+    </div>
+
     <div class="row g-3">
 
         @foreach (var item in Model)

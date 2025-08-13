@@ -17,7 +17,9 @@ namespace ZLearn.Infras.Data.Configurations
             builder.Property(mf => mf.Type)
                 .IsRequired()
                 .HasConversion<string>().HasColumnType("varchar(50)");
+            builder.Property(mf => mf.IsUsing).HasDefaultValue(false);
             builder.HasIndex(mf => mf.Id).IsUnique();
+            builder.HasIndex(mf => mf.SourceUrl).IsUnique();
         }
     }
 }

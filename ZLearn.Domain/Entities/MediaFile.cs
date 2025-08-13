@@ -14,6 +14,7 @@ namespace ZLearn.Domain.Entities
         public int? Width { get; set; }
         public int? Height { get; set; }
         public double? SecDuration { get; set; }
+        public bool IsUsing { get; set; }
 
 
         public double GetKbSize() => Math.Round((double)FileByteSize / 1024, 2);

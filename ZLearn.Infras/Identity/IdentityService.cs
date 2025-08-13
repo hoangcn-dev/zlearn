@@ -280,6 +280,7 @@ namespace ZLearn.Infras.Identity
                 if (user.ImageUrl != null)
                     await _fileRepo.DeleteFileByUrls(new List<string> { user.ImageUrl });
                 user.ImageUrl = data.ImageUrl;
+                await _fileRepo.SetUsing(new List<string> { data.ImageUrl });
             }
 
             user.UserName = data.UserName;
@@ -308,6 +309,7 @@ namespace ZLearn.Infras.Identity
             }
             await _userManager.RemoveFromRolesAsync(user, oldRoles);
             await _userManager.UpdateAsync(user);
+            await _fileRepo.SaveChanges();
 
             return new UpdateResponseDto
             {
@@ -329,6 +331,7 @@ namespace ZLearn.Infras.Identity
                 if (user.ImageUrl != null)
                     await _fileRepo.DeleteFileByUrls(new List<string> { user.ImageUrl });
                 user.ImageUrl = data.ImageUrl;
+                await _fileRepo.SetUsing(new List<string> { data.ImageUrl });
             }
 
             user.FirstName = data.FirstName;
@@ -338,6 +341,7 @@ namespace ZLearn.Infras.Identity
             user.IsShowNickName = data.IsShowNickName;
 
             await _userManager.UpdateAsync(user);
+            await _fileRepo.SaveChanges();
 
             return new UpdateResponseDto
             {

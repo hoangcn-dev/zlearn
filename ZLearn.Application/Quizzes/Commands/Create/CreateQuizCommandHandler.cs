@@ -31,17 +31,17 @@ namespace ZLearn.Application.Quizzes.Commands.Create
             
             // Check category existence and quiz uniqueness
             if (!await _cateRepo.Any(c => c.Id == data.CategoryId))
-                throw new ArgumentException($"Category with ID {data.CategoryId} does not exist.");
+                throw new ArgumentException($"Danh mục không tồn tại.");
             if (await _quizRepo.Any(q => q.Name == data.Name && q.CategoryId == data.CategoryId))
-                throw new ArgumentException($"Quiz with name '{data.Name}' already exists in category with ID {data.CategoryId}.");
+                throw new ArgumentException($"Đề với tên '{data.Name}' đã tồn tại trong danh mục bạn chọn.");
             if (await _quizRepo.Any(q => q.Slug == data.Slug))
-                throw new ArgumentException($"Quiz with slug '{data.Slug}' already exists");
+                throw new ArgumentException($"Nhãn đã tồn tại");
             // Check question keys and media links
             var fileUrls = new List<string>();
             foreach (var question in data.Questions)
             {
                 if (!question.Answers.Any(a => a.Key == question.CorrectKey))
-                    throw new ArgumentException($"Question {question.Order} does not have a valid correct answer key.");
+                    throw new ArgumentException($"Câu hỏi {question.Order} chưa chọn đáp án hợp lệ.");
                 if (question.MediaFileUrls.Count > 0) fileUrls.AddRange(question.MediaFileUrls);
                 question.Answers.ForEach(a =>
                 {
@@ -52,8 +52,9 @@ namespace ZLearn.Application.Quizzes.Commands.Create
 
             var distinctFileUrls = fileUrls.ToHashSet();
             if (distinctFileUrls.Count != fileUrls.Count)
-                throw new ResourceConflictException("Each file must be used one time");
+                throw new ResourceConflictException("Tệp trùng lặp");
             await _fileRepo.CheckExistingByFileUrls(distinctFileUrls);
+            await _fileRepo.SetUsing(fileUrls);
 
             // Add new question
             var quiz = new Quiz
@@ -73,6 +74,7 @@ namespace ZLearn.Application.Quizzes.Commands.Create
                 StringContent = q.StringContent,
                 MediaFileUrls = string.Join(",", q.MediaFileUrls),
                 CorrectKey = q.CorrectKey,
+                Explanation = q.Explanation,
                 Answers = q.Answers.Select(a => new Answer
                 {
                     Id = IdGenerator.Generate("ANS"),

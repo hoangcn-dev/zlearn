@@ -82,7 +82,7 @@ namespace ZLearn.Web.Controllers.API
         }
 
         [HttpPost]
-        [Authorize(Policy = "OnlyAdmin")]
+        [Authorize]
         public async Task<IActionResult> CreateNewQuiz([FromBody] CreateQuizCommand command)
         {
             var res = await _mediator.Send(command);
@@ -116,7 +116,6 @@ namespace ZLearn.Web.Controllers.API
         }
 
         [HttpGet("tags")]
-        [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> GetAllTags()
         {
             var query = new GetAllTagsQuery();
@@ -159,7 +158,6 @@ namespace ZLearn.Web.Controllers.API
 
 
         [HttpGet("categories")]
-        //[Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> GetAllCate([FromQuery] GetAllCatesQuery query)
         {
             var res = await _mediator.Send(query);

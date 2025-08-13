@@ -5,6 +5,7 @@
         public string? StringContent { get; set; }
         public List<string> MediaFileUrls { get; set; } = new();
         public int CorrectKey { get; set; }
+        public string? Explanation { get; set; }
         public int Order { get; set; }
         public List<CreateAnswerDto> Answers { get; set; } = new();
     }

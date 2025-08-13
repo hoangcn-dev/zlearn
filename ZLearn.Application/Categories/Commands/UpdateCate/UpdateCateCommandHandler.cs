@@ -36,6 +36,7 @@ namespace ZLearn.Application.Categories.Commands.UpdateCate
                 if (cate.ThumbnailUrl != null)
                     await _fileRepo.DeleteFileByUrls(new List<string> { cate.ThumbnailUrl });
                 cate.ThumbnailUrl = updateData.ThumbnailUrl;
+                await _fileRepo.SetUsing(new List<string> { cate.ThumbnailUrl });
             }
 
             cate.Name = updateData.Name;

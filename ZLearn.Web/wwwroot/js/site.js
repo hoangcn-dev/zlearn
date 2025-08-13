@@ -267,6 +267,8 @@ async function saveFiles(files) {
 
                 }
                 hideLoading();
+                resolve(error.responseJSON);
+                showMess(error.responseJSON.message, false);
                 console.error(error);
             }
         });
@@ -286,7 +288,6 @@ function getMediaTypeFromUrl(url) {
     if (audioExtensions.includes(extension)) return 'audio';
     return 'unknown';
 }
-
 
 function previewMediaFile(url) {
     const dialog = $(`
@@ -326,7 +327,7 @@ function showLoginDialog() {
                 <h3 class="text-center mb-1 fw-bold">ZLEARN</h3>
                 <p class="fw-light">Vui lòng đăng nhập để tiếp tục</p>
                 <img class="mb-4" src="/images/logo-light-blue.png" alt="" asp-append-version="true" width="100">
-                <a href="/auth/sign-in/google?returnUrl=${encodeURIComponent(window.location.href)}" class="btn btn-dark d-flex justify-content-center w-100 align-items-center border-0 opacity-hover" style="background-color: var(--main-color);">
+                <a href="/api/auth/sign-in/google?returnUrl=${encodeURIComponent(window.location.href)}" class="btn btn-dark d-flex justify-content-center w-100 align-items-center border-0 opacity-hover" style="background-color: var(--main-color);">
                     <div class="fw-light align-content-center">Đăng nhập với Google</div>
                     <svg class="ms-1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
                 </a>
@@ -337,6 +338,41 @@ function showLoginDialog() {
     $('body').append(dialog);
 }
 
+function generateSlug(source) {
+    // map tiếng Việt -> tiếng Anh
+    const vi = ['à', 'á', 'ạ', 'ả', 'ã', 'â', 'ầ', 'ấ', 'ậ', 'ẩ', 'ẫ', 'ă', 'ằ', 'ắ', 'ặ', 'ẳ', 'ẵ',
+        'è', 'é', 'ẹ', 'ẻ', 'ẽ', 'ê', 'ề', 'ế', 'ệ', 'ể', 'ễ',
+        'ì', 'í', 'ị', 'ỉ', 'ĩ',
+        'ò', 'ó', 'ọ', 'ỏ', 'õ', 'ô', 'ồ', 'ố', 'ộ', 'ổ', 'ỗ', 'ơ', 'ờ', 'ớ', 'ợ', 'ở', 'ỡ',
+        'ù', 'ú', 'ụ', 'ủ', 'ũ', 'ư', 'ừ', 'ứ', 'ự', 'ử', 'ữ',
+        'ỳ', 'ý', 'ỵ', 'ỷ', 'ỹ', 'đ'];
+
+    const en = ['a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a',
+        'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e',
+        'i', 'i', 'i', 'i', 'i',
+        'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o',
+        'u', 'u', 'u', 'u', 'u', 'u', 'u', 'u', 'u', 'u', 'u',
+        'y', 'y', 'y', 'y', 'y', 'd'];
+
+    // tạo map
+    const map = {};
+    for (let i = 0; i < vi.length; i++) {
+        map[vi[i]] = en[i];
+    }
+
+    // xử lý chuỗi
+    source = source.toLowerCase();
+    let seo = '';
+    for (let ch of source) {
+        seo += map[ch] || ch;
+    }
+
+    seo = seo.trim();
+    seo = seo.replace(/[^a-z0-9\s-]/g, ''); // bỏ ký tự đặc biệt
+    seo = seo.replace(/\s+/g, '-'); // khoảng trắng -> dấu gạch ngang
+
+    return seo.length > 100 ? seo.substring(0, 100) : seo;
+}
 
 
 

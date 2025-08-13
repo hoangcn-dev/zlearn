@@ -61,6 +61,7 @@ namespace ZLearn.Application.Quizzes.Commands.Update
             if (distinctFileUrls.Count != fileUrls.Count)
                 throw new ResourceConflictException("Each file must be used one time");
             await _fileRepo.CheckExistingByFileUrls(distinctFileUrls);
+            
 
             // Remove file not exist in data
             var fileUrlsToRemove = new List<string>();
@@ -75,6 +76,7 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                 }
             }
             await _fileRepo.DeleteFileByUrls(fileUrlsToRemove.Where(url => !distinctFileUrls.Contains(url)).ToList());
+            await _fileRepo.SetUsing(fileUrls);
 
             // Update quiz properties
             quiz.Name = data.Name;
@@ -96,6 +98,8 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                         Id = IdGenerator.Generate("QUE"),
                         Order = q.Order,
                         StringContent = q.StringContent,
+                        CorrectKey = q.CorrectKey,
+                        Explanation = q.Explanation,
                         Slug = q.Slug,
                         MediaFileUrls = string.Join(",", q.MediaFileUrls),
                         Answers = q.Answers.Select(a => new Answer
@@ -115,6 +119,7 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                     existingQuestion.Slug = q.Slug;
                     existingQuestion.MediaFileUrls = string.Join(",", q.MediaFileUrls);
                     existingQuestion.CorrectKey = q.CorrectKey;
+                    existingQuestion.Explanation = q.Explanation;
                     existingQuestion.Answers.Clear();
                     foreach (var a in q.Answers)
                     {

@@ -3,6 +3,7 @@ using FluentValidation;
 using System.Text.Json;
 using ZLearn.API.Exceptions;
 using ZLearn.Application.Common.DTOs;
+using ZLearn.Domain.Exceptions;
 
 namespace ZLearn.Web.Middlewares
 {
@@ -63,6 +64,11 @@ namespace ZLearn.Web.Middlewares
             try
             {
                 await next(context);
+            }
+            catch (ValidationErrorException ex)
+            {
+                context.Response.StatusCode = StatusCodes.Status400BadRequest;
+                await WriteResponseAsync(context, Result<NoData>.Failure(ex.Message, ex.ErrorCode));
             }
             catch (UnauthorizedException ex)
             {

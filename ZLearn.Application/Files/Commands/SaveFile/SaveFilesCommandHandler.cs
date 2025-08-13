@@ -43,6 +43,7 @@ namespace ZLearn.Application.Files.Commands.SaveFile
                 {
                     var mediaFile = await _mediaStoreService.SaveFile(file, mediaType, cancellationToken);
                     mediaFile.Type = mediaType;
+                    mediaFile.IsUsing = false;
                     mediaFiles.Add(mediaFile);
                 }
 
