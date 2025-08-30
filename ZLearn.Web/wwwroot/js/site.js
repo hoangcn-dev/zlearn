@@ -1,6 +1,6 @@
-﻿const scrollTo = (selector) => {
+﻿const scrollTo = (selector, offset = 50) => {
     window.scrollTo({
-        top: $(selector).offset().top - 50,
+        top: $(selector).offset().top - offset,
         behavior: 'smooth'
     });
 }
@@ -22,70 +22,14 @@ async function getData(url, callback) {
 
 async function postJsonData(url, data, callback) {
     showLoading();
-    //$.ajax({
-    //    url: url,
-    //    method: "POST",
-    //    xhrFields: { withCredentials: true },
-    //    contentType: "application/json; charset=utf-8",
-    //    data: JSON.stringify(data),
-    //    success: res => {
-    //        hideLoading();
-    //        if (res.succeeded) {
-    //            callback(res.data);
-    //        } else {
-    //            console.error(res.message);
-    //        }
-
-    //        if (isShowMess) {
-    //            showMess(res.message, res.succeeded);
-    //        }
-    //    },
-    //    error: error => {
-    //        if (error.status === 403) {
-    //            removeSessionData();
-    //            window.location.href = "/forbidden";
-    //        }
-    //        else if (error.status == 401) {
-    //            showLoginDialog();
-
-    //        }
-    //        hideLoading();
-    //        console.error(error);
-    //    }
-    //});
     const res = await callApi(url, 'POST', 'application/json; charset=utf-8', JSON.stringify(data));
-    debugger
     hideLoading();
     callback(res);
 }
 
 async function pustJsonData(url, data, callback) {
     showLoading();
-    //$.ajax({
-    //    url: url,
-    //    method: "PUT",
-    //    xhrFields: { withCredentials: true },
-    //    contentType: "application/json; charset=utf-8",
-    //    data: JSON.stringify(data),
-    //    success: res => {
-    //        hideLoading();
-    //        callback(res.data);
-    //    },
-    //    error: error => {
-    //        if (error.status === 403) {
-    //            removeSessionData();
-    //            window.location.href = "/forbidden";
-    //        }
-    //        else if (error.status == 401) {
-    //            $('#login-dialog').show()
-    //        }
-    //        hideLoading();
-    //        showMess(error.responseJSON.message, false);
-    //        console.error(error);
-    //    }
-    //});
     const res = await callApi(url, 'PUT', 'application/json; charset=utf-8', JSON.stringify(data));
-    debugger
     hideLoading();
     callback(res);
 }
@@ -374,5 +318,33 @@ function generateSlug(source) {
     return seo.length > 100 ? seo.substring(0, 100) : seo;
 }
 
+function copyToClipboard(text, msg='Đã sao chép vào bộ nhớ tạm') {
+    navigator.clipboard.writeText(text).then(function() {
+        showMess(msg, true);
+    });
+}
 
+function showQRCode(url) {
+    const apiUrl = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(url)}&size=500x500`;
+    copyImageToClipboard(apiUrl);
+    const dialog = $(`
+        <div class="vh-100 vw-100 position-fixed top-0 start-0 bg-secondary bg-opacity-50" style="z-index: 100">
+            <i class="fa-solid fa-xmark fs-1 text-white position-absolute start-0 top-0 m-3 opacity-hover"></i>
+            <div class="media-container">
+                <img src="${apiUrl}" alt="" class="position-absolute start-50 p-4 top-50 translate-middle bg-white object-fit-contain" width="500" height="500">
+            </div>
+        </div>
+    `);
+    dialog.find('i').click(() => dialog.remove());
+    $('body').append(dialog);
+}
+
+async function copyImageToClipboard(url, msg='Đã sao chép ảnh vào bộ nhớ tạm') {
+    const response = await fetch(url); 
+    const blob = await response.blob(); 
+    await navigator.clipboard.write([
+        new ClipboardItem({ [blob.type]: blob })
+    ]);
+    showMess(msg, true);
+}
 

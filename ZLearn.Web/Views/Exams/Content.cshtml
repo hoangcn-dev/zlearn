@@ -1,0 +1,139 @@
+﻿@using ZLearn.Application.Common.Utils
+@using ZLearn.Application.Exams.DTOs
+@model ExamContentDto
+
+<div id="main-content" class="container-fluid px-4">
+    <div class="row g-2">
+        <div class="col-3">
+            <div class="row g-1 p-3 position-sticky top-0">
+                @foreach (var item in Model.Questions)
+                {
+                    <div class="col-2">
+                        <div class="qMapItem border text-center py-1 bg-white rounded-1 shadow-sm highlight-hover">@item.Order</div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="card card-body d-flex flex-row align-items-center shadow-sm py-2 position-sticky mx-3" style="top: 10px; z-index: 2;">
+                <h5 class="mb-0">@Model.ExamName</h5>
+                <div class="flex-fill"></div>
+                <div id="countdown" class="me-3 fs-5">-- giờ -- phút -- giây</div>
+                <button class="opacity-hover btn border btn-sm text-white" onclick="submit()" style="background-color: var(--main-color);">Nộp bài</button>
+            </div>
+
+            <div class="card card-body mt-2 mb-5" style="min-height: 100vh;">
+
+                @foreach(var item in Model.Questions)
+                {
+                    <div id="@item.Order" class="d-flex flex-column" style="font-size: 18px;">
+                        <p class="mb-2"><b>Câu @item.Order</b>: @item.StringContent</p>
+                        @foreach (var url in item.ImageUrls)
+                        {
+                            <!-- Image -->
+                            <img src="@url" alt="" class="shadow-sm object-fit-contain border align-self-center mb-2" width="400" height="200">
+                        }
+                        @foreach (var url in item.VideoUrls)
+                        {
+                            <!-- Video -->
+                            <video controls class="shadow-sm object-fit-contain border align-self-center mb-2" width="400" height="200">
+                                <source src="testvideo.mp4">
+                            </video>
+                        }
+                        @foreach (var url in item.AudioUrls)
+                        {
+                            <!-- Audio -->
+                            <audio controls class="mb-3 shadow-sm rounded-pill bg-white align-self-center mb-2">
+                                <source src="testaudio.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        }
+                        @for (int i = 0; i < item.Answers.Count; i++)
+                        {
+                            <div class="form-check form-check-inline mb-2">
+                                <input class="form-check-input" type="radio" name="@item.Order-ans" onclick="selectAnswer(@item.Order - 1, @item.Answers[i].Key, '@item.Id')">
+                                <label class="form-check-label" for="inlineRadio1">
+                                    @StringHelper.IndexToChar(i). @item.Answers[i].StringContent
+                                    @foreach (var url in item.Answers[i].ImageUrls)
+                                    {
+                                        <!-- Image -->
+                                        <img src="@url" width="400" height="200" class="my-2 align-self-center object-fit-contain border" />
+                                    }
+                                </label>
+                            </div>
+                        }
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script asp-append-version="true">
+        $(document).ready(() => {
+            $('.qMapItem').on('click', function() {
+                scrollTo(`#${$(this).text()}`, 80);
+            });
+
+            // Cowndown
+            let timeLeftToEnd = @Model.RemainingSecondsToEnd;
+            if (timeLeftToEnd > 0) {
+                const subId = setInterval(() => {
+                    if (timeLeftToEnd <= 0) {
+                        clearInterval(subId);
+                        $('#countdown').text(`-- giờ -- phút -- giây`);
+                        endExam();
+                        return;
+                    }
+                    timeLeftToEnd--;
+                    const h = Math.floor(timeLeftToEnd / 3600);
+                    const m = Math.floor((timeLeftToEnd % 3600) / 60);
+                    const s = timeLeftToEnd % 60;
+                    $('#countdown').text(`${h} giờ ${m} phút ${s} giây`);
+                }, 1000);
+            }
+        });
+
+        const selectedAns = {};
+        function selectAnswer(qIndex, key, qId) {
+            selectedAns[qId] = key;
+            $('.qMapItem').eq(qIndex).addClass('selected');
+        }
+
+        function endExam() {
+            const submitData = {
+                examId: "@Model.Id",
+                answers: Object.entries(selectedAns).map(([questionId, submitKey]) => ({
+                    questionId,
+                    submitKey
+                }))
+            }
+            postJsonData('/exams/submit', submitData, () => {
+                window.location.href = `/bai-kiem-tra/result?alias=@Model.Alias`;
+            });
+        }
+
+        function submit() {
+            let confirmMsg = "Xác nhận nộp bài?";
+            const selectedLength = Object.keys(selectedAns).length;
+            if (selectedLength < @Model.Questions.Count) 
+                confirmMsg = `Bạn còn ${@Model.Questions.Count - selectedLength} câu chưa chọn đáp án, xác nhận nộp bài?`;
+            showConfirm(confirmMsg, () => endExam());
+        }
+    </script>
+}
+
+@section Styles {
+    <style>
+        .qMapItem {
+            font-size: 13px;
+        }
+
+        .qMapItem.selected {
+            background-color: var(--main-color) !important;
+            color: white;
+        }
+    </style>
+}

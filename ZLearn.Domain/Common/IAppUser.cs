@@ -1,4 +1,4 @@
-﻿namespace ZLearn.Application.Common.Interfaces
+﻿namespace ZLearn.Domain.Common
 {
     public interface IAppUser
     {

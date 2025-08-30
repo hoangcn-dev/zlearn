@@ -79,19 +79,6 @@
         let imageFile = null;
 
         $(document).ready(() => {
-            // Init UI
-            $('#navbar').hide();
-            $('.menu-option').click(function () {
-                const currentOption =  $('.menu-option.selected');
-                currentOption.removeClass('selected')
-                currentOption.next('.menu-option').addClass('border-top-0');;
-                //
-                const option = $(this);
-                option.addClass('selected');
-                option.next('.menu-option').removeClass('border-top-0');
-            });
-            $('.menu-option').first().click();
-
             // Config load file
             $('#changeImageButton input').on('click', function(e) {
                 e.stopPropagation();

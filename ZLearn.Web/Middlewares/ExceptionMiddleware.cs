@@ -21,12 +21,10 @@ namespace ZLearn.Web.Middlewares
             var url = context.Request.Path.ToString();
             if (url.StartsWith("/api", StringComparison.OrdinalIgnoreCase))
             {
-                // Handle API exceptions
                 await HandApiExceptionAsync(context, next);
             }
             else
-            {
-                // Handle non-API exceptions
+            { 
                 try
                 {
                     await next(context);
@@ -44,12 +42,17 @@ namespace ZLearn.Web.Middlewares
                         await context.Response.WriteAsync("ALogin to continue.");
                     }
                 }
+                catch (ForbiddenException ex)
+                {
+                    _logger.LogError(ex, "Forbidden.");
+                    context.Response.Redirect($"/forbidden");
+                }
                 catch (Exception ex)
                 {
                     _logger.LogError(ex, "An unhandled exception occurred while processing the request.");
                     if (!context.Response.HasStarted)
                     {
-                        context.Response.Redirect("/error");
+                        context.Response.Redirect($"/error");
                     }
                     else
                     {
@@ -66,6 +69,11 @@ namespace ZLearn.Web.Middlewares
                 await next(context);
             }
             catch (ValidationErrorException ex)
+            {
+                context.Response.StatusCode = StatusCodes.Status400BadRequest;
+                await WriteResponseAsync(context, Result<NoData>.Failure(ex.Message, ex.ErrorCode));
+            }
+            catch (BadRequestException ex)
             {
                 context.Response.StatusCode = StatusCodes.Status400BadRequest;
                 await WriteResponseAsync(context, Result<NoData>.Failure(ex.Message, ex.ErrorCode));

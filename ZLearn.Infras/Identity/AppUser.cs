@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using ZLearn.Application.Common.Interfaces;
+using ZLearn.Domain.Common;
 
 namespace ZLearn.Infras.Identity
 {

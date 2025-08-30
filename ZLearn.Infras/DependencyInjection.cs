@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using Hangfire;
+using Hangfire.MemoryStorage;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using StackExchange.Redis;
@@ -17,7 +18,9 @@ using ZLearn.Application.Categories;
 using ZLearn.Application.Common.DTOs;
 using ZLearn.Application.Common.Identity;
 using ZLearn.Application.Common.Interfaces;
+using ZLearn.Application.Common.Services;
 using ZLearn.Application.Common.Utils;
+using ZLearn.Application.Exams;
 using ZLearn.Application.Files;
 using ZLearn.Application.Logs;
 using ZLearn.Application.Quizzes;
@@ -32,6 +35,7 @@ using ZLearn.Infras.External.SignalR;
 using ZLearn.Infras.Identity;
 using ZLearn.Infras.Log;
 using ZLearn.Infras.Realtime.AccessTracking;
+using ZLearn.Infras.Services;
 
 namespace ZLearn.Infras
 {
@@ -48,6 +52,7 @@ namespace ZLearn.Infras
             builder.Services.AddScoped<IQuizRepo, QuizRepo>();
             builder.Services.AddScoped<IQuestionRepo, QuestionRepo>();
             builder.Services.AddScoped<IAccessHistoryRepo, AccessHistoryRepo>();
+            builder.Services.AddScoped<IExamRepo, ExamRepo>();
             builder.Services.AddDbContext<AppDbContext>((sp, options) =>
             {
                 options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
@@ -180,6 +185,16 @@ namespace ZLearn.Infras
         public static void AddRealtimeServices(this WebApplicationBuilder builder)
         {
             builder.Services.AddSignalR();
+        }
+
+        public static void AddSchedulerService(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddHangfire(config =>
+            {
+                config.UseMemoryStorage();
+            });
+            builder.Services.AddHangfireServer();
+            builder.Services.AddSingleton<ISchedulerService, SchedulerService>();
         }
 
         #region Access Tracking

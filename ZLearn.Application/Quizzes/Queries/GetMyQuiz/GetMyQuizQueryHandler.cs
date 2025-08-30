@@ -26,10 +26,10 @@ namespace ZLearn.Application.Quizzes.Queries.GetMyQuiz
             if (!string.IsNullOrEmpty(request.Params.Name)) filterBuilder.AndCondition(q => q.Name.Contains(request.Params.Name));
             if (!string.IsNullOrEmpty(request.Params.CategoryId)) filterBuilder.AndCondition(q => q.CategoryId == request.Params.CategoryId);
             if (!string.IsNullOrEmpty(request.Params.Tag)) filterBuilder.AndCondition(q => q.Tags.Any(t => t.Name == request.Params.Tag));
-            
+
             Expression<Func<Quiz, object>> orderBy = request.Params.OrderBy switch
             {
-                nameof(Question.AttemptCount) => q => q.Questions.Select(q => q.AttemptCount).Count(),
+                nameof(Question.AttemptCount) => q => q.Questions.Sum(qu => qu.AttemptCount),
                 nameof(Quiz.CreatedAt) => q => q.CreatedAt,
                 _ => q => q.CreatedAt
             };

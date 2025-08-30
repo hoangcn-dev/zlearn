@@ -12,5 +12,6 @@ namespace ZLearn.Domain.Entities
         public Category Category { get; set; }
         public List<Tag> Tags { get; set; } = new List<Tag>();
         public List<Question> Questions { get; set; } = new List<Question>();
+        public List<Exam> Exams { get; set; } = new List<Exam>();
     }
 }

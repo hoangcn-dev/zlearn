@@ -156,3 +156,63 @@ input {
         opacity: 0;
     }
 }
+
+.info-tag {
+    border: 2px solid var(--secondary-color);
+    padding: 3px 5px;
+    font-size: 14px;
+    text-align: center;
+    align-content: center;
+    color: var(--secondary-color);
+    background-color: #26c3fc34;
+    font-weight: 500;
+    height: fit-content;
+}
+
+.gray-tag {
+    border: 2px solid gray;
+    padding: 3px 5px;
+    font-size: 14px;
+    text-align: center;
+    align-content: center;
+    color: gray;
+    background-color: rgba(185, 184, 184, 0.422);
+    font-weight: 500;
+    height: fit-content;
+    border-radius: 5px;
+}
+
+.success-tag {
+    border: 2px solid var(--success-color);
+    padding: 3px 5px;
+    font-size: 14px;
+    text-align: center;
+    align-content: center;
+    color: var(--success-color);
+    background-color: #67fcb94d;
+    font-weight: 500;
+    border-radius: 5px;
+    height: fit-content;
+}
+
+.error-tag {
+    border: 2px solid var(--error-color);
+    padding: 3px 5px;
+    font-size: 14px;
+    text-align: center;
+    align-content: center;
+    color: var(--error-color);
+    background-color: #ffaeae66;
+    font-weight: 500;
+    border-radius: 5px;
+    height: fit-content;
+}
+
+.qMapItem {
+    font-size: 13px;
+}
+
+.qMapItem.selected {
+    background-color: var(--main-color) !important;
+    color: white;
+}

@@ -242,6 +242,138 @@ namespace ZLearn.Infras.Migrations
                     b.ToTable("Categories", (string)null);
                 });
 
+            modelBuilder.Entity("ZLearn.Domain.Entities.Exam", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)");
+
+                    b.Property<string>("Alias")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTimeOffset?>("EndTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("JoinPass")
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.Property<DateTimeOffset?>("LastModifiedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("LockAccess")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("MaxParticipants")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("MixAnswers")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("MixQuestions")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("text");
+
+                    b.Property<string>("QuizId")
+                        .IsRequired()
+                        .HasColumnType("character varying(16)");
+
+                    b.Property<bool>("RequireJoinWithCode")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("RequireJoinWithName")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("ShowAnswerAndKey")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTimeOffset>("StartTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Alias")
+                        .IsUnique();
+
+                    b.HasIndex("QuizId");
+
+                    b.ToTable("Exam");
+                });
+
+            modelBuilder.Entity("ZLearn.Domain.Entities.ExamParticipant", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)");
+
+                    b.Property<int>("Completed")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Correct")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("ExamId")
+                        .IsRequired()
+                        .HasColumnType("character varying(16)");
+
+                    b.Property<DateTimeOffset?>("FirstCheckIn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsBanned")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTimeOffset?>("LastCheckOut")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("ParticipantCode")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ParticipantName")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<double>("Score")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ExamId");
+
+                    b.ToTable("ExamParticipant");
+                });
+
             modelBuilder.Entity("ZLearn.Domain.Entities.MediaFile", b =>
                 {
                     b.Property<string>("Id")
@@ -629,6 +761,28 @@ namespace ZLearn.Infras.Migrations
                     b.Navigation("Question");
                 });
 
+            modelBuilder.Entity("ZLearn.Domain.Entities.Exam", b =>
+                {
+                    b.HasOne("ZLearn.Domain.Entities.Quiz", "Quiz")
+                        .WithMany("Exams")
+                        .HasForeignKey("QuizId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Quiz");
+                });
+
+            modelBuilder.Entity("ZLearn.Domain.Entities.ExamParticipant", b =>
+                {
+                    b.HasOne("ZLearn.Domain.Entities.Exam", "Exam")
+                        .WithMany("Participants")
+                        .HasForeignKey("ExamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Exam");
+                });
+
             modelBuilder.Entity("ZLearn.Domain.Entities.Question", b =>
                 {
                     b.HasOne("ZLearn.Domain.Entities.Quiz", "Quiz")
@@ -656,6 +810,11 @@ namespace ZLearn.Infras.Migrations
                     b.Navigation("Quizzes");
                 });
 
+            modelBuilder.Entity("ZLearn.Domain.Entities.Exam", b =>
+                {
+                    b.Navigation("Participants");
+                });
+
             modelBuilder.Entity("ZLearn.Domain.Entities.Question", b =>
                 {
                     b.Navigation("Answers");
@@ -663,6 +822,8 @@ namespace ZLearn.Infras.Migrations
 
             modelBuilder.Entity("ZLearn.Domain.Entities.Quiz", b =>
                 {
+                    b.Navigation("Exams");
+
                     b.Navigation("Questions");
                 });
 #pragma warning restore 612, 618

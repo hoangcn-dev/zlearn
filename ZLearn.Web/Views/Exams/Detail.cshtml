@@ -1,0 +1,159 @@
+﻿@using ZLearn.Application.Exams.DTOs
+@using ZLearn.Domain.Enums
+@model ExamDetailDto
+@{
+    ViewData["Title"] = "Quản lý bài thi";
+}
+
+<div id="main-content" class="container-fluid px-4">
+    <div class="row g-2">
+        <!-- Top action -->
+        <div class="d-flex">
+            <a asp-controller="Exams" asp-action="Index" class="btn bg-white me-2 border highlight-hover"><i class="fa-solid fa-arrow-left"></i> Quay lại danh sách</a>
+            <a asp-controller="Exams" asp-action="Score" asp-route-id="23" class="btn bg-white me-2 border highlight-hover"><i class="fa-solid fa-list-ol"></i> Xem kết quả</a>
+        </div>
+        <div class="col-9">
+            <div class="card card-body shadow-sm">
+                <div class="d-inline-flex mb-2">
+                    <h3>@Model.Name</h3>
+                    <div class="flex-fill"></div>
+                    @if (Model.Status == ExamStatus.Ended)
+                    {
+                        <div>Đã kết thúc</div>
+                    }
+                    else if (Model.Status == ExamStatus.WaitStart)
+                    {
+                        <div class="gray-tag">Chưa bắt đầu</div>
+                    }
+                    else
+                    {
+                        <div class="success-tag">Đang diễn ra</div>
+                    }
+                </div>
+                <div class="d-inline-flex mb-1">
+                    <h6 class="fw-light me-2">Mã đề: </h6>
+                    <h6 class="fs-6 me-3">@Model.Id <i class="fa-solid fa-copy text-secondary opacity-hover"  onclick="copyToClipboard('@Model.Id', 'Đã sao chép mã bài kiểm tra')"></i></h6>
+                </div>
+                <div class="d-inline-flex mb-1">
+                    <h6 class="me-2 fw-light">Bắt đầu: </h6>
+                    <h6 class="fw-bolder me-4 text-info">@Model.StartTime.ToLocalTime().ToString("HH:mm:ss dd/MM/yyyy")</h6>
+                    <h6 class="fw-light me-2">Kết thúc: </h6>
+                    <h6 class="fw-bolder me-2 text-info">@(Model.EndTime.HasValue? Model.EndTime.Value.ToLocalTime().ToString("HH:mm:ss dd/MM/yyyy") : Html.Raw("<i class=\"fa - solid fa - infinity\"></i>"))</h6>
+                </div>
+                <div class="d-inline-flex align-items-center mb-2">
+                    <h6 class="fw-light flex-nowrap text-nowrap mb-0">Link tham gia:</h6>
+                    <div class="input-group ms-2">
+                        <input type="text" class="form-control" disabled value="@Model.JoinUrl">
+                        <button class="btn btn-outline-secondary btn-sm" onclick="copyToClipboard('@Model.JoinUrl')" type="button">Sao chép</button>
+                        <button class="btn btn-outline-secondary btn-sm" onclick="showQRCode('@Model.JoinUrl')" type="button">QR Code</button>
+                    </div>
+                </div>
+                @if (!string.IsNullOrEmpty(Model.JoinPass)) {
+                    <div class="d-flex mb-2 align-items-center mb-2">
+                        <h6 class="fw-light me-2 mb-0">Mật khẩu:</h6>
+                        <b class="fs-6">@Model.JoinPass <i class="fa-solid fa-copy text-secondary opacity-hover"></i></b>
+                    </div>
+                }
+                <div class="d-flex fw-light mt-1">
+                    <div class="form-check form-check-inline me-3">
+                        <input class="form-check-input" type="checkbox" name="LockAccess" @(Model.LockAccess? "checked":"")>
+                        <label class="form-check-label">Chặn tham gia</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="card card-body h-100 shadow-sm">
+                <h5 id="countdown-label" class="fw-light mb-0">Bài kiểm tra bắt đầu sau: </h5>
+                <div id="countdown" class="align-self-center my-2 fs-4 fw-bolder"></div>
+                <button class="opacity-hover btn border shadow-sm text-white mt-2" style="background-color: var(--main-color);">Bắt đầu ngay</button>
+                <button class="opacity-hover btn border shadow-sm text-white mt-2" disabled style="background-color: var(--main-color);">Tải xuống kết quả <i class="fa-solid fa-file-arrow-down ms-1"></i></button>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="card card-body shadow-sm">
+                <h5 class="mb-3">Trạng thái</h5>
+                <div class="d-flex flex-column" style="font-size: 14px;">
+                    <span class="border-top py-1"><small class="text-secondary opacity-75">13:55 </small>[B22DCCN589] Hoàng Cao Nguyên đã tham gia</span>
+                    <span class="border-top py-1"><small class="text-secondary opacity-75">13:55 </small> Hoàng Cao Nguyên đã tham gia</span>
+                    <span class="border-top py-1 text-danger"><small class="text-secondary opacity-75">13:55</small> Hoàng Cao Nguyên đã tham gia <i class="fa-solid fa-triangle-exclamation mt-1 float-end"></i></span>
+                    <span class="border-top py-1"><small class="text-secondary opacity-75">13:55 </small> Hoàng Cao Nguyên đã tham gia</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-8">
+            <div class="card card-body shadow-sm">
+                <h5 class="mb-0">Người tham gia (0/@Model.MaxParticipants)</h5>
+
+                <div class="d-flex align-items-center mt-3 border-top border-bottom p-2">
+                    <div class="col">
+                        <img src="test.jpg" alt="" width="32" height="32" class="rounded-pill border">
+                        <small class="ms-2">[B22DCCN589] Hoàng Cao Nguyên</small>
+                    </div>
+                    <div class="col-2">
+                        <small>Đã làm 0/60</small>
+                    </div>
+                    <div class="col-2">
+                        <div class="gray-tag w-auto">Đang chờ</div>
+                    </div>
+                    <div class="col-2">
+                        <div class="d-flex flex-row-reverse">
+                            <i class="fa-solid fa-ban opacity-hover" title="Xóa khỏi bài kiểm tra (cấm vào lại)"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script asp-append-version="true">
+        let timeLeftToStart = @Model.RemainingSecondsToStart;
+        let timeLeftToEnd = @Model.RemainingSecondsToEnd;
+
+        $(document).ready(() => {
+            const subId = setInterval(() => {
+                if (timeLeftToStart <= 0) {
+                    clearInterval(subId);
+                    $('#countdown-label').text(`Bắt đầu ...`);
+                    $('#countdown').text(`-- giờ -- phút -- giây`);
+                    startCountdownToEnd();
+                    return;
+                }
+                timeLeftToStart--;
+                const h = Math.floor(timeLeftToStart / 3600);
+                const m = Math.floor((timeLeftToStart % 3600) / 60);
+                const s = timeLeftToStart % 60;
+                $('#countdown').text(`${h} giờ ${m} phút ${s} giây`);
+            }, 1000);
+        });
+
+        function startCountdownToEnd() {
+            if (timeLeftToEnd == -1) {
+                $('#countdown-label').text(`Thời gian kết thúc chưa được thiết lập`);
+            } else {
+                $('#countdown').addClass("text-danger");
+                $('#countdown-label').text(`Bài kiểm tra kết thúc sau: `);
+                const subId = setInterval(() => {
+                    if (timeLeftToEnd <= 0) {
+                        clearInterval(subId);
+                        $('#countdown-label').text(`Bài kiểm tra đã kết thúc.`);
+                        $('#countdown').text(``);
+                        // end
+                        alert("Kết thúc");
+                        return;
+                    }
+                    timeLeftToEnd--;
+                    const h = Math.floor(timeLeftToEnd / 3600);
+                    const m = Math.floor((timeLeftToEnd % 3600) / 60);
+                    const s = timeLeftToEnd % 60;
+                    $('#countdown').text(`${h} giờ ${m} phút ${s} giây`);
+                }, 1000);
+            }
+        }
+    </script>
+}

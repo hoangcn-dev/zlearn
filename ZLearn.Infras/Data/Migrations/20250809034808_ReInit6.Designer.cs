@@ -63,13 +63,13 @@ namespace ZLearn.Infras.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("text");
 
-                    b.Property<string>("UserId")
+                    b.Property<string>("Alias")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("Alias");
 
                     b.ToTable("UserClaims", (string)null);
                 });
@@ -85,26 +85,26 @@ namespace ZLearn.Infras.Migrations
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("text");
 
-                    b.Property<string>("UserId")
+                    b.Property<string>("Alias")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("Alias");
 
                     b.ToTable("UserLogins", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.Property<string>("UserId")
+                    b.Property<string>("Alias")
                         .HasColumnType("text");
 
                     b.Property<string>("RoleId")
                         .HasColumnType("text");
 
-                    b.HasKey("UserId", "RoleId");
+                    b.HasKey("Alias", "RoleId");
 
                     b.HasIndex("RoleId");
 
@@ -113,7 +113,7 @@ namespace ZLearn.Infras.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.Property<string>("UserId")
+                    b.Property<string>("Alias")
                         .HasColumnType("text");
 
                     b.Property<string>("LoginProvider")
@@ -125,7 +125,7 @@ namespace ZLearn.Infras.Migrations
                     b.Property<string>("Value")
                         .HasColumnType("text");
 
-                    b.HasKey("UserId", "LoginProvider", "Name");
+                    b.HasKey("Alias", "LoginProvider", "Name");
 
                     b.ToTable("UserTokens", (string)null);
                 });
@@ -559,7 +559,7 @@ namespace ZLearn.Infras.Migrations
                 {
                     b.HasOne("ZLearn.Infras.Identity.AppUser", null)
                         .WithMany()
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("Alias")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -568,7 +568,7 @@ namespace ZLearn.Infras.Migrations
                 {
                     b.HasOne("ZLearn.Infras.Identity.AppUser", null)
                         .WithMany()
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("Alias")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -583,7 +583,7 @@ namespace ZLearn.Infras.Migrations
 
                     b.HasOne("ZLearn.Infras.Identity.AppUser", null)
                         .WithMany()
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("Alias")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -592,7 +592,7 @@ namespace ZLearn.Infras.Migrations
                 {
                     b.HasOne("ZLearn.Infras.Identity.AppUser", null)
                         .WithMany()
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("Alias")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

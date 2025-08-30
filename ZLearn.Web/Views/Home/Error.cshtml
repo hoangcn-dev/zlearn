@@ -1,4 +1,5 @@
-﻿@{
+﻿@model string
+@{
     ViewData["Title"] = "Lỗi không xác định";
 }
 
@@ -11,3 +12,12 @@
         <button class="btn text-light opacity-hover" onclick="window.history.back()" style="background-color: var(--main-color); width: 160px;">Quay lại</button>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(() => {
+            const msg = "@Model";
+            if (msg) showMess(msg, false);
+        });
+    </script>
+}

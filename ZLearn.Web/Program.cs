@@ -38,6 +38,7 @@ namespace ZLearn.Web
             builder.AddFileCleanupService();
             builder.AddRealtimeServices();
             builder.AddLogService();
+            builder.AddSchedulerService();
 
             services.AddControllers()
                 .AddJsonOptions(options =>

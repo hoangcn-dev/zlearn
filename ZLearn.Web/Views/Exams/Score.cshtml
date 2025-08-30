@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Kết quả bài thi";
+}
+
+<div id="main-content" class="container-fluid px-4">
+    <div class="row g-2">
+        <div class="col-8 offset-2">
+            <div class="d-flex mb-2">
+                <button onclick="window.history.back()" class="btn border bg-white highlight-hover me-2"><i class="fa-solid fa-arrow-left"></i> Quay lại</button>
+                <select class="form-select w-auto me-2">
+                    <option value="">Tên tăng dần A-Z</option>
+                    <option value="" selected>Điểm giảm dần</option>
+                </select>
+
+                <div class="flex-fill"></div>
+
+                <button class="btn border opacity-hover text-light" style="background-color: var(--main-color);"><i class="fa-solid fa-download"></i> Tải xuống file điểm</button>
+            </div>
+
+            <div class="card card-body py-1 pb-0">
+                <table class="table mb-1">
+                    <thead>
+                        <tr>
+                            <th style="width: 30px;">STT</th>
+                            <th>Tên hiển thị</th>
+                            <th>Tổng thời gian</th>
+                            <th>Tỷ lệ đúng</th>
+                            <th style="width: 30px;">Điểm</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Hoàng Cao Nguyên</td>
+                            <td>30m:26s</td>
+                            <td>23/30</td>
+                            <td>9.8</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" class="border-bottom-0 text-end">
+                                <i>Điểm trung bình: <b>3.82</b></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

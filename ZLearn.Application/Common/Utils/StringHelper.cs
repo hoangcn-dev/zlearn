@@ -19,6 +19,14 @@ namespace ZLearn.Application.Common.Utils
             var suffix = DateTime.UtcNow.ToString("yyMMddHHmmss");
             return $"{prefix}{suffix}";
         }
+
+        public static string GetRandomString(int length, string source = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+        {
+            var random = new Random();
+            return new string(Enumerable.Repeat(source, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
         public static string AppendParamsToUrl(string url, Dictionary<string, string> parameters)
         {
             if (parameters == null || !parameters.Any())

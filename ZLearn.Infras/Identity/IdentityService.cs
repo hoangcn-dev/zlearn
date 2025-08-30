@@ -18,6 +18,7 @@ using ZLearn.Application.Common.Identity.DTOs;
 using ZLearn.Application.Common.Interfaces;
 using ZLearn.Application.Common.Utils;
 using ZLearn.Application.Files;
+using ZLearn.Domain.Common;
 using ZLearn.Domain.Entities;
 using ZLearn.Domain.Enums;
 

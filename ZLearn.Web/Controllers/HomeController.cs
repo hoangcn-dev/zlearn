@@ -27,9 +27,9 @@ namespace ZLearn.Web.Controllers
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         [Route("error")]
-        public IActionResult Error()
+        public IActionResult Error(string msg)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(msg);
         }
 
         [Route("forbidden")]
@@ -51,15 +51,15 @@ namespace ZLearn.Web.Controllers
             var baseUrl = $"{Request.Scheme}://{Request.Host}";
             var baseSlugs = new List<(string Slug, double Priority)>
             { 
-                (Slug: baseUrl, Priority: 1), 
-                (Slug: $"{baseUrl}/danh-muc-trac-nghiem", Priority: 1), 
+                (Slug: "", Priority: 1), 
+                (Slug: $"danh-muc-trac-nghiem", Priority: 1), 
             };
             var cateSlugs = (await _mediator.Send(new GetAllCateSlugsQuery()))
-                .Select(s => (Slug: $"{baseUrl}/danh-muc-trac-nghiem/{s}", Priority: 0.8));
+                .Select(s => (Slug: $"danh-muc-trac-nghiem/{s}", Priority: 0.8));
             var quizSlugs = (await _mediator.Send(new GetAllQuizSlugsQuery()))
-                .Select(s => (Slug: $"{baseUrl}/de-trac-nghiem/{s}", Priority: 0.8));
+                .Select(s => (Slug: $"de-trac-nghiem/{s}", Priority: 0.8));
             var questionSlugs = (await _mediator.Send(new GetAllQuestionSlugsQuery()))
-                .Select(s => (Slug: $"{baseUrl}/cau-hoi-trac-nghiem/{s}", Priority: 0.8));
+                .Select(s => (Slug: $"cau-hoi-trac-nghiem/{s}", Priority: 0.8));
             var urls = baseSlugs
                 .Concat(cateSlugs)
                 .Concat(quizSlugs)

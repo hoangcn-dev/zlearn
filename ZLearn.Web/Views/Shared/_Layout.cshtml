@@ -44,8 +44,8 @@
                         <div id="loggedInContainer" class="d-flex align-items-center">
                             <img id="avt" src="" alt="" width="36" height="36" class="rounded-pill object-fit-cover">
                             <div class="d-flex flex-column mx-2">
-                                <div id="userName" class="fw-light text-white">B22DCCN589</div>
-                                <div id="roles" class="fw-bold" style="font-size: 11px; color: var(--secondary-color)">Admin</div>
+                                <div id="userName" class="fw-light text-white"></div>
+                                <div id="roles" class="fw-bold" style="font-size: 11px; color: var(--secondary-color)"></div>
                             </div>
                             <div class="dropdown">
                                 <i class="fa-solid fa-chevron-down fs-6 text-white opacity-hover" data-bs-toggle="dropdown"></i>
@@ -77,21 +77,19 @@
     </header>
 
     <!-- Navigation -->
-    @if (!currentUrl.Contains("/users/")) {
-        <section id="navbar">
-            <div class="w-100 shadow-sm">
-                <div class="container">
-                    <div id="navigation-tab" class="d-flex justify-content-between fw-bold">
-                        <div class="flex-fill mx-1 text-center nav-tab selected">Đề thi trắc nghiệm</div>
-                        <div class="flex-fill mx-1 text-center nav-tab">Tài liệu</div>
-                        <div class="flex-fill mx-1 text-center nav-tab">Cộng đồng</div>
-                        <div class="flex-fill mx-1 text-center nav-tab">Tutorials</div>
-                    </div>
+    <section id="navbar" class="bg-white">
+        <div class="w-100 shadow-sm">
+            <div class="container">
+                <div id="navigation-tab" class="d-flex justify-content-between fw-bold">
+                    <div class="flex-fill mx-1 text-center nav-tab selected">Đề thi trắc nghiệm</div>
+                    <div class="flex-fill mx-1 text-center nav-tab">Tài liệu</div>
+                    <div class="flex-fill mx-1 text-center nav-tab">Cộng đồng</div>
+                    <div class="flex-fill mx-1 text-center nav-tab">Tutorials</div>
                 </div>
             </div>
-        </section>
-    }
-
+        </div>
+    </section>
+    
     <!-- Main Content -->
     <section>
         <div class="my-5" style="min-height: 100vh;">

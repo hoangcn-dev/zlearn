@@ -29,6 +29,7 @@
         // Resource errors
         public const string NOT_FOUND = nameof(NOT_FOUND);
         public const string ALREADY_EXISTS = nameof(ALREADY_EXISTS);
+        public const string BAD_REQUEST = nameof(BAD_REQUEST);
         public const string RESOURCE_LOCKED = nameof(RESOURCE_LOCKED);
         public const string RESOURCE_DELETED = nameof(RESOURCE_DELETED);
 

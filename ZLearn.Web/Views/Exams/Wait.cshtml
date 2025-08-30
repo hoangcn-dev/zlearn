@@ -1,0 +1,141 @@
+﻿@using ZLearn.Application.Exams.DTOs
+
+@model WaitExamInfoDto
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<div id="main-content" class="container-fluid px-4">
+    <div class="row g-2">
+
+        <div class="col-6 offset-3">
+            <div class="card card-body shadow-sm px-4">
+                <div class="d-inline-flex mb-2">
+                    <h3>@Model.Name</h3>
+                    <div class="flex-fill"></div>
+                    <div><i class="fa-solid fa-clock me-2"></i>@Model.StartTime.ToLocalTime().ToString("HH:mm") - @(Model.EndTime.HasValue? Model.EndTime.Value.ToLocalTime().ToString("HH:mm") : Html.Raw("<i class=\"fa-solid fa-infinity\"></i>"))</div>
+                </div>
+                <div class="d-inline-flex mb-1">
+                    <h6 class="fw-light me-2">Mã đề: </h6>
+                    <h6 class="fs-6 me-3">@Model.Id <i class="fa-solid fa-copy text-secondary opacity-hover"  onclick="copyToClipboard('@Model.Id', 'Đã sao chép mã bài kiểm tra')"></i></h6>
+                </div>
+                <div class="d-inline-flex align-items-center mb-2">
+                    <h6 class="fw-light flex-nowrap text-nowrap mb-0">Link tham gia:</h6>
+                    <div class="input-group ms-2">
+                        <input type="text" class="form-control" disabled value="@Model.JoinUrl">
+                        <button class="btn btn-outline-secondary btn-sm" onclick="copyToClipboard('@Model.JoinUrl')" type="button">Sao chép</button>
+                        <button class="btn btn-outline-secondary btn-sm" onclick="showQRCode('@Model.JoinUrl')" type="button">QR Code</button>
+                    </div>
+                </div>
+                <div class="d-flex mb-2 align-items-center mb-2">
+                    <h6 class="fw-light me-3 mb-0 flex-shrink-0 align-self-start py-1">Quy định & nhắc nhở:</h6>
+                    <b>@Model.Note</b>
+                </div>
+                <div id="status"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script asp-append-version="true">
+        $(document).ready(() => {
+            // Load data
+            getData(`/exams/participant-info?alias=@Model.Alias`, res => {
+                if (!res.succeeded) {
+                    $('#status').html(`
+                    
+                        @if (Model.RequireJoinWithCode)
+                        {
+                            <div class="d-flex mb-2 align-items-center mb-2">
+                                <h6 class="fw-light me-3 mb-0 flex-shrink-0">Mã tham gia:</h6>
+                                <input type="text" name="code" class="form-control" placeholder="VD: B22DCCN599">
+                            </div>
+                        }
+
+                        @if (Model.RequireJoinWithName)
+                        {
+                            <div class="d-flex mb-2 align-items-center mb-2">
+                                <h6 class="fw-light me-3 mb-0 flex-shrink-0">Tên hiển thị:</h6>
+                                <input type="text" name="name" class="form-control" placeholder="VD: Nguyễn Văn Nam">
+                            </div>
+                        }
+
+                        @if (Model.RequirePassword)
+                        {
+                            <div class="d-flex mb-2 align-items-center mb-2">
+                                <h6 class="fw-light me-3 mb-0 flex-shrink-0">Mật khẩu truy cập:</h6>
+                                <input type="password" class="form-control" name="password" >
+                            </div>
+                        }
+
+                        <div class="d-flex justify-content-center">
+                            <button onclick="join()" class="opacity-hover btn border shadow-sm text-white mt-2 px-5" style="background-color: var(--main-color);">Tham gia</button>
+                        </div>
+                    `);
+                } else {
+                    $('#status').html(`
+                        <hr>
+                        <h5 class="fst-italic mb-2 text-center mt-2">${res.data.participantCode? " [" + res.data.participantCode +"]":""} ${res.data.participantName}</h5>
+                        <div id="countdown" class="align-self-center text-center my-2 fs-1 fw-bolder">-- giờ -- phút -- giây</div>
+                        <div id="btnStart" class="d-flex justify-content-center">
+                            ${
+                                res.data.status == 'WaitingForExamStart'? '<button onclick="gotoExam()" class="opacity-hover btn border shadow-sm text-white mt-2 px-5" disabled style="background-color: var(--main-color);">Bắt đầu làm bài</button>':
+                                res.data.status == 'InProgress'? '<button onclick="gotoExam()" class="opacity-hover btn border shadow-sm text-white mt-2 px-5" style="background-color: var(--main-color);">Tiếp tục làm bài</button>':''
+                            }
+                        </div>
+                    `);
+                    startCountdown(res.data.waitTimeInSeconds);
+                }
+            });
+        });
+
+        function join() {
+            const joinInfo = {
+                examId: "@Model.Id",
+                participantName: $('input[name="name"]').val() ?? null,
+                participantCode: $('input[name="code"]').val() ?? null,
+                password: $('input[name="password"]').val() ?? null,
+            }
+            postJsonData('/exams/join', joinInfo, res => {
+                if (res.succeeded) {
+                    showMess("Bạn đã tham gia bài kiểm tra @Model.Name!");
+                    $('#status').html(`
+                        <hr>
+                        <h5 class="fst-italic mb-2 text-center mt-2">${res.data.participantCode? " [" + res.data.participantCode +"]":""} ${res.data.participantName}</h5>
+                        <div id="countdown" class="align-self-center text-center my-2 fs-1 fw-bolder">-- giờ -- phút -- giây</div>
+                        <div id="btnStart" class="d-flex justify-content-center">
+                            ${
+                                res.data.status == 'WaitingForExamStart'? '<button onclick="gotoExam()" class="opacity-hover btn border shadow-sm text-white mt-2 px-5" disabled style="background-color: var(--main-color);">Bắt đầu làm bài</button>':
+                                res.data.status == 'InProgress'? '<button onclick="gotoExam()" class="opacity-hover btn border shadow-sm text-white mt-2 px-5" style="background-color: var(--main-color);">Tiếp tục làm bài</button>':''
+                            }
+                        </div>
+                    `);
+
+                    startCountdown(res.data.waitTimeInSeconds);
+                }
+            });
+        }
+
+        function gotoExam() {
+            window.location.href = '/bai-kiem-tra/content?alias=@Model.Alias'
+        }
+
+        function startCountdown(timeLeftToStart) {
+            const subId = setInterval(() => {
+                if (timeLeftToStart <= 0) {
+                    clearInterval(subId);
+                    $('#countdown-label').remove();
+                    $('#countdown').remove();
+                    $('#btnStart button').prop('disabled', false);
+                    return;
+                }
+                timeLeftToStart--;
+                const h = Math.floor(timeLeftToStart / 3600);
+                const m = Math.floor((timeLeftToStart % 3600) / 60);
+                const s = timeLeftToStart % 60;
+                $('#countdown').text(`${h} giờ ${m} phút ${s} giây`);
+            }, 1000);
+        }
+    </script>
+}

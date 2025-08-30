@@ -22,6 +22,14 @@ namespace ZLearn.API.Exceptions
         }
     }
 
+    public class BadRequestException : BaseException
+    {
+        public BadRequestException(string message)
+            : base(message, ErrorCodes.BAD_REQUEST)
+        {
+        }
+    }
+
     public class DuplicateEntryException : BaseException
     {
         public DuplicateEntryException(string entityType, string identifier)

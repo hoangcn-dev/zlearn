@@ -14,9 +14,9 @@
                 <a asp-controller="Quizzes" asp-action="MyQuiz" class="menu-option card card-body py-2 rounded-0 shadow-sm opacity-hover">
                     Đề đã tạo
                 </a>
-                <div class="menu-option card card-body py-2 rounded-0 shadow-sm border-top-0 opacity-hover">
-                    Liên hệ
-                </div>
+                <a asp-controller="Exams" asp-action="Index" class="menu-option card card-body py-2 rounded-0 shadow-sm border-top-0 opacity-hover">
+                    Bài kiểm tra
+                </a>
                 <div class="menu-option card card-body py-2 rounded-0 shadow-sm border-top-0 opacity-hover">
                     Tố cáo
                 </div>
@@ -37,7 +37,6 @@
     <script asp-append-version="true">
         $(document).ready(() => {
             // Init UI
-            $('#navbar').hide();
             $('.menu-option').click(function () {
                 const currentOption =  $('.menu-option.selected');
                 currentOption.removeClass('selected')
