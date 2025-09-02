@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 using StackExchange.Redis;
+using System.Collections.Concurrent;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
@@ -35,6 +36,7 @@ using ZLearn.Infras.External.SignalR;
 using ZLearn.Infras.Identity;
 using ZLearn.Infras.Log;
 using ZLearn.Infras.Realtime.AccessTracking;
+using ZLearn.Infras.Realtime.ExamTracking;
 using ZLearn.Infras.Services;
 
 namespace ZLearn.Infras
@@ -208,6 +210,19 @@ namespace ZLearn.Infras
         public static void UseAccessTracking(this WebApplication app)
         {
             app.MapHub<AccessTrackingHub>("/access-tracking");
+        }
+        #endregion
+
+        #region Exam Tracking
+        public static void AddExamTrackingService(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddSingleton<ConcurrentDictionary<string, string>>();
+            builder.Services.AddSingleton<IExamTrackingService, ExamTrackingService>();
+            //builder.Services.AddHostedService<AutoSaveAccessCountService>();
+        }
+        public static void UseExamTracking(this WebApplication app)
+        {
+            app.MapHub<ExamHub>(ExamHub.HUB_URL);
         }
         #endregion
 

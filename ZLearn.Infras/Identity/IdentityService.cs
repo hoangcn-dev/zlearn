@@ -350,5 +350,12 @@ namespace ZLearn.Infras.Identity
                 UpdatedAt = DateTimeOffset.UtcNow
             };
         }
+
+        public async Task<Dictionary<string, string>> GetImageUrls(List<string> userIds)
+        {
+            var urls = await _userManager.Users.Where(u => userIds.Contains(u.Id))
+                .ToDictionaryAsync(u => u.Id, u => u.ImageUrl!);
+            return urls;
+        }
     }
 }

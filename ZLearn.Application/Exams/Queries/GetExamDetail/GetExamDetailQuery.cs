@@ -5,5 +5,6 @@ namespace ZLearn.Application.Exams.Queries.GetExamDetail
     public class GetExamDetailQuery : IRequest<ExamDetailDto>
     {
         public string Id { get; set; }
+        public string UserId { get; set; }
     }
 }

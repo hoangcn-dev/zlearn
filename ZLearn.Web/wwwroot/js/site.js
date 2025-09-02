@@ -348,3 +348,12 @@ async function copyImageToClipboard(url, msg='Đã sao chép ảnh vào bộ nh�
     showMess(msg, true);
 }
 
+function utcStringToLocalHHmm(utcString, timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone) {
+  return new Date(utcString).toLocaleString("vi-VN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+    timeZone
+  });
+}
+

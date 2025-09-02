@@ -30,5 +30,6 @@ namespace ZLearn.Application.Common.Identity
         Task<UserDetailDto> GetUserDetail(string id);
         Task<UpdateResponseDto> UpdateUser(UpdateUserConmand request);
         Task<UpdateResponseDto> UpdateUserProfile(UpdateUserProfileCommand request);
+        Task<Dictionary<string, string>> GetImageUrls(List<string> userIds);
     }
 }

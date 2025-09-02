@@ -19,5 +19,7 @@ namespace ZLearn.Application.Exams.DTOs
         public ExamStatus Status { get; set; }
         public string QuizId { get; set; }
         public int MaxParticipants { get; set; }
+        public int QuestionsCount { get; set; }
+        public List<ParticipantStatusDto> JoinedParticipants { get; set; }
     }
 }

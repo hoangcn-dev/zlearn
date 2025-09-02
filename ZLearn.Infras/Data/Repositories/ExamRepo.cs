@@ -64,19 +64,22 @@ namespace ZLearn.Infras.Data.Repositories
                 ParticipantName = data.ParticipantName ?? $"{user.FindFirstValue("LastName")} {user.FindFirstValue("FirstName")}",
                 Status = ParticipantStatus.WaitingForExamStart,
                 IsBanned = false,
+                SelectedAnswers = "[]"
             };
             _context.Set<ExamParticipant>().Add(participant);
             await _context.SaveChangesAsync();
 
             return new ParticipantWaitingInfoDto
             {
+                ParticipantId = participant.Id,
+                Status = participant.Status,
                 ParticipantCode = participant.ParticipantCode,
                 ParticipantName = participant.ParticipantName,
                 WaitTimeInSeconds = (long)(exam.StartTime - DateTimeOffset.UtcNow).TotalSeconds,
             };
         }
 
-        public async Task<ExamContentDto?> GetExamContentAsync(string alias, string userId)
+        public async Task<(ExamContentDto, ExamParticipant)?> GetExamContentAsync(string alias, string userId)
         {
             // Check and set participant status 
             var ep = await _context.Set<ExamParticipant>().FirstOrDefaultAsync(ep => ep.UserId == userId && ep.Exam.Alias == alias)
@@ -85,6 +88,10 @@ namespace ZLearn.Infras.Data.Repositories
             {
                 ep.Status = ParticipantStatus.InProgress;
                 ep.FirstCheckIn = DateTimeOffset.UtcNow;
+            }
+            else if (ep.Status == ParticipantStatus.ConnectionLost)
+            {
+                ep.Status = ParticipantStatus.InProgress;
             }
             else if (ep.Status == ParticipantStatus.Completed)
             {
@@ -104,6 +111,8 @@ namespace ZLearn.Infras.Data.Repositories
                 Id = exam.Id,
                 ExamName = exam.Name,
                 Alias = exam.Alias,
+                ParticipantCode = ep.ParticipantCode,
+                ParticipantName = ep.ParticipantName,
                 StartTime = exam.StartTime,
                 EndTime = exam.EndTime,
                 Questions = exam.Quiz.Questions.Select(question => new QuestionContentDto
@@ -154,7 +163,7 @@ namespace ZLearn.Infras.Data.Repositories
             data.Questions.Sort((a, b) => a.Order.CompareTo(b.Order));
 
             await _context.SaveChangesAsync();
-            return data;
+            return (data, ep);
         }
 
         public async Task<ParticipantWaitingInfoDto?> GetParticipantStatusAsync(string userId, string alias)
@@ -164,6 +173,7 @@ namespace ZLearn.Infras.Data.Repositories
                 .Where(ep => ep.UserId == userId && ep.Exam.Alias == alias)
                 .Select(ep => new 
                 {
+                    ep.Id,
                     ep.Status,
                     ep.ParticipantCode,
                     ep.ParticipantName,
@@ -173,6 +183,7 @@ namespace ZLearn.Infras.Data.Repositories
             if (res == null) return null;
             var status = new ParticipantWaitingInfoDto
             {
+                ParticipantId = res.Id,
                 Status = res.Status,
                 ParticipantCode = res.ParticipantCode,
                 ParticipantName = res.ParticipantName!,
@@ -224,6 +235,29 @@ namespace ZLearn.Infras.Data.Repositories
             };
         }
 
+        public Task<bool> IsExamCreator(string examId, string userId)
+        {
+            return _context.Set<Exam>()
+                .AsNoTracking()
+                .AnyAsync(e => e.Id == examId && e.CreatedBy == userId);
+        }
+
+        public async Task<ParticipantStatusDto?> GetExamParticipant(string examId, string userId)
+        {
+            return await _context.Set<ExamParticipant>()
+                .AsNoTracking()
+                .Where(ep => ep.ExamId == examId && ep.UserId == userId)
+                .Select(ep => new ParticipantStatusDto
+                {
+                    ParticipantId = ep.Id,
+                    UserId = ep.UserId,
+                    ParticipantCode = ep.ParticipantCode,
+                    ParticipantName = ep.ParticipantName,
+                    Status = ep.Status,
+                })
+                .FirstOrDefaultAsync();
+        }
+
         public async Task SaveResult(string participantId, SubmitExamDto data)
         {
             var participant = await _context.Set<ExamParticipant>()
@@ -253,6 +287,24 @@ namespace ZLearn.Infras.Data.Repositories
             participant.Correct = correctCount;
             participant.Completed = data.Answers.Count;
             participant.Status = ParticipantStatus.Completed;
+            participant.SelectedAnswers = StringHelper.ObjectToJsonString(data.Answers);
+            _context.Set<ExamParticipant>().Update(participant);
+            await _context.SaveChangesAsync();
+        }
+
+        public Task<bool> IsExamParticipant(string examId, string userId)
+        {
+            return _context.Set<ExamParticipant>()
+                .AsNoTracking()
+                .AnyAsync(ep => ep.ExamId == examId && ep.UserId == userId);
+        }
+
+        public async Task SetParticipantStatus(string userId, string examId, ParticipantStatus status)
+        {
+            var participant = _context.Set<ExamParticipant>()
+                .Where(ep => ep.UserId == userId && ep.ExamId == examId)
+                .FirstOrDefault() ?? throw new NotFoundException(nameof(ExamParticipant));
+            participant.Status = status;
             _context.Set<ExamParticipant>().Update(participant);
             await _context.SaveChangesAsync();
         }

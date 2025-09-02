@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
@@ -25,6 +26,23 @@ namespace ZLearn.Application.Common.Utils
             var random = new Random();
             return new string(Enumerable.Repeat(source, length)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        public static string ObjectToJsonString(object obj)
+        {
+            return JsonSerializer.Serialize(obj);
+        }
+
+        public static T? JsonStringToObject<T>(string jsonString)
+        {
+            try
+            {
+                return JsonSerializer.Deserialize<T>(jsonString) ?? default;
+            }
+            catch (Exception)
+            {
+                return default;
+            }
         }
 
         public static string AppendParamsToUrl(string url, Dictionary<string, string> parameters)

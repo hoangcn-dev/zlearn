@@ -30,6 +30,7 @@ namespace ZLearn.Web
             });
 
             builder.AddRedisService();
+            builder.AddExamTrackingService();
             builder.AddIdentityService();
             builder.AddPostgreSQLDataServices();
             builder.AddCloudinaryService();
@@ -78,6 +79,7 @@ namespace ZLearn.Web
             app.UseAuthentication();
             app.UseLogMiddleware();
             app.UseAccessTracking();
+            app.UseExamTracking();
             app.UseAuthorization();
             app.MapControllerRoute(
                 name: "default",

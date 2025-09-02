@@ -109,6 +109,8 @@ input {
     background-color: #26c3fc34;
     font-weight: 500;
     height: fit-content;
+    border-radius: 5px;
+    text-wrap: nowrap;
 }
 
 .gray-tag {
@@ -134,8 +136,9 @@ input {
     color: var(--success-color);
     background-color: #67fcb94d;
     font-weight: 500;
-    border-radius: 5px;
     height: fit-content;
+    text-wrap: nowrap;
+    border-radius: 5px;
 }
 
 .error-tag {
@@ -149,4 +152,5 @@ input {
     font-weight: 500;
     border-radius: 5px;
     height: fit-content;
+    text-wrap: nowrap;
 }

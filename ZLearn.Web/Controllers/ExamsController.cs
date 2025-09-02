@@ -118,9 +118,14 @@ namespace ZLearn.Web.Controllers
 
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<IActionResult> Detail(string id)
         {
-            var exam = await _mediator.Send(new GetExamDetailQuery { Id = id });
+            var exam = await _mediator.Send(new GetExamDetailQuery
+            {
+                Id = id,
+                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier)
+            });
             return View(exam);
         }
     }

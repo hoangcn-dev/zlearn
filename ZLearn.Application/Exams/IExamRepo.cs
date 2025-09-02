@@ -8,10 +8,14 @@ namespace ZLearn.Application.Exams
 {
     public interface IExamRepo : IBaseRepo<Exam>
     {
-        Task<ExamContentDto?> GetExamContentAsync(string examId, string userId);
+        Task<(ExamContentDto, ExamParticipant)?> GetExamContentAsync(string examId, string userId);
         Task SaveResult(string participantId, SubmitExamDto data);
         Task<ParticipantResultDto?> GetResult(string participantId, string alias);
         Task<ParticipantWaitingInfoDto?> GetParticipantStatusAsync(string userId, string alias);
+        Task SetParticipantStatus(string userId, string examId, ParticipantStatus status);
         Task<ParticipantWaitingInfoDto> AddParticipant(ClaimsPrincipal user, JoinExamRequestDto data);
+        Task<bool> IsExamCreator(string examId, string userId);
+        Task<bool> IsExamParticipant(string examId, string userId);
+        Task<ParticipantStatusDto?> GetExamParticipant(string examId, string userId);
     }
 }

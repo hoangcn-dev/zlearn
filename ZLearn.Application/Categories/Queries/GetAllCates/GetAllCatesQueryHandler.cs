@@ -29,7 +29,6 @@ namespace ZLearn.Application.Categories.Queries.GetAllCates
                     ThumbnailUrl = e.ThumbnailUrl ?? StringHelper.GetDefaultImageUrl(),
                     QuizCount = e.Quizzes.Count,
                     LastModifiedAt = e.LastModifiedAt,
-                    AttemptCount = e.Quizzes.Select(q => q.Questions.Select(qu => qu.AttemptCount).Sum()).Sum()
                 });
             return cates;
         }

@@ -1,5 +1,6 @@
 ﻿@using ZLearn.Application.Exams.DTOs
 @using ZLearn.Domain.Enums
+@using ZLearn.Infras.External.SignalR
 @model ExamDetailDto
 @{
     ViewData["Title"] = "Quản lý bài thi";
@@ -72,38 +73,44 @@
             </div>
         </div>
 
-        <div class="col-4">
-            <div class="card card-body shadow-sm">
-                <h5 class="mb-3">Trạng thái</h5>
-                <div class="d-flex flex-column" style="font-size: 14px;">
-                    <span class="border-top py-1"><small class="text-secondary opacity-75">13:55 </small>[B22DCCN589] Hoàng Cao Nguyên đã tham gia</span>
-                    <span class="border-top py-1"><small class="text-secondary opacity-75">13:55 </small> Hoàng Cao Nguyên đã tham gia</span>
-                    <span class="border-top py-1 text-danger"><small class="text-secondary opacity-75">13:55</small> Hoàng Cao Nguyên đã tham gia <i class="fa-solid fa-triangle-exclamation mt-1 float-end"></i></span>
-                    <span class="border-top py-1"><small class="text-secondary opacity-75">13:55 </small> Hoàng Cao Nguyên đã tham gia</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-8">
-            <div class="card card-body shadow-sm">
-                <h5 class="mb-0">Người tham gia (0/@Model.MaxParticipants)</h5>
-
-                <div class="d-flex align-items-center mt-3 border-top border-bottom p-2">
-                    <div class="col">
-                        <img src="test.jpg" alt="" width="32" height="32" class="rounded-pill border">
-                        <small class="ms-2">[B22DCCN589] Hoàng Cao Nguyên</small>
-                    </div>
-                    <div class="col-2">
-                        <small>Đã làm 0/60</small>
-                    </div>
-                    <div class="col-2">
-                        <div class="gray-tag w-auto">Đang chờ</div>
-                    </div>
-                    <div class="col-2">
-                        <div class="d-flex flex-row-reverse">
-                            <i class="fa-solid fa-ban opacity-hover" title="Xóa khỏi bài kiểm tra (cấm vào lại)"></i>
+        <div class="col-12">
+            <div class="card card-body shadow-sm vh-50">
+                <h5 class="mb-3 d-inline-flex">Người tham gia (<div id="participant-count">@Model.JoinedParticipants.Count</div>/@Model.MaxParticipants)</h5>
+                <div id="participant-status" class="overflow-y-auto" style="height: 50vh;">
+                    @foreach (var p in Model.JoinedParticipants)
+                    {
+                        <div id="@p.UserId" class="d-flex align-items-center border-top border-bottom-0 p-2">
+                            <div class="col">
+                                <img src="@p.ImageUrl" alt="" width="32" height="32" class="rounded-pill border">
+                                <small class="ms-2">[@(string.IsNullOrEmpty(p.ParticipantCode) ? p.ParticipantId : p.ParticipantCode)] @p.ParticipantName</small>
+                            </div>
+                            <div class="col-2"><div class="d-inline-flex">Đã làm <div class="selectedCount ms-1">0</div>/@Model.QuestionsCount</div></div>
+                            <div class="col-2 status">
+                                @if (p.Status == ParticipantStatus.WaitingForExamStart)
+                                {
+                                    <div class="gray-tag" style="width: fit-content">Đang chờ</div>
+                                }
+                                else if (p.Status == ParticipantStatus.InProgress)
+                                {
+                                    <div class="info-tag" style="width: fit-content">Đang làm bài</div>
+                                }
+                                else if (p.Status == ParticipantStatus.ConnectionLost)
+                                {
+                                    <div class="error-tag" style="width: fit-content">Mất kết nối</div>
+                                }
+                                else if (p.Status == ParticipantStatus.Completed)
+                                {
+                                    <div class="success-tag" style="width: fit-content">Đã nộp bài</div>
+                                }
+                            </div>
+                            <div class="col-2">
+                                <div class="d-flex flex-row-reverse">
+                                    <i class="fa-solid fa-ban opacity-hover" title="Xóa khỏi bài kiểm tra (cấm vào lại)"></i>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    }
+            
                 </div>
             </div>
         </div>
@@ -114,6 +121,22 @@
     <script asp-append-version="true">
         let timeLeftToStart = @Model.RemainingSecondsToStart;
         let timeLeftToEnd = @Model.RemainingSecondsToEnd;
+        const participants = @Json.Serialize(
+            Model.JoinedParticipants?.ToDictionary(
+                p => p.UserId,
+                p => new
+                {
+                    participantId = p.ParticipantId,
+                    userId = p.UserId,
+                    imageUrl = p.ImageUrl,
+                    participantName = p.ParticipantName,
+                    status = p.Status.ToString(),
+                    timestamp = p.Timestamp,
+                    participantCode = p.ParticipantCode ,
+                    selectedCount = 0
+                }
+            )
+        );
 
         $(document).ready(() => {
             const subId = setInterval(() => {
@@ -122,6 +145,7 @@
                     $('#countdown-label').text(`Bắt đầu ...`);
                     $('#countdown').text(`-- giờ -- phút -- giây`);
                     startCountdownToEnd();
+
                     return;
                 }
                 timeLeftToStart--;
@@ -130,7 +154,68 @@
                 const s = timeLeftToStart % 60;
                 $('#countdown').text(`${h} giờ ${m} phút ${s} giây`);
             }, 1000);
+
+            // Hub
+            const connection = new signalR.HubConnectionBuilder()
+                .withUrl("@ExamHub.HUB_URL" + "?examId=@Model.Id", { withCredentials: true })
+                .build();
+            connection.on('ParticipantJoined', data => {
+                participants[data.userId] = data;
+                participants[data.userId].selectedCount = 0;
+                addNewParticipant();
+            });
+            connection.on('ParticipantStatusUpdated', (uId, status) => {
+                $(`#${uId} .status`).html(getStatusTag(status));
+                participants[uId].status = status;
+            });
+            connection.onclose(err => {
+                showMess('Disconnected! Please try reload the page to reconnect.', false)
+                console.error("Disconnected:", err.toString());
+            });
+            connection.on('Connected', (mess) => showMess(mess, true));
+            connection.on('ParticipantSelectedAnswer', (uId, count) => {
+                $(`#${uId} .selectedCount`).text(`${count}`);
+                participants[uId].selectedCount = count;
+            });
+            connection.start().then(() => {
+                connection.invoke('UpdateProgress', '@Model.Id');
+            });
         });
+
+        function getStatusTag(status) {
+            if (status == 'WaitingForExamStart')
+                return '<div class="gray-tag" style="width: fit-content">Đang chờ</div>';
+            if (status == 'InProgress')
+                return '<div class="info-tag" style="width: fit-content">Đang làm bài</div>';
+            if (status == 'ConnectionLost')
+                return '<div class="error-tag" style="width: fit-content">Mất kết nối</div>';
+            if (status == 'Completed')
+                return '<div class="success-tag" style="width: fit-content">Đã nộp bài</div>';
+            return '';
+        }
+
+        function addNewParticipant() {
+            let html = '';
+            Object.values(participants).forEach(p => {
+                html += `
+                    <div id="${p.userId}" class="d-flex align-items-center border-top border-bottom-0 p-2">
+                        <div class="col">
+                            <img src="test.jpg" alt="" width="32" height="32" class="rounded-pill border">
+                            <small class="ms-2">[${p.participantCode? p.participantCode : p.participantId}] ${p.participantName}</small>
+                        </div>
+                        <div class="col-2"><div class="d-inline-flex">Đã làm <div class="selectedCount ms-1">${p.selectedCount}</div>/@Model.QuestionsCount</div></div>
+                        <div class="col-2 status">${getStatusTag(p.status)}</div>
+                        <div class="col-2">
+                            <div class="d-flex flex-row-reverse">
+                                <i class="fa-solid fa-ban opacity-hover" title="Xóa khỏi bài kiểm tra (cấm vào lại)"></i>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            $('#participant-status').html(html);
+            $('#participant-count').text(`${Object.keys(participants).length}`);
+        }
 
         function startCountdownToEnd() {
             if (timeLeftToEnd == -1) {

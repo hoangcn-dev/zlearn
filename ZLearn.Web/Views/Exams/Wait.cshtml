@@ -1,4 +1,5 @@
 ﻿@using ZLearn.Application.Exams.DTOs
+@using ZLearn.Infras.External.SignalR
 
 @model WaitExamInfoDto
 @{
@@ -74,9 +75,24 @@
                         </div>
                     `);
                 } else {
+                    // Socket
+                    const connection = new signalR.HubConnectionBuilder()
+                        .withUrl("@ExamHub.HUB_URL" + "?examId=@Model.Id", { withCredentials: true })
+                        .build();
+                    connection.onclose(err => {
+                        showMess('Disconnected! Please try reload the page to reconnect.', false)
+                        console.error("Disconnected:", err.toString());
+                    });
+                    connection.on('Connected', (mess) => showMess(mess, true));
+                    window.addEventListener("beforeunload", async () => {
+                        await connection.stop();
+                    });
+                    connection.start();
+
+                    // Update UI
                     $('#status').html(`
                         <hr>
-                        <h5 class="fst-italic mb-2 text-center mt-2">${res.data.participantCode? " [" + res.data.participantCode +"]":""} ${res.data.participantName}</h5>
+                        <h5 class="fst-italic mb-2 text-center mt-2">${res.data.participantCode? "[" + res.data.participantCode +"]":""} ${res.data.participantName}</h5>
                         <div id="countdown" class="align-self-center text-center my-2 fs-1 fw-bolder">-- giờ -- phút -- giây</div>
                         <div id="btnStart" class="d-flex justify-content-center">
                             ${
@@ -97,22 +113,25 @@
                 participantCode: $('input[name="code"]').val() ?? null,
                 password: $('input[name="password"]').val() ?? null,
             }
+            if ('@Model.RequireJoinWithCode' == 'True' && !joinInfo.participantCode)
+            {
+                showMess('Vui lòng nhập mã tham gia!', false);
+                return;
+            }
+            if ('@Model.RequireJoinWithName' == 'True' && !joinInfo.participantName)
+            {
+                showMess('Vui lòng nhập tên tham gia!', false);
+                return;
+            }
+            if ('@Model.RequirePassword' == 'True' && !joinInfo.password)
+            {
+                showMess('Vui lòng nhập mật khẩu!', false);
+                return;
+            }
+
             postJsonData('/exams/join', joinInfo, res => {
                 if (res.succeeded) {
-                    showMess("Bạn đã tham gia bài kiểm tra @Model.Name!");
-                    $('#status').html(`
-                        <hr>
-                        <h5 class="fst-italic mb-2 text-center mt-2">${res.data.participantCode? " [" + res.data.participantCode +"]":""} ${res.data.participantName}</h5>
-                        <div id="countdown" class="align-self-center text-center my-2 fs-1 fw-bolder">-- giờ -- phút -- giây</div>
-                        <div id="btnStart" class="d-flex justify-content-center">
-                            ${
-                                res.data.status == 'WaitingForExamStart'? '<button onclick="gotoExam()" class="opacity-hover btn border shadow-sm text-white mt-2 px-5" disabled style="background-color: var(--main-color);">Bắt đầu làm bài</button>':
-                                res.data.status == 'InProgress'? '<button onclick="gotoExam()" class="opacity-hover btn border shadow-sm text-white mt-2 px-5" style="background-color: var(--main-color);">Tiếp tục làm bài</button>':''
-                            }
-                        </div>
-                    `);
-
-                    startCountdown(res.data.waitTimeInSeconds);
+                    window.location.reload();
                 }
             });
         }

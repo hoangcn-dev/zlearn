@@ -42,7 +42,7 @@ namespace ZLearn.Application.Exams.Commands.CreateExam
                 JoinPass = request.Data.JoinPass,
                 StartTime = request.Data.StartTime ?? current,
                 EndTime = request.Data.EndTime,
-                Status = ExamStatus.WaitStart,
+                Status = request.Data.StartTime is null? ExamStatus.InProgress : ExamStatus.WaitStart,
                 LockAccess = false,
                 ShowAnswerAndKey = request.Data.ShowAnswerAndKey,
                 MaxParticipants = request.Data.MaxParticipants,
@@ -61,15 +61,11 @@ namespace ZLearn.Application.Exams.Commands.CreateExam
             _examRepo.Create(exam);
             await _examRepo.SaveChanges(); 
 
-            var startExamCommand = new ChangeExamStatusCommand { ExamId = exam.Id, Status = ExamStatus.InProgress };
-            if (request.Data.StartTime is null)
+            if (request.Data.StartTime is not null)
             {
+                var startExamCommand = new ChangeExamStatusCommand { ExamId = exam.Id, Status = ExamStatus.InProgress };
                 _schedulerService.ScheduleCommand(startExamCommand, exam.StartTime);
-            }
-            else
-            {
-                await _mediator.Send(startExamCommand, cancellationToken);
-            }    
+            }   
 
             return _mapper.Map<CreateResponseDto>(exam);
         }
