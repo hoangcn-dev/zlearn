@@ -27,7 +27,7 @@ async function postJsonData(url, data, callback) {
     callback(res);
 }
 
-async function pustJsonData(url, data, callback) {
+async function putJsonData(url, data, callback) {
     showLoading();
     const res = await callApi(url, 'PUT', 'application/json; charset=utf-8', JSON.stringify(data));
     hideLoading();
@@ -355,5 +355,13 @@ function utcStringToLocalHHmm(utcString, timeZone = Intl.DateTimeFormat().resolv
     hour12: false,
     timeZone
   });
+}
+
+function getSecondsBetween(startTime, endTime) {
+    // startTime và endTime là Date hoặc ISO string
+    const start = new Date(startTime).getTime(); // milliseconds
+    const end = new Date(endTime).getTime();     // milliseconds
+    const diffMs = end - start;
+    return Math.floor(diffMs / 1000); // trả về số giây nguyên
 }
 

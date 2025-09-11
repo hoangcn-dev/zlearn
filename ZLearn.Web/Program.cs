@@ -30,6 +30,7 @@ namespace ZLearn.Web
             });
 
             builder.AddRedisService();
+            builder.AddQuartzServices();
             builder.AddExamTrackingService();
             builder.AddIdentityService();
             builder.AddPostgreSQLDataServices();

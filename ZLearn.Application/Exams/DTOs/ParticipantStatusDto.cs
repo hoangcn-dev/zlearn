@@ -10,6 +10,7 @@ namespace ZLearn.Application.Exams.DTOs
         public string ImageUrl { get; set; }
         public string? ParticipantCode { get; set; }
         public string ParticipantName { get; set; }
+        public int CompletedCount { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public ParticipantStatus Status { get; set; }

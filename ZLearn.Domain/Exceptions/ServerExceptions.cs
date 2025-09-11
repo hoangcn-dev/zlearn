@@ -25,6 +25,17 @@ namespace ZLearn.API.Exceptions
         }
     }
 
+    public class RedirectException : BaseException
+    {
+        public string Url { get; set; }
+
+        public RedirectException(string url)
+            : base("Redirect to " + url, ErrorCodes.REDIRECT)
+        {
+            Url = url;
+        }
+    }
+
     public class TimeoutException : BaseException
     {
         public TimeoutException(string operation)

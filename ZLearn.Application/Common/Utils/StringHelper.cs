@@ -13,8 +13,10 @@ namespace ZLearn.Application.Common.Utils
     public class StringHelper
     {
         public static string IndexToChar(int i) => ((char)('A' + i)).ToString();
+
         public static string GetDefaultImageUrl()
             => "https://res.cloudinary.com/dvk5yt0oi/image/upload/v1751492653/b2e0meuozqt0ti4r7her_qhbicx.jpg";
+
         public static string GetRandomUserName(string prefix = "user")
         {
             var suffix = DateTime.UtcNow.ToString("yyMMddHHmmss");
@@ -91,7 +93,7 @@ namespace ZLearn.Application.Common.Utils
             var foodSuffix = defaultFoods.ElementAt(random.Next(defaultFoods.Count));
             return $"{name} {charSuffix} Thích {foodSuffix}";
         }
-    
+
         public static string GenerateSlug(string source)
         {
             // create en string from vi string
@@ -121,5 +123,7 @@ namespace ZLearn.Application.Common.Utils
             seo = Regex.Replace(seo, @"\s+", "-");
             return seo.Length > 100 ? seo[..100] : seo;
         }
+
+        public static string GetJobId(string prefix, string typeName) => $"{prefix}_{typeName}";
     }
 }

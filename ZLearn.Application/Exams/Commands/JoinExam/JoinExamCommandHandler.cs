@@ -29,6 +29,7 @@ namespace ZLearn.Application.Exams.Commands.JoinExam
                 Status = participantInfo.Status,
                 ImageUrl = request.User.FindFirst("ImageUrl")!.Value,
                 UserId = request.User.FindFirst(ClaimTypes.NameIdentifier)!.Value,
+                CompletedCount = 0,
             };
             await _examTrackingService.AddParticipant(request.Data.ExamId, status);
             return participantInfo;

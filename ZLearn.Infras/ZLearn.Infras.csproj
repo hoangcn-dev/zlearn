@@ -12,6 +12,9 @@
 	  <PackageReference Include="Hangfire.AspNetCore" Version="1.8.21" />
 	  <PackageReference Include="Hangfire.Core" Version="1.8.21" />
 	  <PackageReference Include="Hangfire.MemoryStorage" Version="1.8.1.2" />
+	  <PackageReference Include="Quartz" Version="3.15.0" />
+	  <PackageReference Include="Quartz.Extensions.Hosting" Version="3.15.0" />
+	  <PackageReference Include="Quartz.Serialization.Json" Version="3.15.0" />
 	  <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
 	  <PackageReference Include="Serilog.Settings.Configuration" Version="9.0.0" />
 	  <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
@@ -32,5 +35,10 @@
   <ItemGroup>
     <ProjectReference Include="..\ZLearn.Application\ZLearn.Application.csproj" />
   </ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="External\Quartz\up_migration.sql" />
+		<EmbeddedResource Include="External\Quartz\down_migration.sql" />
+	</ItemGroup>
 
 </Project>

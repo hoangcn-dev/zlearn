@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using ZLearn.Application.Realtime;
 using ZLearn.Infras.External.SignalR;
 
-namespace ZLearn.Infras.Realtime.AccessTracking
+namespace ZLearn.Infras.Services.AccessTracking
 {
     public class AccessTrackingService : IAccessTrackingService
     {

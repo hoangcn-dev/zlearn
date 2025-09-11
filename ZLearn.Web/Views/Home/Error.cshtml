@@ -6,7 +6,7 @@
 <div class="vh-100 vw-100 bg-white d-flex flex-column align-items-center position-fixed top-0 start-0" style="padding-top: 30px; z-index: 2;">
     <span style="font-size: 120px; font-weight: 700; color: var(--main-color);">ERROR</span>
     <img class="mb-2" src="logo.ico" alt="">
-    <p class="fs-4 fw-light">Something gone wrong!</p>
+    <p class="fs-4 fw-light">@(string.IsNullOrEmpty(Model) ? "Something gone wrong!":Model)</p>
     <div class="d-flex justify-content-center">
         <a href="/" class="btn opacity-hover me-2" style="color: var(--main-color); width: 160px; border: solid 1px var(--main-color);">Trang chủ</a>
         <button class="btn text-light opacity-hover" onclick="window.history.back()" style="background-color: var(--main-color); width: 160px;">Quay lại</button>

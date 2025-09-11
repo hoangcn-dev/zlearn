@@ -410,7 +410,7 @@ namespace ZLearn.Infras.Migrations
                         .HasMaxLength(2048)
                         .HasColumnType("character varying(2048)");
 
-                    b.Property<string>("Type")
+                    b.Property<string>("Action")
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 

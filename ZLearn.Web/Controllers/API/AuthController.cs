@@ -149,7 +149,7 @@ namespace ZLearn.Web.Controllers.API
         }
 
         [HttpPost("sign-out")]
-        public async Task<IActionResult> SignOut()
+        public IActionResult SignOut()
         {
             Response.Cookies.Delete("token");
             return Ok(Result<NoData>.Success("Signed out successfully."));

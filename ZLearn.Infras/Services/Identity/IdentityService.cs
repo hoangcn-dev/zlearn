@@ -22,7 +22,7 @@ using ZLearn.Domain.Common;
 using ZLearn.Domain.Entities;
 using ZLearn.Domain.Enums;
 
-namespace ZLearn.Infras.Identity
+namespace ZLearn.Infras.Services.Identity
 {
     public class IdentityService : IIdentityService
     {

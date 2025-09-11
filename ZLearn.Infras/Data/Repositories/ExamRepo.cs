@@ -1,5 +1,7 @@
-﻿using System.Security.Claims;
+﻿using Hangfire.MemoryStorage.Database;
+using System.Security.Claims;
 using ZLearn.API.Exceptions;
+using ZLearn.Application.Common.Services;
 using ZLearn.Application.Common.Utils;
 using ZLearn.Application.Exams;
 using ZLearn.Application.Exams.DTOs;
@@ -12,8 +14,11 @@ namespace ZLearn.Infras.Data.Repositories
 {
     public class ExamRepo : BaseRepo<Exam>, IExamRepo
     {
-        public ExamRepo(AppDbContext context) : base(context)
+        private readonly ISchedulerService _schedulerService;
+
+        public ExamRepo(AppDbContext context, ISchedulerService schedulerService) : base(context)
         {
+            _schedulerService = schedulerService;
         }
 
         public async Task<ParticipantWaitingInfoDto> AddParticipant(ClaimsPrincipal user, JoinExamRequestDto data)
@@ -32,7 +37,7 @@ namespace ZLearn.Infras.Data.Repositories
                     e.RequireJoinWithName,
                     e.MaxParticipants })
                 .FirstOrDefaultAsync()
-                ?? throw new NotFoundException(nameof(Exam));
+                ?? throw new NotFoundException("Bài kiểm tra không tồn tại hoặc đã hết thời gian cho phép tham gia.");
 
             if (exam.Status == ExamStatus.Ended)
                 throw new BadRequestException("Bài kiểm tra đã kết thúc.");
@@ -64,7 +69,7 @@ namespace ZLearn.Infras.Data.Repositories
                 ParticipantName = data.ParticipantName ?? $"{user.FindFirstValue("LastName")} {user.FindFirstValue("FirstName")}",
                 Status = ParticipantStatus.WaitingForExamStart,
                 IsBanned = false,
-                SelectedAnswers = "[]"
+                SelectedAnswers = "[]",
             };
             _context.Set<ExamParticipant>().Add(participant);
             await _context.SaveChangesAsync();
@@ -75,7 +80,8 @@ namespace ZLearn.Infras.Data.Repositories
                 Status = participant.Status,
                 ParticipantCode = participant.ParticipantCode,
                 ParticipantName = participant.ParticipantName,
-                WaitTimeInSeconds = (long)(exam.StartTime - DateTimeOffset.UtcNow).TotalSeconds,
+                StartTime = exam.StartTime,
+                ExamStatus = exam.Status
             };
         }
 
@@ -84,23 +90,24 @@ namespace ZLearn.Infras.Data.Repositories
             // Check and set participant status 
             var ep = await _context.Set<ExamParticipant>().FirstOrDefaultAsync(ep => ep.UserId == userId && ep.Exam.Alias == alias)
                 ?? throw new ForbiddenException();
-            if (ep.Status == ParticipantStatus.WaitingForExamStart)
+            if (ep.Status == ParticipantStatus.Completed)
             {
-                ep.Status = ParticipantStatus.InProgress;
+                throw new RedirectException($"/bai-kiem-tra/result?alias={alias}");
+            }
+            if (ep.Status == ParticipantStatus.NotAllowed)
+            {
+                throw new ForbiddenException();
+            }
+            if (!ep.FirstCheckIn.HasValue)
+            {
                 ep.FirstCheckIn = DateTimeOffset.UtcNow;
             }
-            else if (ep.Status == ParticipantStatus.ConnectionLost)
-            {
-                ep.Status = ParticipantStatus.InProgress;
-            }
-            else if (ep.Status == ParticipantStatus.Completed)
-            {
-                return null;
-            }
+            ep.Status = ParticipantStatus.InProgress;
+            
 
             // Get exam data
             var exam = await _context.Set<Exam>().AsNoTracking()
-                .Where(e => e.Alias == alias)
+                .Where(e => e.Alias == alias && e.Status == ExamStatus.InProgress)
                 .Include(e => e.Quiz)
                     .ThenInclude(q => q.Questions)
                         .ThenInclude(q => q.Answers)
@@ -162,6 +169,7 @@ namespace ZLearn.Infras.Data.Repositories
 
             data.Questions.Sort((a, b) => a.Order.CompareTo(b.Order));
 
+            _context.Set<ExamParticipant>().Update(ep);
             await _context.SaveChangesAsync();
             return (data, ep);
         }
@@ -177,7 +185,8 @@ namespace ZLearn.Infras.Data.Repositories
                     ep.Status,
                     ep.ParticipantCode,
                     ep.ParticipantName,
-                    ep.Exam.StartTime
+                    ep.Exam.StartTime,
+                    ExamStatus = ep.Exam.Status
                 })
                 .FirstOrDefaultAsync();
             if (res == null) return null;
@@ -187,7 +196,8 @@ namespace ZLearn.Infras.Data.Repositories
                 Status = res.Status,
                 ParticipantCode = res.ParticipantCode,
                 ParticipantName = res.ParticipantName!,
-                WaitTimeInSeconds = (long)(res.StartTime - DateTimeOffset.UtcNow).TotalSeconds
+                StartTime = res.StartTime,
+                ExamStatus = res.ExamStatus
             };
             return status;
         }
@@ -196,7 +206,10 @@ namespace ZLearn.Infras.Data.Repositories
         {
             var participant = await _context.Set<ExamParticipant>()
                 .AsNoTracking()
-                .Where(ep => ep.UserId == participantId && ep.Exam.Alias == alias)
+                .Where(
+                    ep => ep.UserId == participantId && 
+                    ep.Exam.Alias == alias &&
+                    ep.Status == ParticipantStatus.Completed)
                 .Select(ep => new
                 {
                     ep.FirstCheckIn,
@@ -205,13 +218,13 @@ namespace ZLearn.Infras.Data.Repositories
                     ep.Score,
                     ep.ExamId,
                     ep.Completed,
-                    QuizId = ep.Exam.QuizId
+                    ep.Exam.QuizId
                 })
                 .FirstOrDefaultAsync() ?? throw new NotFoundException(nameof(ExamParticipant));
 
             var rank = await _context.Set<ExamParticipant>()
                 .AsNoTracking()
-                .Where(ep => ep.ExamId == participant.ExamId && ep.Score > participant.Score)
+                .Where(ep => ep.ExamId == participant.ExamId && ep.Status == ParticipantStatus.Completed && ep.Score > participant.Score)
                 .CountAsync() + 1;
 
             var participantsCount = await _context.Set<ExamParticipant>()
@@ -260,17 +273,32 @@ namespace ZLearn.Infras.Data.Repositories
 
         public async Task SaveResult(string participantId, SubmitExamDto data)
         {
+            var exam = await _context.Set<Exam>()
+                .AsNoTracking()
+                .Where(e => e.Id == data.ExamId)
+                .Select(e => new
+                {
+                    e.Id,
+                    e.Status,
+                    e.AllowLateSubmit,
+                    Questions = e.Quiz.Questions.Select(q => new { q.Id, q.CorrectKey })
+                })
+                .FirstOrDefaultAsync()
+                ?? throw new BadRequestException("Bài kiểm tra không tồn tại");
+            if (exam.Status == ExamStatus.Ended && !exam.AllowLateSubmit)
+                throw new BadRequestException("Bài kiểm tra đã kết thúc.");
+
             var participant = await _context.Set<ExamParticipant>()
                 .Where(ep => ep.UserId == participantId && ep.ExamId == data.ExamId)
                 .FirstOrDefaultAsync()
                 ?? throw new NotFoundException(nameof(ExamParticipant));
-            var questions = await _context.Set<Exam>()
-                .Where(e => e.Id == data.ExamId)
-                .SelectMany(e => e.Quiz.Questions)
-                .Select(q => new { q.Id, q.CorrectKey })
-                .ToDictionaryAsync(keySelector: q => q.Id);
-            if (questions.Count == 0) 
-                throw new InternalErrorException("Question data is empty.");
+            if (participant.Status == ParticipantStatus.NotAllowed)
+            {
+                throw new ForbiddenException();
+            }
+
+            var questions = exam.Questions.ToDictionary(keySelector: q => q.Id);
+            if (questions.Count == 0) throw new InternalErrorException("Question data is empty.");
 
             participant.LastCheckOut = DateTimeOffset.UtcNow;
             int correctCount = 0;
@@ -286,7 +314,7 @@ namespace ZLearn.Infras.Data.Repositories
             participant.Score = Math.Round((double)correctCount / questions.Count * 10, 2);
             participant.Correct = correctCount;
             participant.Completed = data.Answers.Count;
-            participant.Status = ParticipantStatus.Completed;
+            participant.Status = exam.Status == ExamStatus.Ended? ParticipantStatus.TimeOut : ParticipantStatus.Completed;
             participant.SelectedAnswers = StringHelper.ObjectToJsonString(data.Answers);
             _context.Set<ExamParticipant>().Update(participant);
             await _context.SaveChangesAsync();
@@ -299,14 +327,73 @@ namespace ZLearn.Infras.Data.Repositories
                 .AnyAsync(ep => ep.ExamId == examId && ep.UserId == userId);
         }
 
-        public async Task SetParticipantStatus(string userId, string examId, ParticipantStatus status)
+        public async Task<ParticipantStatus> SetParticipantStatus(string userId, string examId, ParticipantStatus status)
         {
             var participant = _context.Set<ExamParticipant>()
                 .Where(ep => ep.UserId == userId && ep.ExamId == examId)
                 .FirstOrDefault() ?? throw new NotFoundException(nameof(ExamParticipant));
-            participant.Status = status;
+            if (participant.Status != ParticipantStatus.Completed) participant.Status = status;
             _context.Set<ExamParticipant>().Update(participant);
             await _context.SaveChangesAsync();
+
+            return participant.Status;
+        }
+
+        public async Task EndExam(string userId, string examId)
+        {
+            var exam = await _context.Set<Exam>()
+                .Include(e => e.Participants)
+                .FirstOrDefaultAsync(e => e.Id == examId) ?? throw new NotFoundException(nameof(Exam));
+            if (exam.CreatedBy != userId) throw new ForbiddenException();
+
+            exam.Status = ExamStatus.Ended;
+            exam.EndTime = DateTimeOffset.UtcNow;
+            if (!exam.AllowLateSubmit)
+            {
+                foreach (var p in exam.Participants)
+                {
+                    if (p.Status != ParticipantStatus.Completed)
+                    {
+                        p.Status = ParticipantStatus.TimeOut;
+                        p.LastCheckOut = DateTimeOffset.UtcNow;
+                        p.Score = 0;
+                        p.Correct = 0;
+                        p.Completed = 0;
+                        p.SelectedAnswers = "[]";
+                    }
+                }
+            }
+
+            if (exam.EndJobId is not null && await _schedulerService.CancelExactlyScheduleById(exam.EndJobId, exam.Id))
+            {
+                exam.EndJobId = null;
+            }
+
+            _context.Set<Exam>().Update(exam);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<string> ManageParticipant(string examId, string participantId, ManageParticipantAction action)
+        {
+            var participant = _context.Set<ExamParticipant>()
+                .Where(ep => ep.ExamId == examId && ep.Id == participantId && ep.Status != ParticipantStatus.Completed)
+                .FirstOrDefault() ?? throw new NotFoundException(nameof(ExamParticipant));
+            if (action == ManageParticipantAction.Remove)
+            {
+                _context.Set<ExamParticipant>().Remove(participant);
+            }
+            else if (action == ManageParticipantAction.Block)
+            {
+                participant.Status = ParticipantStatus.NotAllowed;
+                _context.Set<ExamParticipant>().Update(participant);
+            }
+            else if (action == ManageParticipantAction.Unblock)
+            {
+                participant.Status = ParticipantStatus.ConnectionLost;
+                _context.Set<ExamParticipant>().Update(participant);
+            }
+            await _context.SaveChangesAsync();
+            return participantId;
         }
     }
 }

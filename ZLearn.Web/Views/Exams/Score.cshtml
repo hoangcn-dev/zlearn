@@ -1,10 +1,16 @@
-﻿@{
+﻿@using ZLearn.Application.Exams.DTOs
+@model ExamScoreDto
+@{
     ViewData["Title"] = "Kết quả bài thi";
+    int index = 1;
+    var averageScore = Model.ParticipantScores.Any()
+        ? Math.Round(Model.ParticipantScores.Select(s => s.Score).Average(), 2)
+        : 0;
 }
 
 <div id="main-content" class="container-fluid px-4">
     <div class="row g-2">
-        <div class="col-8 offset-2">
+        <div class="col-10 offset-1">
             <div class="d-flex mb-2">
                 <button onclick="window.history.back()" class="btn border bg-white highlight-hover me-2"><i class="fa-solid fa-arrow-left"></i> Quay lại</button>
                 <select class="form-select w-auto me-2">
@@ -17,28 +23,44 @@
                 <button class="btn border opacity-hover text-light" style="background-color: var(--main-color);"><i class="fa-solid fa-download"></i> Tải xuống file điểm</button>
             </div>
 
+            <div class="d-flex mb-2 align-items-center">
+                <i class="fa-solid fa-arrows-rotate mx-2 opacity-hover" title="Cập nhật điểm" onclick="window.location.reload()"></i>
+                <label id="updated-time" class="fst-italic">Cập nhật lúc @DateTimeOffset.UtcNow.ToLocalTime().ToString("HH:mm:ss - dd/MM/yyyy")</label>
+            </div>
+
             <div class="card card-body py-1 pb-0">
                 <table class="table mb-1">
                     <thead>
                         <tr>
                             <th style="width: 30px;">STT</th>
                             <th>Tên hiển thị</th>
-                            <th>Tổng thời gian</th>
-                            <th>Tỷ lệ đúng</th>
+                            <th>Trạng thái</th>
+                            <th>CheckIn</th>
+                            <th>CheckOut</th>
+                            <th>Hoàn thành</th>
+                            <th>Số câu đúng</th>
                             <th style="width: 30px;">Điểm</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach (var item in Model.ParticipantScores)
+                        {
+                            <tr>
+                                <td>@(index++)</td>
+                                <td>@item.ParticipantName</td>
+                                <td>@(item.Status == ZLearn.Domain.Enums.ParticipantStatus.TimeOut? 
+                                    Html.Raw("<div class='text-danger'>Nộp muộn</div>"):
+                                    Html.Raw("<div>Hợp lệ</div>"))</td>
+                                <td>@item.FirstCheckIn.ToLocalTime().ToString("HH'h'mm'm'ss's'")</td>
+                                <td>@item.LastCheckOut.ToLocalTime().ToString("HH'h'mm'm'ss's'")</td>
+                                <td>@item.Completed/@Model.QuestionCount</td>
+                                <td>@item.Correct/@Model.QuestionCount</td>
+                                <td>@item.Score</td>
+                            </tr>
+                        }
                         <tr>
-                            <td>1</td>
-                            <td>Hoàng Cao Nguyên</td>
-                            <td>30m:26s</td>
-                            <td>23/30</td>
-                            <td>9.8</td>
-                        </tr>
-                        <tr>
-                            <td colspan="5" class="border-bottom-0 text-end">
-                                <i>Điểm trung bình: <b>3.82</b></i>
+                            <td colspan="6" class="border-bottom-0 text-end">
+                                <i>Điểm trung bình: <b>@averageScore</b></i>
                             </td>
                         </tr>
                     </tbody>

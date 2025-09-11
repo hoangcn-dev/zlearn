@@ -1,0 +1,19 @@
+using Microsoft.Extensions.Logging;
+using ZLearn.Application.Common.Events;
+
+namespace $Name$
+{
+    public class $Name$EventHandler : BaseEventHandler, INotificationHandler<$Name$Event>
+    {
+        public $Name$EventHandler(
+            IMapper mapper,
+            IMediator mediator,
+            ILogger<$Name$EventHandler> logger) : base(mapper, mediator, logger)
+        {
+        }
+
+        public async Task Handle($Name$Event notification, CancellationToken cancellationToken)
+        {
+        }
+    }
+}

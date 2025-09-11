@@ -8,7 +8,7 @@ using ZLearn.Application.Common.Identity.DTOs;
 using ZLearn.Application.Common.Utils;
 using ZLearn.Infras.External.Redis;
 
-namespace ZLearn.Infras.Identity
+namespace ZLearn.Infras.Services.Identity
 {
     public class JwtManager
     {

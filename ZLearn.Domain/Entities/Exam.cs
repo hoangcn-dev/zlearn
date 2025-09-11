@@ -15,13 +15,16 @@ namespace ZLearn.Domain.Entities
         public bool MixAnswers { get; set; }
         public bool RequireJoinWithCode { get; set; }
         public bool RequireJoinWithName { get; set; }
+        public bool AllowLateSubmit { get; set; }
         public DateTimeOffset StartTime { get; set; }
+        public string? StartJobId { get; set; }
+        public string? EndJobId { get; set; }
         public DateTimeOffset? EndTime { get; set; }
         public ExamStatus Status { get; set; }
         public Quiz Quiz { get; set; }
         public string QuizId { get; set; }
         public int MaxParticipants { get; set; }
-        public List<ExamParticipant> Participants { get; set; }
+        public List<ExamParticipant> Participants { get; set; } = new List<ExamParticipant>();
     }
 
     public class ExamRules

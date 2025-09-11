@@ -11,7 +11,7 @@ namespace ZLearn.Application.Exams.DTOs
         public string? ParticipantCode { get; set; }
         public DateTimeOffset StartTime { get; set; }
         public DateTimeOffset? EndTime { get; set; }
-        public long RemainingSecondsToEnd => EndTime == null ? -1 : (long) (EndTime.Value - DateTimeOffset.Now).TotalSeconds;
+        public long RemainingTimeToEnd => EndTime == null ? -1 : (long) (EndTime.Value - DateTimeOffset.Now).TotalMilliseconds;
         public List<QuestionContentDto> Questions { get; set; }
     }
 }

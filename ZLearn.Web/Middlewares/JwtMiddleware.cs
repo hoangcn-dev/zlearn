@@ -1,5 +1,5 @@
 ﻿using ZLearn.API.Exceptions;
-using ZLearn.Infras.Identity;
+using ZLearn.Infras.Services.Identity;
 
 namespace ZLearn.Web.Middlewares
 {

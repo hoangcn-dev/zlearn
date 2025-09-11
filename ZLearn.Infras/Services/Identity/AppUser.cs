@@ -2,7 +2,7 @@
 using ZLearn.Application.Common.Interfaces;
 using ZLearn.Domain.Common;
 
-namespace ZLearn.Infras.Identity
+namespace ZLearn.Infras.Services.Identity
 {
     public class AppUser : IdentityUser<string>, IAppUser
     {

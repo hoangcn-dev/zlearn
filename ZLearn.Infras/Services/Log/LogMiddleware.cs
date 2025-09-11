@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
-namespace ZLearn.Infras.Log
+namespace ZLearn.Infras.Services.Log
 {
     public class LogMiddleware : IMiddleware
     {

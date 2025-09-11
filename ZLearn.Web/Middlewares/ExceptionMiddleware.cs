@@ -47,6 +47,11 @@ namespace ZLearn.Web.Middlewares
                     _logger.LogError(ex, "Forbidden.");
                     context.Response.Redirect($"/forbidden");
                 }
+                catch (RedirectException ex)
+                {
+                    _logger.LogError(ex, "Redirect to: " + ex.Url);
+                    context.Response.Redirect(ex.Url);
+                }
                 catch (Exception ex)
                 {
                     _logger.LogError(ex, "An unhandled exception occurred while processing the request.");
@@ -77,6 +82,11 @@ namespace ZLearn.Web.Middlewares
             {
                 context.Response.StatusCode = StatusCodes.Status400BadRequest;
                 await WriteResponseAsync(context, Result<NoData>.Failure(ex.Message, ex.ErrorCode));
+            }
+            catch (RedirectException ex)
+            {
+                context.Response.StatusCode = StatusCodes.Status301MovedPermanently;
+                await WriteResponseAsync(context, Result<object>.Success(null, new { RedirectUrl = ex.Url }));
             }
             catch (UnauthorizedException ex)
             {

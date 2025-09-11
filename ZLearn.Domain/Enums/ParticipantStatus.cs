@@ -5,6 +5,8 @@
         WaitingForExamStart,
         InProgress,
         ConnectionLost,
-        Completed
+        Completed,
+        TimeOut,
+        NotAllowed,
     }
 }

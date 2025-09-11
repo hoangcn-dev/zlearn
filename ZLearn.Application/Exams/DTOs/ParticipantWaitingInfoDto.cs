@@ -8,6 +8,8 @@ namespace ZLearn.Application.Exams.DTOs
         public string ParticipantName { get; set; }
         public ParticipantStatus Status { get; set; }
         public string? ParticipantCode { get; set; }
-        public long WaitTimeInSeconds { get; set; }
+        public DateTimeOffset StartTime { get; set; }
+        public ExamStatus ExamStatus { get; set; }
+
     }
 }

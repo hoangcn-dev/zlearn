@@ -5,6 +5,7 @@ using System.Security.Claims;
 using ZLearn.Application.Exams.Queries.GetAllExams;
 using ZLearn.Application.Exams.Queries.GetExamContent;
 using ZLearn.Application.Exams.Queries.GetExamDetail;
+using ZLearn.Application.Exams.Queries.GetExamScore;
 using ZLearn.Application.Exams.Queries.GetParticipantResult;
 using ZLearn.Application.Exams.Queries.GetParticipantStatus;
 using ZLearn.Application.Exams.Queries.GetWaitExamInfo;
@@ -85,7 +86,7 @@ namespace ZLearn.Web.Controllers
         public async Task<IActionResult> Wait([FromQuery] string alias)
         {
             var waitData = await _mediator.Send(new GetWaitExamInfoQuery 
-            { 
+            {
                 Alias = alias,
                 ParticipantId = User.FindFirstValue(ClaimTypes.NameIdentifier)
             });
@@ -127,6 +128,19 @@ namespace ZLearn.Web.Controllers
                 UserId = User.FindFirstValue(ClaimTypes.NameIdentifier)
             });
             return View(exam);
+        }
+
+        [HttpGet("{id}/score")]
+        [Authorize]
+        public async Task<IActionResult> Score(string id)
+        {
+            var query = new GetExamScoreQuery
+            {
+                Id = id,
+                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier)
+            };
+            var data = await _mediator.Send(query);
+            return View(data);
         }
     }
 }

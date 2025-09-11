@@ -22,16 +22,21 @@
             <div class="card card-body d-flex flex-row align-items-center shadow-sm py-2 position-sticky mx-3" style="top: 10px; z-index: 2;">
                 <h5 class="mb-0">@Model.ExamName</h5>
                 <div class="flex-fill"></div>
-                @if (!string.IsNullOrEmpty(Model.ParticipantCode))
-                {
-                    <div>[@Model.ParticipantCode]</div>
-                }
-                <div class="mx-2">@Model.ParticipantName</div>
                 <div id="countdown" class="me-3 fs-6 fw-bold">-- giờ -- phút -- giây</div>
                 <button class="opacity-hover btn border btn-sm text-white" onclick="submit()" style="background-color: var(--main-color);">Nộp bài</button>
             </div>
 
             <div class="card card-body mt-2 mb-5" style="min-height: 100vh;">
+                <div class="d-flex">
+                    @if (!string.IsNullOrEmpty(Model.ParticipantCode))
+                    {
+                        <div>[@Model.ParticipantCode] - </div>
+                    }
+                    <div class="mx-2">@Model.ParticipantName</div>
+                    <div class="flex-fill"></div>
+                    <div>@Model.StartTime.ToLocalTime().ToString("HH:mm") - @(Model.EndTime.HasValue? Model.EndTime.Value.ToLocalTime().ToString("HH:mm"): Html.Raw("<i class=\"fa-solid fa-infinity\"></i>"))</div>
+                </div>
+                <hr>
 
                 @foreach(var item in Model.Questions)
                 {
@@ -85,6 +90,9 @@
             .withUrl("@ExamHub.HUB_URL" + "?examId=@Model.Id", { withCredentials: true })
             .build();
         const selectedAns = {};
+        let timeLeftToEnd = @Model.RemainingTimeToEnd;
+        let timestamp = '@(Model.EndTime.HasValue? Model.EndTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ"):"")';
+        let countdown_sub_id = null;
 
         $(document).ready(() => {
             $('.qMapItem').on('click', function() {
@@ -92,22 +100,7 @@
             });
 
             // Cowndown
-            let timeLeftToEnd = @Model.RemainingSecondsToEnd;
-            if (timeLeftToEnd > 0) {
-                const subId = setInterval(() => {
-                    if (timeLeftToEnd <= 0) {
-                        clearInterval(subId);
-                        $('#countdown').text(`-- giờ -- phút -- giây`);
-                        endExam();
-                        return;
-                    }
-                    timeLeftToEnd--;
-                    const h = Math.floor(timeLeftToEnd / 3600);
-                    const m = Math.floor((timeLeftToEnd % 3600) / 60);
-                    const s = timeLeftToEnd % 60;
-                    $('#countdown').text(`${h} giờ ${m} phút ${s} giây`);
-                }, 1000);
-            }
+            if (timestamp) startCountdown();
 
             // Start tracking
             window.addEventListener("beforeunload", async () => {
@@ -115,6 +108,11 @@
             });
             exam_connection.on('RequireUpdateProgress', () => {
                 exam_connection.invoke('AnswerSelected', Object.keys(selectedAns).length);
+            });
+            connection.on('ExamStatusChange', (status) => {
+                if (status == 'Ended') {
+                    endExam();
+                }
             });
             exam_connection.start();
         });
@@ -136,7 +134,7 @@
                 }))
             }
             postJsonData('/exams/submit', submitData, () => {
-                window.location.href = `/bai-kiem-tra/result?alias=@Model.Alias`;
+                window.location.replace(`/bai-kiem-tra/result?alias=@Model.Alias`);
             });
         }
 
@@ -146,6 +144,21 @@
             if (selectedLength < @Model.Questions.Count) 
                 confirmMsg = `Bạn còn ${@Model.Questions.Count - selectedLength} câu chưa chọn đáp án, xác nhận nộp bài?`;
             showConfirm(confirmMsg, () => endExam());
+        }
+
+        function startCountdown() {
+            countdown_sub_id = setInterval(() => {
+                const sec = getSecondsBetween(new Date(), timestamp);
+                if (sec <= 0) {
+                    $('#countdown').text(`Đã hết giờ`);
+                    clearInterval(countdown_sub_id);
+                    return;
+                }
+                const h = Math.floor(sec / 3600);
+                const m = Math.floor((sec % 3600) / 60);
+                const s = sec % 60;
+                $('#countdown').text(`${h} giờ ${m} phút ${s} giây`);
+            }, 1000);
         }
     </script>
 }

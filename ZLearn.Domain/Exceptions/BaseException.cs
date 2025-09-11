@@ -41,6 +41,7 @@
             
         // Server errors
         public const string INTERNAL_ERROR = nameof(INTERNAL_ERROR);
+        public const string REDIRECT = nameof(REDIRECT);
         public const string SERVICE_UNAVAILABLE = nameof(SERVICE_UNAVAILABLE);
         public const string DATABASE_ERROR = nameof(DATABASE_ERROR);
         public const string TIMEOUT = nameof(TIMEOUT);

@@ -1,5 +1,4 @@
 ﻿@using ZLearn.Application.Exams.DTOs
-@using ZLearn.Domain.Enums
 @using ZLearn.Infras.External.SignalR
 @model ExamDetailDto
 @{
@@ -11,35 +10,23 @@
         <!-- Top action -->
         <div class="d-flex">
             <a asp-controller="Exams" asp-action="Index" class="btn bg-white me-2 border highlight-hover"><i class="fa-solid fa-arrow-left"></i> Quay lại danh sách</a>
-            <a asp-controller="Exams" asp-action="Score" asp-route-id="23" class="btn bg-white me-2 border highlight-hover"><i class="fa-solid fa-list-ol"></i> Xem kết quả</a>
         </div>
         <div class="col-9">
             <div class="card card-body shadow-sm">
                 <div class="d-inline-flex mb-2">
                     <h3>@Model.Name</h3>
                     <div class="flex-fill"></div>
-                    @if (Model.Status == ExamStatus.Ended)
-                    {
-                        <div>Đã kết thúc</div>
-                    }
-                    else if (Model.Status == ExamStatus.WaitStart)
-                    {
-                        <div class="gray-tag">Chưa bắt đầu</div>
-                    }
-                    else
-                    {
-                        <div class="success-tag">Đang diễn ra</div>
-                    }
+                    <div id="exam-status-tag"></div>
                 </div>
                 <div class="d-inline-flex mb-1">
                     <h6 class="fw-light me-2">Mã đề: </h6>
-                    <h6 class="fs-6 me-3">@Model.Id <i class="fa-solid fa-copy text-secondary opacity-hover"  onclick="copyToClipboard('@Model.Id', 'Đã sao chép mã bài kiểm tra')"></i></h6>
+                    <h6 class="fs-6 me-3">@Model.Id <i class="fa-solid fa-copy text-secondary opacity-hover" onclick="copyToClipboard('@Model.Id', 'Đã sao chép mã bài kiểm tra')"></i></h6>
                 </div>
                 <div class="d-inline-flex mb-1">
-                    <h6 class="me-2 fw-light">Bắt đầu: </h6>
+                    <h6 class="fw-light me-2">Bắt đầu: </h6>
                     <h6 class="fw-bolder me-4 text-info">@Model.StartTime.ToLocalTime().ToString("HH:mm:ss dd/MM/yyyy")</h6>
                     <h6 class="fw-light me-2">Kết thúc: </h6>
-                    <h6 class="fw-bolder me-2 text-info">@(Model.EndTime.HasValue? Model.EndTime.Value.ToLocalTime().ToString("HH:mm:ss dd/MM/yyyy") : Html.Raw("<i class=\"fa - solid fa - infinity\"></i>"))</h6>
+                    <h6 class="fw-bolder me-2 text-info">@(Model.EndTime is not null ? Model.EndTime.Value.ToLocalTime().ToString("HH:mm:ss dd/MM/yyyy") : Html.Raw("<i class=\"fa-solid fa-infinity\"></i>"))</h6>
                 </div>
                 <div class="d-inline-flex align-items-center mb-2">
                     <h6 class="fw-light flex-nowrap text-nowrap mb-0">Link tham gia:</h6>
@@ -49,27 +36,51 @@
                         <button class="btn btn-outline-secondary btn-sm" onclick="showQRCode('@Model.JoinUrl')" type="button">QR Code</button>
                     </div>
                 </div>
-                @if (!string.IsNullOrEmpty(Model.JoinPass)) {
-                    <div class="d-flex mb-2 align-items-center mb-2">
+                @if (!string.IsNullOrEmpty(Model.JoinPass))
+                {
+                    <div class="d-flex mb-2 align-items-center">
                         <h6 class="fw-light me-2 mb-0">Mật khẩu:</h6>
                         <b class="fs-6">@Model.JoinPass <i class="fa-solid fa-copy text-secondary opacity-hover"></i></b>
                     </div>
                 }
-                <div class="d-flex fw-light mt-1">
+                <div class="d-flex flex-wrap fw-light mt-1">
                     <div class="form-check form-check-inline me-3">
-                        <input class="form-check-input" type="checkbox" name="LockAccess" @(Model.LockAccess? "checked":"")>
+                        <input class="form-check-input" type="checkbox" name="LockAccess" @(Model.LockAccess ? "checked" : "")>
                         <label class="form-check-label">Chặn tham gia</label>
+                    </div>
+                    <div class="form-check form-check-inline me-3">
+                        <input class="form-check-input" disabled type="checkbox" name="ShowAnswerAndKey" @(Model.ShowAnswerAndKey ? "checked" : "")>
+                        <label class="form-check-label">Hiển thị đáp án</label>
+                    </div>
+                    <div class="form-check form-check-inline me-3">
+                        <input class="form-check-input" type="checkbox" disabled name="MixQuestions" @(Model.MixQuestions ? "checked" : "")>
+                        <label class="form-check-label">Trộn câu hỏi</label>
+                    </div>
+                    <div class="form-check form-check-inline me-3">
+                        <input class="form-check-input" type="checkbox" disabled name="MixAnswers" @(Model.MixAnswers ? "checked" : "")>
+                        <label class="form-check-label">Trộn đáp án</label>
+                    </div>
+                    <div class="form-check form-check-inline me-3">
+                        <input class="form-check-input" type="checkbox" disabled name="RequireJoinWithName" @(Model.RequireJoinWithName ? "checked" : "")>
+                        <label class="form-check-label">Yêu cầu tên tham gia</label>
+                    </div>
+                    <div class="form-check form-check-inline me-3">
+                        <input class="form-check-input" type="checkbox" disabled name="RequireJoinWithCode" @(Model.RequireJoinWithCode ? "checked" : "")>
+                        <label class="form-check-label">Yêu cầu mã tham gia</label>
+                    </div>
+                    <div class="form-check form-check-inline me-3">
+                        <input class="form-check-input" type="checkbox" disabled name="AllowLateSubmit" @(Model.AllowLateSubmit ? "checked" : "")>
+                        <label class="form-check-label">Cho phép nộp muộn</label>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="col-3">
-            <div class="card card-body h-100 shadow-sm">
-                <h5 id="countdown-label" class="fw-light mb-0">Bài kiểm tra bắt đầu sau: </h5>
-                <div id="countdown" class="align-self-center my-2 fs-4 fw-bolder"></div>
-                <button class="opacity-hover btn border shadow-sm text-white mt-2" style="background-color: var(--main-color);">Bắt đầu ngay</button>
-                <button class="opacity-hover btn border shadow-sm text-white mt-2" disabled style="background-color: var(--main-color);">Tải xuống kết quả <i class="fa-solid fa-file-arrow-down ms-1"></i></button>
+            <div class="card card-body h-100 shadow-sm d-flex flex-column">
+                <h5 id="countdown-label" class="fw-light mb-0"></h5>
+                <div id="countdown" class="align-self-center align-content-center fs-4 fw-bolder flex-fill"></div>
+                <button id="action-button" class="opacity-hover btn border shadow-sm text-white mt-2" style="background-color: var(--main-color);">Bắt đầu ngay</button>
             </div>
         </div>
 
@@ -77,40 +88,29 @@
             <div class="card card-body shadow-sm vh-50">
                 <h5 class="mb-3 d-inline-flex">Người tham gia (<div id="participant-count">@Model.JoinedParticipants.Count</div>/@Model.MaxParticipants)</h5>
                 <div id="participant-status" class="overflow-y-auto" style="height: 50vh;">
-                    @foreach (var p in Model.JoinedParticipants)
+                    @* @foreach (var p in Model.JoinedParticipants)
                     {
                         <div id="@p.UserId" class="d-flex align-items-center border-top border-bottom-0 p-2">
                             <div class="col">
                                 <img src="@p.ImageUrl" alt="" width="32" height="32" class="rounded-pill border">
                                 <small class="ms-2">[@(string.IsNullOrEmpty(p.ParticipantCode) ? p.ParticipantId : p.ParticipantCode)] @p.ParticipantName</small>
                             </div>
-                            <div class="col-2"><div class="d-inline-flex">Đã làm <div class="selectedCount ms-1">0</div>/@Model.QuestionsCount</div></div>
-                            <div class="col-2 status">
-                                @if (p.Status == ParticipantStatus.WaitingForExamStart)
-                                {
-                                    <div class="gray-tag" style="width: fit-content">Đang chờ</div>
-                                }
-                                else if (p.Status == ParticipantStatus.InProgress)
-                                {
-                                    <div class="info-tag" style="width: fit-content">Đang làm bài</div>
-                                }
-                                else if (p.Status == ParticipantStatus.ConnectionLost)
-                                {
-                                    <div class="error-tag" style="width: fit-content">Mất kết nối</div>
-                                }
-                                else if (p.Status == ParticipantStatus.Completed)
-                                {
-                                    <div class="success-tag" style="width: fit-content">Đã nộp bài</div>
-                                }
-                            </div>
+                            <div class="col-2"><div class="d-inline-flex">Đã làm <div class="selectedCount ms-1">@p.CompletedCount</div>/@Model.QuestionsCount</div></div>
+                            <div class="col-2 status"></div>
                             <div class="col-2">
-                                <div class="d-flex flex-row-reverse">
-                                    <i class="fa-solid fa-ban opacity-hover" title="Xóa khỏi bài kiểm tra (cấm vào lại)"></i>
-                                </div>
+                                @if (p.Status != ZLearn.Domain.Enums.ParticipantStatus.Completed) {
+                                    <div class="d-flex flex-row-reverse">
+                                        @if (p.Status != ZLearn.Domain.Enums.ParticipantStatus.NotAllowed) {
+                                            <i class="fa-solid fa-ban opacity-hover" title="Chặn tham gia (cấm vào lại)" onclick="manageParticipant('@p.ParticipantId', 'Block')"></i>
+                                        } else {
+                                            <i class="fa-solid fa-ban text-danger opacity-hover" title="Bỏ chặn tham gia" onclick="manageParticipant('@p.ParticipantId', 'Unblock')"></i>
+                                        }
+                                        <i class="fa-solid fa-trash opacity-hover me-2" title="Xóa khỏi bài kiểm tra (có thể vào lại)" onclick="manageParticipant('@p.ParticipantId', 'Remove')"></i>
+                                    </div>
+                                }
                             </div>
                         </div>
-                    }
-            
+                    } *@
                 </div>
             </div>
         </div>
@@ -119,126 +119,218 @@
 
 @section Scripts {
     <script asp-append-version="true">
-        let timeLeftToStart = @Model.RemainingSecondsToStart;
-        let timeLeftToEnd = @Model.RemainingSecondsToEnd;
-        const participants = @Json.Serialize(
-            Model.JoinedParticipants?.ToDictionary(
-                p => p.UserId,
-                p => new
-                {
-                    participantId = p.ParticipantId,
-                    userId = p.UserId,
-                    imageUrl = p.ImageUrl,
-                    participantName = p.ParticipantName,
-                    status = p.Status.ToString(),
-                    timestamp = p.Timestamp,
-                    participantCode = p.ParticipantCode ,
-                    selectedCount = 0
-                }
-            )
-        );
+        let timestamp = '';
+        let countdown_sub_id = null;
+
+        const participants =  @Json.Serialize(Model.JoinedParticipants?.ToDictionary(
+            p => p.UserId,
+            p => new
+            {
+                participantId = p.ParticipantId,
+                userId = p.UserId,
+                imageUrl = p.ImageUrl,
+                participantName = p.ParticipantName,
+                status = p.Status.ToString(),
+                timestamp = p.Timestamp,
+                participantCode = p.ParticipantCode,
+                selectedCount = p.CompletedCount
+            }
+        ));
+
+        // Định nghĩa trạng thái và tag
+        const statusTags = {
+            exam: {
+                WaitStart: '<div class="gray-tag">Chưa bắt đầu</div>',
+                InProgress: '<div class="success-tag">Đang diễn ra</div>',
+                Ended: '<div>Đã kết thúc</div>'
+            },
+            participant: {
+                WaitingForExamStart: '<div class="gray-tag" style="width: fit-content">Đang chờ</div>',
+                InProgress: '<div class="info-tag" style="width: fit-content">Đang làm bài</div>',
+                ConnectionLost: 'Mất kết nối',
+                Completed: '<div class="success-tag" style="width: fit-content">Đã nộp bài</div>',
+                NotAllowed: '<div class="error-tag" style="width: fit-content">Đã chặn</div>',
+            }
+        };
 
         $(document).ready(() => {
-            const subId = setInterval(() => {
-                if (timeLeftToStart <= 0) {
-                    clearInterval(subId);
-                    $('#countdown-label').text(`Bắt đầu ...`);
-                    $('#countdown').text(`-- giờ -- phút -- giây`);
-                    startCountdownToEnd();
+            $('input[name="LockAccess"]').on('change', function() {
+                changeAccessAllow($(this).prop('checked'));
+            });
 
-                    return;
-                }
-                timeLeftToStart--;
-                const h = Math.floor(timeLeftToStart / 3600);
-                const m = Math.floor((timeLeftToStart % 3600) / 60);
-                const s = timeLeftToStart % 60;
-                $('#countdown').text(`${h} giờ ${m} phút ${s} giây`);
-            }, 1000);
+            // Cập nhật UI ban đầu
+            updateExamStatus('@Model.Status');
+            renderParticipants();
 
-            // Hub
+            // Khởi tạo SignalR
             const connection = new signalR.HubConnectionBuilder()
-                .withUrl("@ExamHub.HUB_URL" + "?examId=@Model.Id", { withCredentials: true })
+                .withUrl(`@ExamHub.HUB_URL?examId=@Model.Id`, { withCredentials: true })
                 .build();
+
+            // Đăng ký sự kiện SignalR
             connection.on('ParticipantJoined', data => {
+                data.selectedCount = 0;
                 participants[data.userId] = data;
-                participants[data.userId].selectedCount = 0;
-                addNewParticipant();
+                renderParticipants();
             });
-            connection.on('ParticipantStatusUpdated', (uId, status) => {
-                $(`#${uId} .status`).html(getStatusTag(status));
-                participants[uId].status = status;
+
+            connection.on('ParticipantStatusUpdated', (userId, status) => {
+                participants[userId].status = status;
+                $(`#${userId} .status`).html(statusTags.participant[status] || '');
             });
+
+            connection.on('Connected', message => showMess(message, true));
             connection.onclose(err => {
-                showMess('Disconnected! Please try reload the page to reconnect.', false)
-                console.error("Disconnected:", err.toString());
+                showMess('Disconnected! Please try reload the page to reconnect.', false);
+                console.error('Disconnected:', err.toString());
             });
-            connection.on('Connected', (mess) => showMess(mess, true));
-            connection.on('ParticipantSelectedAnswer', (uId, count) => {
-                $(`#${uId} .selectedCount`).text(`${count}`);
-                participants[uId].selectedCount = count;
+
+            connection.on('ParticipantSelectedAnswer', (userId, count) => {
+                participants[userId].selectedCount = count;
+                $(`#${userId} .selectedCount`).text(count);
             });
+
+            connection.on('ExamStatusChange', status => {
+                updateExamStatus(status);
+            });
+
             connection.start().then(() => {
                 connection.invoke('UpdateProgress', '@Model.Id');
             });
         });
 
-        function getStatusTag(status) {
-            if (status == 'WaitingForExamStart')
-                return '<div class="gray-tag" style="width: fit-content">Đang chờ</div>';
-            if (status == 'InProgress')
-                return '<div class="info-tag" style="width: fit-content">Đang làm bài</div>';
-            if (status == 'ConnectionLost')
-                return '<div class="error-tag" style="width: fit-content">Mất kết nối</div>';
-            if (status == 'Completed')
-                return '<div class="success-tag" style="width: fit-content">Đã nộp bài</div>';
-            return '';
+        // Hàm xử lý tất cả trạng thái của bài thi
+        function updateExamStatus(status) {
+            $('#exam-status-tag').html(statusTags.exam[status] || '');
+            $('#countdown').text('--');
+
+            clearInterval(countdown_sub_id);
+            switch (status) {
+                case 'WaitStart':
+                    timestamp = '@Model.StartTime.ToString("yyyy-MM-ddTHH:mm:ssZ")';
+                    countdown_value = getSecondsBetween(new Date(), '@Model.StartTime.ToString("yyyy-MM-ddTHH:mm:ssZ")');
+                    $('#countdown-label').text('Bài kiểm tra bắt đầu sau: ');
+                    $('#action-button').text('Bắt đầu ngay');
+                    $('#action-button').on('click', () => startExam());
+                    startCountdown();
+                    break;
+                case 'InProgress':
+                    if ('@Model.EndTime.HasValue' == 'False') {
+                        $('#countdown-label').text('Thời gian kết thúc chưa được thiết lập.');
+                    } else {
+                        timestamp = '@(Model.EndTime.HasValue? @Model.EndTime!.Value.ToString("yyyy-MM-ddTHH:mm:ssZ"):"")';
+                        $('#countdown-label').text('Bài kiểm tra kết thúc sau: ');
+                        $('#countdown').addClass('text-danger');
+                        startCountdown();
+                    }
+                    $('#action-button').text('Kết thúc ngay');
+                    $('#action-button').on('click', () => endExam());
+                    break;
+                case 'Ended':
+                    $('#countdown-label').text('Đã kết thúc');
+                    $('#action-button').text('Xem điểm');
+                    $('#action-button').on('click', () => window.location.href = '/bai-kiem-tra/@Model.Id/score');
+                    break;
+                default:
+                    console.error('Unknown exam status:', status);
+            }
         }
 
-        function addNewParticipant() {
+        // Hàm đếm ngược chung
+        function startCountdown() {
+            countdown_sub_id = setInterval(() => {
+                const sec = getSecondsBetween(new Date(), timestamp);
+                if (sec <= 0) {
+                    $('#countdown').text('--');
+                    clearInterval(countdown_sub_id);
+                    return;
+                }
+                const h = Math.floor(sec / 3600);
+                const m = Math.floor((sec % 3600) / 60);
+                const s = sec % 60;
+                $('#countdown').text(`${h} giờ ${m} phút ${s} giây`);
+            }, 1000);
+        }
+
+        function startExam() {
+            showConfirm("Xác nhận bắt đầu ngay bây giờ?", () => {
+                putJsonData('/exams/@Model.Id/status', {
+                    status: 'InProgress',
+                    lockAccess: @(Model.LockAccess? "true":"false")
+                }, res => {
+                    window.location.reload();
+                });
+            });
+        }
+
+        function endExam() {
+            showConfirm("Xác nhận kết thúc ngay bây giờ?", () => {
+                putJsonData('/exams/@Model.Id/status', {
+                    status: 'Ended',
+                    lockAccess: @(Model.LockAccess? "true":"false")
+                }, res => {
+                    window.location.reload();
+                });
+            });
+        }
+
+        function changeAccessAllow(value) {
+            showConfirm(`Xác nhận ${value? '':'bỏ'} chặn tham gia ngay bây giờ?`, () => {
+                putJsonData('/exams/@Model.Id/status', {
+                    status: '@Model.Status',
+                    lockAccess: value
+                }, res => {
+                    debugger
+                    window.location.reload();
+                });
+            });
+        }
+
+        function manageParticipant(participantId, action) {
+            const mess = action == 'Remove'? 'Xác nhận xóa khỏi bài kiểm tra, mọi kết quả và trạng thái sẽ bị loại bỏ?':
+                         action == 'Block'? 'Xác nhận chặn người tham gia này?':
+                         action == 'Unblock'? 'Xác nhận bỏ chặn người tham gia này?':'';
+            showConfirm(mess, () => {
+                postJsonData('/exams/@Model.Id/manage-participant', {
+                    action,
+                    participantId
+                }, res => {
+                    window.location.reload();
+                });
+            });
+        }
+
+        // Hàm render danh sách người tham gia
+        function renderParticipants() {
             let html = '';
             Object.values(participants).forEach(p => {
                 html += `
                     <div id="${p.userId}" class="d-flex align-items-center border-top border-bottom-0 p-2">
                         <div class="col">
-                            <img src="test.jpg" alt="" width="32" height="32" class="rounded-pill border">
-                            <small class="ms-2">[${p.participantCode? p.participantCode : p.participantId}] ${p.participantName}</small>
+                            <img src="${p.imageUrl || 'test.jpg'}" alt="" width="32" height="32" class="rounded-pill border">
+                            <small class="ms-2">[${p.participantCode || p.participantId}] ${p.participantName}</small>
                         </div>
-                        <div class="col-2"><div class="d-inline-flex">Đã làm <div class="selectedCount ms-1">${p.selectedCount}</div>/@Model.QuestionsCount</div></div>
-                        <div class="col-2 status">${getStatusTag(p.status)}</div>
+                        <div class="col-2"><div class="d-inline-flex">Đã làm <div class="selectedCount ms-1">${p.selectedCount}</div>/${@Model.QuestionsCount}</div></div>
+                        <div class="col-2 status">${statusTags.participant[p.status] || ''}</div>
                         <div class="col-2">
-                            <div class="d-flex flex-row-reverse">
-                                <i class="fa-solid fa-ban opacity-hover" title="Xóa khỏi bài kiểm tra (cấm vào lại)"></i>
-                            </div>
+                            ${
+                                p.status != 'Completed'? `
+                                    <div class="d-flex flex-row-reverse">
+                                        ${
+                                            p.status != 'NotAllowed'
+                                                ? `<i class="fa-solid fa-ban opacity-hover" title="Chặn tham gia (cấm vào lại)" onclick='manageParticipant("${p.participantId}", "Block")'></i>`
+                                                : `<i class="fa-solid text-danger fa-ban opacity-hover" title="Bỏ chặn tham gia" onclick='manageParticipant("${p.participantId}", "Unblock")'></i>`
+                                        }
+                                        <i class="fa-solid fa-trash opacity-hover me-2" title="Xóa khỏi bài kiểm tra (có thể vào lại)" onclick="manageParticipant('${p.participantId}', 'Remove')"></i>
+                                    </div>
+                                `:''
+                            }
                         </div>
                     </div>
                 `;
             });
             $('#participant-status').html(html);
-            $('#participant-count').text(`${Object.keys(participants).length}`);
-        }
-
-        function startCountdownToEnd() {
-            if (timeLeftToEnd == -1) {
-                $('#countdown-label').text(`Thời gian kết thúc chưa được thiết lập`);
-            } else {
-                $('#countdown').addClass("text-danger");
-                $('#countdown-label').text(`Bài kiểm tra kết thúc sau: `);
-                const subId = setInterval(() => {
-                    if (timeLeftToEnd <= 0) {
-                        clearInterval(subId);
-                        $('#countdown-label').text(`Bài kiểm tra đã kết thúc.`);
-                        $('#countdown').text(``);
-                        // end
-                        alert("Kết thúc");
-                        return;
-                    }
-                    timeLeftToEnd--;
-                    const h = Math.floor(timeLeftToEnd / 3600);
-                    const m = Math.floor((timeLeftToEnd % 3600) / 60);
-                    const s = timeLeftToEnd % 60;
-                    $('#countdown').text(`${h} giờ ${m} phút ${s} giây`);
-                }, 1000);
-            }
+            $('#participant-count').text(Object.keys(participants).length);
         }
     </script>
 }

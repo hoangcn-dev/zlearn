@@ -21,14 +21,14 @@ namespace ZLearn.Web.Controllers
 
 
         [HttpGet("de-da-tao")]
-        public async Task<IActionResult> MyQuiz()
+        public IActionResult MyQuiz()
         {
             return View();
         }
 
 
         [HttpGet("cap-nhat-de")]
-        public async Task<IActionResult> Update(string id)
+        public IActionResult Update(string id)
         {
             return View();
         }

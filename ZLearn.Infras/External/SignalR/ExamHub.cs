@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.SignalR;
 using System.Collections.Concurrent;
 using System.Security.Claims;
-using ZLearn.API.Exceptions;
 using ZLearn.Application.Exams;
 using ZLearn.Domain.Enums;
 
@@ -79,8 +77,8 @@ namespace ZLearn.Infras.External.SignalR
             var userId = Context.User!.FindFirstValue(ClaimTypes.NameIdentifier);
             if (_participantMap.TryRemove(userId, out var examId))
             {
-                await _examRepo.SetParticipantStatus(userId, examId, ParticipantStatus.ConnectionLost);
-                await _examTrackingService.UpdateParticipantStatus(examId, userId, ParticipantStatus.ConnectionLost);
+                var status = await _examRepo.SetParticipantStatus(userId, examId, ParticipantStatus.ConnectionLost);
+                await _examTrackingService.UpdateParticipantStatus(examId, userId, status);
                 await Groups.RemoveFromGroupAsync(Context.ConnectionId, GetExamParticipantGroupName(examId!));
             }
             else

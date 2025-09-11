@@ -40,6 +40,9 @@
 
 @section Scripts {
     <script asp-append-version="true">
+        let timestamp = 0;
+        let countdown_sub_id = null;
+
         $(document).ready(() => {
             // Load data
             getData(`/exams/participant-info?alias=@Model.Alias`, res => {
@@ -83,6 +86,15 @@
                         showMess('Disconnected! Please try reload the page to reconnect.', false)
                         console.error("Disconnected:", err.toString());
                     });
+                    connection.on('ExamStatusChange', (status) => {
+                        if (status == 'InProgress') {
+                            $('#countdown-label').remove();
+                            $('#countdown').remove();
+                            clearInterval(countdown_sub_id);
+                            $('#btnStart button').prop('disabled', false);
+                            
+                        }
+                    });
                     connection.on('Connected', (mess) => showMess(mess, true));
                     window.addEventListener("beforeunload", async () => {
                         await connection.stop();
@@ -95,13 +107,12 @@
                         <h5 class="fst-italic mb-2 text-center mt-2">${res.data.participantCode? "[" + res.data.participantCode +"]":""} ${res.data.participantName}</h5>
                         <div id="countdown" class="align-self-center text-center my-2 fs-1 fw-bolder">-- giờ -- phút -- giây</div>
                         <div id="btnStart" class="d-flex justify-content-center">
-                            ${
-                                res.data.status == 'WaitingForExamStart'? '<button onclick="gotoExam()" class="opacity-hover btn border shadow-sm text-white mt-2 px-5" disabled style="background-color: var(--main-color);">Bắt đầu làm bài</button>':
-                                res.data.status == 'InProgress'? '<button onclick="gotoExam()" class="opacity-hover btn border shadow-sm text-white mt-2 px-5" style="background-color: var(--main-color);">Tiếp tục làm bài</button>':''
-                            }
+                            <button class="opacity-hover btn border shadow-sm text-white mt-2 px-5" ${res.data.examStatus == 'WaitStart'? 'disabled':''} style="background-color: var(--main-color);">Bắt đầu làm bài</button>
                         </div>
                     `);
-                    startCountdown(res.data.waitTimeInSeconds);
+                    $('#btnStart button').on('click', () => window.location.replace('/bai-kiem-tra/content?alias=@Model.Alias'));
+                    timestamp = res.data.startTime;
+                    startCountdown();
                 }
             });
         });
@@ -136,23 +147,17 @@
             });
         }
 
-        function gotoExam() {
-            window.location.href = '/bai-kiem-tra/content?alias=@Model.Alias'
-        }
-
-        function startCountdown(timeLeftToStart) {
-            const subId = setInterval(() => {
-                if (timeLeftToStart <= 0) {
-                    clearInterval(subId);
-                    $('#countdown-label').remove();
-                    $('#countdown').remove();
-                    $('#btnStart button').prop('disabled', false);
+        function startCountdown() {
+            countdown_sub_id = setInterval(() => {
+                const sec = getSecondsBetween(new Date(), timestamp);
+                if (sec <= 0) {
+                    $('#countdown').text('--');
+                    clearInterval(countdown_sub_id);
                     return;
                 }
-                timeLeftToStart--;
-                const h = Math.floor(timeLeftToStart / 3600);
-                const m = Math.floor((timeLeftToStart % 3600) / 60);
-                const s = timeLeftToStart % 60;
+                const h = Math.floor(sec / 3600);
+                const m = Math.floor((sec % 3600) / 60);
+                const s = sec % 60;
                 $('#countdown').text(`${h} giờ ${m} phút ${s} giây`);
             }, 1000);
         }

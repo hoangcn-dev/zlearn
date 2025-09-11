@@ -1,5 +1,5 @@
 ﻿using ZLearn.Domain.Constants;
-using ZLearn.Infras.Identity;
+using ZLearn.Infras.Services.Identity;
 
 namespace ZLearn.Infras.Data.Configurations
 {

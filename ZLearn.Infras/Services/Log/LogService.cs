@@ -2,7 +2,7 @@
 using ZLearn.Application.Logs;
 using ZLearn.Application.Logs.DTOs;
 
-namespace ZLearn.Infras.Log
+namespace ZLearn.Infras.Services.Log
 {
     public class LogService : ILogService
     {

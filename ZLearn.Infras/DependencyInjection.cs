@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Quartz;
 using Serilog;
 using StackExchange.Redis;
 using System.Collections.Concurrent;
@@ -33,11 +34,11 @@ using ZLearn.Infras.Data.Services;
 using ZLearn.Infras.External.CloudinaryStore;
 using ZLearn.Infras.External.Redis;
 using ZLearn.Infras.External.SignalR;
-using ZLearn.Infras.Identity;
-using ZLearn.Infras.Log;
-using ZLearn.Infras.Realtime.AccessTracking;
-using ZLearn.Infras.Realtime.ExamTracking;
-using ZLearn.Infras.Services;
+using ZLearn.Infras.Services.AccessTracking;
+using ZLearn.Infras.Services.ExamTracking;
+using ZLearn.Infras.Services.Identity;
+using ZLearn.Infras.Services.Log;
+using ZLearn.Infras.Services.Scheduler;
 
 namespace ZLearn.Infras
 {
@@ -61,7 +62,21 @@ namespace ZLearn.Infras
                 options.UseNpgsql(EnvVariableHelper.GetValue(EnvVariableNames.POSTGRESQL_CONNECTION_STRING));
             });
         }
-
+        public static void AddQuartzServices(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddQuartz(q =>
+            {
+                 q.UsePersistentStore(store =>
+                 {
+                     store.UsePostgres(EnvVariableHelper.GetValue(EnvVariableNames.POSTGRESQL_CONNECTION_STRING));
+                     store.UseNewtonsoftJsonSerializer();
+                 });
+            });
+            builder.Services.AddQuartzHostedService(opt =>
+            {
+                opt.WaitForJobsToComplete = true;
+            });
+        }
         public static void AddRedisService(this WebApplicationBuilder builder) 
         {
             builder.Services.Configure<RedisConfig>(builder.Configuration.GetSection("Redis"));
@@ -123,7 +138,7 @@ namespace ZLearn.Infras
                     {
                         OnAuthenticationFailed = async context =>
                         {
-                            var jsonOptions = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
+                            var jsonOptions = new System.Text.Json.JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
                             if (context.Exception is SecurityTokenExpiredException)
                             {
                                 context.Response.StatusCode = StatusCodes.Status401Unauthorized;

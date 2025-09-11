@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZLearn.Infras.Identity
+namespace ZLearn.Infras.Services.Identity
 {
     public class JwtConfig
     {

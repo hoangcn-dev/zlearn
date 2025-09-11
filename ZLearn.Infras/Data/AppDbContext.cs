@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System.Reflection;
 using ZLearn.Application.Common.Interfaces;
 using ZLearn.Domain.Entities;
-using ZLearn.Infras.Identity;
+using ZLearn.Infras.Services.Identity;
 
 namespace ZLearn.Infras.Data
 {

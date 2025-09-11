@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZLearn.Infras.Realtime.AccessTracking
+namespace ZLearn.Infras.Services.AccessTracking
 {
     public class AccessTrackingConfig
     {

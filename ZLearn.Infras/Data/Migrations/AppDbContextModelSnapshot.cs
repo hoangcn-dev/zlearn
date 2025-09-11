@@ -252,12 +252,19 @@ namespace ZLearn.Infras.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<bool>("AllowLateSubmit")
+                        .HasColumnType("boolean");
+
                     b.Property<DateTimeOffset>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<string>("EndJobId")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.Property<DateTimeOffset?>("EndTime")
                         .HasColumnType("timestamp with time zone");
@@ -304,6 +311,10 @@ namespace ZLearn.Infras.Migrations
 
                     b.Property<bool>("ShowAnswerAndKey")
                         .HasColumnType("boolean");
+
+                    b.Property<string>("StartJobId")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.Property<DateTimeOffset>("StartTime")
                         .HasColumnType("timestamp with time zone");
@@ -352,6 +363,7 @@ namespace ZLearn.Infras.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("ParticipantName")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
@@ -425,7 +437,7 @@ namespace ZLearn.Infras.Migrations
                         .HasMaxLength(2048)
                         .HasColumnType("character varying(2048)");
 
-                    b.Property<string>("Type")
+                    b.Property<string>("Action")
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
@@ -573,7 +585,7 @@ namespace ZLearn.Infras.Migrations
                     b.ToTable("Tags", (string)null);
                 });
 
-            modelBuilder.Entity("ZLearn.Infras.Identity.AppRole", b =>
+            modelBuilder.Entity("ZLearn.Infras.Services.Identity.AppRole", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -599,7 +611,7 @@ namespace ZLearn.Infras.Migrations
                     b.ToTable("Roles", (string)null);
                 });
 
-            modelBuilder.Entity("ZLearn.Infras.Identity.AppUser", b =>
+            modelBuilder.Entity("ZLearn.Infras.Services.Identity.AppUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -690,7 +702,7 @@ namespace ZLearn.Infras.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("ZLearn.Infras.Identity.AppRole", null)
+                    b.HasOne("ZLearn.Infras.Services.Identity.AppRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -699,7 +711,7 @@ namespace ZLearn.Infras.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("ZLearn.Infras.Identity.AppUser", null)
+                    b.HasOne("ZLearn.Infras.Services.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -708,7 +720,7 @@ namespace ZLearn.Infras.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("ZLearn.Infras.Identity.AppUser", null)
+                    b.HasOne("ZLearn.Infras.Services.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -717,13 +729,13 @@ namespace ZLearn.Infras.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("ZLearn.Infras.Identity.AppRole", null)
+                    b.HasOne("ZLearn.Infras.Services.Identity.AppRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ZLearn.Infras.Identity.AppUser", null)
+                    b.HasOne("ZLearn.Infras.Services.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -732,7 +744,7 @@ namespace ZLearn.Infras.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("ZLearn.Infras.Identity.AppUser", null)
+                    b.HasOne("ZLearn.Infras.Services.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

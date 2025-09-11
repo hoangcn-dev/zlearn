@@ -36,6 +36,11 @@ namespace ZLearn.Application.Exams.Queries.GetExamDetail
                     EndTime = e.EndTime,
                     JoinPass = e.JoinPass,
                     LockAccess = e.LockAccess,
+                    AllowLateSubmit = e.AllowLateSubmit,
+                    MixAnswers = e.MixAnswers,
+                    MixQuestions = e.MixQuestions,
+                    RequireJoinWithCode = e.RequireJoinWithCode,
+                    RequireJoinWithName = e.RequireJoinWithName,
                     MaxParticipants = e.MaxParticipants,
                     QuizId = e.QuizId,
                     ShowAnswerAndKey = e.ShowAnswerAndKey,
@@ -50,6 +55,7 @@ namespace ZLearn.Application.Exams.Queries.GetExamDetail
                             ParticipantCode = p.ParticipantCode,
                             ParticipantName = p.ParticipantName,
                             ParticipantId = p.Id,
+                            CompletedCount = p.Completed
                         }).ToList()
                 }) ?? throw new NotFoundException(nameof(Exam), request.Id);
 

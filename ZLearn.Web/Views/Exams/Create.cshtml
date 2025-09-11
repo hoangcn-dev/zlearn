@@ -28,7 +28,7 @@
 
                 <!-- Source config -->
                 <div class="col-2 pt-1" style="min-height: 40px;">Tùy chọn nội dung</div>
-                <div class="col-10 d-inline-flex">
+                <div class="col-10 d-inline-flex flex-wrap">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" name="MixQuestions" checked>
                         <label class="form-check-label">Đảo câu hỏi</label>
@@ -48,6 +48,10 @@
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" name="RequireJoinWithName">
                         <label class="form-check-label">Yêu cầu tên tham gia</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="AllowLateSubmit">
+                        <label class="form-check-label">Cho phép nộp muộn</label>
                     </div>
                 </div>
 
@@ -162,6 +166,7 @@
                 showAnswerAndKey: $('input[name="ShowAnswerAndKey"]').prop('checked'),
                 requireJoinWithCode: $('input[name="RequireJoinWithCode"]').prop('checked'),
                 requireJoinWithName: $('input[name="RequireJoinWithName"]').prop('checked'),
+                allowLateSubmit: $('input[name="AllowLateSubmit"]').prop('checked'),
             };
 
             // Start time

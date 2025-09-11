@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using ZLearn.API.Exceptions;
 using ZLearn.Application.Common.Identity;
 using ZLearn.Application.Common.Utils;
-using ZLearn.Infras.Identity;
+using ZLearn.Infras.Services.Identity;
 
 namespace ZLearn.Infras.Data
 {

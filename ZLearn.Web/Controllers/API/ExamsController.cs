@@ -1,10 +1,13 @@
-﻿using MediatR;
+﻿
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using ZLearn.Application.Common.DTOs;
+using ZLearn.Application.Exams.Commands.ChangeExamStatus;
 using ZLearn.Application.Exams.Commands.CreateExam;
 using ZLearn.Application.Exams.Commands.JoinExam;
+using ZLearn.Application.Exams.Commands.ManageParticipant;
 using ZLearn.Application.Exams.Commands.SubmitAnswer;
 using ZLearn.Application.Exams.DTOs;
 using ZLearn.Application.Exams.Queries.GetParticipantStatus;
@@ -35,11 +38,13 @@ namespace ZLearn.Web.Controllers.API
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> CreateExam([FromBody]CreateExamDto data)
         {
             var res = await _mediator.Send(new CreateExamCommand
             {
-                Data = data
+                Data = data,
+                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier)
             });
             return Ok(Result<CreateResponseDto>.Success("Tạo bài kiểm tra thành công.", res));
         }
@@ -65,6 +70,32 @@ namespace ZLearn.Web.Controllers.API
                 Data = data
             });
             return Ok(Result<ParticipantWaitingInfoDto>.Success("", result));
+        }
+
+        [HttpPut("{id}/status")]
+        [Authorize]
+        public async Task<IActionResult> ChangeStatus(string id, [FromBody] ChangeExamStatusDto data)
+        {
+            await _mediator.Send(new ChangeExamStatusCommand
+            {
+                ExamId = id,
+                Data = data,
+                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier)
+            });
+            return Ok(Result<NoData>.Success());
+        }
+
+        [HttpPost("{id}/manage-participant")]
+        [Authorize]
+        public async Task<IActionResult> ManageParticipant(string id, [FromBody] ManageParticipantDto data)
+        {
+            var participantId = await _mediator.Send(new ManageParticipantCommand
+            {
+                Data = data,
+                ExamId = id,
+                UserClaims = User
+            });
+            return Ok(Result<object>.Success("", new { participantId }));
         }
     }
 }

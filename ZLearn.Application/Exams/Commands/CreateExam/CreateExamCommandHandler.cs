@@ -1,8 +1,10 @@
-﻿using ZLearn.Application.Common.Commands;
+﻿using Microsoft.Extensions.Logging;
+using ZLearn.Application.Common.Commands;
 using ZLearn.Application.Common.DTOs;
 using ZLearn.Application.Common.Services;
 using ZLearn.Application.Common.Utils;
 using ZLearn.Application.Exams.Commands.ChangeExamStatus;
+using ZLearn.Application.Exams.DTOs;
 using ZLearn.Application.Quizzes;
 using ZLearn.Domain.Entities;
 using ZLearn.Domain.Enums;
@@ -14,17 +16,20 @@ namespace ZLearn.Application.Exams.Commands.CreateExam
         private readonly IExamRepo _examRepo;
         private readonly IQuizRepo _quizRepo;
         private readonly ISchedulerService _schedulerService;
+        private readonly ILogger<CreateExamCommandHandler> _logger;
 
         public CreateExamCommandHandler(
             IMapper mapper,
             IMediator mediator,
             IExamRepo examRepo,
             IQuizRepo quizRepo,
-            ISchedulerService schedulerService) : base(mapper, mediator)
+            ISchedulerService schedulerService,
+            ILogger<CreateExamCommandHandler> logger) : base(mapper, mediator)
         {
             _examRepo = examRepo;
             _quizRepo = quizRepo;
             _schedulerService = schedulerService;
+            _logger = logger;
         }
 
         public async Task<CreateResponseDto> Handle(CreateExamCommand request, CancellationToken cancellationToken)
@@ -50,6 +55,7 @@ namespace ZLearn.Application.Exams.Commands.CreateExam
                 MixQuestions = request.Data.MixQuestions,
                 RequireJoinWithCode = request.Data.RequireJoinWithCode,
                 RequireJoinWithName = request.Data.RequireJoinWithName,
+                AllowLateSubmit = request.Data.AllowLateSubmit,
             };
 
             var alias = StringHelper.GetRandomString(10);
@@ -58,15 +64,38 @@ namespace ZLearn.Application.Exams.Commands.CreateExam
                 alias = StringHelper.GetRandomString(10);
             }
             exam.Alias = alias;
-            _examRepo.Create(exam);
-            await _examRepo.SaveChanges(); 
 
-            if (request.Data.StartTime is not null)
+            // Schedule for starting and ending exam
+            if (exam.Status == ExamStatus.WaitStart)
             {
-                var startExamCommand = new ChangeExamStatusCommand { ExamId = exam.Id, Status = ExamStatus.InProgress };
-                _schedulerService.ScheduleCommand(startExamCommand, exam.StartTime);
-            }   
+                var startExamCommand = new ChangeExamStatusCommand { 
+                    ExamId = exam.Id, 
+                    UserId = request.UserId,
+                    Data = new ChangeExamStatusDto
+                    {
+                        Status = ExamStatus.InProgress,
+                        LockAccess = exam.LockAccess
+                    }
+                };
+                exam.StartJobId = await _schedulerService.ScheduleCommandExactly(startExamCommand, exam.Id, exam.StartTime);
+            }
+            if (exam.EndTime is not null)
+            {
+                var endExamCommand = new ChangeExamStatusCommand 
+                { 
+                    ExamId = exam.Id, 
+                    Data = new ChangeExamStatusDto
+                    {
+                        Status = ExamStatus.Ended,
+                        LockAccess = exam.LockAccess
+                    },
+                    UserId = request.UserId
+                };
+                exam.EndJobId = await _schedulerService.ScheduleCommandExactly(endExamCommand, exam.Id, exam.EndTime!.Value);
+            }
 
+            _examRepo.Create(exam);
+            await _examRepo.SaveChanges();
             return _mapper.Map<CreateResponseDto>(exam);
         }
     }

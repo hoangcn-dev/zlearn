@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 using ZLearn.Application.Common.Utils;
 using ZLearn.Application.Realtime;
 using ZLearn.Domain.Entities;
-using ZLearn.Infras.Realtime.AccessTracking;
+using ZLearn.Infras.Services.AccessTracking;
 
 namespace ZLearn.Infras.Data.Services
 {
