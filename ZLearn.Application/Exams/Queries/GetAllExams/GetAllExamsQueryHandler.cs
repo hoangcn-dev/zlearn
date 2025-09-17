@@ -16,6 +16,7 @@ namespace ZLearn.Application.Exams.Queries.GetAllExams
         public async Task<List<ExamListItemDto>> Handle(GetAllExamsQuery request, CancellationToken cancellationToken)
         {
             var exams = await _examRepo.GetAll(
+                filter: e => e.CreatedBy == request.UserId,
                 projector: e => new ExamListItemDto
                 {
                     Id = e.Id,

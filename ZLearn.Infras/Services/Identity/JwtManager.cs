@@ -33,7 +33,7 @@ namespace ZLearn.Infras.Services.Identity
                 new(nameof(user.FirstName), user.FirstName ?? string.Empty),
                 new(nameof(user.LastName), user.LastName ?? string.Empty),
                 new(nameof(user.UserName), user.UserName),
-                new(nameof(user.ImageUrl), user.ImageUrl ?? string.Empty),
+                new(nameof(user.ImageUrl), user.ImageUrl ?? StringHelper.GetDefaultImageUrl()),
                 new(nameof(user.Email), user.Email),
             };
             foreach (var roleName in userRoleNames)

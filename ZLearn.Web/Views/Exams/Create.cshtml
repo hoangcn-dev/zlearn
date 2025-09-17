@@ -38,7 +38,7 @@
                         <label class="form-check-label">Đảo đáp án</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="ShowAnswerAndKey">
+                        <input class="form-check-input" disabled type="checkbox" name="ShowAnswerAndKey">
                         <label class="form-check-label">Hiển thị điểm và đáp án khi kết thúc</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -114,6 +114,12 @@
                     <input type="number" class="form-control w-auto" name="MaxParticipants">
                 </div>
 
+                <!-- Note -->
+                <div class="col-2 pt-1" style="min-height: 40px;">Ghi chú</div>
+                <div class="col-10">
+                    <textarea type="number" class="form-control" name="Note"></textarea>
+                </div>
+
                 <div class="col-12 text-center">
                     <button class="mt-3 btn text-white opacity-hover" onclick="create()" style="background-color: var(--main-color);">Tạo bài kiểm tra</button>
                 </div>
@@ -158,6 +164,7 @@
         async function create() {
             const exam = {
                 name: $('input[name="Name"]').val(),
+                note: $('textarea[name="Note"]').val(),
                 joinPass: $('input[name="Password"]').val(),
                 quizId: $('select[name="QuizId"]').val(),
                 maxParticipants: $('input[name="MaxParticipants"]').val() || 0,
@@ -170,7 +177,6 @@
             };
 
             // Start time
-            debugger
             const startTimeOptions = $('input[name="start-options"]:checked').val();
             const start = startTimeOptions === 'after-create' ? new Date() : new Date($('input[name="StartTime"]').val());
             exam.startTime = start instanceof Date && !isNaN(start) ? start.toISOString() : null;
@@ -194,7 +200,15 @@
             exam.endTime = end instanceof Date && !isNaN(end) ? end.toISOString() : null;
 
             await postJsonData('/exams', exam, res => {
-                if (res.succeeded) showMess(res.message);
+                if (res.succeeded) {
+                    showMess(res.message);
+                    showLoading();
+                    const subId = setTimeout(() => {
+                        hideLoading();
+                        window.location.href = `/bai-kiem-tra/${res.data.id.toLowerCase()}`;
+                        clearTimeout(subId);
+                    }, 2000);
+                }
             });
         }
     </script>

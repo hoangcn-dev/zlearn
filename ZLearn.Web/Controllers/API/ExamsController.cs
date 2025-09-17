@@ -1,5 +1,4 @@
-﻿
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -10,8 +9,11 @@ using ZLearn.Application.Exams.Commands.JoinExam;
 using ZLearn.Application.Exams.Commands.ManageParticipant;
 using ZLearn.Application.Exams.Commands.SubmitAnswer;
 using ZLearn.Application.Exams.DTOs;
+using ZLearn.Application.Exams.Queries.GetExamDetail;
+using ZLearn.Application.Exams.Queries.GetExamScore;
+using ZLearn.Application.Exams.Queries.GetExamScoreExcelFileData;
+using ZLearn.Application.Exams.Queries.GetOnGoingExam;
 using ZLearn.Application.Exams.Queries.GetParticipantStatus;
-using ZLearn.Domain.Enums;
 
 namespace ZLearn.Web.Controllers.API
 {
@@ -25,6 +27,18 @@ namespace ZLearn.Web.Controllers.API
         {
         }
 
+        [HttpGet("{id}/export-result")]
+        public async Task<IActionResult> ExportResult(string id)
+        {
+            var res = await _mediator.Send(new GetExamScoreExcelFileDataQuery
+            {
+                ExamId = id,
+                UserClaims = User
+            });
+            res.StreamData.Position = 0;
+            return File(res.StreamData, res.MIMEType, res.FileName);
+        }
+
         [HttpGet("participant-info")]
         public async Task<IActionResult> GetParticipantInfo([FromQuery] string alias)
         {
@@ -35,6 +49,17 @@ namespace ZLearn.Web.Controllers.API
             });
             if (res == null) return Ok(Result<NoData>.Failure());
             return Ok(Result<ParticipantWaitingInfoDto>.Success("", res));
+        }
+
+        [HttpGet("on-going")]
+        [Authorize]
+        public async Task<IActionResult> GetOnGoingExam()
+        {
+            var res = await _mediator.Send(new GetOnGoingExamQuery
+            {
+                UserClaims = User
+            });
+            return Ok(Result<List<OnGoingExamListItemDto>>.Success("", res));
         }
 
         [HttpPost]
@@ -97,5 +122,7 @@ namespace ZLearn.Web.Controllers.API
             });
             return Ok(Result<object>.Success("", new { participantId }));
         }
+
+
     }
 }

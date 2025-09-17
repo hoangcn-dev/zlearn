@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using ZLearn.Application.Common.DTOs;
 using ZLearn.Application.Common.Interfaces;
 using ZLearn.Application.Exams.DTOs;
 using ZLearn.Domain.Entities;
@@ -19,5 +20,7 @@ namespace ZLearn.Application.Exams
         Task<ParticipantStatusDto?> GetExamParticipant(string examId, string userId);
         Task<string> ManageParticipant(string examId, string participantId, ManageParticipantAction action);
         Task EndExam(string userId, string examId);
+        Task<List<OnGoingExamListItemDto>> GetOnGoingExams(string userId);
+        Task<FileDataDto> GetExamScoreAsExcel(string examId, string userId);
     }
 }

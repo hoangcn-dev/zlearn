@@ -48,17 +48,28 @@ namespace ZLearn.Infras.Data.Repositories
 
         public async Task<int> Cleanup(TimeSpan limit)
         {
-            var filesToRemove = await _context.Set<MediaFile>()
+            using var transaction = await _context.Database.BeginTransactionAsync();
+            try
+            {
+                var filesToRemove = await _context.Set<MediaFile>()
                 .Where(file => !file.IsUsing)
                 .ToListAsync();
-            filesToRemove = filesToRemove.Where(file => DateTimeOffset.UtcNow.Subtract(file.CreatedAt) > limit).ToList();
-            await DeleteFileByUrls(filesToRemove.Select(f => f.SourceUrl).ToList());
-            _context.MediaFiles.RemoveRange(filesToRemove);
-            await _context.SaveChangesAsync();
-            return filesToRemove.Count;
+                filesToRemove = filesToRemove.Where(file => DateTimeOffset.UtcNow.Subtract(file.CreatedAt) > limit).ToList();
+                await DeleteFileByUrls(filesToRemove.Select(f => f.SourceUrl).ToList());
+                _context.MediaFiles.RemoveRange(filesToRemove);
+                await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
+                return filesToRemove.Count;
+            }
+            catch
+            {
+                await transaction.RollbackAsync();
+                throw;
+            }
+            
         }
 
-        public Task SetUsing(List<string> urls)
+        public async Task SetUsing(List<string> urls)
         {
             var files = _context.Set<MediaFile>()
                 .Where(file => urls.Contains(file.SourceUrl))
@@ -68,7 +79,7 @@ namespace ZLearn.Infras.Data.Repositories
                 file.IsUsing = true;
             }
             _context.MediaFiles.UpdateRange(files);
-            return Task.CompletedTask;
+            await _context.SaveChangesAsync();
         }
     }
 }

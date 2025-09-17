@@ -27,9 +27,7 @@ namespace ZLearn.Application.Auth.Commands.GetAuthData
                 UserName = request.Claims.FindFirst("UserName")!.Value,
                 LastName = request.Claims.FindFirst("LastName")!.Value,
                 FirstName = request.Claims.FindFirst("FirstName")!.Value,
-                ImagePath = string.IsNullOrEmpty(imageId) ?
-                    StringHelper.GetDefaultImageUrl() :
-                    await _fileRepo.Get(imageId, f => f.SourceUrl) ?? StringHelper.GetDefaultImageUrl(),
+                ImagePath = request.Claims.FindFirst("ImageUrl")!.Value,
                 Roles = request.Claims.FindAll(ClaimTypes.Role).Select(c => c.Value).ToList()
             };
             return sessionData;

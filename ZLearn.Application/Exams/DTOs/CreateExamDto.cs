@@ -14,5 +14,6 @@
         public bool RequireJoinWithCode { get; set; }
         public bool RequireJoinWithName { get; set; }
         public bool AllowLateSubmit { get; set; }
+        public string? Note { get; set; }
     }
 }

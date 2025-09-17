@@ -139,6 +139,7 @@ namespace ZLearn.Infras.Services.Identity
             long? fileSize = response.Content.Headers.ContentLength;
             await using var stream = await response.Content.ReadAsStreamAsync();
             var file = await _mediaStoreService.SaveFile(stream, Path.GetFileName(url), MediaType.Image, CancellationToken.None);
+            file.IsUsing = true;
             _fileRepo.Create(file);
             await _fileRepo.SaveChanges();
             return file.SourceUrl;

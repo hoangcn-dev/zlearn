@@ -1,6 +1,8 @@
-﻿using Hangfire.MemoryStorage.Database;
+﻿using ClosedXML.Excel;
+using Hangfire.MemoryStorage.Database;
 using System.Security.Claims;
 using ZLearn.API.Exceptions;
+using ZLearn.Application.Common.DTOs;
 using ZLearn.Application.Common.Services;
 using ZLearn.Application.Common.Utils;
 using ZLearn.Application.Exams;
@@ -81,7 +83,7 @@ namespace ZLearn.Infras.Data.Repositories
                 ParticipantCode = participant.ParticipantCode,
                 ParticipantName = participant.ParticipantName,
                 StartTime = exam.StartTime,
-                ExamStatus = exam.Status
+                ExamStatus = exam.Status,
             };
         }
 
@@ -161,13 +163,30 @@ namespace ZLearn.Infras.Data.Repositories
                     }
                 }
 
+                if (exam.MixAnswers)
+                {
+                    var rnd = new Random();
+                    data.Questions[i].Answers = data.Questions[i].Answers.OrderBy(x => rnd.Next()).ToList();
+                }
                 for (int j = 0; j < data.Questions[i].Answers.Count; j++)
                 {
                     data.Questions[i].Answers[j].Label = StringHelper.IndexToChar(j);
                 }
             }
 
-            data.Questions.Sort((a, b) => a.Order.CompareTo(b.Order));
+            if (exam.MixQuestions)
+            {
+                var rnd = new Random();
+                data.Questions = data.Questions.OrderBy(x => rnd.Next()).ToList();
+                for (int i = 0; i < data.Questions.Count; i++)
+                {
+                    data.Questions[i].Order = i + 1;
+                }
+            }
+            else
+            {
+                data.Questions.Sort((a, b) => a.Order.CompareTo(b.Order));
+            }
 
             _context.Set<ExamParticipant>().Update(ep);
             await _context.SaveChangesAsync();
@@ -186,7 +205,7 @@ namespace ZLearn.Infras.Data.Repositories
                     ep.ParticipantCode,
                     ep.ParticipantName,
                     ep.Exam.StartTime,
-                    ExamStatus = ep.Exam.Status
+                    ExamStatus = ep.Exam.Status,
                 })
                 .FirstOrDefaultAsync();
             if (res == null) return null;
@@ -197,7 +216,7 @@ namespace ZLearn.Infras.Data.Repositories
                 ParticipantCode = res.ParticipantCode,
                 ParticipantName = res.ParticipantName!,
                 StartTime = res.StartTime,
-                ExamStatus = res.ExamStatus
+                ExamStatus = res.ExamStatus,
             };
             return status;
         }
@@ -394,6 +413,75 @@ namespace ZLearn.Infras.Data.Repositories
             }
             await _context.SaveChangesAsync();
             return participantId;
+        }
+
+        public async Task<List<OnGoingExamListItemDto>> GetOnGoingExams(string userId)
+        {
+            var exams = await _context.Set<ExamParticipant>()
+                .AsNoTracking()
+                .Where(ep => ep.UserId == userId && (ep.Exam.Status == ExamStatus.InProgress || ep.Exam.Status == ExamStatus.WaitStart))
+                .Select(ep => new OnGoingExamListItemDto
+                {
+                    Id = ep.Exam.Id,
+                    Name = ep.Exam.Name,
+                    Status = ep.Exam.Status,
+                    StartTime = ep.Exam.StartTime,
+                    EndTime = ep.Exam.EndTime,
+                    Alias = ep.Exam.Alias
+                })
+                .OrderBy(e => e.Name)
+                .ToListAsync();
+            return exams;
+        }
+
+        public async Task<FileDataDto> GetExamScoreAsExcel(string examId, string userId)
+        {
+            var exam = await _context.Set<Exam>().AsNoTracking()
+                .Where(e => e.Id.Equals(examId))
+                .Select(e => new
+                {
+                    e.Name,
+                    Participants = e.Participants
+                        .Where(p => p.Status == ParticipantStatus.Completed || (e.AllowLateSubmit && p.Status == ParticipantStatus.TimeOut))
+                        .Select(p => new
+                        {
+                            p.Id,
+                            p.ParticipantCode,
+                            p.ParticipantName,
+                            p.Score
+                        }).ToList(),
+                    e.CreatedBy
+                })
+                .FirstOrDefaultAsync()
+                ?? throw new NotFoundException(nameof(Exam), examId);
+
+            if (exam.CreatedBy != userId) throw new ForbiddenException();
+
+            // Create excel file
+            using var wb = new XLWorkbook();
+            var ws = wb.Worksheets.Add(exam.Name);
+            ws.Cell(1, 1).Value = "STT";
+            ws.Cell(1, 2).Value = "ID";
+            ws.Cell(1, 3).Value = "Mã điểm danh";
+            ws.Cell(1, 4).Value = "Họ và tên";
+            ws.Cell(1, 5).Value = "Điểm";
+            for (int i = 0; i < exam.Participants.Count; i++)
+            {
+                ws.Cell(i + 2, 1).Value = i + 1;
+                ws.Cell(i + 2, 2).Value = exam.Participants[i].Id;
+                ws.Cell(i + 2, 3).Value = exam.Participants[i].ParticipantCode;
+                ws.Cell(i + 2, 4).Value = exam.Participants[i].ParticipantName;
+                ws.Cell(i + 2, 5).Value = exam.Participants[i].Score;
+            }
+
+            var stream = new MemoryStream();
+            wb.SaveAs(stream);
+            return new FileDataDto
+            {
+                FileName = $"Kết quả - {exam.Name}",
+                StreamData = stream,
+                MIMEType = MIMETypes.XLSX
+            };
         }
     }
 }

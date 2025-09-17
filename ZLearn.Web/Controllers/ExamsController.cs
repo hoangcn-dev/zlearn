@@ -28,9 +28,13 @@ namespace ZLearn.Web.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> Index()
         {
-            var exams = await _mediator.Send(new GetAllExamsQuery());
+            var exams = await _mediator.Send(new GetAllExamsQuery
+            {
+                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier)
+            });
             return View(exams);
         }
 

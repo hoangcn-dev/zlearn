@@ -56,6 +56,7 @@ namespace ZLearn.Application.Exams.Commands.CreateExam
                 RequireJoinWithCode = request.Data.RequireJoinWithCode,
                 RequireJoinWithName = request.Data.RequireJoinWithName,
                 AllowLateSubmit = request.Data.AllowLateSubmit,
+                Note = request.Data.Note,
             };
 
             var alias = StringHelper.GetRandomString(10);

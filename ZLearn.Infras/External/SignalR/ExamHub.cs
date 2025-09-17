@@ -43,6 +43,9 @@ namespace ZLearn.Infras.External.SignalR
         public override async Task OnConnectedAsync()
         {
             var examId = Context.GetHttpContext()?.Request.Query["examId"];
+            if (await _examRepo.Any(e => e.Id == examId.ToString() && e.Status == ExamStatus.Ended))
+                Context.Abort();
+
             if (Context.User is null || !Context.User.Identity!.IsAuthenticated || string.IsNullOrEmpty(examId))
             {
                 Context.Abort();

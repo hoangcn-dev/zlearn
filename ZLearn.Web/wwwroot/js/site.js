@@ -57,7 +57,7 @@ async function callApi(url, method, contentType = 'application/json; charset=utf
                 showMess(error.responseJSON.message, false);
                 console.error(error);
             }
-        })
+        });
     });
 }
 
