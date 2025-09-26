@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 using ZLearn.Application;
 using ZLearn.Domain.Exceptions;
 using ZLearn.Infras;
@@ -10,7 +11,7 @@ namespace ZLearn.Web
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
             var services = builder.Services;
@@ -31,6 +32,7 @@ namespace ZLearn.Web
 
             builder.AddRedisService();
             builder.AddQuartzServices();
+            builder.AddGroqServices();
             builder.AddExamTrackingService();
             builder.AddIdentityService();
             builder.AddPostgreSQLDataServices();
@@ -86,7 +88,7 @@ namespace ZLearn.Web
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}");
             app.MapControllers();
-            app.InitializeDatabase();
+            await app.InitializeDatabase();
             app.Run();
         }
     }

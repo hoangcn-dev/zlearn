@@ -31,6 +31,7 @@ using ZLearn.Infras.Data;
 using ZLearn.Infras.Data.Interceptors;
 using ZLearn.Infras.Data.Repositories;
 using ZLearn.Infras.Data.Services;
+using ZLearn.Infras.External.AI.Groq;
 using ZLearn.Infras.External.CloudinaryStore;
 using ZLearn.Infras.External.Redis;
 using ZLearn.Infras.External.SignalR;
@@ -62,6 +63,12 @@ namespace ZLearn.Infras
                 options.UseNpgsql(EnvVariableHelper.GetValue(EnvVariableNames.POSTGRESQL_CONNECTION_STRING));
             });
         }
+
+        public static void AddGroqServices(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddSingleton<IAIService, GroqService>();
+        }
+
         public static void AddQuartzServices(this WebApplicationBuilder builder)
         {
             builder.Services.AddQuartz(q =>
@@ -77,6 +84,7 @@ namespace ZLearn.Infras
                 opt.WaitForJobsToComplete = true;
             });
         }
+        
         public static void AddRedisService(this WebApplicationBuilder builder) 
         {
             builder.Services.Configure<RedisConfig>(builder.Configuration.GetSection("Redis"));
@@ -179,7 +187,7 @@ namespace ZLearn.Infras
             });
         }
 
-        public static async void InitializeDatabase(this WebApplication app)
+        public static async Task InitializeDatabase(this WebApplication app)
         {
             using var scope = app.Services.CreateScope();
             var initializer = scope.ServiceProvider.GetRequiredService<Initializer>();

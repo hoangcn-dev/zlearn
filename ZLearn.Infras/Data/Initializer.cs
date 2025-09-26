@@ -30,6 +30,7 @@ namespace ZLearn.Infras.Data
         {
             try
             {
+                _logger.LogInformation("Start migrating...");
                 await _context.Database.MigrateAsync();
             }
             catch (Exception ex)

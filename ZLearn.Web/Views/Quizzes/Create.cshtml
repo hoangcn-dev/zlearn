@@ -12,7 +12,7 @@
 
     <!-- Features -->
     <div class="d-flex justify-content-center mb-3">
-        <button class="btn bg-white me-2 border highlight-hover" onclick="$('#ai-create-dialog').show()"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--secondary-color)"></i> Tạo đề với AI</button>
+        <button class="btn bg-white me-2 border highlight-hover" onclick="$('#ai-create-dialog').show()"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--secondary-color)"></i> Tạo câu hỏi nhanh với AI</button>
     </div>
 
     <!-- Update content -->
@@ -33,6 +33,19 @@
         <div class="col-10">
             <select id="category" class="form-select w-auto">
             </select>
+        </div>
+
+        <!-- Is Public -->
+        <div class="col-2 fw-light" style="min-height: 30px;">Riêng tư</div>
+        <div class="col-10 d-inline-flex flex-wrap">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="IsPublic" value="public" checked>
+                <label class="form-check-label">Công khai</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="IsPublic" value="private">
+                <label class="form-check-label">Cá nhân</label>
+            </div>
         </div>
 
         <div class="col-2 fw-light" style="min-height: 30px;">Tags</div>
@@ -59,17 +72,18 @@
 </div>
 
 <!-- Create new one with AI -->
-<div id="ai-create-dialog" class="vh-100 vw-100 position-fixed top-0 start-0 bg-secondary bg-opacity-50" style="z-index: 2;">
-    <div class="rounded-1 position-absolute start-50 translate-middle-x bg-white text-dark p-2 px-3" style="margin-top: 100px; width: 600px;">
+<div id="ai-create-dialog" class="vh-100 vw-100 position-fixed top-0 start-0 bg-secondary bg-opacity-50" style="z-index: 1;">
+    <div class="rounded-1 position-absolute start-50 translate-middle-x bg-white text-dark p-2 px-3" style="margin-top: 50px; width: 600px;">
         <div class="d-flex flex-column align-items-center pb-2">
             <div class="btn-close position-absolute end-0 top-0 m-1 opacity-hover" onclick="$('#ai-create-dialog').hide()"></div>
-            <h5 class="text-center my-3">Tạo đề nhanh với AI</h5>
-            <textarea  rows="10" class="form-control mt-3" placeholder="Nhập mô tả nội dung đề, thông tin về cách chuyển đổi thành câu hỏi hoặc đơn giản chỉ là yêu cầu của bạn đối với đề sẽ tạo"></textarea>
+            <h5 class="text-center my-3">Tạo câu hỏi nhanh với AI</h5>
+            <textarea  rows="10" class="form-control mt-3" placeholder="Nhập mô tả nội dung câu hỏi, bao gồm số câu và nội dung (VD: Tạo 10 câu hỏi về môn ngữ văn lớp 12). Nếu đính kèm file nguồn vui lòng ghi thông tin về cách chuyển đổi thành câu hỏi"></textarea>
+            <button id="uploadSourceFileBtn" class="border bg-white shadow-sm p-1 px-2 mt-2 highlight-hover me-2 mb-2"><i class="fa-solid fa-arrow-up-from-bracket"></i> (.pdf, .docx, .xlsx)</button>
             <div id="uploadedSourceFiles" class="d-flex mt-2 align-items-center flex-wrap">
-                <button class="border bg-white shadow-sm p-1 px-2 highlight-hover me-2 mb-2"><i class="fa-solid fa-arrow-up-from-bracket"></i> Tải lên tập nguồn (.pdf, .docx, .xlsx)</button>
             </div>
+            <p class="fst-italic text-danger px-3 text-center" style="font-size: 12px;">Quá trình tạo dữ liệu câu hỏi có thể bị lỗi, vui lòng thử lại (nếu thất bại) và kiểm tra kĩ nội dung câu hỏi được tạo ra!</p>
             <div class="d-flex justify-content-center mt-3">
-                <button class="btn text-light opacity-hover py-2 px-5 fs-5 fw-light" style="background-color: var(--main-color);">Tạo mới</button>
+                <button class="btn text-light opacity-hover py-2 px-5 fs-5 fw-light" onclick="generateQuestions()" style="background-color: var(--main-color);">Tạo danh sách câu hỏi</button>
             </div>
         </div>
     </div>
@@ -97,7 +111,8 @@
                 res.forEach(t => tags.push(t));
             }, false);
 
-            $('#uploadedSourceFiles button').on('click', () => addMediaFile("#uploadedSourceFiles", ".pdf, .docx, .xlsx"));
+            // Set listener
+            $('#uploadSourceFileBtn').on('click', () => uploadAutoGenerateSourceFile("#uploadedSourceFiles", ".pdf, .docx, .xlsx"));
             $('input[name="slug"]').next('button').on('click', () => {
                 const quizName = $('input[name="quizName"]').val();
                 $('input[name="slug"]').val(generateSlug(quizName));
@@ -106,7 +121,8 @@
     </script>
 
     <script asp-append-version="true">
-        const questions = [];
+        let questions = [];
+        let autoGenQuestionSourceFile = null;
 
         function base64ToFile(base64String, fileName, mimeType='application/octet-stream') {
             const base64Data = base64String.split(',')[1] || base64String;
@@ -128,6 +144,7 @@
                     var createData = {
                         name: $('input[name="quizName"]').val(),
                         categoryId: $('#category').val(),
+                        isPublic: $('input[name="IsPublic"]:checked').val() == 'public',
                         slug: $('input[name="slug"]').val(),
                         tags: $('#tags').find('.tag-name').map(function() { return $(this).text(); }).get(),
                         questions: questions
@@ -255,18 +272,20 @@
             q.mediaFileUrls.forEach(e => qDiv.find('.qFiles').append(getFileTag(getFileName(e), e)));
             qDiv.find('button.addQFile').click(() => addMediaFile(`#${qIndex} .qFiles`, "image/*,video/*,audio/*", qIndex, -1));
 
+            
+
+            const container = $('#questions');
+            if (questions.length > 1) container.append(`<hr class="my-5">`);
+            container.append(qDiv);
+
             // Answers
-            q.answers.forEach(e => addAnswer(qIndex, null, e));
+            q.answers.forEach((e, i) => addAnswer(qIndex, i, e));
             qDiv.find('button.addAnswer').click(() => {
                 const aIndex = questions[qIndex].answers.length;
                 const a = { key: aIndex+1, stringContent: '', mediaFileUrls: [] };
                 questions[qIndex].answers.push(a);
                 addAnswer(qIndex, aIndex, a);
             });
-
-            const container = $('#questions');
-            if (questions.length > 1) container.append(`<hr class="my-5">`);
-            container.append(qDiv);
 
             $('#questionCount').text(`${questions.filter(e => !e.isRemoved).length} Câu hỏi`);
         }
@@ -328,7 +347,16 @@
             return parts.pop() || '';
         }
 
-        function addMediaFile(containerSelector, accept, questionIndex, answerIndex = -1) {
+        function uploadAutoGenerateSourceFile(containerSelector, accept, questionIndex, answerIndex = -1) {
+            if ($('#uploadedSourceFiles span').length == 1) {
+                showMess("Chỉ được tải lên 1 file duy nhất", false);
+                return;
+            }
+            addMediaFile(containerSelector, accept, questionIndex, answerIndex, true);
+        }
+
+        function addMediaFile(containerSelector, accept, questionIndex, answerIndex = -1, isAutoGenQuestionFile = false) {
+            
             const input = document.createElement('input');
             input.setAttribute('type', 'file');
             input.hidden = true;
@@ -351,6 +379,7 @@
                     fileReader.readAsDataURL(f);
                 }
                 input.remove();
+                if (isAutoGenQuestionFile) autoGenQuestionSourceFile = files[0];
             }
             $('body').append(input);
             input.click();
@@ -392,6 +421,59 @@
                 dialog.remove();
             });
             $('body').append(dialog);
+        }
+
+        function generateQuestions() {
+            var formData = new FormData();
+            var promptContext = $('#ai-create-dialog textarea').val();
+            if (!promptContext) {
+                showMess("Vui lòng điền yêu cầu của bạn đối với bộ câu hỏi!", false);
+                return;
+            }
+            formData.append('promptContext', promptContext);
+            if (autoGenQuestionSourceFile) 
+                formData.append('fileData', autoGenQuestionSourceFile);
+            showLoading();
+            $.ajax({
+                url: '/quizzes/generate-questions',
+                method: "POST",
+                xhrFields: { withCredentials: true },
+                contentType: false,
+                processData: false,
+                data: formData,
+                success: res => {
+                    if (res.succeeded) {
+                        questions = [];
+                        $('#questions').empty();
+                        res.data.forEach(e => {
+                            addQuestion({
+                                stringContent: e.stringContent,
+                                mediaFileUrls: e.mediaFileUrls,
+                                correctKey: e.correctKey,
+                                order: e.order,
+                                answers: e.answers,
+                                explanation: '',
+                                isRemoved: false
+                            });
+                        });
+                    }
+                    $('#ai-create-dialog').hide();
+                    hideLoading();
+                },
+                error: error => {
+                    if (error.status === 403) {
+                        removeSessionData();
+                        window.location.href = "/forbidden";
+                    }
+                    else if (error.status == 401) {
+                        $('#login-dialog').show()
+
+                    }
+                    hideLoading();
+                    showMess(error.responseJSON.message, false);
+                    console.error(error);
+                }
+            });
         }
     </script>
 }

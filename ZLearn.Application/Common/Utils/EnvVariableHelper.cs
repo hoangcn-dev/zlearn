@@ -26,6 +26,7 @@ namespace ZLearn.Application.Common.Utils
         public const string CLOUDINARY_NAME = nameof(CLOUDINARY_NAME);
         public const string CLOUDINARY_API_KEY = nameof(CLOUDINARY_API_KEY);
         public const string CLOUDINARY_API_SECRET = nameof(CLOUDINARY_API_SECRET);
+        public const string GROQ_API_KEY = nameof(GROQ_API_KEY);
     }
 
 }

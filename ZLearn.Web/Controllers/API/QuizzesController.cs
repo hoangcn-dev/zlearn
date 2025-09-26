@@ -14,6 +14,7 @@ using ZLearn.Application.Quizzes.Commands.Delete;
 using ZLearn.Application.Quizzes.Commands.Update;
 using ZLearn.Application.Quizzes.DTOs;
 using ZLearn.Application.Quizzes.Queries.GetAllTags;
+using ZLearn.Application.Quizzes.Queries.GetAutoGenerateQuestionData;
 using ZLearn.Application.Quizzes.Queries.GetListQuiz;
 using ZLearn.Application.Quizzes.Queries.GetMyQuiz;
 using ZLearn.Application.Quizzes.Queries.GetQuestionAnswerKey;
@@ -55,6 +56,18 @@ namespace ZLearn.Web.Controllers.API
             };
             var res = await _mediator.Send(query);
             return Ok(Result<PaginatedDto<QuizListItemDto>>.Success(null, res));
+        }
+
+        [HttpPost("generate-questions")]
+        public async Task<IActionResult> GenerateQuestions([FromForm] AutoGenerateQuestionRequestDto data)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var query = new GetAutoGenerateQuestionDataQuery
+            {
+                Data = data
+            };
+            var res = await _mediator.Send(query);
+            return Ok(Result<List<CreateQuestionDto>>.Success(null, res));
         }
 
         [HttpGet("{id}")]
