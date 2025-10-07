@@ -294,8 +294,10 @@
                 $("#result").empty();
                 $('#btnToggeMediaDisplay').html(`<i class="fa-solid fa-chevron-up"></i> Ẩn`);
                 $('#media').show();
-                $('#btnPrev').hide();
-                $('#btnNext').hide();
+
+                $('#btnPrev').off('click').hide();
+                $('#btnNext').off('click').hide();
+
                 if (currentOrder > 1) {
                     $('#btnPrev').show();
                     $('#btnPrev').on('click', () => loadQuestionData(questionMap[currentOrder-2].id));

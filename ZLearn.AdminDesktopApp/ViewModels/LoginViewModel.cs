@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.Windows.Input;
 using ZLearn.AdminDesktopApp.Helpers;
 using ZLearn.AdminDesktopApp.Services;
@@ -8,7 +9,7 @@ using ZLearn.Application.Auth.DTOs;
 
 namespace ZLearn.AdminDesktopApp.ViewModels
 {
-    public class LoginViewModel : ViewModelBase
+    public partial class LoginViewModel : ViewModelBase
     {
         private readonly IManageWindowService _manageWindowService;
         private readonly IAuthApiService _authApiService;
@@ -36,6 +37,7 @@ namespace ZLearn.AdminDesktopApp.ViewModels
             } 
         }
 
+
         private bool _remember;
         public bool Remember { get => _remember; set => SetProperty(ref _remember, value); }
         public bool IsLoading => _taskStatusStore.Loading;
@@ -61,6 +63,14 @@ namespace ZLearn.AdminDesktopApp.ViewModels
             LoginCommand = new AsyncRelayCommand(LoginAsync, CanLogin);
             NavigateToMainWindowCommand = new RelayCommand(() => _manageWindowService.ShowWindow<MainWindow>());
             CloseWindowCommand = new RelayCommand(() => _manageWindowService.CloseWindow<LoginWindow>());
+
+            InitUI();
+        }
+
+        private void InitUI()
+        {
+            UserName = Environment.GetEnvironmentVariable("Zlearn_LUN") ?? "";
+            Password = Environment.GetEnvironmentVariable("Zlearn_LPW") ?? "";
         }
 
         private void TaskStatusStore_PropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -88,6 +98,13 @@ namespace ZLearn.AdminDesktopApp.ViewModels
                 _varStore.Add(VariableStore.Keys.Role, res.Data.Roles.First());
                 _varStore.Add(VariableStore.Keys.UserId, res.Data.Id);
                 _varStore.Add(VariableStore.Keys.ImageUrl, res.Data.ImagePath);
+
+                if (Remember)
+                {
+                    Environment.SetEnvironmentVariable("Zlearn_LPW", Password, EnvironmentVariableTarget.User);
+                    Environment.SetEnvironmentVariable("Zlearn_LUN", UserName, EnvironmentVariableTarget.User);
+                }
+
                 NavigateToMainWindowCommand.Execute(null);
                 CloseWindowCommand.Execute(null);
             }
