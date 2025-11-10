@@ -42,13 +42,7 @@ namespace ZLearn.Web.Controllers
                 Slug = slug
             };
             var quiz = await _mediator.Send(query);
-            return RedirectToAction(
-                controllerName: "Questions",
-                actionName: "Index",
-                routeValues: new
-                {
-                    slug = quiz.Questions[0].Slug
-                });
+            return View(quiz);
         }
     }
 }

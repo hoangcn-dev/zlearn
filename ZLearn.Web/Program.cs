@@ -38,9 +38,9 @@ namespace ZLearn.Web
             builder.AddPostgreSQLDataServices();
             builder.AddCloudinaryService();
             builder.AddDatabaseBackupService();
-            builder.AddAccessTrackingService();
+            // builder.AddAccessTrackingService(); // Disabled: Changed to monthly count instead of realtime
             builder.AddFileCleanupService();
-            builder.AddRealtimeServices();
+            builder.AddRealtimeServices(); // Keep this for ExamHub
             builder.AddLogService();
             builder.AddSchedulerService();
 
@@ -81,7 +81,7 @@ namespace ZLearn.Web
             app.UseRouting();
             app.UseAuthentication();
             app.UseLogMiddleware();
-            app.UseAccessTracking();
+            // app.UseAccessTracking();
             app.UseExamTracking();
             app.UseAuthorization();
             app.MapControllerRoute(

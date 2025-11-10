@@ -6,5 +6,6 @@ namespace ZLearn.Application.Realtime
     public interface IAccessHistoryRepo : IBaseRepo<AccessHistory>
     {
         Task<long> GetTotalAccessCount();
+        Task<long> GetAccessCountThisMonth();
     }
 }

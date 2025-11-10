@@ -48,6 +48,7 @@ namespace ZLearn.Application.Quizzes.Queries.GetQuestionContent
                 QuizId = question.QuizId,
                 Slug = question.Slug,
                 QuizName = question.Quiz.Name,
+                QuizSlug = question.Quiz.Slug,
                 AttemptCount = question.AttemptCount,
                 Order = question.Order,
                 Answers = question.Answers.Select(a => new AnswerContentDto

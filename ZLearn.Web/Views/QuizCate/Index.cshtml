@@ -4,6 +4,12 @@
 @{
     ViewData["Title"] = "Danh mục đề trắc nghiệm";
     ViewBag.MetaDescription = "Danh sách các danh mục chủ đề đề thi trắc nghiệm trên ZLearn. Mỗi danh mục chứa nhiều đề thi khác nhau, giúp bạn ôn tập và nâng cao kiến thức một cách hiệu quả.";
+    
+    ViewBag.Breadcrumbs = new List<(string Text, string Url)>
+    {
+        ("Trang chủ", "/"),
+        ("Danh mục đề trắc nghiệm", "")
+    };
 }
 
 <div class="container">

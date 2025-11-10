@@ -27,6 +27,10 @@ namespace ZLearn.Application.Quizzes.Queries.GetListQuiz
             {
                 filterBuilder.AndCondition(q => q.Category.Slug == request.CategorySlug);
             }
+            if (!string.IsNullOrEmpty(request.ExcludeId))
+            {
+                filterBuilder.AndCondition(q => q.Id !=  request.ExcludeId);
+            }
 
             var quizzes = await _quizRepo.GetPaging(
                 request.PageIndex, 
@@ -40,6 +44,7 @@ namespace ZLearn.Application.Quizzes.Queries.GetListQuiz
                     AttemptCount = q.Questions.Select(qu => qu.AttemptCount).Sum(),
                     CategoryId = q.CategoryId,
                     CategoryName = q.Category.Name,
+                    CategorySLug = q.Category.Slug,
                     DownloadCount = q.DownloadCount,
                     QuestionCount = q.Questions.Count
                 },

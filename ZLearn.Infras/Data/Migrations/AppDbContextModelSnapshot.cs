@@ -390,6 +390,56 @@ namespace ZLearn.Infras.Migrations
                     b.ToTable("ExamParticipant");
                 });
 
+            modelBuilder.Entity("ZLearn.Domain.Entities.LicenseKey", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("HardwareId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTimeOffset?>("LastModifiedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Level")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("LifeDays")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LicenseKeys", (string)null);
+                });
+
             modelBuilder.Entity("ZLearn.Domain.Entities.MediaFile", b =>
                 {
                     b.Property<string>("Id")
@@ -437,7 +487,7 @@ namespace ZLearn.Infras.Migrations
                         .HasMaxLength(2048)
                         .HasColumnType("character varying(2048)");
 
-                    b.Property<string>("Action")
+                    b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 

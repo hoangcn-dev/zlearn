@@ -1,0 +1,214 @@
+@{
+    ViewData["Title"] = "Quản lý License Keys";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    
+    ViewBag.Breadcrumbs = new List<(string Text, string Url)>
+    {
+        ("Trang chủ", "/"),
+        ("Quản lý License Keys", "")
+    };
+}
+
+<div class="card card-body">
+    <h4 class="mb-3">Quản lý License Keys</h4>
+
+    <div class="row g-2 mb-3">
+        <div class="col-4">
+            <div class="fw-light">Tạo mới key</div>
+            <input type="number" class="form-control mt-1" id="create-count" placeholder="Số lượng" value="1">
+            <input type="number" class="form-control mt-1" id="create-lifeDays" placeholder="Số ngày" value="30">
+            <select class="form-select mt-1" id="create-type">
+                <option value="0">FlowVeoAutoTool</option>
+                <option value="1">Other</option>
+            </select>
+            <select class="form-select mt-1" id="create-level">
+                <option value="0">Standard</option>
+                <option value="1">Pro</option>
+            </select>
+            <div class="d-flex mt-2">
+                <button id="btn-create" class="btn btn-primary me-2">Tạo</button>
+                <button id="btn-refresh" class="btn btn-outline-secondary">Làm mới</button>
+            </div>
+        </div>
+
+        <div class="col-8">
+            <div class="row g-2">
+                <div class="col-6">
+                    <div class="fw-light">Kiểm tra key</div>
+                    <div class="d-flex mt-1">
+                        <input id="check-key" class="form-control" placeholder="Nhập key để kiểm tra">
+                        <button id="btn-check" class="btn btn-outline-primary ms-2">Kiểm tra</button>
+                    </div>
+                    <div id="check-result" class="mt-2 small text-muted"></div>
+                </div>
+
+                <div class="col-6">
+                    <div class="fw-light">(Validation available via API)</div>
+                    <div class="mt-1 small text-muted">Validation is available through the user API endpoint and not exposed in this admin UI.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="d-flex align-items-center justify-content-between mb-2">
+        <div class="fw-light">Danh sách license keys</div>
+        <div class="d-flex align-items-center">
+            <input id="filter-key" class="form-control d-inline-block me-2" style="width:200px" placeholder="Tìm kiếm key (không được backend)">
+            <select id="filter-type" class="form-select d-inline-block me-2" style="width:180px">
+                <option value="0">FlowVeoAutoTool</option>
+            </select>
+            <select id="filter-status" class="form-select d-inline-block me-2" style="width:160px">
+                <option value="">Tất cả trạng thái</option>
+                <option value="0">Pending</option>
+                <option value="1">Active</option>
+                <option value="2">Revoked</option>
+            </select>
+            <select id="filter-level" class="form-select d-inline-block me-2" style="width:140px">
+                <option value="">Tất cả cấp</option>
+                <option value="0">Normal</option>
+                <option value="1">Pro</option>
+            </select>
+            <button id="btn-search" class="btn btn-outline-secondary ms-2">Tìm</button>
+        </div>
+    </div>
+
+    <table class="table table-striped" id="keys-table">
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>Tên</th>
+                <th>Trạng thái</th>
+                <th>Ngày tạo</th>
+                <th>LifeDays</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <nav>
+        <ul class="pagination" id="paging"></ul>
+    </nav>
+</div>
+
+@section Scripts {
+    <script asp-append-version="true">
+    const apiRoot = '/licensekeys';
+        let currentPage = 1;
+
+        $(document).ready(() => {
+            loadKeys();
+
+            $('#btn-refresh').click(e => { e.preventDefault(); loadKeys(); });
+
+            $('#btn-create').click(async e => {
+                e.preventDefault();
+                // Use PascalCase keys to match server DTO naming (case-insensitive binding exists,
+                // but keep PascalCase for clarity)
+                const payload = {
+                    count: parseInt($('#create-count').val() || 1),
+                    lifeDays: parseInt($('#create-lifeDays').val() || 30),
+                    type: parseInt($('#create-type').val()),
+                    level: parseInt($('#create-level').val())
+                };
+                postJsonData(`${apiRoot}/create`, payload, res => {
+                    if (res.succeeded) {
+                        showMess('Tạo keys thành công', true);
+                        loadKeys();
+                    } else showMess(res.message || 'Tạo thất bại', false);
+                });
+            });
+
+            $('#btn-check').click(e => {
+                e.preventDefault();
+                const key = $('#check-key').val();
+                getData(`${apiRoot}/check?key=${key}`, res => {
+                    if (res.succeeded) {
+                        const d = res.data;
+                        $('#check-result').text(`Hạn: ${d.remainingDays}, Type: ${d.type}, Status: ${d.status}, Level: ${d.level}, LifeDays: ${d.lifeDays}, HardwareId: ${d.hardwareId || ''}`);
+                    } else {
+                        $('#check-result').text(res.message || 'Không tìm thấy');
+                    }
+                });
+            });
+
+            $('#btn-validate').click(e => {
+                e.preventDefault();
+                const key = $('#validate-key').val();
+                const hw = $('#validate-hw').val();
+                postJsonData(`${apiRoot}/validate`, { key, hardwareId: hw }, res => {
+                    if (res.succeeded) {
+                        $('#validate-result').text(`Remaining: ${res.data} (hh:mm:ss)`);
+                    } else $('#validate-result').text(res.message || 'Validate failed');
+                });
+            });
+
+            $('#btn-search').click(e => { e.preventDefault(); currentPage = 1; loadKeys(); });
+        });
+
+        function renderPaging(meta) {
+            const paging = $('#paging');
+            paging.empty();
+            for (let i = 1; i <= meta.totalPages; i++) {
+                const li = $(`<li class="page-item ${i===meta.page? 'active':''}"><a class="page-link" href="#">${i}</a></li>`);
+                li.click(e => { e.preventDefault(); currentPage = i; loadKeys(); });
+                paging.append(li);
+            }
+        }
+
+        async function loadKeys() {
+            // Build filter matching GetListLicenseKeyFilter : PagingRequestDto (PageIndex, PageSize) + Type/Status/Level
+            const pageIndex = currentPage
+            const  pageSize = 20
+            const type = $('#filter-type').val()
+            const status = $('#filter-status').val()
+            const level = $('#filter-level').val()
+        
+            await getData(
+                `${apiRoot}?pageIndex=${pageIndex}&pageSize=${pageSize}&type=${type}&status=${status}&level=${level}`, res => {
+                if (!res.succeeded) { showMess(res.message || 'Lỗi khi tải danh sách', false); return; }
+                const rows = $('#keys-table tbody'); rows.empty();
+                // PaginatedDto<T> is serialized with PascalCase (no camel policy), so use Items
+                (res.data.items || []).forEach(k => {
+                    const tr = $(`<tr>
+                        <td>${k.key}</td>
+                        <td>${k.name || ''}</td>
+                        <td>${k.status}</td>
+                        <td>${k.createdAt}</td>
+                        <td>${k.lifeDays}</td>
+                        <td>
+                            <button class="btn btn-sm btn-danger btn-revoke" data-id="${k.id}">Thu hồi</button>
+                            <button class="btn btn-sm btn-secondary btn-add" data-id="${k.id}">Gia hạn</button>
+                            <button class="btn btn-sm btn-outline-primary btn-copy" data-key="${k.key}">Sao chép</button>
+                        </td>
+                    </tr>`);
+                    tr.find('.btn-revoke').click(function (ev) {
+                        const id = $(this).data('id') || k.id;
+                        showConfirm('Bạn muốn thu hồi key này?', async () => {
+                            postJsonData(`${apiRoot}/revoke`, { Id: id }, r => {
+                                if (r.succeeded) { showMess('Thu hồi thành công', true); loadKeys(); }
+                                else showMess(r.message || 'Thu hồi thất bại', false);
+                            });
+                        });
+                    });
+                    tr.find('.btn-add').click(function () {
+                        const days = prompt('Nhập số ngày muốn thêm', '30');
+                        if (!days) return;
+                        postJsonData(`${apiRoot}/add-expiry`, { Id: k.id, AddDays: parseInt(days) }, r => {
+                            if (r.succeeded) { showMess('Gia hạn thành công', true); loadKeys(); }
+                            else showMess(r.message || 'Gia hạn thất bại', false);
+                        });
+                    });
+                    tr.find('.btn-copy').click(() => {
+                        copyToClipboard(k.key);
+                    });
+                    rows.append(tr);
+                });
+                // Use PaginatedDto shape: PageIndex, PageSize, TotalPages
+                renderPaging({ totalPages: res.data.TotalPages || 1, page: (res.data.PageIndex || currentPage) });
+            });
+        }
+    </script>
+}

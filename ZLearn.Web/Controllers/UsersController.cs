@@ -33,6 +33,15 @@ namespace ZLearn.Web.Controllers
             });
             return View(profile);
         }
+
+        [HttpGet("license-keys")]
+        [Authorize(Policy = "OnlyAdmin")]
+        public IActionResult LicenseKeys()
+        {
+            // Admin UI page for managing license keys
+            // View will call API endpoints to perform actions
+            return View();
+        }
         
     }
 }

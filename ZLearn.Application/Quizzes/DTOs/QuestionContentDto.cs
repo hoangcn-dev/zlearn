@@ -7,6 +7,7 @@ namespace ZLearn.Application.Quizzes.DTOs
         public string Id { get; set; }
         public string QuizId { get; set; }
         public string QuizName { get; set; }
+        public string QuizSlug { get; set; }
         public int Order { get; set; }
         public string Slug { get; set; }
         public int AttemptCount { get; set; }

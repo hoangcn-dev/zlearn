@@ -7,6 +7,7 @@
         public string Name { get; set; }
         public string CategoryId { get; set; }
         public string CategoryName { get; set; }
+        public string CategorySLug { get; set; }
         public int QuestionCount { get; set; }
         public int AttemptCount { get; set; }
         public int DownloadCount { get; set; }

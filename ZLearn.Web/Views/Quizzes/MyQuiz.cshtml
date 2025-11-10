@@ -6,6 +6,12 @@
 @{
     ViewBag.Title = "Đề đã tạo";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
+    
+    ViewBag.Breadcrumbs = new List<(string Text, string Url)>
+    {
+        ("Trang chủ", "/"),
+        ("Đề đã tạo", "")
+    };
 }
 
 <div id="myquiz">

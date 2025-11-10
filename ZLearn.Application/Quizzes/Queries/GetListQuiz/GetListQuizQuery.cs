@@ -7,5 +7,6 @@ namespace ZLearn.Application.Quizzes.Queries.GetListQuiz
     {
         public string? Name { get; set; }
         public string? CategorySlug { get; set; }
+        public string? ExcludeId { get; set; }
     }
 }

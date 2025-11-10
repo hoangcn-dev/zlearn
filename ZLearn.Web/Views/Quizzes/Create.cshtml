@@ -2,6 +2,13 @@
     ViewBag.Title = "Tạo mới";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
     ViewBag.ShowLeftOptions = false;
+    
+    ViewBag.Breadcrumbs = new List<(string Text, string Url)>
+    {
+        ("Trang chủ", "/"),
+        ("Đề đã tạo", "/de-trac-nghiem/de-da-tao"),
+        ("Tạo đề mới", "")
+    };
 }
 
 <div id="update">

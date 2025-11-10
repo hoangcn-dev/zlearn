@@ -4,6 +4,12 @@
 @{
     ViewBag.Title = "Danh sách bài kiểm tra";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
+    
+    ViewBag.Breadcrumbs = new List<(string Text, string Url)>
+    {
+        ("Trang chủ", "/"),
+        ("Bài kiểm tra", "")
+    };
 }
 
 <!-- Top action -->

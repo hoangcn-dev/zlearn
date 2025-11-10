@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Folder Include="Files\Queries\" />
+    <Folder Include="LicenseKeys\Queries\" />
   </ItemGroup>
 
 </Project>

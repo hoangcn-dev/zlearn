@@ -44,6 +44,7 @@ namespace ZLearn.Application.Quizzes.Queries.GetQuizDetail
                     Slug = q.Slug,
                     AttemptCount = 0,
                     CategoryId = q.CategoryId,
+                    CategorySLug = q.Category.Slug,
                     CategoryName = q.Category.Name,
                     QuestionCount = q.Questions.Count,
                     Questions = q.Questions.Select(q => new QuestionListItemDto
@@ -54,7 +55,7 @@ namespace ZLearn.Application.Quizzes.Queries.GetQuizDetail
                         Content = q.StringContent ?? "Nội dung media",
                     }).OrderBy(q => q.Order).ToList()
                 })
-                ?? throw new NotFoundException(nameof(Quiz), request.Id);
+                ?? throw new NotFoundException(nameof(Quiz));
             return quiz;
         }
     }

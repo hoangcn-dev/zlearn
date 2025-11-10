@@ -4,6 +4,17 @@
 @{
     ViewData["Title"] = $"{Model.QuizName}: {Model.StringContent}";
     ViewBag.MetaDescription = $"Câu hỏi trắc nghiệm số {Model.Order} trong đề thi {Model.QuizName}. Nội dung: {Model.StringContent}";
+    ViewBag.Keywords = $"{Model.QuizName}, câu hỏi {Model.Order}, trắc nghiệm, đề thi";
+    ViewBag.OgType = "article";
+    
+    // Set up breadcrumbs
+    ViewBag.Breadcrumbs = new List<(string Text, string Url)>
+    {
+        ("Trang chủ", "/"),
+        ("Danh mục đề trắc nghiệm", "/danh-muc-trac-nghiem"),
+        (Model.QuizName, $"/de-trac-nghiem/{Model.QuizSlug}"),
+        ($"Câu {Model.Order}", "")
+    };
 }
 
 <div class="container">
@@ -13,7 +24,7 @@
         </div>
 
         <div class="col-3">
-            <div class="card card-body shadow-sm overflow-hidden bg-with-image">
+            <div class="card card-body shadow-sm bg-with-image" style="position: sticky; top: 20px; max-height: 70vh; overflow-y: auto;">
                 <!-- Title -->
                 <h6 id="quizName" class="border-bottom pb-3 mb-3"></h6>
                 <div id="questionMap" class="d-flex flex-wrap justify-content-start">
@@ -57,7 +68,7 @@
                     @foreach (var item in Model.ImageUrls)
                     {
                         <div class="col-6">
-                            <img src="@item" alt="" class="shadow-sm w-100 media-size" onclick="previewMediaFile('@item')">
+                            <img src="@item" loading="lazy" alt="Hình ảnh câu hỏi @Model.Order - @Model.QuizName" class="shadow-sm w-100 media-size" onclick="previewMediaFile('@item')">
                         </div>
                     }
                     <!-- Video -->
@@ -85,7 +96,7 @@
                                 @foreach (var url in item.ImageUrls)
                                 {
                                     <div class="col-4">
-                                        <img src="@url" alt="" class="shadow-sm w-100 object-fit-contain" height="200">
+                                        <img src="@url" loading="lazy" alt="Đáp án @item.Label - Câu hỏi @Model.Order" class="shadow-sm w-100 object-fit-contain" height="200">
                                     </div>
                                 }
                             </div>
@@ -112,7 +123,8 @@
 {
     <script asp-append-version="true">
         let params = new URLSearchParams(window.location.search);
-        let qId = "@Model.QuizId";
+        let quizId = "@Model.QuizId";
+        let questionId = "@Model.Id";
         let currentOrder = @Model.Order;
         let questionMap = [];
         let isAnsSelected = false;
@@ -124,9 +136,10 @@
                 $(this).addClass('selected-answer')
                 $('.ans').removeClass('highlight-hover')
                 isAnsSelected = true;
-                getData(`/quizzes/questions/${qId}/correct-key`, res => {
-                    const correctDiv = $(`.ans[data-key="${res.correctKey}"]`)
-                    const message = res.correctKey == $(this).data('key')?
+                getData(`/quizzes/questions/${questionId}/correct-key`, res => {
+                    const data = res.data || res; // Handle both wrapped and unwrapped response
+                    const correctDiv = $(`.ans[data-key="${data.correctKey}"]`)
+                    const message = data.correctKey == $(this).data('key')?
                         '<span class="fw-bold" style="color: var(--success-color);"><i class="fa-solid fa-check"></i> Bạn đã chọn đúng</span>':
                         '<span class="fw-bold" style="color: var(--error-color);"><i class="fa-solid fa-xmark"></i> Bạn đã chọn sai</span>'
 
@@ -138,7 +151,7 @@
                             <!-- Explaination -->
                             <span class="fw-light my-2"><i class="fa-solid fa-lightbulb text-warning"></i> Giải thích</span>
                             <div class="card card-body fw-light mb-2 fst-italic">
-                                ${res.explanation}
+                                ${data.explanation}
                             </div>
                         </div>
                     `);
@@ -205,7 +218,7 @@
                 const res = response.data;
 
                 // Update status
-                qId = res.id;
+                questionId = res.id;
                 currentOrder = res.order;
                 isAnsSelected = false;
 
@@ -265,10 +278,10 @@
                         $(this).addClass('selected-answer')
                         $('.ans').removeClass('highlight-hover')
                         isAnsSelected = true;
-                        getData(`/quizzes/questions/${qId}/correct-key`, res => {
-                            res = res.data;
-                            const correctDiv = $(`.ans[data-key="${res.correctKey}"]`)
-                            const message = res.correctKey == $(this).data('key')?
+                        getData(`/quizzes/questions/${questionId}/correct-key`, res => {
+                            const data = res.data || res; // Handle both wrapped and unwrapped response
+                            const correctDiv = $(`.ans[data-key="${data.correctKey}"]`)
+                            const message = data.correctKey == $(this).data('key')?
                                 '<span class="fw-bold" style="color: var(--success-color);"><i class="fa-solid fa-check"></i> Bạn đã chọn đúng</span>':
                                 '<span class="fw-bold" style="color: var(--error-color);"><i class="fa-solid fa-xmark"></i> Bạn đã chọn sai</span>'
 
@@ -280,7 +293,7 @@
                                     <!-- Explaination -->
                                     <span class="fw-light my-2"><i class="fa-solid fa-lightbulb text-warning"></i> Giải thích</span>
                                     <div class="card card-body fw-light mb-2 fst-italic">
-                                        ${res.explanation}
+                                        ${data.explanation}
                                     </div>
                                 </div>
                             `);

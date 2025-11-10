@@ -24,6 +24,7 @@ using ZLearn.Application.Common.Services;
 using ZLearn.Application.Common.Utils;
 using ZLearn.Application.Exams;
 using ZLearn.Application.Files;
+using ZLearn.Application.LicenseKeys;
 using ZLearn.Application.Logs;
 using ZLearn.Application.Quizzes;
 using ZLearn.Application.Realtime;
@@ -56,6 +57,7 @@ namespace ZLearn.Infras
             builder.Services.AddScoped<IQuizRepo, QuizRepo>();
             builder.Services.AddScoped<IQuestionRepo, QuestionRepo>();
             builder.Services.AddScoped<IAccessHistoryRepo, AccessHistoryRepo>();
+            builder.Services.AddScoped<ILicenseKeyRepo, LicenseKeyRepo>();
             builder.Services.AddScoped<IExamRepo, ExamRepo>();
             builder.Services.AddDbContext<AppDbContext>((sp, options) =>
             {

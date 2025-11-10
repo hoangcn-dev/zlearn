@@ -16,5 +16,14 @@ namespace ZLearn.Infras.Data.Repositories
                 .SumAsync(a => a.AccessCount);
             return count;
         }
+
+        public async Task<long> GetAccessCountThisMonth()
+        {
+            var startOfMonth = new DateOnly(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1);
+            var count = await _context.Set<AccessHistory>()
+                .Where(a => a.Day >= startOfMonth)
+                .SumAsync(a => a.AccessCount);
+            return count;
+        }
     }
 }

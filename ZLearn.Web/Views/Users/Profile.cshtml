@@ -4,6 +4,13 @@
 @{
     ViewData["Title"] = "Thông tin tài khoản";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
+    
+    ViewBag.Breadcrumbs = new List<(string Text, string Url)>
+    {
+        ("Trang chủ", "/"),
+        ("Tài khoản", "/tai-khoan"),
+        ("Thông tin cá nhân", "")
+    };
 }
 
 <div class="row g-3">

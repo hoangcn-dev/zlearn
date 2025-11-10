@@ -1,5 +1,12 @@
 ﻿@{
     ViewBag.Title = "Tạo bài kiểm tra mới";
+    
+    ViewBag.Breadcrumbs = new List<(string Text, string Url)>
+    {
+        ("Trang chủ", "/"),
+        ("Bài kiểm tra", "/bai-kiem-tra"),
+        ("Tạo bài kiểm tra mới", "")
+    };
 }
 
 <div id="main-content" class="container-fluid px-4">
