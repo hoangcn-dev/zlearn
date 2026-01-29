@@ -1,12 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 using ZLearn.Application.Categories.Queries.GetAllCateSlugs;
 using ZLearn.Application.Quizzes.Queries.GetAllQuestionSlugs;
 using ZLearn.Application.Quizzes.Queries.GetAllQuizSlugs;
-using ZLearn.Web.Models;
 
 namespace ZLearn.Web.Controllers
 {
@@ -42,6 +39,12 @@ namespace ZLearn.Web.Controllers
         public IActionResult Unauthorized([FromQuery] string returnUrl)
         {
             return View(model: returnUrl);
+        }
+
+        [Route("gioi-thieu")]
+        public IActionResult About()
+        {
+            return View();
         }
 
         [Route("/sitemap.xml")]

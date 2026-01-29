@@ -106,6 +106,7 @@ namespace ZLearn.Application.Common.Utils
             }
             string seo = "";
             source = source.ToLower();
+            source = source.Replace("-", " ");
             for (int i = 0; i < source.Length; i++)
             {
                 if (map.TryGetValue(source[i], out char val))

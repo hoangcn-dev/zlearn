@@ -6,7 +6,7 @@ Disallow: /de-trac-nghiem/tao-moi
 Disallow: /de-trac-nghiem/cap-nhat-de
 Disallow: /de-trac-nghiem/de-da-tao
 
-Sitemap: https://zlearn.hoangcn.com/sitemap.xml
+Sitemap: https://learn.hoangcn.com/sitemap.xml
 
 # Crawl-delay for polite crawling
 Crawl-delay: 1

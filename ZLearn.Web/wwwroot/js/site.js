@@ -47,6 +47,8 @@ async function callApi(url, method, contentType = 'application/json; charset=utf
             },
             error: error => {
                 if (error.status === 403) {
+                    debugger
+                    console.log(error);
                     removeSessionData();
                     window.location.href = "/forbidden";
                 }

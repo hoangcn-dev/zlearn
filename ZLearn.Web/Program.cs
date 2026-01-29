@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 using ZLearn.Application;
 using ZLearn.Domain.Exceptions;
 using ZLearn.Infras;
@@ -38,7 +37,6 @@ namespace ZLearn.Web
             builder.AddPostgreSQLDataServices();
             builder.AddCloudinaryService();
             builder.AddDatabaseBackupService();
-            // builder.AddAccessTrackingService(); // Disabled: Changed to monthly count instead of realtime
             builder.AddFileCleanupService();
             builder.AddRealtimeServices(); // Keep this for ExamHub
             builder.AddLogService();
@@ -81,7 +79,6 @@ namespace ZLearn.Web
             app.UseRouting();
             app.UseAuthentication();
             app.UseLogMiddleware();
-            // app.UseAccessTracking();
             app.UseExamTracking();
             app.UseAuthorization();
             app.MapControllerRoute(

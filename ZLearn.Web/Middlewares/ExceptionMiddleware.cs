@@ -39,12 +39,12 @@ namespace ZLearn.Web.Middlewares
                     }
                     else
                     {
-                        await context.Response.WriteAsync("ALogin to continue.");
+                        await context.Response.WriteAsync("Login to continue.");
                     }
                 }
                 catch (ForbiddenException ex)
                 {
-                    _logger.LogError(ex, "Forbidden.");
+                    _logger.LogError(ex, "Forbidden: " + ex.Message);
                     context.Response.Redirect($"/forbidden");
                 }
                 catch (RedirectException ex)

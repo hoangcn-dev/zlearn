@@ -3,6 +3,7 @@ using ZLearn.Application.Common.Commands;
 using ZLearn.Application.Common.DTOs;
 using ZLearn.Application.Files;
 using ZLearn.Domain.Entities;
+using ZLearn.Domain.Enums;
 
 namespace ZLearn.Application.Quizzes.Commands.Delete
 {
@@ -25,6 +26,18 @@ namespace ZLearn.Application.Quizzes.Commands.Delete
                 if (!await _quizRepo.Any(q => q.CreatedBy == request.OwnerId)) continue;
                 var quiz = await _quizRepo.GetFullQuizContent(id);
                 if (quiz is null) continue;
+
+                // Check if quiz has any ongoing exams (WaitStart or InProgress)
+                var hasOngoingExams = quiz.Exams.Any(e => 
+                    e.Status == ExamStatus.WaitStart || 
+                    e.Status == ExamStatus.InProgress);
+                
+                if (hasOngoingExams)
+                {
+                    throw new BadRequestException(
+                        $"Không thể xóa đề '{quiz.Name}' vì còn bài kiểm tra đang diễn ra hoặc chưa bắt đầu. " +
+                        "Vui lòng kết thúc tất cả các bài kiểm tra trước khi xóa.");
+                }
 
                 // Remove media files associated with the quiz
                 var fileIdsToRemove = new List<string>();

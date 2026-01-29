@@ -74,7 +74,7 @@ namespace ZLearn.Infras.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_ExamParticipant_ExamId",
                 table: "ExamParticipant",
-                column: "Alias");
+                column: "ExamId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

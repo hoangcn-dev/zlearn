@@ -14,7 +14,7 @@ namespace ZLearn.Infras.Data.Configurations
             builder.HasOne(e => e.Quiz)
                 .WithMany(q => q.Exams)
                 .HasForeignKey(e => e.QuizId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade); // Allow cascade delete when quiz is deleted
             builder.HasIndex(e => e.Alias).IsUnique();
         }
     }

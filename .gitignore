@@ -499,3 +499,5 @@ redis.conf
 docker-compose.yaml
 docker-compose.db.yaml
 nginx.conf
+
+*.tar
