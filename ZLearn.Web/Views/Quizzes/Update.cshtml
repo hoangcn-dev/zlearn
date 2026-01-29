@@ -1,0 +1,391 @@
+﻿@{
+    ViewBag.Title = "Cập nhật đề";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    ViewBag.ShowLeftOptions = false;
+    
+    ViewBag.Breadcrumbs = new List<(string Text, string Url)>
+    {
+        ("Trang chủ", "/"),
+        ("Đề đã tạo", "/de-trac-nghiem/de-da-tao"),
+        ("Cập nhật đề", "")
+    };
+}
+
+<div id="update">
+    <!-- Top action -->
+    <div class="d-flex mb-3">
+        <button class="btn bg-white me-2 border highlight-hover" onclick="window.history.back()"><i class="fa-solid fa-arrow-left"></i> Quay lại danh sách</button>
+    </div>
+
+    <!-- Update content -->
+    <div class="row g-3">
+        <div class="col-2 fw-light" style="min-height: 30px;">ID</div>
+        <div id="id" class="col-10 fw-bold">QUI1SHXC23JK</div>
+
+        <div class="col-2 fw-light" style="min-height: 30px;">Tên</div>
+        <div class="col-10"><input name="quizName" type="text" class="form-control" placeholder="Tên đề"></div>
+
+        <div class="col-2 fw-light" style="min-height: 30px;">Nhãn</div>
+        <div class="col-10"><input name="slug" type="text" class="form-control" placeholder="Nhãn rút gọn"></div>
+
+        <div class="col-2 fw-light" style="min-height: 30px;">Danh mục</div>
+        <div class="col-10">
+            <select id="category" class="form-select w-auto">
+            </select>
+        </div>
+
+        <div class="col-2 fw-light" style="min-height: 30px;">Tags</div>
+        <div class="col-10">
+            <div class="d-flex mb-2">
+                <div id="tags" class="d-flex flex-row"></div>
+                <button class="btn btn-sm bg-white border highlight-hover fw-light" onclick="showAddTagDialog()"><i class="fa-solid fa-plus"></i> Thêm tag</button>
+            </div>
+        </div>
+
+        <div class="col-2 fw-light" style="min-height: 30px;">Câu hỏi</div>
+        <div class="col-10">
+            <div class="card card-body px-3 py-2 d-flex flex-row mb-2 shadow-sm align-items-center position-sticky" style="top: 20px; z-index: 1;">
+                <div id="questionCount">0 Câu hỏi</div>
+                <div class="flex-fill"></div>
+                <i class="fa-solid fa-share opacity-hover me-2" title="Dịch tới câu hỏi"></i>
+                <i class="fa-solid fa-plus opacity-hover me-2" title="Thêm câu hỏi" onclick="addQuestion()"></i>
+                <i class="fa-solid fa-floppy-disk opacity-hover" title="Lưu thay đổi" onclick="update()"></i>
+            </div>
+
+            <div id="questions" class="pt-5"></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script asp-append-version="true">
+        const id = new URLSearchParams(window.location.search).get('id');
+        const tags = [];
+        if (id == null) window.location.href = '/error';
+
+        $(document).ready(async function () {
+            // Get categories
+            getData(`/quizzes/categories`, res => {
+                res = res.data;
+                $('#category').empty();
+                $('#category').append(`<option value="">Tất cả danh mục</option>`);
+                res.forEach(c => {
+                    $('#category').append(`<option value="${c.id}">${c.name}</option>`);
+                });
+            }, false);
+
+            // Get all tags
+            await  getData(`/quizzes/tags`, res => {
+                res = res.data;
+                res.forEach(t => tags.push(t));
+            }, false);
+
+            // Get data
+            await getData(`/quizzes/${id}`, res => {
+                res = res.data;
+                $('#id').text(res.id);
+                $('input[name="quizName"]').val(res.name);
+                $('input[name="slug"]').val(res.slug);
+                $('#category').val(res.categoryId);
+                res.tags.forEach(e => addTag(e));
+                res.questions.forEach((q, qIndex) => {
+                    addQuestion(q);
+                    q.answers.forEach((a, aIndex) => {
+                        addAnswer(qIndex, aIndex, a);
+                    })
+                });
+            });
+        });
+    </script>
+
+    <script asp-append-version="true">
+        const questions = [];
+
+        function base64ToFile(base64String, fileName, mimeType='application/octet-stream') {
+            const base64Data = base64String.split(',')[1] || base64String;
+            // Base64 to bytes
+            const byteCharacters = atob(base64Data);
+            const byteNumbers = new Array(byteCharacters.length);
+            for (let i = 0; i < byteCharacters.length; i++) {
+                byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            const byteArray = new Uint8Array(byteNumbers);
+            const blob = new Blob([byteArray], { type: mimeType });
+            return new File([blob], fileName, { type: mimeType });
+        }
+
+        async function update() {
+            showConfirm(
+                "Xác nhận cập nhật?",
+                async () => {
+
+                    var updateData = {
+                        name: $('input[name="quizName"]').val(),
+                        categoryId: $('#category').val(),
+                        slug: $('input[name="slug"]').val(),
+                        tags: $('#tags').find('.tag-name').map(function() { return $(this).text(); }).get(),
+                        questions: questions
+                    }
+                    await saveMediaFile();
+                    pustJsonData(`/quizzes/${id}`, updateData, res => {
+                        console.log(res);
+                        if (res.succeeded)
+                            showMess("Cập nhật đề thành công!");
+                    });
+                }
+            );
+        }
+
+        async function saveMediaFile() {
+            const files = [];
+            $('.file-name').each(function() {
+                const url = $(this).attr('data-url');
+                if (url.startsWith('data:')) {
+                    const file = base64ToFile(url, $(this).text());
+                    files.push(file);
+                }
+            });
+
+            if (files.length == 0) return Promise.resolve();
+            var res = await saveFiles(files);
+            const fileDic = {};
+            res.data.files.forEach(e => fileDic[e.fileName] = e.sourceUrl);
+            questions.forEach(q => {
+                for (let i = 0; i < q.mediaFileUrls.length; i++) {
+                    const fileId = q.mediaFileUrls[i];
+                    if (fileId in fileDic) {
+                        q.mediaFileUrls[i] = fileDic[fileId];
+                    }
+                }
+                q.answers.forEach(a => {
+                    for (let i = 0; i < a.mediaFileUrls.length; i++) {
+                        const fileId = a.mediaFileUrls[i];
+                        if (fileId in fileDic) {
+                            a.mediaFileUrls[i] = fileDic[fileId];
+                        }
+                    }
+                });
+            });
+
+            $('.file-name').each(function() {
+                const filename = $(this).text();
+                if (filename in fileDic) {
+                    $(this).attr('data-url', fileDic[filename]);
+                }
+            });
+
+            return Promise.resolve();
+        }
+
+        function addQuestion(q = {
+                stringContent: '',
+                mediaFileUrls: [],
+                correctKey: 0,
+                order: questions.length + 1,
+                answers: [],
+                explanation: '',
+                isRemoved: false
+            }) {
+            const qIndex = questions.length;
+            questions.push(q);
+
+            const qDiv = $(`
+                <div id="${qIndex}" class="d-flex mb-2 flex-column mb-4">
+                    <!-- Content -->
+                    <div class="d-flex w-100 mb-2">
+                        <span class="fw-bold" style="width: 30px;">${qIndex + 1}</span>
+                        <textarea class="stringContent form-control" placeholder="Nội dung câu hỏi">${q.stringContent}</textarea>
+                    </div>
+
+                    <!-- Question Media -->
+                    <div class="d-flex flex-row flex-wrap qFiles" style="margin-left: 30px;"></div>
+                    <div class="d-flex mb-2" style="margin-left: 30px;">
+                        <button class="addQFile btn btn-sm bg-white me-2 border highlight-hover fw-light"><i class="fa-solid fa-photo-film"></i> Thêm ảnh/video/audio</button>
+                    </div>
+
+                    <div class="answers"></div
+
+                    <!-- Select correct ans -->
+                    <div class="d-flex w-100 fw-light mb-2" style="padding-left: 30px;">
+                        <div class="me-3">Đáp án đúng: </div>
+                        <div class="answerKeySelect d-flex flex-row"></div>
+                    </div>
+
+                    <div class="d-flex w-100 align-items-center mb-2" style="padding-left: 30px;">
+                        <textarea class="form-control explanation" placeholder="Giải thích">${q.explanation || ''}</textarea>
+                    </div>
+                    <div class="d-flex w-100 justify-content-center">
+                        <button class="removeQuestion btn btn-sm bg-white border highlight-hover fw-light me-2"><i class="fa-solid fa-trash text-danger"></i> Xóa câu hỏi</button>
+                        <button class="addAnswer btn btn-sm bg-white border highlight-hover fw-light"><i class="fa-solid fa-plus"></i> Thêm câu trả lời</button>
+                    </div>
+                </div>
+            `);
+            qDiv.find('.stringContent').on('change', function() {
+                questions[qIndex].stringContent = $(this).val();
+            });
+            qDiv.find('.explanation').on('change', function() {
+                questions[qIndex].explanation = $(this).val();
+            });
+            $('#questions').on('change', `input[name="${qIndex}_correctKey"]`, function() {
+                questions[qIndex].correctKey = $(this).val();
+            });
+
+
+            // Action
+            qDiv.find('button.removeQuestion').click(() => {
+                qDiv.html(`
+                    <div class="fst-italic text-center fw-light">Đã xóa câu ${q.order}</div>
+                `);
+                q.isRemoved = true;
+                $('#questionCount').text(`${questions.filter(e => !e.isRemoved).length} Câu hỏi`);
+            });
+
+            // Question media
+            q.mediaFileUrls.forEach(e => qDiv.find('.qFiles').append(getFileTag(getFileName(e), e)));
+            qDiv.find('button.addQFile').click(() => addMediaFile(`#${qIndex} .qFiles`, "image/*,video/*,audio/*", qIndex, -1));
+
+            // Answers
+            q.answers.forEach(e => addAnswer(qIndex, null, e));
+            qDiv.find('button.addAnswer').click(() => {
+                const aIndex = questions[qIndex].answers.length;
+                const a = { key: aIndex+1, stringContent: '', mediaFileUrls: [] };
+                questions[qIndex].answers.push(a);
+                addAnswer(qIndex, aIndex, a);
+            });
+
+            const container = $('#questions');
+            if (questions.length > 1) container.append(`<hr class="my-5">`);
+            container.append(qDiv);
+
+            $('#questionCount').text(`${questions.filter(e => !e.isRemoved).length} Câu hỏi`);
+        }
+
+        function addAnswer(qIndex, aIndex, a) {
+            a.key = aIndex + 1;
+            const aTag = `${String.fromCharCode('A'.charCodeAt(0) + aIndex)}`;
+            const answer = $(`
+                <div class="${aIndex} d-flex flex-column">
+                    <div class="d-flex w-100 align-items-center mb-2">
+                        <span class="fw-light align-content-center" style="width: 30px; height: 30px;">${aTag}</span>
+                        <input class="form-control ms-1" placeholder="Nội dung câu trả lời ${aTag}" value="${a.stringContent}"/>
+                        <button class="addAFile btn btn-sm border bg-white ms-2 flex-shrink-0 highlight-hover"><i class="fa-solid fa-images"></i> Thêm ảnh</button>
+                        <button class="removeAnswer btn btn-sm border bg-white ms-2 flex-shrink-0 highlight-hover"><i class="fa-solid fa-trash text-danger"></i></button>
+                    </div>
+                    <div class="d-flex flex-row aFiles mb-2" style="margin-left: 30px;"></div>
+                </div>
+            `);
+            a.mediaFileUrls.forEach(e => answer.find(`.aFiles`).append(getFileTag(getFileName(e), e)));
+            answer.find(`input`).change(() => questions[qIndex].answers[aIndex].stringContent = answer.find(`input`).val());
+            answer.find(`button.addAFile`).click(() => addMediaFile(`#${qIndex} .${aIndex} .aFiles`, 'image/*', qIndex, aIndex));
+            answer.find(`button.removeAnswer`).click(() => {
+                $(`#${qIndex} .answers`).empty();
+                $(`#${qIndex} .answerKeySelect`).empty();
+                questions[qIndex].answers.splice(aIndex, 1);
+                questions[qIndex].answers.forEach((e, i) => {
+                    e.key = i+1;
+                    addAnswer(qIndex, i, e);
+                });
+            });
+            $(`#${qIndex} .answers`).append(answer);
+            const radio = $(`
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="${qIndex}_correctKey" value="${aIndex + 1}" ${aIndex + 1 == questions[qIndex].correctKey? 'checked':''}>
+                    <label class="form-check-label">${aTag}</label>
+                </div>
+            `);
+            $(`#${qIndex} .answerKeySelect`).append(radio);
+        }
+
+        function getFileTag(filename, fileurl) {
+            const fileTag = $(`
+                <span class="bg-white border px-2 py-1 d-flex flex-row align-items-center me-2 mb-2 highlight-hover">
+                    <div class="me-1 file-name" data-url="${fileurl}">${filename}</div>
+                    <i class="fa-solid fa-xmark opacity-hover"></i>
+                </span>
+            `);
+            fileTag.find('i').click(function (e) {
+                e.stopPropagation();
+                fileTag.remove();
+            });
+            fileTag.click(() => previewMediaFile(fileurl));
+            return fileTag;
+        }
+
+        function getFileName(path) {
+            path = path.split('?')[0].split('#')[0];
+            const parts = path.replace(/\\/g, '/').split('/');
+            return parts.pop() || '';
+        }
+
+        function addMediaFile(containerSelector, accept, questionIndex, answerIndex = -1) {
+            const input = document.createElement('input');
+            input.setAttribute('type', 'file');
+            input.hidden = true;
+            input.setAttribute('accept', accept);
+            input.onchange = e => {
+                const files = input.files;
+                for(let f of files) {
+                    const fileReader = new FileReader();
+                    fileReader.onload = () => {
+                        const url = fileReader.result;
+                        const fileTag = getFileTag(f.name, url);
+                        $(containerSelector).append(fileTag);
+
+                        if (answerIndex == -1) {
+                            questions[questionIndex].mediaFileUrls.push(f.name);
+                        } else {
+                            questions[questionIndex].answers[answerIndex].mediaFileUrls.push(f.name);
+                        }
+                    }
+                    fileReader.readAsDataURL(f);
+                }
+                input.remove();
+            }
+            $('body').append(input);
+            input.click();
+        }
+
+        function addTag(newTag) {
+            if ($('#tags .name').filter((i, el) => $(el).text() === newTag).length > 0) {
+                showMess('Tag đã tồn tại!', false);
+                return;
+            }
+            const tagItem = $(`
+                <span class="bg-white border px-2 py-1 d-flex flex-row align-items-center me-2 highlight-hover">
+                    <div class="me-1 tag-name">${newTag}</div>
+                    <i class="fa-solid fa-xmark opacity-hover"></i>
+                </span>
+            `);
+            tagItem.find('i').click(() => tagItem.remove());
+            $('#tags').append(tagItem);
+        }
+
+        function showAddTagDialog() {
+            const dialog = $(`
+                <div class="vh-100 vw-100 position-fixed top-0 start-0 bg-secondary bg-opacity-50" style="z-index: 100;">
+                    <div class="position-absolute start-50 translate-middle-x bg-white text-dark p-2" style="margin-top: 100px;  width: 500px;">
+                        <div class="d-flex flex-column align-items-center w-100">
+                            <div class="btn-close position-absolute end-0 top-0 m-1 opacity-hover" onclick="$('#confirm-dialog').hide()"></div>
+                            <input id="tag-input" type="text" class="form-control my-3 mt-4" placeholder="Nhập tag mới">
+                            <button class="btn-confirm fw-light border text-white shadow-sm p-1 px-2 opacity-hover" style="background-color: var(--main-color); width: 100px;">
+                                <i class="fa-solid fa-check me-1"></i>Xác nhận
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `);
+            dialog.find('.btn-close').click(() => dialog.remove());
+            dialog.find('.btn-confirm').click(() => {
+                const newTag = dialog.find('input').val();
+                addTag(newTag);
+                dialog.remove();
+            });
+            $('body').append(dialog);
+        }
+    </script>
+}
+
+@section Styles {
+
+}
+

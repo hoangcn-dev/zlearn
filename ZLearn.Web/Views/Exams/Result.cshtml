@@ -1,0 +1,25 @@
+﻿@using ZLearn.Application.Exams.DTOs
+@model ParticipantResultDto
+@{
+    ViewData["Title"] = "Kết quả bài thi";
+    var totalSeconds = (long)(Model.LastCheckOut - Model.FirstCheckIn).TotalSeconds;
+}
+
+<div id="main-content" class="container-fluid px-4">
+    <div class="row g-2">
+        <div class="col-8 offset-2">
+
+            <h1 class="mb-4">Bạn đã hoàn thành bài thi !</h1>
+            <h5 class="fw-light">Xếp hạng: <b class="fw-bold">@Model.Rank/@Model.ParticipantsCount</b></h5>
+            <h5 class="fw-light">Tỉ lệ đúng: <b class="fw-bold">@Model.CorrectCount/@Model.QuestionsCount</b></h5>
+            <h5 class="fw-light">Tỉ lệ hoàn thành: <b class="fw-bold">@Model.CompletedCount/@Model.QuestionsCount</b></h5>
+            <h5 class="fw-light">Thời gian làm bài: <b class="fw-bold">@(totalSeconds / 60) phút @(totalSeconds % 60) giây</b></h5>
+            <h5 class="fw-light">Điểm của bạn: <b class="fw-bold">@Model.Score</b></h5>
+
+            <div class="d-flex my-4">
+                <a href="/" class="btn border opacity-hover text-light me-2" style="background-color: var(--main-color);"><i class="fa-solid fa-house me-1"></i> Về trang chủ</a>
+                <a asp-action="DetailAnswer" class="btn border opacity-hover text-light disabled" style="background-color: var(--main-color);"><i class="fa-solid fa-bars"></i> Xem đáp án chi tiết</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,148 @@
+﻿@using ZLearn.Application.Auth.DTOs
+@model UserDetailDto
+
+@{
+    ViewData["Title"] = "Thông tin tài khoản";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    
+    ViewBag.Breadcrumbs = new List<(string Text, string Url)>
+    {
+        ("Trang chủ", "/"),
+        ("Tài khoản", "/tai-khoan"),
+        ("Thông tin cá nhân", "")
+    };
+}
+
+<div class="row g-3">
+    <div class="col-3">
+        <div id="profile-img" class="position-relative mx-auto" style="width: fit-content;">
+            <img src="@Model.ImagePath" alt="" width="200" height="200" class="rounded-pill border border-1 shadow-sm object-fit-cover">
+            <button id="changeImageButton" class="position-absolute start-50 top-50 translate-middle fw-light border bg-white shadow-sm p-1 px-2 opacity-hover">
+                <input type="file" name="image" hidden accept="image/*">
+                <i class="fa-solid fa-upload"></i> Đổi ảnh
+            </button>
+        </div>
+        <div class="text-center mt-2 fw-light">Ảnh đại diện</div>
+    </div>
+    <div class="col-9">
+        <div class="row g-2">
+            <div class="col-2 fw-light" style="min-height: 40px;">Tên tài khoản:</div>
+            <div class="col-9">
+                @Model.UserName
+            </div>
+
+            <div class="col-2 fw-light" style="min-height: 40px;">Tên:</div>
+            <div class="col-9">
+                <input type="text" name="firstName" class="form-control" value="@Model.FirstName">
+            </div>
+
+            <div class="col-2 fw-light" style="min-height: 40px;">Họ đệm:</div>
+            <div class="col-9">
+                <input type="text" name="lastName" class="form-control" value="@Model.LastName">
+            </div>
+
+            <div class="col-2 fw-light" style="min-height: 40px;">Tên ẩn danh:</div>
+            <div class="col-9">
+                <input type="text" name="nickName" class="form-control" value="@Model.NickName">
+            </div>
+
+            <div class="col-2 fw-light" style="min-height: 40px;">Hiển thị tên ẩn danh:</div>
+            <div class="col-9">
+                <input type="checkbox" name="isShowNickName" class="form-check-input" value="@Model.IsShowNickName">
+            </div>
+
+            <div class="col-2 fw-light" style="min-height: 40px;">Quyền:</div>
+            <div class="col-9">
+                @string.Join(",", Model.Roles)
+            </div>
+
+            <div class="col-2 fw-light" style="min-height: 40px;">Email:</div>
+            <div class="col-9">
+                <div class="d-flex align-items-center">
+                    <div>@Model.Email</div>
+                    <button class="ms-3 fw-light border bg-white shadow-sm p-1 px-2 highlight-hover"><i class="fa-solid fa-circle-check" style="color: var(--success-color)"></i> Xác thực Email</button>
+                </div>
+            </div>
+
+            <div class="col-2 fw-light" style="min-height: 40px;">Số điện thoại:</div>
+            <div class="col-9">
+                <input type="text" name="phoneNumber" class="form-control" value="@Model.PhoneNumber">
+            </div>
+
+            <div class="col-12">
+                <div class="d-flex align-items-center justify-content-center mt-3">
+                    <button id="btnSave" type="submit" class="fw-light border text-white shadow-sm p-1 px-2 opacity-hover" style="background-color: var(--main-color)">
+                        <i class="fa-solid fa-floppy-disk me-1"></i>Lưu thay đổi
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script asp-append-version="true">
+        let imageFile = null;
+
+        $(document).ready(() => {
+            // Config load file
+            $('#changeImageButton input').on('click', function(e) {
+                e.stopPropagation();
+            });
+            $('#changeImageButton input').on('change', function(e) {
+                const file = e.target.files[0];
+                const fileReader = new FileReader();
+                fileReader.onload = () => {
+                    $('#profile-img img').attr('src', fileReader.result);
+                    imageFile = file;
+                }
+                fileReader.readAsDataURL(file);
+            });
+            $('#changeImageButton').on('click', e => {
+                e.preventDefault();
+                $('#changeImageButton input').click();
+            });
+
+            // On save
+            $('#btnSave').on('click', async function(e) {
+                e.preventDefault();
+                const updateData = {};
+                updateData['firstName'] = $('input[name=firstName]').val();
+                updateData['lastName'] = $('input[name=lastName]').val();
+                updateData['nickName'] = $('input[name=nickName]').val();
+                updateData['isShowNickName'] = $('input[name=isShowNickName]').prop('checked');
+                updateData['phoneNumber'] = $('input[name=phoneNumber]').val();
+                if (imageFile != null) {
+                    const res = await saveFiles([imageFile]);
+                    updateData['imageUrl'] = res.data.files[0].sourceUrl;
+                }
+
+                postJsonData('/auth/user-profile', updateData, res => {
+
+                }, true);
+            });
+        });
+
+
+    </script>
+}
+
+@section Styles {
+    <style>
+        #profile-img button {
+            opacity: 0.2;
+            background: transparent;
+        }
+
+        #profile-img:hover {
+            img {
+                box-shadow: 0px 0px 5px var(--main-color) !important;
+            }
+            button {
+                opacity: 1 !important;
+                background: white;
+            }
+        }
+    </style>
+}

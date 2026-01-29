@@ -1,0 +1,52 @@
+@model ZLearn.Application.Quizzes.DTOs.QuestionContentDto
+
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "Question",
+    "name": "Câu @Model.Order: @(Model.StringContent ?? "Câu hỏi trắc nghiệm")",
+    "text": "@(Model.StringContent ?? "Câu hỏi trắc nghiệm")",
+    "acceptedAnswer": {
+        "@@type": "Answer",
+        "text": "Đáp án được ẩn để người dùng tự trả lời"
+    },
+    "eduQuestionType": "Multiple choice",
+    "inLanguage": "vi",
+    "isPartOf": {
+        "@@type": "Quiz",
+        "name": "@Model.QuizName"
+    }
+}
+</script>
+
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@@type": "ListItem",
+            "position": 1,
+            "name": "Trang chủ",
+            "item": "@Context.Request.Scheme://@Context.Request.Host/"
+        },
+        {
+            "@@type": "ListItem",
+            "position": 2,
+            "name": "Đề trắc nghiệm",
+            "item": "@Context.Request.Scheme://@Context.Request.Host/de-trac-nghiem"
+        },
+        {
+            "@@type": "ListItem",
+            "position": 3,
+            "name": "@Model.QuizName",
+            "item": "@Context.Request.Scheme://@Context.Request.Host/de-trac-nghiem/@Model.QuizSlug"
+        },
+        {
+            "@@type": "ListItem",
+            "position": 4,
+            "name": "Câu @Model.Order"
+        }
+    ]
+}
+</script>

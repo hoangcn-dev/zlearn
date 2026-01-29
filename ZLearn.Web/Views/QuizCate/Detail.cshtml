@@ -1,0 +1,36 @@
+﻿@using ZLearn.Application.Categories.DTOs
+@using ZLearn.Application.Common.DTOs
+@using ZLearn.Application.Quizzes.DTOs
+@model (CateDetailDto, PaginatedDto<QuizListItemDto>)
+@{
+    ViewData["Title"] = $"{Model.Item1.Name}";
+    ViewBag.MetaDescription = $"{Model.Item1.Description}";
+}
+
+<div class="container">
+    <div class="d-flex mb-3">
+        <button onclick="window.history.back()" class="border bg-white shadow-sm p-1 px-2 highlight-hover"><i class="fa-solid fa-chevron-left"></i> Về trang chủ</button>
+        <select name="" id="" class="form-select w-auto shadow-sm fw-light ms-2">
+            <option value="">Mới nhất</option>
+            @* <option value="">Tải xuống nhiều nhất</option>
+            <option value="">Làm nhiều nhất</option> *@
+        </select>
+    </div>
+
+    <div class="d-flex flex-wrap">
+
+        @foreach (var item in Model.Item2.Items)
+        {
+            <a asp-action="Detail" asp-route-slug="@item.Slug" asp-controller="Quizzes" class="text-decoration-none d-flex flex-column mb-2 highlight-hover bg-white px-3 py-2 shadow-sm rounded-1 border-1 border me-2">
+                <div class="fw-bold mb-1 fs-5" style="color: var(--main-color);">@item.Name</div>
+                <div class="d-flex align-items-center" style="font-size: 12px;">
+                    <div><i class="fa-solid fa-bars" style="color: var(--secondary-color);"></i> @item.QuestionCount <span class="opacity-50">Câu hỏi</span></div>
+                    <div class="mx-1">|</div>
+                    <div><i class="fa-solid fa-fire text-danger"></i> @item.AttemptCount <span class="opacity-50">Lượt làm</span></div>
+                    <div class="mx-1">|</div>
+                    <div><i class="fa-solid fa-download text-success"></i> 0 <span class="opacity-50">Tải xuống</span></div>
+                </div>
+            </a>
+        }
+    </div>
+</div>

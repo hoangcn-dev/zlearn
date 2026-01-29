@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="icon" type="image/x-icon" href="logo.ico"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Top bar -->
+    <section>
+        <div class="w-100" style="background-color: var(--main-color)">
+            <div class="container py-2">
+                <div class="d-flex align-items-center">
+                    <!-- Banner -->
+                    <a href="#"><img src="banner-light.png" alt="" height="50"></a>
+
+                    <!-- Search -->
+                    <div class="d-flex ms-5 flex-fill">
+                        <div class="position-relative ms-3 w-75">
+                            <input type="text" class="rounded-1 w-100 border-0 ps-3 py-1" style="padding-right: 30px;" placeholder="Tìm kiếm theo tên đề, tên danh mục, tags, ...">
+                            <i title="Tìm kiếm" class="opacity-hover fa-solid fa-magnifying-glass position-absolute end-0 top-50 translate-middle-y me-2"></i>
+                        </div>
+                    </div>
+
+                    <!-- Status -->
+                    <i class="fa-solid fa-bell text-white opacity-hover" title="Thông báo"></i>
+
+                    <div class="d-flex ms-3 align-items-center">
+                        <!-- LogedIn -->
+                        <!-- <img src="" alt="" width="36" height="36" class="rounded-pill">
+                        <div class="d-flex flex-column mx-2">
+                            <div class="fw-light text-white">B22DCCN589</div>
+                            <div class="fw-bold" style="font-size: 11px; color: var(--secondary-color)">Admin</div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down fs-6 text-white opacity-hover"></i> -->
+
+                        <!-- Login -->
+                        <div class="fw-bold opacity-hover" style="font-size: 16px; color: var(--secondary-color)" onclick="document.getElementById('login-dialog').hidden = false">Đăng nhập</div>
+                        <div id="login-dialog" hidden class="vw-100 vh-100 bg-secondary position-fixed top-0 start-0 bg-opacity-50" style="z-index: 1;">
+                            <div class="text-center position-absolute bg-white translate-middle-x start-50 top-0 rounded-1 p-4" style="width: 400px; margin-top: 100px; box-shadow: 0px 0px 10px #bcbcbc;">
+                                <button class="btn-close position-absolute end-0 top-0 m-1" onclick="document.getElementById('login-dialog').hidden = true"></button>
+                                <h3 class="text-center mb-1 fw-bold">ZLEARN</h3>
+                                <p class="fw-light">Vui lòng đăng nhập để tiếp tục</p>
+                                <img class="mb-4" src="logo-light-blue.png" alt="" srcset="" width="100">
+                                <a class="btn btn-dark d-flex justify-content-center w-100 align-items-center border-0 opacity-hover" style="background-color: var(--main-color);">
+                                    <div class="fw-light align-content-center">Đăng nhập với Google</div>
+                                    <svg class="ms-1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <section>
+        <div class="w-100 shadow-sm">
+            <div class="container">
+                <div id="navigation-tab" class="d-flex justify-content-between fw-bold">
+                    <div class="flex-fill mx-1 text-center nav-tab selected">Đề thi trắc nghiệm</div>
+                    <div class="flex-fill mx-1 text-center nav-tab">Tài liệu</div>
+                    <div class="flex-fill mx-1 text-center nav-tab">Cộng đồng</div>
+                    <div class="flex-fill mx-1 text-center nav-tab">Tutorials</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section>
+        <div class="vh-100 mt-5">
+            <div class="container">
+                <div class="row g-3">
+
+                    <div class="col-3">
+                        <div class="card card-body shadow-sm overflow-hidden highlight-hover bg-with-image" style="height: 200px; background-image: url(test.jpg);">
+                            <!-- Title -->
+                            <div class="content position-absolute align-content-center bg-black text-light start-0 w-100 top-50 translate-middle-y p-3
+                            text-center" style="opacity: 0.5; transition: opacity 0.6s ease;">
+                                <!-- Name -->
+                                <div class="max-3-lines fw-bold name" style="font-size: 18px;">Đề trắc nghiệm</div>
+                                <!-- Stat -->
+                                <div class="d-flex justify-content-center" style="font-size: 12px;">
+                                    <div ><i class="fa-solid fa-list me-1"></i>32 Đề</div>
+                                    <div class="mx-1">|</div>
+                                    <div ><i class="fa-solid fa-fire me-1"></i>32.345 Lượt làm</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section>
+        <div class="w-100 text-white" style="background-color: var(--main-color);">
+            <div class="container pt-5">
+                <div class="row g-3">
+
+                    <!-- Intro -->
+                    <div class="col-4">
+                        <a href="#"><img src="banner-light.png" alt="" height="50"></a>
+                        <p class="mt-2 fw-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. A perferendis similique voluptas officiis doloribus dolores, consectetur, magni assumenda cupiditate illum dolorum optio sit. Excepturi commodi, impedit fugiat a nam quasi?</p>
+                        <div class="d-flex">
+                            <i class="fa-brands fa-facebook me-2 opacity-hover" title="Facebook"></i>
+                            <i class="fa-brands fa-instagram me-2 opacity-hover"></i>
+                            <i class="fa-brands fa-twitter me-2 opacity-hover"></i>
+                            <i class="fa-brands fa-youtube me-2 opacity-hover"></i>
+                        </div>
+                    </div>
+
+                    <!-- Products -->
+                    <div class="col-4">
+                        <h5 class="mb-3">Websites</h5>
+                        <div class="d-flex flex-column">
+                            <a href="" class="text-decoration-none text-light opacity-hover mb-2 fw-light">Giới thiệu</a>
+                            <a href="" class="text-decoration-none text-light opacity-hover mb-2 fw-light">ZTools - Công cụ hỗ trợ chuyển đổi và tải xuống</a>
+                            <a href="" class="text-decoration-none text-light opacity-hover mb-2 fw-light">ZBlog - Chia sẻ kiến thức và tin tức</a>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-4">
+                        <h5 class="mb-3">Tương tác</h5>
+                        <div class="d-flex flex-column">
+                            <div class="text-light fw-light mb-1">Đăng kí nhận thông báo qua email</div>
+                            <input type="email" placeholder="Email của bạn" class="px-2 py-1 border-0 mb-2">
+                            <button class="border-0 text-white py-1" style="background-color: var(--secondary-color);">Đăng kí</button>
+                        </div>
+                        
+                        <h5 class="mb-3 mt-4">Liên hệ</h5>
+                        <div class="d-flex flex-column">
+                            <a href="" class="text-decoration-none text-light opacity-hover mb-2 fw-light">
+                                <i class="fa-solid fa-envelope me-2"></i>hoangcn.dev@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <!-- Copyright -->
+                    <div class="col-12">
+                        <p class="text-center border-top pt-2">&copy; Copyright 2024, All Rights Reserved by HoangCN - Version 1.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading -->
+    <div id="loader-container" class="position-absolute start-50 top-0 translate-middle bg-white rounded-pill shadow-sm" style="margin-top: 100px; height: 36px; width: 36px; padding: 6px;">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Message -->
+    <!-- <div id="msg" class="position-fixed start-50 top-0 translate-middle-x shadow-sm" style="margin-top: 100px; z-index: 1;">
+        <div class="d-flex bg-white align-items-center px-2 py-1">
+            <i class="fa-solid fa-triangle-exclamation" style="color: red;"></i>
+            <div class="mx-2" style="font-size: 14px;">Đây là thông báo</div>
+            <i class="fa-solid fa-xmark ms-1 text-secondary opacity-hover close-btn" ></i>
+        </div>
+    </div> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script>
+        // $(document).ready(() => {
+        //     $("#msg").hide()
+        //     $("#msg").slideDown(500);
+        //     setTimeout(() => {
+        //         $("#msg").fadeOut();
+        //     }, 3000);
+        //     $("#msg .close-btn").click(() => {
+        //         $("#msg").slideUp(500);
+        //     });
+        // });
+
+        function showMess(msg, isSuccess = true) {
+            const iconHtml = isSuccess
+                ? '<i class="fa-solid fa-circle-check" style="color: rgb(0, 183, 43);"></i>'
+                : '<i class="fa-solid fa-triangle-exclamation" style="color: red;"></i>';
+            const uniqueId = `msg-${Date.now()}`;
+            const div = $(`
+                <div id="${uniqueId}" class="position-fixed start-50 top-0 translate-middle-x shadow-sm" style="margin-top: 80px; z-index: 1;">
+                    <div class="d-flex bg-white align-items-center px-2 py-1">
+                        ${iconHtml}
+                        <div class="mx-2" style="font-size: 14px;">${msg}</div>
+                        <i class="fa-solid fa-xmark ms-1 text-secondary opacity-hover close-btn"></i>
+                    </div>
+                </div>
+            `);
+            $('body').append(div);
+            div.hide();
+            div.slideDown(500);
+            setTimeout(() => {
+                div.fadeOut(500, () => div.remove());
+            }, 3000);
+            div.find('.close-btn').click(() => {
+                div.slideUp(500, () => {
+                    div.remove();
+                });
+            });
+        }
+
+        showMess("OKkk", false)
+    </script>
+</body>
+</html>

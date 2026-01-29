@@ -1,0 +1,165 @@
+﻿@using ZLearn.Application.Exams.DTOs
+@using ZLearn.Infras.External.SignalR
+
+@model WaitExamInfoDto
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<div id="main-content" class="container-fluid px-4">
+    <div class="row g-2">
+
+        <div class="col-6 offset-3">
+            <div class="card card-body shadow-sm px-4">
+                <div class="d-inline-flex mb-2">
+                    <h3>@Model.Name</h3>
+                    <div class="flex-fill"></div>
+                    <div><i class="fa-solid fa-clock me-2"></i>@Model.StartTime.ToLocalTime().ToString("HH:mm") - @(Model.EndTime.HasValue? Model.EndTime.Value.ToLocalTime().ToString("HH:mm") : Html.Raw("<i class=\"fa-solid fa-infinity\"></i>"))</div>
+                </div>
+                <div class="d-inline-flex mb-1">
+                    <h6 class="fw-light me-2">Mã đề: </h6>
+                    <h6 class="fs-6 me-3">@Model.Id <i class="fa-solid fa-copy text-secondary opacity-hover"  onclick="copyToClipboard('@Model.Id', 'Đã sao chép mã bài kiểm tra')"></i></h6>
+                </div>
+                <div class="d-inline-flex align-items-center mb-2">
+                    <h6 class="fw-light flex-nowrap text-nowrap mb-0">Link tham gia:</h6>
+                    <div class="input-group ms-2">
+                        <input type="text" class="form-control" disabled value="@Model.JoinUrl">
+                        <button class="btn btn-outline-secondary btn-sm" onclick="copyToClipboard('@Model.JoinUrl')" type="button">Sao chép</button>
+                        <button class="btn btn-outline-secondary btn-sm" onclick="showQRCode('@Model.JoinUrl')" type="button">QR Code</button>
+                    </div>
+                </div>
+                <div class="d-flex mb-2 align-items-center mb-2">
+                    <h6 class="fw-light me-2 mb-0 flex-shrink-0 align-self-start py-1">Quy định & nhắc nhở:</h6>
+                    <b>@Model.Note</b>
+                </div>
+                <div id="status"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script asp-append-version="true">
+        let timestamp = 0;
+        let countdown_sub_id = null;
+
+        $(document).ready(() => {
+            // Load data
+            getData(`/exams/participant-info?alias=@Model.Alias`, res => {
+                if (!res.succeeded) {
+                    $('#status').html(`
+                    
+                        @if (Model.RequireJoinWithCode)
+                        {
+                            <div class="d-flex mb-2 align-items-center mb-2">
+                                <h6 class="fw-light me-3 mb-0 flex-shrink-0">Mã tham gia:</h6>
+                                <input type="text" name="code" class="form-control" placeholder="VD: B22DCCN599">
+                            </div>
+                        }
+
+                        @if (Model.RequireJoinWithName)
+                        {
+                            <div class="d-flex mb-2 align-items-center mb-2">
+                                <h6 class="fw-light me-3 mb-0 flex-shrink-0">Tên hiển thị:</h6>
+                                <input type="text" name="name" class="form-control" placeholder="VD: Nguyễn Văn Nam">
+                            </div>
+                        }
+
+                        @if (Model.RequirePassword)
+                        {
+                            <div class="d-flex mb-2 align-items-center mb-2">
+                                <h6 class="fw-light me-3 mb-0 flex-shrink-0">Mật khẩu truy cập:</h6>
+                                <input type="password" class="form-control" name="password" >
+                            </div>
+                        }
+
+                        <div class="d-flex justify-content-center">
+                            <button onclick="join()" class="opacity-hover btn border shadow-sm text-white mt-2 px-5" style="background-color: var(--main-color);">Tham gia</button>
+                        </div>
+                    `);
+                } else {
+                    // Socket
+                    const connection = new signalR.HubConnectionBuilder()
+                        .withUrl("@ExamHub.HUB_URL" + "?examId=@Model.Id", { withCredentials: true })
+                        .build();
+                    connection.onclose(err => {
+                        showMess('Disconnected! Please try reload the page to reconnect.', false)
+                        console.error("Disconnected:", err.toString());
+                    });
+                    connection.on('ExamStatusChange', (status) => {
+                        if (status == 'InProgress') {
+                            $('#countdown-label').remove();
+                            $('#countdown').remove();
+                            clearInterval(countdown_sub_id);
+                            $('#btnStart button').prop('disabled', false);
+                            
+                        }
+                    });
+                    connection.on('Connected', (mess) => showMess(mess, true));
+                    window.addEventListener("beforeunload", async () => {
+                        await connection.stop();
+                    });
+                    connection.start();
+
+                    // Update UI
+                    $('#status').html(`
+                        <hr>
+                        <h5 class="fst-italic mb-2 text-center mt-2">${res.data.participantCode? "[" + res.data.participantCode +"]":""} ${res.data.participantName}</h5>
+                        <div id="countdown" class="align-self-center text-center my-2 fs-1 fw-bolder">-- giờ -- phút -- giây</div>
+                        <div id="btnStart" class="d-flex justify-content-center">
+                            <button class="opacity-hover btn border shadow-sm text-white mt-2 px-5" ${res.data.examStatus == 'WaitStart'? 'disabled':''} style="background-color: var(--main-color);">Bắt đầu làm bài</button>
+                        </div>
+                    `);
+                    $('#btnStart button').on('click', () => window.location.replace('/bai-kiem-tra/content?alias=@Model.Alias'));
+                    timestamp = res.data.startTime;
+                    startCountdown();
+                }
+            });
+        });
+
+        function join() {
+            const joinInfo = {
+                examId: "@Model.Id",
+                participantName: $('input[name="name"]').val() ?? null,
+                participantCode: $('input[name="code"]').val() ?? null,
+                password: $('input[name="password"]').val() ?? null,
+            }
+            if ('@Model.RequireJoinWithCode' == 'True' && !joinInfo.participantCode)
+            {
+                showMess('Vui lòng nhập mã tham gia!', false);
+                return;
+            }
+            if ('@Model.RequireJoinWithName' == 'True' && !joinInfo.participantName)
+            {
+                showMess('Vui lòng nhập tên tham gia!', false);
+                return;
+            }
+            if ('@Model.RequirePassword' == 'True' && !joinInfo.password)
+            {
+                showMess('Vui lòng nhập mật khẩu!', false);
+                return;
+            }
+
+            postJsonData('/exams/join', joinInfo, res => {
+                if (res.succeeded) {
+                    window.location.reload();
+                }
+            });
+        }
+
+        function startCountdown() {
+            countdown_sub_id = setInterval(() => {
+                const sec = getSecondsBetween(new Date(), timestamp);
+                if (sec <= 0) {
+                    $('#countdown').text('--');
+                    clearInterval(countdown_sub_id);
+                    return;
+                }
+                const h = Math.floor(sec / 3600);
+                const m = Math.floor((sec % 3600) / 60);
+                const s = sec % 60;
+                $('#countdown').text(`${h} giờ ${m} phút ${s} giây`);
+            }, 1000);
+        }
+    </script>
+}

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="icon" type="image/x-icon" href="logo.ico"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Top bar -->
+    <section>
+        <div class="w-100" style="background-color: var(--main-color)">
+            <div class="container py-2">
+                <div class="d-flex align-items-center">
+                    <!-- Banner -->
+                    <a href="#"><img src="banner-light.png" alt="" height="50"></a>
+
+                    <!-- Search -->
+                    <div class="d-flex ms-5 flex-fill">
+                        <div class="position-relative ms-3 w-75">
+                            <input type="text" class="rounded-1 w-100 border-0 ps-3 py-1" style="padding-right: 30px;" placeholder="Tìm kiếm theo tên đề, tên danh mục, tags, ...">
+                            <i title="Tìm kiếm" class="opacity-hover fa-solid fa-magnifying-glass position-absolute end-0 top-50 translate-middle-y me-2"></i>
+                        </div>
+                    </div>
+
+                    <!-- Status -->
+                    <i class="fa-solid fa-bell text-white opacity-hover" title="Thông báo"></i>
+
+                    <div class="d-flex ms-3 align-items-center">
+                        <!-- LoggedIn -->
+                        <img src="" alt="" width="36" height="36" class="rounded-pill">
+                        <div class="d-flex flex-column mx-2">
+                            <div class="fw-light text-white">B22DCCN589</div>
+                            <div class="fw-bold" style="font-size: 11px; color: var(--secondary-color)">Admin</div>
+                        </div>
+                        <div class="dropdown">
+                            <i class="fa-solid fa-chevron-down fs-6 text-white opacity-hover" data-bs-toggle="dropdown"></i>
+                            <div id="account-actions" class="dropdown-menu rounded-0">
+                                <a class="dropdown-item"><i class="fa-solid fa-user me-1"></i> Thông tin tài khoản</a>
+                                <hr class="dropdown-divider">
+                                <a class="dropdown-item" onclick="sign_out()"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i> Đăng xuất</a>
+                            </div>
+                        </div>
+
+                        <!-- Login -->
+                        <!-- <div class="fw-bold opacity-hover" style="font-size: 16px; color: var(--secondary-color)" onclick="document.getElementById('login-dialog').hidden = false">Đăng nhập</div>
+                        <div id="login-dialog" hidden class="vw-100 vh-100 bg-secondary position-fixed top-0 start-0 bg-opacity-50" style="z-index: 1;">
+                            <div class="text-center position-absolute bg-white translate-middle-x start-50 top-0 rounded-1 p-4" style="width: 400px; margin-top: 100px; box-shadow: 0px 0px 10px #bcbcbc;">
+                                <button class="btn-close position-absolute end-0 top-0 m-1" onclick="document.getElementById('login-dialog').hidden = true"></button>
+                                <h3 class="text-center mb-1 fw-bold">ZLEARN</h3>
+                                <p class="fw-light">Vui lòng đăng nhập để tiếp tục</p>
+                                <img class="mb-4" src="logo-light-blue.png" alt="" srcset="" width="100">
+                                <a class="btn btn-dark d-flex justify-content-center w-100 align-items-center border-0 opacity-hover" style="background-color: var(--main-color);">
+                                    <div class="fw-light align-content-center">Đăng nhập với Google</div>
+                                    <svg class="ms-1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
+                                </a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section>
+        <div class=" mt-5" style="min-height: 100vh;">
+            <div id="main-content" class="container-fluid px-4">
+                <div class="row g-2">
+                    <div class="col-9">
+                        <div class="card card-body shadow-sm">
+                            <div class="d-inline-flex mb-2">
+                                <h3>Đề thi giữa kì 2</h3>
+                                <div class="flex-fill"></div>
+                                <div class="gray-tag">Chưa bắt đầu</div>
+                            </div>
+
+                            <div class="d-inline-flex mb-1">
+                                <h6 class="me-2 fw-light">Bắt đầu: </h6>
+                                <h6 class="fw-bolder me-4 text-info">20:19:30 29/05/2026</h6>
+                                <h6 class="fw-light me-2">Kết thúc: </h6>
+                                <h6 class="fw-bolder me-2 text-info"><i class="fa-solid fa-infinity"></i></h6>
+                            </div>
+                            <div class="d-inline-flex align-items-center mb-2">
+                                <h6 class="fw-light flex-nowrap text-nowrap mb-0">Link tham gia:</h6>
+                                <div class="input-group ms-2">
+                                    <input type="text" class="form-control" disabled value="https://www.facebook.com/share/p/173n4799Hc/">
+                                    <button class="btn btn-outline-secondary btn-sm" type="button">Sao chép</button>
+                                    <button class="btn btn-outline-secondary btn-sm" type="button">QR Code</button>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-2 align-items-center mb-2">
+                                <h6 class="fw-light me-2 mb-0">Mật khẩu:</h6>
+                                <b class="fs-6">CQHT456YW <i class="fa-solid fa-copy text-secondary opacity-hover"></i></b>
+                            </div>
+                            <div class="d-flex fw-light mt-1">
+                                <div class="form-check form-check-inline me-3">
+                                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" value="option1" checked>
+                                    <label class="form-check-label" for="inlineRadio1">Chặn tham gia</label>
+                                </div>
+                                <div class="form-check form-check-inline me-3">
+                                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions" value="option1" checked>
+                                    <label class="form-check-label" for="inlineRadio1">Hiển thị điểm và đáp án </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="card card-body h-100 shadow-sm"> 
+                            <h5 class="fw-light mb-0">Bài kiểm tra bắt đầu sau: </h5>
+                            <div id="countdown" class="align-self-center my-2 fs-3 fw-bolder">10 giờ 30 phút 29 giây</div>
+                            <button class="opacity-hover btn border shadow-sm text-white mt-2" style="background-color: var(--main-color);">Bắt đầu ngay</button>
+                            <button class="opacity-hover btn border shadow-sm text-white mt-2" disabled style="background-color: var(--main-color);">Tải xuống kết quả <i class="fa-solid fa-file-arrow-down ms-1"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="card card-body shadow-sm">
+                            <h5 class="mb-3">Trạng thái</h5>
+                            <div class="d-flex flex-column" style="font-size: 14px;">
+                                <span class="border-top py-1"><small class="text-secondary opacity-75">13:55 </small>[B22DCCN589] Hoàng Cao Nguyên đã tham gia</span>
+                                <span class="border-top py-1"><small class="text-secondary opacity-75">13:55 </small> Hoàng Cao Nguyên đã tham gia</span>
+                                <span class="border-top py-1 text-danger"><small class="text-secondary opacity-75">13:55</small> Hoàng Cao Nguyên đã tham gia <i class="fa-solid fa-triangle-exclamation mt-1 float-end"></i></span>
+                                <span class="border-top py-1"><small class="text-secondary opacity-75">13:55 </small> Hoàng Cao Nguyên đã tham gia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-8">
+                        <div class="card card-body shadow-sm">
+                            <h5 class="mb-0">Người tham gia (32/45)</h5>
+
+                            <div class="d-flex align-items-center mt-3 border-top border-bottom p-2">
+                                <div class="col">
+                                    <img src="test.jpg" alt="" width="32" height="32" class="rounded-pill border">
+                                    <small class="ms-2">[B22DCCN589] Hoàng Cao Nguyên</small>
+                                </div>
+                                <div class="col-2">
+                                    <small>Đã làm 0/60</small>
+                                </div>
+                                <div class="col-1">
+                                    <div class="gray-tag w-auto">Đang chờ</div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="d-flex flex-row-reverse">
+                                        <i class="fa-solid fa-ban opacity-hover" title="Xóa khỏi bài kiểm tra (cấm vào lại)"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-6">
+                        <div class="card card-body shadow-sm">
+                            <h5 class="mb-3">Trạng thái hoạt động</h5>
+
+                            <div class="d-flex align-items-center py-1 border-top">
+                                <i class="fa-solid fa-info text-info text-center" style="font-size: 12px; width: 20px;"></i>
+                                <small class="ms-2">Hoàng Cao Nguyên đã tham gia.</small>
+                                <div class="flex-fill"></div>
+                                <small class="fst-italic">12:30 - 12/06/25</small>
+                            </div>
+                            <div class="d-flex align-items-center py-1 border-top">
+                                <i class="fa-solid fa-info text-info text-center" style="font-size: 12px; width: 20px;"></i>
+                                <small class="ms-2">Hoàng Cao Nguyên đã tham gia.</small>
+                                <div class="flex-fill"></div>
+                                <small class="fst-italic">12:30 - 12/06/25</small>
+                            </div>
+                            <div class="d-flex align-items-center py-1 border-top">
+                                <i class="fa-solid fa-info text-info text-center" style="font-size: 12px; width: 20px;"></i>
+                                <small class="ms-2">Hoàng Cao Nguyên đã tham gia.</small>
+                                <div class="flex-fill"></div>
+                                <small class="fst-italic">12:30 - 12/06/25</small>
+                            </div>
+                            <div class="d-flex align-items-center py-1 border-top">
+                                <i class="fa-solid fa-info text-info text-center" style="font-size: 12px; width: 20px;"></i>
+                                <small class="ms-2">Hoàng Cao Nguyên đã tham gia.</small>
+                                <div class="flex-fill"></div>
+                                <small class="fst-italic">12:30 - 12/06/25</small>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section>
+        <div class="w-100 text-white" style="background-color: var(--main-color);">
+            <div class="container pt-5">
+                <div class="row g-3">
+
+                    <!-- Intro -->
+                    <div class="col-4">
+                        <a href="#"><img src="banner-light.png" alt="" height="50"></a>
+                        <p class="mt-2 fw-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. A perferendis similique voluptas officiis doloribus dolores, consectetur, magni assumenda cupiditate illum dolorum optio sit. Excepturi commodi, impedit fugiat a nam quasi?</p>
+                        <div class="d-flex">
+                            <i class="fa-brands fa-facebook me-2 opacity-hover" title="Facebook"></i>
+                            <i class="fa-brands fa-instagram me-2 opacity-hover"></i>
+                            <i class="fa-brands fa-twitter me-2 opacity-hover"></i>
+                            <i class="fa-brands fa-youtube me-2 opacity-hover"></i>
+                        </div>
+                    </div>
+
+                    <!-- Products -->
+                    <div class="col-4">
+                        <h5 class="mb-3">Websites</h5>
+                        <div class="d-flex flex-column">
+                            <a href="" class="text-decoration-none text-light opacity-hover mb-2 fw-light">Giới thiệu</a>
+                            <a href="" class="text-decoration-none text-light opacity-hover mb-2 fw-light">ZTools - Công cụ hỗ trợ chuyển đổi và tải xuống</a>
+                            <a href="" class="text-decoration-none text-light opacity-hover mb-2 fw-light">ZBlog - Chia sẻ kiến thức và tin tức</a>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-4">
+                        <h5 class="mb-3">Tương tác</h5>
+                        <div class="d-flex flex-column">
+                            <div class="text-light fw-light mb-1">Đăng kí nhận thông báo qua email</div>
+                            <input type="email" placeholder="Email của bạn" class="px-2 py-1 border-0 mb-2">
+                            <button class="border-0 text-white py-1" style="background-color: var(--secondary-color);">Đăng kí</button>
+                        </div>
+                        
+                        <h5 class="mb-3 mt-4">Liên hệ</h5>
+                        <div class="d-flex flex-column">
+                            <a href="" class="text-decoration-none text-light opacity-hover mb-2 fw-light">
+                                <i class="fa-solid fa-envelope me-2"></i>hoangcn.dev@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <!-- Copyright -->
+                    <div class="col-12">
+                        <p class="text-center border-top pt-2">&copy; Copyright 2024, All Rights Reserved by HoangCN - Version 1.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js" integrity="sha512-MSOo1aY+3pXCOCdGAYoBZ6YGI0aragoQsg1mKKBHXCYPIWxamwOE7Drh+N5CPgGI5SA9IEKJiPjdfqWFWmZtRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script>
+        let remainingSecond = 1200;
+        $(document).ready(() => {
+            const subId = setInterval(() => {
+                if (remainingSecond == 0) clearInterval(subId);
+                remainingSecond--;
+                const h = Math.floor(remainingSecond / 3600);
+                const m = Math.floor((remainingSecond % 3600) / 60); 
+                const s = remainingSecond % 60;
+                $('#countdown').text(`${h} giờ ${m} phút ${s} giây`);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

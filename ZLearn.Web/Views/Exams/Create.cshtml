@@ -1,0 +1,222 @@
+﻿@{
+    ViewBag.Title = "Tạo bài kiểm tra mới";
+    
+    ViewBag.Breadcrumbs = new List<(string Text, string Url)>
+    {
+        ("Trang chủ", "/"),
+        ("Bài kiểm tra", "/bai-kiem-tra"),
+        ("Tạo bài kiểm tra mới", "")
+    };
+}
+
+<div id="main-content" class="container-fluid px-4">
+    <div class="row g-4">
+        <div class="col-10 offset-1">
+            <h3 class="mb-3">Tạo bài kiểm tra online</h3>
+
+            <!-- Top action -->
+            <div class="d-flex mb-3">
+                <a asp-controller="Exams" asp-action="Index" class="btn bg-white me-2 border highlight-hover"><i class="fa-solid fa-arrow-left"></i> Quay lại danh sách</a>
+            </div>
+
+            <div class="row g-3">
+                <!-- Name -->
+                <div class="col-2 pt-1" style="min-height: 40px;">Tên bài kiểm tra</div>
+                <div class="col-10"><input type="text" name="Name" class="form-control" placeholder="VD: Bài kiểm tra online số 1 ..."></div>
+
+                <!-- Source -->
+                <div class="col-2 pt-1" style="min-height: 40px;">Nguồn câu hỏi</div>
+                <div class="col-10">
+                    <div class="d-flex flex-row align-items-center">
+                        <select id="myQuizList" class="form-select w-auto" name="QuizId"></select>
+                        <h6 class="align-content-center mb-0 ms-3 fw-light">(Lưu ý nguồn câu hỏi sẽ lấy từ đề bạn đã tải lên, nếu chưa tải vui lòng <a asp-action="Create" asp-controller="Quizzes" class="fst-italic text-decoration-none text-info">tạo mới</a>)</h6>
+                    </div>
+                </div>
+
+                <!-- Source config -->
+                <div class="col-2 pt-1" style="min-height: 40px;">Tùy chọn nội dung</div>
+                <div class="col-10 d-inline-flex flex-wrap">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="MixQuestions" checked>
+                        <label class="form-check-label">Đảo câu hỏi</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="MixAnswers">
+                        <label class="form-check-label">Đảo đáp án</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" disabled type="checkbox" name="ShowAnswerAndKey">
+                        <label class="form-check-label">Hiển thị điểm và đáp án khi kết thúc</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="RequireJoinWithCode">
+                        <label class="form-check-label">Yêu cầu mã tham gia</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="RequireJoinWithName">
+                        <label class="form-check-label">Yêu cầu tên tham gia</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="AllowLateSubmit">
+                        <label class="form-check-label">Cho phép nộp muộn</label>
+                    </div>
+                </div>
+
+                <!-- Pass -->
+                <div class="col-2 pt-1" style="min-height: 40px;">Mật khẩu</div>
+                <div class="col-10">
+                    <div class="d-flex flex-row">
+                        <input type="text" class="form-control w-auto" name="Password">
+                        <h6 class="align-content-center mb-0 ms-3 fw-light">(Bỏ trống nếu muốn tất cả mọi người đều có thể truy cập qua link)</h6>
+                    </div>
+                </div>
+
+                <!-- Start time -->
+                <div class="col-2 pt-1" style="min-height: 40px;">Thời gian bắt đầu</div>
+                <div class="col-10">
+                    <div class="d-flex align-items-center" style="min-height: 40px;">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="start-options" value="after-create" checked>
+                            <label class="form-check-label">Ngay sau khi tạo</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="start-options" value="custom">
+                            <label class="form-check-label" >Tùy chỉnh thời điểm</label>
+                        </div>
+                        <input type="hidden" class="form-control w-auto py-1" name="StartTime">
+                    </div>
+                </div>
+
+                <!-- End time -->
+                <div class="col-2 pt-1" style="min-height: 40px;">Thời gian kết thúc</div>
+                <div class="col-10">
+                    <div class="d-flex align-items-center" style="min-height: 40px;">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="end-options" value="infinity" checked>
+                            <label class="form-check-label" for="inlineRadio1">Cho đến khi tôi đóng</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="end-options" value="after30">
+                            <label class="form-check-label" for="inlineRadio1">Sau 30 phút</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="end-options" value="after60">
+                            <label class="form-check-label" for="inlineRadio2">Sau 60 phút</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="end-options" value="after90">
+                            <label class="form-check-label" for="inlineRadio2">Sau 90 phút</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="end-options" value="custom">
+                            <label class="form-check-label" for="inlineRadio2">Tùy chỉnh thời điểm</label>
+                        </div>
+                        <input type="hidden" class="form-control w-auto py-1" name="EndTime">
+                    </div>
+                </div>
+
+                <!-- MaxParticipants -->
+                <div class="col-2 pt-1" style="min-height: 40px;">Số lượng tham gia tối đa</div>
+                <div class="col-10">
+                    <input type="number" class="form-control w-auto" name="MaxParticipants">
+                </div>
+
+                <!-- Note -->
+                <div class="col-2 pt-1" style="min-height: 40px;">Ghi chú</div>
+                <div class="col-10">
+                    <textarea type="number" class="form-control" name="Note"></textarea>
+                </div>
+
+                <div class="col-12 text-center">
+                    <button class="mt-3 btn text-white opacity-hover" onclick="create()" style="background-color: var(--main-color);">Tạo bài kiểm tra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script asp-append-version="true">
+        $(document).ready(() => {
+            // Load my quiz
+            const params = new URLSearchParams({
+                pageIndex: 1,
+                pageSize: 10000,
+                orderBy: 'Name',
+            });
+            $('#viewMore').show();
+            getData('/quizzes/my-quiz?' + params.toString(), res => {
+                $('#myQuizList').empty();
+                res.data.items.forEach(e => {
+                    $('#myQuizList').append(`<option value="${e.id}">${e.name}</option>`);
+                });
+            });
+            // init listener
+            $('input[name="start-options"]').on('change', function() {
+                if ($(this).val() == 'custom') {
+                    $('input[name="StartTime"]').attr('type', 'datetime-local');
+                } else {
+                    $('input[name="StartTime"]').attr('type', 'hidden');
+                }
+            });
+            $('input[name="end-options"]').on('change', function() {
+                if ($(this).val() == 'custom') {
+                    $('input[name="EndTime"]').attr('type', 'datetime-local');
+                } else {
+                    $('input[name="EndTime"]').attr('type', 'hidden');
+                }
+            });
+        });
+
+        async function create() {
+            const exam = {
+                name: $('input[name="Name"]').val(),
+                note: $('textarea[name="Note"]').val(),
+                joinPass: $('input[name="Password"]').val(),
+                quizId: $('select[name="QuizId"]').val(),
+                maxParticipants: $('input[name="MaxParticipants"]').val() || 0,
+                mixQuestions: $('input[name="MixQuestions"]').prop('checked'),
+                mixAnswers: $('input[name="MixAnswers"]').prop('checked'),
+                showAnswerAndKey: $('input[name="ShowAnswerAndKey"]').prop('checked'),
+                requireJoinWithCode: $('input[name="RequireJoinWithCode"]').prop('checked'),
+                requireJoinWithName: $('input[name="RequireJoinWithName"]').prop('checked'),
+                allowLateSubmit: $('input[name="AllowLateSubmit"]').prop('checked'),
+            };
+
+            // Start time
+            const startTimeOptions = $('input[name="start-options"]:checked').val();
+            const start = startTimeOptions === 'after-create' ? new Date() : new Date($('input[name="StartTime"]').val());
+            exam.startTime = start instanceof Date && !isNaN(start) ? start.toISOString() : null;
+
+            // End time
+            const endTimeOptions = $('input[name="end-options"]:checked').val();
+            let end = start instanceof Date && !isNaN(start) ? new Date(start) : null;
+            if (end) {
+                if (endTimeOptions === 'after30') {
+                    end.setMinutes(end.getMinutes() + 30);
+                } else if (endTimeOptions === 'after60') {
+                    end.setMinutes(end.getMinutes() + 60);
+                } else if (endTimeOptions === 'after90') {
+                    end.setMinutes(end.getMinutes() + 90);
+                } else if (endTimeOptions === 'custom') {
+                    end = new Date($('input[name="EndTime"]').val());
+                } else {
+                    end = null;
+                }
+            }
+            exam.endTime = end instanceof Date && !isNaN(end) ? end.toISOString() : null;
+
+            await postJsonData('/exams', exam, res => {
+                if (res.succeeded) {
+                    showMess(res.message);
+                    showLoading();
+                    const subId = setTimeout(() => {
+                        hideLoading();
+                        window.location.href = `/bai-kiem-tra/${res.data.id.toLowerCase()}`;
+                        clearTimeout(subId);
+                    }, 2000);
+                }
+            });
+        }
+    </script>
+}

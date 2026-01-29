@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="icon" type="image/x-icon" href="logo.ico"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Top bar -->
+    <section>
+        <div class="w-100" style="background-color: var(--main-color)">
+            <div class="container py-2">
+                <div class="d-flex align-items-center">
+                    <!-- Banner -->
+                    <a href="#"><img src="banner-light.png" alt="" height="50"></a>
+
+                    <!-- Search -->
+                    <div class="d-flex ms-5 flex-fill">
+                        <div class="position-relative ms-3 w-75">
+                            <input type="text" class="rounded-1 w-100 border-0 ps-3 py-1" style="padding-right: 30px;" placeholder="Tìm kiếm theo tên đề, tên danh mục, tags, ...">
+                            <i title="Tìm kiếm" class="opacity-hover fa-solid fa-magnifying-glass position-absolute end-0 top-50 translate-middle-y me-2"></i>
+                        </div>
+                    </div>
+
+                    <!-- Status -->
+                    <i class="fa-solid fa-bell text-white opacity-hover" title="Thông báo"></i>
+
+                    <div class="d-flex ms-3 align-items-center">
+                        <!-- LoggedIn -->
+                        <img src="" alt="" width="36" height="36" class="rounded-pill">
+                        <div class="d-flex flex-column mx-2">
+                            <div class="fw-light text-white">B22DCCN589</div>
+                            <div class="fw-bold" style="font-size: 11px; color: var(--secondary-color)">Admin</div>
+                        </div>
+                        <div class="dropdown">
+                            <i class="fa-solid fa-chevron-down fs-6 text-white opacity-hover" data-bs-toggle="dropdown"></i>
+                            <div id="account-actions" class="dropdown-menu rounded-0">
+                                <a class="dropdown-item"><i class="fa-solid fa-user me-1"></i> Thông tin tài khoản</a>
+                                <hr class="dropdown-divider">
+                                <a class="dropdown-item" onclick="sign_out()"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i> Đăng xuất</a>
+                            </div>
+                        </div>
+
+                        <!-- Login -->
+                        <!-- <div class="fw-bold opacity-hover" style="font-size: 16px; color: var(--secondary-color)" onclick="document.getElementById('login-dialog').hidden = false">Đăng nhập</div>
+                        <div id="login-dialog" hidden class="vw-100 vh-100 bg-secondary position-fixed top-0 start-0 bg-opacity-50" style="z-index: 1;">
+                            <div class="text-center position-absolute bg-white translate-middle-x start-50 top-0 rounded-1 p-4" style="width: 400px; margin-top: 100px; box-shadow: 0px 0px 10px #bcbcbc;">
+                                <button class="btn-close position-absolute end-0 top-0 m-1" onclick="document.getElementById('login-dialog').hidden = true"></button>
+                                <h3 class="text-center mb-1 fw-bold">ZLEARN</h3>
+                                <p class="fw-light">Vui lòng đăng nhập để tiếp tục</p>
+                                <img class="mb-4" src="logo-light-blue.png" alt="" srcset="" width="100">
+                                <a class="btn btn-dark d-flex justify-content-center w-100 align-items-center border-0 opacity-hover" style="background-color: var(--main-color);">
+                                    <div class="fw-light align-content-center">Đăng nhập với Google</div>
+                                    <svg class="ms-1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
+                                </a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <!-- <section>
+        <div class="w-100 shadow-sm">
+            <div class="container">
+                <div id="navigation-tab" class="d-flex justify-content-between fw-bold">
+                    <div class="flex-fill mx-1 text-center nav-tab selected">Đề thi trắc nghiệm</div>
+                    <div class="flex-fill mx-1 text-center nav-tab">Tài liệu</div>
+                    <div class="flex-fill mx-1 text-center nav-tab">Cộng đồng</div>
+                    <div class="flex-fill mx-1 text-center nav-tab">Tutorials</div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Main Content -->
+    <section>
+        <div class=" mt-5" style="min-height: 100vh;">
+            <div id="main-content" class="container-fluid px-4">
+                <div class="row g-4">
+                    <div class="col-2">
+                        <div class="my-2 fw-bold text-secondary">Tùy chọn</div>
+                        <div class="menu-option card card-body py-2 rounded-0 shadow-sm opacity-hover"> 
+                            Thông tin tài khoản
+                        </div>
+                        <div class="menu-option card card-body py-2 rounded-0 shadow-sm border-top-0 opacity-hover"> 
+                            Quản lý đề trắc nghiệm
+                        </div>
+                        <div class="menu-option card card-body py-2 rounded-0 shadow-sm border-top-0 opacity-hover"> 
+                            Tố cáo
+                        </div>
+                    </div>
+
+                    <div class="col-10">
+                        <!-- Top action -->
+                        <div class="d-flex mb-3">
+                            <button class="btn bg-white me-2 border highlight-hover"><i class="fa-solid fa-arrow-left"></i> Quay lại danh sách</button>
+                        </div>
+
+                        <!-- Update content -->
+                        <div class="row g-3">
+                            <div class="col-2 fw-light" style="min-height: 30px;">ID</div>
+                            <div class="col-10 fw-bold">QUI1SHXC23JK</div>
+
+                            <div class="col-2 fw-light" style="min-height: 30px;">Tên</div>
+                            <div class="col-10"><input type="text" class="form-control" placeholder="Tên đề"></div>
+                            
+                            <div class="col-2 fw-light" style="min-height: 30px;">Danh mục</div>
+                            <div class="col-10">
+                                <select name="" id="" class="form-select w-auto">
+                                    <option value="">Danh mục 1</option>
+                                    <option value="">Danh mục 2</option>
+                                </select>
+                            </div>
+
+                            <div class="col-2 fw-light" style="min-height: 30px;">Tags</div>
+                            <div class="col-10">
+                                <div class="d-flex flex-row tags-container mb-2">
+                                    <span class="bg-white border px-2 py-1 d-flex flex-row align-items-center me-2 highlight-hover">
+                                        <div class="me-1">test</div>
+                                        <i class="fa-solid fa-xmark opacity-hover"></i>
+                                    </span>
+                                    <span class="bg-white border px-2 py-1 d-flex flex-row align-items-center me-2 highlight-hover">
+                                        <div class="me-1">test</div>
+                                        <i class="fa-solid fa-xmark opacity-hover"></i>
+                                    </span>
+                                    <button class="btn btn-sm bg-white border highlight-hover fw-light">Thêm tag <i class="fa-solid fa-plus"></i></button>
+                                </div>
+                            </div>
+
+                            <div class="col-2 fw-light" style="min-height: 30px;">Câu hỏi</div>
+                            <div class="col-10">
+                                <div class="card card-body px-3 py-2 d-flex flex-row mb-2 shadow-sm align-items-center position-sticky" style="top: 20px; z-index: 1;">
+                                    <div>32 Câu hỏi</div>
+                                    <div class="flex-fill"></div>
+                                    <i class="fa-solid fa-share opacity-hover me-2" title="Dịch tới câu hỏi"></i>
+                                    <i class="fa-solid fa-trash opacity-hover me-2" title="Xóa câu hỏi"></i>
+                                    <i class="fa-solid fa-plus opacity-hover me-2" title="Thêm câu hỏi"></i>
+                                    <i class="fa-solid fa-floppy-disk opacity-hover" title="Lưu thay đổi"></i>
+                                </div>
+
+                                <div id="question_container">
+
+                                    <div class="d-flex mb-2 flex-column mb-4">
+                                        <!-- Content -->
+                                        <div class="d-flex w-100 mb-2">
+                                            <span class="fw-bold" style="width: 30px;">1</span>
+                                            <textarea name="" id="" class="form-control ms-1" placeholder="Nội dung câu hỏi"></textarea>
+                                        </div>
+                                        <!-- Question Media -->
+                                        <div class="d-flex flex-row media-container mb-2" style="margin-left: 30px;">
+                                            <span class="bg-white border px-2 py-1 d-flex flex-row align-items-center me-2 highlight-hover">
+                                                <div class="me-1">test.jpg</div>
+                                                <i class="fa-solid fa-xmark opacity-hover"></i>
+                                            </span>
+                                            <span class="bg-white border px-2 py-1 d-flex flex-row align-items-center me-2 highlight-hover">
+                                                <div class="me-1">test.png</div>
+                                                <i class="fa-solid fa-xmark opacity-hover"></i>
+                                            </span>
+                                        </div>
+                                        <div class="d-flex mb-2" style="margin-left: 30px;">
+                                            <button class="btn btn-sm bg-white me-2 border highlight-hover fw-light"><i class="fa-solid fa-photo-film"></i> Thêm ảnh/video/audio</button>
+                                        </div>
+                                        <!-- A -->
+                                        <div class="d-flex w-100 align-items-center mb-2">
+                                            <span class="fw-light align-content-center" style="width: 30px; height: 30px;">A</span>
+                                            <input name="" id="" class="form-control ms-1" placeholder="Nội dung câu trả lời A"/>
+                                            <button class="btn btn-sm border bg-white ms-2 flex-shrink-0 highlight-hover"><i class="fa-solid fa-images"></i> Thêm ảnh</button>
+                                        </div>
+                                        <!-- A media -->
+                                        <div class="d-flex flex-row media-container mb-2" style="margin-left: 30px;">
+                                            <span class="bg-white border px-2 py-1 d-flex flex-row align-items-center me-2 highlight-hover">
+                                                <div class="me-1">test.jpg</div>
+                                                <i class="fa-solid fa-xmark opacity-hover"></i>
+                                            </span>
+                                            <span class="bg-white border px-2 py-1 d-flex flex-row align-items-center me-2 highlight-hover">
+                                                <div class="me-1">test.png</div>
+                                                <i class="fa-solid fa-xmark opacity-hover"></i>
+                                            </span>
+                                        </div>
+    
+                                        <div class="d-flex w-100 align-items-center mb-2">
+                                            <span class="fw-light align-content-center" style="width: 30px; height: 30px;">B</span>
+                                            <input name="" id="" class="form-control ms-1" placeholder="Nội dung câu trả lời B"/>
+                                            <button class="btn btn-sm border bg-white ms-2 flex-shrink-0 highlight-hover"><i class="fa-solid fa-images"></i> Thêm ảnh</button>
+                                        </div>
+
+                                        <div class="d-flex w-100 align-items-center mb-2">
+                                            <span class="fw-light align-content-center" style="width: 30px; height: 30px;">C</span>
+                                            <input name="" id="" class="form-control ms-1" placeholder="Nội dung câu trả lời C"/>
+                                            <button class="btn btn-sm border bg-white ms-2 flex-shrink-0 highlight-hover"><i class="fa-solid fa-images"></i> Thêm ảnh</button>
+                                        </div>
+
+                                        <div class="d-flex w-100 align-items-center mb-2">
+                                            <span class="fw-light align-content-center" style="width: 30px; height: 30px;">D</span>
+                                            <input name="" id="" class="form-control ms-1" placeholder="Nội dung câu trả lời D"/>
+                                            <button class="btn btn-sm border bg-white ms-2 flex-shrink-0 highlight-hover"><i class="fa-solid fa-images"></i> Thêm ảnh</button>
+                                        </div>
+
+                                        <div class="d-flex justify-content-center mb-2">
+                                            <button class="btn btn-sm bg-white border highlight-hover fw-light">Thêm câu trả lời <i class="fa-solid fa-plus"></i></button>
+                                        </div>
+
+                                        <!-- Select correct ans -->
+                                        <div class="d-flex fw-light mb-2" style="padding-left: 30px;">
+                                            <div class="me-3">Đáp án đúng: </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1">A</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option2">
+                                                <label class="form-check-label" for="inlineRadio2">B</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1">C</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option2">
+                                                <label class="form-check-label" for="inlineRadio2">D</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex w-100 align-items-center" style="padding-left: 30px;">
+                                            <textarea class="form-control" placeholder="Giải thích"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- spliter -->
+                                    <hr class="my-5">
+
+                                    <div class="d-flex mb-2 flex-column mb-4">
+                                        <!-- Content -->
+                                        <div class="d-flex w-100 mb-2">
+                                            <span class="fw-bold" style="width: 30px;">1</span>
+                                            <textarea name="" id="" class="form-control ms-1" placeholder="Nội dung câu hỏi"></textarea>
+                                        </div>
+                                        <!-- Question Media -->
+                                        <div class="d-flex flex-row media-container mb-2" style="margin-left: 30px;">
+                                            <span class="bg-white border px-2 py-1 d-flex flex-row align-items-center me-2 highlight-hover">
+                                                <div class="me-1">test.jpg</div>
+                                                <i class="fa-solid fa-xmark opacity-hover"></i>
+                                            </span>
+                                            <span class="bg-white border px-2 py-1 d-flex flex-row align-items-center me-2 highlight-hover">
+                                                <div class="me-1">test.png</div>
+                                                <i class="fa-solid fa-xmark opacity-hover"></i>
+                                            </span>
+                                        </div>
+                                        <div class="d-flex mb-2" style="margin-left: 30px;">
+                                            <button class="btn btn-sm bg-white me-2 border highlight-hover fw-light"><i class="fa-solid fa-photo-film"></i> Thêm ảnh/video/audio</button>
+                                        </div>
+                                        <!-- A -->
+                                        <div class="d-flex w-100 align-items-center mb-2">
+                                            <span class="fw-light align-content-center" style="width: 30px; height: 30px;">A</span>
+                                            <input name="" id="" class="form-control ms-1" placeholder="Nội dung câu trả lời A"/>
+                                            <button class="btn btn-sm border bg-white ms-2 flex-shrink-0 highlight-hover"><i class="fa-solid fa-images"></i> Thêm ảnh</button>
+                                        </div>
+                                        <!-- A media -->
+                                        <div class="d-flex flex-row media-container mb-2" style="margin-left: 30px;">
+                                            <span class="bg-white border px-2 py-1 d-flex flex-row align-items-center me-2 highlight-hover">
+                                                <div class="me-1">test.jpg</div>
+                                                <i class="fa-solid fa-xmark opacity-hover"></i>
+                                            </span>
+                                            <span class="bg-white border px-2 py-1 d-flex flex-row align-items-center me-2 highlight-hover">
+                                                <div class="me-1">test.png</div>
+                                                <i class="fa-solid fa-xmark opacity-hover"></i>
+                                            </span>
+                                        </div>
+    
+                                        <div class="d-flex w-100 align-items-center mb-2">
+                                            <span class="fw-light align-content-center" style="width: 30px; height: 30px;">B</span>
+                                            <input name="" id="" class="form-control ms-1" placeholder="Nội dung câu trả lời B"/>
+                                            <button class="btn btn-sm border bg-white ms-2 flex-shrink-0 highlight-hover"><i class="fa-solid fa-images"></i> Thêm ảnh</button>
+                                        </div>
+
+                                        <div class="d-flex w-100 align-items-center mb-2">
+                                            <span class="fw-light align-content-center" style="width: 30px; height: 30px;">C</span>
+                                            <input name="" id="" class="form-control ms-1" placeholder="Nội dung câu trả lời C"/>
+                                            <button class="btn btn-sm border bg-white ms-2 flex-shrink-0 highlight-hover"><i class="fa-solid fa-images"></i> Thêm ảnh</button>
+                                        </div>
+
+                                        <div class="d-flex w-100 align-items-center mb-2">
+                                            <span class="fw-light align-content-center" style="width: 30px; height: 30px;">D</span>
+                                            <input name="" id="" class="form-control ms-1" placeholder="Nội dung câu trả lời D"/>
+                                            <button class="btn btn-sm border bg-white ms-2 flex-shrink-0 highlight-hover"><i class="fa-solid fa-images"></i> Thêm ảnh</button>
+                                        </div>
+
+                                        <div class="d-flex justify-content-center mb-2">
+                                            <button class="btn btn-sm bg-white border highlight-hover fw-light">Thêm câu trả lời <i class="fa-solid fa-plus"></i></button>
+                                        </div>
+
+                                        <!-- Select correct ans -->
+                                        <div class="d-flex fw-light mb-2" style="padding-left: 30px;">
+                                            <div class="me-3">Đáp án đúng: </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1">A</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option2">
+                                                <label class="form-check-label" for="inlineRadio2">B</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option1">
+                                                <label class="form-check-label" for="inlineRadio1">C</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option2">
+                                                <label class="form-check-label" for="inlineRadio2">D</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex w-100 align-items-center" style="padding-left: 30px;">
+                                            <textarea class="form-control" placeholder="Giải thích"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section>
+        <div class="w-100 text-white" style="background-color: var(--main-color);">
+            <div class="container pt-5">
+                <div class="row g-3">
+
+                    <!-- Intro -->
+                    <div class="col-4">
+                        <a href="#"><img src="banner-light.png" alt="" height="50"></a>
+                        <p class="mt-2 fw-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit. A perferendis similique voluptas officiis doloribus dolores, consectetur, magni assumenda cupiditate illum dolorum optio sit. Excepturi commodi, impedit fugiat a nam quasi?</p>
+                        <div class="d-flex">
+                            <i class="fa-brands fa-facebook me-2 opacity-hover" title="Facebook"></i>
+                            <i class="fa-brands fa-instagram me-2 opacity-hover"></i>
+                            <i class="fa-brands fa-twitter me-2 opacity-hover"></i>
+                            <i class="fa-brands fa-youtube me-2 opacity-hover"></i>
+                        </div>
+                    </div>
+
+                    <!-- Products -->
+                    <div class="col-4">
+                        <h5 class="mb-3">Websites</h5>
+                        <div class="d-flex flex-column">
+                            <a href="" class="text-decoration-none text-light opacity-hover mb-2 fw-light">Giới thiệu</a>
+                            <a href="" class="text-decoration-none text-light opacity-hover mb-2 fw-light">ZTools - Công cụ hỗ trợ chuyển đổi và tải xuống</a>
+                            <a href="" class="text-decoration-none text-light opacity-hover mb-2 fw-light">ZBlog - Chia sẻ kiến thức và tin tức</a>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-4">
+                        <h5 class="mb-3">Tương tác</h5>
+                        <div class="d-flex flex-column">
+                            <div class="text-light fw-light mb-1">Đăng kí nhận thông báo qua email</div>
+                            <input type="email" placeholder="Email của bạn" class="px-2 py-1 border-0 mb-2">
+                            <button class="border-0 text-white py-1" style="background-color: var(--secondary-color);">Đăng kí</button>
+                        </div>
+                        
+                        <h5 class="mb-3 mt-4">Liên hệ</h5>
+                        <div class="d-flex flex-column">
+                            <a href="" class="text-decoration-none text-light opacity-hover mb-2 fw-light">
+                                <i class="fa-solid fa-envelope me-2"></i>hoangcn.dev@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <!-- Copyright -->
+                    <div class="col-12">
+                        <p class="text-center border-top pt-2">&copy; Copyright 2024, All Rights Reserved by HoangCN - Version 1.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading -->
+    <!-- <div id="loader-container" class="position-absolute start-50 top-0 translate-middle bg-white rounded-pill shadow-sm" style="margin-top: 100px; height: 36px; width: 36px; padding: 6px;">
+        <div class="loader"></div>
+    </div> -->
+
+    <!-- Message -->
+    <!-- <div id="msg" class="position-fixed start-50 top-0 translate-middle-x shadow-sm" style="margin-top: 100px; z-index: 1;">
+        <div class="d-flex bg-white align-items-center px-2 py-1">
+            <i class="fa-solid fa-triangle-exclamation" style="color: red;"></i>
+            <div class="mx-2" style="font-size: 14px;">Đây là thông báo</div>
+            <i class="fa-solid fa-xmark ms-1 text-secondary opacity-hover close-btn" ></i>
+        </div>
+    </div> -->
+    <!-- <div class="position-fixed start-50 top-0 translate-middle-x shadow-sm" style="margin-top: 150px; z-index: 1;">
+        <div id="msg" class="d-flex bg-white align-items-center px-2 py-1">
+            <i class="fa-solid fa-circle-check" style="color: rgb(0, 183, 43);"></i>
+            <div class="mx-2" style="font-size: 14px;">Đây là thông báo</div>
+            <i class="fa-solid fa-xmark ms-1 text-secondary opacity-hover close-btn"></i>
+        </div>
+    </div> -->
+
+    <!-- Confirm -->
+    <!-- <div id="confirm-dialog" class="vh-100 vw-100 position-fixed top-0 start-0 bg-secondary bg-opacity-50">
+        <div class="position-absolute start-50 translate-middle-x bg-white text-dark p-2 px-4" style="margin-top: 100px; z-index: 1; max-width: 420px;">
+            <div class="d-flex flex-column align-items-center">
+                <div class="btn-close position-absolute end-0 top-0 m-1 opacity-hover" onclick="$('#confirm-dialog').hide()"></div>
+                <div class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed officia cum molestiae culpa, voluptatibus eius vero illo eligendi porro laboriosam! Ex ullam cumque iste id, quaerat aperiam tempora officiis saepe?</div>
+                <div class="d-flex align-items-center justify-content-center mt-2">
+                    <button class="fw-light border text-white shadow-sm p-1 px-2 opacity-hover" style="background-color: var(--main-color); width: 100px;">
+                        <i class="fa-solid fa-check me-1"></i>Xác nhận
+                    </button>
+                    <button class="ms-2 fw-light border bg-white shadow-sm p-1 px-2 highlight-hover" style="width: 100px;" onclick="$('#confirm-dialog').hide()">
+                        <i class="fa-solid fa-xmark me-1" style="color: var(--error-color)"></i>Hủy
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Add Tag Dialog -->
+    <div id="confirm-dialog" hidden class="vh-100 vw-100 position-fixed top-0 start-0 bg-secondary bg-opacity-50" style="z-index: 100;">
+        <div class="position-absolute start-50 translate-middle-x bg-white text-dark p-2" style="margin-top: 100px;  width: 500px;">
+            <div class="d-flex flex-column align-items-center w-100">
+                <div class="btn-close position-absolute end-0 top-0 m-1 opacity-hover" onclick="$('#confirm-dialog').hide()"></div>
+                <input id="tag-input" type="text" class="form-control my-3 mt-4" placeholder="Nhập tag mới">
+                <button class="fw-light border text-white shadow-sm p-1 px-2 opacity-hover" style="background-color: var(--main-color); width: 100px;">
+                    <i class="fa-solid fa-check me-1"></i>Xác nhận
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Remove Dialog -->
+    <div id="remove-dialog" class="vh-100 vw-100 position-fixed top-0 start-0 bg-secondary bg-opacity-50" style="z-index: 100;">
+        <div class="position-absolute start-50 translate-middle-x bg-white text-dark p-2" style="margin-top: 100px;  width: 500px;">
+            <div class="d-flex flex-column align-items-center w-100">
+                <div class="btn-close position-absolute end-0 top-0 m-1 opacity-hover" onclick="$('#remove-dialog').hide()"></div>
+                <div>Chọn các câu hỏi muốn xóa</div>
+                <div class="d-flex flex-wrap my-3 fw-bold">
+
+                    <div class="form-check form-check-inline me-3 mb-2">
+                        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" value="option1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline me-3 mb-2">
+                        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" value="option1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline me-3 mb-2">
+                        <input class="form-check-input" type="checkbox" name="inlineRadioOptions" value="option1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+
+                </div>
+                <button class="fw-light border text-white shadow-sm p-1 px-2 opacity-hover" style="background-color: var(--main-color); width: 100px;">
+                    <i class="fa-solid fa-check me-1"></i>Xác nhận
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- goto Dialog -->
+    <div id="goto-dialog" class="vh-100 vw-100 position-fixed top-0 start-0 bg-secondary bg-opacity-50" style="z-index: 100;">
+        <div class="position-absolute start-50 translate-middle-x bg-white text-dark p-2" style="margin-top: 100px;  width: 500px;">
+            <div class="d-flex flex-column align-items-center w-100">
+                <div class="btn-close position-absolute end-0 top-0 m-1 opacity-hover" onclick="$('#goto-dialog').hide()"></div>
+                <div> Chọn câu hỏi muốn đi đến</div>
+                <div class="d-flex flex-wrap my-3 fw-bold">
+
+                    <div class="form-check form-check-inline me-3 mb-2">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline me-3 mb-2">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option1">
+                        <label class="form-check-label" for="inlineRadio1">2</label>
+                    </div>
+                    <div class="form-check form-check-inline me-3 mb-2">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option1">
+                        <label class="form-check-label" for="inlineRadio1">3</label>
+                    </div>
+
+                </div>
+                <button class="fw-light border text-white shadow-sm p-1 px-2 opacity-hover" style="background-color: var(--main-color); min-width: 100px;">
+                    <i class="fa-solid fa-check me-1"></i>Xác nhận
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Show media -->
+    <div id="media" hidden class="vh-100 vw-100 position-fixed top-0 start-0 bg-secondary bg-opacity-50">
+        <i class="fa-solid fa-xmark fs-1 text-white position-absolute start-0 top-0 m-3 opacity-hover" onclick="$('#media').remove()"></i>
+        <!-- Image -->
+        <!-- <img src="testbg.jpg" alt="" class="position-absolute start-50 top-50 translate-middle bg-white object-fit-contain" width="600" height="500"> -->
+        
+        <!-- Video -->
+        <!-- <video controls class="position-absolute start-50 top-50 translate-middle bg-white object-fit-contain" width="600" height="500">
+            <source src="testvideo.mp4">
+        </video> -->
+        
+        <!-- Audio -->
+        <audio controls class="position-absolute start-50 top-50 translate-middle">
+            <source src="testaudio.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js" integrity="sha512-MSOo1aY+3pXCOCdGAYoBZ6YGI0aragoQsg1mKKBHXCYPIWxamwOE7Drh+N5CPgGI5SA9IEKJiPjdfqWFWmZtRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script>
+
+        
+
+        $(document).ready(() => {
+            $('.menu-option')[1].click();
+
+            $('#changeImageButton input').on('click', function(e) {
+                e.stopPropagation(); // Ngăn sự kiện click truyền lên cha của nó
+            });
+            $('#changeImageButton input').on('change', function(e) {
+                const file = e.target.files[0];
+                const fileReader = new FileReader();
+                fileReader.onload = () => {
+                    $('#profile-img img').attr('src', fileReader.result);
+                }
+                fileReader.readAsDataURL(file);
+            });
+            $('#changeImageButton').on('click', e => {
+                e.preventDefault();
+                $('#changeImageButton input').click();
+            });
+
+
+            const tags = ['a', 'aaa', 'abs'];
+            $('#tag-input').autocomplete({
+                source: tags
+            });
+
+            $('#remove-dialog .form-check-input').change(function() {
+                const $label = $(this).next('.form-check-label');
+                if ($(this).is(':checked')) {
+                    $label.css('color', 'red'); // Màu khi checkbox được chọn
+                } else {
+                    $label.css('color', 'black'); // Màu khi checkbox không được chọn
+                }
+            });
+
+            $('#goto-dialog .form-check-input').change(function() {
+                if ($(this).is(':checked')) {
+                    const label = $(this).next('.form-check-label');
+                    $('#goto-dialog button').text(`Dịch chuyển đến câu ${label.text()}`);
+                }
+            });
+        });
+
+        $('.menu-option').click(function () {
+            const currentOption =  $('.menu-option.selected');
+            currentOption.removeClass('selected')
+            currentOption.next('.menu-option').addClass('border-top-0');;
+            //
+            const option = $(this);
+            option.addClass('selected');
+            option.next('.menu-option').removeClass('border-top-0');
+        });
+
+        // $(document).ready(() => {
+        //     $("#msg").hide()
+        //     $("#msg").slideDown(500);
+        //     setTimeout(() => {
+        //         $("#msg").fadeOut();
+        //     }, 3000);
+        //     $("#msg .close-btn").click(() => {
+        //         $("#msg").slideUp(500);
+        //     });
+        // });
+
+        function showMess(msg, isSuccess = true) {
+            const iconHtml = isSuccess
+                ? '<i class="fa-solid fa-circle-check" style="color: rgb(0, 183, 43);"></i>'
+                : '<i class="fa-solid fa-triangle-exclamation" style="color: red;"></i>';
+            const uniqueId = `msg-${Date.now()}`;
+            const div = $(`
+                <div id="${uniqueId}" class="position-fixed start-50 top-0 translate-middle-x shadow-sm" style="margin-top: 80px; z-index: 1;">
+                    <div class="d-flex bg-white align-items-center px-2 py-1">
+                        ${iconHtml}
+                        <div class="mx-2" style="font-size: 14px;">${msg}</div>
+                        <i class="fa-solid fa-xmark ms-1 text-secondary opacity-hover close-btn"></i>
+                    </div>
+                </div>
+            `);
+            $('body').append(div);
+            div.hide();
+            div.slideDown(500);
+            setTimeout(() => {
+                div.fadeOut(500, () => div.remove());
+            }, 3000);
+            div.find('.close-btn').click(() => {
+                div.slideUp(500, () => {
+                    div.remove();
+                });
+            });
+        }
+
+        function sign_out() {
+            showConfirm("Xác nhận đăng xuất?", () => removeSessionData());
+        }
+        //showMess("OKkk", false)
+    </script>
+</body>
+</html>

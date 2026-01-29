@@ -1,0 +1,130 @@
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
+using ZLearn.API.Exceptions;
+using ZLearn.Application.Common.Identity;
+using ZLearn.Application.Common.Utils;
+using ZLearn.Infras.Services.Identity;
+
+namespace ZLearn.Infras.Data
+{
+    public class Initializer
+    {
+        private readonly UserManager<AppUser> _userManager;
+        private readonly RoleManager<AppRole> _roleManager;
+        private readonly AppDbContext _context;
+        private readonly ILogger<Initializer> _logger;
+
+        public Initializer(
+            UserManager<AppUser> userManager,
+            RoleManager<AppRole> roleManager,
+            AppDbContext context,
+            ILogger<Initializer> logger)
+        {
+            _userManager = userManager;
+            _roleManager = roleManager;
+            _context = context;
+            _logger = logger;
+        }
+
+        public async Task InitializeDatabaseAsync()
+        {
+            try
+            {
+                _logger.LogInformation("Start migrating...");
+                await _context.Database.MigrateAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while initializing the database.");
+                throw;
+            }
+        }
+
+        public async Task InitializeDataAsync()
+        {
+            await using var transaction = await _context.Database.BeginTransactionAsync();
+            try
+            {
+                // Default admin role
+                if (!await _roleManager.RoleExistsAsync(nameof(UserRole.Admin)))
+                {
+                    var createRoleResult = await _roleManager.CreateAsync(new AppRole
+                    {
+                        Name = nameof(UserRole.Admin),
+                        Id = IdGenerator.Generate("ROL"),
+                    });
+                    if (!createRoleResult.Succeeded)
+                        throw new DatabaseErrorException("Failed to create default admin role.");
+                }
+
+                // Default user role
+                if (!await _roleManager.RoleExistsAsync(nameof(UserRole.User)))
+                {
+                    var createRoleResult = await _roleManager.CreateAsync(new AppRole
+                    {
+                        Name = nameof(UserRole.User),
+                        Id = IdGenerator.Generate("ROL"),
+                    });
+                    if (!createRoleResult.Succeeded)
+                        throw new DatabaseErrorException("Failed to create default user role.");
+                }
+
+                // Default student role
+                if (!await _roleManager.RoleExistsAsync(nameof(UserRole.Student)))
+                {
+                    var createRoleResult = await _roleManager.CreateAsync(new AppRole
+                    {
+                        Name = nameof(UserRole.Student),
+                        Id = IdGenerator.Generate("ROL"),
+                    });
+                    if (!createRoleResult.Succeeded)
+                        throw new DatabaseErrorException("Failed to create default student role.");
+                }
+
+                // Default teacher role
+                if (!await _roleManager.RoleExistsAsync(nameof(UserRole.Teacher)))
+                {
+                    var createRoleResult = await _roleManager.CreateAsync(new AppRole
+                    {
+                        Name = nameof(UserRole.Teacher),
+                        Id = IdGenerator.Generate("ROL"),
+                    });
+                    if (!createRoleResult.Succeeded)
+                        throw new DatabaseErrorException("Failed to create default teacher role.");
+                }
+
+                // Default admin account
+                if (!await _userManager.Users.AnyAsync(u => u.UserName == nameof(UserRole.Admin)))
+                {
+                    var adminAccount = new AppUser
+                    {
+                        Id = IdGenerator.Generate("ACC"),
+                        UserName = "Admin",
+                        FirstName = "Admin",
+                        LastName = "System",
+                        NickName = "Bình nước màu xanh",
+                        IsShowNickName = true,
+                        Email = "dever.z.ckpt.526@gmail.com",
+                        EmailConfirmed = true,
+                        ImageUrl = null,
+                        LastLogin = DateTimeOffset.UtcNow
+                    };
+                    var createAdminResult = await _userManager.CreateAsync(adminAccount, EnvVariableHelper.GetValue(EnvVariableNames.ADMIN_PASSWORD));
+                    if (!createAdminResult.Succeeded)
+                        throw new DatabaseErrorException("Failed to create default admin account.");
+                    var assignRoleResult = await _userManager.AddToRoleAsync(adminAccount, nameof(UserRole.Admin));
+                    if (!assignRoleResult.Succeeded)
+                        throw new DatabaseErrorException("Failed to assign admin role.");
+                }
+
+                await transaction.CommitAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while seeding the database.");
+                await transaction.RollbackAsync();
+                throw;
+            }
+        }
+    }
+}

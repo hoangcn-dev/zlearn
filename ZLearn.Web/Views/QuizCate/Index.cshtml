@@ -1,0 +1,151 @@
+﻿@using ZLearn.Application.Categories.DTOs
+@model List<CateListItemDto>
+
+@{
+    ViewData["Title"] = "Danh mục đề trắc nghiệm";
+    ViewBag.MetaDescription = "Danh sách các danh mục chủ đề đề thi trắc nghiệm trên ZLearn. Mỗi danh mục chứa nhiều đề thi khác nhau, giúp bạn ôn tập và nâng cao kiến thức một cách hiệu quả.";
+    
+    ViewBag.Breadcrumbs = new List<(string Text, string Url)>
+    {
+        ("Trang chủ", "/"),
+        ("Danh mục đề trắc nghiệm", "")
+    };
+}
+
+<div class="container">
+
+    <div class="d-flex mb-3">
+        <a asp-action="Create" asp-controller="Quizzes" class="btn bg-white border rounded-0 me-2 shadow-sm highlight-hover"><i class="fa-solid fa-plus"></i> Tạo đề mới</a>
+        <a asp-action="Create" asp-controller="Exams" class="btn bg-white border rounded-0 me-2 shadow-sm highlight-hover"><i class="fa-regular fa-calendar-plus"></i> Tạo bài kiểm tra mới</a>
+    </div>
+
+    <div id="ongoing"></div>
+
+    <small class="fw-bold">Danh mục đề trắc nghiệm <i class="fa-solid fa-chevron-down"></i></small>
+    <div class="mt-2">
+        <div class="row g-3">
+        @foreach (var item in Model)
+        {
+            <div class="col-3">
+                <a  asp-action="Detail" asp-route-categorySlug="@item.Slug" class="card card-body shadow-sm overflow-hidden highlight-hover bg-with-image" style="height: 200px; background-image: url(@item.ThumbnailUrl);">
+                    <!-- Title -->
+                    <div class="content position-absolute align-content-center bg-black text-light start-0 w-100 top-50 translate-middle-y p-3
+                                        text-center" style="opacity: 0.7; transition: opacity 0.6s ease;">
+                        <!-- Name -->
+                        <div class="max-3-lines fw-bold name" style="font-size: 18px;">@item.Name</div>
+                        <!-- Stat -->
+                        <div class="d-flex justify-content-center" style="font-size: 12px;">
+                            <div><i class="fa-solid fa-list me-1"></i>@item.QuizCount Đề</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+
+    </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script asp-append-version="true">
+        $(document).ready(() => {
+
+            // Loading on going exam
+            loadOnGoingExam();
+
+        });
+
+        function loadOnGoingExam() {
+            $.ajax({
+                url: '/exams/on-going',
+                method: 'GET',
+                xhrFields: { withCredentials: true },
+                success: res => {
+                    if (res.data.length > 0) {
+                        $('#ongoing').html(`
+                            <small class="fw-bold"><i class="fa-solid fa-bell text-info me-1 bell-animation"></i> Bài kiểm tra đang diễn ra</small>
+                            <div class="row g-2 mt-1 mb-3 list">
+                            ${ res.data.map(e => `
+                                <div class="col-4">
+                                    <a href="${e.joinUrl}" class="d-flex border p-2 px-3 bg-white shadow-sm rounded-1 highlight-hover me-2">
+                                        <small class="fw-light text-nowrap flex-fill" style="overflow: hidden; text-overflow: ellipsis;">
+                                            ${e.name}
+                                        </small>
+                                        <small class="text-nowrap">
+                                            ${e.status == 'WaitStart' ? "Bắt đầu sau" : "Kết thúc sau"} 
+                                            <span id="${e.id}-countdown" class="fw-bold text-${e.status == 'WaitStart' ? "info" : "danger"}"><i class="fa-solid fa-infinity"></i></span>
+                                        </small>
+                                    </a>
+                                </div>
+                            `).join("") }
+                            </div>
+                        `);
+                        res.data.forEach(e => {
+                            if (e.status == 'WaitStart' && e.startTime) 
+                                startCountdown(e.startTime, `#${e.id}-countdown`);
+                            else if (e.endTime)
+                                startCountdown(e.endTime, `#${e.id}-countdown`);
+                        });
+
+                    }
+                },
+                error: err => {
+                    console.log(err);
+                }
+            });
+        }
+
+        function startCountdown(timestamp, selector) {
+            countdown_sub_id = setInterval(() => {
+                const sec = getSecondsBetween(new Date(), timestamp);
+                if (sec <= 0) {
+                    $(selector).text('--');
+                    clearInterval(countdown_sub_id);
+                    loadOnGoingExam();
+                    return;
+                }
+                const m = Math.floor(sec / 60);
+                const s = sec % 60;
+                $(selector).text(`${m}m:${s}s`);
+            }, 1000);
+        }
+    </script>
+}
+
+@section Styles {
+    <style>
+        @@keyframes bell-keyframes {
+            0% {
+                transform: rotate(0deg);
+            }
+            10% {
+                transform: rotate(14deg);
+            }
+            20% {
+                transform: rotate(-8deg);
+            }
+            30% {
+                transform: rotate(14deg);
+            }
+            40% {
+                transform: rotate(-4deg);
+            }
+            50% {
+                transform: rotate(10deg);
+            }
+            60% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .bell-animation {
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-name: bell-keyframes;
+            transform-origin: top center;
+        }
+    </style>
+}

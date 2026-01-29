@@ -1,0 +1,54 @@
+﻿@using ZLearn.Application.Exams.DTOs
+@using ZLearn.Domain.Enums
+@model List<ExamListItemDto>
+@{
+    ViewBag.Title = "Danh sách bài kiểm tra";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    
+    ViewBag.Breadcrumbs = new List<(string Text, string Url)>
+    {
+        ("Trang chủ", "/"),
+        ("Bài kiểm tra", "")
+    };
+}
+
+<!-- Top action -->
+<div class="d-flex">
+    <div class="position-relative w-auto h-auto">
+        <input type="text" class="form-control ps-2 py-1 h-100" style="padding-right: 30px;" placeholder="Nhập tên đề">
+        <i title="Tìm kiếm" class="opacity-hover fa-solid fa-magnifying-glass position-absolute end-0 top-50 translate-middle-y me-2"></i>
+    </div>
+    <div class="flex-fill"></div>
+    <a asp-action="Create" class="btn text-light opacity-hover" style="background-color: var(--main-color);">Tạo mới <i class="fa-solid fa-plus"></i></a>
+</div>
+
+<!-- List exams -->
+<div class="d-flex flex-column mt-2">
+    @if (Model.Count == 0)
+    {
+        <p class="text-center text-secondary fst-italic my-3">Hiện chưa có bài kiểm tra nào được tạo.</p>
+    }
+    @foreach (var exam in Model)
+    {
+        <a asp-action="Detail" asp-route-id="@exam.Id" class="d-flex mb-2">
+            <div class="card card-body highlight-hover align-items-center d-flex flex-row p-2 ps-3">
+                <div>@exam.Name</div>
+                <div class="flex-fill mx-2"></div>
+                <div class="mx-3">
+                    @exam.StartTime.ToLocalTime().ToString("HH:mm") - @(exam.EndTime.HasValue? exam.EndTime.Value.ToLocalTime().ToString("HH:mm"): Html.Raw("<i class=\"fa-solid fa-infinity\"></i>"))
+                </div>
+                @if (exam.Status == ExamStatus.Ended)
+                {
+                    <div>Đã kết thúc</div>
+                }
+                else if (exam.Status == ExamStatus.WaitStart)
+                {
+                    <div class="gray-tag">Chưa bắt đầu</div>
+                }
+                else {
+                    <div class="success-tag">Đang diễn ra</div>
+                }
+            </div>
+        </a>
+    }
+</div>

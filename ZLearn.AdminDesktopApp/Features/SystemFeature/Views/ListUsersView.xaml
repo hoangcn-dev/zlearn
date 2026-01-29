@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="ZLearn.AdminDesktopApp.Features.SystemFeature.Views.ListUsersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZLearn.AdminDesktopApp.Features.SystemFeature.Views" 
+             xmlns:components="clr-namespace:ZLearn.AdminDesktopApp.Components" 
+             xmlns:viewmodels="clr-namespace:ZLearn.AdminDesktopApp.Features.SystemFeature.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:ListUsersViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0 0 0 5">
+            <components:LoadingButton 
+                Content="{Binding SearchButtonText}" Width="100" 
+                Style="{StaticResource Default}" Margin="0 0 5 0"
+                Command="{Binding SearchCommand}"
+                IsLoading="{Binding IsLoading}"/>
+            <TextBox 
+                Width="200" Margin="0 0 5 0"
+                IsEnabled="{Binding CanEditSearchText}"
+                Padding="5" Text="{Binding Key, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button 
+                Command="{Binding ResetCommand}"
+                Content="Reset" Style="{StaticResource Default}" Width="50"/>
+            <Button 
+                Content="Xem chi tiết và cập nhật" 
+                Margin="5 0 0 0" 
+                Style="{StaticResource Default}" 
+                Width="160" Visibility="{Binding ShowUpdateButton}" 
+                Command="{Binding ShowUpdateDialogCommand}"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto">
+            <DataGrid
+                AutoGenerateColumns="False" 
+                IsReadOnly="True"
+                CanUserAddRows="False"
+                CanUserDeleteRows="False"
+                CanUserReorderColumns="True"
+                CanUserResizeColumns="True"
+                CanUserSortColumns="True"
+                AlternatingRowBackground="White"
+                BorderThickness="1"
+                ItemsSource="{Binding Users}"
+                BorderBrush="LightGray">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn 
+                        Header="" 
+                        Width="30"
+                        ElementStyle="{StaticResource CenterCheckBox}"
+                        Binding="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <DataGridTextColumn 
+                        Header="STT" 
+                        Width="Auto" 
+                        Binding="{Binding Index}"
+                        ElementStyle="{StaticResource CenterText}"/>
+                    <DataGridTextColumn 
+                        Header="ID" 
+                        Width="Auto" 
+                        Binding="{Binding Data.Id}"/>
+                    <DataGridTextColumn 
+                        Header="UserName" 
+                        Width="Auto" 
+                        Binding="{Binding Data.UserName}"/>
+                    <DataGridTextColumn 
+                        Header="Tên" 
+                        Width="Auto" 
+                        Binding="{Binding Data.FullName}"/>
+                    <DataGridTextColumn 
+                        Header="NickName"
+                        Width="Auto"
+                        Binding="{Binding Data.NickName}"/>
+                    <DataGridTextColumn 
+                        Header="Email"
+                        Width="Auto"
+                        Binding="{Binding Data.Email}"/>
+                    <DataGridTextColumn 
+                        Header="Quyền"
+                        Width="Auto"
+                        Binding="{Binding Data.Roles, Converter={StaticResource ListToStringConverter}}"/>
+                    <DataGridTextColumn 
+                        Header="Lần cuối đăng nhập"
+                        Width="Auto"
+                        Binding="{Binding Data.LastLogin, StringFormat=\{0:dd/MM/yyyy HH:mm\}, Converter={StaticResource UtcToLocalTimeConverter}}"/>
+                    <DataGridTextColumn 
+                        Header="Kích hoạt email"
+                        Width="Auto"
+                        Binding="{Binding Data.EmailConfirmed}"/>
+                    <DataGridTextColumn 
+                        Header="Trạng thái tài khoản" 
+                        Width="Auto" 
+                        Binding="{Binding Data.IsActive}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

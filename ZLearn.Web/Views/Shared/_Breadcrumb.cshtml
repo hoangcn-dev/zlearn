@@ -1,0 +1,36 @@
+@{
+    var breadcrumbs = ViewBag.Breadcrumbs as List<(string Text, string Url)>;
+    if (breadcrumbs == null || !breadcrumbs.Any())
+    {
+        return;
+    }
+}
+
+<section>
+    <div class="container py-2 mt-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0">
+                @for (int i = 0; i < breadcrumbs.Count; i++)
+                {
+                    var item = breadcrumbs[i];
+                    var isLast = i == breadcrumbs.Count - 1;
+                    
+                    if (isLast)
+                    {
+                        <li class="breadcrumb-item active" aria-current="page">@item.Text</li>
+                    }
+                    else if (!string.IsNullOrEmpty(item.Url))
+                    {
+                        <li class="breadcrumb-item">
+                            <a href="@item.Url" class="text-decoration-none">@item.Text</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="breadcrumb-item">@item.Text</li>
+                    }
+                }
+            </ol>
+        </nav>
+    </div>
+</section>

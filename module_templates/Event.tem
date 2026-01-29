@@ -1,0 +1,6 @@
+namespace $Name$
+{
+    public class $Name$Event : INotification
+    {
+    }
+}
