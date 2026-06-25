@@ -1,4 +1,4 @@
-﻿const scrollTo = (selector, offset = 50) => {
+const scrollTo = (selector, offset = 50) => {
     window.scrollTo({
         top: $(selector).offset().top - offset,
         behavior: 'smooth'
@@ -155,7 +155,7 @@ function showMess(msg, isSuccess = true) {
         : '<i class="fa-solid fa-triangle-exclamation" style="color: red;"></i>';
     const uniqueId = `msg-${Date.now()}`;
     const div = $(`
-        <div id="${uniqueId}" class="position-fixed start-50 top-0 translate-middle-x shadow-sm" style="margin-top: 40px; z-index: 101;">
+        <div id="${uniqueId}" class="position-fixed start-50 top-0 translate-middle-x shadow-sm" style="margin-top: 40px; z-index: 9999;">
             <div class="d-flex bg-white align-items-center px-2 py-1">
                 ${iconHtml}
                 <div class="mx-2" style="font-size: 14px;">${msg}</div>

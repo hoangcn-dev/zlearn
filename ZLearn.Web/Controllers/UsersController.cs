@@ -1,4 +1,4 @@
-﻿using MediatR;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -40,6 +40,13 @@ namespace ZLearn.Web.Controllers
         {
             // Admin UI page for managing license keys
             // View will call API endpoints to perform actions
+            return View();
+        }
+
+        [HttpGet("quan-ly-he-thong")]
+        [Authorize(Policy = "OnlyAdmin")]
+        public IActionResult AdminManagement()
+        {
             return View();
         }
         

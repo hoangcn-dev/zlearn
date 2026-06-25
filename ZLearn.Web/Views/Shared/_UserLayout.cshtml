@@ -1,4 +1,4 @@
-﻿@{
+@{
     Layout = "_Layout";
     bool isShowLeftOptions = ViewBag.ShowLeftOptions ?? true;
 }
@@ -20,6 +20,12 @@
                 <div class="menu-option card card-body py-2 rounded-0 shadow-sm border-top-0 opacity-hover">
                     Tố cáo
                 </div>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-controller="Users" asp-action="AdminManagement" class="menu-option card card-body py-2 rounded-0 shadow-sm border-top-0 opacity-hover">
+                        Quản lý hệ thống
+                    </a>
+                }
             </div>
 
             <div class="col-10">
