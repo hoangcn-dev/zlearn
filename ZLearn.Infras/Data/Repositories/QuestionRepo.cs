@@ -1,4 +1,4 @@
-﻿using System.Linq.Expressions;
+using System.Linq.Expressions;
 using ZLearn.API.Exceptions;
 using ZLearn.Application.Quizzes;
 using ZLearn.Application.Quizzes.DTOs;
@@ -14,7 +14,9 @@ namespace ZLearn.Infras.Data.Repositories
 
         public async Task<CorrectAnswerKeyDto> GetCorrectAnswerKeyAsync(string questionId)
         {
-            var question = await _context.Set<Question>().FindAsync(questionId)
+            var question = await _context.Set<Question>()
+                .Include(q => q.Answers)
+                .FirstOrDefaultAsync(q => q.Id == questionId)
                 ?? throw new NotFoundException(nameof(Question), questionId);
             question.AttemptCount++;
             Update(question);
@@ -22,7 +24,7 @@ namespace ZLearn.Infras.Data.Repositories
             return new CorrectAnswerKeyDto
             {
                 QuestionId = question.Id,
-                CorrectKey = question.CorrectKey,
+                CorrectKeys = question.Answers.Where(a => a.IsCorrect).Select(a => a.Key).ToList(),
                 Explanation = question.Explanation ?? "Chưa có giải thích",
             };
         }

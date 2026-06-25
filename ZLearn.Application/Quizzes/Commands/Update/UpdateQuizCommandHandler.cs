@@ -1,4 +1,4 @@
-﻿using ZLearn.Application.Categories;
+using ZLearn.Application.Categories;
 using ZLearn.Application.Common.Commands;
 using ZLearn.Application.Common.DTOs;
 using ZLearn.Application.Common.Utils;
@@ -46,8 +46,8 @@ namespace ZLearn.Application.Quizzes.Commands.Update
             var fileUrls = new List<string>();
             foreach (var question in data.Questions)
             {
-                if (!question.Answers.Any(a => a.Key == question.CorrectKey))
-                    throw new ArgumentException($"Question {question.Order} does not have a valid correct answer key.");
+                if (!question.Answers.Any(a => a.IsCorrect))
+                    throw new ArgumentException($"Question {question.Order} does not have a valid correct answer.");
                 // Add question media file IDs
                 if (question.MediaFileUrls.Count > 0)
                     fileUrls.AddRange(question.MediaFileUrls);
@@ -81,7 +81,7 @@ namespace ZLearn.Application.Quizzes.Commands.Update
             // Update quiz properties
             quiz.Name = data.Name;
             quiz.CategoryId = data.CategoryId;
-            quiz.Slug = data.Slug ?? StringHelper.GenerateSlug(data.Name);
+            quiz.Slug = string.IsNullOrEmpty(data.Slug) ? StringHelper.GenerateSlug(data.Name) : data.Slug;
             await _quizRepo.SetQuestionsTagAsync(quiz, data.Tags);
 
             // Update questions
@@ -98,9 +98,8 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                         Id = IdGenerator.Generate("QUE"),
                         Order = q.Order,
                         StringContent = q.StringContent,
-                        CorrectKey = q.CorrectKey,
                         Explanation = q.Explanation,
-                        Slug = q.Slug,
+                        Slug = string.IsNullOrEmpty(q.Slug) ? StringHelper.GenerateUniqueSlug(q.StringContent ?? $"Câu hỏi {q.Order}") : q.Slug,
                         MediaFileUrls = string.Join(",", q.MediaFileUrls),
                         Answers = q.Answers.Select(a => new Answer
                         {
@@ -108,6 +107,7 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                             Key = a.Key,
                             StringContent = a.StringContent,
                             MediaFileUrls = string.Join(",", a.MediaFileUrls),
+                            IsCorrect = a.IsCorrect
                         }).ToList()
                     });
                 }
@@ -116,9 +116,8 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                     // Update existing question
                     existingQuestion.Order = q.Order;
                     existingQuestion.StringContent = q.StringContent;
-                    existingQuestion.Slug = q.Slug;
+                    existingQuestion.Slug = string.IsNullOrEmpty(q.Slug) ? StringHelper.GenerateUniqueSlug(q.StringContent ?? $"Câu hỏi {q.Order}") : q.Slug;
                     existingQuestion.MediaFileUrls = string.Join(",", q.MediaFileUrls);
-                    existingQuestion.CorrectKey = q.CorrectKey;
                     existingQuestion.Explanation = q.Explanation;
                     existingQuestion.Answers.Clear();
                     foreach (var a in q.Answers)
@@ -131,7 +130,8 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                                 Id = IdGenerator.Generate("ANS"),
                                 Key = a.Key,
                                 StringContent = a.StringContent,
-                                MediaFileUrls = string.Join(",", a.MediaFileUrls)
+                                MediaFileUrls = string.Join(",", a.MediaFileUrls),
+                                IsCorrect = a.IsCorrect
                             });
                         }
                         else if (answers.TryGetValue(a.Id, out var existingAnswer))
@@ -140,6 +140,7 @@ namespace ZLearn.Application.Quizzes.Commands.Update
                             existingAnswer.Key = a.Key;
                             existingAnswer.StringContent = a.StringContent;
                             existingAnswer.MediaFileUrls = string.Join(",", a.MediaFileUrls);
+                            existingAnswer.IsCorrect = a.IsCorrect;
                             existingQuestion.Answers.Add(existingAnswer);
                         }
                     }

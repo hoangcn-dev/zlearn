@@ -1,4 +1,4 @@
-﻿using Hangfire;
+using Hangfire;
 using Microsoft.Extensions.Logging;
 using Quartz;
 using ZLearn.Application.Common.Services;
@@ -46,7 +46,7 @@ namespace ZLearn.Infras.Services.Scheduler
                 .WithIdentity(jobId, groupName)
                 .UsingJobData(PublishCommandJob<TCommand>.COMMAND_OBJECT_KEY, StringHelper.ObjectToJsonString(command))
                 .Build();
-            var trigger = TriggerBuilder.Create()
+            var trigger = Quartz.TriggerBuilder.Create()
                 .WithIdentity(jobId, groupName)
                 .ForJob(job)
                 .StartAt(startAt)
@@ -63,7 +63,7 @@ namespace ZLearn.Infras.Services.Scheduler
                 .WithIdentity(jobId, groupName)
                 .UsingJobData(PublishEventJob<TEvent>.EVENT_OBJECT_KEY, StringHelper.ObjectToJsonString(@event))
                 .Build();
-            var trigger = TriggerBuilder.Create()
+            var trigger = Quartz.TriggerBuilder.Create()
                 .WithIdentity(jobId, groupName)
                 .ForJob(job)
                 .StartAt(startAt)

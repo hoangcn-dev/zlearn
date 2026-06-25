@@ -1,4 +1,4 @@
-﻿using ZLearn.Domain.Entities;
+using ZLearn.Domain.Entities;
 
 namespace ZLearn.Application.Quizzes.DTOs
 {
@@ -8,6 +8,7 @@ namespace ZLearn.Application.Quizzes.DTOs
         public int Key { get; set; }
         public string? StringContent { get; set; }
         public List<string> MediaFileUrls { get; set; } = new List<string>();
+        public bool IsCorrect { get; set; }
     }
 
     public class UpdateAnswerMapping : Profile

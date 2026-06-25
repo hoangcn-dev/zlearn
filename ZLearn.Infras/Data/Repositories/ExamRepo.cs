@@ -1,4 +1,4 @@
-﻿using ClosedXML.Excel;
+using ClosedXML.Excel;
 using Hangfire.MemoryStorage.Database;
 using System.Security.Claims;
 using ZLearn.API.Exceptions;
@@ -138,7 +138,8 @@ namespace ZLearn.Infras.Data.Repositories
                         Key = a.Key,
                         StringContent = a.StringContent,
                         ImageUrls = a.MediaFileUrls.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList()
-                    }).ToList()
+                    }).ToList(),
+                    IsMultipleChoice = question.Answers.Count(a => a.IsCorrect) > 1
                 }).ToList()
             };
 
@@ -300,7 +301,7 @@ namespace ZLearn.Infras.Data.Repositories
                     e.Id,
                     e.Status,
                     e.AllowLateSubmit,
-                    Questions = e.Quiz.Questions.Select(q => new { q.Id, q.CorrectKey })
+                    Questions = e.Quiz.Questions.Select(q => new { q.Id, CorrectKeys = q.Answers.Where(a => a.IsCorrect).Select(a => a.Key).ToList() })
                 })
                 .FirstOrDefaultAsync()
                 ?? throw new BadRequestException("Bài kiểm tra không tồn tại");
@@ -325,7 +326,9 @@ namespace ZLearn.Infras.Data.Repositories
             {
                 if (!questions.ContainsKey(answer.QuestionId)) continue;
                 var question = questions[answer.QuestionId];
-                if (question.CorrectKey == answer.SubmitKey)
+                var submitted = answer.SubmitKeys ?? new List<int>();
+                var corrects = question.CorrectKeys ?? new List<int>();
+                if (submitted.Count == corrects.Count && !submitted.Except(corrects).Any())
                 {
                     correctCount++;
                 }
@@ -333,7 +336,7 @@ namespace ZLearn.Infras.Data.Repositories
             participant.Score = Math.Round((double)correctCount / questions.Count * 10, 2);
             participant.Correct = correctCount;
             participant.Completed = data.Answers.Count;
-            participant.Status = exam.Status == ExamStatus.Ended? ParticipantStatus.TimeOut : ParticipantStatus.Completed;
+            participant.Status = exam.Status == ExamStatus.Ended ? ParticipantStatus.TimeOut : ParticipantStatus.Completed;
             participant.SelectedAnswers = StringHelper.ObjectToJsonString(data.Answers);
             _context.Set<ExamParticipant>().Update(participant);
             await _context.SaveChangesAsync();

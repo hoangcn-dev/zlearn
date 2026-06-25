@@ -18,9 +18,9 @@ namespace ZLearn.Application.Common.Utils
     public class EnvVariableNames
     {
         public const string ADMIN_PASSWORD = nameof(ADMIN_PASSWORD);
-        public const string POSTGRESQL_CONNECTION_STRING = nameof(POSTGRESQL_CONNECTION_STRING);
+        public const string CONNECTION_STRING_POSTGRES = nameof(CONNECTION_STRING_POSTGRES);
+        public const string CONNECTION_STRING_REDIS = nameof(CONNECTION_STRING_REDIS);
         public const string JWT_SECRET_KEY = nameof(JWT_SECRET_KEY);
-        public const string REDIS_CONNECTION_PASSWORD = nameof(REDIS_CONNECTION_PASSWORD);
         public const string GOOGLE_CLIENT_ID = nameof(GOOGLE_CLIENT_ID);
         public const string GOOGLE_CLIENT_SECRET = nameof(GOOGLE_CLIENT_SECRET);
         public const string CLOUDINARY_NAME = nameof(CLOUDINARY_NAME);

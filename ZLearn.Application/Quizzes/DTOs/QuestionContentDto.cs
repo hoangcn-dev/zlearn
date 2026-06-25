@@ -1,4 +1,4 @@
-﻿using ZLearn.Domain.Entities;
+using ZLearn.Domain.Entities;
 
 namespace ZLearn.Application.Quizzes.DTOs
 {
@@ -16,6 +16,7 @@ namespace ZLearn.Application.Quizzes.DTOs
         public List<string> AudioUrls { get; set; } = new List<string>();
         public List<string> VideoUrls { get; set; } = new List<string>();
         public List<AnswerContentDto> Answers { get; set; } = new List<AnswerContentDto>();
+        public bool IsMultipleChoice { get; set; }
     }
 
     public class AnswerContentDto

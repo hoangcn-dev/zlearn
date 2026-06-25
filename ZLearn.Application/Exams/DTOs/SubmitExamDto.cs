@@ -1,4 +1,4 @@
-﻿namespace ZLearn.Application.Exams.DTOs
+namespace ZLearn.Application.Exams.DTOs
 {
     public class SubmitExamDto
     {
@@ -9,6 +9,6 @@
     public class SubmitAnswerDto
     {
         public string QuestionId { get; set; }
-        public int? SubmitKey { get; set; }
+        public List<int> SubmitKeys { get; set; } = new();
     }
 }

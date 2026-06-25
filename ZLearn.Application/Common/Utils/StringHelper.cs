@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -123,6 +123,17 @@ namespace ZLearn.Application.Common.Utils
             seo = Regex.Replace(seo, @"[^a-z0-9\s-]", ""); //remove special characters
             seo = Regex.Replace(seo, @"\s+", "-");
             return seo.Length > 100 ? seo[..100] : seo;
+        }
+
+        public static string GenerateUniqueSlug(string source, int maxLength = 100)
+        {
+            var baseSlug = GenerateSlug(source);
+            var suffix = $"-{Guid.NewGuid().ToString("N")[..8]}";
+            if (baseSlug.Length + suffix.Length > maxLength)
+            {
+                baseSlug = baseSlug[..(maxLength - suffix.Length)];
+            }
+            return $"{baseSlug}{suffix}";
         }
 
         public static string GetJobId(string prefix, string typeName) => $"{prefix}_{typeName}";

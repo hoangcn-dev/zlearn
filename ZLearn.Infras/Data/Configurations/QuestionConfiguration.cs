@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ZLearn.Domain.Constants;
 using ZLearn.Domain.Entities;
@@ -15,6 +15,7 @@ namespace ZLearn.Infras.Data.Configurations
                 .WithMany(qz => qz.Questions)
                 .HasForeignKey(q => q.QuizId)
                 .OnDelete(DeleteBehavior.Cascade);
+            builder.HasIndex(q => q.Slug).IsUnique();
         }
     }
 }

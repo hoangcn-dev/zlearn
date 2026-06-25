@@ -1,4 +1,4 @@
-﻿using ZLearn.Domain.Common;
+using ZLearn.Domain.Common;
 
 namespace ZLearn.Domain.Entities
 {
@@ -9,5 +9,6 @@ namespace ZLearn.Domain.Entities
         public string QuestionId { get; set; }
         public Question Question { get; set; }
         public string MediaFileUrls { get; set; }
+        public bool IsCorrect { get; set; }
     }
 }

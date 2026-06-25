@@ -1,4 +1,4 @@
-﻿using Hangfire;
+using Hangfire;
 using Hangfire.MemoryStorage;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -62,7 +62,7 @@ namespace ZLearn.Infras
             builder.Services.AddDbContext<AppDbContext>((sp, options) =>
             {
                 options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
-                options.UseNpgsql(EnvVariableHelper.GetValue(EnvVariableNames.POSTGRESQL_CONNECTION_STRING));
+                options.UseNpgsql(EnvVariableHelper.GetValue(EnvVariableNames.CONNECTION_STRING_POSTGRES));
             });
         }
 
@@ -77,7 +77,7 @@ namespace ZLearn.Infras
             {
                  q.UsePersistentStore(store =>
                  {
-                     store.UsePostgres(EnvVariableHelper.GetValue(EnvVariableNames.POSTGRESQL_CONNECTION_STRING));
+                     store.UsePostgres(EnvVariableHelper.GetValue(EnvVariableNames.CONNECTION_STRING_POSTGRES));
                      store.UseNewtonsoftJsonSerializer();
                  });
             });
@@ -93,16 +93,16 @@ namespace ZLearn.Infras
             builder.Services.AddSingleton<IRedisService, RedisService>();
             builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
             {
+                var connectionString = EnvVariableHelper.GetValue(EnvVariableNames.CONNECTION_STRING_REDIS);
+                var redisConfig = ConfigurationOptions.Parse(connectionString);
                 var configs = builder.Configuration.GetSection("Redis").Get<RedisConfig>();
-                var redisConfig = new ConfigurationOptions
+                if (configs != null)
                 {
-                    EndPoints = { configs.EndPoints.Default },
-                    Password = EnvVariableHelper.GetValue(EnvVariableNames.REDIS_CONNECTION_PASSWORD), // Mật khẩu đã thiết lập
-                    Ssl = configs.Ssl,
-                    ConnectTimeout = configs.ConnectTimeout,
-                    SyncTimeout = configs.SyncTimeout,
-                    ConnectRetry = configs.ConnectRetry
-                };
+                    redisConfig.Ssl = configs.Ssl;
+                    redisConfig.ConnectTimeout = configs.ConnectTimeout;
+                    redisConfig.SyncTimeout = configs.SyncTimeout;
+                    redisConfig.ConnectRetry = configs.ConnectRetry;
+                }
                 return ConnectionMultiplexer.Connect(redisConfig);
             });
         }
@@ -141,7 +141,9 @@ namespace ZLearn.Infras
                         ValidAudience = builder.Configuration["JWT:Audience"],
                         ClockSkew = TimeSpan.Zero,
                         IssuerSigningKey = new SymmetricSecurityKey(
-                            Encoding.UTF8.GetBytes(EnvVariableHelper.GetValue(EnvVariableNames.JWT_SECRET_KEY)))
+                            Encoding.UTF8.GetBytes(EnvVariableHelper.GetValue(EnvVariableNames.JWT_SECRET_KEY))),
+                        RoleClaimType = ClaimTypes.Role,
+                        NameClaimType = ClaimTypes.Name
                     };
 
                     opt.Events = new JwtBearerEvents

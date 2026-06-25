@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using ZLearn.API.Exceptions;
 using ZLearn.Application.Common.Identity;
@@ -94,27 +94,45 @@ namespace ZLearn.Infras.Data
                 }
 
                 // Default admin account
-                if (!await _userManager.Users.AnyAsync(u => u.UserName == nameof(UserRole.Admin)))
+                var adminUser = await _userManager.FindByEmailAsync("hoangcn.dev@gmail.com");
+                if (adminUser is null)
                 {
-                    var adminAccount = new AppUser
+                    var existingUserByUsername = await _userManager.FindByNameAsync("Admin");
+                    if (existingUserByUsername != null)
                     {
-                        Id = IdGenerator.Generate("ACC"),
-                        UserName = "Admin",
-                        FirstName = "Admin",
-                        LastName = "System",
-                        NickName = "Bình nước màu xanh",
-                        IsShowNickName = true,
-                        Email = "dever.z.ckpt.526@gmail.com",
-                        EmailConfirmed = true,
-                        ImageUrl = null,
-                        LastLogin = DateTimeOffset.UtcNow
-                    };
-                    var createAdminResult = await _userManager.CreateAsync(adminAccount, EnvVariableHelper.GetValue(EnvVariableNames.ADMIN_PASSWORD));
-                    if (!createAdminResult.Succeeded)
-                        throw new DatabaseErrorException("Failed to create default admin account.");
-                    var assignRoleResult = await _userManager.AddToRoleAsync(adminAccount, nameof(UserRole.Admin));
+                        existingUserByUsername.Email = "hoangcn.dev@gmail.com";
+                        var updateResult = await _userManager.UpdateAsync(existingUserByUsername);
+                        if (!updateResult.Succeeded)
+                            throw new DatabaseErrorException("Failed to update existing admin account email.");
+                        adminUser = existingUserByUsername;
+                    }
+                    else
+                    {
+                        var adminAccount = new AppUser
+                        {
+                            Id = IdGenerator.Generate("ACC"),
+                            UserName = "Admin",
+                            FirstName = "Admin",
+                            LastName = "System",
+                            NickName = "Bình nước màu xanh",
+                            IsShowNickName = true,
+                            Email = "hoangcn.dev@gmail.com",
+                            EmailConfirmed = true,
+                            ImageUrl = null,
+                            LastLogin = DateTimeOffset.UtcNow
+                        };
+                        var createAdminResult = await _userManager.CreateAsync(adminAccount, EnvVariableHelper.GetValue(EnvVariableNames.ADMIN_PASSWORD));
+                        if (!createAdminResult.Succeeded)
+                            throw new DatabaseErrorException("Failed to create default admin account.");
+                        adminUser = adminAccount;
+                    }
+                }
+
+                if (adminUser != null && !await _userManager.IsInRoleAsync(adminUser, nameof(UserRole.Admin)))
+                {
+                    var assignRoleResult = await _userManager.AddToRoleAsync(adminUser, nameof(UserRole.Admin));
                     if (!assignRoleResult.Succeeded)
-                        throw new DatabaseErrorException("Failed to assign admin role.");
+                        throw new DatabaseErrorException("Failed to assign admin role to hoangcn.dev@gmail.com.");
                 }
 
                 await transaction.CommitAsync();

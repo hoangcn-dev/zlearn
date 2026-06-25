@@ -1,4 +1,4 @@
-﻿using ZLearn.API.Exceptions;
+using ZLearn.API.Exceptions;
 using ZLearn.Application.Common.Queries;
 using ZLearn.Application.Common.Utils;
 using ZLearn.Application.Files;
@@ -56,7 +56,8 @@ namespace ZLearn.Application.Quizzes.Queries.GetQuestionContent
                     Key = a.Key,
                     StringContent = a.StringContent,
                     ImageUrls = a.MediaFileUrls.Split(",").Where(url => !string.IsNullOrEmpty(url)).ToList()
-                }).ToList()
+                }).ToList(),
+                IsMultipleChoice = question.Answers.Count(a => a.IsCorrect) > 1
             };
             foreach (var url in question.MediaFileUrls.Split(","))
             {

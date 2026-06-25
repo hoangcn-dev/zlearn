@@ -1,4 +1,4 @@
-﻿using MediatR;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -21,6 +21,8 @@ using ZLearn.Application.Quizzes.Queries.GetQuestionAnswerKey;
 using ZLearn.Application.Quizzes.Queries.GetQuestionContent;
 using ZLearn.Application.Quizzes.Queries.GetQuizDetail;
 using ZLearn.Application.Quizzes.Queries.GetUpdateQuizContent;
+using ZLearn.Application.Quizzes.Queries.GetQuestionBank;
+
 
 namespace ZLearn.Web.Controllers.API
 {
@@ -137,6 +139,16 @@ namespace ZLearn.Web.Controllers.API
         }
 
         #region Question
+        [HttpGet("questions")]
+        [Authorize]
+        public async Task<IActionResult> GetQuestionBank([FromQuery] GetQuestionBankQuery query)
+        {
+            query.CurrentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            query.IsAdmin = User.IsInRole("Admin");
+            var res = await _mediator.Send(query);
+            return Ok(Result<PaginatedDto<QuestionBankItemDto>>.Success("Get question bank successfully.", res));
+        }
+
         [HttpGet("questions/{id}")]
         public async Task<IActionResult> GetQuestionData(string id)
         {

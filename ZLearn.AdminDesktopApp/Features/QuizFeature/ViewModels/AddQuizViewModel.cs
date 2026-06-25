@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
@@ -311,8 +311,8 @@ namespace ZLearn.AdminDesktopApp.Features.QuizFeature.ViewModels
                         errors.Add($"Câu hỏi {i + 1}: Không có nội dung hoặc tệp đính kèm nào.");
                     if (question.Answers.Count < 2)
                         errors.Add($"Câu hỏi {i + 1}: Ít hơn 2 đáp án.");
-                    if (!question.Answers.Any(a => a.Key == question.CorrectKey))
-                        errors.Add($"Câu hỏi {i + 1}: Key đáp án không hợp lệ.");
+                    if (!question.Answers.Any(a => a.IsCorrect))
+                        errors.Add($"Câu hỏi {i + 1}: Phải có ít nhất một đáp án đúng.");
                     if (question.Answers.Any(a => a.MediaFileUrls.Count == 0 && string.IsNullOrEmpty(a.StringContent)))
                         errors.Add($"Câu hỏi {i + 1}: Tồn tại đáp án không có nội dung hoặc tệp đính kèm nào.");
                 }

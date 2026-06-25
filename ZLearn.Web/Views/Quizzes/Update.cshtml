@@ -1,4 +1,4 @@
-﻿@{
+@{
     ViewBag.Title = "Cập nhật đề";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
     ViewBag.ShowLeftOptions = false;
@@ -15,6 +15,7 @@
     <!-- Top action -->
     <div class="d-flex mb-3">
         <button class="btn bg-white me-2 border highlight-hover" onclick="window.history.back()"><i class="fa-solid fa-arrow-left"></i> Quay lại danh sách</button>
+        <button class="btn bg-white me-2 border highlight-hover" onclick="importJson()"><i class="fa-solid fa-file-import" style="color: var(--secondary-color)"></i> Nhập câu hỏi từ JSON</button>
     </div>
 
     <!-- Update content -->
@@ -90,9 +91,6 @@
                 res.tags.forEach(e => addTag(e));
                 res.questions.forEach((q, qIndex) => {
                     addQuestion(q);
-                    q.answers.forEach((a, aIndex) => {
-                        addAnswer(qIndex, aIndex, a);
-                    })
                 });
             });
         });
@@ -127,7 +125,7 @@
                         questions: questions
                     }
                     await saveMediaFile();
-                    pustJsonData(`/quizzes/${id}`, updateData, res => {
+                    putJsonData(`/quizzes/${id}`, updateData, res => {
                         console.log(res);
                         if (res.succeeded)
                             showMess("Cập nhật đề thành công!");
@@ -180,9 +178,13 @@
         function addQuestion(q = {
                 stringContent: '',
                 mediaFileUrls: [],
-                correctKey: 0,
                 order: questions.length + 1,
-                answers: [],
+                answers: [
+                    { key: 1, stringContent: '', mediaFileUrls: [], isCorrect: false },
+                    { key: 2, stringContent: '', mediaFileUrls: [], isCorrect: false },
+                    { key: 3, stringContent: '', mediaFileUrls: [], isCorrect: false },
+                    { key: 4, stringContent: '', mediaFileUrls: [], isCorrect: false }
+                ],
                 explanation: '',
                 isRemoved: false
             }) {
@@ -203,7 +205,7 @@
                         <button class="addQFile btn btn-sm bg-white me-2 border highlight-hover fw-light"><i class="fa-solid fa-photo-film"></i> Thêm ảnh/video/audio</button>
                     </div>
 
-                    <div class="answers"></div
+                    <div class="answers"></div>
 
                     <!-- Select correct ans -->
                     <div class="d-flex w-100 fw-light mb-2" style="padding-left: 30px;">
@@ -226,9 +228,6 @@
             qDiv.find('.explanation').on('change', function() {
                 questions[qIndex].explanation = $(this).val();
             });
-            $('#questions').on('change', `input[name="${qIndex}_correctKey"]`, function() {
-                questions[qIndex].correctKey = $(this).val();
-            });
 
 
             // Action
@@ -244,18 +243,18 @@
             q.mediaFileUrls.forEach(e => qDiv.find('.qFiles').append(getFileTag(getFileName(e), e)));
             qDiv.find('button.addQFile').click(() => addMediaFile(`#${qIndex} .qFiles`, "image/*,video/*,audio/*", qIndex, -1));
 
-            // Answers
-            q.answers.forEach(e => addAnswer(qIndex, null, e));
-            qDiv.find('button.addAnswer').click(() => {
-                const aIndex = questions[qIndex].answers.length;
-                const a = { key: aIndex+1, stringContent: '', mediaFileUrls: [] };
-                questions[qIndex].answers.push(a);
-                addAnswer(qIndex, aIndex, a);
-            });
-
             const container = $('#questions');
             if (questions.length > 1) container.append(`<hr class="my-5">`);
             container.append(qDiv);
+
+            // Answers
+            q.answers.forEach((e, i) => addAnswer(qIndex, i, e));
+            qDiv.find('button.addAnswer').click(() => {
+                const aIndex = questions[qIndex].answers.length;
+                const a = { key: aIndex+1, stringContent: '', mediaFileUrls: [], isCorrect: false };
+                questions[qIndex].answers.push(a);
+                addAnswer(qIndex, aIndex, a);
+            });
 
             $('#questionCount').text(`${questions.filter(e => !e.isRemoved).length} Câu hỏi`);
         }
@@ -287,13 +286,18 @@
                 });
             });
             $(`#${qIndex} .answers`).append(answer);
-            const radio = $(`
+            const checkbox = $(`
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="${qIndex}_correctKey" value="${aIndex + 1}" ${aIndex + 1 == questions[qIndex].correctKey? 'checked':''}>
+                    <input class="form-check-input" type="checkbox" name="${qIndex}_correctKey" value="${aIndex + 1}" ${(a.isCorrect === true || a.IsCorrect === true) ? 'checked' : ''}>
                     <label class="form-check-label">${aTag}</label>
                 </div>
             `);
-            $(`#${qIndex} .answerKeySelect`).append(radio);
+            checkbox.find('input').change(function() {
+                const checked = $(this).is(':checked');
+                a.isCorrect = checked;
+                a.IsCorrect = checked;
+            });
+            $(`#${qIndex} .answerKeySelect`).append(checkbox);
         }
 
         function getFileTag(filename, fileurl) {
@@ -381,6 +385,55 @@
                 dialog.remove();
             });
             $('body').append(dialog);
+        }
+
+        function importJson() {
+            const input = document.createElement('input');
+            input.setAttribute('type', 'file');
+            input.setAttribute('accept', '.json');
+            input.hidden = true;
+            input.onchange = e => {
+                const file = input.files[0];
+                if (!file) return;
+                const fileReader = new FileReader();
+                fileReader.onload = () => {
+                    try {
+                        const importedQuestions = JSON.parse(fileReader.result);
+                        if (!Array.isArray(importedQuestions)) {
+                            showMess("Dữ liệu JSON không hợp lệ, phải là một danh sách câu hỏi.", false);
+                            return;
+                        }
+                        
+                        importedQuestions.forEach(e => {
+                            const rawAns = Array.isArray(e.answers) ? e.answers : (Array.isArray(e.Answers) ? e.Answers : []);
+                            const answers = rawAns.map((ans, idx) => {
+                                return {
+                                    key: idx + 1,
+                                    stringContent: ans.stringContent || ans.StringContent || '',
+                                    mediaFileUrls: ans.mediaFileUrls || ans.MediaFileUrls || [],
+                                    isCorrect: ans.isCorrectAnswer === true || ans.IsCorrectAnswer === true
+                                };
+                            });
+                            
+                            addQuestion({
+                                stringContent: e.stringContent || e.StringContent || '',
+                                mediaFileUrls: e.mediaFileUrls || e.MediaFileUrls || [],
+                                order: questions.length + 1,
+                                answers: answers,
+                                explanation: e.explanation || e.Explanation || '',
+                                isRemoved: false
+                            });
+                        });
+                        showMess("Nhập câu hỏi từ JSON thành công!");
+                    } catch (err) {
+                        showMess("Lỗi khi đọc file JSON: " + err.message, false);
+                    }
+                };
+                fileReader.readAsText(file);
+                input.remove();
+            };
+            $('body').append(input);
+            input.click();
         }
     </script>
 }

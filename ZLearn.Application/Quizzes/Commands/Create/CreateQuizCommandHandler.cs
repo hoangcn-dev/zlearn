@@ -1,4 +1,4 @@
-﻿using ZLearn.API.Exceptions;
+using ZLearn.API.Exceptions;
 using ZLearn.Application.Categories;
 using ZLearn.Application.Common.Commands;
 using ZLearn.Application.Common.DTOs;
@@ -40,7 +40,7 @@ namespace ZLearn.Application.Quizzes.Commands.Create
             var fileUrls = new List<string>();
             foreach (var question in data.Questions)
             {
-                if (!question.Answers.Any(a => a.Key == question.CorrectKey))
+                if (!question.Answers.Any(a => a.IsCorrect))
                     throw new ArgumentException($"Câu hỏi {question.Order} chưa chọn đáp án hợp lệ.");
                 if (question.MediaFileUrls.Count > 0) fileUrls.AddRange(question.MediaFileUrls);
                 question.Answers.ForEach(a =>
@@ -61,7 +61,7 @@ namespace ZLearn.Application.Quizzes.Commands.Create
             {
                 Id = IdGenerator.Generate("QUI"),
                 Name = data.Name,
-                Slug = data.Slug,
+                Slug = string.IsNullOrEmpty(data.Slug) ? StringHelper.GenerateSlug(data.Name) : data.Slug,
                 IsPublic = data.IsPublic,
                 CategoryId = data.CategoryId,
             };
@@ -70,10 +70,9 @@ namespace ZLearn.Application.Quizzes.Commands.Create
             {
                 Id = IdGenerator.Generate("QUE"),
                 Order = q.Order,
-                Slug = StringHelper.GenerateSlug(q.StringContent ?? $"Câu hỏi {q.Order}"),
+                Slug = StringHelper.GenerateUniqueSlug(q.StringContent ?? $"Câu hỏi {q.Order}"),
                 StringContent = q.StringContent,
                 MediaFileUrls = string.Join(",", q.MediaFileUrls),
-                CorrectKey = q.CorrectKey,
                 Explanation = q.Explanation,
                 Answers = q.Answers.Select(a => new Answer
                 {
@@ -81,6 +80,7 @@ namespace ZLearn.Application.Quizzes.Commands.Create
                     Key = a.Key,
                     StringContent = a.StringContent,
                     MediaFileUrls = string.Join(",", a.MediaFileUrls),
+                    IsCorrect = a.IsCorrect
                 }).ToList()
             }).ToList();
 
