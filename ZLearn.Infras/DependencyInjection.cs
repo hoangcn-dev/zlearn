@@ -36,6 +36,7 @@ using ZLearn.Infras.External.AI.Groq;
 using ZLearn.Infras.External.CloudinaryStore;
 using ZLearn.Infras.External.Redis;
 using ZLearn.Infras.External.SignalR;
+using ZLearn.Infras.Services;
 using ZLearn.Infras.Services.AccessTracking;
 using ZLearn.Infras.Services.ExamTracking;
 using ZLearn.Infras.Services.Identity;
@@ -59,6 +60,7 @@ namespace ZLearn.Infras
             builder.Services.AddScoped<IAccessHistoryRepo, AccessHistoryRepo>();
             builder.Services.AddScoped<ILicenseKeyRepo, LicenseKeyRepo>();
             builder.Services.AddScoped<IExamRepo, ExamRepo>();
+            builder.Services.AddScoped<IDocumentExportService, DocumentExportService>();
             builder.Services.AddDbContext<AppDbContext>((sp, options) =>
             {
                 options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());

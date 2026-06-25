@@ -22,6 +22,7 @@ using ZLearn.Application.Quizzes.Queries.GetQuestionContent;
 using ZLearn.Application.Quizzes.Queries.GetQuizDetail;
 using ZLearn.Application.Quizzes.Queries.GetUpdateQuizContent;
 using ZLearn.Application.Quizzes.Queries.GetQuestionBank;
+using ZLearn.Application.Quizzes.Queries.ExportQuizzes;
 
 
 namespace ZLearn.Web.Controllers.API
@@ -136,6 +137,19 @@ namespace ZLearn.Web.Controllers.API
             var query = new GetAllTagsQuery();
             var res = await _mediator.Send(query);
             return Ok(Result<IEnumerable<string>>.Success("Get all tags successfully.", res));
+        }
+
+        [HttpPost("export")]
+        [Authorize]
+        public async Task<IActionResult> ExportQuizzes([FromBody] ExportQuizzesRequestDto data)
+        {
+            var query = new ExportQuizzesQuery
+            {
+                QuizIds = data.QuizIds,
+                Format = data.Format
+            };
+            var res = await _mediator.Send(query);
+            return File(res.Content, res.ContentType, res.FileName);
         }
 
         #region Question
