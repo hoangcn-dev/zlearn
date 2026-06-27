@@ -1,4 +1,4 @@
-﻿@using ZLearn.Application.Exams.DTOs
+@using ZLearn.Application.Exams.DTOs
 @using ZLearn.Infras.External.SignalR
 
 @model WaitExamInfoDto
@@ -79,27 +79,35 @@
                     `);
                 } else {
                     // Socket
-                    const connection = new signalR.HubConnectionBuilder()
-                        .withUrl("@ExamHub.HUB_URL" + "?examId=@Model.Id", { withCredentials: true })
-                        .build();
-                    connection.onclose(err => {
-                        showMess('Disconnected! Please try reload the page to reconnect.', false)
-                        console.error("Disconnected:", err.toString());
-                    });
-                    connection.on('ExamStatusChange', (status) => {
-                        if (status == 'InProgress') {
-                            $('#countdown-label').remove();
-                            $('#countdown').remove();
-                            clearInterval(countdown_sub_id);
-                            $('#btnStart button').prop('disabled', false);
-                            
-                        }
-                    });
-                    connection.on('Connected', (mess) => showMess(mess, true));
-                    window.addEventListener("beforeunload", async () => {
-                        await connection.stop();
-                    });
-                    connection.start();
+                    if (res.data.examStatus !== 'Ended') {
+                        const connection = new signalR.HubConnectionBuilder()
+                            .withUrl("@ExamHub.HUB_URL", { withCredentials: true })
+                            .withAutomaticReconnect()
+                            .build();
+                        connection.onreconnecting(err => {
+                            showMess('Mất kết nối mạng. Đang tự động kết nối lại...', false);
+                        });
+                        connection.onreconnected(connectionId => {
+                            showMess('Đã kết nối lại thành công!', true);
+                        });
+                        connection.onclose(err => {
+                            showMess('Mất kết nối hoàn toàn! Vui lòng tải lại trang.', false);
+                            console.error("Disconnected:", err.toString());
+                        });
+                        connection.on('ExamStatusChange', (status) => {
+                            if (status == 'InProgress') {
+                                $('#countdown-label').remove();
+                                $('#countdown').remove();
+                                clearInterval(countdown_sub_id);
+                                $('#btnStart button').prop('disabled', false);
+                            }
+                        });
+                        connection.on('Connected', (mess) => showMess(mess, true));
+                        window.addEventListener("beforeunload", async () => {
+                            if (connection) await connection.stop();
+                        });
+                        connection.start();
+                    }
 
                     // Update UI
                     $('#status').html(`

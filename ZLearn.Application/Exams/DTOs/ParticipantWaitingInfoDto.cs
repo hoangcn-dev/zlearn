@@ -1,4 +1,4 @@
-﻿using ZLearn.Domain.Enums;
+using ZLearn.Domain.Enums;
 
 namespace ZLearn.Application.Exams.DTOs
 {
@@ -10,5 +10,6 @@ namespace ZLearn.Application.Exams.DTOs
         public string? ParticipantCode { get; set; }
         public DateTimeOffset StartTime { get; set; }
         public ExamStatus ExamStatus { get; set; }
+        public string? SessionToken { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 using ClosedXML.Excel;
-using Hangfire.MemoryStorage.Database;
 using System.Security.Claims;
 using ZLearn.API.Exceptions;
 using ZLearn.Application.Common.DTOs;
@@ -12,15 +11,19 @@ using ZLearn.Application.Quizzes.DTOs;
 using ZLearn.Domain.Entities;
 using ZLearn.Domain.Enums;
 
+using ZLearn.Infras.External.Redis;
+
 namespace ZLearn.Infras.Data.Repositories
 {
     public class ExamRepo : BaseRepo<Exam>, IExamRepo
     {
         private readonly ISchedulerService _schedulerService;
+        private readonly IRedisService _redisService;
 
-        public ExamRepo(AppDbContext context, ISchedulerService schedulerService) : base(context)
+        public ExamRepo(AppDbContext context, ISchedulerService schedulerService, IRedisService redisService) : base(context)
         {
             _schedulerService = schedulerService;
+            _redisService = redisService;
         }
 
         public async Task<ParticipantWaitingInfoDto> AddParticipant(ClaimsPrincipal user, JoinExamRequestDto data)
@@ -414,6 +417,19 @@ namespace ZLearn.Infras.Data.Repositories
                 participant.Status = ParticipantStatus.ConnectionLost;
                 _context.Set<ExamParticipant>().Update(participant);
             }
+
+            if (action == ManageParticipantAction.Remove || action == ManageParticipantAction.Block)
+            {
+                var userId = participant.UserId;
+                var userSessionKey = $"{userId}:{examId}";
+                var token = await _redisService.Get(RedisKeys.EXAM_USER_SESSION, userSessionKey);
+                if (!string.IsNullOrEmpty(token))
+                {
+                    await _redisService.Delete(RedisKeys.EXAM_SESSION, token);
+                    await _redisService.Delete(RedisKeys.EXAM_USER_SESSION, userSessionKey);
+                }
+            }
+
             await _context.SaveChangesAsync();
             return participantId;
         }

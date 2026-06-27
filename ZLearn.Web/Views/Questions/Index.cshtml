@@ -27,7 +27,7 @@
             <div class="card card-body shadow-sm bg-with-image" style="position: sticky; top: 20px; max-height: 70vh; overflow-y: auto;">
                 <!-- Title -->
                 <h6 id="quizName" class="border-bottom pb-3 mb-3"></h6>
-                <div id="questionMap" class="d-flex flex-wrap justify-content-start">
+                <div id="questionMap">
                 </div>
             </div>
         </div>
@@ -48,6 +48,8 @@
                 <span id="attempt">@Model.AttemptCount Lượt làm</span>
                 <span class="mx-1">|</span>
                 <span id="questionTypeTag" style="padding: 2px 6px; border-radius: 4px; font-weight: 500; font-size: 10px; color: white; background-color: @(Model.IsMultipleChoice ? "#8a3ffc" : "var(--secondary-color)")">@(Model.IsMultipleChoice ? "Nhiều đáp án" : "1 đáp án")</span>
+                <span class="mx-1">|</span>
+                <span id="shortcutGuide"><i class="fa-regular fa-keyboard me-1"></i> Phím tắt: ...</span>
             </div>
 
             <!-- Media Display Toggle Button -->
@@ -137,14 +139,17 @@
 
         function updateQuestionTypeTag(isMulti) {
             const tag = $('#questionTypeTag');
+            const guide = $('#shortcutGuide');
             if (isMulti) {
                 tag.text('Nhiều đáp án')
                    .css('background-color', '#8a3ffc');
                 $('#multiSubmitSection').show();
+                guide.html('<i class="fa-regular fa-keyboard me-1"></i> Phím tắt: <b>[1/2/3/4...]</b> chọn/bỏ chọn | <b>[Enter]</b> xác nhận | <b>[←]/[→]</b> chuyển câu');
             } else {
                 tag.text('1 đáp án')
                    .css('background-color', 'var(--secondary-color)');
                 $('#multiSubmitSection').hide();
+                guide.html('<i class="fa-regular fa-keyboard me-1"></i> Phím tắt: <b>[1/2/3/4...]</b> chọn đáp án | <b>[←]/[→]</b> chuyển câu');
             }
         }
 
@@ -234,6 +239,33 @@
         $(document).ready(async () => {
             updateQuestionTypeTag(isMultipleChoice);
 
+            // Lắng nghe sự kiện bàn phím
+            $(document).on('keyup', function(e) {
+                if ($(e.target).is('input, textarea, select')) return;
+
+                const key = e.key;
+                if (key === 'ArrowLeft') {
+                    if ($('#btnPrev').is(':visible')) {
+                        $('#btnPrev').click();
+                    }
+                } else if (key === 'ArrowRight') {
+                    if ($('#btnNext').is(':visible')) {
+                        $('#btnNext').click();
+                    }
+                } else if (key === 'Enter') {
+                    if (isMultipleChoice && $('#btnSubmitAnswers').is(':visible') && !isAnsSelected) {
+                        $('#btnSubmitAnswers').click();
+                    }
+                } else if (/^[1-9]$/.test(key)) {
+                    if (isAnsSelected) return;
+                    const index = parseInt(key) - 1;
+                    const targetAns = $('.ans').eq(index);
+                    if (targetAns.length > 0) {
+                        targetAns.click();
+                    }
+                }
+            });
+
             // Use event delegation for answer option click
             $(document).on('click', '.ans', function() {
                 if (isAnsSelected) return;
@@ -278,7 +310,7 @@
                 $('#questionMap').empty();
 
                 res.data.questions.forEach(q => {
-                    const questionDiv = $(`<div data-order="${q.order}" data-url="${q.url}" class="q-index text-center text-decoration-none fw-light align-content-center highlight-hover me-2 mb-2 border-1 border rounded-1" style="width: 32px; height: 32px;">${q.order}</div>`);
+                    const questionDiv = $(`<div data-order="${q.order}" data-url="${q.url}" class="q-index text-center text-decoration-none fw-light align-content-center highlight-hover border-1 border rounded-1" style="height: 36px;">${q.order}</div>`);
                     questionDiv.on('click', () => loadQuestionData(q.id));
                     if (q.order == @Model.Order) {
                         questionDiv.addClass('question-index-selected');
@@ -400,6 +432,17 @@
             background-color: white;
             object-fit: contain;
             box-shadow: 0px 0px 5px gray;
+        }
+
+        #questionMap {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+            gap: 8px;
+        }
+
+        .q-index {
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
     </style>
 }

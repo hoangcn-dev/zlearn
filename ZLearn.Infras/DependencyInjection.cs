@@ -213,7 +213,8 @@ namespace ZLearn.Infras
 
         public static void AddRealtimeServices(this WebApplicationBuilder builder)
         {
-            builder.Services.AddSignalR();
+            var redisConnString = EnvVariableHelper.GetValue(EnvVariableNames.CONNECTION_STRING_REDIS);
+            builder.Services.AddSignalR().AddStackExchangeRedis(redisConnString);
         }
 
         public static void AddSchedulerService(this WebApplicationBuilder builder)
@@ -243,7 +244,6 @@ namespace ZLearn.Infras
         #region Exam Tracking
         public static void AddExamTrackingService(this WebApplicationBuilder builder)
         {
-            builder.Services.AddSingleton<ConcurrentDictionary<string, string>>();
             builder.Services.AddSingleton<IExamTrackingService, ExamTrackingService>();
             //builder.Services.AddHostedService<AutoSaveAccessCountService>();
         }

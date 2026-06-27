@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using SixLabors.ImageSharp;
@@ -355,7 +355,7 @@ namespace ZLearn.Infras.Services.Identity
         public async Task<Dictionary<string, string>> GetImageUrls(List<string> userIds)
         {
             var urls = await _userManager.Users.Where(u => userIds.Contains(u.Id))
-                .ToDictionaryAsync(u => u.Id, u => u.ImageUrl!);
+                .ToDictionaryAsync(u => u.Id, u => u.ImageUrl ?? StringHelper.GetDefaultImageUrl());
             return urls;
         }
     }
