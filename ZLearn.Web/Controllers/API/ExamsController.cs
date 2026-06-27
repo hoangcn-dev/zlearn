@@ -15,7 +15,7 @@ using ZLearn.Application.Exams.Queries.GetExamScoreExcelFileData;
 using ZLearn.Application.Exams.Queries.GetOnGoingExam;
 using ZLearn.Application.Exams.Queries.GetParticipantStatus;
 using Microsoft.AspNetCore.Http;
-using ZLearn.Infras.External.Redis;
+using ZLearn.Application.Exams.Services;
 
 namespace ZLearn.Web.Controllers.API
 {
@@ -23,14 +23,14 @@ namespace ZLearn.Web.Controllers.API
     [ApiController]
     public class ExamsController : BaseController
     {
-        private readonly IRedisService _redisService;
+        private readonly IExamSessionService _examSessionService;
 
         public ExamsController(
             ILogger<ExamsController> logger, 
             IMediator mediator,
-            IRedisService redisService) : base(logger, mediator)
+            IExamSessionService examSessionService) : base(logger, mediator)
         {
-            _redisService = redisService;
+            _examSessionService = examSessionService;
         }
 
         [HttpGet("{id}/export-result")]
@@ -48,26 +48,8 @@ namespace ZLearn.Web.Controllers.API
         [HttpGet("participant-info")]
         public async Task<IActionResult> GetParticipantInfo([FromQuery] string alias)
         {
-            var token = Request.Cookies["exam_session_token"];
-            string? userId = null;
-            if (!string.IsNullOrEmpty(token))
-            {
-                var session = await _redisService.GetObject<ExamSessionDto>(RedisKeys.EXAM_SESSION, token);
-                if (session is not null)
-                {
-                    userId = session.u;
-                }
-            }
-
-            if (string.IsNullOrEmpty(userId))
-            {
-                userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            }
-
-            if (string.IsNullOrEmpty(userId))
-            {
-                return Unauthorized();
-            }
+            var userId = await _examSessionService.GetUserIdAsync(HttpContext);
+            var token = await _examSessionService.GetSessionTokenAsync(HttpContext);
 
             var res = await _mediator.Send(new GetParticipantStatusQuery
             {
@@ -110,27 +92,7 @@ namespace ZLearn.Web.Controllers.API
         [HttpPost("submit")]
         public async Task<IActionResult> Submit([FromBody] SubmitExamDto data)
         {
-            var token = Request.Cookies["exam_session_token"];
-            string? userId = null;
-
-            if (!string.IsNullOrEmpty(token))
-            {
-                var session = await _redisService.GetObject<ExamSessionDto>(RedisKeys.EXAM_SESSION, token);
-                if (session is not null)
-                {
-                    userId = session.u;
-                }
-            }
-
-            if (string.IsNullOrEmpty(userId))
-            {
-                userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            }
-
-            if (string.IsNullOrEmpty(userId))
-            {
-                return Unauthorized();
-            }
+            var userId = await _examSessionService.GetUserIdAsync(HttpContext);
 
             await _mediator.Send(new SubmitAnswerCommand
             {
@@ -138,13 +100,7 @@ namespace ZLearn.Web.Controllers.API
                 Data = data
             });
 
-            if (!string.IsNullOrEmpty(token))
-            {
-                await _redisService.Delete(RedisKeys.EXAM_SESSION, token);
-                var userSessionKey = $"{userId}:{data.ExamId}";
-                await _redisService.Delete(RedisKeys.EXAM_USER_SESSION, userSessionKey);
-                Response.Cookies.Delete("exam_session_token");
-            }
+            await _examSessionService.HandleSubmitSessionAsync(HttpContext, userId, data.ExamId);
 
             return Ok(Result<NoData>.Success());
         }
@@ -161,35 +117,7 @@ namespace ZLearn.Web.Controllers.API
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (userId is not null && result is not null)
             {
-                var examId = data.ExamId;
-                var sessionToken = Guid.NewGuid().ToString("N");
-
-                var oldUserSessionKey = $"{userId}:{examId}";
-                var oldToken = await _redisService.Get(RedisKeys.EXAM_USER_SESSION, oldUserSessionKey);
-                if (!string.IsNullOrEmpty(oldToken))
-                {
-                    await _redisService.Delete(RedisKeys.EXAM_SESSION, oldToken);
-                }
-
-                var ttl = TimeSpan.FromHours(12);
-                var sessionPayload = new ExamSessionDto
-                {
-                    u = userId,
-                    e = examId,
-                    p = result.ParticipantId
-                };
-                await _redisService.SetObject(RedisKeys.EXAM_SESSION, sessionToken, sessionPayload, ttl);
-                await _redisService.Set(RedisKeys.EXAM_USER_SESSION, oldUserSessionKey, sessionToken, ttl);
-
-                result.SessionToken = sessionToken;
-
-                Response.Cookies.Append("exam_session_token", sessionToken, new CookieOptions
-                {
-                    HttpOnly = true,
-                    Secure = true,
-                    SameSite = SameSiteMode.Strict,
-                    Expires = DateTimeOffset.UtcNow.Add(ttl)
-                });
+                await _examSessionService.HandleJoinSessionAsync(HttpContext, userId, data.ExamId, result.ParticipantId, result);
             }
 
             return Ok(Result<ParticipantWaitingInfoDto>.Success("", result));

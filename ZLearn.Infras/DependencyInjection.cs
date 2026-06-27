@@ -38,6 +38,8 @@ using ZLearn.Infras.External.Redis;
 using ZLearn.Infras.External.SignalR;
 using ZLearn.Infras.Services.AccessTracking;
 using ZLearn.Infras.Services.ExamTracking;
+using ZLearn.Application.Exams.Services;
+using ZLearn.Infras.Services.ExamSession;
 using ZLearn.Infras.Services.Identity;
 using ZLearn.Infras.Services.Log;
 using ZLearn.Infras.Services.Scheduler;
@@ -245,6 +247,7 @@ namespace ZLearn.Infras
         public static void AddExamTrackingService(this WebApplicationBuilder builder)
         {
             builder.Services.AddSingleton<IExamTrackingService, ExamTrackingService>();
+            builder.Services.AddScoped<IExamSessionService, ExamSessionService>();
             //builder.Services.AddHostedService<AutoSaveAccessCountService>();
         }
         public static void UseExamTracking(this WebApplication app)
