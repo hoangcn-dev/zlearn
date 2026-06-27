@@ -23,6 +23,7 @@ using ZLearn.Application.Quizzes.Queries.GetQuizDetail;
 using ZLearn.Application.Quizzes.Queries.GetUpdateQuizContent;
 using ZLearn.Application.Quizzes.Queries.GetQuestionBank;
 using ZLearn.Application.Quizzes.Queries.ExportQuizzes;
+using ZLearn.Application.Quizzes.Commands.ScanQuiz;
 
 
 namespace ZLearn.Web.Controllers.API
@@ -150,6 +151,15 @@ namespace ZLearn.Web.Controllers.API
             };
             var res = await _mediator.Send(query);
             return File(res.Content, res.ContentType, res.FileName);
+        }
+
+        [HttpPost("scan")]
+        [Authorize]
+        public async Task<IActionResult> ScanQuiz([FromForm] ScanQuizCommand command)
+        {
+            var res = await _mediator.Send(command);
+            if (!res.Succeeded) return BadRequest(res);
+            return Ok(res);
         }
 
         #region Question

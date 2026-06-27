@@ -61,6 +61,7 @@ namespace ZLearn.Infras
             builder.Services.AddScoped<ILicenseKeyRepo, LicenseKeyRepo>();
             builder.Services.AddScoped<IExamRepo, ExamRepo>();
             builder.Services.AddScoped<IDocumentExportService, DocumentExportService>();
+            builder.Services.AddScoped<IDocumentImportService, DocumentImportService>();
             builder.Services.AddDbContext<AppDbContext>((sp, options) =>
             {
                 options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
