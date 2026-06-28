@@ -1,4 +1,4 @@
-﻿@using ZLearn.Application.Common.Utils
+@using ZLearn.Application.Common.Utils
 @using ZLearn.Application.Exams.DTOs
 @using ZLearn.Infras.External.SignalR
 @model ExamContentDto
@@ -9,12 +9,10 @@
 <div id="main-content" class="container-fluid px-4">
     <div class="row g-2">
         <div class="col-3">
-            <div class="row g-1 p-3 position-sticky top-0">
+            <div id="questionMap" class="p-3 position-sticky top-0">
                 @foreach (var item in Model.Questions)
                 {
-                    <div class="col-2">
-                        <div class="qMapItem border text-center py-1 bg-white rounded-1 shadow-sm highlight-hover">@item.Order</div>
-                    </div>
+                    <div class="qMapItem border text-center py-1 bg-white rounded-1 shadow-sm highlight-hover">@item.Order</div>
                 }
             </div>
         </div>
@@ -22,6 +20,7 @@
             <div class="card card-body d-flex flex-row align-items-center shadow-sm py-2 position-sticky mx-3" style="top: 10px; z-index: 2;">
                 <h5 class="mb-0">@Model.ExamName</h5>
                 <div class="flex-fill"></div>
+                <div id="shortcut-guide" class="me-3 text-secondary" style="font-size: 12px;"><i class="fa-regular fa-keyboard me-1"></i> Phím tắt: <b>[↑]/[↓]</b> chuyển câu, <b>[1/2/3/4...]</b> chọn đáp án</div>
                 <div id="countdown" class="me-3 fs-6 fw-bold">-- giờ -- phút -- giây</div>
                 <button class="opacity-hover btn border btn-sm text-white" onclick="submit()" style="background-color: var(--main-color);">Nộp bài</button>
             </div>
@@ -40,7 +39,7 @@
 
                 @foreach(var item in Model.Questions)
                 {
-                    <div id="@item.Order" class="d-flex flex-column" style="font-size: 18px;">
+                    <div id="@item.Order" class="d-flex flex-column question-container" style="font-size: 18px;">
                         <p class="mb-2"><b>Câu @item.Order</b>: @item.StringContent</p>
                         @foreach (var url in item.ImageUrls)
                         {
@@ -87,16 +86,40 @@
 @section Scripts {
     <script asp-append-version="true">
         const exam_connection = new signalR.HubConnectionBuilder()
-            .withUrl("@ExamHub.HUB_URL" + "?examId=@Model.Id", { withCredentials: true })
+            .withUrl("@ExamHub.HUB_URL", { withCredentials: true })
+            .withAutomaticReconnect()
             .build();
         const selectedAns = {};
         let timeLeftToEnd = @Model.RemainingTimeToEnd;
         let timestamp = '@(Model.EndTime.HasValue? Model.EndTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ"):"")';
         let countdown_sub_id = null;
+        let activeOrder = 1;
+
+        function setActiveQuestion(order, scroll = false) {
+            if (order < 1 || order > @Model.Questions.Count) return;
+            activeOrder = order;
+
+            $('.active-question').removeClass('active-question');
+            $('.qMapItem.active').removeClass('active');
+
+            const activeDiv = $(`#${order}`);
+            activeDiv.addClass('active-question');
+
+            const mapItem = $('.qMapItem').eq(order - 1);
+            mapItem.addClass('active');
+
+            if (scroll) {
+                activeDiv[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
 
         $(document).ready(() => {
+            setActiveQuestion(1);
+
             $('.qMapItem').on('click', function() {
-                scrollTo(`#${$(this).text()}`, 80);
+                const order = parseInt($(this).text().trim());
+                setActiveQuestion(order);
+                scrollTo(`#${order}`, 80);
             });
 
             // Cowndown
@@ -106,15 +129,83 @@
             window.addEventListener("beforeunload", async () => {
                 await exam_connection.stop();
             });
+            
+            exam_connection.onreconnecting(err => {
+                showMess('Mất kết nối mạng. Đang tự động kết nối lại...', false);
+            });
+            exam_connection.onreconnected(connectionId => {
+                showMess('Đã kết nối lại thành công!', true);
+            });
+            exam_connection.onclose(err => {
+                showMess('Mất kết nối hoàn toàn! Vui lòng tải lại trang.', false);
+                console.error('Disconnected:', err.toString());
+            });
+
             exam_connection.on('RequireUpdateProgress', () => {
                 exam_connection.invoke('AnswerSelected', Object.keys(selectedAns).length);
             });
-            connection.on('ExamStatusChange', (status) => {
+            exam_connection.on('ExamStatusChange', (status) => {
                 if (status == 'Ended') {
                     endExam();
                 }
             });
             exam_connection.start();
+
+            // Tự động nhận diện câu hỏi kích hoạt khi cuộn
+            let scrollTimeout;
+            $(window).on('scroll', function() {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    const scrollPos = $(window).scrollTop() + ($(window).height() / 2);
+                    let foundOrder = 1;
+                    let minDistance = Infinity;
+
+                    $('.question-container[id]').each(function() {
+                        const id = $(this).attr('id');
+                        const order = parseInt(id);
+                        if (!isNaN(order)) {
+                            const top = $(this).offset().top;
+                            const height = $(this).height();
+                            const center = top + (height / 2);
+                            const dist = Math.abs(scrollPos - center);
+                            if (dist < minDistance) {
+                                minDistance = dist;
+                                foundOrder = order;
+                            }
+                        }
+                    });
+
+                    activeOrder = foundOrder;
+                    $('.active-question').removeClass('active-question');
+                    $('.qMapItem.active').removeClass('active');
+                    $(`#${activeOrder}`).addClass('active-question');
+                    $('.qMapItem').eq(activeOrder - 1).addClass('active');
+                }, 100);
+            });
+
+            // Lắng nghe sự kiện bàn phím
+            $(document).on('keydown', function(e) {
+                if ($(e.target).is('input, textarea, select')) return;
+
+                const key = e.key;
+                if (key === 'ArrowUp' || key === 'ArrowLeft') {
+                    e.preventDefault();
+                    if (activeOrder > 1) {
+                        setActiveQuestion(activeOrder - 1, true);
+                    }
+                } else if (key === 'ArrowDown' || key === 'ArrowRight') {
+                    e.preventDefault();
+                    if (activeOrder < @Model.Questions.Count) {
+                        setActiveQuestion(activeOrder + 1, true);
+                    }
+                } else if (/^[1-9]$/.test(key)) {
+                    const ansIndex = parseInt(key) - 1;
+                    const inputs = $(`input[name="${activeOrder}-ans"]`);
+                    if (ansIndex >= 0 && ansIndex < inputs.length) {
+                        inputs.eq(ansIndex).click();
+                    }
+                }
+            });
         });
 
         function selectAnswer(qIndex, key, qId) {
@@ -165,13 +256,35 @@
 
 @section Styles {
     <style>
+        #questionMap {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+            gap: 8px;
+        }
+
         .qMapItem {
             font-size: 13px;
+            height: 36px;
+            align-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
 
         .qMapItem.selected {
             background-color: var(--main-color) !important;
             color: white;
+        }
+
+        .active-question {
+            border-left: 4px solid var(--main-color) !important;
+            padding-left: 15px !important;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .qMapItem.active {
+            border: 2px solid var(--main-color) !important;
+            transform: scale(1.1);
+            font-weight: bold;
         }
     </style>
 }

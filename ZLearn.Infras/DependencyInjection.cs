@@ -38,6 +38,8 @@ using ZLearn.Infras.External.Redis;
 using ZLearn.Infras.External.SignalR;
 using ZLearn.Infras.Services.AccessTracking;
 using ZLearn.Infras.Services.ExamTracking;
+using ZLearn.Application.Exams.Services;
+using ZLearn.Infras.Services.ExamSession;
 using ZLearn.Infras.Services.Identity;
 using ZLearn.Infras.Services.Log;
 using ZLearn.Infras.Services.Scheduler;
@@ -213,7 +215,8 @@ namespace ZLearn.Infras
 
         public static void AddRealtimeServices(this WebApplicationBuilder builder)
         {
-            builder.Services.AddSignalR();
+            var redisConnString = EnvVariableHelper.GetValue(EnvVariableNames.CONNECTION_STRING_REDIS);
+            builder.Services.AddSignalR().AddStackExchangeRedis(redisConnString);
         }
 
         public static void AddSchedulerService(this WebApplicationBuilder builder)
@@ -243,8 +246,8 @@ namespace ZLearn.Infras
         #region Exam Tracking
         public static void AddExamTrackingService(this WebApplicationBuilder builder)
         {
-            builder.Services.AddSingleton<ConcurrentDictionary<string, string>>();
             builder.Services.AddSingleton<IExamTrackingService, ExamTrackingService>();
+            builder.Services.AddScoped<IExamSessionService, ExamSessionService>();
             //builder.Services.AddHostedService<AutoSaveAccessCountService>();
         }
         public static void UseExamTracking(this WebApplication app)
