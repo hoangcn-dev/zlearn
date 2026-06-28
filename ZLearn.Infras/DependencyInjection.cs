@@ -251,6 +251,8 @@ namespace ZLearn.Infras
         {
             builder.Services.AddSingleton<IExamTrackingService, ExamTrackingService>();
             builder.Services.AddScoped<IExamSessionService, ExamSessionService>();
+            builder.Services.AddMemoryCache();
+            builder.Services.AddHostedService<ZLearn.Infras.Data.Services.ExamGradingBackgroundService>();
             //builder.Services.AddHostedService<AutoSaveAccessCountService>();
         }
         public static void UseExamTracking(this WebApplication app)

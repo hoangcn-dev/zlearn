@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using StackExchange.Redis;
 
 namespace ZLearn.Infras.External.Redis
@@ -102,6 +102,25 @@ namespace ZLearn.Infras.External.Redis
             await database.HashSetAsync(redisKey, hashData);
             await database.KeyExpireAsync(redisKey, ttl);
             return true;
+        }
+
+        public async Task<long> ListPush(string type, string key, string value)
+        {
+            return await _redis.GetDatabase().ListLeftPushAsync($"{type}:{key}", value);
+        }
+
+        public async Task<List<string>> ListPopAll(string type, string key)
+        {
+            var db = _redis.GetDatabase();
+            var redisKey = $"{type}:{key}";
+            var list = new List<string>();
+            while (true)
+            {
+                var item = await db.ListRightPopAsync(redisKey);
+                if (item.IsNullOrEmpty) break;
+                list.Add(item.ToString());
+            }
+            return list;
         }
     }
 }

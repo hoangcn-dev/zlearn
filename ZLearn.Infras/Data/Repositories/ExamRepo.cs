@@ -12,6 +12,8 @@ using ZLearn.Domain.Entities;
 using ZLearn.Domain.Enums;
 
 using ZLearn.Infras.External.Redis;
+using Microsoft.Extensions.Caching.Memory;
+using System.Text.Json;
 
 namespace ZLearn.Infras.Data.Repositories
 {
@@ -19,11 +21,13 @@ namespace ZLearn.Infras.Data.Repositories
     {
         private readonly ISchedulerService _schedulerService;
         private readonly IRedisService _redisService;
+        private readonly IMemoryCache _memoryCache;
 
-        public ExamRepo(AppDbContext context, ISchedulerService schedulerService, IRedisService redisService) : base(context)
+        public ExamRepo(AppDbContext context, ISchedulerService schedulerService, IRedisService redisService, IMemoryCache memoryCache) : base(context)
         {
             _schedulerService = schedulerService;
             _redisService = redisService;
+            _memoryCache = memoryCache;
         }
 
         public async Task<ParticipantWaitingInfoDto> AddParticipant(ClaimsPrincipal user, JoinExamRequestDto data)
@@ -110,66 +114,106 @@ namespace ZLearn.Infras.Data.Repositories
                 ep.FirstCheckIn = DateTimeOffset.UtcNow;
             }
             ep.Status = ParticipantStatus.InProgress;
-            
 
-            // Get exam data
-            var exam = await _context.Set<Exam>().AsNoTracking()
-                .Where(e => e.Alias == alias && e.Status == ExamStatus.InProgress)
-                .Include(e => e.Quiz)
-                    .ThenInclude(q => q.Questions)
-                        .ThenInclude(q => q.Answers)
-                .FirstOrDefaultAsync();
-            if (exam is null) return null;
-            var data = new ExamContentDto
-            {
-                Id = exam.Id,
-                ExamName = exam.Name,
-                Alias = exam.Alias,
-                ParticipantCode = ep.ParticipantCode,
-                ParticipantName = ep.ParticipantName,
-                StartTime = exam.StartTime,
-                EndTime = exam.EndTime,
-                Questions = exam.Quiz.Questions.Select(question => new QuestionContentDto
-                {
-                    Id = question.Id,
-                    StringContent = question.StringContent,
-                    QuizId = question.QuizId,
-                    Slug = question.Slug,
-                    QuizName = question.Quiz.Name,
-                    AttemptCount = question.AttemptCount,
-                    Order = question.Order,
-                    Answers = question.Answers.Select(a => new AnswerContentDto
-                    {
-                        Key = a.Key,
-                        StringContent = a.StringContent,
-                        ImageUrls = a.MediaFileUrls.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList()
-                    }).ToList(),
-                    IsMultipleChoice = question.Answers.Count(a => a.IsCorrect) > 1
-                }).ToList()
-            };
+            string? examJson = null;
+            string cacheKey = $"EXAM_RAW_CONTENT_{alias}";
 
-            for (int i = 0; i < data.Questions.Count; i++)
+            if (_memoryCache.TryGetValue(cacheKey, out string? cachedJson))
             {
-                var question = exam.Quiz.Questions[i];
-                foreach (var url in question.MediaFileUrls.Split(","))
+                examJson = cachedJson;
+            }
+            else
+            {
+                examJson = await _redisService.Get(RedisKeys.EXAM_RAW_CONTENT, alias);
+                if (!string.IsNullOrEmpty(examJson))
                 {
-                    if (string.IsNullOrEmpty(url)) continue;
-                    var mediaType = FileHelper.GetMediaType(url);
-                    if (mediaType == MediaType.Image)
+                    _memoryCache.Set(cacheKey, examJson, TimeSpan.FromMinutes(2));
+                }
+            }
+
+            if (string.IsNullOrEmpty(examJson))
+            {
+                // Get exam data from DB
+                var exam = await _context.Set<Exam>().AsNoTracking()
+                    .Where(e => e.Alias == alias && e.Status == ExamStatus.InProgress)
+                    .Include(e => e.Quiz)
+                        .ThenInclude(q => q.Questions)
+                            .ThenInclude(q => q.Answers)
+                    .FirstOrDefaultAsync();
+                if (exam is null) return null;
+
+                var rawData = new ExamContentDto
+                {
+                    Id = exam.Id,
+                    ExamName = exam.Name,
+                    Alias = exam.Alias,
+                    StartTime = exam.StartTime,
+                    EndTime = exam.EndTime,
+                    MixQuestions = exam.MixQuestions,
+                    MixAnswers = exam.MixAnswers,
+                    Questions = exam.Quiz.Questions.Select(question => new QuestionContentDto
                     {
-                        data.Questions[i].ImageUrls.Add(url);
-                    }
-                    else if (mediaType == MediaType.Audio)
+                        Id = question.Id,
+                        StringContent = question.StringContent,
+                        QuizId = question.QuizId,
+                        Slug = question.Slug,
+                        QuizName = question.Quiz.Name,
+                        AttemptCount = question.AttemptCount,
+                        Order = question.Order,
+                        Answers = question.Answers.Select(a => new AnswerContentDto
+                        {
+                            Key = a.Key,
+                            StringContent = a.StringContent,
+                            ImageUrls = a.MediaFileUrls.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList()
+                        }).ToList(),
+                        IsMultipleChoice = question.Answers.Count(a => a.IsCorrect) > 1
+                    }).ToList()
+                };
+
+                for (int i = 0; i < rawData.Questions.Count; i++)
+                {
+                    var question = exam.Quiz.Questions[i];
+                    foreach (var url in question.MediaFileUrls.Split(","))
                     {
-                        data.Questions[i].AudioUrls.Add(url);
-                    }
-                    else if (mediaType == MediaType.Video)
-                    {
-                        data.Questions[i].VideoUrls.Add(url);
+                        if (string.IsNullOrEmpty(url)) continue;
+                        var mediaType = FileHelper.GetMediaType(url);
+                        if (mediaType == MediaType.Image)
+                        {
+                            rawData.Questions[i].ImageUrls.Add(url);
+                        }
+                        else if (mediaType == MediaType.Audio)
+                        {
+                            rawData.Questions[i].AudioUrls.Add(url);
+                        }
+                        else if (mediaType == MediaType.Video)
+                        {
+                            rawData.Questions[i].VideoUrls.Add(url);
+                        }
                     }
                 }
 
-                if (exam.MixAnswers)
+                examJson = JsonSerializer.Serialize(rawData);
+
+                var redisTtl = TimeSpan.FromHours(12);
+                if (exam.EndTime.HasValue)
+                {
+                    var diff = exam.EndTime.Value - DateTimeOffset.UtcNow;
+                    if (diff.TotalSeconds > 0)
+                    {
+                        redisTtl = diff;
+                    }
+                }
+                await _redisService.Set(RedisKeys.EXAM_RAW_CONTENT, alias, examJson, redisTtl);
+                _memoryCache.Set(cacheKey, examJson, TimeSpan.FromMinutes(2));
+            }
+
+            var data = JsonSerializer.Deserialize<ExamContentDto>(examJson)!;
+            data.ParticipantCode = ep.ParticipantCode;
+            data.ParticipantName = ep.ParticipantName;
+
+            for (int i = 0; i < data.Questions.Count; i++)
+            {
+                if (data.MixAnswers)
                 {
                     var rnd = new Random();
                     data.Questions[i].Answers = data.Questions[i].Answers.OrderBy(x => rnd.Next()).ToList();
@@ -180,7 +224,7 @@ namespace ZLearn.Infras.Data.Repositories
                 }
             }
 
-            if (exam.MixQuestions)
+            if (data.MixQuestions)
             {
                 var rnd = new Random();
                 data.Questions = data.Questions.OrderBy(x => rnd.Next()).ToList();
@@ -231,6 +275,46 @@ namespace ZLearn.Infras.Data.Repositories
 
         public async Task<ParticipantResultDto?> GetResult(string participantId, string alias)
         {
+            var examInfo = await _context.Set<Exam>()
+                .AsNoTracking()
+                .Where(e => e.Alias == alias)
+                .Select(e => new { e.Id, e.QuizId })
+                .FirstOrDefaultAsync() ?? throw new NotFoundException(nameof(Exam));
+
+            var resultCacheKey = $"{examInfo.Id}:{participantId}";
+            var cachedJson = await _redisService.Get(RedisKeys.EXAM_RESULT, resultCacheKey);
+            if (!string.IsNullOrEmpty(cachedJson))
+            {
+                var cachedResult = JsonSerializer.Deserialize<GradedResultCacheDto>(cachedJson);
+                if (cachedResult != null)
+                {
+                    var rank = await _context.Set<ExamParticipant>()
+                        .AsNoTracking()
+                        .Where(ep => ep.ExamId == examInfo.Id && ep.Status == ParticipantStatus.Completed && ep.Score > cachedResult.Score)
+                        .CountAsync() + 1;
+
+                    var participantsCount = await _context.Set<ExamParticipant>()
+                        .AsNoTracking()
+                        .CountAsync(ep => ep.ExamId == examInfo.Id);
+
+                    var questionsCount = await _context.Set<Question>()
+                        .AsNoTracking()
+                        .CountAsync(q => q.QuizId == examInfo.QuizId);
+
+                    return new ParticipantResultDto
+                    {
+                        FirstCheckIn = cachedResult.FirstCheckIn,
+                        LastCheckOut = cachedResult.LastCheckOut,
+                        CorrectCount = cachedResult.Correct,
+                        CompletedCount = cachedResult.Completed,
+                        Score = cachedResult.Score,
+                        ParticipantsCount = participantsCount,
+                        QuestionsCount = questionsCount,
+                        Rank = rank
+                    };
+                }
+            }
+
             var participant = await _context.Set<ExamParticipant>()
                 .AsNoTracking()
                 .Where(
@@ -249,16 +333,16 @@ namespace ZLearn.Infras.Data.Repositories
                 })
                 .FirstOrDefaultAsync() ?? throw new NotFoundException(nameof(ExamParticipant));
 
-            var rank = await _context.Set<ExamParticipant>()
+            var dbRank = await _context.Set<ExamParticipant>()
                 .AsNoTracking()
                 .Where(ep => ep.ExamId == participant.ExamId && ep.Status == ParticipantStatus.Completed && ep.Score > participant.Score)
                 .CountAsync() + 1;
 
-            var participantsCount = await _context.Set<ExamParticipant>()
+            var dbParticipantsCount = await _context.Set<ExamParticipant>()
                 .AsNoTracking()
                 .CountAsync(ep => ep.ExamId == participant.ExamId);
 
-            var questionsCount = await _context.Set<Question>()
+            var dbQuestionsCount = await _context.Set<Question>()
                 .AsNoTracking()
                 .CountAsync(q => q.QuizId == participant.QuizId);
 
@@ -269,9 +353,9 @@ namespace ZLearn.Infras.Data.Repositories
                 CorrectCount = participant.Correct,
                 CompletedCount = participant.Completed,
                 Score = participant.Score,
-                ParticipantsCount = participantsCount,
-                QuestionsCount = questionsCount,
-                Rank = rank
+                ParticipantsCount = dbParticipantsCount,
+                QuestionsCount = dbQuestionsCount,
+                Rank = dbRank
             };
         }
 
@@ -347,6 +431,16 @@ namespace ZLearn.Infras.Data.Repositories
             participant.SelectedAnswers = StringHelper.ObjectToJsonString(data.Answers);
             _context.Set<ExamParticipant>().Update(participant);
             await _context.SaveChangesAsync();
+
+            // Check if all participants are finished
+            var allFinished = await _context.Set<ExamParticipant>()
+                .Where(ep => ep.ExamId == data.ExamId)
+                .AllAsync(ep => ep.Status == ParticipantStatus.Completed || ep.Status == ParticipantStatus.TimeOut || ep.Status == ParticipantStatus.NotAllowed);
+
+            if (allFinished)
+            {
+                await PerformFinalExamCleanupAndResultCachingAsync(data.ExamId);
+            }
         }
 
         public Task<bool> IsExamParticipant(string examId, string userId)
@@ -400,6 +494,8 @@ namespace ZLearn.Infras.Data.Repositories
 
             _context.Set<Exam>().Update(exam);
             await _context.SaveChangesAsync();
+
+            await PerformFinalExamCleanupAndResultCachingAsync(exam.Id);
         }
 
         public async Task<string> ManageParticipant(string examId, string participantId, ManageParticipantAction action)
@@ -505,6 +601,107 @@ namespace ZLearn.Infras.Data.Repositories
                 StreamData = stream,
                 MIMEType = MIMETypes.XLSX
             };
+        }
+
+        public async Task<Dictionary<string, List<int>>> GetExamGradingKeysAsync(string examId)
+        {
+            string cacheKey = $"EXAM_GRADING_KEYS_{examId}";
+            if (_memoryCache.TryGetValue(cacheKey, out Dictionary<string, List<int>>? cachedKeys))
+            {
+                return cachedKeys!;
+            }
+            
+            var redisJson = await _redisService.Get(RedisKeys.EXAM_GRADING_KEYS, examId);
+            if (!string.IsNullOrEmpty(redisJson))
+            {
+                var keys = JsonSerializer.Deserialize<Dictionary<string, List<int>>>(redisJson)!;
+                _memoryCache.Set(cacheKey, keys, TimeSpan.FromMinutes(5));
+                return keys;
+            }
+            
+            // Fetch from DB
+            var exam = await _context.Set<Exam>().AsNoTracking()
+                .Where(e => e.Id == examId)
+                .Select(e => new
+                {
+                    Questions = e.Quiz.Questions.Select(q => new { q.Id, CorrectKeys = q.Answers.Where(a => a.IsCorrect).Select(a => a.Key).ToList() })
+                })
+                .FirstOrDefaultAsync();
+                
+            if (exam == null) return new Dictionary<string, List<int>>();
+            
+            var dbKeys = exam.Questions.ToDictionary(q => q.Id, q => q.CorrectKeys);
+            var json = JsonSerializer.Serialize(dbKeys);
+            await _redisService.Set(RedisKeys.EXAM_GRADING_KEYS, examId, json, TimeSpan.FromHours(12));
+            _memoryCache.Set(cacheKey, dbKeys, TimeSpan.FromMinutes(5));
+            return dbKeys;
+        }
+
+        public async Task<string?> GetSelectedAnswersAsync(string examId, string userId)
+        {
+            return await _context.Set<ExamParticipant>()
+                .AsNoTracking()
+                .Where(ep => ep.ExamId == examId && ep.UserId == userId)
+                .Select(ep => ep.SelectedAnswers)
+                .FirstOrDefaultAsync();
+        }
+
+        private async Task PerformFinalExamCleanupAndResultCachingAsync(string examId)
+        {
+            var exam = await _context.Set<Exam>()
+                .Include(e => e.Participants)
+                .FirstOrDefaultAsync(e => e.Id == examId);
+                
+            if (exam == null) return;
+
+            // 1. Clear Raw Content and Grading Keys cache
+            var cacheKey = $"EXAM_RAW_CONTENT_{exam.Alias}";
+            _memoryCache.Remove(cacheKey);
+            await _redisService.Delete(RedisKeys.EXAM_RAW_CONTENT, exam.Alias);
+
+            _memoryCache.Remove($"EXAM_GRADING_KEYS_{exam.Id}");
+            await _redisService.Delete(RedisKeys.EXAM_GRADING_KEYS, exam.Id);
+
+            // 2. Clean up session tokens and temporary answers for all participants,
+            // and cache their final results for exactly 5 minutes
+            foreach (var p in exam.Participants)
+            {
+                var userSessionKey = $"{p.UserId}:{exam.Id}";
+                var token = await _redisService.Get(RedisKeys.EXAM_USER_SESSION, userSessionKey);
+                if (!string.IsNullOrEmpty(token))
+                {
+                    await _redisService.Delete(RedisKeys.EXAM_SESSION, token);
+                    await _redisService.Delete(RedisKeys.EXAM_USER_SESSION, userSessionKey);
+                }
+                
+                var tempAnswersKey = $"{exam.Id}:{p.UserId}";
+                await _redisService.Delete(RedisKeys.EXAM_TEMP_ANSWERS, tempAnswersKey);
+
+                // Cache kết quả mới sống trong 5 phút
+                var resultCache = new GradedResultCacheDto
+                {
+                    Score = p.Score,
+                    Correct = p.Correct,
+                    Completed = p.Completed,
+                    SelectedAnswers = p.SelectedAnswers,
+                    FirstCheckIn = p.FirstCheckIn ?? DateTimeOffset.UtcNow,
+                    LastCheckOut = p.LastCheckOut ?? DateTimeOffset.UtcNow
+                };
+                var resultCacheKey = $"{exam.Id}:{p.UserId}";
+                await _redisService.Set(RedisKeys.EXAM_RESULT, resultCacheKey, JsonSerializer.Serialize(resultCache), TimeSpan.FromMinutes(5));
+            }
+        }
+
+        public async Task FinalizeExamIfAllCompletedAsync(string examId)
+        {
+            var allFinished = await _context.Set<ExamParticipant>()
+                .Where(ep => ep.ExamId == examId)
+                .AllAsync(ep => ep.Status == ParticipantStatus.Completed || ep.Status == ParticipantStatus.TimeOut || ep.Status == ParticipantStatus.NotAllowed);
+
+            if (allFinished)
+            {
+                await PerformFinalExamCleanupAndResultCachingAsync(examId);
+            }
         }
     }
 }

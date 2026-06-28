@@ -94,6 +94,53 @@
         let timestamp = '@(Model.EndTime.HasValue? Model.EndTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ"):"")';
         let countdown_sub_id = null;
         let activeOrder = 1;
+        let syncSeq = 0;
+        let lastSyncedSeq = 0;
+        let sendingSeq = 0;
+        let syncTimeoutId = null;
+        const unsyncedAns = {}; // format: { qId: { key: key, seq: seq } }
+
+        function syncAnswersToServer() {
+            if (syncSeq > lastSyncedSeq && sendingSeq === lastSyncedSeq) {
+                sendingSeq = syncSeq;
+
+                // Extract only delta answers where seq <= sendingSeq
+                const deltaAnswers = [];
+                for (const [qId, item] of Object.entries(unsyncedAns)) {
+                    if (item.seq <= sendingSeq) {
+                        deltaAnswers.push({
+                            questionId: qId,
+                            submitKeys: [item.key]
+                        });
+                    }
+                }
+
+                if (deltaAnswers.length === 0) {
+                    syncTimeoutId = null;
+                    return;
+                }
+
+                const submitData = {
+                    examId: "@Model.Id",
+                    answers: deltaAnswers
+                };
+
+                exam_connection.invoke('SyncAnswers', submitData, sendingSeq)
+                    .then(() => {
+                        syncTimeoutId = null;
+                        if (syncSeq > lastSyncedSeq) {
+                            syncTimeoutId = setTimeout(syncAnswersToServer, 10000);
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Failed to sync answers:", err);
+                        sendingSeq = lastSyncedSeq;
+                        syncTimeoutId = setTimeout(syncAnswersToServer, 5000); // Retry after 5s
+                    });
+            } else {
+                syncTimeoutId = null;
+            }
+        }
 
         function setActiveQuestion(order, scroll = false) {
             if (order < 1 || order > @Model.Questions.Count) return;
@@ -116,6 +163,31 @@
         $(document).ready(() => {
             setActiveQuestion(1);
 
+            // Restore answers from sessionStorage (L1 Client Cache)
+            const savedAnswers = sessionStorage.getItem("exam_answers_" + "@Model.Id");
+            if (savedAnswers) {
+                Object.assign(selectedAns, JSON.parse(savedAnswers));
+                for (const [qId, key] of Object.entries(selectedAns)) {
+                    const inputs = $(`input[onclick*="'${qId}'"]`);
+                    inputs.each(function() {
+                        const onclickAttr = $(this).attr('onclick');
+                        if (onclickAttr) {
+                            const match = onclickAttr.match(/selectAnswer\(\s*\d+\s*,\s*(\d+)\s*,\s*'/);
+                            if (match && parseInt(match[1]) === parseInt(key)) {
+                                $(this).prop('checked', true);
+                                const nameAttr = $(this).attr('name');
+                                if (nameAttr) {
+                                    const order = parseInt(nameAttr.split('-')[0]);
+                                    if (!isNaN(order)) {
+                                        $('.qMapItem').eq(order - 1).addClass('selected');
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+
             $('.qMapItem').on('click', function() {
                 const order = parseInt($(this).text().trim());
                 setActiveQuestion(order);
@@ -136,10 +208,26 @@
             exam_connection.onreconnected(connectionId => {
                 showMess('Đã kết nối lại thành công!', true);
             });
-            exam_connection.onclose(err => {
-                showMess('Mất kết nối hoàn toàn! Vui lòng tải lại trang.', false);
-                console.error('Disconnected:', err.toString());
-            });
+             exam_connection.onclose(err => {
+                 showMess('Mất kết nối hoàn toàn! Vui lòng tải lại trang.', false);
+                 console.error('Disconnected:', err.toString());
+             });
+ 
+             // Listen for SyncAck from Server (L1 Client Cache Confirmation)
+             exam_connection.on('SyncAck', (confirmedSeq) => {
+                 lastSyncedSeq = confirmedSeq;
+                 
+                 // Delete confirmed entries from unsyncedAns
+                 for (const [qId, item] of Object.entries(unsyncedAns)) {
+                     if (item.seq <= confirmedSeq) {
+                         delete unsyncedAns[qId];
+                     }
+                 }
+
+                 if (syncSeq > lastSyncedSeq && !syncTimeoutId) {
+                     syncTimeoutId = setTimeout(syncAnswersToServer, 10000);
+                 }
+             });
 
             exam_connection.on('RequireUpdateProgress', () => {
                 exam_connection.invoke('AnswerSelected', Object.keys(selectedAns).length);
@@ -209,14 +297,24 @@
         });
 
         function selectAnswer(qIndex, key, qId) {
-            if (!(qId in selectedAns)) {
-                exam_connection.invoke('AnswerSelected', Object.keys(selectedAns).length + 1);
-            }
             selectedAns[qId] = key;
             $('.qMapItem').eq(qIndex).addClass('selected');
+            // Save to sessionStorage
+            sessionStorage.setItem("exam_answers_" + "@Model.Id", JSON.stringify(selectedAns));
+            
+            syncSeq++;
+            unsyncedAns[qId] = { key: key, seq: syncSeq };
+            
+            if (!syncTimeoutId) {
+                syncTimeoutId = setTimeout(syncAnswersToServer, 10000);
+            }
         }
 
         function endExam() {
+            if (syncTimeoutId) {
+                clearTimeout(syncTimeoutId);
+                syncTimeoutId = null;
+            }
             const submitData = {
                 examId: "@Model.Id",
                 answers: Object.entries(selectedAns).map(([questionId, submitKey]) => ({
@@ -225,6 +323,7 @@
                 }))
             }
             postJsonData('/exams/submit', submitData, () => {
+                sessionStorage.removeItem("exam_answers_" + "@Model.Id");
                 window.location.replace(`/bai-kiem-tra/result?alias=@Model.Alias`);
             });
         }

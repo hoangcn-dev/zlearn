@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.SignalR;
+using Microsoft.AspNetCore.SignalR;
 using System.Collections.Concurrent;
 using System.Reflection;
 using ZLearn.Application.Exams;
@@ -43,6 +43,12 @@ namespace ZLearn.Infras.Services.ExamTracking
                 .SendAsync(methodName, remainingMilisec);
             await _hubContext.Clients.Group(ExamHub.GetExamOwnerGroupName(examId))
                 .SendAsync(methodName, remainingMilisec);
+        }
+
+        public async Task UpdateParticipantProgress(string examId, string userId, int completedCount)
+        {
+            await _hubContext.Clients.Group(ExamHub.GetExamOwnerGroupName(examId))
+                .SendAsync("ParticipantSelectedAnswer", userId, completedCount);
         }
     }
 }

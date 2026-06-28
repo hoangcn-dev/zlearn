@@ -1,4 +1,4 @@
-﻿using ZLearn.Application.Exams.DTOs;
+using ZLearn.Application.Exams.DTOs;
 using ZLearn.Domain.Enums;
 
 namespace ZLearn.Application.Exams
@@ -9,5 +9,6 @@ namespace ZLearn.Application.Exams
         Task UpdateExamStatus(string examId, ExamStatus status);
         Task UpdateRemainingTime(string examId, long remainingMilisec, string methodName);
         Task AddParticipant(string examId, ParticipantStatusDto participant);
+        Task UpdateParticipantProgress(string examId, string userId, int completedCount);
     }
 }

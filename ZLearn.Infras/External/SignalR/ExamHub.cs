@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.SignalR;
 using System.Security.Claims;
 using ZLearn.Application.Exams;
+using ZLearn.Application.Exams.DTOs;
+using System.Text.Json;
 using ZLearn.Domain.Enums;
 using ZLearn.Infras.External.Redis;
 
@@ -49,6 +51,80 @@ namespace ZLearn.Infras.External.SignalR
                     await Clients.Group(GetExamOwnerGroupName(examId)).SendAsync("ParticipantSelectedAnswer", userId, qCount);
                 }
             }
+        }
+
+        public async Task SyncAnswers(SubmitExamDto data, int seq)
+        {
+            var userId = Context.User!.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId is null)
+            {
+                var token = Context.GetHttpContext()?.Request.Cookies["exam_session_token"];
+                if (!string.IsNullOrEmpty(token))
+                {
+                    var session = await _redisService.GetObject<ExamSessionDto>(RedisKeys.EXAM_SESSION, token);
+                    if (session is not null)
+                    {
+                        userId = session.u;
+                    }
+                }
+            }
+
+            if (userId is null || string.IsNullOrEmpty(data.ExamId))
+            {
+                return;
+            }
+
+            var tempAnswersKey = $"{data.ExamId}:{userId}";
+
+            // 1. Get existing answers (either from Redis or DB fallback)
+            var existingJson = await _redisService.Get(RedisKeys.EXAM_TEMP_ANSWERS, tempAnswersKey);
+            List<SubmitAnswerDto> mergedAnswers;
+            if (!string.IsNullOrEmpty(existingJson))
+            {
+                mergedAnswers = JsonSerializer.Deserialize<List<SubmitAnswerDto>>(existingJson) ?? new();
+            }
+            else
+            {
+                var dbAnswersJson = await _examRepo.GetSelectedAnswersAsync(data.ExamId, userId);
+                if (!string.IsNullOrEmpty(dbAnswersJson))
+                {
+                    mergedAnswers = JsonSerializer.Deserialize<List<SubmitAnswerDto>>(dbAnswersJson) ?? new();
+                }
+                else
+                {
+                    mergedAnswers = new();
+                }
+            }
+
+            // 2. Merge delta changes into mergedAnswers
+            foreach (var deltaAns in data.Answers)
+            {
+                var existingAns = mergedAnswers.FirstOrDefault(a => a.QuestionId == deltaAns.QuestionId);
+                if (existingAns != null)
+                {
+                    existingAns.SubmitKeys = deltaAns.SubmitKeys;
+                }
+                else
+                {
+                    mergedAnswers.Add(deltaAns);
+                }
+            }
+
+            // 3. Save merged answers back to Redis cache
+            var answersJson = JsonSerializer.Serialize(mergedAnswers);
+            await _redisService.Set(RedisKeys.EXAM_TEMP_ANSWERS, tempAnswersKey, answersJson, TimeSpan.FromHours(12));
+
+            // 4. Queue metadata-only grading task
+            var taskPayload = new GradingTask
+            {
+                UserId = userId,
+                ExamId = data.ExamId,
+                Seq = seq
+            };
+            var taskJson = JsonSerializer.Serialize(taskPayload);
+            await _redisService.ListPush(RedisKeys.EXAM_GRADING_QUEUE, "global", taskJson);
+
+            await Clients.Caller.SendAsync("SyncAck", seq);
         }
 
         public async Task UpdateProgress(string examId)

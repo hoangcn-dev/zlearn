@@ -1,4 +1,4 @@
-﻿using ZLearn.Application.Quizzes.DTOs;
+using ZLearn.Application.Quizzes.DTOs;
 
 namespace ZLearn.Application.Exams.DTOs
 {
@@ -12,6 +12,8 @@ namespace ZLearn.Application.Exams.DTOs
         public DateTimeOffset StartTime { get; set; }
         public DateTimeOffset? EndTime { get; set; }
         public long RemainingTimeToEnd => EndTime == null ? -1 : (long) (EndTime.Value - DateTimeOffset.Now).TotalMilliseconds;
+        public bool MixQuestions { get; set; }
+        public bool MixAnswers { get; set; }
         public List<QuestionContentDto> Questions { get; set; }
     }
 }
