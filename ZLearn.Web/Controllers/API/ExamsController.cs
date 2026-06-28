@@ -1,4 +1,4 @@
-﻿using MediatR;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -14,6 +14,8 @@ using ZLearn.Application.Exams.Queries.GetExamScore;
 using ZLearn.Application.Exams.Queries.GetExamScoreExcelFileData;
 using ZLearn.Application.Exams.Queries.GetOnGoingExam;
 using ZLearn.Application.Exams.Queries.GetParticipantStatus;
+using Microsoft.AspNetCore.Http;
+using ZLearn.Application.Exams.Services;
 
 namespace ZLearn.Web.Controllers.API
 {
@@ -21,10 +23,14 @@ namespace ZLearn.Web.Controllers.API
     [ApiController]
     public class ExamsController : BaseController
     {
+        private readonly IExamSessionService _examSessionService;
+
         public ExamsController(
             ILogger<ExamsController> logger, 
-            IMediator mediator) : base(logger, mediator)
+            IMediator mediator,
+            IExamSessionService examSessionService) : base(logger, mediator)
         {
+            _examSessionService = examSessionService;
         }
 
         [HttpGet("{id}/export-result")]
@@ -42,12 +48,21 @@ namespace ZLearn.Web.Controllers.API
         [HttpGet("participant-info")]
         public async Task<IActionResult> GetParticipantInfo([FromQuery] string alias)
         {
+            var userId = await _examSessionService.GetUserIdAsync(HttpContext);
+            var token = await _examSessionService.GetSessionTokenAsync(HttpContext);
+
             var res = await _mediator.Send(new GetParticipantStatusQuery
             {
                 Alias = alias,
-                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier)
+                UserId = userId
             });
             if (res == null) return Ok(Result<NoData>.Failure());
+
+            if (!string.IsNullOrEmpty(token))
+            {
+                res.SessionToken = token;
+            }
+
             return Ok(Result<ParticipantWaitingInfoDto>.Success("", res));
         }
 
@@ -75,14 +90,18 @@ namespace ZLearn.Web.Controllers.API
         }
 
         [HttpPost("submit")]
-        [Authorize]
         public async Task<IActionResult> Submit([FromBody] SubmitExamDto data)
         {
+            var userId = await _examSessionService.GetUserIdAsync(HttpContext);
+
             await _mediator.Send(new SubmitAnswerCommand
             {
-                ParticipantId = User.FindFirstValue(ClaimTypes.NameIdentifier),
+                ParticipantId = userId,
                 Data = data
             });
+
+            await _examSessionService.HandleSubmitSessionAsync(HttpContext, userId, data.ExamId);
+
             return Ok(Result<NoData>.Success());
         }
 
@@ -94,6 +113,13 @@ namespace ZLearn.Web.Controllers.API
                 User = User,
                 Data = data
             });
+
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId is not null && result is not null)
+            {
+                await _examSessionService.HandleJoinSessionAsync(HttpContext, userId, data.ExamId, result.ParticipantId, result);
+            }
+
             return Ok(Result<ParticipantWaitingInfoDto>.Success("", result));
         }
 

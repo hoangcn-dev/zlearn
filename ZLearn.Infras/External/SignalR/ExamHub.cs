@@ -1,23 +1,25 @@
-﻿using Microsoft.AspNetCore.SignalR;
-using System.Collections.Concurrent;
+using Microsoft.AspNetCore.SignalR;
 using System.Security.Claims;
 using ZLearn.Application.Exams;
 using ZLearn.Domain.Enums;
+using ZLearn.Infras.External.Redis;
 
 namespace ZLearn.Infras.External.SignalR
 {
     public class ExamHub : Hub
     {
         private readonly IExamRepo _examRepo;
-        private readonly ConcurrentDictionary<string, string> _participantMap;
+        private readonly IRedisService _redisService;
         private readonly IExamTrackingService _examTrackingService;
 
         public const string HUB_URL = "/hubs/exam";
 
         public ExamHub(
-            ConcurrentDictionary<string, string> userMap, IExamRepo examRepo, IExamTrackingService examTrackingService)
+            IRedisService redisService, 
+            IExamRepo examRepo, 
+            IExamTrackingService examTrackingService)
         {
-            _participantMap = userMap;
+            _redisService = redisService;
             _examRepo = examRepo;
             _examTrackingService = examTrackingService;
         }
@@ -25,16 +27,34 @@ namespace ZLearn.Infras.External.SignalR
         public async Task AnswerSelected(int qCount)
         {
             var userId = Context.User!.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (_participantMap.TryGetValue(userId, out var examId))
+            if (userId is null)
             {
-                await Clients.Group(GetExamOwnerGroupName(examId)).SendAsync("ParticipantSelectedAnswer", userId, qCount);
+                // Fallback: try to read from cookie session token if claims is not present
+                var token = Context.GetHttpContext()?.Request.Cookies["exam_session_token"];
+                if (!string.IsNullOrEmpty(token))
+                {
+                    var session = await _redisService.GetObject<ExamSessionDto>(RedisKeys.EXAM_SESSION, token);
+                    if (session is not null)
+                    {
+                        userId = session.u;
+                    }
+                }
+            }
+
+            if (userId is not null)
+            {
+                var examId = await _redisService.Get(RedisKeys.EXAM_PARTICIPANT_MAP, userId);
+                if (examId is not null)
+                {
+                    await Clients.Group(GetExamOwnerGroupName(examId)).SendAsync("ParticipantSelectedAnswer", userId, qCount);
+                }
             }
         }
 
         public async Task UpdateProgress(string examId)
         {
             var userId = Context.User!.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (await _examRepo.IsExamCreator(examId, userId))
+            if (userId is not null && await _examRepo.IsExamCreator(examId, userId))
             {
                 await Clients.Group(GetExamParticipantGroupName(examId)).SendAsync("RequireUpdateProgress");
             }
@@ -42,33 +62,50 @@ namespace ZLearn.Infras.External.SignalR
 
         public override async Task OnConnectedAsync()
         {
-            var examId = Context.GetHttpContext()?.Request.Query["examId"];
-            if (await _examRepo.Any(e => e.Id == examId.ToString() && e.Status == ExamStatus.Ended))
-                Context.Abort();
+            var httpContext = Context.GetHttpContext();
+            var token = httpContext?.Request.Cookies["exam_session_token"];
 
-            if (Context.User is null || !Context.User.Identity!.IsAuthenticated || string.IsNullOrEmpty(examId))
+            // 1. Handle exam participant via cookie & Redis
+            if (!string.IsNullOrEmpty(token))
             {
-                Context.Abort();
+                var session = await _redisService.GetObject<ExamSessionDto>(RedisKeys.EXAM_SESSION, token);
+                if (session is not null)
+                {
+                    var userId = session.u;
+                    var examId = session.e;
+
+                    if (await _examRepo.Any(e => e.Id == examId && e.Status == ExamStatus.Ended))
+                    {
+                        Context.Abort();
+                        return;
+                    }
+
+                    await Groups.AddToGroupAsync(Context.ConnectionId, GetExamParticipantGroupName(examId));
+                    
+                    // Store connection mapping in Redis (TTL: 12 hours)
+                    await _redisService.Set(RedisKeys.EXAM_PARTICIPANT_MAP, userId, examId, TimeSpan.FromHours(12));
+                    
+                    // Cancel grace period if the user reconnected
+                    await _redisService.Delete(RedisKeys.EXAM_SESSION_DISCONNECT, userId);
+
+                    await Clients.Caller.SendAsync("Connected", "Connected!");
+                    await base.OnConnectedAsync();
+                    return;
+                }
             }
-            var userId = Context.User!.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            // Handle exam participant
-            if (await _examRepo.IsExamParticipant(examId!, userId))
+            // 2. Handle exam owner via claims & query param
+            if (Context.User is not null && Context.User.Identity!.IsAuthenticated)
             {
-                await Groups.AddToGroupAsync(Context.ConnectionId, GetExamParticipantGroupName(examId!));
-                _participantMap.AddOrUpdate(userId, examId!, (key, oldValue) => examId!);
-                await Clients.Caller.SendAsync("Connected", "Connected!");
-                await base.OnConnectedAsync();
-                return;
-            }
-
-            // Handle exam owner
-            if (await _examRepo.IsExamCreator(examId!, userId))
-            {
-                await Groups.AddToGroupAsync(Context.ConnectionId, GetExamOwnerGroupName(examId!));
-                await Clients.Caller.SendAsync("Connected", "Connected!");
-                await base.OnConnectedAsync();
-                return;
+                var examId = httpContext?.Request.Query["examId"].ToString();
+                var userId = Context.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (!string.IsNullOrEmpty(examId) && userId is not null && await _examRepo.IsExamCreator(examId, userId))
+                {
+                    await Groups.AddToGroupAsync(Context.ConnectionId, GetExamOwnerGroupName(examId));
+                    await Clients.Caller.SendAsync("Connected", "Connected!");
+                    await base.OnConnectedAsync();
+                    return;
+                }
             }
 
             // Invalid user
@@ -77,17 +114,53 @@ namespace ZLearn.Infras.External.SignalR
 
         public override async Task OnDisconnectedAsync(Exception? exception)
         {
-            var userId = Context.User!.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (_participantMap.TryRemove(userId, out var examId))
+            var userId = Context.User?.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId is null)
             {
-                var status = await _examRepo.SetParticipantStatus(userId, examId, ParticipantStatus.ConnectionLost);
-                await _examTrackingService.UpdateParticipantStatus(examId, userId, status);
-                await Groups.RemoveFromGroupAsync(Context.ConnectionId, GetExamParticipantGroupName(examId!));
+                // Fallback: try to read from cookie session token if claims is not present
+                var token = Context.GetHttpContext()?.Request.Cookies["exam_session_token"];
+                if (!string.IsNullOrEmpty(token))
+                {
+                    var session = await _redisService.GetObject<ExamSessionDto>(RedisKeys.EXAM_SESSION, token);
+                    if (session is not null)
+                    {
+                        userId = session.u;
+                    }
+                }
             }
-            else
+
+            if (userId is not null)
             {
-                await Groups.RemoveFromGroupAsync(Context.ConnectionId, GetExamOwnerGroupName(examId!));
-            }    
+                var examId = await _redisService.Get(RedisKeys.EXAM_PARTICIPANT_MAP, userId);
+                if (examId is not null)
+                {
+                    // Delete mapping from Redis
+                    await _redisService.Delete(RedisKeys.EXAM_PARTICIPANT_MAP, userId);
+
+                    // Record disconnect in Redis (TTL: 30 seconds)
+                    var disconnectTime = DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString();
+                    await _redisService.Set(RedisKeys.EXAM_SESSION_DISCONNECT, userId, $"{examId}:{disconnectTime}", TimeSpan.FromSeconds(30));
+
+                    // Perform background status check after 15 seconds grace period
+                    _ = Task.Run(async () =>
+                    {
+                        await Task.Delay(15000);
+                        var disconnectVal = await _redisService.Get(RedisKeys.EXAM_SESSION_DISCONNECT, userId);
+                        if (disconnectVal is not null)
+                        {
+                            var parts = disconnectVal.Split(':');
+                            if (parts.Length > 0)
+                            {
+                                var targetExamId = parts[0];
+                                var status = await _examRepo.SetParticipantStatus(userId, targetExamId, ParticipantStatus.ConnectionLost);
+                                await _examTrackingService.UpdateParticipantStatus(targetExamId, userId, status);
+                            }
+                            await _redisService.Delete(RedisKeys.EXAM_SESSION_DISCONNECT, userId);
+                        }
+                    });
+                }
+            }
+
             await base.OnDisconnectedAsync(exception);
         }
 
