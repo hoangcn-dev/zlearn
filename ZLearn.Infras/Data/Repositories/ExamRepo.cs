@@ -37,6 +37,7 @@ namespace ZLearn.Infras.Data.Repositories
                     e.Status, 
                     e.JoinPass,
                     e.StartTime,
+                    e.EndTime,
                     Participants = e.Participants.Select(p => new { p.Id , p.ParticipantCode }), 
                     e.RequireJoinWithCode,
                     e.RequireJoinWithName,
@@ -86,6 +87,7 @@ namespace ZLearn.Infras.Data.Repositories
                 ParticipantCode = participant.ParticipantCode,
                 ParticipantName = participant.ParticipantName,
                 StartTime = exam.StartTime,
+                EndTime = exam.EndTime,
                 ExamStatus = exam.Status,
             };
         }
@@ -209,6 +211,7 @@ namespace ZLearn.Infras.Data.Repositories
                     ep.ParticipantCode,
                     ep.ParticipantName,
                     ep.Exam.StartTime,
+                    ep.Exam.EndTime,
                     ExamStatus = ep.Exam.Status,
                 })
                 .FirstOrDefaultAsync();
@@ -220,6 +223,7 @@ namespace ZLearn.Infras.Data.Repositories
                 ParticipantCode = res.ParticipantCode,
                 ParticipantName = res.ParticipantName!,
                 StartTime = res.StartTime,
+                EndTime = res.EndTime,
                 ExamStatus = res.ExamStatus,
             };
             return status;

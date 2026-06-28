@@ -71,6 +71,19 @@ namespace ZLearn.Infras.Services.ExamSession
             }
 
             var ttl = TimeSpan.FromHours(12);
+            if (result.EndTime.HasValue)
+            {
+                var remaining = result.EndTime.Value - DateTimeOffset.UtcNow;
+                if (remaining.TotalSeconds > 0)
+                {
+                    ttl = remaining;
+                }
+                else
+                {
+                    ttl = TimeSpan.FromSeconds(1);
+                }
+            }
+
             var sessionPayload = new ExamSessionDto
             {
                 u = userId,
