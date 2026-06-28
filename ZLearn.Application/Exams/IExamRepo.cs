@@ -1,4 +1,4 @@
-﻿using System.Security.Claims;
+using System.Security.Claims;
 using ZLearn.Application.Common.DTOs;
 using ZLearn.Application.Common.Interfaces;
 using ZLearn.Application.Exams.DTOs;
@@ -22,5 +22,8 @@ namespace ZLearn.Application.Exams
         Task EndExam(string userId, string examId);
         Task<List<OnGoingExamListItemDto>> GetOnGoingExams(string userId);
         Task<FileDataDto> GetExamScoreAsExcel(string examId, string userId);
+        Task<Dictionary<string, List<int>>> GetExamGradingKeysAsync(string examId);
+        Task<string?> GetSelectedAnswersAsync(string examId, string userId);
+        Task FinalizeExamIfAllCompletedAsync(string examId);
     }
 }

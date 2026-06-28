@@ -15,5 +15,10 @@ namespace ZLearn.Infras.External.Redis
         public const string EXAM_SESSION_DISCONNECT = nameof(EXAM_SESSION_DISCONNECT);
         public const string EXAM_SESSION = nameof(EXAM_SESSION);
         public const string EXAM_USER_SESSION = nameof(EXAM_USER_SESSION);
+        public const string EXAM_RAW_CONTENT = nameof(EXAM_RAW_CONTENT);
+        public const string EXAM_GRADING_QUEUE = nameof(EXAM_GRADING_QUEUE);
+        public const string EXAM_TEMP_ANSWERS = nameof(EXAM_TEMP_ANSWERS);
+        public const string EXAM_RESULT = nameof(EXAM_RESULT);
+        public const string EXAM_GRADING_KEYS = nameof(EXAM_GRADING_KEYS);
     }
 }

@@ -21,6 +21,7 @@ namespace ZLearn.Application.Exams.Commands.SubmitAnswer
         {
             await _examRepo.SaveResult(request.ParticipantId, request.Data);
             await _examTrackingService.UpdateParticipantStatus(request.Data.ExamId, request.ParticipantId, ParticipantStatus.Completed);
+            await _examTrackingService.UpdateParticipantProgress(request.Data.ExamId, request.ParticipantId, request.Data.Answers.Count);
             return request.Data.ExamId;
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace ZLearn.Infras.External.Redis
+namespace ZLearn.Infras.External.Redis
 {
     public interface IRedisService
     {
@@ -12,5 +12,9 @@
         // Object
         Task<T?> GetObject<T>(string type, string key);
         Task<bool> SetObject(string type, string key, object value, TimeSpan ttl);
+
+        // List / Queue
+        Task<long> ListPush(string type, string key, string value);
+        Task<List<string>> ListPopAll(string type, string key);
     }
 }
