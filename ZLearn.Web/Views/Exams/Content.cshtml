@@ -116,6 +116,31 @@
         $(document).ready(() => {
             setActiveQuestion(1);
 
+            // Restore answers from sessionStorage (L1 Client Cache)
+            const savedAnswers = sessionStorage.getItem("exam_answers_" + "@Model.Id");
+            if (savedAnswers) {
+                Object.assign(selectedAns, JSON.parse(savedAnswers));
+                for (const [qId, key] of Object.entries(selectedAns)) {
+                    const inputs = $(`input[onclick*="'${qId}'"]`);
+                    inputs.each(function() {
+                        const onclickAttr = $(this).attr('onclick');
+                        if (onclickAttr) {
+                            const match = onclickAttr.match(/selectAnswer\(\s*\d+\s*,\s*(\d+)\s*,\s*'/);
+                            if (match && parseInt(match[1]) === parseInt(key)) {
+                                $(this).prop('checked', true);
+                                const nameAttr = $(this).attr('name');
+                                if (nameAttr) {
+                                    const order = parseInt(nameAttr.split('-')[0]);
+                                    if (!isNaN(order)) {
+                                        $('.qMapItem').eq(order - 1).addClass('selected');
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+
             $('.qMapItem').on('click', function() {
                 const order = parseInt($(this).text().trim());
                 setActiveQuestion(order);
@@ -214,6 +239,8 @@
             }
             selectedAns[qId] = key;
             $('.qMapItem').eq(qIndex).addClass('selected');
+            // Save to sessionStorage
+            sessionStorage.setItem("exam_answers_" + "@Model.Id", JSON.stringify(selectedAns));
         }
 
         function endExam() {
@@ -225,6 +252,7 @@
                 }))
             }
             postJsonData('/exams/submit', submitData, () => {
+                sessionStorage.removeItem("exam_answers_" + "@Model.Id");
                 window.location.replace(`/bai-kiem-tra/result?alias=@Model.Alias`);
             });
         }
