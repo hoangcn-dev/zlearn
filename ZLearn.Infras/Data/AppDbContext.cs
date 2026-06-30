@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System.Reflection;
 using ZLearn.Application.Common.Interfaces;
@@ -9,12 +9,13 @@ namespace ZLearn.Infras.Data
 {
     public class AppDbContext : IdentityDbContext<AppUser, AppRole, string>, IAppDbContext
     {
-        public AppDbContext(DbContextOptions options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
 
         public DbSet<Category> Categories => Set<Category>();
         public DbSet<MediaFile> MediaFiles => Set<MediaFile>();
+        public DbSet<Outbox.OutboxEvent> OutboxEvents => Set<Outbox.OutboxEvent>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

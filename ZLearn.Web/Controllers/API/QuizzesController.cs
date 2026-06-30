@@ -5,10 +5,17 @@ using System.Security.Claims;
 using ZLearn.Application.Categories.Commands.CreateCate;
 using ZLearn.Application.Categories.Commands.DeleteCate;
 using ZLearn.Application.Categories.Commands.UpdateCate;
-using ZLearn.Application.Categories.DTOs;
 using ZLearn.Application.Categories.Queries.GetAllCates;
 using ZLearn.Application.Categories.Queries.GetCateById;
 using ZLearn.Application.Common.DTOs;
+using Zlearn.V2.Application.Categories.Commands.CreateCategory;
+using Zlearn.V2.Application.Categories.Queries.GetCategoryById;
+using Zlearn.V2.Application.Categories.Queries.GetAllCategories;
+using ZLearn.Application.Categories.DTOs;
+using UpdateCategoryCommand = Zlearn.V2.Application.Categories.Commands.UpdateCategory.UpdateCategoryCommand;
+using DeleteCategoryCommand = Zlearn.V2.Application.Categories.Commands.DeleteCategory.DeleteCategoryCommand;
+using CategoryDocument = Zlearn.V2.Application.Categories.DTOs.CategoryDocument;
+using CreateResponseDto = Zlearn.V2.Application.Common.DTOs.CreateResponseDto;
 using ZLearn.Application.Quizzes.Commands.Create;
 using ZLearn.Application.Quizzes.Commands.Delete;
 using ZLearn.Application.Quizzes.Commands.Update;
@@ -103,7 +110,7 @@ namespace ZLearn.Web.Controllers.API
         public async Task<IActionResult> CreateNewQuiz([FromBody] CreateQuizCommand command)
         {
             var res = await _mediator.Send(command);
-            return Ok(Result<CreateResponseDto>.Success("Create new quiz successfully.", res));
+            return Ok(Result<ZLearn.Application.Common.DTOs.CreateResponseDto>.Success("Create new quiz successfully.", res));
         }
 
         [HttpPut("{id}")]
@@ -199,7 +206,7 @@ namespace ZLearn.Web.Controllers.API
         #region Category
         [HttpPost("categories")]
         [Authorize(Policy = "OnlyAdmin")]
-        public async Task<IActionResult> CreateNewCate([FromBody] CreateCateCommand command)
+        public async Task<IActionResult> CreateNewCate([FromBody] CreateCategoryCommand command)
         {
             var res = await _mediator.Send(command);
             return Ok(Result<CreateResponseDto>.Success("Create new category successfully.", res));
@@ -207,10 +214,10 @@ namespace ZLearn.Web.Controllers.API
 
 
         [HttpGet("categories")]
-        public async Task<IActionResult> GetAllCate([FromQuery] GetAllCatesQuery query)
+        public async Task<IActionResult> GetAllCate()
         {
-            var res = await _mediator.Send(query);
-            _logger.LogInformation("View all categories.");
+            var res = await _mediator.Send(new GetAllCategoriesQuery());
+            _logger.LogInformation("View all categories V2.");
             return Ok(Result<IEnumerable<CateListItemDto>>.Success("Get all categories successfully.", res));
         }
 
@@ -219,12 +226,7 @@ namespace ZLearn.Web.Controllers.API
         [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> GetCateDetail(string id)
         {
-            var user = Request.HttpContext.User;
-            var query = new GetCateByIdQuery
-            {
-                Id = id
-            };
-            var res = await _mediator.Send(query);
+            var res = await _mediator.Send(new GetCategoryByIdQuery { Id = id });
             return Ok(Result<CateDetailDto>.Success("Get category detail information successfully.", res));
         }
 
@@ -233,12 +235,13 @@ namespace ZLearn.Web.Controllers.API
         [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> UpdateCate(string id, [FromBody] UpdateCateDto data)
         {
-            var res = await _mediator.Send(new UpdateCateCommand
-            {
-                CateId = id,
-                Data = data
-            });
-            return Ok(Result<UpdateResponseDto>.Success("Update category successfully.", res));
+            var res = await _mediator.Send(new UpdateCategoryCommand(
+                id,
+                data.Name,
+                data.Description,
+                data.ThumbnailUrl
+            ));
+            return Ok(Result<CreateResponseDto>.Success("Update category successfully.", res));
         }
 
 
@@ -246,12 +249,9 @@ namespace ZLearn.Web.Controllers.API
         [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> DeleteCate([FromBody] DeleteRequestDto data)
         {
-            var command = new DeleteCateCommand
-            {
-                CateIds = data.Ids
-            };
+            var command = new DeleteCategoryCommand(data.Ids);
             var res = await _mediator.Send(command);
-            return Ok(Result<DeleteResponseDto>.Success("Delete category successfully.", res));
+            return Ok(Result<bool>.Success("Delete category successfully.", res));
         } 
         #endregion
     }

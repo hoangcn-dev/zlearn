@@ -237,6 +237,9 @@ namespace ZLearn.Infras.Migrations
                     b.Property<string>("ThumbnailUrl")
                         .HasColumnType("text");
 
+                    b.Property<int>("Version")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Slug")
@@ -636,6 +639,37 @@ namespace ZLearn.Infras.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tags", (string)null);
+                });
+
+            modelBuilder.Entity("ZLearn.Infras.Data.Outbox.OutboxEvent", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Error")
+                        .HasColumnType("text");
+
+                    b.Property<DateTimeOffset>("OccurredOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTimeOffset?>("ProcessedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProcessedOn");
+
+                    b.ToTable("OutboxEvents", (string)null);
                 });
 
             modelBuilder.Entity("ZLearn.Infras.Services.Identity.AppRole", b =>

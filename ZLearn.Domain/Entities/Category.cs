@@ -1,8 +1,8 @@
-﻿using ZLearn.Domain.Common;
+using ZLearn.Domain.Common;
 
 namespace ZLearn.Domain.Entities
 {
-    public class Category : AuditableEntity
+    public class Category : AggregateRoot
     {
         public string Name { get; set; }
         public string Slug { get; set; }

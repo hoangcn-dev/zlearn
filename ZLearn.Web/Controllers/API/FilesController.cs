@@ -1,10 +1,10 @@
-﻿using MediatR;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ZLearn.Application.Common.DTOs;
-using ZLearn.Application.Files.Commands.DeleteFile;
-using ZLearn.Application.Files.Commands.SaveFile;
-using ZLearn.Application.Files.DTOs;
+using Zlearn.V2.Application.Files.Commands.DeleteFile;
+using Zlearn.V2.Application.Files.Commands.SaveFile;
+using Zlearn.V2.Application.Files.DTOs;
 
 namespace ZLearn.Web.Controllers.API
 {

@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 using ZLearn.Application;
 using ZLearn.Domain.Exceptions;
 using ZLearn.Infras;
+using Zlearn.V2.Infas;
 using ZLearn.Web.Middlewares;
 
 namespace ZLearn.Web
@@ -35,6 +36,8 @@ namespace ZLearn.Web
             builder.AddExamTrackingService();
             builder.AddIdentityService();
             builder.AddPostgreSQLDataServices();
+            builder.AddMongoDBDataServices();
+            builder.Services.AddV2Services();
             builder.AddCloudinaryService();
             builder.AddDatabaseBackupService();
             builder.AddFileCleanupService();
