@@ -59,7 +59,7 @@ namespace ZLearn.UnitTests
 
             var mockMediator = new Mock<IMediator>();
 
-            var handler = new CreateCategoryCommandHandler(_mapper, mockMediator.Object, writeRepo, mockFileRepo.Object, mockHttpContextAccessor.Object);
+            var handler = new CreateCategoryCommandHandler(writeRepo, _mapper, mockMediator.Object, mockFileRepo.Object, mockHttpContextAccessor.Object);
 
             var command = new CreateCategoryCommand
             {
@@ -164,7 +164,7 @@ namespace ZLearn.UnitTests
             var mockMediator = new Mock<IMediator>();
             var mockMapper = new Mock<IMapper>();
 
-            var handler = new GetCategoryByIdQueryHandler(mockMapper.Object, mockMediator.Object, mockReadRepo.Object);
+            var handler = new GetCategoryByIdQueryHandler(mockReadRepo.Object, mockMapper.Object, mockMediator.Object);
 
             // Act: Truy vấn Category bằng ID
             var query = new GetCategoryByIdQuery { Id = "CAT456" };

@@ -1,5 +1,6 @@
 using AutoMapper;
 using MediatR;
+using Zlearn.V2.Application.Common.Interfaces;
 
 namespace Zlearn.V2.Application.Common.Queries
 {
@@ -12,6 +13,17 @@ namespace Zlearn.V2.Application.Common.Queries
         {
             _mapper = mapper;
             _mediator = mediator;
+        }
+    }
+
+    public abstract class BaseQueryHandler<TDocument> : BaseQueryHandler where TDocument : class
+    {
+        protected readonly IReadRepo<TDocument> _readRepo;
+
+        protected BaseQueryHandler(IReadRepo<TDocument> readRepo, IMapper mapper, IMediator mediator)
+            : base(mapper, mediator)
+        {
+            _readRepo = readRepo;
         }
     }
 }

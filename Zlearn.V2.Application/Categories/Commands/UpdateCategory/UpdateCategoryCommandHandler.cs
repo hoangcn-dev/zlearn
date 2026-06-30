@@ -14,24 +14,22 @@ using Zlearn.V2.Domain.CatalogContext.Categories;
 
 namespace Zlearn.V2.Application.Categories.Commands.UpdateCategory
 {
-    public class UpdateCategoryCommandHandler : BaseCommandHandler, IRequestHandler<UpdateCategoryCommand, CreateResponseDto>
+    public class UpdateCategoryCommandHandler : BaseCommandHandler<Category>, IRequestHandler<UpdateCategoryCommand, CreateResponseDto>
     {
-        private readonly IWriteRepo<Category> _repo;
         private readonly IFileRepo _fileRepo;
 
         public UpdateCategoryCommandHandler(
-            IWriteRepo<Category> repo,
+            IWriteRepo<Category> writeRepo,
             IMapper mapper,
             IMediator mediator,
-            IFileRepo fileRepo) : base(mapper, mediator)
+            IFileRepo fileRepo) : base(writeRepo, mapper, mediator)
         {
-            _repo = repo;
             _fileRepo = fileRepo;
         }
 
         public async Task<CreateResponseDto> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
         {
-            var cate = await _repo.GetByIdAsync(request.Id);
+            var cate = await _writeRepo.GetByIdAsync(request.Id);
             if (cate == null)
             {
                 throw new NotFoundException(nameof(Category), request.Id);
@@ -60,8 +58,8 @@ namespace Zlearn.V2.Application.Categories.Commands.UpdateCategory
                 request.ThumbnailUrl
             );
 
-            _repo.Update(cate);
-            await _repo.SaveChangesAsync(cancellationToken);
+            _writeRepo.Update(cate);
+            await _writeRepo.SaveChangesAsync(cancellationToken);
 
             return _mapper.Map<CreateResponseDto>(cate);
         }

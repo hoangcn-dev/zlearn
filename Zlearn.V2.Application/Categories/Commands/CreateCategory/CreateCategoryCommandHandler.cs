@@ -17,34 +17,32 @@ using Zlearn.V2.Domain.CatalogContext.Categories.Events;
 
 namespace Zlearn.V2.Application.Categories.Commands.CreateCategory
 {
-    public class CreateCategoryCommandHandler : BaseCommandHandler, IRequestHandler<CreateCategoryCommand, CreateResponseDto>
+    public class CreateCategoryCommandHandler : BaseCommandHandler<Category>, IRequestHandler<CreateCategoryCommand, CreateResponseDto>
     {
-        private readonly IWriteRepo<Category> _repo;
         private readonly IFileRepo _fileRepo;
         private readonly IHttpContextAccessor _contextAccessor;
 
         public CreateCategoryCommandHandler(
+            IWriteRepo<Category> writeRepo,
             IMapper mapper, 
             IMediator mediator,
-            IWriteRepo<Category> repo, 
             IFileRepo fileRepo,
-            IHttpContextAccessor contextAccessor) : base(mapper, mediator)
+            IHttpContextAccessor contextAccessor) : base(writeRepo, mapper, mediator)
         {
-            _repo = repo;
             _fileRepo = fileRepo;
             _contextAccessor = contextAccessor;
         }
 
         public async Task<CreateResponseDto> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
-            if (await _repo.AnyAsync(c => c.Name == request.Name))
+            if (await _writeRepo.AnyAsync(c => c.Name == request.Name))
                 throw new DuplicateEntryException(nameof(Category), nameof(Category.Name));
             
             var slug = string.IsNullOrEmpty(request.Slug) 
                 ? StringHelper.GenerateSlug(request.Name) 
                 : request.Slug;
 
-            if (await _repo.AnyAsync(c => c.Slug == slug))
+            if (await _writeRepo.AnyAsync(c => c.Slug == slug))
                 throw new DuplicateEntryException(nameof(Category), nameof(Category.Slug));
 
             if (!await _fileRepo.Any(f => f.SourceUrl == request.ThumbnailUrl))
@@ -76,8 +74,8 @@ namespace Zlearn.V2.Application.Categories.Commands.CreateCategory
                 cate.Description, 
                 cate.ThumbnailUrl));
 
-            _repo.Create(cate);
-            await _repo.SaveChangesAsync(cancellationToken);
+            _writeRepo.Create(cate);
+            await _writeRepo.SaveChangesAsync(cancellationToken);
 
             return _mapper.Map<CreateResponseDto>(cate);
         }

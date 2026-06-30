@@ -6,8 +6,6 @@ namespace Zlearn.V2.Domain.Common
 {
     public abstract class AggregateRoot : AuditableEntity
     {
-        public int Version { get; protected set; } = 1;
-
         private readonly List<DomainEvent> _uncommittedEvents = [];
 
         [NotMapped]

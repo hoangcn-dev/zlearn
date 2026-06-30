@@ -13,18 +13,16 @@ using Zlearn.V2.Domain.Common;
 
 namespace Zlearn.V2.Application.Categories.Commands.DeleteCategory
 {
-    public class DeleteCategoryCommandHandler : BaseCommandHandler, IRequestHandler<DeleteCategoryCommand, bool>
+    public class DeleteCategoryCommandHandler : BaseCommandHandler<Category>, IRequestHandler<DeleteCategoryCommand, bool>
     {
-        private readonly IWriteRepo<Category> _repo;
         private readonly IFileRepo _fileRepo;
 
         public DeleteCategoryCommandHandler(
-            IWriteRepo<Category> repo,
+            IWriteRepo<Category> writeRepo,
             IMapper mapper,
             IMediator mediator,
-            IFileRepo fileRepo) : base(mapper, mediator)
+            IFileRepo fileRepo) : base(writeRepo, mapper, mediator)
         {
-            _repo = repo;
             _fileRepo = fileRepo;
         }
 
@@ -32,7 +30,7 @@ namespace Zlearn.V2.Application.Categories.Commands.DeleteCategory
         {
             foreach (var id in request.Ids)
             {
-                var cate = await _repo.GetByIdAsync(id);
+                var cate = await _writeRepo.GetByIdAsync(id);
                 if (cate == null)
                 {
                     throw new NotFoundException(nameof(Category), id);
@@ -47,10 +45,10 @@ namespace Zlearn.V2.Application.Categories.Commands.DeleteCategory
                     await _fileRepo.SetUnused(new List<string> { cate.ThumbnailUrl });
                 }
 
-                _repo.Delete(cate);
+                _writeRepo.Delete(cate);
             }
 
-            await _repo.SaveChangesAsync(cancellationToken);
+            await _writeRepo.SaveChangesAsync(cancellationToken);
             return true;
         }
     }

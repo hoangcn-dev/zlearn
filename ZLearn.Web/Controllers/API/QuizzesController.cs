@@ -16,17 +16,23 @@ using UpdateCategoryCommand = Zlearn.V2.Application.Categories.Commands.UpdateCa
 using DeleteCategoryCommand = Zlearn.V2.Application.Categories.Commands.DeleteCategory.DeleteCategoryCommand;
 using CategoryDocument = Zlearn.V2.Application.Categories.DTOs.CategoryDocument;
 using CreateResponseDto = Zlearn.V2.Application.Common.DTOs.CreateResponseDto;
-using ZLearn.Application.Quizzes.Commands.Create;
-using ZLearn.Application.Quizzes.Commands.Delete;
-using ZLearn.Application.Quizzes.Commands.Update;
+using GetListQuizQuery = Zlearn.V2.Application.Quizzes.Queries.GetListQuiz.GetListQuizQuery;
+using GetMyQuizQuery = Zlearn.V2.Application.Quizzes.Queries.GetMyQuiz.GetMyQuizQuery;
+using GetUpdateQuizContentQuery = Zlearn.V2.Application.Quizzes.Queries.GetUpdateQuizContent.GetUpdateQuizContentQuery;
+using GetQuizDetailQuery = Zlearn.V2.Application.Quizzes.Queries.GetQuizDetail.GetQuizDetailQuery;
+using CreateQuizCommand = Zlearn.V2.Application.Quizzes.Commands.Create.CreateQuizCommand;
+using UpdateQuizCommand = Zlearn.V2.Application.Quizzes.Commands.Update.UpdateQuizCommand;
+using DeleteQuizCommand = Zlearn.V2.Application.Quizzes.Commands.Delete.DeleteQuizCommand;
+using GetAllTagsQuery = Zlearn.V2.Application.Quizzes.Queries.GetAllTags.GetAllTagsQuery;
+using UpdateQuizDto = Zlearn.V2.Application.Quizzes.DTOs.UpdateQuizDto;
+using QuizDetailDto = Zlearn.V2.Application.Quizzes.DTOs.QuizDetailDto;
+using QuizListItemDto = Zlearn.V2.Application.Quizzes.DTOs.QuizListItemDto;
+using QuizSearchDto = Zlearn.V2.Application.Quizzes.DTOs.QuizSearchDto;
+using UpdateResponseDto = Zlearn.V2.Application.Common.DTOs.UpdateResponseDto;
 using ZLearn.Application.Quizzes.DTOs;
-using ZLearn.Application.Quizzes.Queries.GetAllTags;
 using ZLearn.Application.Quizzes.Queries.GetAutoGenerateQuestionData;
-using ZLearn.Application.Quizzes.Queries.GetListQuiz;
-using ZLearn.Application.Quizzes.Queries.GetMyQuiz;
 using ZLearn.Application.Quizzes.Queries.GetQuestionAnswerKey;
 using ZLearn.Application.Quizzes.Queries.GetQuestionContent;
-using ZLearn.Application.Quizzes.Queries.GetQuizDetail;
 using ZLearn.Application.Quizzes.Queries.GetUpdateQuizContent;
 using ZLearn.Application.Quizzes.Queries.GetQuestionBank;
 using ZLearn.Application.Quizzes.Queries.ExportQuizzes;
@@ -110,7 +116,7 @@ namespace ZLearn.Web.Controllers.API
         public async Task<IActionResult> CreateNewQuiz([FromBody] CreateQuizCommand command)
         {
             var res = await _mediator.Send(command);
-            return Ok(Result<ZLearn.Application.Common.DTOs.CreateResponseDto>.Success("Create new quiz successfully.", res));
+            return Ok(Result<CreateResponseDto>.Success("Create new quiz successfully.", res));
         }
 
         [HttpPut("{id}")]

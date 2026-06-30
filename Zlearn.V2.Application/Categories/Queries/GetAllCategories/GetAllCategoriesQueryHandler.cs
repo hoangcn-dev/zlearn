@@ -12,16 +12,13 @@ using Zlearn.V2.Application.Common.Utils;
 
 namespace Zlearn.V2.Application.Categories.Queries.GetAllCategories
 {
-    public class GetAllCategoriesQueryHandler : BaseQueryHandler, IRequestHandler<GetAllCategoriesQuery, IEnumerable<CateListItemDto>>
+    public class GetAllCategoriesQueryHandler : BaseQueryHandler<CategoryDocumentV2>, IRequestHandler<GetAllCategoriesQuery, IEnumerable<CateListItemDto>>
     {
-        private readonly IReadRepo<CategoryDocumentV2> _readRepo;
-
         public GetAllCategoriesQueryHandler(
+            IReadRepo<CategoryDocumentV2> readRepo,
             IMapper mapper, 
-            IMediator mediator,
-            IReadRepo<CategoryDocumentV2> readRepo) : base(mapper, mediator)
+            IMediator mediator) : base(readRepo, mapper, mediator)
         {
-            _readRepo = readRepo;
         }
 
         public async Task<IEnumerable<CateListItemDto>> Handle(GetAllCategoriesQuery request, CancellationToken cancellationToken)

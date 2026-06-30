@@ -1,5 +1,7 @@
 using AutoMapper;
 using MediatR;
+using Zlearn.V2.Application.Common.Interfaces;
+using Zlearn.V2.Domain.Common;
 
 namespace Zlearn.V2.Application.Common.Commands
 {
@@ -12,6 +14,17 @@ namespace Zlearn.V2.Application.Common.Commands
         {
             _mapper = mapper;
             _mediator = mediator;
+        }
+    }
+
+    public abstract class BaseCommandHandler<TEntity> : BaseCommandHandler where TEntity : BaseEntity
+    {
+        protected readonly IWriteRepo<TEntity> _writeRepo;
+
+        protected BaseCommandHandler(IWriteRepo<TEntity> writeRepo, IMapper mapper, IMediator mediator)
+            : base(mapper, mediator)
+        {
+            _writeRepo = writeRepo;
         }
     }
 }

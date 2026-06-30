@@ -17,6 +17,7 @@ using Zlearn.V2.Infas.External.CloudinaryStore;
 using ZLearn.Application.Common.Utils;
 using V2Utils = Zlearn.V2.Application.Common.Utils;
 using Zlearn.V2.Domain.CatalogContext.Categories.Events;
+using Zlearn.V2.Application.Quizzes;
 
 namespace Zlearn.V2.Infas
 {
@@ -63,6 +64,7 @@ namespace Zlearn.V2.Infas
             // 3. Đăng ký generic repositories cho V2
             services.AddScoped(typeof(IWriteRepo<>), typeof(WriteRepo<>));
             services.AddScoped(typeof(IReadRepo<>), typeof(ReadRepo<>));
+            services.AddScoped<IQuizWriteRepo, QuizWriteRepo>();
 
             // Đăng ký File repository và Media store service V2
             services.AddScoped<IFileRepo, FileRepo>();
@@ -73,6 +75,7 @@ namespace Zlearn.V2.Infas
 
             // 5. Đăng ký Projection Handler cho V2
             services.AddTransient<INotificationHandler<OutboxEvent>, SyncCategoryToMongoHandler>();
+            services.AddTransient<INotificationHandler<OutboxEvent>, SyncQuizToMongoHandler>();
 
             return services;
         }

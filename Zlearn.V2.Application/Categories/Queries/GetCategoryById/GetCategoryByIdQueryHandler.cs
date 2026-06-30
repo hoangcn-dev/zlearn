@@ -13,16 +13,13 @@ using Zlearn.V2.Domain.CatalogContext.Categories;
 
 namespace Zlearn.V2.Application.Categories.Queries.GetCategoryById
 {
-    public class GetCategoryByIdQueryHandler : BaseQueryHandler, IRequestHandler<GetCategoryByIdQuery, CateDetailDto>
+    public class GetCategoryByIdQueryHandler : BaseQueryHandler<CategoryDocumentV2>, IRequestHandler<GetCategoryByIdQuery, CateDetailDto>
     {
-        private readonly IReadRepo<CategoryDocumentV2> _readRepo;
-
         public GetCategoryByIdQueryHandler(
+            IReadRepo<CategoryDocumentV2> readRepo,
             IMapper mapper, 
-            IMediator mediator,
-            IReadRepo<CategoryDocumentV2> readRepo) : base(mapper, mediator)
+            IMediator mediator) : base(readRepo, mapper, mediator)
         {
-            _readRepo = readRepo;
         }
 
         public async Task<CateDetailDto> Handle(GetCategoryByIdQuery request, CancellationToken cancellationToken)
