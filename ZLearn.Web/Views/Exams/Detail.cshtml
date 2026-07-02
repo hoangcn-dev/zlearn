@@ -1,5 +1,5 @@
-@using ZLearn.Application.Exams.DTOs
-@using ZLearn.Infras.External.SignalR
+@using Zlearn.V2.Application.Exams.DTOs
+@using Zlearn.V2.Infas.External.SignalR
 @model ExamDetailDto
 @{
     ViewData["Title"] = "Quản lý bài thi";
@@ -324,7 +324,7 @@
                 html += `
                     <div id="${p.userId}" class="d-flex align-items-center border-top border-bottom-0 p-2">
                         <div class="col">
-                            <img src="${p.imageUrl || '@ZLearn.Application.Common.Utils.StringHelper.GetDefaultImageUrl()'}" alt="" width="32" height="32" class="rounded-pill border">
+                            <img src="${p.imageUrl || '@Zlearn.V2.Application.Common.Utils.StringHelper.GetDefaultImageUrl()'}" alt="" width="32" height="32" class="rounded-pill border">
                             <small class="ms-2">[${p.participantCode || p.participantId}] ${p.participantName}</small>
                         </div>
                         <div class="col-2"><div class="d-inline-flex">Đã làm <div class="selectedCount ms-1">${p.selectedCount}</div>/${@Model.QuestionsCount}</div></div>

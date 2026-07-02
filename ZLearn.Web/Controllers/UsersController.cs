@@ -2,7 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using ZLearn.Application.Auth.Queries.GetUserDetail;
+using Zlearn.V2.Application.Identity.Queries;
 
 namespace ZLearn.Web.Controllers
 {

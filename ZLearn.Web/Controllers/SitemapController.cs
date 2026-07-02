@@ -2,8 +2,7 @@ using System.Text;
 using System.Xml.Linq;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using ZLearn.Application.Quizzes.Queries.GetQuizzesForSitemap;
-using ZLearn.Application.Quizzes.Queries.GetQuestionsForSitemap;
+using Zlearn.V2.Application.Common.Queries;
 
 namespace ZLearn.Web.Controllers
 {

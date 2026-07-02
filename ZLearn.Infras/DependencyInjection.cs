@@ -15,6 +15,11 @@ using System.Collections.Concurrent;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
+using MongoDB.Driver;
+using ZLearn.Infras.Data.Outbox;
+using MediatR;
+using ZLearn.Domain.Events.CategoryV2;
+using ZLearn.Infras.Services.Projections;
 using ZLearn.API.Exceptions;
 using ZLearn.Application.Categories;
 using ZLearn.Application.Common.DTOs;
@@ -69,6 +74,34 @@ namespace ZLearn.Infras
                 options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
                 options.UseNpgsql(EnvVariableHelper.GetValue(EnvVariableNames.CONNECTION_STRING_POSTGRES));
             });
+        }
+
+        public static void AddMongoDBDataServices(this WebApplicationBuilder builder)
+        {
+            var mongoConnString = Environment.GetEnvironmentVariable("CONNECTION_STRING_MONGODB") 
+                ?? "mongodb://localhost:27017";
+            var mongoDatabaseName = Environment.GetEnvironmentVariable("MONGODB_DATABASE_NAME") 
+                ?? "ZLearnReadDb";
+
+            builder.Services.AddSingleton<IMongoClient>(sp => new MongoClient(mongoConnString));
+            builder.Services.AddScoped<IMongoDatabase>(sp =>
+            {
+                var client = sp.GetRequiredService<IMongoClient>();
+                return client.GetDatabase(mongoDatabaseName);
+            });
+
+            // Đăng ký Generic Repositories mới
+            builder.Services.AddScoped(typeof(IWriteRepo<>), typeof(WriteRepo<>));
+            builder.Services.AddScoped(typeof(IReadRepo<>), typeof(ReadRepo<>));
+
+            // Đăng ký Outbox Interceptor
+            builder.Services.AddScoped<ISaveChangesInterceptor, OutboxInterceptor>();
+
+            // Đăng ký Background Worker xử lý Outbox
+            builder.Services.AddHostedService<OutboxProcessorJob>();
+
+            // Đăng ký Projection Handler
+            builder.Services.AddTransient<INotificationHandler<DomainEventNotificationWrapper<CategoryCreatedEvent>>, SyncCategoryToMongoHandler>();
         }
 
         public static void AddGroqServices(this WebApplicationBuilder builder)

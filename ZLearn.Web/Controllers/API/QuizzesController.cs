@@ -2,28 +2,32 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using ZLearn.Application.Categories.Commands.CreateCate;
-using ZLearn.Application.Categories.Commands.DeleteCate;
-using ZLearn.Application.Categories.Commands.UpdateCate;
-using ZLearn.Application.Categories.DTOs;
-using ZLearn.Application.Categories.Queries.GetAllCates;
-using ZLearn.Application.Categories.Queries.GetCateById;
-using ZLearn.Application.Common.DTOs;
-using ZLearn.Application.Quizzes.Commands.Create;
-using ZLearn.Application.Quizzes.Commands.Delete;
-using ZLearn.Application.Quizzes.Commands.Update;
-using ZLearn.Application.Quizzes.DTOs;
-using ZLearn.Application.Quizzes.Queries.GetAllTags;
-using ZLearn.Application.Quizzes.Queries.GetAutoGenerateQuestionData;
-using ZLearn.Application.Quizzes.Queries.GetListQuiz;
-using ZLearn.Application.Quizzes.Queries.GetMyQuiz;
-using ZLearn.Application.Quizzes.Queries.GetQuestionAnswerKey;
-using ZLearn.Application.Quizzes.Queries.GetQuestionContent;
-using ZLearn.Application.Quizzes.Queries.GetQuizDetail;
-using ZLearn.Application.Quizzes.Queries.GetUpdateQuizContent;
-using ZLearn.Application.Quizzes.Queries.GetQuestionBank;
-using ZLearn.Application.Quizzes.Queries.ExportQuizzes;
-using ZLearn.Application.Quizzes.Commands.ScanQuiz;
+using Zlearn.V2.Application.Common.DTOs;
+using Zlearn.V2.Application.Categories.Commands.CreateCategory;
+using Zlearn.V2.Application.Categories.Queries.GetCategoryById;
+using Zlearn.V2.Application.Categories.Queries.GetAllCategories;
+using Zlearn.V2.Application.Categories.DTOs;
+using UpdateCategoryCommand = Zlearn.V2.Application.Categories.Commands.UpdateCategory.UpdateCategoryCommand;
+using DeleteCategoryCommand = Zlearn.V2.Application.Categories.Commands.DeleteCategory.DeleteCategoryCommand;
+using CategoryDocument = Zlearn.V2.Application.Categories.DTOs.CategoryDocument;
+using CreateResponseDto = Zlearn.V2.Application.Common.DTOs.CreateResponseDto;
+using GetListQuizQuery = Zlearn.V2.Application.Quizzes.Queries.GetListQuiz.GetListQuizQuery;
+using GetMyQuizQuery = Zlearn.V2.Application.Quizzes.Queries.GetMyQuiz.GetMyQuizQuery;
+using GetUpdateQuizContentQuery = Zlearn.V2.Application.Quizzes.Queries.GetUpdateQuizContent.GetUpdateQuizContentQuery;
+using GetQuizDetailQuery = Zlearn.V2.Application.Quizzes.Queries.GetQuizDetail.GetQuizDetailQuery;
+using CreateQuizCommand = Zlearn.V2.Application.Quizzes.Commands.Create.CreateQuizCommand;
+using UpdateQuizCommand = Zlearn.V2.Application.Quizzes.Commands.Update.UpdateQuizCommand;
+using DeleteQuizCommand = Zlearn.V2.Application.Quizzes.Commands.Delete.DeleteQuizCommand;
+using GetAllTagsQuery = Zlearn.V2.Application.Quizzes.Queries.GetAllTags.GetAllTagsQuery;
+using UpdateQuizDto = Zlearn.V2.Application.Quizzes.DTOs.UpdateQuizDto;
+using QuizDetailDto = Zlearn.V2.Application.Quizzes.DTOs.QuizDetailDto;
+using QuizListItemDto = Zlearn.V2.Application.Quizzes.DTOs.QuizListItemDto;
+using QuizSearchDto = Zlearn.V2.Application.Quizzes.DTOs.QuizSearchDto;
+using UpdateResponseDto = Zlearn.V2.Application.Common.DTOs.UpdateResponseDto;
+using Zlearn.V2.Application.Quizzes.Queries.GetQuestionContent;
+using QuestionContentDto = Zlearn.V2.Application.Quizzes.DTOs.QuestionContentDto;
+using GetQuestionAnswerKeyQuery = Zlearn.V2.Application.Quizzes.Queries.GetQuestionAnswerKey.GetQuestionAnswerKeyQuery;
+using CorrectAnswerKeyDto = Zlearn.V2.Application.Quizzes.DTOs.CorrectAnswerKeyDto;
 
 
 namespace ZLearn.Web.Controllers.API
@@ -63,15 +67,9 @@ namespace ZLearn.Web.Controllers.API
         }
 
         [HttpPost("generate-questions")]
-        public async Task<IActionResult> GenerateQuestions([FromForm] AutoGenerateQuestionRequestDto data)
+        public async Task<IActionResult> GenerateQuestions([FromForm] object data)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var query = new GetAutoGenerateQuestionDataQuery
-            {
-                Data = data
-            };
-            var res = await _mediator.Send(query);
-            return Ok(Result<List<CreateQuestionDto>>.Success(null, res));
+            throw new System.NotImplementedException("AI question generation is not supported in V2");
         }
 
         [HttpGet("{id}")]
@@ -142,35 +140,24 @@ namespace ZLearn.Web.Controllers.API
 
         [HttpPost("export")]
         [Authorize]
-        public async Task<IActionResult> ExportQuizzes([FromBody] ExportQuizzesRequestDto data)
+        public async Task<IActionResult> ExportQuizzes([FromBody] object data)
         {
-            var query = new ExportQuizzesQuery
-            {
-                QuizIds = data.QuizIds,
-                Format = data.Format
-            };
-            var res = await _mediator.Send(query);
-            return File(res.Content, res.ContentType, res.FileName);
+            throw new System.NotImplementedException("Export is not supported in V2");
         }
 
         [HttpPost("scan")]
         [Authorize]
-        public async Task<IActionResult> ScanQuiz([FromForm] ScanQuizCommand command)
+        public async Task<IActionResult> ScanQuiz([FromForm] object command)
         {
-            var res = await _mediator.Send(command);
-            if (!res.Succeeded) return BadRequest(res);
-            return Ok(res);
+            throw new System.NotImplementedException("Quiz scanning is not supported in V2");
         }
 
         #region Question
         [HttpGet("questions")]
         [Authorize]
-        public async Task<IActionResult> GetQuestionBank([FromQuery] GetQuestionBankQuery query)
+        public async Task<IActionResult> GetQuestionBank([FromQuery] object query)
         {
-            query.CurrentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            query.IsAdmin = User.IsInRole("Admin");
-            var res = await _mediator.Send(query);
-            return Ok(Result<PaginatedDto<QuestionBankItemDto>>.Success("Get question bank successfully.", res));
+            throw new System.NotImplementedException("Question bank is not supported in V2");
         }
 
         [HttpGet("questions/{id}")]
@@ -199,7 +186,7 @@ namespace ZLearn.Web.Controllers.API
         #region Category
         [HttpPost("categories")]
         [Authorize(Policy = "OnlyAdmin")]
-        public async Task<IActionResult> CreateNewCate([FromBody] CreateCateCommand command)
+        public async Task<IActionResult> CreateNewCate([FromBody] CreateCategoryCommand command)
         {
             var res = await _mediator.Send(command);
             return Ok(Result<CreateResponseDto>.Success("Create new category successfully.", res));
@@ -207,10 +194,10 @@ namespace ZLearn.Web.Controllers.API
 
 
         [HttpGet("categories")]
-        public async Task<IActionResult> GetAllCate([FromQuery] GetAllCatesQuery query)
+        public async Task<IActionResult> GetAllCate()
         {
-            var res = await _mediator.Send(query);
-            _logger.LogInformation("View all categories.");
+            var res = await _mediator.Send(new GetAllCategoriesQuery());
+            _logger.LogInformation("View all categories V2.");
             return Ok(Result<IEnumerable<CateListItemDto>>.Success("Get all categories successfully.", res));
         }
 
@@ -219,12 +206,7 @@ namespace ZLearn.Web.Controllers.API
         [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> GetCateDetail(string id)
         {
-            var user = Request.HttpContext.User;
-            var query = new GetCateByIdQuery
-            {
-                Id = id
-            };
-            var res = await _mediator.Send(query);
+            var res = await _mediator.Send(new GetCategoryByIdQuery { Id = id });
             return Ok(Result<CateDetailDto>.Success("Get category detail information successfully.", res));
         }
 
@@ -233,12 +215,13 @@ namespace ZLearn.Web.Controllers.API
         [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> UpdateCate(string id, [FromBody] UpdateCateDto data)
         {
-            var res = await _mediator.Send(new UpdateCateCommand
-            {
-                CateId = id,
-                Data = data
-            });
-            return Ok(Result<UpdateResponseDto>.Success("Update category successfully.", res));
+            var res = await _mediator.Send(new UpdateCategoryCommand(
+                id,
+                data.Name,
+                data.Description,
+                data.ThumbnailUrl
+            ));
+            return Ok(Result<CreateResponseDto>.Success("Update category successfully.", res));
         }
 
 
@@ -246,12 +229,9 @@ namespace ZLearn.Web.Controllers.API
         [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> DeleteCate([FromBody] DeleteRequestDto data)
         {
-            var command = new DeleteCateCommand
-            {
-                CateIds = data.Ids
-            };
+            var command = new DeleteCategoryCommand(data.Ids);
             var res = await _mediator.Send(command);
-            return Ok(Result<DeleteResponseDto>.Success("Delete category successfully.", res));
+            return Ok(Result<bool>.Success("Delete category successfully.", res));
         } 
         #endregion
     }

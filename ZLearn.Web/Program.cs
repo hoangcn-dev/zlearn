@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json.Serialization;
-using ZLearn.Application;
-using ZLearn.Domain.Exceptions;
-using ZLearn.Infras;
+using Zlearn.V2.Infas;
+using Zlearn.V2.Infas.Data;
+using Zlearn.V2.Application.Common.Exceptions;
 using ZLearn.Web.Middlewares;
 
 namespace ZLearn.Web
@@ -17,7 +17,6 @@ namespace ZLearn.Web
 
             services.AddExceptionMiddleware();
             services.AddJwtMiddleware();
-            services.AddApplicationServices();
             services.AddRouting(opt => opt.LowercaseUrls = true);
             services.AddCors(options =>
             {
@@ -29,18 +28,15 @@ namespace ZLearn.Web
                         .AllowAnyHeader());
             });
 
-            builder.AddRedisService();
-            builder.AddQuartzServices();
-            builder.AddGroqServices();
-            builder.AddExamTrackingService();
-            builder.AddIdentityService();
-            builder.AddPostgreSQLDataServices();
-            builder.AddCloudinaryService();
-            builder.AddDatabaseBackupService();
-            builder.AddFileCleanupService();
-            builder.AddRealtimeServices(); // Keep this for ExamHub
-            builder.AddLogService();
-            builder.AddSchedulerService();
+            builder.Services.AddV2RedisService(builder.Configuration);
+            builder.Services.AddV2QuartzServices();
+            builder.Services.AddV2IdentityServices(builder.Configuration);
+            builder.Services.AddV2Services();
+            builder.Services.AddV2DatabaseBackupService(builder.Configuration);
+            builder.Services.AddV2FileCleanupService(builder.Configuration);
+            builder.Services.AddV2RealtimeServices();
+            builder.Services.AddV2SchedulerService();
+            builder.Host.AddV2LogService(builder.Configuration);
 
             services.AddControllers()
                 .AddJsonOptions(options =>
@@ -78,14 +74,19 @@ namespace ZLearn.Web
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthentication();
-            app.UseLogMiddleware();
-            app.UseExamTracking();
+            app.UseV2LogMiddleware();
+            
+            // Map SignalR Hub
+            app.MapHub<Zlearn.V2.Infas.External.SignalR.ExamHub>(Zlearn.V2.Infas.External.SignalR.ExamHub.HUB_URL);
+            
             app.UseAuthorization();
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}");
             app.MapControllers();
-            await app.InitializeDatabase();
+            
+            await app.InitializeV2Database();
+            
             app.Run();
         }
     }

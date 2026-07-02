@@ -1,8 +1,8 @@
-﻿using MediatR;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using ZLearn.Application.Categories.Queries.GetAllCates;
-using ZLearn.Application.Categories.Queries.GetCateById;
-using ZLearn.Application.Quizzes.Queries.GetListQuiz;
+using Zlearn.V2.Application.Categories.Queries.GetAllCategories;
+using Zlearn.V2.Application.Categories.Queries.GetCategoryById;
+using Zlearn.V2.Application.Quizzes.Queries.GetListQuiz;
 
 namespace ZLearn.Web.Controllers
 {
@@ -15,7 +15,7 @@ namespace ZLearn.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var categories = await _mediator.Send(new GetAllCatesQuery());
+            var categories = await _mediator.Send(new GetAllCategoriesQuery());
             return View(categories);
         }
 
@@ -29,7 +29,7 @@ namespace ZLearn.Web.Controllers
                 PageIndex = 1,
                 PageSize = 100
             });
-            var cateDetail = await _mediator.Send(new GetCateByIdQuery
+            var cateDetail = await _mediator.Send(new GetCategoryByIdQuery
             {
                 Slug = categorySlug
             });

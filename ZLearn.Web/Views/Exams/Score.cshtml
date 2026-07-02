@@ -1,4 +1,4 @@
-﻿ @using ZLearn.Application.Exams.DTOs
+@using Zlearn.V2.Application.Exams.DTOs
 @model ExamScoreDto
 @{
     ViewData["Title"] = "Kết quả bài thi";
@@ -48,7 +48,7 @@
                             <tr>
                                 <td>@(index++)</td>
                                 <td>@item.ParticipantName</td>
-                                <td>@(item.Status == ZLearn.Domain.Enums.ParticipantStatus.TimeOut? 
+                                <td>@(item.Status == Zlearn.V2.Domain.ExamContext.Participants.ParticipantStatus.TimeOut? 
                                     Html.Raw("<div class='text-danger'>Nộp muộn</div>"):
                                     Html.Raw("<div>Hợp lệ</div>"))</td>
                                 <td>@item.FirstCheckIn.ToLocalTime().ToString("HH'h'mm'm'ss's'")</td>

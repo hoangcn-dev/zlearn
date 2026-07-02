@@ -1,36 +1,51 @@
+using System.Collections.Generic;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-using ZLearn.Application.Common.DTOs;
-using ZLearn.Application.Exams.Commands.ChangeExamStatus;
-using ZLearn.Application.Exams.Commands.CreateExam;
-using ZLearn.Application.Exams.Commands.JoinExam;
-using ZLearn.Application.Exams.Commands.ManageParticipant;
-using ZLearn.Application.Exams.Commands.SubmitAnswer;
-using ZLearn.Application.Exams.DTOs;
-using ZLearn.Application.Exams.Queries.GetExamDetail;
-using ZLearn.Application.Exams.Queries.GetExamScore;
-using ZLearn.Application.Exams.Queries.GetExamScoreExcelFileData;
-using ZLearn.Application.Exams.Queries.GetOnGoingExam;
-using ZLearn.Application.Exams.Queries.GetParticipantStatus;
 using Microsoft.AspNetCore.Http;
-using ZLearn.Application.Exams.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Zlearn.V2.Application.Exams.Commands.ChangeExamStatus;
+using Zlearn.V2.Application.Exams.Commands.CreateExam;
+using Zlearn.V2.Application.Exams.Commands.JoinExam;
+using Zlearn.V2.Application.Exams.Commands.ManageParticipant;
+using Zlearn.V2.Application.Exams.Commands.SubmitAnswer;
+using Zlearn.V2.Application.Exams.Queries.GetExamDetail;
+using Zlearn.V2.Application.Exams.Queries.GetExamScore;
+using Zlearn.V2.Application.Exams.Queries.GetExamScoreExcelFileData;
+using Zlearn.V2.Application.Exams.Queries.GetOnGoingExam;
+using Zlearn.V2.Application.Exams.Queries.GetParticipantStatus;
+using Zlearn.V2.Application.Common.DTOs;
+using Zlearn.V2.Application.Exams.DTOs;
+using Zlearn.V2.Application.Common.Interfaces;
+using CreateResponseDto = Zlearn.V2.Application.Common.DTOs.CreateResponseDto;
 
 namespace ZLearn.Web.Controllers.API
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ExamsController : BaseController
+    public class ExamsController : ControllerBase
     {
+        private readonly IMediator _mediator;
         private readonly IExamSessionService _examSessionService;
 
-        public ExamsController(
-            ILogger<ExamsController> logger, 
-            IMediator mediator,
-            IExamSessionService examSessionService) : base(logger, mediator)
+        public ExamsController(IMediator mediator, IExamSessionService examSessionService)
         {
+            _mediator = mediator;
             _examSessionService = examSessionService;
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> CreateExam([FromBody] CreateExamDto data)
+        {
+            var res = await _mediator.Send(new CreateExamCommand
+            {
+                Data = data,
+                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty
+            });
+            return Ok(Result<CreateResponseDto>.Success("Tạo bài kiểm tra thành công (V2).", res));
         }
 
         [HttpGet("{id}/export-result")]
@@ -77,18 +92,6 @@ namespace ZLearn.Web.Controllers.API
             return Ok(Result<List<OnGoingExamListItemDto>>.Success("", res));
         }
 
-        [HttpPost]
-        [Authorize]
-        public async Task<IActionResult> CreateExam([FromBody]CreateExamDto data)
-        {
-            var res = await _mediator.Send(new CreateExamCommand
-            {
-                Data = data,
-                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier)
-            });
-            return Ok(Result<CreateResponseDto>.Success("Tạo bài kiểm tra thành công.", res));
-        }
-
         [HttpPost("submit")]
         public async Task<IActionResult> Submit([FromBody] SubmitExamDto data)
         {
@@ -131,7 +134,7 @@ namespace ZLearn.Web.Controllers.API
             {
                 ExamId = id,
                 Data = data,
-                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier)
+                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty
             });
             return Ok(Result<NoData>.Success());
         }
@@ -148,7 +151,5 @@ namespace ZLearn.Web.Controllers.API
             });
             return Ok(Result<object>.Success("", new { participantId }));
         }
-
-
     }
 }
