@@ -18,6 +18,9 @@ services:
       - CLOUDINARY_NAME=
       - CLOUDINARY_API_KEY=
       - CLOUDINARY_API_SECRET=
+      - GROQ_API_KEY=
+      - CONNECTION_STRING_MONGODB=mongodb://localhost:27017
+      - MONGODB_DATABASE_NAME=
     networks:
       - shared-network
     depends_on:
