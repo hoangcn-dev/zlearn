@@ -1,0 +1,1302 @@
+[
+  {
+    "StringContent": "Điều nào dưới đây không cần thiết khi đưa ra ước tính dự án?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "A. WBS",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thủ tục kiểm soát thay đổi",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Các rủi ro",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sơ đồ mạng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": " Một PM vừa được phân công cho 1 dự án mới và được đưa cho tôn chỉ dự án và tuyên bố phạm vi dự án sơ bộ. Điều đầu tiên anh ta nên làm là gì? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hắc chắn rằng tất cả các bên có liên quan đã có đầu vào trong phạm vi(có tham gia)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ạo ra tuyên bố phạm vi dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ắt đầu thực hiện kế hoạch quản lý dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hân tích rủi ro dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": " Bạn có 4 dự án và phải chọn 1. Dự án A đang được thực hiện hơn 6 năm và có\ngiá trị thực NPV là 70000$. Dự án B đang được thực hiện hơn 3 năm và có NPV là\n30000$. Dự án C đang được thực hiện hơn 5 năm và có NPV là 40000$. Dự án D\nđang dc thực hiện hơn 1 năm và NPV là 60000$. Bạn sẽ chọn dự án nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Dự án D",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dự án C",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dự án A",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Dự án B",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một dự án có 3 đường tới hạn. Điều nào dưới đây mô tả đúng nhất ảnh hưởng\ncủa các đường tới hạn này tới dự án?\n",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "àm gia tăng rủi ro của dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "àm dự án tốn kém hơn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "àm cho dự án dễ quản lý hơn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "êu cầu nhiều nhân lực hơn",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một dự án phát triển cửa hàng mới yêu cầu việc mua bán của nhiều thiết bị,\nmáy móc và đồ đạc. Phòng ban có trách nhiệm cho việc phát triển vừa tập trung\nquy trình mua bán bên ngoài và tiêu chuẩn hóa hệ thống đặt hàng mới. Những thủ\ntục trên có trong tài liệu nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kế hoạch quản lý nhân lực",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chính sách của tổ chức",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tuyên bố phạm vi dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "WBS",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Người bán nói với bạn rằng các hoạt động của bạn gây ra việc tăng chi phí\ncủa họ. bạn nên làm gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hỏi người bán về các thông tin hỗ trợ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Từ chối mọi hành động sai",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Có buổi họp với ban lãnh đạo để xem nên làm gì",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đề nghị thay đổi đối với chi phí dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tất cả các điều dưới đây đều là một phần của đường chuẩn phạm vi (scope baseline) ngoại trừ:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ừ điện WBS",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "uyên bố phạm vi dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ế hoạch quản lý phạm vi dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ảng WBS",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn là một PM của công ty tư vấn lớn. cấp trên của bạn vừa hỏi ý kiến của\nbạn trong một quyết định về dự án nào công ty nên theo đuổi. Dự án A có tỷ suất\nhoàn vốn nội bộ IRR là 12%. Dự án B được dự đoán có tỷ lệ chi phí lợi ích BCR là\n1.3. Dự án C có chi phí cơ hội là 75000$. Dự án D có thời gian thu hồi vốn là 6\ntháng. Bạn sẽ chọn dự án nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Dự án C",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dự án A",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Dự án B",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dự án D",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Dự đoán chi phí chỉ ra rằng bạn sẽ bị vượt quá chi phí vào giai đoạn cuối của\ndự án. Bạn nên làm gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cắt giảm chất lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Gặp nhà tài trợ để tìm ra công việc nào nên được làm sớm hơn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Loại trừ các rủi ro trong ước tính và ước tính lại",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Giảm phạm vi",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Độ trễ có nghĩa là gì (lag means)",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ản phẩm của 2 hướng thành công tiên tiến và lạc hậu??? (the product of a\nforward and backward pass)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hối lượng thời gian một hành động có thể trễ mà không làm chậm ngày bắt\nđầu của hành động tiếp theo",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hối lượng thời gian một hành động có thể trễ mà không làm chậm tiến độ dự\nán",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hời gian chờ đợi",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": " Chỉ số thực hiện lịch trình SPI là 0.76 nghĩa là: ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ạn đang chỉ thực hiện 76% của tỷ lệ ban đầu của kế hoạch (the rate originally\nplanned)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ạn đang chi tiêu quá ngân sách",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ạn đang chỉ thực hiện 24% của tỷ lệ ban đầu của kế hoạch",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ạn đang đi nhanh hơn kế hoạch",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chỉ số thực hiện chi phí CPI là 0.89 nghĩa là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hi dự án hoàn thành chúng ta sẽ sử dụng 89% hơn so với kế hoạch",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ào thời điểm này, chúng ta mong đời tổng chi phí dự án hơn 89% so với kế\nhoạch",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ự án chỉ thực hiện 89% so với kế hoạch",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ự án chỉ nhận được 89% chi phí so với kế hoạch đầu tư",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Một PM của một công ty xây dựng nhỏ có một dự án với chi phí là\n130000$ với thời hạn hơn 6 tuần. Theo lịch của cô ấy, dự án nên có chi phí\n60000$ đến bây giờ. Tuy nhiên, hiện tại dự án đã chi ra 90000$. Dự án đang đi\nchậm lịch trình do ước tính gốc không đúng. Ai sẽ có trách nhiệm chính để giải\nquyết vấn đề này?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nhà tài trợ dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhà quản lý cấp cao",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "PM",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quản lý của ban quản lý dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Điều nào dưới đây là một ví dụ của ước tính tham số?\n",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Dollar per module",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "CPM",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Điểm nút học được( learning bend)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bottom-up",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Phân tích Monte Carlo được dùng để làm gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Ước tính độ dài của hoạt động",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hứng minh cho ban lãnh đạo rằng cần thêm nhân viên dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ô phỏng thứ tự xảy ra của các hoạt động",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ó được các dấu hiệu của rủi ro kéo theo trong dự án",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Dựa vào bảng sau, nếu bạn cần làm ngắn thời gian thực hiện dự án, bạn sẽ\ngiảm thời gian cho hoạt động nào?\n  ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "oạt động A-D",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "oạt động C-E",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "oạt động Start-B",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "oạt động E-End",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": " Phương pháp giải quyết vấn đề bằng cách đánh giá kinh nghiệm (heuristic) được\nmiêu tả tốt nhất là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "uy tắc tự đặt ra (rule of thumb)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ông cụ lên kế hoạch",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hương pháp lên lịch trình",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ột công cụ điều khiển",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nhân tố nào không nên được xem xét khi lựa chọn giữa 2 dự án để đảm\nnhận(undertake)?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thời gian thu hồi vốn đầu tư",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Luật lợi nhuận giảm dần.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tỷ lệ chi phí lợi ích ( benefit cost ratio BCR)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giá trị thực NPV",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": " Một trong các bên liên quan của dự án liên lạc với PM để thảo luận vài mở rộng về phạm vi mà họ muốn thêm vào dự án. PM hỏi về văn bản chi tiết và các hoạt động trong quy trình quản lý phạm vi. Khi phạm vi yêu cầu đã hoàn tất, PM nên làm gì tiếp theo?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ỏi bên có liên quan nếu họ mong chờ thêm thay đổi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hắc chắn rằng ảnh hưởng của thay đổi đã được các bên có liên quan hiểu rõ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "oàn thành kiểm soát thay đổi tích hợp (integrated change control)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ìm ra nguyên nhân gốc rễ tại sao phạm vi lại không được khám phá ra trong khi lập kế hoạch dự án. thành khi kiểm soát phạm vi chưa hoàn thành",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một PM có thể sẽ sử dụng…………… để chắc chắn rằng đội dự án biết rõ công việc nào được bao gồm trong mỗi gói công việc của họ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hạm vi sản phẩm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ừ điển WBS",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "uyên bố phạm vi dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ịch trình",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": " Điều nào dưới đây bao gồm việc hỏi đội dự án về thời gian ước tính cho hoạt\nđộng của họ và có được sự đồng ý (reaching agreement)trong lịch cho mỗi hoạt\nđộng?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tạo ra tôn chỉ dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Định nghĩa phạm vi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sắp xếp các hành động (activity sequencing)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xây dựng lịch trình",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": " Ước tính tại điểm hoàn thành EAC là đánh giá định kỳ của:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hi phí hoàn thành công việc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ổng chi phí dự kiến tại thời điểm hoàn thành dự án.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hi phí sẽ hoàn thành công việc(what it will cost)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iá trị của công việc được thực hiện",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": " Bạn là 1 PM ở Mỹ, phát triển dự án phần mềm 5,000,000$. Trong khi làm\nviệc với đội dự án để xây dựng sơ đồ mạng, bạn chú ý một chuỗi các hoạt động có\nthể được thực hiện song song nhưng phải hoàn thành trong một thứ tụ riêng biệt. Loại\nhoạt động nào của phương pháp sắp xếp thứ tự hoạt động được yêu cầu cho những\nhoạt động này?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hương pháo sơ đồ toán tử",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hương pháp đường tới hạn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hương pháp sơ đồ mũi tên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hương pháp sơ đồ ưu tiên",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Ai có rủi ro về chi phí trong hợp đồng giá cố định? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đội dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ban lãnh đạo",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Người bán",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Người mua",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Để cung cấp một dự án mới cho phòng ban của mình, bạn cần di chuyển tài\nnguyên từ một dự án sang một dự án khác. Do phòng ban của bạn đang làm việc\nhết công suất, di chuyển tài nguyên sẽ chăncs chắn trì hoãn dự án mà bạn chuyển\ntài nguyên. Điều này làm ảnh hưởng tiêu cực ít nhất đến dự án nào dưới đây ếu bạn\ndi chuyển tài nguyên từ dự án này?\n",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ự án C với chi phí cơ hội là 300000$, không có hệ thống kiểm soát dự án, tỷ\nsuất hoàn vốn nội bộ IRR là 12%",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ự án D với chi phí gián tiếp là 20000$ và 13 nguồn lực",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ự án A với tỷ lệ chi phí lợi ích là 0.8, không có tôn chỉ dự án, có 4 nguồn lực",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": ". Dự án B với NPV là 60000$, 12 nguồn lực, và chi phí biến động giữa 1000$ tới\n2000$ một tháng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": " Phân tích giá trị được thực hiện để thu được cái gì? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quyền quản lý với việc mua vào của dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một cách ít tốn kém hơn để làm cùng một công việc",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Đội để mua vào dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhiều giá trị hơn từ phân tích chi phí",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một PM đang trong giai đoạn thực thi của một dự án xây dựng lớn khi anh\nkhám phá ra thời gian cần thiết để hoàn thành dự án dài hơn thời gian hiện có. Điều\ntốt nhất nên làm là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "àm việc thêm ngoài giờ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ắt giảm phạm vi dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ặp ban lãnh đạo và nói với họ rằng thời với hạn yêu cầu không thể hoàn thành\nkịp dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác định các lựa chọn để dồn lịch và giới thiệu chúng với ban lãnh đạo như một\nlựa chọn khuyến nghị.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": " You are about to take over a project from another project manager and find\nout the following information about the project. Activity Z has an early start ES of\nday 15 and a late start LS of day 20. Activity Z is a difficult activity. Cost\nperformance index CPI is 1.1. Schedule performance index SPI is 0.8. There are 11\nstakeholders on the project. Based on this information, which of the following\nwould you be the Most concerned about?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "The number of available resources",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cost",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Schedule",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Float",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": " Khi nào đồ thị điểm mốc(milestone chart) được sử dụng thay cho sơ đồ đoạn\n(bar chart)? \n  ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "áo cáo với thành viên đội dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hân tích rủi ro",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "áo cáo với ban lãnh đạo",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ên kế hoạch dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": " Sự khác nhau giữa đường chuẩn chi phí và ngân sách chi phí là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Dự trữ phát sinh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quản lý tài nguyên dự trữ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tài khoản chi phí (cost account?)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ước tính chi phí dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": ". Một PM đang cố gắng để sắp xếp tất cả các hành động trong dự án và đã xác\nđịnh được: hoạt động 1 có thể thực hiện ngay lập tức và ước tính sẽ kéo dài trong 1\ntuần. Hoạt động 2 sẽ bắt đầu sau khi hoạt động 1 hoàn thành và ước tính kéo dài \ntrong 4 tuần. Hoạt động 3 có thể bắt đầu sau khi hoạt động 2 hoàn thành và ước\ntính kéo dài trong 5 tuần. Hoạt động 4 có thể bắt đầu sau khi hoạt động 1 hoàn\nthành và ước tính kéo dài trong 8 tuần. Hoạt động 3 và 4 phải được hoàn thành trước\nkhi kết thúc dự án. Vậy đường tới hạncủa dự án này kéo dài trong bao lâu?\n  ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "11",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "14",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "8",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "10",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn là 1 PM ở Mỹ, phát triển dự án phần mềm 5,000,000$. Trong khi làm\nviệc với đội dự án để xây dựng sơ đồ mạng, dữ liệu xây dựng của bạn cho thấy\nchất lượng có thể dc cải thiện nếu mô hình dữ liệu được quản lý cấp cao phê chuẩn\ntrước khi chuyển sang thành phần thiết kế khác. Họ hỗ trợ đề nghị này với một bài\nbáo từ một tạp chí phần mềm hàng đầu. Mô tả nào dưới đây là tốt nhất với loại đầu\nvào này? (với loại hỗ trợ này)\n  ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hụ thuộc tùy ý",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hụ thuộc (or thành phần - dependency) bắt buộc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hụ thuộc ngoại cảnh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "euristic – phương pháp đánh giá kinh nghiệm",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nếu giá trị thu được(EV-earned value) là 350, chi phí thực tế(AC-actual\nvalue) là 400, giá trị dự tính(PV-planned value) là 325, chi phí phát sinh(CV-cost\nvarience) là bao nhiêu?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "350",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "-50",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "-75",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "400",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một phác thảo ước tính độ lớn được thực hiện trong giai đoạn nào của dự án?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khởi tạo",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kết thúc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thực thi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lên kế hoạch",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chi phí của việc lựa chọn 1 dự án và từ bỏ dự án khác được gọi là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chi phí cố định (fixed cost)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chi phí cơ hội",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Giá trị thực (net present value NPV)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chi phí ngầm(sunk cost)",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Dựa vào dữ liệu của câu hỏi trên, nếu hoạt động 4 kéo dài trong 10 tuần,\nđường tới hạn của dự án sẽ kéo dài trong bao lâu?\n  ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "11",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "14",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "8",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "10",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Việc đo hiệu suất chi phí tốt nhất nên được thực hiện theo cách nào dưới đây?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ập trung vào khối lượng sử dụng tháng trước và chi tiêu tháng tiếp theo",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ỏi mỗi nhân viên dự án đã hoàn thành được bao nhiêu % công việc và báo cáo\ntrong báo cáo tiến trình hàng tháng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ính toán giá trị thu được EV và sử dụng thông số và các tính toán khác để báo\ncáo hiệu năng đã thực hiện và dự đoán hiệu năng tương lai",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ử dụng luật 50/50 và chắc chắn rằng chi phí vòng đời là ít hơn chi phí dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chi phí thực tế nên gần(how close) với ước lượng ngân sách cuối cùng ntn?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Từ -10% tới 15%",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Từ 10% tới -25%",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Từ -75% tới 25%",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "–từ -5% tới 10%",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Công ty của bạn có thể chấp nhận 1 trong 3 dự án sau: dự án A có NPV là\n30000$ và cần 6 năm để hoàn thành, dự án B có NPV là 60000$ và cần 3 năm để\nhoàn thành, dự án C có NPV là 90000$ và cần 4 năm để hoàn thành. Dựa vào các\nthông tin trên, bạn sẽ chọn dự án nào để thực hiện?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Dự án C",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Dự án B",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "3 dự án có giá trị như nhau",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dự án A",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": " Bạn vừa hoàn thành giai đoạn khởi tạo của một dự án nhỏ và đang bước sang\ngiai đoạn lên kế hoạch khi một bên có liên quan tới dự án hỏi bạn về ngân sách dự\nán và đường chuẩn chi phí (cost baseline). Bạn nên nói gì?\n",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "gân sách dự án có thể được tìm thấy trong tôn chỉ dự án mới vừa hoàn thành",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ế hoạch quản lý dự án sẽ không bao gồm ngân sách dự án và đường chuẩn,\nđây là một dự án nhỏ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ó thể hoàn thành một ước tính trước khi kế hoạch quản lý dự án được tạo ra",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "gân sách dự án và đường chuẩn sẽ không được kết thúc và được chấp nhận cho đến\nkhi giai đoạn lên kế hoạch hoàn tất",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Biểu đồ đoạn (bar charts) giải thích điều nào tốt hơn là sơ đồ mạng?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "uá trình hoặc trạng thái",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "uan hệ logic",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác đường then chốt",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ân bằng tài nguyên",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nếu dự án A có giá trị thực NPV là 30000$ và dự án B có giá trị thực NPV là\n50000$, chi phí cơ hội là gì khi lựa chọn dự án B",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "20000$",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "23000$",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "50000$",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "30000$",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Một PM vừa nhận được ước tính thời gian hoạt động từ đội dự án. Anh ta cần\nđiều nào dưới đây để hoàn thành xây dựng lịch trình? \n  ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hay đổi các yêu cầu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hời gian dự trù",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ệ thống kiểm soát thay đổi lịch trình",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": ". Đề nghị các hành động hiệu chỉnh",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Vào giai đoạn đầu của dự án, bạn có buổi thảo luận với nhà tài trợ về các kỹ\nthuật ước lượng nên được sử dụng. Bạn muốn có đánh giá của chuyên gia, nhưng\nnhà tài trợ phản đối và muốn dùng ước tính tương tự. Tốt nhất nên làm gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ố gắng thuyết phục nhà tài trợ đồng { các đánh giá của chuyên gia do nó chính\nxác hơn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đồng ý với ước tính tương tự như một đánh giá của chuyên gia",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ác định tại sao nhà tài trợ muốn một ước tính chính xác như thế",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đề nghị đánh giá vòng đời như một thỏa hiệp",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong khi lên kế hoạch dự án, bạn ước tính thời gian cần thiết cho mỗi hoạt\nđộng và thêm ước tính để tạo ra ước lượng dự án. Bạn cam kết hoàn thành dự án\nđúng hạn. Trong tình huống này, điều gì Sai? \n  ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đội dự án không tạo ra ước tính và việc ước tính sẽ tốn thời gian nếu sử dụng\nphương pháp này",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ước lượng dự án nên giống với ngày yêu cầu hoàn thành của khách hàng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ước tính quá tốt thời gian và nên được ban lãnh đạo tạo ra",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đội dự án không tạo ra ước tính và sơ đồ mạng k được sử dụng",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Điều nào dưới đây mô tả tốt nhất về quan hệ giữa độ lệch tiêu chuẩn và rủi\nro?\n",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "độ lệch tiêu chuẩn cho biết nếu ước tính có bao gồm cả phần thêm(đệm vào -\npad) vào",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "không có quan hệ gì cả",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "độ lệch tiêu chuẩn cho biết độ không chắc chắn của ước tính",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "độ lệch tiêu chuẩn cho biết nếu ước tính là chính xác",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": " Điều nào dưới đây là tốt nhất để thực hiện cố gắng hoàn thành một dự án\ntrước 2 ngày?\n",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "àm việc cật lực và nhìn vào trạng thái dự án trong tháng tới.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ói với thủ trưởng của bạn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ói với nhà quản lý cấp cao rằng đường tới hạn của dự án không cho phép dự\nán hoàn thành trước hạn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ặp đội dự án và tìm kiếm lựa chọn để hủy hoặc xúc tiến dự án",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": " Ước lượng tương tự là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đc sử dụng thường xuyên nhất trong giai đoạn thực thi dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ử dụng kĩ thuật ước lượng từ trên xuống(top-down)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ử dụng chi phí chi tiết thực tế trong quá khứ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ử dụng kĩ thuật ước lượng từ dưới lên(bottom-up)",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một dự án phát triển sản phẩm mới có 4 cấp (level) trong bảng WBS và dc\nxếp chuỗi sử dụng phương pháp sơ đồ mũi tên. Ước tính thời gian hoạt động đã có.\nĐiều tiếp theo nên làm là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "oàn thành lịch trình",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ạo ra danh sách hành động",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ắt đầu làm bảng WBS",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "én lịch trình (compress)",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Công cụ quản lý dự án nào tốt nhất để xác định thời gian dài nhất thực hiện 1\ndự án?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "BS",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ôn chỉ dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iểu đồ đoạn (bar chart)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ơ đồ mạng",
+        "IsCorrectAnswer": true
+      }
+    ]
+  }
+]

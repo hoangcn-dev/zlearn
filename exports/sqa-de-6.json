@@ -1,0 +1,1302 @@
+[
+  {
+    "StringContent": "Trong truyện ngắn \"Vợ chồng A Phủ\", nhân vật A Phủ được mô tả là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Một quan quan lại",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một nhà văn hiện đại",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một người nông dân mạnh mẽ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Một cô gái hiền lành",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong tiểu thuyết \"Chí Phèo\" của Nam Cao, nhân vật Chí Phèo được mô tả chủ yếu là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Một giáo viên trung học",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một quan lại giàu có",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một người nông dân nghèo bị xã hội áp bức",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Một nhà thơ lãng mạn",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Lỗi của Windows Calculator trong các bản XP/7/8 khi tính 'sqrt(4) - 2' ra kết quả khác 0 là do đâu?",
+    "Explanation": "Đây là một lỗi tính toán tồn tại qua nhiều phiên bản Windows, kết quả trả về là một số cực nhỏ (e-19 hoặc e-39) thay vì số 0 chính xác [15, 16].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Do lỗi chia cho số 0.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Do lỗi giao diện hiển thị nhầm số.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Do máy tính bị nhiễm virus.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Do thuật toán tính toán và biểu diễn số thực không chính xác hoàn toàn.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong ví dụ về tính tổng danh sách số, nếu thêm số 'a' vào input thì output tăng thêm 'a'. Đây là ví dụ của:",
+    "Explanation": "Đây là thuộc tính biến hình giúp kiểm tra tính đúng đắn khi không có oracle.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Một kiểm thử đơn vị.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một test case không hợp lệ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một quan hệ biến hình (MR).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Một lỗi tràn số nguyên.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "SRSR (Software Requirement Specification Review) là loại rà soát gì?",
+    "Explanation": "SRSR tập trung vào việc đánh giá tài liệu đặc tả yêu cầu phần mềm.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Rà soát sự sẵn sàng kiểm thử.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Rà soát thiết kế chi tiết.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Rà soát kế hoạch phát triển.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Rà soát đặc tả yêu cầu phần mềm.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo định nghĩa của IEEE, hoạt động rà soát (Review) là gì?",
+    "Explanation": "Định nghĩa của IEEE nhấn mạnh rà soát là một quá trình hoặc cuộc họp để lấy ý kiến và phê chuẩn sản phẩm công việc.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Một cuộc họp đưa sản phẩm công việc ra để các bên liên quan phê bình và phê chuẩn.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quá trình lập trình viên tự kiểm tra lỗi trong mã nguồn của mình.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Việc khách hàng thực hiện kiểm thử chấp nhận sản phẩm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hoạt động chạy thử phần mềm để tìm lỗi vận hành.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tại sao kỹ thuật Phân tích giá trị biên (BVA) lại quan trọng?",
+    "Explanation": "Kinh nghiệm thực tế cho thấy các sai sót thường xuất hiện ở biên nhiều hơn là ở giữa phân vùng.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vì lỗi phần mềm thường tập trung tại các biên của phân vùng dữ liệu.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vì nó không cần dùng tài liệu đặc tả.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì nó dễ thực hiện hơn các kỹ thuật khác.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì nó có thể thay thế hoàn toàn kiểm thử hộp trắng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kỹ thuật Phân tích giá trị biên (BVA) khác với Phân vùng tương đương ở điểm nào?",
+    "Explanation": "Khác với phân lớp tương đương chọn đại diện tùy ý, BVA tập trung chính xác vào các giá trị tại cạnh của lớp.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "BVA là một kỹ thuật kiểm thử hộp trắng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "BVA không quan tâm đến dữ liệu đầu ra.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "BVA yêu cầu chọn các phần tử ngay tại cạnh (biên) thay vì chọn một giá trị bất kỳ.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "BVA chỉ áp dụng cho dữ liệu kiểu xâu ký tự.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hoạt động nào giúp đảm bảo liên tục quyền sở hữu và bảo mật khi tái sử dụng phần mềm?",
+    "Explanation": "Định nghĩa và bảo vệ quyền sở hữu là mục tiêu quan trọng của rà soát đề xuất,.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Rà soát dự thảo đề xuất/hợp đồng.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Viết hướng dẫn sử dụng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cài đặt máy chủ dự phòng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử đơn vị.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khái niệm 'Software Error' được định nghĩa là gì?",
+    "Explanation": "Software Error là những sai sót (như sai cú pháp, logic) do con người thực hiện trong quá trình phân tích, thiết kế hoặc mã hóa [1, 3].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Sai sót do con người tạo ra trong quá trình phát triển.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Sự cố khiến hệ thống bị treo hoàn toàn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sự hoạt động không chính xác của phần mềm khi vận hành.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một lỗi nằm trong mã nguồn chưa được kích hoạt.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong ví dụ về tính tổng, MR là 'nếu thêm số n vào danh sách, tổng mới phải tăng thêm đúng n'. Nếu tổng ban đầu là 100, thêm số 25 mà kết quả ra 124 thì kết luận là gì?",
+    "Explanation": "Vì 100 + 25 = 125, kết quả 124 đã vi phạm MR nên chứng tỏ có lỗi.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hệ thống có lỗi vì vi phạm quan hệ biến hình.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hệ thống hoạt động đúng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dữ liệu đầu vào không hợp lệ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cần chạy lại test case nguồn.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mức độ bao phủ Level 2 (Branch/Decision Coverage) đảm bảo điều gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kiểm tra tất cả các biến toàn cục",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mỗi tham số của hàm phải được truyền giá trị biên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mỗi quyết định luận lý phải được thực hiện ít nhất một lần cho trường hợp True và một lần cho False",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kiểm tra tất cả các vòng lặp đơn",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử bao phủ điều kiện con (Subcondition Coverage) tập trung vào yếu tố nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thứ tự gọi các phương thức trong class",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các giá trị đầu vào của mảng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Từng điều kiện nhỏ trong một câu lệnh điều kiện phức hợp (ví dụ AND, OR)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Các biến cục bộ bên trong hàm con",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tại sao việc kiểm thử tất cả các đường thực thi trong thực tế lại rất khó khăn?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vì số lượng đường thực thi có thể khổng lồ do vòng lặp và câu lệnh rẽ nhánh",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vì ngôn ngữ lập trình quá phức tạp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì khách hàng không yêu cầu kiểm thử code",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì không có công cụ hỗ trợ kiểm thử hộp trắng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kỹ thuật 'Kiểm thử đường cơ bản' (Basis Path Testing) được đề xuất bởi ai?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Erich Gamma",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kent Beck",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tom McCabe",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Glenford Myers",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Công thức tính độ phức tạp Cyclomatic V(G) dựa trên số cạnh (E) và số nút (N) là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "V(G) = E - N + 1",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "V(G) = E - N + 2",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "V(G) = E + N - 2",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "V(G) = P + 2",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chiến lược kiểm thử vòng lặp lồng nhau yêu cầu bắt đầu từ đâu?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vòng lặp trong cùng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vòng lặp có số lần lặp lớn nhất",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vòng lặp ngoài cùng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thực hiện đồng thời tất cả các vòng lặp",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hành động 'du' (Định nghĩa rồi hủy ngay mà không dùng) được đánh giá như thế nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Là trình tự hoàn toàn bình thường",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bắt buộc phải có trong mọi hàm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hơi lạ, có thể là lỗi lập trình tiềm ẩn",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Là cách tối ưu bộ nhớ tốt nhất",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trạng thái 'Ignore' trong Unit Test có nghĩa là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tạm ngừng thực hiện test case đó",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Dữ liệu đầu vào không hợp lệ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Test case chạy thành công",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Test case bị lỗi kỹ thuật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Lợi ích nào sau đây KHÔNG phải của Unit Test?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tách biệt mã kiểm thử ra khỏi mã chương trình",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đảm bảo 100% không còn lỗi nghiệp vụ hệ thống",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Phát hiện sai sót kịp thời ngay khi viết code",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tiết kiệm thời gian gỡ rối (debugging) truyền thống",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong JUnit, phương thức 'assertEquals(a, b)' dùng để làm gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đánh giá một biểu thức logic là đúng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ép buộc test case phải thất bại",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "So sánh hai giá trị để kiểm tra bằng nhau",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kiểm tra xem đối tượng có Null hay không",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Phương thức 'setUp()' trong JUnit được gọi khi nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chỉ gọi một lần duy nhất khi bắt đầu dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trước khi thực hiện mỗi phương thức thử",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Sau khi kết thúc mỗi phương thức thử",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khi có lỗi xảy ra trong quá trình kiểm thử",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mục đích của phương thức 'tearDown()' trong JUnit là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Báo cáo kết quả kiểm thử lên server",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dọn dẹp tài nguyên sau khi kết thúc kiểm tra",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Khởi tạo lại các biến cho test case",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tự động sửa các lỗi code vừa phát hiện",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kỹ thuật 'Kiểm thử gia tăng' (Incremental Testing) thường được áp dụng ở mức độ nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kiểm thử đơn vị",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử chấp nhận",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Rà soát yêu cầu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử tích hợp",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong kiểm thử luồng điều khiển, nếu một kịch bản kiểm thử không phát hiện lỗi chia cho 0 tại một dòng lệnh cụ thể, nguyên nhân có thể là do?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Dữ liệu đầu vào cụ thể chưa kích hoạt điều kiện gây lỗi",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Độ bao phủ lệnh đạt 100%",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chương trình không có lỗi logic",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sử dụng quá nhiều câu lệnh rẽ nhánh",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo McCabe, một 'đường tuyến tính độc lập' là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đường đi chỉ chứa các câu lệnh gán",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đường đi ngắn nhất từ đầu đến cuối chương trình",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đường đi không chứa bất kỳ vòng lặp nào",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đường đi qua đồ thị có ít nhất một cạnh chưa được các đường khác đi qua",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử luồng dữ liệu coi việc 'định nghĩa biến' (d) bao gồm hoạt động nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Xóa biến ra khỏi bộ nhớ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Gán giá trị xác định hoặc nhập dữ liệu vào biến",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Sử dụng biến trong một biểu thức toán học",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ khai báo kiểu dữ liệu cho biến",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đồ thị luồng điều khiển (CFG) được xây dựng từ yếu tố nào của phần mềm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Từ tài liệu hướng dẫn sử dụng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Từ các bảng trong cơ sở dữ liệu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Từ các câu lệnh và cấu trúc rẽ nhánh trong code",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Từ các yêu cầu phi chức năng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mức độ bao phủ nào được coi là tối thiểu để đảm bảo trách nhiệm trong kiểm thử hộp trắng?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phủ dữ liệu đầu vào",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phủ điều kiện con (Subcondition coverage)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phủ lệnh (Statement coverage)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Phủ đường thực thi (Path coverage)",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Yếu tố nào KHÔNG ảnh hưởng đến mức rủi ro của phần mềm khi lập kế hoạch WBT?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tỷ lệ phần mềm gốc so với phần mềm dùng lại",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Màu sắc của giao diện người dùng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Độ phức tạp và độ khó của module",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kinh nghiệm của người lập trình",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mục tiêu cuối cùng của kiểm thử đơn vị tự động là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thay thế hoàn toàn công việc của lập trình viên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Làm cho phần mềm chạy nhanh hơn gấp đôi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Viết code dài hơn để tăng doanh thu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phát hiện lỗi kỹ thuật sớm và đảm bảo sự ổn định khi thay đổi code",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Đồ thị dòng dữ liệu được xây dựng dựa trên cơ sở nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Sơ đồ luồng nghiệp vụ mức cao",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tài liệu thiết kế cơ sở dữ liệu vật lý",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đồ thị dòng điều khiển (CFG) của module",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Bản mẫu (prototype) của khách hàng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hành động 'uu' (hủy một biến đã bị hủy) trong WBT được coi là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Dấu hiệu của một chương trình chạy nhanh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi lập trình",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hoàn toàn bình thường",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kỹ thuật giải phóng bộ nhớ nâng cao",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong kiểm thử luồng điều khiển, một 'nút quyết định' thường tương ứng với câu lệnh nào trong code?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lệnh khai báo biến (ví dụ: int a)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lệnh điều kiện (ví dụ: IF, WHILE, CASE)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lệnh gán (ví dụ: x = 10)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lệnh in kết quả (ví dụ: print, cout)",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tại sao V(G) > 10 lại được coi là nguy hiểm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vì module quá phức tạp, khó kiểm soát và dễ chứa nhiều lỗi tiềm ẩn",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vì khách hàng sẽ không hiểu được thuật toán",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì máy tính sẽ không thể biên dịch được",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì nó vi phạm bản quyền của Tom McCabe",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chiến lược 'Nhập số lượng đủ lớn các giá trị đầu vào' trong Unit Test nhằm mục đích gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để kiểm tra tốc độ gõ phím của lập trình viên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để làm đầy ổ cứng nhanh hơn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để chứng minh rằng phần mềm không bao giờ bị lỗi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để phát hiện điểm yếu của mã và các trường hợp ngoại lệ",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Hai phương pháp chính trong kiểm thử hộp trắng là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phân vùng tương đương và Phân tích giá trị biên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử luồng điều khiển và Kiểm thử luồng dữ liệu",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kiểm thử hệ thống và Kiểm thử chấp nhận",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bảng quyết định và Kiểm thử chuyển đổi trạng thái",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Độ bao phủ kiểm thử (Testing Coverage) ở Level 1 (Statement Coverage) yêu cầu điều gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Mọi đường thực thi tuyến tính độc lập phải được kiểm tra",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mỗi nhánh đúng/sai của câu lệnh IF phải được chạy ít nhất một lần",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mọi biến phải được khởi tạo trước khi sử dụng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mỗi câu lệnh trong mã nguồn phải được thực thi ít nhất một lần",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo khuyến nghị, nếu độ phức tạp Cyclomatic V(G) lớn hơn bao nhiêu thì nên chia nhỏ module?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "10",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "50",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "20",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "5",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Yêu cầu quan trọng nhất đối với người thực hiện kiểm thử hộp trắng là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kỹ năng giao tiếp với khách hàng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiến thức và kỹ năng hiểu chi tiết về mã nguồn (code)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kỹ năng quản lý dự án theo mô hình Agile",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khả năng thiết kế giao diện đồ họa",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nếu biết số nút quyết định luận lý (P), độ phức tạp Cyclomatic được tính như thế nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "V(G) = P",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "V(G) = P - 1",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "V(G) = P + 1",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "V(G) = 2^P",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong kiểm thử vòng lặp (Loop Testing), với vòng lặp đơn có tối đa 'n' lần lặp, trường hợp nào sau đây KHÔNG thuộc bộ kiểm thử tiêu chuẩn?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lặp vô hạn lần",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lặp đúng 1 lần và 2 lần",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lặp n-1 và n lần",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bỏ qua vòng lặp hoàn toàn",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử luồng dữ liệu (Data Flow Testing) tập trung vào việc phát hiện vấn đề gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tốc độ xử lý của cơ sở dữ liệu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giao diện người dùng không thân thiện",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi kết nối mạng giữa các server",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sử dụng không hợp lý các biến do lỗi coding",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Chu kỳ sống của một biến trong kiểm thử luồng dữ liệu bao gồm các hành động nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nhập (i), Xử lý (p), Xuất (o)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Định nghĩa (d), Sử dụng (r), và Hủy (u)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mở (o), Đọc (r), Đóng (c)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khởi tạo (i), Thay đổi (m), Lưu (s)",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cặp hành động nào trên biến sau đây được coi là lỗi (error) chắc chắn?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ur (Hủy rồi mới sử dụng)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ru (Sử dụng rồi hủy)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "dr (Định nghĩa rồi sử dụng)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "dd (Định nghĩa rồi định nghĩa lại)",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử đơn vị (Unit Test) thường do ai thực hiện?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quản trị viên hệ thống",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lập trình viên (Developer)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Khách hàng (Customer)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử viên độc lập (Tester)",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một 'Unit' trong lập trình hướng đối tượng có thể là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Một bản ghi trong cơ sở dữ liệu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một phương thức (method) của một lớp (class)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Toàn bộ hệ thống phần mềm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một gói (package) chứa nhiều thư viện",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hạn chế của Unit Test là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lập trình viên không thể tự viết được",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tốn quá ít thời gian nên không tin cậy",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không thể bắt được hết các lỗi khi kết hợp các module",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chỉ áp dụng được cho ngôn ngữ Python",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cặp hành động 'dd' trong kiểm thử luồng dữ liệu (định nghĩa rồi định nghĩa lại) có thể ám chỉ điều gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chắc chắn chương trình sẽ bị crash",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Biến đang được truyền vào một hàm khác",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Biến đã được sử dụng một cách tối ưu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Có thể có lỗi lập trình hoặc dư thừa mã nguồn",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Tại sao kiểm thử hộp trắng lại tốn nhiều công sức hơn kiểm thử hộp đen?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vì phải thiết kế giao diện cho ca kiểm thử",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì đòi hỏi phải đọc, hiểu và phân tích chi tiết cấu trúc mã nguồn",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vì phải cài đặt nhiều phần mềm hỗ trợ hơn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì phải làm việc với khách hàng nhiều hơn",
+        "IsCorrectAnswer": false
+      }
+    ]
+  }
+]

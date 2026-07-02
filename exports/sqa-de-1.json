@@ -1,0 +1,1302 @@
+[
+  {
+    "StringContent": "Thể loại \"đoạn thơ\" trong văn học cổ điển Việt Nam còn được gọi là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thơ ca dao",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thơ lục bát",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thơ Nôm",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Đường luật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đặc điểm 'Độc lập' của Unit Test có nghĩa là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Việc chạy một Unit Test không ảnh hưởng và không phụ thuộc vào kết quả của Unit Test khác",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Unit Test phải được viết bởi một công ty khác",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Unit Test không cần sử dụng bất kỳ thư viện nào",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Unit Test chỉ chạy được trên hệ điều hành Linux",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tại sao 'Software Fault' không phải lúc nào cũng dẫn tới 'Software Failure'?",
+    "Explanation": "Khuyết tật (Fault) chỉ trở thành sự cố (Failure) khi nó được kích hoạt trong quá trình vận hành cụ thể [1, 4].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vì nếu phần code chứa Fault không bao giờ được chạy tới thì Failure sẽ không xảy ra.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vì Fault và Failure là hai khái niệm độc lập.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì Fault có khả năng tự sửa lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì Failure chỉ xảy ra do lỗi phần cứng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Yếu tố nào sau đây ảnh hưởng đến cường độ của hoạt động SQA trong dự án?",
+    "Explanation": "Cường độ SQA phụ thuộc vào cả yếu tố dự án (quy mô, rủi ro) và yếu tố con người (kinh nghiệm team) [27, 28].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Trình độ chuyên môn của đội ngũ phát triển.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Độ phức tạp kỹ thuật của dự án.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mức độ nghiêm trọng nếu dự án thất bại.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các phương án trên.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong SQA, mục tiêu 'cung cấp sự tin cậy' nghĩa là gì?",
+    "Explanation": "SQA dựa trên các hành động có kế hoạch để đưa ra bằng chứng khách quan về chất lượng [1, 20].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chứng minh qua bằng chứng hệ thống rằng sản phẩm tuân thủ các yêu cầu đã cam kết.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chứng minh phần mềm sẽ không bao giờ hỏng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đảm bảo rằng mọi dòng code đều được viết bởi chuyên gia.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Làm cho khách hàng tin rằng chúng ta đang làm việc chăm chỉ.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Lỗi Y2K phát sinh từ mục đích gì của các lập trình viên thời đó?",
+    "Explanation": "Thời điểm đó bộ nhớ rất đắt, việc chỉ dùng 2 chữ số biểu diễn năm (ví dụ 99 thay vì 1999) giúp tiết kiệm không gian lưu trữ [9].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để tiết kiệm bộ nhớ máy tính.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Để tăng tốc độ xử lý của CPU.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Do họ không biết cách lập trình năm có 4 chữ số.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để bảo mật thông tin ngày tháng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Yếu tố 'Flexibility' (Linh hoạt) giúp ích gì cho phần mềm?",
+    "Explanation": "Tính linh hoạt đánh giá nỗ lực cần thiết để sửa đổi phần mềm cho phù hợp với nhu cầu mới [36, 42].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Giúp giao diện tự động đổi màu theo ý thích người dùng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giúp giảm dung lượng file cài đặt.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giúp việc thích nghi với các thay đổi trong môi trường kỹ thuật hoặc kinh doanh dễ dàng hơn.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Giúp phần mềm chạy nhanh hơn trên CPU yếu.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trình tự đúng của vòng đời lỗi (Bug Life Cycle) thông thường là?",
+    "Explanation": "Lỗi mới được tạo (New), gán cho Dev (Assigned), Dev sửa (Fixed), Tester kiểm tra lại (Verified) rồi mới đóng (Closed) [52, 53].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "New -> Assigned -> Fixed -> Verified -> Closed.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "New -> Fixed -> Closed -> Assigned.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "New -> Verified -> Fixed -> Closed.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Fixed -> New -> Assigned -> Closed.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Sự khác biệt chính giữa Software Fault và Software Failure là gì?",
+    "Explanation": "Fault là khuyết tật nằm trong code, chỉ khi nó được thực thi và gây ra hành vi sai thì mới trở thành Failure [1, 4].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Failure xảy ra trước khi có Fault.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Fault nằm trong code, còn Failure xảy ra khi Fault được kích hoạt lúc vận hành.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Fault là lỗi do lập trình viên, Failure là lỗi do người dùng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả hai đều giống nhau và có thể dùng thay thế.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "SQA (Software Quality Assurance) khác QC (Quality Control) ở điểm nào?",
+    "Explanation": "QA tập trung vào quá trình sản xuất để ngăn ngừa lỗi xảy ra, QC tập trung vào sản phẩm cuối để tìm lỗi [1].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "SQA hướng tới quy trình (ngăn ngừa), QC hướng tới sản phẩm (phát hiện).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "QC thực hiện trước SQA trong vòng đời dự án.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "SQA do Tester làm, QC do Developer làm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "SQA chỉ tập trung vào việc tìm lỗi trong code.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong các nguyên nhân gây lỗi, 'Faulty requirements definition' thường do ai gây ra?",
+    "Explanation": "Việc xác định sai, thiếu hoặc thừa yêu cầu thường bắt nguồn từ giai đoạn đầu và do phía khách hàng cung cấp không chuẩn [5, 29].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Do nhân viên kiểm thử bỏ sót lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Do lỗi phần cứng máy chủ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thường do khách hàng hoặc người phân tích nghiệp vụ.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Do lập trình viên viết code sai logic.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "SQA giúp thiết lập các hoạt động để cải thiện điều gì?",
+    "Explanation": "Mục tiêu của SQA không chỉ là tìm lỗi mà còn cải thiện tiến trình để làm việc hiệu quả hơn [44, 45].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Sức mạnh phần cứng của máy chủ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tốc độ gõ code của lập trình viên.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giá bán của phần mềm trên thị trường.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hiệu quả của việc phát triển phần mềm và các hoạt động chất lượng.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Tại sao việc sửa lỗi ở các giai đoạn muộn (như sau khi bàn giao) lại tốn kém hơn?",
+    "Explanation": "Lỗi phát hiện càng muộn thì khối lượng công việc cần sửa chữa và kiểm tra lại càng lớn [41].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vì chi phí nhân sự và vận hành tăng cao.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì phải làm lại nhiều tài liệu liên quan.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các phương án trên.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vì lỗi đã lan truyền và ảnh hưởng sâu vào kiến trúc hệ thống.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Yếu tố 'Testability' trong mô hình McCall có ý nghĩa gì?",
+    "Explanation": "Testability (Khả năng kiểm tra được) liên quan đến các tính năng giúp việc kiểm tra vận hành và chẩn đoán lỗi dễ dàng hơn [36, 37].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khả năng chạy trên nhiều trình duyệt khác nhau.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khả năng phần mềm tự động tìm lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khả năng hỗ trợ người kiểm thử dễ dàng xác minh sự vận hành của hệ thống.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mức độ hài lòng của khách hàng sau khi test.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khái niệm 'Verification' (Xác minh) trong SQA tập trung vào câu hỏi nào?",
+    "Explanation": "Verification đánh giá sản phẩm của một pha có thỏa mãn điều kiện đặt ra khi bắt đầu pha đó không ('Are we building it right?') [21, 22].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chúng ta có xây dựng sản phẩm đúng cách không?",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Sản phẩm có dễ bảo trì không?",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chúng ta có xây dựng đúng sản phẩm khách hàng cần không?",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sản phẩm có đủ nhanh không?",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Yếu tố 'Integrity' trong mô hình McCall liên quan đến vấn đề gì?",
+    "Explanation": "Integrity (Tính toàn vẹn/Chính trực) giải quyết việc bảo mật dữ liệu, phân quyền người dùng [30, 31].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khả năng bảo trì hệ thống.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bảo mật và ngăn chặn truy cập trái phép vào dữ liệu.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tính tương thích giữa các phần mềm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tốc độ xử lý của chương trình.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mô hình McCall chia các yếu tố chất lượng thành mấy nhóm chính?",
+    "Explanation": "Mô hình McCall chia thành 3 khía cạnh: Vận hành sản phẩm, Sửa đổi sản phẩm và Chuyển giao sản phẩm [1, 23].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "5 nhóm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "2 nhóm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "3 nhóm.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "4 nhóm.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tại sao lỗi trong tài liệu (Documentation errors) lại gây hại?",
+    "Explanation": "Tài liệu là phương tiện giao tiếp và hướng dẫn, lỗi tài liệu dẫn đến chuỗi lỗi trong vận hành và sửa đổi [49].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Gây khó khăn cho việc bảo trì sau này.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Gây hiểu lầm giữa các thành viên đội phát triển.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các phương án trên.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Khiến người dùng thao tác sai chức năng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khái niệm 'Usability' (Khả năng sử dụng) đánh giá điều gì?",
+    "Explanation": "Khả năng sử dụng liên quan đến việc người dùng dễ học, dễ vận hành hệ thống [31].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phạm vi tài nguyên nhân lực cần để đào tạo và vận hành hệ thống.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Khả năng code chạy trên Linux.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Số lượng người dùng tối đa cùng lúc.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tính đúng đắn của các công thức toán học.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Thuật ngữ 'Prototyping' giúp giảm thiểu nguyên nhân gây lỗi nào?",
+    "Explanation": "Xây dựng mẫu thử giúp khách hàng hình dung rõ hơn, từ đó điều chỉnh yêu cầu chính xác ngay từ đầu [50].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Định nghĩa yêu cầu sai hoặc lỗi giao tiếp với khách hàng.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lỗi phần cứng máy chủ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi mã hóa (Coding errors).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi tràn số.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Yếu tố 'Interoperability' trong mô hình McCall đề cập đến khả năng nào?",
+    "Explanation": "Interoperability (Khả năng tương tác) tập trung vào việc tạo ra các giao diện kết nối giữa các hệ thống khác nhau [1, 40].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khả năng tự phục hồi sau sự cố.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khả năng chạy trên nhiều hệ điều hành.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khả năng nâng cấp phần mềm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khả năng tương tác và giao tiếp với các hệ thống phần mềm khác.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi một 'Fault' nằm trong một đoạn mã chưa bao giờ được chạy, hệ thống sẽ như thế nào?",
+    "Explanation": "Khuyết tật chỉ gây ra sự cố khi điều kiện vận hành kích hoạt đoạn mã chứa khuyết tật đó [1, 4].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hệ thống sẽ bị chạy chậm đi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mã nguồn sẽ tự động bị xóa.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hệ thống vẫn hoạt động bình thường (không có Failure).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hệ thống sẽ lập tức báo lỗi và dừng lại.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khả năng tái sử dụng (Reusability) trong mô hình McCall thuộc khía cạnh nào?",
+    "Explanation": "Reusability liên quan đến việc sử dụng các module phần mềm cho các dự án khác, thuộc nhóm chuyển giao [1, 26].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Sửa đổi sản phẩm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vận hành sản phẩm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phân tích sản phẩm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chuyển giao sản phẩm (Product Transition).",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Vì sao đội SQA nên có thành viên từ bên ngoài nhóm dự án?",
+    "Explanation": "Sự độc lập giúp việc xác minh và thẩm định diễn ra nghiêm túc và hiệu quả hơn [33, 51].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để tiết kiệm chi phí trả lương.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì quy định của chính phủ bắt buộc như vậy.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì lập trình viên không có kỹ năng tìm lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để đảm bảo tính khách quan (người trong nhóm khó tự thấy lỗi của mình).",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Yếu tố 'Portability' (Khả năng di động) được hiểu là?",
+    "Explanation": "Tính khả chuyển/di động đảm bảo phần mềm có thể hoạt động đa nền tảng [47].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khả năng thích nghi của phần mềm với phần cứng hoặc hệ điều hành khác.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Khả năng mang máy tính chứa phần mềm đi du lịch.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tốc độ tải trang web trên thiết bị di động.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khả năng gửi phần mềm qua email dễ dàng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Sự cố mất điện ảnh hưởng 50 triệu người năm 2003 do lỗi 'Race Condition' cho thấy tầm quan trọng của yếu tố nào?",
+    "Explanation": "Lỗi này xảy ra khi nhiều tiến trình tranh chấp tài nguyên mà không được kiểm soát chặt chẽ [18].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khả năng tái sử dụng code.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đồng bộ hóa dữ liệu và quản lý tiến trình.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lỗi chính tả trong tài liệu.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giao diện người dùng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nguyên nhân nào sau đây KHÔNG thuộc 9 nguyên nhân chính gây lỗi phần mềm?",
+    "Explanation": "Các nguyên nhân gây lỗi phần mềm tập trung vào quy trình phát triển và yếu tố con người liên quan đến phần mềm [1, 5].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phần cứng máy tính bị hỏng do va đập.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lỗi thiết kế logic.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi giao tiếp giữa khách hàng và nhà phát triển.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thiếu sót trong quy trình kiểm thử.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chỉ số lượt xem video 'Gangnam Style' đã phá vỡ bộ đếm của YouTube vì lý do gì?",
+    "Explanation": "YouTube dùng số nguyên 32-bit (giới hạn ~2.15 tỷ), lượt xem của bài hát đã vượt qua con số này gây ra lỗi tràn số [13, 14].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Dữ liệu bị trùng lặp quá nhiều lần.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi hiển thị giao diện người dùng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Số lượt xem vượt quá giới hạn của số nguyên 32-bit có dấu.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hệ thống bị tấn công từ chối dịch vụ (DDoS).",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Lỗi 'Year 2038' dự kiến sẽ xảy ra với các hệ thống nào?",
+    "Explanation": "Giá trị thời gian được tính bằng giây kể từ 1970 trong số nguyên 32-bit có dấu sẽ vượt ngưỡng giới hạn vào ngày 19/1/2038 [16, 17].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chỉ các máy tính đời cũ từ năm 1970.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các máy tính chạy hệ điều hành 32-bit.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Các ứng dụng web sử dụng HTML5.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các máy tính chạy hệ điều hành 64-bit.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Định nghĩa chất lượng phần mềm theo IEEE là gì?",
+    "Explanation": "Chất lượng phần mềm đo bằng mức độ đáp ứng yêu cầu kỹ thuật và nhu cầu người dùng [1, 24].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Mức độ hệ thống đáp ứng các yêu cầu đặc tả hoặc mong đợi của khách hàng.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Là khả năng phần mềm chạy trên mọi nền tảng phần cứng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Là phần mềm có giao diện đẹp và dễ dùng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Là phần mềm không có bất kỳ lỗi nào.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong các nguyên nhân gây lỗi, 'Deliberate deviations from requirements' nghĩa là gì?",
+    "Explanation": "Đôi khi nhà phát triển tự ý bỏ qua yêu cầu hoặc dùng lại module cũ không phù hợp để đối phó với áp lực ngân sách/thời gian [1, 38, 39].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nhà phát triển cố ý làm sai lệch so với yêu cầu (do áp lực thời gian hoặc tự ý cải tiến).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lập trình viên vô tình viết sai code.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tài liệu thiết kế bị mất mát.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khách hàng thay đổi yêu cầu liên tục.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Yếu tố 'Efficiency' (Hiệu quả) trong SQA thường quan tâm đến tài nguyên nào?",
+    "Explanation": "Hiệu quả đánh giá việc sử dụng tối ưu tài nguyên phần cứng để thực hiện chức năng phần mềm [30, 48].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khả năng truyền dữ liệu (MBPS).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khả năng xử lý của CPU (MIPS, MHz).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các tài nguyên phần cứng trên.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Dung lượng lưu trữ (MB, GB, TB).",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Thành phần 'Data' trong định nghĩa phần mềm bao gồm những gì?",
+    "Explanation": "Dữ liệu bao gồm các thông tin đầu vào, cấu hình và cả dữ liệu test để vận hành hệ thống [34].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tất cả các phương án trên.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Các tham số đầu vào.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chuẩn dữ liệu dùng để kiểm thử.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Danh sách tên/đặc tả cần thiết cho người dùng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo ISO, một trong bốn thành phần chính của phần mềm là 'Procedures' (Quy trình). Nó đóng vai trò gì?",
+    "Explanation": "Quy trình xác định cách thức và trình tự vận hành các thành phần khác của hệ thống phần mềm [2, 35].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Dùng để kiểm tra lỗi cú pháp của code.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Định nghĩa thứ tự, lịch biểu và phương thức triển khai khi thực thi chương trình.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Để lưu trữ mã nguồn chương trình.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để hướng dẫn người dùng cuối cách cài đặt.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tài liệu bảo trì (maintenance documentation) quan trọng như thế nào?",
+    "Explanation": "Tài liệu bảo trì là 'tài liệu cho người phát triển' giúp họ hiểu cấu trúc bên trong để chỉnh sửa an toàn [43].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Không quan trọng, lập trình viên có thể đọc code để hiểu.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giúp khách hàng biết cách sử dụng phần mềm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cung cấp cho đội bảo trì thông tin về mã nguồn, cấu trúc module để tìm lỗi hoặc thay đổi.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Dùng để quảng cáo tính năng sản phẩm.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khái niệm 'Reliability' đo lường điều gì?",
+    "Explanation": "Độ tin cậy giải quyết vấn đề tần suất lỗi để đảm bảo hệ thống phục vụ ổn định [48].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tỷ lệ lỗi tối đa cho phép và khả năng cung cấp dịch vụ không gián đoạn.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Số lượng dòng code viết được trong một ngày.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dung lượng bộ nhớ mà phần mềm chiếm dụng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mức độ đẹp mắt của giao diện đồ họa.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong mô hình McCall, yếu tố 'Correctness' thuộc khía cạnh nào?",
+    "Explanation": "Correctness (Tính đúng đắn) thuộc nhóm vận hành, đảm bảo đầu ra khớp với yêu cầu [1, 25].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vận hành sản phẩm (Product Operation).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chuyển giao sản phẩm (Product Transition).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sửa đổi sản phẩm (Product Revision).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử sản phẩm (Product Testing).",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Sự khác biệt giữa Alpha Test và Beta Test trong kiểm thử chấp nhận là gì?",
+    "Explanation": "Alpha Test tại nơi phát triển, Beta Test gửi cho người dùng test trong môi trường thực tế.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Alpha do Dev làm, Beta do Tester làm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Alpha thực hiện tại nơi phát triển, Beta thực hiện tại môi trường của người dùng.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Không có sự khác biệt, chỉ là tên gọi khác nhau.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Alpha là test code, Beta là test giao diện.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Sự khác biệt giữa Load Test và Stress Test là gì?",
+    "Explanation": "Stress test đẩy hệ thống vào trạng thái thiếu hụt tài nguyên để xem mức độ phản hồi với sự cố.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Load test do khách hàng làm, Stress test do Dev làm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giống hệt nhau.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Load test ở mức tải cụ thể; Stress test ở điều kiện tài nguyên không đáp ứng/bất thường.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Stress test chỉ dành cho mobile app.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khái niệm 'Validation' (Thẩm định) trong SQA tập trung vào câu hỏi nào?",
+    "Explanation": "Validation xác định xem sản phẩm cuối cùng có thỏa mãn các yêu cầu thực tế của người dùng không ('Are we building the right thing?') [21, 22].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hệ thống có an toàn bảo mật không?",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mã nguồn có tối ưu không?",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chúng ta có xây dựng sản phẩm đúng quy trình không?",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chúng ta có xây dựng đúng sản phẩm khách hàng cần không?",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong chiến lược kiểm thử tích hợp 'Bottom-up', thành phần nào được dùng để thay thế cho các module mức trên chưa hoàn thành?",
+    "Explanation": "Driver thay thế cho các module mức trên để kích hoạt và truyền dữ liệu kiểm thử cho các module mức thấp.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Driver.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Interface.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Stub.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mock.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử khả năng phục hồi (Recovery Test) quan trọng nhất với loại hệ thống nào?",
+    "Explanation": "Các hệ thống tài chính đòi hỏi khả năng khôi phục trạng thái ổn định ngay lập tức sau khi mất điện hoặc dữ liệu.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hệ thống giao dịch ngân hàng trực tuyến.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Game offline.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trình phát nhạc.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ứng dụng vẽ Paint.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mối quan hệ giữa Đảm bảo chất lượng (QA) và Kiểm thử (Testing) là gì?",
+    "Explanation": "Kiểm thử là một phần trong các hoạt động rộng lớn của Đảm bảo chất lượng.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "QA chỉ thực hiện sau khi Kiểm thử kết thúc.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "QA là một tập con của Kiểm thử.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử là một tập con của QA.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hai khái niệm này hoàn toàn độc lập.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Sự cố tàu Mars Climate Orbiter bị nổ tung năm 1998 là do nguyên nhân nào?",
+    "Explanation": "Do lỗi trong phần mềm máy tính trên mặt đất khiến tàu đi vào bầu khí quyển sai vị trí và phát nổ [19, 32].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lỗi tính toán sai lầm trong phần mềm máy tính trên mặt đất.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lỗi phần cứng cảm biến nhiệt.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hết nhiên liệu giữa chừng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi mã hóa giao diện người dùng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo IEEE, phần mềm bao gồm những thành phần nào?",
+    "Explanation": "Theo IEEE và ISO, phần mềm bao gồm 4 thành phần chính để đảm bảo sự vận hành và bảo trì [1, 2].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Mã nguồn, quy trình và các yêu cầu khách hàng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chương trình, quy trình, tài liệu và dữ liệu vận hành hệ thống.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chỉ bao gồm mã nguồn và dữ liệu.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chương trình máy tính và tài liệu hướng dẫn.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hệ thống tên lửa Patriot thất bại năm 1991 do lỗi phần mềm nào?",
+    "Explanation": "Phần mềm bị trễ và không theo dõi được thời gian thực chính xác do lỗi làm tròn, dẫn đến để tên lửa Scud lọt qua [7, 8].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lỗi làm tròn số khiến phán đoán vị trí sai lệch theo thời gian.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lỗi tràn số nguyên.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi virus máy tính tấn công.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi chia cho 0.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mục tiêu trực tiếp của việc kiểm thử là gì?",
+    "Explanation": "Kiểm thử nhằm xác định lỗi để sửa chữa, nâng cao tin cậy trước khi bàn giao [46].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phát hiện nhiều lỗi nhất có thể để đưa chất lượng về mức chấp nhận được.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chứng minh phần mềm hoàn hảo không có lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thay thế hoàn toàn quy trình QA.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tăng lương cho đội ngũ Tester.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mục tiêu hướng tới của 'Qualification' trong SQA là gì?",
+    "Explanation": "Qualification tập trung vào khía cạnh vận hành và bảo trì lâu dài của hệ thống [21, 22].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kiểm tra tính nhất quán giữa các pha phát triển.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xác định hệ thống có phù hợp với việc sử dụng thực tế và bảo trì không.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tìm kiếm càng nhiều lỗi càng tốt.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đảm bảo mã nguồn tuân thủ tiêu chuẩn coding.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Điều gì xảy ra nếu 1 'Fault' nằm ở nhánh code 'FALSE' nhưng dữ liệu test chỉ chạy vào nhánh 'TRUE'?",
+    "Explanation": "Fault chỉ trở thành Failure khi đoạn mã đó được thực thi.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hệ thống sẽ tự động báo lỗi ngay.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lập trình viên sẽ bị phạt.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phần mềm sẽ bị xóa.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Failure sẽ không xảy ra trong lần test đó.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Lỗi 'Integer Overflow' xảy ra khi nào?",
+    "Explanation": "Xảy ra khi một giá trị vượt quá phạm vi mà kiểu số đó có thể biểu diễn (ví dụ vượt quá 32,767 cho integer 16-bit) [7, 17].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khi chia một số cho 0.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khi giá trị tính toán lớn hơn khả năng lưu trữ của kiểu dữ liệu được định nghĩa.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Khi nhập một xâu ký tự vào biến kiểu số.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khi bộ nhớ RAM bị đầy.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  }
+]

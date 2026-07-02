@@ -1,0 +1,1302 @@
+[
+  {
+    "StringContent": "Luật Dân sự điều chỉnh những quan hệ nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quan hệ nhân thân và quan hệ tài sản",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quan hệ tài sản và quan hệ gia đình",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ nhân thân và quan hệ kinh tế",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các quan hệ xã hội có liên quan đến tài sản",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quyền sở hữu tài sản được bảo vệ bởi Luật nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quyền sở hữu tài sản được bảo vệ bởi nhiều luật như Luật Dân sự, Luật Hình sự, Luật Hành chính...",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chỉ có Luật Dân sự mới bảo vệ quyền sở hữu tài sản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các Luật đều bảo vệ ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ có Luật Hình sự và Luật Dân sự bảo vệ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Thủ tục kết hôn theo quy định của Luật Hôn nhân - gia đình Việt Nam là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phải đăng ký kết hôn ở Ủy ban nhân dân nơi bên nam thường trú",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phải đăng ký tại Ủy ban nhân dân nơi bên nam hoặc bên nữ thường trú",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Phải đăng ký kết hôn tại Tòa án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ cần tổ chức tiệc cưới",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tiền lương là một chế định của ngành luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Dân sự ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bảo hiểm xã hội ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hành chính ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lao động",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Độ tuổi bắt đầu chịu trách nhiệm hình sự?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "14 tuổi",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "20 tuổi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "18 tuổi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "16 tuổi",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Có mấy loại hợp đồng lao động?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Bốn loại",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ba loại",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Năm loại",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hai loại",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Một người bị coi là có tội khi?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Bị cơ quan công an khởi tố, điều tra về hành vi vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bị Tòa án đưa ra xét xử ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bị cơ quan công an bắt theo lệnh bắt của Viện Kiểm sát",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Có bản án kết tội có hiệu lực pháp luật của Toà án ",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Quan hệ vợ, chồng chấm dứt khi nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khi vợ chồng hủy giấy đăng ký kết hôn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khi vợ, chồng không còn yêu thương nhau và thỏa thuận chia tài sản, sống riêng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ khi vợ, chồng ly hôn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khi một hoặc 2 bên vợ, chồng chết hoặc vợ, chồng có quyết định cho ly hôn có hiệu lực của Toà án",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Bảo hiểm tự nguyện có mấy chế độ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Sáu  ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hai  ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Bốn  ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ba ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Sự thỏa thuận nào làm phát sinh hợp đồng dân sự?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Mọi sự thỏa thuận nhằm làm phát sinh, thay đổi, chấm dứt quyền và nghĩa vụ dân sự",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mọi sự thỏa thuận đuợc lập thành văn bản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mọi sự thỏa thuận ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hợp đồng lao động phải có nội dung chủ yếu nào sau đây?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tiền lương, địa điểm làm việc, thời hạn hợp đồng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Điều kiện về an toàn lao động, vệ sinh lao động và bảo hiểm xã hội đối với người lao động",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Công việc phải làm, thời giờ làm việc, nghỉ ngơi",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Các chế định của Bộ luật Lao động điều chỉnh?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Các quan hệ liên quan đến lao động",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ lao động giữa người làm công ăn lương với người sử dụng lao động",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a và b đều sai",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a và b đều đúng",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo quy định của Bộ luật Hình sự Việt Nam thì hệ thống hình phạt gồm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hình phạt cơ bản và hình phạt không cơ bản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hình phạt chủ yếu và hình phạt không chủ yếu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các hình phạt chính và các hình phạt bổ sung",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hình phạt tù giam và các hình phạt khác",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Thời giờ làm việc theo quy định của Bộ luật Lao động là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Không quá 10 giờ trong một ngày",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tùy thỏa thuận giữa người lao động và người sử dụng lao động",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Từ 8 đến 10 giờ trong một ngày",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không quá 8 giờ trong một ngày hoặc 48 giờ trong một tuần",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Điền vào chỗ trống trong câu sau: Bộ luật Lao động quy định: “Tiền lương của người lao động..... được trả theo năng suất lao động, chất lượng và hiệu quả công việc. Mức lương của người lao động..... do Nhà nước quy định.”",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Sẽ - có thể thấp hoặc cao hơn mức lương tối thiểu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phải - phải bằng mức lương tối thiểu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Do hai bên thỏa thuận trong hợp đồng lao động và - không được thấp hơn mức lương tối thiểu",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Do Nhà nước quy định và - có  thể thấp hoặc cao hơn mức lương tối thiểu",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bộ luật Hình sự hiện hành ở nước ta là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Bộ luật Hình sự năm 1999 được sửa đổi, bổ sung năm 2009",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bộ luật Hình sự năm 1995 được sửa đổi, bổ sung năm 2000",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bộ luật Hình sự năm 1985 được sửa đổi, bổ sung năm 2009",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bộ luật Hình sự năm 2015 được sửa đổi, bổ sung năm 2017",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "A 17 tuổi, có hành vi gây thương tích cho B 15%. A sẽ phải chịu trách nhiệm hình sự trong trường hợp nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "A không phải chịu trách nhiệm hình sự, chỉ phải chịu trách nhiệm hành chính",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều sai",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trong trường hợp A cố ý gây thương tích cho B",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trong mọi trường hợp",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Chọn đáp án đúng: Chủ thể của pháp luật dân sự là cá nhân, có thể là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Công dân Việt Nam",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Người không quốc tịch",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Người nước ngoài",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tìm đáp án đúng trong tình huống sau: A mua của B một máy vi tinh xách tay và không biết đó là đồ do B trộm cắp mà có?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "A là người chiếm hữu hợp pháp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều sai",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "A là người chiếm hữu bất hợp pháp ngay tình",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "A là người chiếm hữu bất hợp pháp không ngay tình",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo quy định của Luật Hôn nhân - gia đình thì những trường hợp nào sau đây không bị cấm kết hôn?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kết hôn với người bị nhiễm HIV/AIDS",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Người mất năng lực hành vi dân sự",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Những người cùng giới tính",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Có quan hệ trong phạm vi ba đời, có cùng dòng máu về trực hệ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hình thức thừa kế theo di chúc bao gồm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cả a, b, c",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Di chúc bằng văn bản có người làm chứng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Di chúc bằng miệng, văn bản",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Di chúc bằng văn bản không có người làm chứng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Có mấy hình thức giao kết hợp đồng lao động?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hai",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bốn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ba",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Nội dung của quyền sở hữu bao gồm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cả a, b, c đều đúng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quyền định đoạt",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyền chiếm hữu ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyền sử dụng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Các loại hình doanh nghiệp ở Việt Nam bao gồm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Công ty trách nhiệm hữu hạn một thành viên; hai thành viên trở lên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Công ty cổ phần; công ty hợp danh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Doanh nghiệp tư nhân",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "A ủy quyền cho B bán một ngôi nhà?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "B có quyền chiếm hữu đối với ngôi nhà đó",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "B có quyền định đoạt đối với ngôi nhà đó",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều sai",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "B có quyền sở hữu đối với ngôi nhà đó",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Luật Lao động quy định: Tiền lương của người lao động trong thời gian thử việc là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Ít nhất phải bằng 85% mức lương cấp bậc của công việc đó ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Ít nhất phải bằng 50% mức lương cấp bậc của công việc đó ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ít nhất phải bằng 60% mức lương cấp bậc của công việc đó",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ít nhất phải bằng 40% mức lương cấp bậc của công việc đó",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tội phạm khác với các vi phạm pháp luật khác ở dấu hiệu nào sau đây?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tính có lỗi của người thực hiện hành vi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tính nguy hiểm đáng kể cho xã hội của hành vi",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Xâm hại quan hệ xã hội được pháp luật bảo vệ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tính phải chịu trách nhiệm pháp lý",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi nghiên cứu về quyền của người sử dụng lao động thì khẳng định nào sau đây là sai?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Được đơn phương chấm dứt hợp đồng lao động trong mọi trường hợp ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Được khen thưởng, xử lí người lao động vi phạm kỉ luật theo quy định của pháp luật ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Được tuyển chọn người lao động, bố trí công việc theo quy định của pháp luật ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Được cử đại diện để kí kết thỏa ước lao động tập thể ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tài sản của vợ chồng được chia khi nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chỉ khi vợ, chồng ly hôn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ khi vợ chồng thỏa thuận chia",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khi Tòa án cho phép chia",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khi vợ chồng ly hôn và cả khi hôn nhân còn tồn tại",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Tìm đáp án đúng cho nhận định sau: A 14 tuổi 2 tháng, A phạm tội rất nghiêm trọng do cố ý?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "A phải chịu trách nhiệm hành chính do hành vi mà mình gây ra",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cha mẹ hoặc người giám hộ của A phải chịu trách nhiệm thay A",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "A không phải chịu trách nhiệm hình sự vì tuổi còn nhỏ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "A phải chịu trách nhiệm hình sự",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Văn bản pháp luật nào quy định về hợp đồng lao động?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Luật Dân sự ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Luật Lao động ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Luật Doanh nghiệp ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Luật Thương mại ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quyền nào sau đây không phải là quyền nhân thân quy định trong Luật Dân sự năm 2015? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quyền xác định lại giới tính ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyền được bảo vệ danh dự, nhân phẩm ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyền được thông tin ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quyền được khai sinh ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "B 16 tuồi 1 tháng, B chỉ phải chịu trách nhiệm hình sự khi?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "B phạm tội rất nghiêm trọng và tội đặc biệt nghiêm trọng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "B thực hiện tội phạm",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "B phạm tội nghiêm trọng do cố ý",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả b và c đều đúng ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quan hệ học nghề là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cả a, b, c đều sai",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ liên quan đến quan hệ lao động",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quan hệ về quản lý lao động",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ lao động",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đối tượng điều chỉnh của Luật Lao động?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cả a và c",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quan hệ lao động",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ việc làm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các quan hệ liên quan đến quan hệ lao động",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Luật Lao động quy định: Tranh chấp lao động là tranh chấp về quyền và lợi ích phát sinh trong quan hệ lao động giữa?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Người lao động với tập thể lao động ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Người lao động, tập thể lao động với người sử dụng lao động ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tổ chức Công đoàn với người sử dụng lao động ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Người lao động, tập thể lao động với tổ chức Công đoàn ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hình phạt được được áp dụng với?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Các vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tội phạm",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hành vi cố ý phạm tội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vi phạm hành chính và vi phạm hình sự",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hình phạt trong Luật Hình sự Việt Nam được áp dụng nhằm mục đích?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Giáo dục phòng ngừa chung",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trừng trị người phạm tội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trừng trị người phạm tội, giáo dục và đấu tranh phòng chống tội phạm",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Bắt người phạm tội bồi thường thiệt hại đã gây ra",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Thời giờ làm việc ban đêm theo quy định của Bộ luật Lao động được tính từ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "21 giờ đến 4 giờ sáng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tùy sự thỏa thuận giữa người lao động và người sử dụng lao động",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "22 giờ đến 6 giờ sáng hoặc từ 21 giờ đến 5 giờ sáng tùy theo vùng khí hậu",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "22 giờ đến 5 giờ sáng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Người sử dụng lao động có nghĩa vụ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thực hiện đúng hợp đồng lao động ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tôn trọng nhân phẩm của người lao động ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Bảo đảm an toàn lao động cho người lao động ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo quy định tại Điều 5 Bộ luật Hình sự hiện hành thì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tất cả những người nước ngoài phạm tội trên lãnh thổ Việt Nam đều bị truy cứu trách nhiệm hình sự theo pháp luật hình sự Việt Nam",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mọi hành vi phạm tội trên lãnh thổ Việt Nam đều bị truy cứu trách nhiệm hình sự theo pháp luật hình sự Việt Nam",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mọi hành vi phạm tội trên lãnh thổ Việt Nam đều bị truy cứu trách nhiệm hình sự theo pháp luật hình sự Việt Nam, trừ một số trường hợp người phạm tội là người nước ngoài thuộc đối tượng giải quyết bằng con đường ngoại giao",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chỉ hành vi phạm tội trên lãnh thổ Việt Nam của người Việt Nam mới bị truy cứu trách nhiệm hình sự theo pháp luật hình sự Việt Nam",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hợp đồng lao động loại nào có lợi nhất cho người lao động?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Các hợp đồng đều như nhau",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hợp đồng theo mùa vụ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hợp đồng không xác định thời hạn",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hợp đồng có xác định thời hạn",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Thừa kế là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Sự chuyển quyền sở hữu đối với tài sản của người chết cho con cháu và được lập thành văn bản theo quy định của pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều không đúng ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sự chuyển quyền sở hữu đối với tài sản của người chết cho người thừa kế thông qua ý nguyện cá nhân bằng di chúc hoặc căn cứ vào quy định của pháp luật",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Sự chuyển quyền sở hữu đối với tài sản của cha mẹ, ông bà cho con, cháu",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tìm đáp án đúng trong các nhân định sau: A 17 tuổi được hưởng thừa kế một ngôi nhà của cha mẹ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "A không được bán ngôi nhà khi chưa đủ 18 tuổi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "A không thể tự mình ký hợp đồng để bán ngôi nhà mà phải được người giám hộ thay mặt ký",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "A có thể tự mình ký hợp đồng để bán ngôi nhà",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "A chỉ được ký hợp đồng bán ngôi nhà nếu họ hàng của A đồng ý",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tìm đáp án sai trong nhận định sau: Yếu tố loại trừ trách nhiệm hình sự của người gây thiệt hại là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thực hiện tội phạm trong trạng thái tinh thần bị kích động mạnh",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Sự kiện bất ngờ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tình thế cấp thiết",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phòng vệ chính đáng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Năng lực hành vi đầy đủ của công dân khi tham gia quan hệ tố tụng dân sự là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Người không mắc bệnh tâm thần, đủ 18 tuổi trở lên",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Người không mắc bệnh tâm thần, đủ 21 tuổi trở lên ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Người không mắc bệnh tâm thần, chưa thành niên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Người không mắc bệnh tâm thần, đủ 16 tuổi trở lên",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Thủ tục tố tụng giải quyết một vụ án hình sự là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thụ lý vụ án - điều tra - xét xử - thi hành án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khởi tố - điều tra - truy tố - xét xử - thi hành án hình sự",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Điều tra - xét xử sơ thẩm - xét xử phúc thẩm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Điều tra - truy tố - xét xử sơ thẩm - xét xử phúc thẩm - xét xử theo thủ tục giám đốc thẩm, tái thẩm",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chủ thể của tội phạm là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tổ chức hoặc cá nhân từ 18 tuổi trở lên thực hiện hành vi phạm tội ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Người đủ 16 tuổi trở lên và cố ý thực hiện tội phạm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Người thực hiện hành vi phạm tội, đạt độ tuổi luật định và có năng lực trách nhiệm hình sự",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Người thực hiện tội phạm và gây ra hậu quả",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "A và B là vợ chồng. Vì bị bệnh hiểm nghèo A đã chết. Một năm sau B kết hôn với người khác. B có được hưởng di sản thừa kế do A để lại không ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "B chỉ được hưởng nếu A có di chúc cho B",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "B được hưởng vì tại thời điểm mở thừa kế A và B vẫn tồn tại hôn nhân hợp pháp",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cả a, b, c đều sai",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "B không được hưởng vì đã kết hôn với người khác",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tìm đáp án đúng trong các nhận định sau?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hợp đồng dân sự về mua bán nhà cửa, đất đai bắt buộc phải có công chứng, chứng thực",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mọi hợp đồng dân sự đều phải được lập thành văn bản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mọi hợp đồng dân sự đều phải được lập thành văn bản có công chứng, chứng thực",
+        "IsCorrectAnswer": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,1302 @@
+[
+  {
+    "StringContent": "Tìm 1 câu có nội dung bị nhầm lẫn trong các câu sau: một trong những nguồn gốc của tư tưởng Hồ Chí Minh là tiếp thu tư tưởng và văn hoa phương Tây. Cụ thể là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khi hoạt động ở Pari, thú đô nước Pháp, Nguyễn Ái Quốc đã hấp thu được tư tưởng dân chủ và hình thành được phong cách dân chủ trong hoạt động chính trị",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trong sinh hoạt khoa học, chính trị với Đảng xã hội Pháp, Nguyễn Ái Quốc đã học được cách làm việc dân chủ trong tranh luận, trình bày ý kiến",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tiếp thu giá trị tư tưởng nhân quyền của cuộc cách mạng Mỹ, được ghi trong tuyên Ngôn Độc Lập năm 1776 của Mỹ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Ở nước Anh, Nguyễn Ái Quốc đã tiếp nhận được lý tưởng tự do, bình đẳng, bác ái và tư tưởng dân chủ của các nhà khai sáng Anh",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Thực chất của vấn đề dân tộc thuộc địa trong tư tưởng Hồ Chí Minh là gi?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đỏi quyền bình đẳng giữa các dân tộc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đấu tranh giải phóng dân tộc, thành lập nhà nước dân tộc độc lập, trong đó nhân dân là chủ thể tối cao của quyền lực nhà nước",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Đôi quyền tự trị dân tộc dưới sự bảo hộ của ngoại bang",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đòi quyền tự do dân chủ cho nhân dân",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo Hồ Chí Minh, nguyên tắc phân phối chủ yếu trong chủ nghĩa xã hội là gi?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phân phối bình quân",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phân phối theo vốn và tài sản đóng góp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Làm theo năng lực, hưởng theo nhu câu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Làm theo năng lực, hưởng theo lao động",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Quan niệm khái quát của chủ tịch Hồ Chí Minh về CNXH là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Là chế độ chính trị do nhân dân làm chủ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Là chế độ không còn áp bức bóc lột, văn hoá, đạo đức phát triển cao",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả A, B, C",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Là chế độ xã hội có nền kinh tế phát triển gắn với sự phát triển của khoa học, kĩ thuật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo Hồ Chí Minh, văn hóa thuộc bộ phận nào của đời sống xã hội...",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cơ sở hạ tầng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiến trúc thượng tầng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tồn tại xã hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ý thức xã hội",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "\"Tất cả các dân tộc trên thế giới đều sinh ra bình đẳng, dân tộc nào cũng có quyền sống, quyền sung sướng và quyền tự do\". Câu nói được trích từ tác phẩm nào của Hồ Chí Minh?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tuyên ngôn độc lập",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chính cương sách lược vắn tắt",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đường cách mệnh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bản án chế độ thực dân Pháp",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hãy chỉ ra một luận điểm sai so với quan điểm của Hồ Chí Minh trong các câu sau \"Hồ Chí Minh cho rằng để được giải phóng, mỗi dân tộc, mỗi giai cấp, mỗi con người phải đánh thắng các loại kẻ thù\" sau đây:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tất cả địa chủ, tư sản",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Thực dân, để quốc và bọn tay sai của chúng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ nghĩa cá nhân",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nghèo nàn, lạc hậu tức là giặc đói và giặc đốt",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo Bác, lực lượng của cách mạng giải phóng dân tộc bao gồm cộng đồng nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Toàn dân tộc",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Liên minh công - nông",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giai cấp vô sản toàn thế giới",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả A, B, C",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cách mạng giải phóng dân tộc muốn giành được thắng lợi, cần phải...",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Dựa vào thắng lợi của cách mạng ở các nước thuộc địa khác",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dựa vào thắng lợi của cách mạng ở \"chính quốc\"",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dựa vào các nước có nền kinh tế phát triển cao",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Được tiến hành 1 cách chủ động và sáng tạo",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo Hồ Chí Minh, muốn xây dựng đạo đức mới phải:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nói đi đôi với làm; chống chủ nghĩa cá nhân; tu dưỡng đạo đức cá nhân",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nói trước, làm sau; xây đi đôi với chống: phải tu dưỡng đạo đức suốt đời",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nói đi đôi với làm; xây đi đôi với chống; rèn luyện phẩm chất đạo đức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nói đi đôi với làm; xây đi đôi với chống; phải tu dưỡng đạo đức suốt đời",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo Hồ Chí Minh, đâu là mâu thuẫn chủ yếu nhất trong thời kì quá độ ở nước ta?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Mâu thuẫn giai cấp xã hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả A, B, C",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mâu thuẫn giữa yêu cầu phát triển cao đất nước với thực trạng nghèo nàn, lạc hậu",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mâu thuẫn giữa cách mạng và phản cách mạng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chọn luận điểm đúng với tư tưởng Hồ Chí Minh:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Muốn tiến lên chủ nghĩa xã hội thì chi cần phát triển kinh tế",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Muốn tiến lên chủ nghĩa xã hội thì phải phát triển văn hóa và kinh tế",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Muốn tiến lên chủ nghĩa xã hội thì phải phát triển kinh tế và văn hóa",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Muốn tiến lên chủ nghĩa xã hội thì phải phát triển văn hóa",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đảng ta là một Đảng cầm quyền, các đồng chí từ chi bộ đến TW phải giữ gin sự đoàn kết nhất trí trong Đảng như giữ gìn con ngươi của mắt mình. Câu trên trích từ tác phẩm nào của Hồ Chí Minh?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Bài nói chuyện tại trường Nguyễn Ái Quốc trung ương năm 1957",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Diễn văn chính trị tại Đại hội III của Đảng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bài nói chuyện với cán bộ cao cấp quân đội nhân dân Việt Nam",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Di chúc",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong các luận điểm dưới đây, luận điểm nào của Hồ Chí Minh?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hãy xoá bỏ tinh trạng người bóc lột người thi tinh trạng dân tộc này bóc lột dân tộc khác sẽ bị xoá bỏ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khi mà sự đổi kháng giữa các giai cấp trong nội bộ dân tộc không còn nữa thì sự thù địch giữa các dân tộc cũng đồng thời mất theo",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giải phóng giai cấp là nhiệm vụ trung tâm, là điều kiện đề giải phóng dân tộc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cần xem xét lại chủ nghĩa Mác về cơ sở lịch sử của nó, cùng cổ nó bằng dân tộc học phương Đông",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong những luận điểm về xây dựng Đảng Cộng sản của Hồ Chí Minh dưới đây, luận điểm nào được viết trong Di chúc?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chú nghĩa Mác-Lênin kết hợp với phong trào công nhân và phong trào yêu nước đã dẫn đến tới việc thành lập Đảng Cộng sản Đông Dương vào đầu năm 1930",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đảng muốn vững thì phải có chủ nghĩa làm cốt, trong Đảng ai cũng phải hiểu, ai cũng phải theo chú nghĩa ấy",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phải giữ gìn Đảng ta thật trong sạch, phải xứng đáng là người lãnh đạo, là người đầy tớ trung thành của nhân dân",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Đảng ta là Đảng của giai cấp công nhân, đồng thời là Đảng của dân tộc, không thiên tư, thiên vị",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nội hàm định nghĩa văn hóa mà Hồ Chí Minh nêu lên là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Văn hóa bao gồm những giá trị vật chất và phi vật chất mà loài người đã tạo ra để phục vụ nhu cầu sống của mình",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Văn hóa gồm toàn bộ giá trị vật chất, và tinh thần qua quá trình lịch sử con người đã đề lại cho loài người",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Văn hóa bao gồm toàn bộ những giá trị vật chất mà loài người tạo ra vì sự tồn tại của họ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Văn hóa gồm toàn bộ những giá trị vật chất và tinh thần mà loài người đã sáng tạo ra, nhằm đáp ứng sự sinh tồn và mục đích cuộc sống của mình",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo Hồ Chí Minh, tuổi trẻ như mùa nào trong năm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Mùa thu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mùa xuân",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mùa đông",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mùa hạ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tác phẩm đầu tiên của Hồ Chí Minh đề cập đến đạo đức cách mạng là tác phẩm nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đạo đức cách mạng (1955)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bản án chế độ thực dân Pháp (1925)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đường cách mệnh (1927)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Thường thức chính trị (1953)",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo Hồ Chí Minh, đời sống mới gồm những lĩnh vực nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đạo đức mới và lối sống mới",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nếp song mới, lối sống mới và tư tưởng mới",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đạo đức mới, nếp sống mới và cách sống mới",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đạo đức mới, lối sống mới, nếp sống mới",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Xác định đúng quan điểm của Hồ Chí Minh...",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Giải phóng giai cấp là tiền đề để giải phóng dân tộc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giải phóng xã hội là tiền đề giải phóng giai cấp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giải phóng dân tốc là tiền đề để giải phóng giai cấp",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Giải phóng con người là tiền đề để giải phóng dân tộc",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cách mạng giải phóng dân tộc trong thời đại mới muốn giảnh được thắng lợi phải do...",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tầng lớp trí thức lãnh đạo",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một cá nhân xuất chúng lãnh đạo I",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giai cấp tư sản lãnh đạo",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đảng Cộng sản lãnh đạo",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo Hồ Chí Minh, mâu thuẫn chủ yếu trong xã hội thuộc địa phương Đông là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Mâu thuẫn giữa giai cấp công nhân với giai cấp tư sản dân tộc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mâu thuẫn giữa giai cấp nông nhân với địa chủ phong kiến",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mâu thuẫn giữa dân tộc bị áp bức với chủ nghĩa thực dân",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mâu thuẫn giữa giai cấp công nhân, nông dân, trí thức với địa chủ phong kiến",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "\"Đảng muốn vững, phải có chủ nghĩa làm cốt, trong Đảng ai cũng phải hiểu, ai cũng phải theo chủ nghĩa ấy. Đảng mà không có chủ nghĩa cũng như người không có trí khôn, tàu không có bàn chỉ nam\". Chủ nghĩa mà Hồ Chí Minh nói ở đây là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chủ nghĩa quốc gia - dân tộc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ nghĩa quốc tế",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ nghĩa Mác - Lênin",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chủ nghĩa Tam dân của Tôn Trung Sơn",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hồ Chí Minh đặt văn hóa ngang hàng với các lĩnh vực nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chính trị",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kinh tế",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kinh tế, chính trị, xã hội",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Xã hội",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong cải tạo xã hội chủ nghĩa, Hồ Chí Minh chủ trương đổi xử với giai cấp tư sản Dân tộc như thế nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cải tạo họ thành người lao động mới",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tịch thu tải sản của họ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Coi họ là đổi tượng nguy hiểm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xử bắn, xử tù họ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong Di chúc, phần nói về Đảng, lời căn dặn nào thể hiện sự mẫn cảm và tầm nhìn xa của Hồ Chí Minh đối với việc ngăn ngữa nguy cơ thoái hóa trong Đảng sau khi đất nước đạt được đinh cao thắng lợi?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Ngay sau khi cuộc chống Mỹ, cứu nước hoàn toàn thắng lợi, việc cần làm trước tiên là chinh đốn lại Đảng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Đảng ta là một Đảng cầm quyền, mỗi Đảng viên và cán bộ phải thật sự thấm nhuần đạo đức cách mạng, thật sự cần kiệm, liêm chính, chí công vô tư",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phải giữ gìn Đảng ta thật trong sạch, phải xứng đáng là người lãnh đạo, là người đẩy tớ trung thành của nhân dân",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trong Đảng thực hành dân chủ rộng rãi để củng cố và phát triển sự đoàn kết và thống nhất của Đảng. Phải có tình đồng chí yêu thương lẫn nhau",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo Hồ Chí Minh, ai là người đầu tiên đã đặt cơ sở cho một thời đại mới, thật sự cách mạng trong các nước thuộc địa...",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "V.I. Lênin",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Stalin",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "C. Mác",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mao Trạch Đông",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo tư tưởng Hồ Chí Minh, chữ Người là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Gia đinh, anh em, họ hàng, bầu bạn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả A, B, C",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Đồng bảo cả nước",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Loài người",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quan điểm của Hồ Chí Minh về tính chất của nền văn hóa luôn bao hàm...",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tính dân tộc và tinh quần chúng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tính dân tộc, tính khoa học, tính cách mạng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tính dân tộc và tính khoa học",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tính dân tộc, tính khoa học, tính đại chúng",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Chọn phương án đúng nhất: \"Chủ nghĩa xã hội là lấy nhà máy, xe lửa, ngân hàng... làm của chung. Ai làm nhiều thì ăn nhiều, ai làm ít thì ăn ít, ai không làm thì không ăn, tất nhiên là trừ những người già cả, đau yếu và trẻ con\". Định nghĩa này nhấn mạnh lĩnh vực nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Xã hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Văn hoá",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kinh tế",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chính trị",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tìm câu có nội dung ghi sai tư tưởng Hồ Chí Minh trong những câu sau:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vô sản tất cả các nước, đoàn kết lại",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đối với phương Đông, trong đó có Việt Nam, giải phóng giai cấp là nhiệm vụ trên hết, trước hết",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vô sản tất cả các nước và các dân tộc bị áp bức, đoàn kết lại",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sự phát triển tự do của mỗi người là điều kiện cho sự phát trii mọi người",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong những luận điểm dưới đây của Hồ Chí Minh về xây dựng Đảng Cộng sản, luận điểm nào được Hồ Chí Minh viết lần đầu trong tác phẩm \"Đường cách mệnh\"?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đáng ta là Đảng của giai cấp công nhân, đồng thời là Đảng của dân tộc, không thiên tư, thiên vị",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đảng muốn vững thì phải có chủ nghĩa làm cốt",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chủ nghĩa Mác - Lênin kết hợp với phong trào công nhân và phong trảo yêu nước đã dẫn đến tới việc thành lập Đảng Cộng sản Đông Dương vào đầu năm 1930",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phải giữ gìn Đảng ta thật trong sạch, phải xứng đáng là người lãnh đạo, là người đầy tớ trung thành của nhân dân",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo Chủ tịch Hồ Chí Minh, đạo đức là...",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tính cách của người cách mạng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Gốc của người cách mạng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Phẩm chất của người cách mạng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Yêu cầu của người cách mạng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo tư tưởng Hồ Chí Minh, lực lượng giải phóng dân tộc, giải phóng giai cấp, giải phóng con người là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khối đại đoàn kết dân tộc mà nông cốt là liên minh công, nông, trí thức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các lực lượng cách mạng thế giới",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đảng Cộng sản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả A, B, C",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Chủ nghĩa Mác - Lênin kết hợp với phong trào công nhân và phong trào yêu nước dẫn tới sự ra đời của Đảng Cộng sản Việt Nam\". Câu trên trích từ tác phẩm nào của chủ tịch Hồ Chí Minh?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Diễn văn chính trị đọc tại đại hội III",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ba mươi năm hoạt động của Đảng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Thường thức chinh trị",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đường cách mệnh",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "\"Trong lúc này, quyền lợi của dân tộc là cao hơn hết thấy\". Kết luận trên là nội dung của hội nghị nào của ban chấp hành TW Đảng Cộng sản Đông Dương do Nguyễn Ái Quốc chủ trì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hội nghị TW 7 (11/1940)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hội nghị toàn quốc của Đảng (8/1945)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hội nghị TW 6 (11/1939)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hội nghị TW 8 (11/1941)",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo Hồ Chí Minh, Đảng Cộng sản Việt Nam ra đời dựa trên quy luật nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chủ nghĩa Mác - Lênin",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phong trào công nhân",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ nghĩa Mác - Lênin thâm nhập vào phong trào công nhân và phong trào yêu nước",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Phong trào yêu nước",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Luận điểm: \"Đạo đức cách mạng không phải trên trời sa xuống. Nó do đầu tranh, rèn luyện bền bi hàng ngày mà phát triển và cũng cố, cũng như ngọc càng mài càng sáng, vảng càng luyện cảng trong\" là của ai?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hồ Chí Minh",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "V.I.Lênin",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "C. Mác",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lê Duẩn",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đảng Cộng sản Việt Nam, do Hồ Chí Minh sáng lập và lãnh đạo, hoạt động vì lợi ích của ai?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vì lợi ích của công nhân, nông dân, trí thức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vi lợi ích của giai cấp công nhân",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì lợi ích của dân tộc Việt Nam",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vì lợi ích của bản thân Đảng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong tư tưởng Hồ Chí Minh, là người lãnh đạo, Đảng phải có những phẩm chất gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tư cách, đạo đức, năng lực cần thiết",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phải có khả năng làm cho dân tin, dân mến, dân phục, dân theo",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đảng phải gắn bó mật thiết với nhân dân, nghe ý kiến của dân, học nhân dân chịu sự kiểm soát của nhân dân...",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả A, B, C",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Dưới đây là tóm tắt một số luận điểm của Hồ Chí Minh về mối quan hệ dân tộc và giai cấp. Luận điểm nào chứng tỏ từ rất sớm, Hồ Chí Minh đã có quan điểm hội nhập kinh tế quốc tế?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đồng thời chúng tôi rất hoan nghênh tư bản Pháp và tư bản các nước khác thật thà cộng tác với chúng tôi. Một là để xây dựng lại Việt Nam sau lúc chiến tranh tản phá, hai là để điều hòa kinh tế thể giới và giữ gìn hòa bình",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Trái lại chúng tôi chủ trương làm cho tư bản Việt Nam phát triển mà chi có thống nhất và độc lập thì tư bản Việt Nam mới có thể phát triển",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ nghĩa dân tộc là một động lực lớn của đất nước",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chúng tôi không chú trương giai cấp đấu tranh vì một lẽ tầng lớp tư sản Việt Nam đã bị kinh tế thực dân đè nén không cất đầu lên được",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo Nguyễn Ái Quốc, cách mạng giải phóng dân tộc trong thời đại mới muốn giảnh được thắng lợi phải đi theo...",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Con đường cứu nước mà những bậc tiền bối đã đi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Con đường giảnh độc lập của người Mỹ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Con đường giành độc lập của nhân dân Ấn Độ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Con đường cách mạng vô sản",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Đường lối kháng chiến chống thực dân Pháp xâm lược mà chủ tịch Hồ Chí Minh và Đảng ta đã vạch ra là gi?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kháng chiến trường kỳ và tự lực cánh sinh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả A, B, C",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vừa kháng chiến, vừa kiến quốc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kháng chiến toàn dân, toàn diện",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "\"Mục đích của Đảng lao động Việt Nam có thể gồm trong 8 chữ là: đoàn kết toàn dân, phụng sự Tổ quốc\". Hồ Chí Minh nói câu trên nhân sự kiện chính trị nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hội nghị chính trị đặc biệt 1965",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đại hội II",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Đại hội III",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đại hội I",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo Hồ Chí Minh, nội dung của nền giáo dục mới là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Giáo dục toàn diện cả đức, trí, thể, mỹ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Giáo dục thái độ lao động",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giáo dục toàn diện cả đức lần tài",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giáo dục tư tưởng chính trị",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cách mạng giải phóng dân tộc là sự nghiệp đoàn kết của....",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Giai cấp công nhân với tầng lớp giai cấp nông dân",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giai cấp công nhân với tầng lớp trí thức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Toàn dân trên cơ sở liên minh của giai cấp công nhân với giai cấp nông dân và trí thức",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Giai cấp công nhân với tư sản",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tác phẩm \"Đời sống mới\" do Chủ tịch Hồ Chí Minh viết vào thời gian nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tháng 10/1965",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tháng 3/1947",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tháng 5/1954",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tháng 8/1945",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chọn phương án trả lời đúng với tư tưởng Hồ Chí Minh:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cách mạng giải phóng dân tộc có khả năng giành thắng lợi trước cách mạng vô sản ở chính quốc",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cách mạng giải phóng dân tộc giành thắng lợi đồng thời với cách mạng vô sản ở chính quốc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cách mạng giải phóng dân tộc giảnh thắng lợi sau cách mạng vô sản ở chính quốc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thẳng lợi của cách mạng giải phóng dân tộc phụ thuộc vào thẳng lợi của cách mạng vô sản ở chính quốc",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "\"Chủ trương làm tư sản dân quyền cách mạng và thổ địa cách mạng để đi tới một xã hội cộng sản\" trích từ văn kiện nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chương trình tóm tắt của Đảng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chánh cương, sách lược vắn tắt",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chương trình của mặt trận Việt minh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đường Cách mệnh",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo Hồ Chí Minh, nền kinh tế mà chúng ta xây dựng phải được tạo lập trên cơ sở:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nềh khoa học kỹ thuật phát triển",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chế độ công hữu về tư liệu sản xuất",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Nên công nghiệp hiện đại",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nền nông nghiệp hiện đại",
+        "IsCorrectAnswer": false
+      }
+    ]
+  }
+]

@@ -6,13 +6,13 @@ Thư mục chứa các file scripts: [Thư mục gốc của project](file:///d:
 
 ---
 
-## 🐳 1. Dockerization
+## 1. Dockerization
 
 ### [Dockerfile](file:///d:/projects/zlearn/Dockerfile)
 Dự án sử dụng cơ chế **Multi-stage build** để tối ưu hóa kích thước Image chạy cuối cùng:
-1.  **Stage 1: Build (`mcr.microsoft.com/dotnet/sdk:6.0`)**
+1.  **Stage 1: Build (`mcr.microsoft.com/dotnet/sdk:8.0`)**
     *   Copy mã nguồn vào container, khôi phục dependencies (`dotnet restore`) và publish ứng dụng ra thư mục đầu ra dưới cấu hình Release (`dotnet publish -c Release -o out`).
-2.  **Stage 2: Runtime (`mcr.microsoft.com/dotnet/aspnet:6.0`)**
+2.  **Stage 2: Runtime (`mcr.microsoft.com/dotnet/aspnet:8.0`)**
     *   Thiết lập múi giờ Việt Nam (`TZ=Asia/Ho_Chi_Minh`) và cập nhật đồng hồ hệ thống của container.
     *   Cài đặt **PostgreSQL Client (version 16)** từ kho lưu trữ chính thức của PostgreSQL để phục vụ chức năng sao lưu dữ liệu tự động (`pg_dump`).
     *   Copy mã nguồn đã build từ Stage 1 sang và chạy ứng dụng thông qua lệnh `dotnet ZLearn.Web.dll`.
@@ -34,7 +34,7 @@ Cung cấp mẫu khai báo các service chạy trong Docker:
 
 ---
 
-## 🚀 2. Quy trình và Công cụ Triển khai (Deployment Workflows)
+## 2. Quy trình và Công cụ Triển khai (Deployment Workflows)
 
 Dự án hỗ trợ hai phương án triển khai tự động từ môi trường phát triển cục bộ lên máy chủ Production (`hoangcn.com`):
 
@@ -58,10 +58,10 @@ Dự án hỗ trợ hai phương án triển khai tự động từ môi trườ
 
 *   **Kịch bản chạy trên máy chủ ([run.sh](file:///d:/projects/zlearn/run.sh))**:
     ```bash
-    docker-compose down     # Dừng cụm container cũ
+    docker compose down     # Dừng cụm container cũ
     docker rmi learn        # Xóa image learn cũ khỏi docker engine của máy chủ
     docker load -i new.tar  # Giải nén và nạp image learn mới từ file new.tar
-    docker-compose up -d    # Khởi động lại toàn bộ cụm container ở chế độ nền
+    docker compose up -d    # Khởi động lại toàn bộ cụm container ở chế độ nền
     ```
 
 *   **Xoay vòng và sao lưu phiên bản cũ ([commit.sh](file:///d:/projects/zlearn/commit.sh))**:
@@ -72,7 +72,7 @@ Dự án hỗ trợ hai phương án triển khai tự động từ môi trườ
 
 ---
 
-## 💾 3. Các tác vụ bảo trì tự động chạy trong Container
+## 3. Các tác vụ bảo trì tự động chạy trong Container
 
 ### Tự động Sao lưu Cơ sở dữ liệu (Database Backup)
 *   Chạy thông qua một hosted service nền: `DatabaseBackupService`.

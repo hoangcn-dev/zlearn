@@ -1,0 +1,1302 @@
+[
+  {
+    "StringContent": "Thông tin dự án đã được phân phối dựa theo kế hoạch quản lý truyền thông. Một vài sản phẩm của dự án đã thay đổi tuân theo kế hoạch quản lý dự án. Một bên có liên quan tỏ ra ngạc nhiên với PM khi nghe thấy các thay đổi đã được công bố về sản phẩm dự án. Tất cả các bên có liên quan đều nhận được thông báo về thay đổi. PM nên làm gì? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Xác định tình huống trong buổi họp ủy ban hướng dẫn lần tới để những ngườicòn lại không bỏ sót các thông tin thay đổi được công bố.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hỏi giám đốc chức năng xem tại sao bên có liên quan không hiểu trách nhiệmcủa mình",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xem xét lại kế hoạch quản lý truyền thông và thực hiện sửa lại nếu cần thiết",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Xác định tại sao bên có liên quan đó không nhận được thông tin và cho anh ta biếtkhi nó đã được công bố",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mọi thứ đang hoạt động tốt trong giai đoạn giữa của một dự án. Hệ thống cấp phép công việc cho phép mọi người biết thời gian bắt đầu công việc và nhật ký lỗi đã giúp theo dõi các yêu cầu của các bên có liên quan. Tỷ suất chi phí có ích được cải thiện và nhà tài trợ bày tỏ sự đánh giá cao của mình cho những nỗ lực của đội dự án bằng cách tổ chức một buổi tiệc quan trọng cho đội. PM đã nhận được 1 cuộc gọi từ 1 thành viên dự án nói rằng kết quả từ việc hoàn thành hoạt động trước đã bị chậm 2 ngày. lý do nào dưới đây là tốt nhất giải thích tại sao điều này xảy ra?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hoạt động tiếp sau nên được theo dõi, không phải hoạt động trước đó",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "PM tập trung vào yêu cầu của nhà tài trợ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Những người cần thiết không được mời đến buổi tiệc quan trọng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ban lãnh đạo chức năng không được tính đến trong kế hoạch quản lý truyền thông",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn đang thấy rằng thật khó để ước lượng chính xác chi phí sẽ ảnh hưởng bởi rủi ro. Bạn nên ước lượng với:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ơ sở định tính",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ơ sở kinh tế",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ơ sở số học",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ơ sở định lượng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Điều chỉnh các nhiệm vụ được phân bổ khác nhau trong dự án để duy trì khối lượng nguồn lực phù hợp được gọi là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tạo ra kế hoạch quản lý truyền thông tốt hơn và yêu cầu chỉ một ngôn ngữ chính thức trong dự án và phải có người dịch ngay lập tức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tìm xem nếu hành động tiếp theo có nên ước tính lại không",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Liên lạc với ai đó trong phòng ban, người này cũng nói ngôn ngữ mẹ đẻ của PM tốt để xác nhận ý kiến của người lãnh đạo phòng ban đó",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Làm việc với hiệu quả gia tăng của tổ chức thực hiện bằng cách khuyến khi sự cải thiện của chính sách bằng cách sử dụng các câu hỏi",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Đầu ra của kếhoạch đối phó rủi ro (risk response planning) là: ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ố dư Rủi ro",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "anh sách ưu tiên của các rủi ro",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác ảnh hưởng được xác định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác rủi ro được xác định",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": " Bạn được hỏi để lựa chọn công cụ và kỹ thuật để thực hiện chương trình đảm bảo chất lượng để bổ sung cho các hoạt động kiểm soát chất lượng đã có. Bạn nên chọn điều nào dưới đây?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Biểu đồ Pareto",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phân tích xu hướng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm tra chất lượng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lấy mẫu thống kê",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một chướng ngại vật đối với đội dự án trong một tổ chức hướng ma trận là: ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Các thành viên của đội đang mượn các nguồn lực và khó động viên",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Đội đang quá tập trung",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Việc tổ chức đội dự án là tập trung vào chuyên môn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đội quá lớn và khó kiểm soát",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một PM vừa hoàn thành kế hoạch đối phó rủi ro cho 1 dựán kỹ thuật có kinh phí 387000$. Điều nào dưới đây anh ta nên làm tiếp theo? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ắt đầu phân tích rủi ro và chỉra trong phác thảo dựán (project drawing)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hêm các gói công việc vào bảng WBS",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ổ chức đánh giá lại rủi ro dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác định tỷlệ rủi ro tổng thể cho toàn dựán",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn là một PM cho một dựán xây dựng của một nhà máy sản xuất lớn mới và chưa từng làm trước đó. Chi phí dựán được ước tính là 30.000.000$ và sẽsửdụng 3 người bán. Một khi bắt đầu, dựán không thểxóa bỏ, và sẽcó một phí tổn lớn trong thiết bịvà nhà máy. Là PM của dựán này, điều quan trọng nhất phải thật cẩn thận là: ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "oàn thành tôn chỉ dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iểm tra ngân sách dự phòng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hực hiện xác định các rủi ro.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "em xét lại tất cả đề nghịchi phí từ người bán.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một PM đã quản lý 4 dự án cho công ty và đang được cân nhắc để tham gia vào phòng quản lý dự án. Đây là những điều đã rút ra được sau quá trình đáng giá năng lực của anh ta: dự án đầu tiên của PM này có biến động chi phí CV = -500, sử dụng 2 nguồn lực then chốt, cần phải làm lại tôn chỉ dự án trong giai đoạn thực thi và được xếp hạng ưu tiên thứ 14 trong công ty. Dự án thứ 2 kết thúc với biến động lịch trình là +100, được hoàn thành với lịch trình nén rộng (vastly compressed schedule) và nhận được thư giới thiệu từ nhà tài trợ, nhưng sản phẩm của dự án không được sử dụng. Dự án thứ 3 có số lượng thay đổi hơn 23% so với dự kiến, có SPI=0.90 và 35 mục trong nhật ký vấn đề (issue log) khi dự án hoàn thành. Mỗi dự án có ngân sách chi phi là 1000$ và khoảng 20 tới 28% thay đổi nhiều hơn so với các dự án khác cùng quy mô. Phòng quản lý dự án quyết định không cân nhắc người PM này vào phòng nữa. Điều nào dưới đây mô tả tốt nhất tại sao PM lại không được vào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "PM có 2 nguồn lực then chốt trong đội của mình và vẫn cần phải làm lại tôn chỉ dự án, cho thấy anh ta không đủ kỷ luật để làm việc trong phòng quản lý dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "PM chỉ quản lý các dự án có mức độ ưu tiên thấp và anh ta phải nén lịch trình, cho thấy anh ta không đủ kỹ năng để làm việc trong phòng quản lý dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "PM không thu hút hiệu quả các bên có liên quan, cho thấy anh ta không đủ kiến thức để làm việc trong phòng quản lý dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Nhật ký lỗi không nên được sử dụng trong những dự án có quy mô này, cho thấy PM không đủ kiến thức để làm việc trong phòng quản lý dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn được phân công làm PM cho một dự án truyền thông lớn. Dự án được hoàn thành trong 1 năm và đã đi được nửa đường. Đội dự án bao gồm 5 người bán và 20 nhân viên của công ty bạn. Bạn muốn biết ai là người có trách nhiệm với công việc trong dự án. Bạn sẽ tìm thấy các thông tin này ở đâu?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Ma trận gán trách nhiệm",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Sơ đồ tổ chức dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sơ đồ đường (bar chart)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sơ đồ nguồn tài nguyên",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một PM có vấn đề với hiệu năng của đội dự án. Loại hình truyền thông nào sẽgiúp PM xác định vấn đề? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Văn bản truyền thông không chính thức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Văn bản truyền thông chính thức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lời nói (verbal) truyền thông chính thức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lời nói truyền thông không chính thức",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": " Điều nào dưới đây giống với kết quả của truyền thông khối nhất?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Dự án bị chậm tiến độ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Người quản trị cấp trung không hài lòng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tăng thêm mức độ tin cậy",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xảy ra các mâu thuẫn",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": " Có nhiều gói công việc đã hoàn thành tốt đẹp trong dự án và nhà tài trợ đã có một vài sự đánh giá cao cho sự cải thiện. Dự án đang trong đúng lịch trình để đáp ứng hạn chót gấp gáp (aggressive schedule) khi hành động sau của hoạt động đường tới hạn gặp phải một trở ngại lớn (suffer a major setback). Hoạt động này có 14 ngày trễ (14days of float) và được 4 ng hoàn thành. Có 2 nhân viên khác có kỹ năng trợ giúp hoạt động này, nếu cần thiết. PM nhận được 1 cuộc gọi rằng 3 nhân viên khác đang cố gắng rời khỏi dự án do họ không cảm thấy rằng dự án có thể thành công. Khi PM tiếp tục theo đuổi vấn đề này, cô ấy khám phá ra rằng những nhân viên này có vấn đề mà chưa được xác định trc đó. Điều nào dưới đây là tốt nhất để cải thiện dự án?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Điều tra xem tại sao lịch trình dự án lại gấp gáp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tạo nhật ký lỗi",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tìm xem ai có thể thay thế 3 nhân viên đó",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các nhân viên dự án ngay lập tức cố gắng giải quyết hoạt động đang gặp vấn đề",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Truyền thông thường được nâng cao khi người gửi……………… người nhận:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Sử dụng ngôn ngữ cơ thể khi nói chuyện",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nói chuyện 1 cách chậm rãi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nói chuyện",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ ra các quan điểm có liên quan",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Dự án bạn đang làm việc có gia tăng chi phí hiệu quả, tăng hiệu suất và tăng tinh thần, chí khí(morale). Điều gì có thể là nguyên nhân cho các thay đổi này? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tưởng thưởng (reward) cho nỗ lực của các các nhân",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ban lãnh đạo tập trung vào chính sách ngăn chặn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tăng chất lượng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mục tiêu dự án được đáp ứng khi thực hiện",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đánh giá hiệu quả dự án khác với hành động đánh giá hiệu năng đội dự án ở chỗ đánh giá hiệu quả dự án tập trung vào:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Giảm tỷ lệ doanh thu nhân viên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nỗ lực xây dựng đội dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một ước tính của sự hiệu quả của đội trong dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Làm thế nào để mỗi nhân viên thực hiện công việc trong dự án",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn đang trong quá trình thực hiện một dựán 2 năm đểtriển khai các văn phòng dọc theo đất nước. một cơn bão gây ra mất điện khi việc nâng cấp đã gần hoàn thành. Khi có điện trởlại, toàn bộ báo cáo dựán và dữliệu lịch sử đã mất mà không có cách nào lấy lại được. Điều gì nên làm để giảm nhẹ rủi ro này? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ảo hành mua bán",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ên lịch cho việc triển khai ngoài mùa mưa bão",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ên kế hoạch cho quỹ dự phònG",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iểm soát thời tiẾT và có kếhoạch đối phó với sựngẫu nhiên",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": " PM đang cố gắng giải quyết tranh chấp giữa 2 nhân viên dự án. Một ng nói rằng hệ thống nên được tích hợp trước khi kiểm thử, và người còn lại có ý kiến rằng ủng hộ việc mỗi hệ thống nên được kiểm thử trước khi tích hợp. Dự án bao gồm hơn 30 người, và 12 hệ thống cần phải tích hợp. nhà tài trợ yêu cầu rằng việc tích hợp phải được thực hiện đúng thời điểm. tuyên bố nào của PM là tốt nhất để giải quyết mâu thuẫn này? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Mọi người hãy bình tĩnh để hoàn thành công việc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hãy giải quyết vấn đề này một lần nữa vào tuần sau khi mọi người đều bình tĩnh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hãy thực hiện các kiểm thử giới hạn trước khi thực hiện và kết thúc kiểm thử sau khi cài đặt",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Làm theo cách của PM",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nhân tố nào có ảnh hưởng lớn nhất tới chi phí lao động theo ước tính trên đơn vị cho dự án. ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ác quy trình kiểm soát thay đổi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hông tin lịch sử",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ử dụng các nhà cung cấp bên ngoài.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác yêu cầu mức độ kỹ năng nguồn nhân lực",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Kỹ thuật giải quyết mâu thuẫn nào được PM sử dụng khi anh ta noi: “tôi k thể giải quyết vấn đề ngay lúc này”?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thỏa hiệp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sự rút lui (withdrawal).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vũ lực",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giải quyết vấn đề",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "CPI=0.6, SPI=0.71. Dựán có 625 gói công việc và đang được hoàn thành trong giai đoạn hơn 4 năm. Nhân viên đội dựán rất thiếu kinh nghiệm và dựán nhận được ít hỗtrợcho các kếhoạch thích hợp. Điều nào dưới đây là tốt nhất đểthực hiện? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ập nhật xác định rủi ro và phân tích",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ổ chức lại ma trận gán trách nhiệm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "oại bỏcàng nhiều gói công việc càng tốt",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ành nhiều thời gian hơn để cải thiện ước tính chi phí.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong giai đoạn lập kế hoạch dự án ở một tổ chức hướng ma trận, PM xác định rằng sẽ cần thêm nguồn nhân lực. PM sẽ yêu cầu các nguồn lực này từ: ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đội dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giám đốc chức năng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "PM",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhà tài trợ dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": " CPI=1.02, tỷ lệ chi phí lợi ích là 1.7 và vòng cuối cùng xem xét lại hiệu năng đã được xác định là cần thêm một vài điều chỉnh. Đội dự án chuyển địa điểm sang tòa nhà mới khi dự án bắt đầu. mỗi người nhận xét rằng họ đã phấn khích thế nào khi họ được sử dụng thiết bị mới. nhà tài trợ cung cấp các hỗ trợ thích đáng cho dự án và một vài rủi ro không xác định đã xảy ra. Trong nỗ lực để cải thiện hiệu năng, PM spends part of the project budget on new chairs for the team members and adss the term “senior” to each team member's job title. Điều nào dưới đây là đúng khi nói về dự án này của PM? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Dự án đang chi tiêu ít hơn nó nên tiêu tốn, PM nên bắt đầu theo dõi chi phí một cách cẩn thận",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "PM nên sử dụng sự đánh giá tốt để xác định các thay đổi quan trọng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "PM không hiểu nguyên lý Herzberg",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Xem xét lại hiệu năng nên có để tìm thêm các điều chỉnh khác",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong giai đoạn thực thi dự án, một nhân viên đội dự án thông báo với PM rằng một gói công việc không đáp ứng được tiêu chuẩn chất lượng, và cô ta tin rằng gói công việc này không thể đáp ứng được. PM họp với các bên có liên quan để phân tích tình huống. PM này đang ở trong quy trình quản lý chất lượng nào? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kiểm soát dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thực hiện đảm bảo chất lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lên kế hoạch chất lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thực hiện kiểm soát chất lượng",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Truyền thông bên dưới hợp đồng nên hướng về:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Văn bản truyền thông không chính thức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lời nói (verbal) truyền thông chính thức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Văn bản truyền thông chính thức",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lời nói truyền thông không chính thức",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Buổi họp tiến trình dự án không diễn ra tốt đẹp. mọi người nói tất cả mọi lúc, có nhiều ngừoi không tham gia vào và có nhiều chủ đề được thảo luận ngẫu nhiên. Luật nào dưới đây cho buổi họp hiệu quả đã không được tuân theo? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tạo ra và công bố một vấn đề và một tập các luật để điều khiển buổi họp",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lịch trình buổi họp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sự tập trung lịch sự và cân nhắc của mỗi cá nhân, sự điều khiển ai sẽ được nói",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Họp có mục đích, với những người phù hợp tham gia vào buổi họp",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tất cả những điều sau đều là sức mạnh xuất phát từ PM, ngoại trừ: ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hệ thống phạt (penalty)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hệ thống thưởng (reward)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chuyên môn (expert)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Luật chính thống (formal)",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": " Bảo hiểm mua bán được xem xét tốt nhất nhưlà một ví dụvềloại rủi ro nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ách chỉ dẫn các thủ tục và chính sách của công ty",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ảng kê công việc (SOW)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ài liệu vai trò và trách nhiệm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ách dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một PM vừa tìm ra nhà thầu phụ chính của dự án luôn luôn chậm tiến độ công việc. nhân viên dự án có trách nhiệm với phần này của dự án không có tiến triển tốt với nhà thầu phụ này. Để giải quyết vấn đề, người PM nói rằng:”cả 2 người phải từ bỏ một số thứ để giải quyết vấn đề này”. Phương pháp giải quyết vấn đề nào mà PM đang sử dụng?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Giao tiếp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thỏa hiệp",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Sự hòa nhã làm ổn thỏa (smoothing)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đối đầu",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": " Một PM bị tràn ngập với các vấn đề trong dự án của anh ấy. Anh ta xác định nguyên nhân gốc rễ của vấn đề theo thứ tự để xác định nên tập trung vào đâu. Công cụ nào dưới đây là tốt nhất để anh ta sử dụng? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kỹ thuật giải quyết xung đột",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Biểu đồ Pareto",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phân tích xu hướng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sơ đồ xương cá",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Một dự án đang phải đối mặt với 1 thay đổi lớn đối với sản phẩm đầu ra. Nếu PM phải quyết định tiêu chuẩn chất lượng nào là có liên quan tới thay đổi, PM sẽ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lên kế hoạch chất lượng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quản lý chất lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thực hiện kiểm soát chất lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thực hiện đảm bảo chất lượng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": " Dự án cài đặt phần mềm mới đang thực hiện. PM đang làm việc với phòng ban đảm bảo chất lượng để cải thiện sự tin tưởng của mọi người rằng dự án sẽ đáp ứng các tiêu chuẩn chất lượng. điều nào dưới đây họ phải có trước khi bắt đầu quá trình này?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Các vấn đề chất lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cải thiện chất lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Làm lại công việc (rework)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hệ thống đo đạc kiểm soát chất lượng",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn vừa được phân công là PM cho một dự án sản xuất lớn. dự án 1 năm này đã thực hiện được 1 nửa. nó kéo theo 5 người bán và 20 thành viên trong công ty tham gia vào đội dự án. Bạn muốn xem xét lại thật nhanh dự án đang tiến triển tới đâu. Báo cáo nào dưới đây là có ích nhất để tìm những thông tin như vậy?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tiến trình (progress)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Dự báo (forecast)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trạng thái công việc (work status)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Truyền thông",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Báo cáo trạng thái dự án là ví dụ về loại hình truyền thông nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Văn bản truyền thông chính thứct.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Văn bản truyền thông không chính thức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lời nói (verbal) truyền thông chính thức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lời nói truyền thông không chính thứ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một PM có một đội dự án bao gồm các nhân viên từ 4 quốc gia. Dự án rất quan trọng đối với công ty, và PM có liên quan tới thành công của dự án. Thời gian của dự án là chấp nhận được. Loại phương pháp truyền thông nào anh ta nên sử dụng?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Văn bản chính thức",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Văn bản không chính thức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lời nói không chính thức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lời nói chính thức",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một giám đốc dự án thành công vừa là một giám đốc vừa là một: ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "huyên gia về kỹ thuật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hà lãnh đạo.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hà tài trợ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đối tượng liên quan dự án.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một PM đang định lượng rủi ro cho dựán của cô ấy. Cô ấy có nhiều chuyên môn bên ngoài, nhưng giá nhưcó thểsửdụng bên trong dựán. Điều này có thể được thực hiện ntn? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Áp dụng phương pháp đường tới hạn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Áp dụng kỹ thuật Delphi",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ử dụng phân tích Monte Carlo sử dụng Internet như một công cụ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác định các tùy chọn cho các hành động sửa lỗi khuyến nghị",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn đang trong dự án xây dựng thiết bị mới. Các kết cấu đã được đặt vào vị trí và các ống dẫn nhiệt cũng sẽ được đặt đúng chỗ, khi đó người quản lý cấp cao thông báo với bạn rằng anh ta đang lo lắng dự án không đáp ứng được tiêu chuẩn chất lượng. Bạn nên làm gì trong tình huống này? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kiểm tra kết quả từ các kế hoạch quản lý chất lượng trong quá khứ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cam đoan với người quản lý cấp cao rằng trong khi lên kế hoạch chất lượng đã xác định dự án sẽ đáp ứng được tiêu chuẩn chất lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đào tạo đội đảm bảo chất lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ước tính tương tự sẽ có kết quả trong tương lai",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn được trang bịnhưmột người quản lýcủa một dựán lớn, mới và phức tạp. do dựán này là then chốt trong kinh doanh và rất rõ ràng (visible), các nhà quản lý cấp cao nói với bạn phân tích rủi ro dựán và chuẩn bịchiến lược đáp ứng rủi ro càng sớm càng tốt. Tổchức có quy trình quản lýrủi ro mà rất ít khi được sửdụng, và có lịch sửnắm bắt rủi ro kém. Điểm mốc đầu tiên của dựán là trong vòng 2 tuần nữa. Trong khi chuẩn bịkếhoạch đối phó rủi ro, đầu vào từ đâu thông thường là ít quan trọng nhất trong sốcác đáp án sau:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hà tài trợ dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hững cá nhân có trách nhiệm với các chính sách và mẫu biểu quản lý rủi ro",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác bên có liên quan chính",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hân viên đội dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nếu một dự án có 60% cơ hội kiếm được 100000$ và có 40% cơ hội mất 100000$, giá trị tiền tệ dự kiến cho dự án là: ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thu được 100000$",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mất đi 40000$",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mất đi 60000$",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thu được 20000$",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Cho rằng 2 đầu của dải các ước tính trung bình là +/-3sigma, dải ước tính nào dưới đây bao gồm ít rủi ro nhất? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Từ 22-30 ngày",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "28 ngày",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "30 ngày, cộng trừ 5 ngày",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Optimistic=26days, most likely=30days, pessimistic=33days",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi một PM đang bận thương lượng, kỹ năng truyền thông bằng phi ngôn ngữ là ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Rất quan trọng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quan trọng chỉ khi mục tiêu chi phí và lịch trình được kéo theo",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ít quan trọng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan trọng chỉ khi chắc rằng bạn muốn thương lượng thành công",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Sự kiện rủi ro nào dưới đây gây trở ngại cho việc đạt tới mục tiêu lịch thực hiện dự án nhất? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cuộc họp đã được lên kế hoạch để xem lại việc thực hiện k đúng thời hạn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chậm trễ trong việc có được các phê chuẩn được yêu cầu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tăng đáng kể chi phí mua nguyên vật liệu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tranh chấp hợp đồng sinh ra các yêu sách tăng thanh toán",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Dự án vừa bắt đầu và bao gồm nhân lực từ 14 phòng ban khác nhau. Tôn chỉ dự án được ký bởi một người và bao gồm hơn 30 yêu cầu chính phải được đáp ứng trong dự án. Nhà tài trợ thông báo với PM rằng SPI phải được giữ trong khoảng 0.95 và 1.1. một vài phút điều tra dẫn đến xác định được 34 bên có liên quan, và mục tiêu lịch trình đã có ràng buộc. PM vừa mới được tuyển dụng. loại quyền lực quản lý dự án nào dưới đây là tốt nhất để giúp PM có được sự hợp tác từ những người khác?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tư vấn, tham khảo (referent)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "huyên môn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Luật chính thức",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Luật phạt",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kỹ thuật giải quyết xung đột có thể được sử dụng trong dự án bao gồm: đối đầu, làm bình lặng (smoothing), vũ lực và: ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kiểm soát",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tổ chức (organizing)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trực tiếp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Rút lui (withdrawing)",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Vào cuối dự án, PM xác định dự án sẽ thêm 4 vùng chức năng và 3 vùng hiệu năng. Khách hàng bày tỏ sự hài lòng với dự án. Sự thành công của dự án có nghĩa là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Dự án không đủ tiêu chuẩn thành công",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dự án thành công do đội đã có cơ hội học các vùng chức năng mới và khách hàng hài lòng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dự án không thành công do khách hàng hài lòng nghĩa là họ phải trả thêm tiền cho công việc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dự án không thành công vì nó thực hiện thêm những điều khách hàng muốn mà k được trả thêm tiền (gold plating)",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": " Các điều dưới đây là mối quan tâm đặc trưng của thành viên đội dự án hướng ma trận (matrixed team members), ngoại trừ:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phát triển trách nhiệm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tính toán lợi ích biên khi làm việc trong nhiều dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Làm việc cho nhiều thủ trưởng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tự hỏi ai sẽ là người sử dụng khả năng (or định giá - evaluation) của họ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một PM phải công bố lịch trình dự án. Các hoạt động, ngày bắt đầu, kết thúc và các nguồn lực đã được xác định. Người PM nên làm gì tiếp theo?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tinh chỉnh kế hoạch quản lý dự án để phản ảnh các thông tin chi phí chính xác hơn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xác nhận sự có sẵn của các nguồn lực",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Công bố sơ đồ đoạn giải thích đường thời gian (timeline)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phân phối lịch trình dự án dựa theo kế hoạch quản lý truyền thông",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Dự án có 13 nhân viên và chịu ảnh hưởng từ 15 phòng ban trong tổ chức. Do dự án đã hoàn thành được 20% thời hạn dự án và có báo cáo hiệu năng thành công từ 5 phòng ban, PM tổ chức 1 buổi tiệc. PM mời các bên có liên quan từ tất cả các phòng ban, cung cấp những đánh giá tốt về một cơ hội truyền thông phi chính thức để truyền tải những điều tốt tới những phòng ban chưa tham gia vào dự án. Tại buổi tiệc, PM đi 1 vòng để khám phá và tìm các thông tin có liên quan tới 1 trng những phòng ban đang nói về việc thiết lập nhiều buổi họp chính thức hơn trong dự án. Điều tốt nhất PM nên làm đầu tiên là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chắc chắn rằng ban lãnh đạo có bản copy của kế hoạch quản lý truyền thông đểanh ta có thể nhớ những mối bận tâm này nên được gửi tới PM",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tổ chức một buổi họp với tất cả các bên có liên quan để thảo luận các mối bận tâm của họ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xem lại phương pháp phân phối thông tin trong dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Ghi lại những ấn tượng sâu sắc của buổi tiệc vào các bài học thu được từ dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  }
+]

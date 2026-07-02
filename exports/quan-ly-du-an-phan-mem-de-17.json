@@ -1,0 +1,1302 @@
+[
+  {
+    "StringContent": "Trong suốt quá trình thực hiện dự án,các thành viên trong đội dự án của bạn cung cấp 1 dự án cung cấp sản phẩm cho người mua.Ngoài ra,nguời mua từ chối sản phẩm,nói rằng không đáp ứng yêu cầu trên 300 trang trong xác định kĩ thuật.Bạn đã xem lại tài liệu và tìm thấy cái bạn đồng ý.Điều tốt nhất nên làm:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "iải thích rằng hợp đồng lỗi và có thể được thay đổi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "riệu tập 1 cuộc họp trong đội để xem xét lại yêu cầu ở trang 300",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "em lại các yêu cầu và gặp các thành viên trong nhóm đáp ứng để xem lại từ điển WBS",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ấn đề 1 thay đổi hóa đơn(issue a change order)",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nhân viên của bạn có 3 ngày đi muộn với 1 báo cáo. Cô ấy đi vào phòng họp nơi mà báo cáo được thảo luận và tay bạn có 1 bản copy từ 5 phút trước khi chủ đề được thảo luận. Bạn thông báo có 1 vài lỗi nghiêm trọng trong báo cáo. Làm thế nào để ngăn ngừa điều này?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "êu cầu cập nhật lại từ nhân viên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hắc chắn rằng nhân viên có đủ khả năng để làm việc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ủy cuộc họp sớm bởi vì bạn không có 1 sự thay đổi nào để xem lại báo cáo",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "uấn luyện và cố vấn cho các nhân viên",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn phải làm việc qua mạng. Có 30 chi nhánh trên ở Mỹ và 20 ở Anh. Một người bán phần mềm có 1 sản phẩm được nâng cấp cho các thiết bị đang được cài đặt. Việc nâng cấp sẽ cung cấp cho khách hàng với các chức năng mà họ yêu cầu, cái mà không có sẵn tại thời điểm bắt đầu của dự án. Hành động tốt nhất trong các trường hợp dưới đây",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ho biết việc nâng cấp của khách hàng và tác động đến thời gian của dự án và các chức năng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hực thi sự thay đổi để duy trì các site và tiếp tục với công việc lập lịch",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iếp tục lập kế hoạch, khách hàng của bạn không yêu cầu sự thay đổi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hực thi sự thay đổi và lập lịch là cần thiết bởi vì điều này yêu cầu sự hỗ trợ của khách hàng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một dự án phát triển phần mềm đang diễn ra không tốt. Có hơn 30 người tham gia và không ai thống nhất về các mục tiêu của dự án. Một người tin rằng dự án cho thể đạt được mức độ cải thiện là 30% trong khi người khác lại tin rằng 50% là điều có thể. Quản lý dự án nghĩ % mức độ cải thiện sản phẩm phải thực tế hơn. Hành động TỐT NHẤT là ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hực hiện phân tích khả thi",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "iếp tục dự án và tìm kiếm nhiều thông tin hơn sau này để giải quyết vấn đề này.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ấy trung bình các con số và coi đó là mục tiêu.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ỏi ý kiến nhà tài trợ để đưa ra quyết định cuối cùng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Vào gần thời điểm cuối cùng của dự án trước của ban, các yêu cầu mới được đòi hỏi bởi một nhóm các stakeholder (các bên liên quan) khi họ nhận thấy họ sẽ bị tác động bởi dự án của bạn. Điều này trở thành một vấn đề bởi bạn không lường trước thòi gian và chi phí trong kế hoạch quản lý dự án cho các yêu cầu này. Điều tốt nhất bạn có thể làm để ngăn chặn vấn đề tương tự trong tương lại là",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "em lại từ điển WBS kỹ lưỡng, tìm kiếm các mô tả chưa hoàn thiện.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "em lại tôn chỉ dự án một cách kỹ lưỡng hơn, rà soát các trường hợp nghiệp vụ để phát hiện các lỗ hổng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ập kế hoạch hợp đồng kỹ lưỡng hơn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "uan tâm nhiều hơn đến quản lý các bên liên quan",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Tổ chức thực hiện thì đang cố gắng để quyết định phân chia các bộ phận ký kết hợp đồng và giao trách nhiệm cho bộ phận trực tiếp chịu trách nhiệm về hợp đồng chuyên nghiệpcủa dự án. Một hợp đồng chuyên nghiệp có thể không muốn phân chia này xảy ra bởi vì họ sẽ mất ...trong một môi trường ký hợp đồng phân cấp",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "tiếp cận với những người khác với chuyên môn tương tự",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "iêu chuẩn hóa công ty quản lý dự án thực hành",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "kinh nghiệm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "trung thành với dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "công ty của bạn gặp phải một sự cố và cần phải thực hiện kí hợp đồng càng sớm càng tốt. Trong số những tình huống sau, cái nào sẽ hữu ích để thêm vào hợp đồng?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "các ưu đãi",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "các yêu cầu mà nhà thầu phụ có thể được sử dụng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "một điều khoản bất khả kháng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "1 báo cáo công việc theo hợp đồng rõ ràng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Việc đàm phán hợp đồng sẽ diễn ra trong phần nào của tiến trình mua bán ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "kế hoạch mua và mua lại",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "kế hoạch kí kết",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "yêu cầu các phản hổi của người bán",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "lựa chọn người bán",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong một cuộc họp với một số bên liên quan của dự án, quản lý dự án được đề nghị thêm công việc và phạm vi dự án. Người quản lý dự án đã trao đổi về dự án trước khi tôn chỉ của dự án được ký và anh ta nhớ rằng nhà tài trợ của dự án đặc biệt từ chối không chi thêm tiền cho phạm vi được đưa ra bởi những n gười ngày. Điều TỐT NHẤT mà người quản lý dự án nên làm là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ho nhà tài trợ biết về yêu cầu của stakeholder(các người liên quan)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hêm các công việc nếu thời gian còn cho phép trong lịch trình dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đánh giá tác động của việc mở rộng phạm vi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ói với stakeholder rằng phạm vi không thể thêm được nữa",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn phải bắt đầu quản lí một hợp đồng, khi bạn muỗn kết thúc một hợp đồng, điều bạn cần làm đầu tiền là ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ết thúc quản lí hợp đồng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đi đến hợp đồng kết thúc",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "uay trở lại hỏi xem phản ứng của người bán hang",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "uay trở lại kế hoạch hợp đồng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn đang ở giữa một cuộc đàm phán phức tạp khi các nhóm khác nói “Chúng ta cần hoàn thành trong 1h bởi vì tôi phải kịp h máy bay”. Người đó đang sử dụng chiến thuật đàm phán nào sau đây",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "êu cầu cực đại",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "àm trễ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ạn cuối",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "good guy,bad guy",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quản lý chương trình của bạn đã gặp bạn,PM để cần giúp đỡ về giá thầu cho 1 dự án mới của anh ta.Bạn muốn bảo vệ công ty của bạn khỏi những rủi ro về tài chính.Bạn giới hạn trong việc định nghĩa phạm vi.Kiểu hợp đồng tốt nhất bạn nên chọn là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ixed price(FP):hợp đồng đã có giá định trước",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ost plus fixed fee(CPFF):chi phí+phí cố định",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ost plus percent of cost(CPPC):chi phí+phần trăm chi phí",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ime and material:thời gian và nguyên liệu",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn là quản lý dự án cho một hoặc nhiều dự án trong 1 chương trình lớn và quan trọng. Tại một cuộc họp ở mức cao, bạn chú ý rằng những người quản ly dự án khác đã báo cáo về dự án của cô ấy theo như lập lịch. Quay lại với dự án của bạn từ vài tuần trước bạn nhớ có nhiều sản phẩm bàn giao từ các dự án khác cái mà chuyển đển muộn. Bạn nên làm gì.?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ặp người quản lý chương trình",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ây dựng một kế hoạch quản lý rủi ro",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hảo luận với ông chủ của bạn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ặp gỡ các quản lý dự án khác",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "quản lý dự án và nhà tài trợ dự án đang thảo luận các chi phí dự án và cho dù đó là tốt hơn nếu công ty riêng của họ làm chủ một phần của dự án hoặc thuê một công ty khác để làm việc. nếu họ hỏi ý kiến của bạn, bạn có thể nói nó sẽ là tốt hơn để làm một mình nếu:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "bạn có chuyên môn mà bạn không có nhân lực có sẵn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "có rất nhiều dữ liệu độc quyền",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "bạn không cần phải kiểm soát công việc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "nguồn tài nguyên của công ty bạn đang quá tải",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Với loại hợp đồng nào thì người bán liên quan phần lớn đến phạm vi dự án?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hợp đồng cộng vốn vào phí cố định",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "giá cố định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "đơn đặt hàng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "thời gian và nguyên liệu",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cái nào sau đây là ưu điểm của việc kí kết tập trung",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "tăng giám định của công ty trong việc kí kết",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "cho phép một contracts person làm việc trong một dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "cho phép truy cập dễ dàng hơn cho việc kí hợp đồng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "đem lại sự tin tưởng lớn hơn trong việc kí kết",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một dự án xây dựng lớn và phức tạp tại nước ngoài đòi hỏi phải chuyển các thiết bị qua các đường phố đông đúc của thành phố. Để đảm bảo là các thiết bị được vận chuyển thành công, người liên lạc ở quốc gia đó thông báo cho bạn rằng bạn sẽ phải trả phí cho việc điều phối giao thông. Bạn nên làm gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hông trả xu nào bởi vì nó là đút lót",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hông trả phí nếu nó không phai là một phần trong ước lượng của dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ủy bỏ công việc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "rả phí",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Như một phần của hệ thống lưu giữ, bạn cố gắng đảm bảo mọi bản ghi từ mua bán được hồ sơ hóa và được đánh chỉ số.Điều nào sau đây bạn không phải lo lắng",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Điều khoản và điều kiện",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hát biểu bài toán",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "êu cầu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iến trình đàm phán",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi kiểm tra lịch của một thành viên nhóm để sắp xếp một buổi họp, bạn thấy cô ấy đã lên lịch gặp với một “key stakeholder ” (một người quan trọng tham gia vào dự án) khác mà bạn không được thông báo. Chiến lược tốt nhất sẽ là :",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đề cập điều này với trưởng nhóm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hông báo cho sếp bạn về điều này",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đề cập với các thành viên nhóm",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "găn không đề cập tới điều này cho các thành viên của đội nhưng tiếp tục tquan sát các hoạt động của cô ấy",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Người bán hàng nhận thấy một hợp đồng để xây dựng một đường thẳng. Mỗi giai đoạn và điều kiện yêu cầu nó là kế hoạch làm việc được cấp phát để chấp nhận ưu tiên cho khách hàng để bắt đầu làm việc, tuy nhiên người bán hàng mắc phải một lỗi. Điều mà khách hàng cần phải làm là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ập kế hoạch làm việc và cấp phát cho khách hàng để di chuyển những thứ theo",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "gừng việc bán hàng cho đến khi lập một kế hoạch sửa chữa.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ắp xếp một thư ngỏ ý",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ấp cho một thư ngỏ mặc định",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "dự án của bạn vừa mới được nhanh chóng được vạch ra và bạn đang tìm kiếm một nhà thầu phụ để hoàn thành hợp tác nhanh chóng .không có thời gian để ra yêu cầu đề nghị , vì vậy bạn chọn một công ty mà trước đây bạn đã hợp tác nhiều lần cho phát triển phần mềm .một mối quan tâm chính trong vấn đề này là :",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "thông đồng giữa nhà thầu phụ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hà thầu phụ là tiêu chuẩn đánh giá",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "tổ chức một hội nghị nhà thầu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hà thầu phụ có trình độ chuyên môn",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểu hợp đồng nào bẹn không muốn sử dụng nếu bạn không đủ nguời để kiểm toán các hóa đơn:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ost plus fixed fee(CPFF)(chi phí+phí cố định)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ixed price(FP):đã định sẵn tiền",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ixed price incentive fee(FPIF):giá cố định khuyến khích thêm phí",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ime and material(TnM)(thời gian và vật chất)",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nhóm dự án đang tranh cãi về những người bán tiềm năng biết đã gửi đề xuất.Mỗi nhóm thành viên lập luận cho một người bán nhất định, trong khi một thành viên trong nhóm muốn dự án sẽ được trao cho người bán khác nhau. Điều TỐT NHẤT người quản lý dự án này cần phải nhắc nhở các nhóm để tập trung vào để thực hiện lựa chọn là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "mua sắm tài liệu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "đánh giá tiêu chuẩn",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "kiểm toán việc mua sắm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "kế hoạch quản lý mua sắm",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn luôn phải người quản lý của bạn để giảm việc ước lượng dự án của bạn là gần 10% sau khi bạn nhận nó từ người quản lý. Phạm vi của dự án mới của bạn là không sáng tỏ và có 30 bên liên quan. Quản lý mong đợi giảm 25% thời gian lãng phí trong dự án. Bạn chọn hành động nào tốt nhất trong tình huống này.",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ung cấp 1 sự ước lượng chính xác về giá thực tế và khả năng hỗ trợ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ập lại kế hoạch để cố gắng đạt 35% để cải thiện thời gian lãng phí",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ặp gỡ cả đội dự án để xác định bạn có thể tiết kiệm 10% thời gian bằng cách nào",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iảm việc ước lượng và chú ý sự thay đổi trong kế hoạch quản lý rủi ro",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Với một hợp đồng rõ ràng, một người bán hoàn thành công việc được chỉrõ, \nnhưng người mua không hài lòng với kết quả. Hợp động sẽ được xem xét để:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ừ bỏ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ô hiệu hóa (null and void)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hông hoàn thành.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "oàn thành",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Nhưmột phần của hệthống quản lýsổsách, bạn đang cốgắng chắc chắn rằng \ntoàn bộhồsơtừhợp đồng đã được ghi lại và ghi vào bản mục lục. Điều nào dưới \nđây bạn không nên lo lắng? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ác điều khoản và điều kiện",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "uyên bốcông việc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "uá trình thương lượng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ự đềnghị(proposal)",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tổ chức đang cố gắng quyết định có nên chia phòng ban quản lý hợp đồng và\nphân công trách nhiệm ký kết hợp đồng cho một phòng ban có trách nhiệm trực\ntiếp với dự án hay không. Một chuyên gia về hợp đồng không thực sự muốn có sự chia\ntách này do họ sẽ mất……………………… trong môi trường phân tán việc ký kết\nhợp đồng(or phi tập trung- decentralized)\n",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quyền được truy cập cho những người khác với những chuyên môn tương tự",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tiêu chuẩn thực hiện quản lý dự án của công ty",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sự trung thành với dự án (loyalty)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kinh nghiệm",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một dựán có 1 vài vấn đề, nhưng vẫn trong khảnăng kiểm soát. Vào những \ntháng cuối của dựán, phần lớn các khoản dựphòng đã được sửdụng và phần lớn các \nảnh hưởng tiêu cực của các sựkiện được dựbáo trước đều đã xảy ra. Có 4 hoạt động \ncòn sót lại và 2 hoạt động trong số đó nằm trên đường tới hạn. Ban lãnh đạo đã \nthông báo với PM rằng công ty thích hoàn thành dựán sớm hơn 2 tuần theo lịch để\nnhận được thêm lợi nhuận. Đểphản hồi lại, PM gửi một yêu cầu đềxuất cho 1 vài \ncông việc đội dựán chuẩn bịlàm, với hi vọng một công ty khác sẽhoàn thành \ncông việc nhanh hơn. PM tốt nhất nên cốgắng đểlàm việc với",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ác cơ hội.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ác minh phạm vi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hoản dự phòng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác nguy cơ.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mục tiêu chính của thương lượng đàm phán hợp đồng là:  \n  ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ó được sự quay vòng tiền tệ cao nhất(highest monetary return).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ảo vệmối quan hệ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ác định mục tiêu và gắn bó với mục tiêu đó",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ó thêm nhiều hơn từ bên kia",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": " Đội dựán dường nhưthích tranh luận: họ đã tranh luận vềmọi thứ. Thật may \nlà PM đã thiết lập 1 hệthống kiểm tra và các buổi họp xây dựng đội mà sẽgiúp đỡ\nvà khuyến khích đội dựán hợp tác nhiều hơn với nhau. Điều mới nhất họtranh \nluận là họnên tựhoàn thành gói công việc của mình hay thuê ngoài. Họ đang ở\ntrong quá trình nào của việc quản lýthu mua?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ựa chọn người bán",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "uản trịhợp đồng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "êu cầu trảlời người bán",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ếhoạch thu mua",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Một cuộc thương lượng lớn với 1 nhà thầu phụ tiềm năng đã được lên lịch vào\nngày mai, bạn phát hiện ra có 1 cơ hội tốt mà dự án sẽ bị hoãn. Bạn nên làm gì?\n",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cắt giảm thời gian thương lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hoãn cuộc thương lượng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Không giành nhiều thời gian chuẩn bị cho cuộc thương lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ thương lượng các hạng mục chunhs",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn đang làm việc trong dự án nghiên cứu và phát triển, khách hàng yêu cầu\nbạn bao gồm một thành phần đặc biệt vào dự án. Bạn biết rằng nó có nghĩa là thêm\ncông việc, và bạn k muốn có sự vượt quá nguồn dự trữ có sẵn. bạn nên làm gì?\n",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Sử dụng nguồn dự trữ từ khoản dành riêng ngẫu nhiên để bù đắp chi phí",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xóa gói công việc có mức ưu tiên thấp hơn để dành thời gian và nguồn dự trữ\ncó sẵn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tuân theo quy trình kiểm soát thay đổi hợp đồng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Yêu cầu thêm nguồn dự trữ từ nhà tài trợ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một khi đã k{, hợp đồng là ràng buộc pháp lý trừ phi\n  ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ột bên không đủ khả năng tài chính cho phần công việc của họ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ột bên không thể thực hiện",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ợp đồng được tuyên bốlà vô hiệu lực thông qua luật sư của 1 trong 2 bên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "i phạm luật pháp",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Nhà tài trợvà PM đang thảo luận loại hợp đồng nào mà PM lên kếhoạch sử\ndụng trong dựán. Người bán chỉra rằng tổchức thực hiện đã dành ra nhiều tiền để\nthuê đội ngũthiết kế để đưa ra bản thiết kế. PM lo lắng rằng rủi ro từngười mua sẽ\nít nhất có thể. Một lợi thếtừhợp đồng giá cô định cho người bán là ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hi phí rủi ro cao hơn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hỉcó ít rủi ro.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ủi ro được chia đều cho tất cảcác bên.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": ". Chi phí rủi ro nhỏhơn",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": " Một thủtục kiểm tra của hợp đồng có thểhoàn trảchi phí (cost reimbursable \nCR) xác định báo giá cao đã được thực hiện. Nếu hợp đồng không chỉrõ các hành \nđộng hiệu chỉnh, người mua nên:\n  ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hay đổi hợp đồng đểyêu cầu nhiều kiểm tra thường xuyên hơn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ô hiệu hóa hợp đồng và bắt đầu các hành động pháp l{ đểthu hồi khoản thanh \ntoán vượt quá",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "rả 1 nửa cho đến khi vấn đề được khắc phục",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iếp tục thực hiện trả tiền cho dự án",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Giám đốc dự án đã khám phá vấn đề với môđun thống kê của dự án. Các số đo đã được ghi rõ cho các đơn vị của của Mỹ nhưng các nhà lập trình nước ngoài sử dụng các đơn vị quốc tế. Vấn đề này có thể tránh được ở chỗ nào trong dự án?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "iểm thử dự án.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iểm soát dự án.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ập kế hoạch dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "uay vòng dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn luôn được ban lãnh đạo yêu cầu cắt giảm ước tính dự án 10% sau khi bạn\nđưa nó cho họ. phạm vi của dự án mới là k rõ ràng và có hơn 30 bên có liên quan.\nBan lãnh đạo mong muốn giảm thời gian giải lao 25% như 1 kết quả của dự án.\nĐiều nào dưới đây là hành động tốt nhất trong tình huống này?\n",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Giảm ước tính và ghi lại thay đổi trong kế hoạch phản ứng rủi ro",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lên kế hoạch lại để có được 35% cải thiện thời gian giải lao",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cung cấp một ước tính chính xác của chi phí thực tế và cố gắng chứng minh nó",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Gặp đội dự án để xác định bạn có thể tiết kiệm 10% ở đâu",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một dựán thực hiện theo hợp đồng có thểhoàn lại chi phí cuối cùng đã sắp \nkết thúc. Người mua phải nhớphải làm gì",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "iảm mức độrủi ro của dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ước tính lệphí anh ta phải trả",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hắc chắn rằng người bán không thêm nguồn lực nào",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iểm tra sự đồng thuận với giá của người bán",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn được trang bịnhưmột người quản lýcủa một dựán lớn, mới và phức tạp. \ndo dựán này là then chốt trong kinh doanh và rất rõ ràng (visible), các nhà quản lý\ncấp cao nói với bạn phân tích rủi ro dựán và chuẩn bịchiến lược đáp ứng rủi ro \ncàng sớm càng tốt. Tổchức có quy trình quản lýrủi ro mà rất ít khi được sửdụng, và \ncó lịch sửnắm bắt rủi ro kém. Điểm mốc đầu tiên của dựán là trong vòng 2 tuần \nnữa. Trong khi chuẩn bịkếhoạch đối phó rủi ro, đầu vào từ đâu thông thường là ít \nquan trọng nhất trong sốcác đáp án sau:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hững cá nhân có trách nhiệm với các chính sách và mẫu biểu quản lý rủi ro",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hà tài trợ dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hân viên đội dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác bên có liên quan chính",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một PM vừa hoàn thành kế hoạch đối phó rủi ro cho 1 dựán kỹ thuật có kinh \nphí 387000$. Điều nào dưới đây anh ta nên làm tiếp theo?  ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hêm các gói công việc vào bảng WBS",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ổ chức đánh giá lại rủi ro dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác định tỷlệ rủi ro tổng thể cho toàn dựán",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ắt đầu phân tích rủi ro và chỉra trong phác thảo dựán (project drawing)",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Giám đốc dự án đang xây dựng kế hoạch cho dự án. Giám đốc dự án đã xác định các nhiệm vụ và chỉ định nguồn lực thích hợp. Công cụ được sử dụng thông báo rằng một vài nguồn lực được phân bổ xong. Bước tiếp theo của giám đốc dự án sẽ là gì? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "êu cầu thêm nguồn lực.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ự thảo ngân sách ngoài giờ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "i chuyển các nguồn lực.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Điều chỉnh nguồn lực",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong khi lên kếhoạch quản lýrủi ro, đội của bạn đã đưa ra 434 rủi ro và 16 \nnguyên nhân chính của các rủi ro này. Dựán là dựán cuối cùng trong chuỗi các dự \nán mà đội sẽlàm việc cùng nhau. Nhà tài trợrất khuyến khích và một khối lượng \nlớn thời gian đã được đầu tư đểchắc chắn tôn chỉdựán đã hoàn thành và được k{ bởi \ntất cảcác bên có liên quan chính. Trong giai đoạn lập kếhoạch dựán, đội không \nđưa ra một cách thức hiệu quả đểlàm giảm hoặc thoát rủi ro. Nó không phải là \ncông việc đểcó thểthuê ngoài hay bịloại bỏ. Giải pháp tốt nhất là:   ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ìm kiếm cách đểtránh rủi ro",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iếp tục điều tra để làm giảm nhẹ rủi ro",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hấp nhận rủi ro",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ìm kiếm cách để chuyển rủi ro (transfer the risk)",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nếu 1 rủi ro có 20% cơ hội xảy ra trong 1 tháng cho trước, và dự án dự kiến\nkéo dài 5 tháng, xác suất mà sự kiện rủi ro này sẽ xảy ra trong tháng thứ 4 của dự\nán là bn?\n",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "80%",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ít hơn 1%",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "20%",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "60%",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn được phân công quản lý 1 dự án đã hoàn thành được 1 nửa theo lịch trình. Sau\nđánh giá bao quát, bạn phát hiện ra dự án đang đi chậm hơn lịch trình(far behind\nschedule), và dự án có thể sẽ kéo dài gấp đôi thời gian ước tính ban đầu của PM\ntrước. tuy nhiên, nhà tài trợ đã được nói là dự án đang đúng lịch trình. Hành đông tốt\nnhất là:\n",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tiếp tục thực hiện với lịch trình được PM cũ lên kế hoạch và báo cáo điều này vào\nđiểm mốc bị lỡ đầu tiên (first missed milestone)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Báo cáo đánh giá của bạn với nhà tài trợ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chuyển lại dự án cho PM cũ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cố gắng cấu trúc lại lịch trình để đáp ứng với thời hạn cuối cùng của dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một PM cho người bán được ban lãnh đạo của cô ấy nói rằng dựán nên làm điều \ngì có thể đểthưởng tiền ưu đãi. Mục tiêu chính của các điều khoản ưu đãi trong \nhợp đồng là \n  ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đồng bộ hóa các mục tiêu",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "iúp người bán kiểm soát chi phí",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iảm giá thành từ người mua",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iảm rủi ro từ người bán bằng cách chuyển rủi ro sang phía người mua",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn đang đi được ½ chặng đường qua 1 buổi giới thiệu máy bay mạng lớn\n(major network rollout). Có 300 địa điểm trong US và 20 ở UK. Một người bán\nphần mềm vừa phát hành một phần mềm lớn nâng cao chất lượng cho 1 vài thiết bị\nđược cài đặt. việc nâng cao chất lượng cung cấp cho khách hàng chức năng họ yêu\ncầu mà không có sẵn tại thời điểm dự án bắt đầu. trong điều kiệnnày, hành động\nnào là tốt nhất?\n",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tiếp tục theo kế hoạch, khách hàng của bạn sẽ không yêu cầu thay đổi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cài đặt thay đổi đối với các địa điểm còn lại và tiếp tục theo lịch trình",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cài đặt thay đổi và điều chỉnh lịch trình nếu cần thiết vì nó hỗ trợ yêu cầu đầu\ntiên của khách hàng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thông báo với khách hàng về việc nâng cao chất lượng và ảnh hưởng của nó tới\nthời gian và các chức năng của dự án",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": " Bạn vừa được phân công làm PM cho một dựán truyền thông mới và đang bắt \nđầu vào giai đoạn thứ2 của dựán. Có khá nhiều rủi ro xuất hiện trong dựán, \nnhưng không có ai ước tính chúng để đánh giá khoảng kết quảcó thểxảy ra. Điều \ngì cần được hoàn thành?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "iểm soát rủi ro",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ế hoạch quản lý rủi ro",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ế hoạch định lượng rủi ro",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ế hoạch đối phó rủi ro",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": " Trong một hợp đồng giá cố định, lệphí hay lợi nhuận là",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": ". Không xác định",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "à 1 phần trong thương lượng liên quan trong việc chi trảmọi hóa đơn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đc xác định với các bên khác vào cuối dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Áp dụng như một mục hàng trong mọi hóa đơn",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một người bán đang thực hiện hợp đồng hoàn trảchi phí CR khi người mua \nquyết định sẽmởrộng phạm vi dịch vụvà thay đổi thành hợp đồng giá cố định \n(fixed price FP). Tất cảcác điều dưới đây là lựa chọn của người bán, ngoại trừ\n  ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "oàn thành công việc lúc đầu và từchối các công việc thêm vào",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hương lượng một hợp đồng giá cố định bao gồm tất cảcác công việc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "oàn thành công việc lúc đầu trong hoàn trảchi phí cơbản và sau đó thương \nlượng 1 giá sẵn đối với các công việc thêm vào",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ắt đầu một hợp đồng mới",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn đang ở giai đoạn giữa dự án của một sản phẩm mới phát triển cho 1công\nty công khai giao dịch, bạn biết được người PM trước đã chi trả 3000000$ mà không\nđược phê chuẩn theo chính sách công ty. Thật may mắn, CPI=1.2. bạn nên làm gì?\n",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Liên lạc với người quản lý của bạn",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Từ chối khoản chi này",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Che giấu khoản chi này trong phần tập trung chi phí lớn nhất sẵn có (the largest\ncost center available)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đặt khoản chi đó vào một tài khoản của bên thứ 3 (escrow account) để làm bằng\nchứng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  }
+]

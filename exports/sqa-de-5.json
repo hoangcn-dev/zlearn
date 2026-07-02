@@ -1,0 +1,1302 @@
+[
+  {
+    "StringContent": "Khi một thực thể chuyển trạng thái, hành động kèm theo có thể là gì?",
+    "Explanation": "Hành động kết hợp với việc chuyển đổi trạng thái mô tả phản ứng của hệ thống với sự kiện.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khởi động một bộ đếm thời gian (timer).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "In ra một hóa đơn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các phương án trên.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Gửi một thông báo.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tại sao MT lại được gọi là 'Kiểm thử cái không thể kiểm thử'?",
+    "Explanation": "Nó giúp kiểm tra các hệ thống mà trước đây coi là không thể xác minh một cách tự động.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vì nó vượt qua rào cản của việc không có kết quả mong đợi (oracle).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vì nó không cần bất kỳ đầu vào nào.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì nó có thể tìm ra 100% lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì nó tự động viết code thay lập trình viên.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nếu điều kiện đầu vào là 'x dao động từ 0 đến 100', các giá trị biên cần test tối thiểu theo BVA là gì?",
+    "Explanation": "BVA yêu cầu test tại biên (0, 100) và các giá trị ngay sát biên ngoài (-1, 101).",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "25, 50, 75.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "1, 99.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "0, 100, -1, 101.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "0, 50, 100.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bảng quyết định (Decision Table) thường được dùng để làm gì?",
+    "Explanation": "Bảng quyết định giúp mô tả các logic kết hợp nhiều điều kiện một cách dễ đọc và kiểm soát.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kiểm tra tính đúng đắn của vòng lặp for.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giảm số lượng tham số đầu vào.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Theo dõi các trạng thái thay đổi của thực thể.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ghi lại và kiểm thử các quy tắc kinh doanh (business rules) phức tạp.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Kỹ thuật Kiểm thử từng đôi (Pairwise Testing) dựa trên quan điểm thực tế nào?",
+    "Explanation": "Pairwise tập trung vào các cặp giá trị vì thực tế đa số lỗi do sự kết hợp của 2 yếu tố gây ra.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cần 2 tester cùng ngồi test một module.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi luôn nằm ở giá trị lớn nhất của tham số.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hầu hết các lỗi phát sinh từ sự tương tác giữa các cặp tham số đầu vào.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tất cả các tham số đều độc lập với nhau.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Lợi ích lớn nhất của Pairwise Testing so với kiểm thử vét cạn (exhaustive) là gì?",
+    "Explanation": "Nó ngăn chặn sự bùng nổ số lượng test case khi hệ thống có nhiều thuộc tính và giá trị.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đảm bảo tìm thấy 100% tất cả các lỗi có thể có.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giảm đáng kể số lượng test case mà vẫn đảm bảo độ phủ các tương tác lỗi.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Không cần sử dụng máy tính để tạo test case.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lập trình viên viết code nhanh hơn.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong thơ Nôm, hình ảnh \"bông sen\" thường biểu tượng cho:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Sự giàu sang",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sự đau thương",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sự tàn phá",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sự trong sáng, tinh khiết",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Thể thơ \"lục bát\" thường có nhịp điệu:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "5-7-5",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "4-4-4-4",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "7-7-7-7",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "6-8",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Kỹ thuật nào được thiết kế để kiểm thử những chương trình 'không thể kiểm thử' (untestable)?",
+    "Explanation": "Kiểm thử biến hình được dùng khi không có oracle để xác minh tính đúng đắn của kết quả.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kiểm thử cấu hình.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử luồng dữ liệu.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử biến hình (Metamorphic Testing).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Phân tích giá trị biên.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mục tiêu của dữ liệu trong Volume test là gì?",
+    "Explanation": "Volume test tập trung vào khối lượng bản ghi khổng lồ để xem hệ thống có bị chậm hay crash không.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kiểm tra hiệu năng khi hệ thống phải xử lý lượng dữ liệu lớn.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kiểm tra màu sắc giao diện.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đảm bảo tính chính xác của từng bản ghi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm tra lỗi bảo mật mật khẩu.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Stress testing thường được thực hiện thủ công bằng cách nào?",
+    "Explanation": "Cách này giả lập tình trạng thiếu hụt tài nguyên bất ngờ để xem phản hồi của phần mềm.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Ngắt kết nối tài nguyên (mạng, điện) khi đang thực hiện test case.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Nhờ nhiều người cùng vào trang web.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cài đặt lại hệ điều hành.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đọc mã nguồn để tìm lỗi.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử khả năng phục hồi (Recovery Test) đặc biệt quan trọng với loại hệ thống nào?",
+    "Explanation": "Đảm bảo hệ thống có thể quay lại trạng thái ổn định sau khi mất điện hoặc dữ liệu mà không gây thiệt hại.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phần mềm nghe nhạc.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ứng dụng máy tính (Calculator).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các trò chơi offline.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các hệ thống giao dịch như ngân hàng trực tuyến.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Thực thể trong 'End-to-End testing' được theo dõi từ khi nào?",
+    "Explanation": "Ví dụ: theo dõi một đơn bảo hiểm từ lúc mua đến lúc tất toán hoặc hủy bỏ sau nhiều năm.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Từ lúc được tạo ra cho đến khi kết thúc vòng đời trong phần mềm.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chỉ kiểm tra lúc xuất báo cáo cuối cùng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ kiểm tra lúc mới cài đặt.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Từ lúc lập trình viên bắt đầu viết code.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử cấu hình (Configuration Test) nhằm mục đích gì?",
+    "Explanation": "Đảm bảo phần mềm tương thích và hoạt động ổn định trên nhiều môi trường cấu hình.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thay đổi logo công ty trên web.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xóa bớt dữ liệu cũ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phân tích hệ thống với các thiết lập phần cứng và phần mềm khác nhau.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cài đặt lại hệ điều hành Windows cho máy tính.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi nào ta nên dừng quá trình kiểm thử Blackbox?",
+    "Explanation": "Người quản lý dự án sẽ dựa trên kế hoạch và thực tế để ra quyết định dừng test.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khi tỉ lệ phát hiện lỗi giảm dưới mức chấp nhận được theo chuẩn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khi đã thực hiện hết các test case trong kế hoạch.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khi hết thời gian và ngân sách dự án.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tùy thuộc vào các điều kiện dừng được xác định trong kế hoạch (có thể gồm các ý trên).",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Thứ tự đúng của quy trình kiểm thử biến hình là:",
+    "Explanation": "Quy trình MT bắt đầu từ các ca thử nghiệm nguồn làm nền tảng so sánh.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tạo source test case -> Xác định MR -> Tạo follow-up test case -> Xác minh vi phạm.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Xác định MR -> Viết code -> Test lỗi -> Báo cáo.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tạo follow-up -> Xác định MR -> Tạo source -> Đóng lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chạy tất cả test case -> Xác định MR -> Sửa lỗi.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử chức năng (Functional testing) trong kiểm thử hệ thống nhằm đảm bảo điều gì?",
+    "Explanation": "Mục tiêu của kiểm thử chức năng là xác nhận sự vận hành đúng đắn của các tính năng phần mềm.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Mã nguồn được viết tối ưu.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phần mềm không tốn quá nhiều RAM.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các chức năng hoạt động đúng theo đặc tả.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Giao diện phải có màu xanh.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một hành động được gán dấu 'X' trong Bảng quyết định có nghĩa là:",
+    "Explanation": "Dấu 'X' đánh dấu kết quả đầu ra dự kiến của một quy tắc nghiệp vụ.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hành động này bị lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hành động đó sẽ được thực hiện khi các điều kiện tương ứng thỏa mãn.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hành động đó bị cấm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lập trình viên phải xóa code này.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong BVA cho kết quả (Output), nếu hệ thống hiển thị tóm tắt tối đa 4 tin tức, các test case nên là:",
+    "Explanation": "BVA áp dụng cho không gian kết quả cũng yêu cầu kiểm tra tại và sát biên.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hiển thị 0 tin, 1 tin, 4 tin (hợp lệ) và 5 tin (không hợp lệ).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hiển thị đúng 4 tin là đủ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hiển thị 100 tin để test stress.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ cần test khi không có tin nào.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Lược đồ chuyển trạng thái KHÔNG phù hợp cho loại ứng dụng nào?",
+    "Explanation": "Kỹ thuật này chỉ hiệu quả khi hệ thống có nhiều trạng thái và ghi nhận các sự kiện thay đổi trạng thái.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Ứng dụng một màn hình duy nhất không lưu lại lịch sử thao tác.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Phần mềm nhúng điều khiển máy giặt.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy trình đặt mua vé máy bay.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hệ thống rút tiền ATM.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kỹ thuật Pairwise Testing thường sử dụng công cụ nào để sinh bộ test case tối ưu?",
+    "Explanation": "PICT là một công cụ phổ biến giúp tạo tổ hợp tất cả các cặp giá trị tham số.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Photoshop.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Công cụ PICT của Microsoft hoặc tương đương.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Notepad.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Excel.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Độ bao phủ của Phân vùng tương đương càng cao thì:",
+    "Explanation": "Độ bao phủ lớn có nghĩa là nhiều vùng xử lý dữ liệu khác nhau đã được kiểm tra.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Độ tin cậy của việc kiểm thử càng cao.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lập trình viên càng ít việc.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phần mềm chạy càng nhanh.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giao diện web càng đẹp.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mục tiêu chính của kỹ thuật Phân vùng tương đương là gì?",
+    "Explanation": "Phân vùng tương đương chia dữ liệu thành các lớp mà hệ thống xử lý như nhau để chọn ra đại diện, giúp giảm số lượng test case.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Giảm số lượng test case bằng cách chọn các giá trị đại diện cho mỗi vùng xử lý giống nhau.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tìm lỗi trong các câu lệnh if-else.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm tra tất cả các giá trị có thể có của miền đầu vào.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đo lường độ phức tạp Cyclomatic.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử chuyển đổi trạng thái (State Transition Testing) đặc biệt hữu ích cho loại ứng dụng nào?",
+    "Explanation": "Các hệ thống này thường có các trạng thái phụ thuộc vào trình tự hoạt động và sự kiện.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Các trang web tĩnh chỉ hiển thị thông tin.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các ứng dụng chỉ xử lý các phép tính toán học đơn giản.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử đơn vị cho các hàm độc lập.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ứng dụng dựa trên menu, phần mềm nhúng hoặc quy trình kinh doanh.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Kỹ thuật 'Phân vùng tương đương' bao gồm những loại phân vùng nào?",
+    "Explanation": "Để kiểm thử đầy đủ, cần xem xét cả các giá trị hệ thống chấp nhận và từ chối.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vùng do Dev tạo và vùng do khách hàng tạo.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vùng số và vùng chữ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vùng biên và vùng trung tâm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phân vùng hợp lệ (Valid) và không hợp lệ (Invalid).",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Vấn đề Oracle (Test Oracle Problem) trong kiểm thử là gì?",
+    "Explanation": "Đây là thách thức với các chương trình như máy học, công cụ tìm kiếm nơi kết quả mong đợi không hiển nhiên.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tình huống không có cơ chế nào để quyết định đầu ra là đúng hay sai (hoặc rất khó xác định).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Máy tính bị hỏng không thể chạy phần mềm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Việc khách hàng từ chối cung cấp yêu cầu.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi do cơ sở dữ liệu Oracle bị sập.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong BVA, nếu đầu vào hay đầu ra là một danh sách có thứ tự, ta nên tập trung vào:",
+    "Explanation": "Đây là các điểm biên của cấu trúc dữ liệu danh sách.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Các phần tử có giá trị là số chẵn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các phần tử ngẫu nhiên.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các phần tử ở giữa danh sách.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các phần tử đầu tiên và cuối cùng của tập hợp.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi một điều kiện đầu vào là một tập hợp các giá trị (ví dụ: các loại xe bus, taxi, tải), ta xác định các vùng tương đương như thế nào?",
+    "Explanation": "Theo nguyên tắc, mỗi giá trị hợp lệ cụ thể trong tập hợp sẽ tạo ra 1 lớp tương đương hợp lệ.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Gộp tất cả thành 1 test case duy nhất.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không có vùng không hợp lệ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mỗi giá trị trong tập hợp là một vùng hợp lệ riêng biệt.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chỉ có 1 vùng hợp lệ cho tất cả.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Sự khác biệt giữa Positive test và Negative test là gì?",
+    "Explanation": "Positive test khẳng định chức năng, trong khi Negative test đảm bảo hệ thống chịu lỗi tốt với dữ liệu sai.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Positive do Dev làm; Negative do Tester làm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Positive xác nhận chạy đúng đặc tả; Negative tìm lỗi ẩn bằng cách thử các hành động sai/ngoại lệ.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Không có sự khác biệt giữa hai loại này.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Positive chỉ dùng cho hộp trắng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mức độ độ phủ 'Phủ cấp 1' trong lược đồ chuyển trạng thái yêu cầu điều gì?",
+    "Explanation": "Phủ cấp 1 tập trung vào việc đi qua tất cả các nút trạng thái trong sơ đồ.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Mỗi lần chuyển trạng thái phải được lặp lại 2 lần.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mỗi trạng thái của phần mềm phải xảy ra ít nhất 1 lần.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mọi sự kiện phải xảy ra ít nhất 1 lần.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mọi đường dẫn (path) phải được kiểm thử.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một tên gọi khác của kiểm thử hộp đen là gì?",
+    "Explanation": "Vì nó quan tâm đến phản ứng của hệ thống với các kích thích đầu vào nên được gọi là behavior-based.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kiểm thử luồng điều khiển.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử cấu trúc (Structural testing).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử dựa trên hành vi (Behavior-based testing).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kiểm thử đơn vị tự động.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Việc lựa chọn các loại kiểm thử hệ thống (Load, Stress, Security...) phụ thuộc vào ai?",
+    "Explanation": "PM sẽ cân đối nguồn lực, thời gian và yêu cầu để chọn các loại test phù hợp.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Do khách hàng ép buộc 100%.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Do lập trình viên tự quyết định.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Do Quản lý dự án quyết định dựa trên yêu cầu và đặc trưng hệ thống.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Do nhân viên bảo vệ công ty.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tại sao Parallel testing lại quan trọng với hệ thống đặt vé máy bay?",
+    "Explanation": "Parallel/Concurrent testing kiểm tra khả năng quản lý truy cập đồng thời vào cùng một tài nguyên.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để nhân viên bán vé được nghỉ ngơi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đảm bảo tính sẵn sàng và xử lý tranh chấp khi nhiều người cùng đặt 1 chỗ ngồi.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Để đảm bảo web có màu sắc đẹp.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để kiểm tra tốc độ internet của khách hàng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nếu một kỹ thuật kiểm thử 'dựa trên các ca kiểm thử nguồn và thuộc tính của thuật toán', đó là kỹ thuật nào?",
+    "Explanation": "MT sử dụng các thuộc tính thuật toán (MR) để kiểm tra tính đúng đắn khi không có oracle.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kiểm thử cài đặt.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử biến hình (MT).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kiểm thử luồng điều khiển.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phân vùng tương đương.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Lỗi 'Race Condition' dẫn đến sự cố mất điện năm 2003 tại Mỹ và Canada là gì?",
+    "Explanation": "Race condition xảy ra khi hai thread sử dụng cùng tài nguyên mà không có xử lý đồng bộ, dẫn đến sụp đổ hệ thống [18, 19].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lỗi kết nối mạng giữa các nhà máy điện.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi làm tròn số trong tính toán thời gian thực.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi do quá tải dung lượng lưu trữ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hai luồng xử lý cùng truy cập một tài nguyên mà không đồng bộ đúng cách.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử hộp đen (Blackbox testing) là kỹ thuật kiểm thử dựa trên yếu tố nào?",
+    "Explanation": "Kiểm thử hộp đen tập trung vào đầu vào và đầu ra dựa trên đặc tả mà không cần biết mã nguồn bên trong.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phân tích tài liệu yêu cầu và đặc tả (hành vi hệ thống).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cấu trúc mã nguồn bên trong.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các thuật toán lập trình phức tạp.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Luồng dữ liệu của các biến cục bộ.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mức độ trưởng thành của mục tiêu kiểm thử Level 0 có đặc điểm gì?",
+    "Explanation": "Ở Level 0, kiểm thử và gỡ lỗi được coi là một hoạt động duy nhất.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tập trung vào việc đào tạo nhân viên mới.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không có sự khác biệt giữa kiểm thử và gỡ lỗi (debugging).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Nhằm giảm thiểu rủi ro khi sử dụng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhằm chứng minh phần mềm không có lỗi.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong phân vùng tương đương, độ phủ (Coverage) được tính như thế nào?",
+    "Explanation": "Công thức tính độ phủ cho kỹ thuật phân vùng tương đương dựa trên tỷ lệ phân vùng được kiểm tra.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Số lỗi tìm thấy / Tổng số test case.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "(Số phân vùng đã kiểm thử / Tổng số phân vùng) * 100%.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Số dòng code đã chạy / Tổng số dòng code.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Số điều kiện đúng / Tổng số điều kiện.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quan hệ biến hình (Metamorphic Relation - MR) là gì?",
+    "Explanation": "MR là cốt lõi của kiểm thử biến hình, dùng để so sánh các kết quả với nhau.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Các thuộc tính của thuật toán thể hiện mối liên hệ giữa đầu vào và đầu ra của nhiều lần thực thi.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cách thức chuyển đổi từ code Java sang C++.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một lỗi logic khiến chương trình bị treo.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mối quan hệ giữa khách hàng và nhà phát triển.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Ca kiểm thử Blackbox (Test case) được công thức hóa đơn giản là một cặp của:",
+    "Explanation": "Đây là cốt lõi của một kịch bản kiểm thử dựa trên hành vi bên ngoài.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "(Code, Lỗi).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "(Input, Output mong muốn).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "(Hợp đồng, Ngân sách).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "(Tester, Developer).",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Các ca kiểm thử 'Follow-up' trong kiểm thử biến hình được tạo ra từ đâu?",
+    "Explanation": "Follow-up test case được sinh dẫn xuất từ source test case thông qua các thuộc tính của MR.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Từ các lỗi cũ đã được sửa.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Từ các tài liệu hướng dẫn sử dụng của đối thủ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dựa trên các ca kiểm thử nguồn và Quan hệ biến hình (MR).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Từ ý tưởng ngẫu nhiên của tester.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Vụ nổ tàu vũ trụ Ariane 5 năm 1996 là do loại lỗi phần mềm nào?",
+    "Explanation": "Lỗi xảy ra khi chuyển đổi dữ liệu từ số floating point 64-bit sang integer 16-bit, giá trị vượt quá giới hạn biểu diễn [7].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lỗi Race Condition.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi tràn số nguyên (Integer Overflow).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lỗi chia cho số 0.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi làm tròn số thập phân.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Ai là tác giả của tiểu thuyết \"Số Đỏ\"?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nam Cao",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vũ Trọng Phụng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hồ Chí Minh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ngô Tất Tố",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Biện pháp tu từ \"ẩn dụ\" được dùng trong câu: \"Biển xanh là tấm thảm của trời\". Ở đây, \"biển xanh\" được so sánh với:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Bầu trời",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ngọn đèn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tấm thảm",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mây trắng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo IEEE, kiểm thử phần mềm được định nghĩa là gì?",
+    "Explanation": "Định nghĩa chuẩn của IEEE tập trung vào việc thực thi dưới điều kiện xác định để quan sát và đánh giá kết quả.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quá trình khảo sát hệ thống dưới điều kiện xác định, ghi lại kết quả và đánh giá khía cạnh của hệ thống.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quá trình viết mã nguồn để đảm bảo không có lỗi cú pháp.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hoạt động chỉnh sửa lỗi ngay khi phát hiện lỗi trong lúc lập trình.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Việc khách hàng dùng thử sản phẩm để thanh toán hợp đồng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "IV & V (Independent Verification and Validation) có đặc điểm gì quan trọng?",
+    "Explanation": "IV&V yêu cầu việc đánh giá phải khách quan, do người ngoài nhóm dự án hoặc tổ chức độc lập thực hiện [33].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Không bao giờ cần đến chuyên gia trong lĩnh vực.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Được thực hiện bởi chính lập trình viên viết code đó.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ thực hiện sau khi phần mềm đã bàn giao 1 năm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Việc đánh giá được thực hiện bởi một bên độc lập không viết code.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Đặc điểm nổi bật nhất của mô hình phát triển phần mềm Thác nước (Waterfall) là gì?",
+    "Explanation": "Mô hình Thác nước thực hiện các pha xác định yêu cầu, phân tích, thiết kế... theo một chuỗi tuyến tính.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quy trình thực hiện theo các trình tự tuyến tính, chặt chẽ.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mẫu thử được bàn giao liên tục cho khách hàng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khách hàng tham gia vào tất cả các pha.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phát triển qua các vòng lặp ngắn.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong mô hình Chữ V, giai đoạn 'Phân tích yêu cầu' tương ứng với mức độ kiểm thử nào?",
+    "Explanation": "Mô hình Chữ V thể hiện mối quan hệ song song giữa Phân tích yêu cầu và Thiết kế kiểm thử chấp nhận.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kiểm thử chấp nhận (Acceptance Test).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kiểm thử đơn vị (Unit Test).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử hệ thống (System Test).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử tích hợp (Integration Test).",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mục đích chính của việc sử dụng mô hình Mẫu thử (Prototyping) là gì?",
+    "Explanation": "Mẫu thử được cung cấp lặp đi lặp lại để lấy phản hồi và làm rõ yêu cầu khách hàng.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để làm rõ yêu cầu của khách hàng thông qua phản hồi lặp lại.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Để viết code nhanh hơn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để tiết kiệm tối đa chi phí nhân sự.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để loại bỏ hoàn toàn giai đoạn kiểm thử.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "\"Chiếc thuyền không bến\" là một tác phẩm thuộc thể loại nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tiểu thuyết",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Truyện ngắn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kịch nói",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thơ tự do",
+        "IsCorrectAnswer": true
+      }
+    ]
+  }
+]

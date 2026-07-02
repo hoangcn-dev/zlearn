@@ -1,0 +1,1298 @@
+[
+  {
+    "StringContent": "Khi sản phẩm hoặc dịch vụ hoàn toàn đáp ứng được yêu cầu của khách hàng ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hi phí chất lượng cao",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hách hàng trả giá thấp nhất",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đạt được (hoàn thành) chất lượng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hi phí chất lượng thấp",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn được yêu cầu lựa chọn công cụ và kĩ thuật để thực thi một chương trình bảo đảm chất lượng để bổ sung thêm 1 số hoạt động kiểm soát chất lượng.bạn sẽ lựa chọn gì ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "biểu đồ pareto",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "kiểm tra chất lượng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "phân tích xu hướng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "thử mẫu thổng kê",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một ước tính độ lớn mức thô (rough order of magnitude estimate) được thực hiện trong giai đoạn nào của nhóm tiến trình quản lý dự án?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ết thúc dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hởi tạo dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ập kế hoạch dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hực thi dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cái đối lập với kỹ thuật quyết định sẽ tạo ra giải pháp cuối cùng nhất là ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "àm mịn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ưỡng bức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iải quyết vấn đề",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hỏa hiệp",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Giám đốc dự án mới đảm nhận dự án từ giám đốc dự án cũ trong thời gian thực hiện dự án.Giám đốc dự án tiền nhiệm đã tạo ngân sách dự án , xác định các yêu cầu truyền thông và đi dần tới hoàn thiện gói công việc. Vị giám đốc dự án mới cần làm gì tiếp theo?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "xác định tiêu chuẩn chất lượng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "bắt đầu xác định rủi ro",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "kết hợp thực hiện các gói công việc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "thực hiện kế hoạch quản lí dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một người quản lý dự án đang đứng giữa quá trình thực hiện của một dự án xây dựng rất lớn khi ông phát hiện ra rằng thời gian cần thiết để hoàn thành dự án dài hơn thời gian có sẵn. Điều tốt nhất để làm là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ắt giảm phạm vi sản phẩm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "àm việc thêm giờ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác định các tùy chọn cho việc nén lịch và quản lý ở hiện tại trở thành các tùy chọn được đề nghị của bạn",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ặp mặt quản lý và nói với họ rằng thời hạn yêu cầu không thể được đáp ứng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "dự án A có một tỉ suất hoàn vốn nội bộ (IRR) là 21%. Dự án B có IRR là 7%. Dự án C có IRR là 31%. Dự án D có IRR là 19%. Dự án nào là dự án tốt nhất?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ự án D",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ự án A",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ự án B",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ự án C",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "các nguyên nhân phổ biến nhất của cuộc xung đột trong một dự án kế hoạch,độ ưu tiên của dự án và:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "on người",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "uản lý",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "chi phí",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác tài nguyên",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Khấu hao giảm dần (double declining balance) là một hình thức: ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "khấu hao giảm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "chi phí vòng đời",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "khấu hao nhanh",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "khấu hao theo đường thẳng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Yếu tố nào sẽ KHÔNG được xem xét khi lựa chọn giữa hai dự án để thực hiện? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "iá trị hiện tại thuần (NPV),",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ỷ lệ phí tổn-lợi ích (BCR)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hời gian hoàn vốn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "uật về mức thu lợi giảm dần",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Sự tương ứng, những thay đổi hợp đồng và các yêu cầu phải trả là ......của quản lý hợp đồng",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ông cụ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hức năng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ản phẩm",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Đầu vào",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Công ty của bạn có thể chấp nhận 1 trong 3 dự án. Dự án A với NPV là 30,000$ và sẽ hoàn thành trong 6 năm. Dự án B có NPV là 60,000$ và hoàn thành trong 3 năm. Dự án C có NPV là 90,000$ và sẽ hoàn thành trong 4 năm. Trên cơ sở những thông tin đã có, bạn chọn dự án nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ự án B",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ự án C",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ự án A",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn cần phải hoàn thành tiến trình khởi tạo của 1 dự án nhỏ và có thể thay đổi trong suốt quá trình lập kế hoạch khi các bên liên quan của dự án hỏi bạn về chi phí của dự án và đường chi phí cơ sở. Bạn cần nói với họ:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ó không thể xảy ra hay hoàn thành việc ước lượng trước khi kế hoạch quản lý dự án được tạo ra.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ế hoạch quản lý dự án sẽ không bao gồm ngân sách của dự án và đường chi phí cơ sở; đó là 1 dự án nhỏ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "gân sách dự án và đường chi phí cơ sở sẽ không thể hoàn thành và chấp nhận trừ khi tiến trình lập kế hoạch được hoàn thành",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "gân sách dự án có thể được đưa ra trong tôn chỉ của dự án, cái cần phải hoàn thành ngay.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Biểu đồ kiểm soát chỉ ra 7 điểm trong một hàng.Để làm gì ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Điều chỉnh biểu đồ cho tương ứng với giá trị mới",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hể hiện kinh nghiệm thiết kế",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "tìm ra nguyên nhân",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "không gì cả. Đây chỉ là qui tắc 7 điều , có thể bỏ qua",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một dự án có 3 con đường quan trọng. Đáp án nào sau đây miêu tả đúng nhất về tác động của nó đến dự án?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ó làm cho nó dễ quản lí hơn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ó làm cho nó đắt hơn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ó yêu cầu nhiều người",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ó làm gia tăng rủi ro cho dự án",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Một team đang sử dụng sơ đồ xương cá để xác định những tiêu chuẩn chất lượng sẽ được sử dụng trong dự án. Phần nào của tiến trình quản lí chất lượng nằm trong đó:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ên kế hoạch chất lượng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hân tích thay đổi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hực hiện đảm bảo chất lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hực hiện kiểm soát chất lượng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Dự toán ngân sách cuối cùng nên gần với chi phí thực tế như thế nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ừ -5% đến 10%.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ừ -10% đến 15%",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ừ -75% đến 25%;",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ừ 10% đến -25%;",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Dự án vận hành một phần mềm mới đang được tiến hành.Giám đốc dự án làm việc với bộ phận đảm bảo chất lượng để khiến họ tin rằng dự án đáp ứng các tiêu chuẩn chất lượng.Việc nào PHẢI thực hiện trước khi có tiến trình này ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "kiểm lại các vấn đề về chất lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "có cơ chế đảm bảo chất lượng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "cải tiến chất lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "tái thực hiện",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Sau đây là các ví dụ có chi phí không phù hợp ngoại trừ:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hi phí bảo hành",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "oại bỏ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "àm lại",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đào tạo chất lượng",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Cái gì liên quan tới thành viên đội tổ chức ma trận EXCEPT?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ự hỏi ai sẽ là người giải quyết sự đánh giá của họ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hục vụ nhiều ông chủ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hát triển cam kết",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ính toán lợi ích khi làm việc trên nhiều dự án",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Kết quả lập kế hoạch lập quản lập quản lí trong lịch trinh dự án đó quá dài. Nếu như sơ đồ hệ thống dự án không thể thay đổi nhưng bạn thêm nguồn tài nguyên con người. Điều tốt nhất cần làm là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hân tích Monte Carlo",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hanh chóng theo dõi dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ân bằng nguồn tài nguyên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "há hủy dự án",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Một dự án sản xuất có chỉ số tiến độ thực hiện (SPI) là 0,89 và chỉ số chi phí thực hiện (CPI) là 0,91, Nói chung đâu là giải thích tốt nhất vì sao lại xảy ra tình trạng trên:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hạm vi đã bị thay đổi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "on đường hoạt động động quan trọng đã mất nhiều thời gian và cần nhiều hơn số giờ lao động để hoàn thành",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ột nhà cung cấp đã không thể kinh doanh và cần phải tìm 1 nhà cung cấp khác",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "rang thiết bị bổ sung phải được mua",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi lên kế hoạch cho dự án của mình , bạn đặt yếu tố nào lên hàng đầu :chất lượng , chi phí hay lịch hoàn thành?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "lịch thực hiện ( thời gian) quan trọng nhất , rồi đến chất lượng , chi phí xếp cuối",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "chất lượng quan trọng nhất , hơn chi phí và lịch thực hiện",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "tùy thuộc vào từng dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "chi phí quan trọng nhất , tiếp đến là chất lượng , lịch thực hiện xếp sau cùng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Các chi phí thành lập dự án là một ví dụ của",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hi phí có thể thay đổi được",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "oàn bộ chi phí ( overhead costs)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hi phí cơ hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hí phí cố định",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Những mẫu sức mạnh nào sau đây được dẫn xuất ra từ sự loại trừ vị trí (của) giám đốc dự án?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ình phạt",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ình thức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "huyên gia",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hen thưởng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn đang quản lý dự án trong một dự án 5.000.000 USD phát triển phần mềm. Trong khi làm việc với nhóm dự án của bạn để phát triển một sơ đồ mạng, kiến trúc sư dữ liệu của bạn cho thấy chất lượng có thể được cải thiện nếu các mô hình dữ liệu được phê duyệt quản lý cấp cao trước khi chuyển sang yếu tố thiết kế khác. họ ủng hộ đề nghị này với một bài viết từ một tạp chí phát triển phần mềm hàng đầu. Điều nào sau đây mô tả những gì TỐT NHẤT kiểu này được gọi là đầu vào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "tùy ý phụ thuộc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "bên ngoài phụ thuộc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "euristic",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ắt buộc phụ thuộc",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "những kỹ thuật giải quyết xung đột nào được một quản lý dự án sử dụng khi anh ta nói, \"Tôi không thể giải quyết vấn đề này ngay bây giờ!\"",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ự thỏa hiệp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "giải quyết vấn đề",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ắt buộc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ự rút đi",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong những cuộc họp của đội dự án,đội bổ sung những khía cạnh cụ thể của các công việc phát sinh vào dự án vì điều đó có lợi cho khách hàng. Trường hợp này sai ở điểm nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "không có gì. Đây là cách để đáp ứng hoặc thỏa mãn vượt mức mong đợi của khách hàng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "đội dự án làm việc thừa thãi , vượt quá chỉ tiêu ban đầu của dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "không sao. Giám đốc dự án sẽ kiểm soát mọi thứ trong tình huống này",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "những nỗ lực kiểu này không nên được thực hiện trong các buổi họp",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một chỉ số hiệu suất chi phí (CPI-cost performance index) là 0,89 có nghĩa là: ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "dự án mới chỉ tiến hành được 89 phần trăm theo kế hoạch",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "dự án chỉ nhận được 89 cent cho mỗi 1$ vốn đầu tư.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "khi dự án hoàn thành chúng ta đã tiêu hết hơn 89 phần trăm so với kế hoạch,",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "tại thời điểm này, chúng ta hy vọng dự án tổng cộng chi tiêu hơn 89% so với kế hoạch,",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Là 1 PM, bạn hiện có 1 số thông tin về NPV( phân tích giá trị thực) của 1 vài dự án. Dự án nào bạn lựa chọn là tốt nhất",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ự án A với NPV là 95,000$",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ự án B với NPV là 120,000$",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ự án D với NPV là -30,000$",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ự án C với NPV là 20,000$",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cái nào sau đây là ví dụ của một ước lượng theo tham số? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "PM.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "earning bend",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ừ dưới lên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ollar/module",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Câu sau đây đề cập đến phần gì:”khái niệm về mức chất lượng tối ưu đạt được tại điểm mà nguồn thu tăng lên từ cải tiến sản phẩm bằng với chi phí gia tăng để đảm bảo (secure) nó”:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hân tích chất lượng tiêu chuẩn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hân tích kiểm soát chất lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hân tích bên lề",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hân tích sự phù hợp (conformance analysis)",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Điều tốt nhất cần làm để hoàn thành một dự án xong trước 2 ngày:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ói với ông chủ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "àm việc chăm chỉ và theo dõi trạng thái của dự án trong tháng tới",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ói với người quản lí rằng con đường quan trọng của dự án không cho phép dự án kết thúc sớm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ặp gõ nhóm làm việc và tìm kiếm lựa chọn để phá hủy hoặc nhanh chóng theo dõi con đường quan trọng",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Nếu dự án A có giá trị hiện tại dòng (NPV) là 30.000$ và dự án B có NPV là 50.000$, chi phí cơ hội nếu dự án B được chọn là bao nhiêu?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "50000$",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "30000$",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "20000$",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "23000$",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tất cả những điều sau đều là nhân tố trong đánh giá rủi ro dự án, ngoại trừ:\n",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Số tiền rủi ro (amout at stake)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chi phí bảo hiểm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xác suất rủi ro",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sự kiện rủi ro",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn là giám đốc dự án cho một hệ thống thông tin . Một ng từ ban quản lí chất lượng dự án tới yêu cầu kiểm toán chất lượng của dự án.đội dự án vì áp lực công việc mà phản đối việc này.Bạn nên giải thích với họ mục đích của việc kiểm tra chất lượng là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "kiểm tra xem khách hàng có làm đúng theo tiến trình chất lượng không",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "đáp ứng chuẩn ISO 9000",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "xác định các chính sách không hiệu quả và k hiệu quả",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "kiểm tra xem có bảo đảm yếu tố chi phí không",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một biểu đồ kiểm soát giúp giám đốc dự án:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ập trung vào kích thích tư duy",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ập trung vào các vấn đề quan trọng nhất để đảm bảo chất lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác định tiến trình đang hoạt động trong giới hạn",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hám phá kết quả mong muốn trong tương lai",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Ước lượng tương tự (Analogous estimating): ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "sử dụng các chi phí thực tế chi tiết trong lịch sử",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "sử dụng kĩ thuật ước lượng từ trên xuống",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "sử dụng kĩ thuật ước lượng từ dưới lên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "được sử dụng khá thường xuyên trong suốt quá trình thực hiện của dự án;",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Từ quan điểm dự án, thuộc tính chất lượng:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "à điểm đặc biệt mà sản phẩm được thiết kế và kiểm thử",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ung cấp những hướng dẫn về thành công hoặc thất bại cơ bản của một dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác định hiệu quả tổ chức thực hiện hỗ trợ dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "à tiêu chí khách quan phải được đáp ứng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn đang thực hiện một dự án trong vòng 2 năm để triển khai một công nghệ mới tới lĩnh vực văn phòng trên toàn quốc. Một cơn bão gây ra sự mất điện khi quá trình hoàn thiện dự án gần hoàn tất. Khi có điện trở lại, toàn bộ báo cáo và dữ liệu lịch sử của dự án bị mất mà không có cách nào khôi phục lại. Điều nào nên làm để giảm bớt rủi ro đó?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ua bảo hiểm dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ập kế hoạch dự trữ kinh phí",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ên kế hoạch cài đặt dự án ngoài mùa mưa bão",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "heo dõi thời tiết và có chiến lược đối phó với các sự việc bất ngờ",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Tình trạng cuộc họp dự án không tốt lắm. Mọi người đang nói cùng một lúc, có nhiều người không tham gia và có nhiều đề tài được tranh luận một cách hỗn độn. Quy tắc nào dưới đây cho các cuộc họp có hiểu quả ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ịch họp ở mức nâng cao",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ạo và công bố đề tài thảo luận và tập hợp các luật, quy định để điều khiển của họp mặt",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ó một mục đích cho cuộc họp, với sự phục vụ đúng người",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hứng tỏ sự nhã nhặn và sự chú ý lẫn nhau, điều khiển ai được cho phép để nói",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Giám đốc dự án đang cố gắng hòa giải cuộc tranh luận giữa 2 nhóm thành viên.Một nhóm nói hệ thống nên được tích hợp trước khi kiểm thử và nhóm còn lại cho rằng mỗi hệ thống nên được kiểm thử trước khi tích hợp.Dự án gồm hơn 30 người,và có 12 hệ thống cần được tích hợp.Các nhà tài trợ đang yêu cầu việc tích hợp phải xảy ra cùng một thời gian.Ý kiến tốt nhất của giám dự án có thể làm để giải quyết xung đột là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "húng ta hãy làm kiểm thử có giới hạn trước khi tích hợp và hoàn thành kiểm thử sau khi tích hợp",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ãy giải quyết điều này một lần nữa vào tuần tới sau khi tất cả chúng ta bình tĩnh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "àm theo cách của tôi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "húng ta hãy bình tĩnh và hoàn thành công việc",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cách giải quyết rủi ro được xác định trong lúc nào ở tiến trình quản lý rủi ro ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "heo dõi và kiểm soát rủi ro",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ập ké hoạch đáp ứng rủi ro",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác định rủi ro",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hân tích định tính rủi ro C.Lập ké hoạch đáp ứng rủi ro",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chương này (quản lý giao tiếp) được hoàn thành tốt nhất bởi:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "các bên liên quan",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "đội ngũ của dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "M",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hà tài trợ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn được bổ nhiệm làm giám đốc của một dự án mới, qui mô lớn và phức tạp. Bởi vì dự án này bussiness-critical( nghiệp vụ quan trọng)và rất rõ ràng,những người quản lí yêu cầu bạn phải phân tích rủi ro của dự án và chuẩn bị chiến lược đáp ứng cho họ càng sớm càng tốt.Những tổ chức có chiến lược quản lí rủi ro thường ít khi được sử dụng hoặc được tuân theo và có một lịch sử của việc quản lí rủi ro tồi.Mốc đầu tiên của dự án trong vòng 2 tuần.Trong việc chuẩn bị kế hoạch đáp ứng rủi ro đầu vào từ cái nào dưới đây thường ít quan trọng nhất:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ác bên liên quan chủ chốt",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "gười đỡ đầu của dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ác thành viên dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "gười chịu trách nhiệm cho biểu mẫu và chiến lược quản lí rủi ro",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Giám đốc và cả đội dự án đều mong chờ dự án mới.Đây là nhiệm vụ quản lý dự án đầu tiên.Đội dự án cảm thấy họ sẽ có khả năng hoàn thành công việc mà họ chưa được làm trước đây bao giờ.Có 29 người góp phần để miêu tả sản phẩm và đội dự án có 9 chuyên gia nhiều kinh nghiệm trong lĩn vực của họ.Đi qua một phần kế hoạch ,ba nhóm của đội ngũ kỹ thuật đang bất đồng ý kiến về phạm vi của hai phát biểu.Một nhóm chỉ vào WBS dự thảo và nói rằng các gói công việc cần được bổ sung thêm.Một nhóm nói rằng các gói công việc đặc biệt không nên được làm.Thành viên trong nhóm thứ ba đồng ý với cả 2 nhóm trên,Giám đốc dự án tốt nhất nên giải quyết xung đột như thế nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "nh ta nên lắng nghe các quan điểm khác nhau,xác định lựa chọn tốt nhất,và thực hiện sự lựa chọn đó.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "nh ta sẽ giúp các nhóm tập trung vào khía cạnh thích hợp với quan điểm của họ,và xây dựng sự thống nhất bằng cách giảm bớt sự căng thẳng và xây dựng nhóm tiêu điểm chung.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "nh ta nên lắng nghe các quan điểm khác nhau,động viên thảo luận hợp lý,và tạo điều kiện thuận lợi cho một thỏa thuận.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "nh ta nên hoãn lại các cuộc thảo luận,gặp gỡ các cá nhân và xác định phương pháp tốt nhất.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đầu ra của kế hoạch đáp ứng rủi ro: ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ủi ro còn lại",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ác ảnh hưởng đã xác định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "anh sách các rủi ro ưu tiên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác rủi ro đã xác định",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Các hoat động đánh giá dự án khác nhau từ các đội đánh giá trong dự án biểu diển sự đánh giá tập trung trong",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "àm thế nào để 1 thành viên trong nhóm cá nhân được thực hiên trong dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "1 đánh giá hiệu quả của đội dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iảm tỉ lệ doanh thu nhân viên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "1 nhóm nổ lực xây dựng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một giám đốc dự án (PM) nghe được một cuộc nói chuyện giữa 2 bên liên quan – những người đang nói về sự không vui của họ cùng với những ảnh hưởng trên bộ phận của họ, A nói: nếu dự án này thực hiện đúng thời gian và B trả lời: SPI là 1.05. bên A hỏi nếu PM của dự án biết được sự liên quan của B. B trả lời : “anh ta không dảm bảo”. trong trường hợp này, PM cần làm gì là tốt nhất?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "tổ chức một buổi gặp mặt với A, B để cho phép họ nói lên những vấn đề của họ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Để cho A và B biết được PM nghe được cuộc nói chuyện này và hỏi họ để giải quyết trực tiếp bất kỳ câu hỏi nào",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "tổ chức một buổi gặp mặt có tất cả những bên liên quan để thông báo về tình trạng hiện tại của dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "gửi cho A, B một bản sao của các bản ghi và đề nghị họ viết comments",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một dự án thực hiện dưới một hợp đồng chí phí có thể trả lại cuối cùng đã vào giai đoạn kết thúc. Người mua phải nhớ ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "em xét sự đồng thuận chi phí của người bán",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "iảm mức rủi ro dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đảm bảo người bán hàng không được thêm nguồn lực",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đánh giá phí đang trả",
+        "IsCorrectAnswer": false
+      }
+    ]
+  }
+]

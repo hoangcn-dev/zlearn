@@ -1,0 +1,184 @@
+[
+  {
+    "StringContent": "Theo tư tưởng Hồ Chí Minh, các loại kẻ thù cần phải đánh đổ trong quá trình giải phóng dân tộc, giải phóng giai cấp, giải phóng con người là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đế quốc, thực dân và tay sai của chúng cùng với nghèo nàn, lạc hậu và chủ nghĩa cá nhân dưới mọi hình thức",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Nghèo nàn, dốt nát, lạc hậu và chủ nghĩa cá nhân dưới mọi hình thức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đế quốc và phong kiến",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đế quốc, thực dân và tay sai của chúng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo Hồ Chí Minh: \"Đảng Cộng sản Việt Nam ra đời là sản phẩm của sự kết hợp chủ nghĩa Mác - Lênin, với phong trào công nhân và … ở nước ta vào những năm cuối thập kỷ của của thế kỷ XX\"",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phong trào yêu nước",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Phong trào dân chủ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phong trào nông dân",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phong trào trí thức",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chọn phương án đúng nhất: Quan điểm xây dựng nhà nước trong sạch, vững mạnh, hoạt động có hiệu quả, Hồ Chí Minh đã nhắc nhở đề phòng và khắc phục:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Trịch thượng, tham nhũng; Đặc quyền, đặc lợi; Bè phái",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tham ô, hối lộ: Đặc quyền, đặc lợi; Kiêu ngạo",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đặc quyền,đặc lợi; Tham ô, lãng phí, quan liêu; Tư túng, chia rẽ, kiêu ngạo",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tham ô, móc ngoặc, hối lộ: Đặc quyền, đặc lợi; Kết bè kết c",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chọn đáp án trả lời đúng nhất: Hồ Chí Minh đã từng dạy học ở ngôi trường nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Trường tiểu học Đông Ba ở Huế",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trường Quốc học Huế",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trường Dục Thanh ở Phan Thiết",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Trường tiểu học Pháp - Việt ở Vinh",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chọn phương án trả lời đúng theo tư tưởng Hồ Chí Minh về nguyên tắc ngoại giao:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "\"Dĩ bất biến, ứng vạn biến\"",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vừa cứng rắn về nguyên tắc, vừa mềm dẻo về sách lược",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Phải cứng rắn về nguyên tắc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phải mềm dẻo về sách lược",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo tư tưởng Hồ Chí Minh, luận điểm: Đảng Cộng sản Việt Nam là sản phẩm của sự kết hợp chủ nghĩa Mác - Lênin với phong trào công nhân và phong trào yêu nước là:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Xác định nguồn gốc ra đời của Đảng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Xác định năng lực của Đảng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xác định bản chất của Đảng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xác định nhiệm vụ của Đảng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Phát hiện một luận điểm bị viết thiếu nội dung quan trọng trong những câu tóm tắt quan niệm của Hồ Chí Minh về độc lập dân tộc gắn với chủ nghĩa xã hội...",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATDE05FF511CAD"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nếu nước độc lập mà người dân không hưởng hạnh phúc tự do, thì độc lập chẳng có ý nghĩa gi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thắng đế quốc phong kiến là tương đối dễ, thắng bần cùng lạc hậu khó khăn hơn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Muốn cứu nước và giải phóng dân tộc không có con đường nào khác ngoài tư sản dân quyền cách mạng và thổ địa cách mạng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Đánh đổ giai cấp thống trị, bóc lột  đã khó, đấu tranh xây dựng chủ nghĩa xã hội còn gian khổ, khó khăn hơn nhiều",
+        "IsCorrectAnswer": false
+      }
+    ]
+  }
+]

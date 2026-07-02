@@ -1,0 +1,1302 @@
+[
+  {
+    "StringContent": "Chọn đáp án đúng cho chỗ trống trong câu sau: ..... do..... áp dụng đối với cá nhân, tổ chức đã vi phạm pháp luật dân sự? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Trách nhiệm pháp lý dân sự - Tòa án  ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Trách nhiệm pháp lý dân sự - Công an ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trách nhiệm pháp lý hình sự - Viện Kiểm sát ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trách nhiệm pháp lý dân sự - Cơ quan Nhà nước có thẩm quyền ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hành vi trái pháp luật nào sau đây là dạng hành vi không hành động?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Không tố giác người phạm tội",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Môi giới mại dâm ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giúp người khác tự sát ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tàng trữ vũ khí",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Vi phạm pháp luật hình sự còn được gọi là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tội trạng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tội danh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các đáp án đều đúng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tội phạm",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Chủ thể có năng lực trách nhiệm pháp lý khi có đủ điều kiện sau?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đạt độ tuổi do pháp luật quy định, có khả năng nhận thức và điều khiển hành vi",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Có năng lực pháp luật và năng lực hành vi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đạt độ tuổi do pháp luật quy định, có năng lực pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Từ 18 tuổi trở lên và có trí óc bình thường",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Những biểu hiện ra bên ngoài của vi phạm pháp luật gọi là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Mặt khách quan của vi phạm pháp luật",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Dấu hiệu của vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hành vi vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hậu quả của hành vi vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chọn đáp án phù hợp: Khách thể của vi phạm pháp luật là  những...... được pháp luật xác lập, bảo vệ nhưng đã bị xâm hại bởi hành vi vi phạm pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quan hệ xã hội",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Đối tượng ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ tài sản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ pháp luật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khẳng định nào sau đây là đúng?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Trách nhiệm hình sự là trách nhiệm thuộc về cá nhân người phạm tội, họ có thể chuyển hay ủy thác cho người khác thực hiện ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trách nhiệm hình sự là trách nhiệm thuộc về cá nhân người phạm tội, phải do chính họ gánh chịu một cách trực tiếp, chứ không thể chuyển hay ủy thác cho người khác",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tất cả các phương án đều sai",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trách nhiệm hình sự là trách nhiệm thuộc về cá nhân người phạm tội, họ có thể chuyển hay ủy thác cho người khác thực hiện khi được Tòa án cho phép               ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hãy xác định câu sai?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vi phạm pháp luật là hành vi trái pháp luật, xâm hại các quan hệ xã hội được pháp luật xác lập và bảo vệ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ thể thực hiện hành vi trái pháp luật phải có năng lực trách nhiệm pháp lý",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy phạm pháp luật là hành vi xác định của con người, hành vi đó đã thể hiện ra thực tế khách quan",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chủ thể thực hiện hành vi trái pháp luật phải có lỗi",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khẳng định nào sai khi nghiên cứu về mặt chủ quan của vi phạm pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lỗi là thái độ tâm lý của chủ thể đối với hành vi trái pháp luật mà mình đã thực hiện và hậu quả do hành vi gây ra",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Động cơ là cái thúc đẩy chủ thể thực hiện hành vi vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi là một trong những căn cứ để xác định mức độ trách nhiệm pháp lý đối với chủ thể vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ khi nào hành vi trái pháp luật được chủ thể thực hiện một cách cố ý thì mới có thể là hành vi vi phạm pháp luật",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Mặt chủ quan của vi phạm pháp luật gồm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hành vi trái pháp luật và hậu quả nguy hiểm cho xã hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi; động cơ; mục đích",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cố ý trực tiếp và cố ý gián tiếp; vô ý vì quá tự tin và vô ý vì quá cẩu thả",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi cố ý và lỗi vô ý",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Để truy cứu trách nhiệm pháp lý cần xác định?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hậu quả gây thiệt hại cho xã hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Có hành vi vi phạm pháp luật xảy ra, còn thời hiệu truy cứu trách nhiệm pháp lý",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hành vi trái pháp luật của chủ thể",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi của chủ thể vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Các yếu tố cấu thành vi phạm pháp luật bao gồm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chủ thể, chủ quan, khách thể, khách quan",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ thể, mặt chủ quan, khách thể, khách quan",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ thể, mặt khách thể, mặt khách quan, chủ quan",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ thể, khách thể, mặt khách quan, mặt chủ quan",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Xác định đáp án sai trong các khẳng định sau?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tính chất và tầm quan trọng của khách thể bị xâm hại không liên quan đến việc xác định trách nhiệm pháp lý của chủ thể đã vi phạm pháp luật",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Khách thể của vi phạm pháp luật là  những quan hệ xã hội được pháp luật xác lập, bảo vệ nhưng đã bị xâm hại bởi hành vi vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cá nhân không có năng lực trách nhiệm pháp lý thì không trở thành chủ thể của vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khách thể của vi phạm pháp luật là yếu tố bắt buộc trong mọi cấu thành vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Vi phạm pháp luật hình sự là hành vi vi phạm nguy hiểm cho xã hội được quy định trong?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quy phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Văn bản quy phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bộ luật Hình sự",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Pháp luật của Nhà nước",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Các hành vi sau đều trái pháp luật, ngoại trừ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Không cho bạn mượn xe đạp",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tổ chức đánh bạc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không thực hiện nghĩa vụ quân sự",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đổ rác thải xuống kênh rạch",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Yếu tố không thuộc mặt chủ quan của vi phạm pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Động cơ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mục đích",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đối tượng của hành vi vi phạm pháp luật ",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Chủ thể thực hiện hành vi trái pháp luật bị coi là có lỗi khi?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Có khả năng nhận thức về hành vi mình thực hiện là trái pháp luật và có thể gây ra hậu quả nguy hiểm cho xã hội ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Do vô ý nên không có khả năng nhận thức về hành vi mình đã thực hiện là trái pháp luật và có thể gây ra hậu quả nguy hiểm cho xã hội ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cố ý thực hiện hành vi trái pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhận thức rất rõ về hành vi mình thực hiện là trái pháp luật và có thể gây ra hậu quả nghiêm trọng cho xã hội",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đâu không phải là đặc điểm của trách nhiệm pháp lý ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Việc truy cứu trách nhiệm pháp lý chỉ do các cơ quan Nhà nước hay nhà chức trách có thẩm quyền tiến hành đối với chủ thể vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trong mọi trường hợp, trách nhiệm pháp lý luôn gắn liền với những biện pháp cưỡng chế Nhà nước đối với chủ thể đã vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Truy cứu trách nhiệm pháp lý là một quá trình hoạt động phức tạp của các cơ quan Nhà nước, nhà chức trách có thẩm quyền",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cơ sở của trách nhiệm pháp lý là vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chọn đáp án phù hợp: Chủ thể vi phạm pháp luật là cá nhân hoặc tổ chức có...... đã thực hiện hành vi vi phạm pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Năng lực trách nhiệm pháp lý",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Khả năng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Năng lực hành vi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Năng lực pháp luật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hành vi nào sau đây không là hành vi vi phạm pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Anh A chia tay người yêu",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "A ép buộc con gái kết hôn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "A hành hung vợ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "A ngược đãi cha mẹ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mặt khách quan của hành vi vi phạm pháp luật bao gồm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hành vi trái pháp luật và hậu quả do hành vi trái pháp luật gây ra",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thời gian, địa điểm, công cụ, phương tiện thực hiện hành vi vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bao gồm các đáp án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mối quan hệ nhân quả giữa hành vi trái pháp luật và thiệt hại gây ra cho xã hội",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Những biểu hiện, diễn biến tâm lý bên trong của chủ thể vi phạm pháp luật gọi là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Bao gồm các đáp án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ thể vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhận thức, thái độ của chủ thể",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mặt chủ quan của vi phạm pháp luật",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Hành vi nào sau đây là vi phạm pháp luật hành chính?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cướp tài sản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Buôn bán gia cầm nhiễm cúm",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vượt đèn đỏ gây chết người",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sử dụng tài liệu khi làm bài thi",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chọn đáp án phù hợp: Vi phạm pháp luật dân sự là hành vi trái pháp luật, có lỗi, do cá nhân, tổ chức thực hiện, xâm phạm đến các..... được pháp luật..... điều chỉnh?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quan hệ pháp luật - tác động",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ tài sản và quan hệ nhân thân - dân sự",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quan hệ xã hội - pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ tài sản và quan hệ thân nhân - dân sự",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Vi phạm pháp luật là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hiện tượng xã hội",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hiện tượng chủ quan",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tàn dư của xã hội cũ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hiện tượng nhất thời",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khẳng định nào sau đây là đúng?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Các vi phạm pháp luật, vi phạm đạo đức, vi phạm quy tắc tôn giáo, vi phạm tập quán... đều phải chịu trách nhiệm pháp lý                  ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a và b đều đúng                   ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a và b đều sai ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ có vi phạm pháp luật mới phải chịu trách nhiệm pháp lý ",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Vi phạm pháp luật hành chính là hành vi do cá nhân, tổ chức thực hiện một cách cố ý hoặc vô ý, xâm phạm đến các?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quy phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy tắc quản lý Nhà nước",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quy định pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy tắc xử sự",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chọn đáp án đúng cho chỗ trống trong câu sau: ..... do..... áp dụng đối với cá nhân, tổ chức đã vi phạm pháp luật hành chính?  ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Trách nhiệm pháp lý dân sự - Công an  ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trách nhiệm pháp lí hành chính - Viện Kiểm sát  ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trách nhiệm pháp lí hành chính - Tòa án  ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trách nhiệm pháp lí hành chính - Cơ quan quản lí Nhà nước có thẩm quyền ",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Khẳng định nào sau đây là đúng?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Trách nhiệm hình sự chỉ áp dụng đối với tổ chức thực hiện hành vi phạm tội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trách nhiệm hình sự chỉ áp dụng đối với cá nhân thực hiện hành vi phạm tội ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các phương án đều sai",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trách nhiệm hình sự vừa áp dụng đối với cá nhân, vừa áp dụng đối với tổ chức có hành vi phạm tội",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Hành vi nào sau đây là vi phạm pháp luật hình sự?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Điều khiển xe gắn máy không có bằng lái xe ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chứa chấp hoạt động mại dâm",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Bán hàng lấn chiếm lòng, lề đường",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Điều khiển xe máy chạy lấn tuyến",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chọn đáp án đúng: .....là loại trách nhiệm pháp lí nghiêm khắc nhất, do..... áp dụng cho chủ thể đã thực hiện hành vi phạm tội?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Trách nhiệm pháp lý hình sự - Cơ quan Nhà nước có thẩm quyền ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trách nhiệm pháp lý hình sự - Tòa án  ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Trách nhiệm pháp lý hình sự - Viện Kiểm sát ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trách nhiệm pháp lý hình sự - Công an ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hành vi nào sau đây là hành vi trái pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hành vi vi phạm Điều lệ Hội Phụ nữ ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hành vi vi phạm Nghị quyết Đảng ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Sao chép bài của người khác trong giờ thi học kỳ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hành vi vi phạm pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cả a và b đều sai ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không bao giờ vi phạm đạo đức   ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a và b đều đúng                        ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Có thể đồng thời là vi phạm đạo đức ",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Các yếu tố thuộc mặt chủ quan của vi phạm pháp luật bao gồm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lỗi, động cơ, mục tiêu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi, động cơ, mục đích ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lỗi, động cơ, kết quả",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các đáp án đều sai",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chọn đáp án đúng cho chỗ trống trong câu sau: ..... do..... áp dụng đối với học sinh, sinh viên, cán bộ của nhà trường đã vi phạm nội quy, quy chế của nhà trường?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Trách nhiệm kỷ luật - Trưởng phòng ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trách nhiệm kỷ luật - Bộ trưởng   ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trách nhiệm kỷ luật - Hiệu trưởng   ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Trách nhiệm kỷ luật - Giám đốc xí nghiệp  ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cơ cấu bộ máy Nhà nước Cộng hòa XHCN Việt Nam bao gồm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quốc hội, Viện Kiểm sát nhân dân, Tòa án nhân dân các cấp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hệ thống cơ quan quyền lực, hệ thống cơ quan quản lý Nhà nước, hệ thống cơ quan kiểm sát, hệ thống cơ quan xét xử",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cả a, b, c đều sai",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quốc hội, Chính phủ, Ủy ban nhân dân các cấp",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Luật Hiến pháp là một ngành luật chủ đạo trong hệ thống pháp luật Việt Nam vì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cả a, b, c đều đúng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Do Quốc hội - cơ quan quyền lực Nhà nước cao nhất ban hành",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Có giá trị pháp lý cao nhất",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy định về những vấn đề cơ bản nhất, quan trọng nhất của Nhà nước",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hệ thống cơ quan quyền lực Nhà nước bao gồm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quốc hội, Ủy ban nhân dân các cấp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quốc hội, Hội đồng nhân dân các cấp",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quốc hội, Chính phủ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chính phủ, Ủy ban nhân dân các cấp",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hiến pháp có những đặc trưng, khác với các văn bản pháp luật khác ở chỗ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hiến pháp chỉ quy định những vấn đề cơ bản nhất, quan trọng nhất của một Nhà nước, một xã hội làm cơ sở nền tảng cho hệ thống pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hiến pháp có một phạm vi điều chỉnh rất rộng, trên tất cả các lĩnh vực, các văn bản pháp luật khác có phạm vi điều chỉnh hẹp hơn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bao gồm cả a, b, c",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hiến pháp có hiệu lực pháp lý cao nhất và có thủ tục làm mới và sửa đổi đặc biệt là thủ tục lập hiến",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Các quan hệ xã hội cơ bản được Luật Hiến pháp điều chỉnh là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chế độ chính trị",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quyền và nghĩa vụ cơ bản của công dân, tổ chức và hoạt động của bộ máy Nhà nước",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chế độ kinh tế, văn hóa, xã hội, giáo dục, khoa học, công nghệ...",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hiến pháp 1992 đã được thay thế bằng hiến pháp năm nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": " Năm 1996",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": " Năm 2001",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": " Năm 2013",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": " Năm 1998",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Pháp luật nước ta quy định người nào có quyền bầu cử ra cơ quan Quốc hội và Hội đồng nhân dân các cấp?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Công dân Việt Nam 21 từ tuổi trở lên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Công dân Việt Nam 18 từ tuổi trở lên",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tất cả công dân Việt Nam",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Công dân Việt Nam 16 từ tuổi trở lên",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hiến pháp đang có hiệu lực thi hành ở Việt Nam hiện nay được ban hành năm nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Năm 1980",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Năm 1959",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Năm 2013",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Năm 1992 ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Lịch sử lập hiến Việt Nam đã có những bản Hiến pháp nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hiến pháp 1959 - Hiến pháp 1980 - Hiến pháp 1992",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hiến pháp 1946 - Hiến pháp 1959 - Hiến pháp 1980 - Hiến pháp 1992 – Hiến pháp 2013",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hiến pháp 1946 - Hiến pháp 1959 - Hiến pháp 1980 - Hiến pháp 1992",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hiến pháp 1946 - Hiến pháp 1980 - Hiến pháp 1992",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Những chức danh nào sau đây bắt buộc phải là đại biểu Quốc hội?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Bộ trưởng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ tịch UBND tỉnh, thành phố trực thuộc Trung ương",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thủ tướng Chính phủ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Phó Thủ tướng Chính phủ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Văn bản pháp luật nào quy định về quyền và nghĩa vụ cơ bản của công dân?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Luật Lao động  ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Luật Hiến pháp ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Luật Hành chính",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Luật Dân sự ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Những quyền và nghĩa vụ của công dân được quy định trong?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Rất nhiều văn bản pháp luật khác nhau ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hiến pháp ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Luật Dân sự ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Luật Lao động  ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hiến pháp Nhà nước ta quy định: Công dân đủ 21 tuổi trở lên có quyền ứng cử vào cơ quan nào sau đây? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Ủy ban nhân dân các cấp ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": " Ủy ban nhân dân cấp tỉnh và tương đương ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quốc hội và Hội đồng nhân dân các cấp",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chính phủ ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Độ tuổi được ứng cử vào Quốc hội và Hội đồng nhân dân các cấp theo quy định của pháp luật ở nước ta là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đủ 20 tuổi trở lên ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đủ 18 tuổi trở lên ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đủ 19 tuổi trở lên ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đủ 21 tuổi trở lên ",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Chính phủ nước Cộng hòa XHCN Việt Nam?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Là cơ quan Hành chính Nhà nước cao nhất, thực hiện quyền hành pháp, tư pháp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Là cơ quan chấp hành của Quốc hội, cơ quan Hành chính Nhà nước cao nhất, thực hiện quyền hành pháp",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cả a, b, c đều sai",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Là cơ quan trung tâm của Nhà nước, có thẩm quyền trong cả 3 lĩnh vực lập pháp, hành pháp, tư pháp",
+        "IsCorrectAnswer": false
+      }
+    ]
+  }
+]
