@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Zlearn.V2.Application.Categories.Commands.CreateCategory;
 using Zlearn.V2.Application.Categories.Queries.GetCategoryById;
 using Zlearn.V2.Application.Categories.Queries.GetAllCategories;
-using ZLearn.Application.Categories.DTOs;
-using ZLearn.Application.Common.DTOs;
+using Zlearn.V2.Application.Categories.DTOs;
+using Zlearn.V2.Application.Common.DTOs;
 using CreateResponseDto = Zlearn.V2.Application.Common.DTOs.CreateResponseDto;
 
 namespace ZLearn.Web.Controllers.API.V2

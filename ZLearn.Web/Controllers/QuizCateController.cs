@@ -2,7 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Zlearn.V2.Application.Categories.Queries.GetAllCategories;
 using Zlearn.V2.Application.Categories.Queries.GetCategoryById;
-using ZLearn.Application.Quizzes.Queries.GetListQuiz;
+using Zlearn.V2.Application.Quizzes.Queries.GetListQuiz;
 
 namespace ZLearn.Web.Controllers
 {

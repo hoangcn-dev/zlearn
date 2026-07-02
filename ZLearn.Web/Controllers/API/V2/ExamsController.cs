@@ -21,9 +21,9 @@ using Zlearn.V2.Application.Exams.DTOs;
 using Zlearn.V2.Application.Common.Interfaces;
 using CreateResponseDto = Zlearn.V2.Application.Common.DTOs.CreateResponseDto;
 
-namespace ZLearn.Web.Controllers.API
+namespace ZLearn.Web.Controllers.API.V2
 {
-    [Route("api/[controller]")]
+    [Route("api/v2/[controller]")]
     [ApiController]
     public class ExamsController : ControllerBase
     {

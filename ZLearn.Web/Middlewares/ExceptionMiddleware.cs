@@ -1,9 +1,8 @@
-﻿
+
 using FluentValidation;
 using System.Text.Json;
-using ZLearn.API.Exceptions;
-using ZLearn.Application.Common.DTOs;
-using ZLearn.Domain.Exceptions;
+using Zlearn.V2.Application.Common.DTOs;
+using Zlearn.V2.Application.Common.Exceptions;
 
 namespace ZLearn.Web.Middlewares
 {

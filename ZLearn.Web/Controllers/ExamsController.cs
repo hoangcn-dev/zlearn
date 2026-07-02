@@ -1,15 +1,15 @@
-﻿using MediatR;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using ZLearn.Application.Exams.Queries.GetAllExams;
-using ZLearn.Application.Exams.Queries.GetExamContent;
-using ZLearn.Application.Exams.Queries.GetExamDetail;
-using ZLearn.Application.Exams.Queries.GetExamScore;
-using ZLearn.Application.Exams.Queries.GetParticipantResult;
-using ZLearn.Application.Exams.Queries.GetParticipantStatus;
-using ZLearn.Application.Exams.Queries.GetWaitExamInfo;
-using ZLearn.Domain.Enums;
+using Zlearn.V2.Application.Exams.Queries.GetAllExams;
+using Zlearn.V2.Application.Exams.Queries.GetExamContent;
+using Zlearn.V2.Application.Exams.Queries.GetExamDetail;
+using Zlearn.V2.Application.Exams.Queries.GetExamScore;
+using Zlearn.V2.Application.Exams.Queries.GetParticipantResult;
+using Zlearn.V2.Application.Exams.Queries.GetParticipantStatus;
+using Zlearn.V2.Application.Exams.Queries.GetWaitExamInfo;
+using ParticipantStatus = Zlearn.V2.Domain.ExamContext.Participants.ParticipantStatus;
 
 namespace ZLearn.Web.Controllers
 {

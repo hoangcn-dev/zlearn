@@ -54,7 +54,7 @@ namespace ZLearn.UnitTests
             var writeRepo = new WriteRepo<Category>(context);
             
             var mockFileRepo = new Mock<IFileRepo>();
-            mockFileRepo.Setup(f => f.Any(It.IsAny<System.Linq.Expressions.Expression<System.Func<ZLearn.Domain.Entities.MediaFile, bool>>>()))
+            mockFileRepo.Setup(f => f.AnyAsync(It.IsAny<System.Linq.Expressions.Expression<System.Func<Zlearn.V2.Domain.FileContext.MediaFiles.MediaFile, bool>>>()))
                 .ReturnsAsync(true); // Giả định tệp Thumbnail có tồn tại
 
             var mockMediator = new Mock<IMediator>();

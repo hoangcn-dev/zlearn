@@ -1,9 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Xml.Linq;
-using ZLearn.Application.Categories.Queries.GetAllCateSlugs;
-using ZLearn.Application.Quizzes.Queries.GetAllQuestionSlugs;
-using ZLearn.Application.Quizzes.Queries.GetAllQuizSlugs;
+using Zlearn.V2.Application.Common.Queries;
 
 namespace ZLearn.Web.Controllers
 {

@@ -1,7 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ZLearn.Application.Common.DTOs;
+using Zlearn.V2.Application.Common.DTOs;
 using Zlearn.V2.Application.Files.Commands.DeleteFile;
 using Zlearn.V2.Application.Files.Commands.SaveFile;
 using Zlearn.V2.Application.Files.DTOs;
