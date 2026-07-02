@@ -31,9 +31,9 @@ if %ERRORLEVEL% neq 0 (
     exit /b 1
 )
 
-echo 4. upload tar
-scp "%TAR%" %SERVER_USER%@%SERVER_HOST%:%SERVER_PATH%/ || (
-    echo SCP of tar failed & pause & exit /b 1
+echo 4. upload files (tar, compose, run script)
+scp "%TAR%" "%COMPOSE_FILE%" "run.sh" %SERVER_USER%@%SERVER_HOST%:%SERVER_PATH%/ || (
+    echo SCP of files failed & pause & exit /b 1
 )
 
 echo 5. ssh and run
