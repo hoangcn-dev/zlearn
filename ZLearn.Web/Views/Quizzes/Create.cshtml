@@ -72,6 +72,7 @@
                 <div class="flex-fill"></div>
                 <i class="fa-solid fa-share opacity-hover me-2" title="Dịch tới câu hỏi"></i>
                 <i class="fa-solid fa-plus opacity-hover me-2" title="Thêm câu hỏi" onclick="addQuestion()"></i>
+                <i class="fa-solid fa-trash text-danger opacity-hover me-2" title="Xóa toàn bộ câu hỏi" onclick="clearAllQuestions()"></i>
                 <i class="fa-solid fa-floppy-disk opacity-hover" title="Lưu thay đổi" onclick="create()"></i>
             </div>
 
@@ -538,6 +539,14 @@
             };
             $('body').append(input);
             input.click();
+        }
+
+        function clearAllQuestions() {
+            showConfirm("Bạn có chắc chắn muốn xóa toàn bộ câu hỏi không?", () => {
+                questions = [];
+                $('#questions').empty();
+                $('#questionCount').text("0 Câu hỏi");
+            });
         }
 
         function scanDocument() {

@@ -92,6 +92,11 @@
                 $('#quizzes').empty();
                 loadQuiz();
             });
+            $('#nameToSearch').on('input', () => {
+                pageIndex = 1;
+                $('#quizzes').empty();
+                loadQuiz();
+            });
             loadQuiz();
         });
 

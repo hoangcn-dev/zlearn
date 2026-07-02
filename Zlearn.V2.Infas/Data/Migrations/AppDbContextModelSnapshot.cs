@@ -2,24 +2,22 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using ZLearn.V2.Infas.Data;
+using Zlearn.V2.Infas.Data;
 
 #nullable disable
 
-namespace ZLearn.V2.Infas.Migrations
+namespace Zlearn.V2.Infas.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250818015533_AddExam2")]
-    partial class AddExam2
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.36")
+                .HasAnnotation("ProductVersion", "8.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -63,13 +61,13 @@ namespace ZLearn.V2.Infas.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("text");
 
-                    b.Property<string>("Alias")
+                    b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Alias");
+                    b.HasIndex("UserId");
 
                     b.ToTable("UserClaims", (string)null);
                 });
@@ -85,26 +83,26 @@ namespace ZLearn.V2.Infas.Migrations
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("text");
 
-                    b.Property<string>("Alias")
+                    b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
-                    b.HasIndex("Alias");
+                    b.HasIndex("UserId");
 
                     b.ToTable("UserLogins", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.Property<string>("Alias")
+                    b.Property<string>("UserId")
                         .HasColumnType("text");
 
                     b.Property<string>("RoleId")
                         .HasColumnType("text");
 
-                    b.HasKey("Alias", "RoleId");
+                    b.HasKey("UserId", "RoleId");
 
                     b.HasIndex("RoleId");
 
@@ -113,7 +111,7 @@ namespace ZLearn.V2.Infas.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.Property<string>("Alias")
+                    b.Property<string>("UserId")
                         .HasColumnType("text");
 
                     b.Property<string>("LoginProvider")
@@ -125,7 +123,7 @@ namespace ZLearn.V2.Infas.Migrations
                     b.Property<string>("Value")
                         .HasColumnType("text");
 
-                    b.HasKey("Alias", "LoginProvider", "Name");
+                    b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("UserTokens", (string)null);
                 });
@@ -145,24 +143,7 @@ namespace ZLearn.V2.Infas.Migrations
                     b.ToTable("QuizTag");
                 });
 
-            modelBuilder.Entity("ZLearn.Domain.Entities.AccessHistory", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasMaxLength(16)
-                        .HasColumnType("character varying(16)");
-
-                    b.Property<long>("AccessCount")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateOnly>("Day")
-                        .HasColumnType("date");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AccessHistories", (string)null);
-                });
-
-            modelBuilder.Entity("ZLearn.Domain.Entities.Answer", b =>
+            modelBuilder.Entity("Zlearn.V2.Domain.CatalogContext.Answers.Answer", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(16)
@@ -174,6 +155,9 @@ namespace ZLearn.V2.Infas.Migrations
                     b.Property<string>("CreatedBy")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsCorrect")
+                        .HasColumnType("boolean");
 
                     b.Property<int>("Key")
                         .HasColumnType("integer");
@@ -202,7 +186,7 @@ namespace ZLearn.V2.Infas.Migrations
                     b.ToTable("Answers", (string)null);
                 });
 
-            modelBuilder.Entity("ZLearn.Domain.Entities.Category", b =>
+            modelBuilder.Entity("Zlearn.V2.Domain.CatalogContext.Categories.Category", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(16)
@@ -226,8 +210,8 @@ namespace ZLearn.V2.Infas.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("character varying(255)");
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
 
                     b.Property<string>("Slug")
                         .IsRequired()
@@ -244,200 +228,13 @@ namespace ZLearn.V2.Infas.Migrations
                     b.ToTable("Categories", (string)null);
                 });
 
-            modelBuilder.Entity("ZLearn.Domain.Entities.Exam", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasMaxLength(16)
-                        .HasColumnType("character varying(16)");
-
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTimeOffset?>("EndTime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("JoinPass")
-                        .HasMaxLength(20)
-                        .HasColumnType("character varying(20)");
-
-                    b.Property<string>("JoinUrl")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTimeOffset?>("LastModifiedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<bool>("LockAccess")
-                        .HasColumnType("boolean");
-
-                    b.Property<int>("MaxParticipants")
-                        .HasColumnType("integer");
-
-                    b.Property<bool>("MixAnswers")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("MixQuestions")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("ModifiedBy")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("character varying(150)");
-
-                    b.Property<string>("QuizId")
-                        .IsRequired()
-                        .HasColumnType("character varying(16)");
-
-                    b.Property<bool>("ShowAnswerAndKey")
-                        .HasColumnType("boolean");
-
-                    b.Property<DateTimeOffset>("StartTime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("QuizId");
-
-                    b.ToTable("Exam");
-                });
-
-            modelBuilder.Entity("ZLearn.Domain.Entities.ExamParticipant", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasMaxLength(16)
-                        .HasColumnType("character varying(16)");
-
-                    b.Property<int>("Correct")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Alias")
-                        .IsRequired()
-                        .HasColumnType("character varying(16)");
-
-                    b.Property<DateTimeOffset>("FirstCheckIn")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<bool>("IsBanned")
-                        .HasColumnType("boolean");
-
-                    b.Property<DateTimeOffset?>("LastCheckOut")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("ParticipantCode")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("ParticipantName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.Property<double>("Score")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.Property<string>("Alias")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Alias");
-
-                    b.ToTable("ExamParticipant");
-                });
-
-            modelBuilder.Entity("ZLearn.Domain.Entities.MediaFile", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasMaxLength(16)
-                        .HasColumnType("character varying(16)");
-
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Extension")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<long>("FileByteSize")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("FileName")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
-
-                    b.Property<int?>("Height")
-                        .HasColumnType("integer");
-
-                    b.Property<bool>("IsUsing")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false);
-
-                    b.Property<DateTimeOffset?>("LastModifiedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("ModifiedBy")
-                        .HasColumnType("text");
-
-                    b.Property<double?>("SecDuration")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("SourceUrl")
-                        .IsRequired()
-                        .HasMaxLength(2048)
-                        .HasColumnType("character varying(2048)");
-
-                    b.Property<string>("Action")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)");
-
-                    b.Property<int?>("Width")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Id")
-                        .IsUnique();
-
-                    b.HasIndex("SourceUrl")
-                        .IsUnique();
-
-                    b.ToTable("MediaFiles", (string)null);
-                });
-
-            modelBuilder.Entity("ZLearn.Domain.Entities.Question", b =>
+            modelBuilder.Entity("Zlearn.V2.Domain.CatalogContext.Questions.Question", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(16)
                         .HasColumnType("character varying(16)");
 
                     b.Property<int>("AttemptCount")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("CorrectKey")
                         .HasColumnType("integer");
 
                     b.Property<DateTimeOffset>("CreatedAt")
@@ -478,10 +275,13 @@ namespace ZLearn.V2.Infas.Migrations
 
                     b.HasIndex("QuizId");
 
+                    b.HasIndex("Slug")
+                        .IsUnique();
+
                     b.ToTable("Questions", (string)null);
                 });
 
-            modelBuilder.Entity("ZLearn.Domain.Entities.Quiz", b =>
+            modelBuilder.Entity("Zlearn.V2.Domain.CatalogContext.Quizzes.Quiz", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(16)
@@ -529,7 +329,7 @@ namespace ZLearn.V2.Infas.Migrations
                     b.ToTable("Quizzes", (string)null);
                 });
 
-            modelBuilder.Entity("ZLearn.Domain.Entities.Tag", b =>
+            modelBuilder.Entity("Zlearn.V2.Domain.CatalogContext.Tags.Tag", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(16)
@@ -558,7 +358,253 @@ namespace ZLearn.V2.Infas.Migrations
                     b.ToTable("Tags", (string)null);
                 });
 
-            modelBuilder.Entity("ZLearn.Infras.Identity.AppRole", b =>
+            modelBuilder.Entity("Zlearn.V2.Domain.ExamContext.Exams.Exam", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)");
+
+                    b.Property<string>("Alias")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("AllowLateSubmit")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("EndJobId")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<DateTimeOffset?>("EndTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("JoinPass")
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.Property<DateTimeOffset?>("LastModifiedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("LockAccess")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("MaxParticipants")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("MixAnswers")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("MixQuestions")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("text");
+
+                    b.Property<string>("QuizId")
+                        .IsRequired()
+                        .HasColumnType("character varying(16)");
+
+                    b.Property<bool>("RequireJoinWithCode")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("RequireJoinWithName")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("ShowAnswerAndKey")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("StartJobId")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<DateTimeOffset>("StartTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Alias")
+                        .IsUnique();
+
+                    b.HasIndex("QuizId");
+
+                    b.ToTable("Exam", (string)null);
+                });
+
+            modelBuilder.Entity("Zlearn.V2.Domain.ExamContext.Participants.ExamParticipant", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)");
+
+                    b.Property<int>("Completed")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Correct")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("ExamId")
+                        .IsRequired()
+                        .HasColumnType("character varying(16)");
+
+                    b.Property<DateTimeOffset?>("FirstCheckIn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsBanned")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTimeOffset?>("LastCheckOut")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("ParticipantCode")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ParticipantName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<double>("Score")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("SelectedAnswers")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ExamId");
+
+                    b.ToTable("ExamParticipant", (string)null);
+                });
+
+            modelBuilder.Entity("Zlearn.V2.Domain.FileContext.MediaFiles.MediaFile", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Extension")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<long>("FileByteSize")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<int?>("Height")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("IsUsing")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false);
+
+                    b.Property<DateTimeOffset?>("LastModifiedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("text");
+
+                    b.Property<double?>("SecDuration")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("SourceUrl")
+                        .IsRequired()
+                        .HasMaxLength(2048)
+                        .HasColumnType("character varying(2048)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<int?>("Width")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id")
+                        .IsUnique();
+
+                    b.HasIndex("SourceUrl")
+                        .IsUnique();
+
+                    b.ToTable("MediaFiles", (string)null);
+                });
+
+            modelBuilder.Entity("Zlearn.V2.Infas.Data.Outbox.OutboxEvent", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Error")
+                        .HasColumnType("text");
+
+                    b.Property<DateTimeOffset>("OccurredOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTimeOffset?>("ProcessedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("character varying(256)");
+
+                    b.HasKey("Id");
+
+
+
+                    b.HasIndex("ProcessedOn");
+
+                    b.ToTable("OutboxEvents", (string)null);
+                });
+
+            modelBuilder.Entity("Zlearn.V2.Infas.Identity.AppIdentityRole", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -584,7 +630,7 @@ namespace ZLearn.V2.Infas.Migrations
                     b.ToTable("Roles", (string)null);
                 });
 
-            modelBuilder.Entity("ZLearn.Infras.Identity.AppUser", b =>
+            modelBuilder.Entity("Zlearn.V2.Infas.Identity.AppIdentityUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -675,7 +721,7 @@ namespace ZLearn.V2.Infas.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("ZLearn.Infras.Identity.AppRole", null)
+                    b.HasOne("Zlearn.V2.Infas.Identity.AppIdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -684,64 +730,64 @@ namespace ZLearn.V2.Infas.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("ZLearn.Infras.Identity.AppUser", null)
+                    b.HasOne("Zlearn.V2.Infas.Identity.AppIdentityUser", null)
                         .WithMany()
-                        .HasForeignKey("Alias")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("ZLearn.Infras.Identity.AppUser", null)
+                    b.HasOne("Zlearn.V2.Infas.Identity.AppIdentityUser", null)
                         .WithMany()
-                        .HasForeignKey("Alias")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("ZLearn.Infras.Identity.AppRole", null)
+                    b.HasOne("Zlearn.V2.Infas.Identity.AppIdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ZLearn.Infras.Identity.AppUser", null)
+                    b.HasOne("Zlearn.V2.Infas.Identity.AppIdentityUser", null)
                         .WithMany()
-                        .HasForeignKey("Alias")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("ZLearn.Infras.Identity.AppUser", null)
+                    b.HasOne("Zlearn.V2.Infas.Identity.AppIdentityUser", null)
                         .WithMany()
-                        .HasForeignKey("Alias")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("QuizTag", b =>
                 {
-                    b.HasOne("ZLearn.Domain.Entities.Quiz", null)
+                    b.HasOne("Zlearn.V2.Domain.CatalogContext.Quizzes.Quiz", null)
                         .WithMany()
                         .HasForeignKey("QuizzesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ZLearn.Domain.Entities.Tag", null)
+                    b.HasOne("Zlearn.V2.Domain.CatalogContext.Tags.Tag", null)
                         .WithMany()
                         .HasForeignKey("TagsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ZLearn.Domain.Entities.Answer", b =>
+            modelBuilder.Entity("Zlearn.V2.Domain.CatalogContext.Answers.Answer", b =>
                 {
-                    b.HasOne("ZLearn.Domain.Entities.Question", "Question")
+                    b.HasOne("Zlearn.V2.Domain.CatalogContext.Questions.Question", "Question")
                         .WithMany("Answers")
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -750,31 +796,9 @@ namespace ZLearn.V2.Infas.Migrations
                     b.Navigation("Question");
                 });
 
-            modelBuilder.Entity("ZLearn.Domain.Entities.Exam", b =>
+            modelBuilder.Entity("Zlearn.V2.Domain.CatalogContext.Questions.Question", b =>
                 {
-                    b.HasOne("ZLearn.Domain.Entities.Quiz", "Quiz")
-                        .WithMany("Exams")
-                        .HasForeignKey("QuizId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Quiz");
-                });
-
-            modelBuilder.Entity("ZLearn.Domain.Entities.ExamParticipant", b =>
-                {
-                    b.HasOne("ZLearn.Domain.Entities.Exam", "Exam")
-                        .WithMany("Participants")
-                        .HasForeignKey("Alias")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Exam");
-                });
-
-            modelBuilder.Entity("ZLearn.Domain.Entities.Question", b =>
-                {
-                    b.HasOne("ZLearn.Domain.Entities.Quiz", "Quiz")
+                    b.HasOne("Zlearn.V2.Domain.CatalogContext.Quizzes.Quiz", "Quiz")
                         .WithMany("Questions")
                         .HasForeignKey("QuizId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -783,10 +807,10 @@ namespace ZLearn.V2.Infas.Migrations
                     b.Navigation("Quiz");
                 });
 
-            modelBuilder.Entity("ZLearn.Domain.Entities.Quiz", b =>
+            modelBuilder.Entity("Zlearn.V2.Domain.CatalogContext.Quizzes.Quiz", b =>
                 {
-                    b.HasOne("ZLearn.Domain.Entities.Category", "Category")
-                        .WithMany("Quizzes")
+                    b.HasOne("Zlearn.V2.Domain.CatalogContext.Categories.Category", "Category")
+                        .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -794,26 +818,41 @@ namespace ZLearn.V2.Infas.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("ZLearn.Domain.Entities.Category", b =>
+            modelBuilder.Entity("Zlearn.V2.Domain.ExamContext.Exams.Exam", b =>
                 {
-                    b.Navigation("Quizzes");
+                    b.HasOne("Zlearn.V2.Domain.CatalogContext.Quizzes.Quiz", "Quiz")
+                        .WithMany()
+                        .HasForeignKey("QuizId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Quiz");
                 });
 
-            modelBuilder.Entity("ZLearn.Domain.Entities.Exam", b =>
+            modelBuilder.Entity("Zlearn.V2.Domain.ExamContext.Participants.ExamParticipant", b =>
                 {
-                    b.Navigation("Participants");
+                    b.HasOne("Zlearn.V2.Domain.ExamContext.Exams.Exam", "Exam")
+                        .WithMany("Participants")
+                        .HasForeignKey("ExamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Exam");
                 });
 
-            modelBuilder.Entity("ZLearn.Domain.Entities.Question", b =>
+            modelBuilder.Entity("Zlearn.V2.Domain.CatalogContext.Questions.Question", b =>
                 {
                     b.Navigation("Answers");
                 });
 
-            modelBuilder.Entity("ZLearn.Domain.Entities.Quiz", b =>
+            modelBuilder.Entity("Zlearn.V2.Domain.CatalogContext.Quizzes.Quiz", b =>
                 {
-                    b.Navigation("Exams");
-
                     b.Navigation("Questions");
+                });
+
+            modelBuilder.Entity("Zlearn.V2.Domain.ExamContext.Exams.Exam", b =>
+                {
+                    b.Navigation("Participants");
                 });
 #pragma warning restore 612, 618
         }

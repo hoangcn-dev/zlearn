@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace ZLearn.Infras.Migrations
+namespace ZLearn.V2.Infas.Migrations
 {
     /// <inheritdoc />
     public partial class AddUniqueIndexToQuestionSlug : Migration

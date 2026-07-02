@@ -87,6 +87,7 @@ namespace Zlearn.V2.Infas
             services.AddScoped(typeof(IWriteRepo<>), typeof(WriteRepo<>));
             services.AddScoped(typeof(IReadRepo<>), typeof(ReadRepo<>));
             services.AddScoped<IQuizWriteRepo, QuizWriteRepo>();
+            services.AddScoped<Zlearn.V2.Application.Common.Interfaces.IDocumentExportService, Zlearn.V2.Infas.Services.DocumentExportService>();
 
             // Đăng ký File repository và Media store service V2
             services.AddScoped<IFileRepo, FileRepo>();

@@ -33,7 +33,7 @@ using ZLearn.Application.LicenseKeys;
 using ZLearn.Application.Logs;
 using ZLearn.Application.Quizzes;
 using ZLearn.Application.Realtime;
-using ZLearn.Infras.Data;
+using ZLearn.V2.Infas.Data;
 using ZLearn.Infras.Data.Interceptors;
 using ZLearn.Infras.Data.Repositories;
 using ZLearn.Infras.Data.Services;

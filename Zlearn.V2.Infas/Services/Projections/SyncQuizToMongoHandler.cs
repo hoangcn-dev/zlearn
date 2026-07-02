@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using Zlearn.V2.Application.Categories.DTOs;
 using Zlearn.V2.Application.Quizzes.DTOs;
 using Zlearn.V2.Domain.CatalogContext.Quizzes.Events;
+using Zlearn.V2.Domain.CatalogContext.Questions.Events;
 using Zlearn.V2.Domain.Common;
 using Zlearn.V2.Infas.Data;
 using Zlearn.V2.Infas.Data.Outbox;
@@ -93,6 +94,22 @@ namespace Zlearn.V2.Infas.Services.Projections
                     }
                     isHandled = true;
                 }
+            }
+            else if (domainEvent is QuestionAttemptedEvent attemptedEvent)
+            {
+                var filter = Builders<QuizDocument>.Filter.Eq("Questions.Id", attemptedEvent.QuestionId);
+                var update = Builders<QuizDocument>.Update
+                    .Inc("Questions.$.AttemptCount", 1)
+                    .Inc(q => q.AttemptCount, 1);
+                await _collection.UpdateOneAsync(filter, update, cancellationToken: cancellationToken);
+                isHandled = true;
+            }
+            else if (domainEvent is QuizDownloadedEvent downloadedEvent)
+            {
+                var filter = Builders<QuizDocument>.Filter.Eq(q => q.Id, downloadedEvent.QuizId);
+                var update = Builders<QuizDocument>.Update.Inc(q => q.DownloadCount, 1);
+                await _collection.UpdateOneAsync(filter, update, cancellationToken: cancellationToken);
+                isHandled = true;
             }
             else if (domainEvent is DeletedEvent deletedEvent)
             {

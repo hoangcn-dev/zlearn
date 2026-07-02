@@ -145,5 +145,11 @@ namespace Zlearn.V2.Domain.CatalogContext.Quizzes
         {
             Tags.Remove(tag);
         }
+
+        public void IncDownloadCount()
+        {
+            DownloadCount++;
+            RaiseEvent(new QuizDownloadedEvent(Id));
+        }
     }
 }

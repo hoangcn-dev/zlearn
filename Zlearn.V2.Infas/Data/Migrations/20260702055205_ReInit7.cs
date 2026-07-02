@@ -1,34 +1,23 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace ZLearn.V2.Infas.Migrations
+namespace Zlearn.V2.Infas.Migrations
 {
-    public partial class ReInit6 : Migration
+    /// <inheritdoc />
+    public partial class ReInit7 : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "AccessHistories",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "character varying(16)", maxLength: 16, nullable: false),
-                    Day = table.Column<DateOnly>(type: "date", nullable: false),
-                    AccessCount = table.Column<long>(type: "bigint", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AccessHistories", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "character varying(16)", maxLength: 16, nullable: false),
-                    Name = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: false),
+                    Name = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: false),
                     Slug = table.Column<string>(type: "text", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: true),
                     ThumbnailUrl = table.Column<string>(type: "text", nullable: true),
@@ -55,6 +44,7 @@ namespace ZLearn.V2.Infas.Migrations
                     Width = table.Column<int>(type: "integer", nullable: true),
                     Height = table.Column<int>(type: "integer", nullable: true),
                     SecDuration = table.Column<double>(type: "double precision", nullable: true),
+                    IsUsing = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false),
                     CreatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     LastModifiedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
                     CreatedBy = table.Column<string>(type: "text", nullable: false),
@@ -63,6 +53,22 @@ namespace ZLearn.V2.Infas.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MediaFiles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "OutboxEvents",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Type = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: false),
+                    Content = table.Column<string>(type: "text", nullable: false),
+                    OccurredOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    ProcessedOn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
+                    Error = table.Column<string>(type: "text", nullable: true),
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OutboxEvents", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -260,6 +266,45 @@ namespace ZLearn.V2.Infas.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Exam",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "character varying(16)", maxLength: 16, nullable: false),
+                    Name = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: false),
+                    Alias = table.Column<string>(type: "text", nullable: false),
+                    Note = table.Column<string>(type: "text", nullable: true),
+                    JoinPass = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: true),
+                    LockAccess = table.Column<bool>(type: "boolean", nullable: false),
+                    ShowAnswerAndKey = table.Column<bool>(type: "boolean", nullable: false),
+                    MixQuestions = table.Column<bool>(type: "boolean", nullable: false),
+                    MixAnswers = table.Column<bool>(type: "boolean", nullable: false),
+                    RequireJoinWithCode = table.Column<bool>(type: "boolean", nullable: false),
+                    RequireJoinWithName = table.Column<bool>(type: "boolean", nullable: false),
+                    AllowLateSubmit = table.Column<bool>(type: "boolean", nullable: false),
+                    StartTime = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    StartJobId = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    EndJobId = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    EndTime = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
+                    Status = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    QuizId = table.Column<string>(type: "character varying(16)", nullable: false),
+                    MaxParticipants = table.Column<int>(type: "integer", nullable: false),
+                    CreatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    LastModifiedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
+                    CreatedBy = table.Column<string>(type: "text", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Exam", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Exam_Quizzes_QuizId",
+                        column: x => x.QuizId,
+                        principalTable: "Quizzes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Questions",
                 columns: table => new
                 {
@@ -267,7 +312,6 @@ namespace ZLearn.V2.Infas.Migrations
                     Slug = table.Column<string>(type: "text", nullable: false),
                     StringContent = table.Column<string>(type: "text", nullable: true),
                     MediaFileUrls = table.Column<string>(type: "text", nullable: false),
-                    CorrectKey = table.Column<int>(type: "integer", nullable: false),
                     Explanation = table.Column<string>(type: "text", nullable: true),
                     Order = table.Column<int>(type: "integer", nullable: false),
                     QuizId = table.Column<string>(type: "character varying(16)", nullable: false),
@@ -313,6 +357,35 @@ namespace ZLearn.V2.Infas.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ExamParticipant",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "character varying(16)", maxLength: 16, nullable: false),
+                    ParticipantCode = table.Column<string>(type: "text", nullable: true),
+                    ParticipantName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    UserId = table.Column<string>(type: "text", nullable: false),
+                    ExamId = table.Column<string>(type: "character varying(16)", nullable: false),
+                    FirstCheckIn = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
+                    LastCheckOut = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
+                    Status = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    Correct = table.Column<int>(type: "integer", nullable: false),
+                    Completed = table.Column<int>(type: "integer", nullable: false),
+                    IsBanned = table.Column<bool>(type: "boolean", nullable: false),
+                    Score = table.Column<double>(type: "double precision", nullable: false),
+                    SelectedAnswers = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ExamParticipant", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ExamParticipant_Exam_ExamId",
+                        column: x => x.ExamId,
+                        principalTable: "Exam",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Answers",
                 columns: table => new
                 {
@@ -321,6 +394,7 @@ namespace ZLearn.V2.Infas.Migrations
                     StringContent = table.Column<string>(type: "text", nullable: true),
                     QuestionId = table.Column<string>(type: "character varying(16)", nullable: false),
                     MediaFileUrls = table.Column<string>(type: "text", nullable: false),
+                    IsCorrect = table.Column<bool>(type: "boolean", nullable: false),
                     CreatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     LastModifiedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
                     CreatedBy = table.Column<string>(type: "text", nullable: false),
@@ -345,8 +419,24 @@ namespace ZLearn.V2.Infas.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Categories_Slug",
                 table: "Categories",
-                column: "Id",
+                column: "Slug",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Exam_Alias",
+                table: "Exam",
+                column: "Alias",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Exam_QuizId",
+                table: "Exam",
+                column: "QuizId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ExamParticipant_ExamId",
+                table: "ExamParticipant",
+                column: "ExamId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_MediaFiles_Id",
@@ -355,9 +445,26 @@ namespace ZLearn.V2.Infas.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_MediaFiles_SourceUrl",
+                table: "MediaFiles",
+                column: "SourceUrl",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OutboxEvents_ProcessedOn",
+                table: "OutboxEvents",
+                column: "ProcessedOn");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Questions_QuizId",
                 table: "Questions",
                 column: "QuizId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Questions_Slug",
+                table: "Questions",
+                column: "Slug",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_QuizTag_TagsId",
@@ -372,7 +479,7 @@ namespace ZLearn.V2.Infas.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Quizzes_Slug",
                 table: "Quizzes",
-                column: "Id",
+                column: "Slug",
                 unique: true);
 
             migrationBuilder.CreateIndex(
@@ -411,18 +518,36 @@ namespace ZLearn.V2.Infas.Migrations
                 table: "Users",
                 column: "NormalizedUserName",
                 unique: true);
+
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            using var stream = assembly.GetManifestResourceStream("Zlearn.V2.Infas.External.Quartz.up_migration.sql");
+            using var reader = new System.IO.StreamReader(stream!);
+            var script = reader.ReadToEnd();
+
+            migrationBuilder.Sql(script);
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "AccessHistories");
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            using var stream = assembly.GetManifestResourceStream("Zlearn.V2.Infas.External.Quartz.down_migration.sql");
+            using var reader = new System.IO.StreamReader(stream!);
+            var script = reader.ReadToEnd();
+
+            migrationBuilder.Sql(script);
 
             migrationBuilder.DropTable(
                 name: "Answers");
 
             migrationBuilder.DropTable(
+                name: "ExamParticipant");
+
+            migrationBuilder.DropTable(
                 name: "MediaFiles");
+
+            migrationBuilder.DropTable(
+                name: "OutboxEvents");
 
             migrationBuilder.DropTable(
                 name: "QuizTag");
@@ -444,6 +569,9 @@ namespace ZLearn.V2.Infas.Migrations
 
             migrationBuilder.DropTable(
                 name: "Questions");
+
+            migrationBuilder.DropTable(
+                name: "Exam");
 
             migrationBuilder.DropTable(
                 name: "Tags");

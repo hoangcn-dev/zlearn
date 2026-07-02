@@ -112,6 +112,22 @@
     </div>
 </div>
 
+<!-- Modal Export Options -->
+<div class="modal fade" id="exportModal" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exportModalLabel">Chọn định dạng file</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <button type="button" class="btn btn-outline-primary w-100 mb-2" onclick="executeExport('word')">Word (.docx)</button>
+        <button type="button" class="btn btn-outline-danger w-100" onclick="executeExport('pdf')">PDF (.pdf)</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 @section Scripts {
     <script asp-append-version="true">
         $(document).ready(() => {
@@ -168,8 +184,62 @@
         }
 
         function downloadQuiz() {
-            // Mock function for downloading quiz
-            showMess('Chức năng tải xuống đang được phát triển', false);
+            var myModal = new bootstrap.Modal(document.getElementById('exportModal'));
+            myModal.show();
+        }
+
+        function executeExport(format) {
+            var myModal = bootstrap.Modal.getInstance(document.getElementById('exportModal'));
+            if (myModal) myModal.hide();
+
+            const data = {
+                quizIds: ['@Model.Id'],
+                format: format
+            };
+            
+            showLoading();
+            
+            fetch('/api/quizzes/export', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include',
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) throw new Error("Export failed");
+                const disposition = response.headers.get('Content-Disposition');
+                let filename = `@Model.Name`;
+                if (disposition && disposition.indexOf('attachment') !== -1) {
+                    var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                    var matches = filenameRegex.exec(disposition);
+                    if (matches != null && matches[1]) { 
+                        filename = matches[1].replace(/['"]/g, '');
+                    }
+                } else {
+                    filename += (format === 'word' ? '.docx' : '.pdf');
+                }
+                return response.blob().then(blob => ({ blob, filename }));
+            })
+            .then(({blob, filename}) => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                showMess('Tải xuống thành công!');
+            })
+            .catch(error => {
+                console.error('Lỗi khi tải xuống:', error);
+                showMess('Đã xảy ra lỗi khi tải xuống', false);
+            })
+            .finally(() => {
+                hideLoading();
+            });
         }
 
         function shareQuiz() {

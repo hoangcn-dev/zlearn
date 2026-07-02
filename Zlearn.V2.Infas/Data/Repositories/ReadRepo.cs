@@ -55,7 +55,12 @@ namespace Zlearn.V2.Infas.Data.Repositories
             return await _collection.Find(filter).ToListAsync();
         }
 
-        public virtual async Task<PaginatedDto<TDocument>> GetPagingAsync(int page, int size, Expression<Func<TDocument, bool>>? filter = null)
+        public virtual async Task<PaginatedDto<TDocument>> GetPagingAsync(
+            int page, 
+            int size, 
+            Expression<Func<TDocument, bool>>? filter = null,
+            Expression<Func<TDocument, object>>? orderBy = null,
+            bool isAsc = false)
         {
             var mongoFilter = filter == null 
                 ? Builders<TDocument>.Filter.Empty 
@@ -63,7 +68,13 @@ namespace Zlearn.V2.Infas.Data.Repositories
 
             var totalCount = await _collection.CountDocumentsAsync(mongoFilter);
             
-            var items = await _collection.Find(mongoFilter)
+            var query = _collection.Find(mongoFilter);
+            if (orderBy != null)
+            {
+                query = isAsc ? query.SortBy(orderBy) : query.SortByDescending(orderBy);
+            }
+            
+            var items = await query
                 .Skip((page - 1) * size)
                 .Limit(size)
                 .ToListAsync();

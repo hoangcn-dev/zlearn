@@ -10,7 +10,12 @@ namespace Zlearn.V2.Application.Common.Interfaces
     {
         Task<TDocument?> GetByIdAsync(string id);
         Task<List<TDocument>> GetAllAsync(Expression<Func<TDocument, bool>>? filter = null);
-        Task<PaginatedDto<TDocument>> GetPagingAsync(int page, int size, Expression<Func<TDocument, bool>>? filter = null);
+        Task<PaginatedDto<TDocument>> GetPagingAsync(
+            int page, 
+            int size, 
+            Expression<Func<TDocument, bool>>? filter = null,
+            Expression<Func<TDocument, object>>? orderBy = null,
+            bool isAsc = false);
         Task<bool> AnyAsync(Expression<Func<TDocument, bool>> filter);
     }
 }

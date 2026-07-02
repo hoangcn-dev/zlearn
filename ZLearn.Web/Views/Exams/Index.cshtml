@@ -15,15 +15,15 @@
 <!-- Top action -->
 <div class="d-flex">
     <div class="position-relative w-auto h-auto">
-        <input type="text" class="form-control ps-2 py-1 h-100" style="padding-right: 30px;" placeholder="Nhập tên đề">
-        <i title="Tìm kiếm" class="opacity-hover fa-solid fa-magnifying-glass position-absolute end-0 top-50 translate-middle-y me-2"></i>
+        <input id="nameToSearch" type="text" class="form-control ps-2 py-1 h-100" style="padding-right: 30px;" placeholder="Nhập tên đề">
+        <i title="Tìm kiếm" class="opacity-hover fa-solid fa-magnifying-glass position-absolute end-0 top-50 translate-middle-y me-2" style="cursor: pointer;"></i>
     </div>
     <div class="flex-fill"></div>
     <a asp-action="Create" class="btn text-light opacity-hover" style="background-color: var(--main-color);">Tạo mới <i class="fa-solid fa-plus"></i></a>
 </div>
 
 <!-- List exams -->
-<div class="d-flex flex-column mt-2">
+<div class="d-flex flex-column mt-2" id="examList">
     @if (Model.Count == 0)
     {
         <p class="text-center text-secondary fst-italic my-3">Hiện chưa có bài kiểm tra nào được tạo.</p>
@@ -52,3 +52,21 @@
         </a>
     }
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(() => {
+            $('#nameToSearch').on('input', function() {
+                const query = $(this).val().toLowerCase().trim();
+                $('#examList a').each(function() {
+                    const examName = $(this).find('.card-body > div:first-child').text().toLowerCase();
+                    if (examName.includes(query)) {
+                        $(this).removeClass('d-none');
+                    } else {
+                        $(this).addClass('d-none');
+                    }
+                });
+            });
+        });
+    </script>
+}

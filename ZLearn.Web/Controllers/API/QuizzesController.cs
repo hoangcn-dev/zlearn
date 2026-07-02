@@ -140,9 +140,10 @@ namespace ZLearn.Web.Controllers.API
 
         [HttpPost("export")]
         [Authorize]
-        public async Task<IActionResult> ExportQuizzes([FromBody] object data)
+        public async Task<IActionResult> ExportQuizzes([FromBody] Zlearn.V2.Application.Quizzes.Queries.ExportQuizzes.ExportQuizzesQuery query)
         {
-            throw new System.NotImplementedException("Export is not supported in V2");
+            var res = await _mediator.Send(query);
+            return File(res.Content, res.ContentType, res.FileName);
         }
 
         [HttpPost("scan")]

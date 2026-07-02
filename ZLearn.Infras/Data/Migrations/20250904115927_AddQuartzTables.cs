@@ -3,7 +3,7 @@ using System.Reflection;
 
 #nullable disable
 
-namespace ZLearn.Infras.Migrations
+namespace ZLearn.V2.Infas.Migrations
 {
     public partial class AddQuartzTables : Migration
     {

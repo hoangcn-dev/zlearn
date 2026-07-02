@@ -319,7 +319,7 @@
                 examId: "@Model.Id",
                 answers: Object.entries(selectedAns).map(([questionId, submitKey]) => ({
                     questionId,
-                    submitKey
+                    submitKeys: [submitKey]
                 }))
             }
             postJsonData('/exams/submit', submitData, () => {
