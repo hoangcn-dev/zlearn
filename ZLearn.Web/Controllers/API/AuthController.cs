@@ -1,19 +1,13 @@
-﻿using MediatR;
+using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using ZLearn.Application.Auth.Commands.GetAuthData;
-using ZLearn.Application.Auth.Commands.GoogleSignIn;
-using ZLearn.Application.Auth.Commands.SignIn;
-using ZLearn.Application.Auth.Commands.UpdateUser;
-using ZLearn.Application.Auth.Commands.UpdateUserProfile;
-using ZLearn.Application.Auth.DTOs;
-using ZLearn.Application.Auth.Queries.GetAllRoles;
-using ZLearn.Application.Auth.Queries.GetListUsers;
-using ZLearn.Application.Auth.Queries.GetUserDetail;
-using ZLearn.Application.Common.DTOs;
-using ZLearn.Application.Common.Utils;
+using Zlearn.V2.Application.Identity.Commands;
+using Zlearn.V2.Application.Identity.DTOs;
+using Zlearn.V2.Application.Identity.Queries;
+using Zlearn.V2.Application.Common.DTOs;
+using Zlearn.V2.Application.Common.Utils;
 
 namespace ZLearn.Web.Controllers.API
 {
@@ -65,7 +59,7 @@ namespace ZLearn.Web.Controllers.API
         [Authorize(Policy = "OnlyAdmin")]
         public async Task<IActionResult> UpdateUser(string id, [FromBody] UserUpdateContentDto data)
         {
-            var command = new UpdateUserConmand
+            var command = new UpdateUserCommand
             {
                 Id = id,
                 UpdateData = data

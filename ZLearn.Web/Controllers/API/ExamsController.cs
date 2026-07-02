@@ -1,30 +1,51 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Security.Claims;
-using ZLearn.Application.Common.DTOs;
-using ZLearn.Application.Exams.Commands.ChangeExamStatus;
-using ZLearn.Application.Exams.Commands.CreateExam;
-using ZLearn.Application.Exams.Commands.JoinExam;
-using ZLearn.Application.Exams.Commands.ManageParticipant;
-using ZLearn.Application.Exams.Commands.SubmitAnswer;
-using ZLearn.Application.Exams.DTOs;
-using ZLearn.Application.Exams.Queries.GetExamDetail;
-using ZLearn.Application.Exams.Queries.GetExamScore;
-using ZLearn.Application.Exams.Queries.GetExamScoreExcelFileData;
-using ZLearn.Application.Exams.Queries.GetOnGoingExam;
-using ZLearn.Application.Exams.Queries.GetParticipantStatus;
+using System.Threading.Tasks;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Zlearn.V2.Application.Exams.Commands.ChangeExamStatus;
+using Zlearn.V2.Application.Exams.Commands.CreateExam;
+using Zlearn.V2.Application.Exams.Commands.JoinExam;
+using Zlearn.V2.Application.Exams.Commands.ManageParticipant;
+using Zlearn.V2.Application.Exams.Commands.SubmitAnswer;
+using Zlearn.V2.Application.Exams.Queries.GetExamDetail;
+using Zlearn.V2.Application.Exams.Queries.GetExamScore;
+using Zlearn.V2.Application.Exams.Queries.GetExamScoreExcelFileData;
+using Zlearn.V2.Application.Exams.Queries.GetOnGoingExam;
+using Zlearn.V2.Application.Exams.Queries.GetParticipantStatus;
+using Zlearn.V2.Application.Common.DTOs;
+using Zlearn.V2.Application.Exams.DTOs;
+using Zlearn.V2.Application.Common.Interfaces;
+using CreateResponseDto = Zlearn.V2.Application.Common.DTOs.CreateResponseDto;
 
 namespace ZLearn.Web.Controllers.API
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ExamsController : BaseController
+    public class ExamsController : ControllerBase
     {
-        public ExamsController(
-            ILogger<ExamsController> logger, 
-            IMediator mediator) : base(logger, mediator)
+        private readonly IMediator _mediator;
+        private readonly IExamSessionService _examSessionService;
+
+        public ExamsController(IMediator mediator, IExamSessionService examSessionService)
         {
+            _mediator = mediator;
+            _examSessionService = examSessionService;
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> CreateExam([FromBody] CreateExamDto data)
+        {
+            var res = await _mediator.Send(new CreateExamCommand
+            {
+                Data = data,
+                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty
+            });
+            return Ok(Result<CreateResponseDto>.Success("Tạo bài kiểm tra thành công (V2).", res));
         }
 
         [HttpGet("{id}/export-result")]
@@ -42,12 +63,21 @@ namespace ZLearn.Web.Controllers.API
         [HttpGet("participant-info")]
         public async Task<IActionResult> GetParticipantInfo([FromQuery] string alias)
         {
+            var userId = await _examSessionService.GetUserIdAsync(HttpContext);
+            var token = await _examSessionService.GetSessionTokenAsync(HttpContext);
+
             var res = await _mediator.Send(new GetParticipantStatusQuery
             {
                 Alias = alias,
-                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier)
+                UserId = userId
             });
             if (res == null) return Ok(Result<NoData>.Failure());
+
+            if (!string.IsNullOrEmpty(token))
+            {
+                res.SessionToken = token;
+            }
+
             return Ok(Result<ParticipantWaitingInfoDto>.Success("", res));
         }
 
@@ -62,27 +92,19 @@ namespace ZLearn.Web.Controllers.API
             return Ok(Result<List<OnGoingExamListItemDto>>.Success("", res));
         }
 
-        [HttpPost]
-        [Authorize]
-        public async Task<IActionResult> CreateExam([FromBody]CreateExamDto data)
-        {
-            var res = await _mediator.Send(new CreateExamCommand
-            {
-                Data = data,
-                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier)
-            });
-            return Ok(Result<CreateResponseDto>.Success("Tạo bài kiểm tra thành công.", res));
-        }
-
         [HttpPost("submit")]
-        [Authorize]
         public async Task<IActionResult> Submit([FromBody] SubmitExamDto data)
         {
+            var userId = await _examSessionService.GetUserIdAsync(HttpContext);
+
             await _mediator.Send(new SubmitAnswerCommand
             {
-                ParticipantId = User.FindFirstValue(ClaimTypes.NameIdentifier),
+                ParticipantId = userId,
                 Data = data
             });
+
+            await _examSessionService.HandleSubmitSessionAsync(HttpContext, userId, data.ExamId);
+
             return Ok(Result<NoData>.Success());
         }
 
@@ -94,6 +116,13 @@ namespace ZLearn.Web.Controllers.API
                 User = User,
                 Data = data
             });
+
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (userId is not null && result is not null)
+            {
+                await _examSessionService.HandleJoinSessionAsync(HttpContext, userId, data.ExamId, result.ParticipantId, result);
+            }
+
             return Ok(Result<ParticipantWaitingInfoDto>.Success("", result));
         }
 
@@ -105,7 +134,7 @@ namespace ZLearn.Web.Controllers.API
             {
                 ExamId = id,
                 Data = data,
-                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier)
+                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty
             });
             return Ok(Result<NoData>.Success());
         }
@@ -122,7 +151,5 @@ namespace ZLearn.Web.Controllers.API
             });
             return Ok(Result<object>.Success("", new { participantId }));
         }
-
-
     }
 }

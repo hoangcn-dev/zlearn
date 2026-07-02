@@ -1,4 +1,4 @@
-﻿@inject IConfiguration Configuration
+@inject IConfiguration Configuration
 
 @{
     var currentUrl = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}";
@@ -110,6 +110,14 @@
                                         <hr class="dropdown-divider">
                                         <a asp-controller="Quizzes" asp-action="MyQuiz" class="dropdown-item"><i class="fa-solid fa-file-lines me-1"></i> Quản lý đề thi</a>
                                         <a asp-controller="Exams" asp-action="Index" class="dropdown-item"><i class="fa-solid fa-clock me-1"></i> Quản lý bài thi</a>
+                                        
+                                        <!-- Admin Actions -->
+                                        <div class="admin-only d-none">
+                                            <hr class="dropdown-divider">
+                                            <a asp-controller="Users" asp-action="AdminManagement" class="dropdown-item"><i class="fa-solid fa-screwdriver-wrench me-1"></i> Quản lý hệ thống</a>
+                                            <a asp-controller="Users" asp-action="LicenseKeys" class="dropdown-item"><i class="fa-solid fa-key me-1"></i> Quản lý License Key</a>
+                                        </div>
+
                                         <hr class="dropdown-divider">
                                         <a onclick="sign_out()" class="dropdown-item"><i class="fa-solid fa-arrow-right-from-bracket me-1"></i> Đăng xuất</a>
                                     </div>

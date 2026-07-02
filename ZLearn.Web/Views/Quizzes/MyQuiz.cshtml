@@ -1,6 +1,5 @@
-﻿@using ZLearn.Application.Common.DTOs
-@using ZLearn.Application.Quizzes.DTOs
-
+@using Zlearn.V2.Application.Common.DTOs
+@using Zlearn.V2.Application.Quizzes.DTOs
 @model PaginatedDto<QuizListItemDto>
 
 @{
@@ -25,12 +24,13 @@
             <input id="nameToSearch" type="text" class="form-control ps-2 py-1 h-100" style="padding-right: 30px;" placeholder="Nhập tên đề">
             <i title="Tìm kiếm" class="opacity-hover fa-solid fa-magnifying-glass position-absolute end-0 top-50 translate-middle-y me-2"></i>
         </div>
-        <i class="fa-solid fa-arrow-rotate-left mx-2 fs-4 opacity-hover" title="Làm mới"></i>
+        <i class="fa-solid fa-arrow-rotate-left mx-2 fs-4 opacity-hover" title="Làm mới" onclick="loadQuiz()"></i>
         <div class="flex-fill"></div>
         <select id="order" class="form-select w-auto me-2">
             <option selected value="CreatedAt">Mới nhất</option>
             <option value="AttemptCount">Làm nhiều nhất</option>
         </select>
+        <button id="btnToggleExport" class="btn text-light opacity-hover me-2" style="background-color: var(--bs-secondary);" onclick="toggleExportMode()">Xuất file <i class="fa-solid fa-file-export"></i></button>
         <a asp-action="Create" asp-controller="Quizzes" class="btn text-light opacity-hover" style="background-color: var(--main-color);">Tạo mới <i class="fa-solid fa-plus"></i></a>
     </div>
 
@@ -46,12 +46,31 @@
     </div>
 </div>
 
+<!-- Modal Export Options -->
+<div class="modal fade" id="exportModal" tabindex="-1" aria-labelledby="exportModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exportModalLabel">Chọn định dạng file</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <button type="button" class="btn btn-outline-primary w-100 mb-2" onclick="executeExport('word')">Word (.docx)</button>
+        <button type="button" class="btn btn-outline-danger w-100" onclick="executeExport('pdf')">PDF (.pdf)</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 @section Scripts {
     <script asp-append-version="true">
         let pageIndex = 1;
         let pageSize = 10;
         let totalPages = 1;
         let totalItems = 1;
+        
+        let isExportMode = false;
+        let selectedQuizIds = [];
 
         $(document).ready(() => {
             // Get categories
@@ -76,6 +95,100 @@
             loadQuiz();
         });
 
+        function toggleExportMode() {
+            isExportMode = !isExportMode;
+            selectedQuizIds = [];
+            const btn = $('#btnToggleExport');
+            if (isExportMode) {
+                btn.css('background-color', 'var(--bs-primary)');
+                btn.html('Xuất 0 đề ra file <i class="fa-solid fa-file-export"></i>');
+                btn.attr('onclick', 'handleExportSubmit()');
+                // render lại stt -> checkbox
+                renderQuizzesUI();
+            } else {
+                btn.css('background-color', 'var(--bs-secondary)');
+                btn.html('Xuất file <i class="fa-solid fa-file-export"></i>');
+                btn.attr('onclick', 'toggleExportMode()');
+                renderQuizzesUI();
+            }
+        }
+
+        function handleExportSubmit() {
+            if (selectedQuizIds.length === 0) {
+                // Nếu chưa chọn đề nào, bấm thì hủy chế độ export
+                toggleExportMode();
+                return;
+            }
+            // Mở modal chọn format
+            var myModal = new bootstrap.Modal(document.getElementById('exportModal'));
+            myModal.show();
+        }
+
+        function executeExport(format) {
+            var myModal = bootstrap.Modal.getInstance(document.getElementById('exportModal'));
+            if (myModal) myModal.hide();
+
+            const data = {
+                quizIds: selectedQuizIds,
+                format: format
+            };
+            
+            // Show loading
+            $('#load-container').html(`<div class="loader my-3"></div>`);
+            
+            fetch('/api/quizzes/export', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include',
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) throw new Error("Export failed");
+                const disposition = response.headers.get('Content-Disposition');
+                let filename = "exported_files";
+                if (disposition && disposition.indexOf('attachment') !== -1) {
+                    var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                    var matches = filenameRegex.exec(disposition);
+                    if (matches != null && matches[1]) { 
+                        filename = matches[1].replace(/['"]/g, '');
+                    }
+                }
+                return response.blob().then(blob => ({ blob, filename }));
+            })
+            .then(({blob, filename}) => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                $('#load-container').empty();
+                // success, tắt chế độ export
+                isExportMode = true; // trick
+                toggleExportMode();
+            })
+            .catch(error => {
+                console.error('Lỗi khi xuất file:', error);
+                $('#load-container').empty();
+                alert('Đã xảy ra lỗi khi xuất file');
+            });
+        }
+
+        function handleCheckboxChange(cb, id) {
+            if (cb.checked) {
+                if (!selectedQuizIds.includes(id)) selectedQuizIds.push(id);
+            } else {
+                selectedQuizIds = selectedQuizIds.filter(x => x !== id);
+            }
+            $('#btnToggleExport').html(`Xuất ${selectedQuizIds.length} đề ra file <i class="fa-solid fa-file-export"></i>`);
+        }
+
+        let allQuizzes = []; // cache list
+
         function loadMore() {
             if (pageIndex < totalPages) {
                 pageIndex += 1;
@@ -86,7 +199,10 @@
         }
 
         function loadQuiz() {
-            // load list quiz
+            if(pageIndex === 1) {
+                allQuizzes = [];
+                $('#quizzes').empty();
+            }
             const params = new URLSearchParams({
                 categoryId: $('#category').val(),
                 name: $('#nameToSearch').val(),
@@ -98,21 +214,10 @@
             getData('/quizzes/my-quiz?' + params.toString(), res => {
                 $('#load-container').empty();
                 res = res.data;
-                res.items.forEach((q, index) => {
-                    const div = $(`
-                        <a class="d-flex mb-2">
-                            <span class="fw-bold align-content-center" style="width: 40px;">${1 + $('#quizzes').children().length}</span>
-                            <div class="card card-body highlight-hover d-flex flex-row py-2">
-                                <div class="name">${q.name}</div>
-                                <div class="flex-fill mx-2"></div>
-                                <div class="attempt">${q.attemptCount} lượt làm</div>
-                                <div class="ms-2 downCount">${q.downloadCount} <i class="fa-solid fa-download"></i></div>
-                            </div>
-                        </a>
-                    `);
-                    div.attr('href', `/de-trac-nghiem/cap-nhat-de?id=${q.id}`);
-                    $('#quizzes').append(div);
-                });
+                res.items.forEach(q => allQuizzes.push(q));
+                
+                renderQuizzesUI();
+                
                 totalPages = res.totalPages;
                 totalItems = res.totalItems;
                 if (totalPages == pageIndex) {
@@ -120,8 +225,43 @@
                 }
             });
         }
+
+        function renderQuizzesUI() {
+            $('#quizzes').empty();
+            allQuizzes.forEach((q, index) => {
+                let prefixHtml = `<span class="fw-bold align-content-center" style="width: 40px;">${index + 1}</span>`;
+                if (isExportMode) {
+                    const isChecked = selectedQuizIds.includes(q.id) ? 'checked' : '';
+                    prefixHtml = `<div class="align-content-center" style="width: 40px;">
+                                    <input type="checkbox" class="form-check-input" style="width: 20px; height: 20px; cursor: pointer;" ${isChecked} onclick="handleCheckboxChange(this, '${q.id}')">
+                                  </div>`;
+                }
+
+                // If in export mode, disable link click to edit
+                const hrefAttr = isExportMode ? 'javascript:void(0)' : `/de-trac-nghiem/cap-nhat-de?id=${q.id}`;
+                
+                const div = $(`
+                    <a class="d-flex mb-2 text-decoration-none text-dark" href="${hrefAttr}">
+                        ${prefixHtml}
+                        <div class="card card-body highlight-hover d-flex flex-row py-2 w-100">
+                            <div class="name">${q.name}</div>
+                            <div class="flex-fill mx-2"></div>
+                            <div class="attempt">${q.attemptCount} lượt làm</div>
+                            <div class="ms-2 downCount">${q.downloadCount} <i class="fa-solid fa-download"></i></div>
+                        </div>
+                    </a>
+                `);
+                
+                if (isExportMode) {
+                    div.find('.card').on('click', function(e) {
+                        e.preventDefault(); // allow clicking the card to toggle checkbox
+                        const cb = $(this).parent().find('input[type="checkbox"]')[0];
+                        cb.checked = !cb.checked;
+                        handleCheckboxChange(cb, q.id);
+                    });
+                }
+                $('#quizzes').append(div);
+            });
+        }
     </script>
-
-
 }
-        

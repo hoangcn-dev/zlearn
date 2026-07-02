@@ -1,4 +1,4 @@
-﻿@using ZLearn.Application.Quizzes.DTOs
+@using Zlearn.V2.Application.Quizzes.DTOs
 @model QuestionContentDto
 
 @{
@@ -27,7 +27,7 @@
             <div class="card card-body shadow-sm bg-with-image" style="position: sticky; top: 20px; max-height: 70vh; overflow-y: auto;">
                 <!-- Title -->
                 <h6 id="quizName" class="border-bottom pb-3 mb-3"></h6>
-                <div id="questionMap" class="d-flex flex-wrap justify-content-start">
+                <div id="questionMap">
                 </div>
             </div>
         </div>
@@ -46,6 +46,10 @@
             <!-- Stat -->
             <div class="d-flex mb-1 align-items-center text-secondary" style="font-size: 10px;">
                 <span id="attempt">@Model.AttemptCount Lượt làm</span>
+                <span class="mx-1">|</span>
+                <span id="questionTypeTag" style="padding: 2px 6px; border-radius: 4px; font-weight: 500; font-size: 10px; color: white; background-color: @(Model.IsMultipleChoice ? "#8a3ffc" : "var(--secondary-color)")">@(Model.IsMultipleChoice ? "Nhiều đáp án" : "1 đáp án")</span>
+                <span class="mx-1">|</span>
+                <span id="shortcutGuide"><i class="fa-regular fa-keyboard me-1"></i> Phím tắt: ...</span>
             </div>
 
             <!-- Media Display Toggle Button -->
@@ -109,8 +113,11 @@
             <div id="result"></div>
 
             <!-- Actions -->
-            <div id="action" class="d-flex justify-content-center mt-3">
+            <div id="action" class="d-flex justify-content-center align-items-center mt-3">
                 <a id="btnPrev" class="border bg-white shadow-sm p-1 px-2 highlight-hover me-2"><i class="fa-solid fa-chevron-left"></i> Câu trước</a>
+                <div id="multiSubmitSection" style="display: @(Model.IsMultipleChoice ? "block" : "none");">
+                    <button id="btnSubmitAnswers" class="btn text-white fw-bold p-1 px-3 me-2" style="background-color: var(--main-color); border-radius: 4px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); font-size: 14px;">Xác nhận</button>
+                </div>
                 <button onclick="window.history.back()" class="border bg-white shadow-sm p-1 px-2 highlight-hover"><i class="fa-solid fa-share"></i> Kết thúc</button>
                 <a id="btnNext" class="border bg-white shadow-sm p-1 px-2 highlight-hover ms-2">Câu tiếp theo <i class="fa-solid fa-chevron-right"></i></a>
             </div>
@@ -128,40 +135,157 @@
         let currentOrder = @Model.Order;
         let questionMap = [];
         let isAnsSelected = false;
+        let isMultipleChoice = @(Model.IsMultipleChoice ? "true" : "false");
+
+        function updateQuestionTypeTag(isMulti) {
+            const tag = $('#questionTypeTag');
+            const guide = $('#shortcutGuide');
+            if (isMulti) {
+                tag.text('Nhiều đáp án')
+                   .css('background-color', '#8a3ffc');
+                $('#multiSubmitSection').show();
+                guide.html('<i class="fa-regular fa-keyboard me-1"></i> Phím tắt: <b>[1/2/3/4...]</b> chọn/bỏ chọn | <b>[Enter]</b> xác nhận | <b>[←]/[→]</b> chuyển câu');
+            } else {
+                tag.text('1 đáp án')
+                   .css('background-color', 'var(--secondary-color)');
+                $('#multiSubmitSection').hide();
+                guide.html('<i class="fa-regular fa-keyboard me-1"></i> Phím tắt: <b>[1/2/3/4...]</b> chọn đáp án | <b>[←]/[→]</b> chuyển câu');
+            }
+        }
+
+        function checkAnswerSingle(selectedDiv) {
+            isAnsSelected = true;
+            $('.ans').removeClass('highlight-hover');
+            const selectedKey = selectedDiv.data('key');
+
+            getData(`/quizzes/questions/${questionId}/correct-key`, res => {
+                const data = res.data || res;
+                const correctKeys = data.correctKeys || [];
+                const correctLabels = correctKeys.map(k => $(`.ans[data-key="${k}"]`).data('label')).sort().join(', ');
+                const isCorrect = correctKeys.includes(selectedKey);
+
+                const message = isCorrect ?
+                    '<span class="fw-bold" style="color: var(--success-color);"><i class="fa-solid fa-check"></i> Bạn đã chọn đúng</span>' :
+                    '<span class="fw-bold" style="color: var(--error-color);"><i class="fa-solid fa-xmark"></i> Bạn đã chọn sai</span>';
+
+                correctKeys.forEach(k => {
+                    $(`.ans[data-key="${k}"]`).css('border', 'var(--success-color) 2px solid');
+                });
+                if (!isCorrect) {
+                    selectedDiv.css('border', 'var(--error-color) 2px solid');
+                }
+
+                $('#result').html(`
+                    <div class="d-flex flex-column">
+                        <!-- Key -->
+                        ${message}
+                        <span class="fw-light my-2"> Đáp án đúng: ${correctLabels}</span>
+                        <!-- Explaination -->
+                        <span class="fw-light my-2"><i class="fa-solid fa-lightbulb text-warning"></i> Giải thích</span>
+                        <div class="card card-body fw-light mb-2 fst-italic">
+                            ${data.explanation}
+                        </div>
+                    </div>
+                `);
+            });
+        }
+
+        function checkAnswerMultiple() {
+            isAnsSelected = true;
+            $('.ans').removeClass('highlight-hover');
+            $('#multiSubmitSection').hide();
+
+            const selectedKeys = [];
+            $('.ans.selected-answer').each(function() {
+                selectedKeys.push($(this).data('key'));
+            });
+
+            getData(`/quizzes/questions/${questionId}/correct-key`, res => {
+                const data = res.data || res;
+                const correctKeys = data.correctKeys || [];
+                const correctLabels = correctKeys.map(k => $(`.ans[data-key="${k}"]`).data('label')).sort().join(', ');
+
+                const isCorrect = selectedKeys.length === correctKeys.length && 
+                                  selectedKeys.every(k => correctKeys.includes(k));
+
+                const message = isCorrect ?
+                    '<span class="fw-bold" style="color: var(--success-color);"><i class="fa-solid fa-check"></i> Bạn đã chọn đúng</span>' :
+                    '<span class="fw-bold" style="color: var(--error-color);"><i class="fa-solid fa-xmark"></i> Bạn đã chọn sai</span>';
+
+                correctKeys.forEach(k => {
+                    $(`.ans[data-key="${k}"]`).css('border', 'var(--success-color) 2px solid');
+                });
+                selectedKeys.forEach(k => {
+                    if (!correctKeys.includes(k)) {
+                        $(`.ans[data-key="${k}"]`).css('border', 'var(--error-color) 2px solid');
+                    }
+                });
+
+                $('#result').html(`
+                    <div class="d-flex flex-column">
+                        <!-- Key -->
+                        ${message}
+                        <span class="fw-light my-2"> Đáp án đúng: ${correctLabels}</span>
+                        <!-- Explaination -->
+                        <span class="fw-light my-2"><i class="fa-solid fa-lightbulb text-warning"></i> Giải thích</span>
+                        <div class="card card-body fw-light mb-2 fst-italic">
+                            ${data.explanation}
+                        </div>
+                    </div>
+                `);
+            });
+        }
 
         $(document).ready(async () => {
-            // Add answer click lisnter
-            $('.ans').on('click', function() {
-                if (isAnsSelected) return;
-                $(this).addClass('selected-answer')
-                $('.ans').removeClass('highlight-hover')
-                isAnsSelected = true;
-                getData(`/quizzes/questions/${questionId}/correct-key`, res => {
-                    const data = res.data || res; // Handle both wrapped and unwrapped response
-                    const correctDiv = $(`.ans[data-key="${data.correctKey}"]`)
-                    const message = data.correctKey == $(this).data('key')?
-                        '<span class="fw-bold" style="color: var(--success-color);"><i class="fa-solid fa-check"></i> Bạn đã chọn đúng</span>':
-                        '<span class="fw-bold" style="color: var(--error-color);"><i class="fa-solid fa-xmark"></i> Bạn đã chọn sai</span>'
+            updateQuestionTypeTag(isMultipleChoice);
 
-                    $('#result').append(`
-                        <div class="d-flex flex-column">
-                            <!-- Key -->
-                            ${message}
-                            <span class="fw-light my-2"> Đáp án đúng ${correctDiv.data("label")}</span>
-                            <!-- Explaination -->
-                            <span class="fw-light my-2"><i class="fa-solid fa-lightbulb text-warning"></i> Giải thích</span>
-                            <div class="card card-body fw-light mb-2 fst-italic">
-                                ${data.explanation}
-                            </div>
-                        </div>
-                    `);
+            // Lắng nghe sự kiện bàn phím
+            $(document).on('keyup', function(e) {
+                if ($(e.target).is('input, textarea, select')) return;
 
-                    // scrollTo('#result')
-                });
+                const key = e.key;
+                if (key === 'ArrowLeft') {
+                    if ($('#btnPrev').is(':visible')) {
+                        $('#btnPrev').click();
+                    }
+                } else if (key === 'ArrowRight') {
+                    if ($('#btnNext').is(':visible')) {
+                        $('#btnNext').click();
+                    }
+                } else if (key === 'Enter') {
+                    if (isMultipleChoice && $('#btnSubmitAnswers').is(':visible') && !isAnsSelected) {
+                        $('#btnSubmitAnswers').click();
+                    }
+                } else if (/^[1-9]$/.test(key)) {
+                    if (isAnsSelected) return;
+                    const index = parseInt(key) - 1;
+                    const targetAns = $('.ans').eq(index);
+                    if (targetAns.length > 0) {
+                        targetAns.click();
+                    }
+                }
             });
-            $('.ans img').on('click', function(e) {
+
+            // Use event delegation for answer option click
+            $(document).on('click', '.ans', function() {
+                if (isAnsSelected) return;
+                if (isMultipleChoice) {
+                    $(this).toggleClass('selected-answer');
+                } else {
+                    $('.ans').removeClass('selected-answer');
+                    $(this).addClass('selected-answer');
+                    checkAnswerSingle($(this));
+                }
+            });
+
+            $(document).on('click', '.ans img', function(e) {
                 e.stopPropagation();
                 previewMediaFile($(this).attr('src'));
+            });
+
+            $('#btnSubmitAnswers').on('click', function() {
+                if (isAnsSelected) return;
+                checkAnswerMultiple();
             });
 
             // Add media display toggle btn
@@ -186,7 +310,7 @@
                 $('#questionMap').empty();
 
                 res.data.questions.forEach(q => {
-                    const questionDiv = $(`<div data-order="${q.order}" data-url="${q.url}" class="q-index text-center text-decoration-none fw-light align-content-center highlight-hover me-2 mb-2 border-1 border rounded-1" style="width: 32px; height: 32px;">${q.order}</div>`);
+                    const questionDiv = $(`<div data-order="${q.order}" data-url="${q.url}" class="q-index text-center text-decoration-none fw-light align-content-center highlight-hover border-1 border rounded-1" style="height: 36px;">${q.order}</div>`);
                     questionDiv.on('click', () => loadQuestionData(q.id));
                     if (q.order == @Model.Order) {
                         questionDiv.addClass('question-index-selected');
@@ -221,6 +345,8 @@
                 questionId = res.id;
                 currentOrder = res.order;
                 isAnsSelected = false;
+                isMultipleChoice = res.isMultipleChoice;
+                updateQuestionTypeTag(isMultipleChoice);
 
                 // Update UI
                 document.title = `Câu ${res.order}: ${res.stringContent}`;
@@ -273,34 +399,6 @@
                             </div>
                         `);
                     }
-                    ansDiv.on('click', function() {
-                        if (isAnsSelected) return;
-                        $(this).addClass('selected-answer')
-                        $('.ans').removeClass('highlight-hover')
-                        isAnsSelected = true;
-                        getData(`/quizzes/questions/${questionId}/correct-key`, res => {
-                            const data = res.data || res; // Handle both wrapped and unwrapped response
-                            const correctDiv = $(`.ans[data-key="${data.correctKey}"]`)
-                            const message = data.correctKey == $(this).data('key')?
-                                '<span class="fw-bold" style="color: var(--success-color);"><i class="fa-solid fa-check"></i> Bạn đã chọn đúng</span>':
-                                '<span class="fw-bold" style="color: var(--error-color);"><i class="fa-solid fa-xmark"></i> Bạn đã chọn sai</span>'
-
-                            $('#result').append(`
-                                <div class="d-flex flex-column">
-                                    <!-- Key -->
-                                    ${message}
-                                    <span class="fw-light my-2"> Đáp án đúng ${correctDiv.data("label")}</span>
-                                    <!-- Explaination -->
-                                    <span class="fw-light my-2"><i class="fa-solid fa-lightbulb text-warning"></i> Giải thích</span>
-                                    <div class="card card-body fw-light mb-2 fst-italic">
-                                        ${data.explanation}
-                                    </div>
-                                </div>
-                            `);
-
-                            // scrollTo('#result')
-                        });
-                    });
                     $('#answer').append(ansDiv);
                 });
 
@@ -334,6 +432,17 @@
             background-color: white;
             object-fit: contain;
             box-shadow: 0px 0px 5px gray;
+        }
+
+        #questionMap {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+            gap: 8px;
+        }
+
+        .q-index {
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
     </style>
 }

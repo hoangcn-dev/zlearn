@@ -1,6 +1,6 @@
-﻿using MediatR;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using ZLearn.Application.Quizzes.Queries.GetQuizDetail;
+using Zlearn.V2.Application.Quizzes.Queries.GetQuizDetail;
 
 namespace ZLearn.Web.Controllers
 {

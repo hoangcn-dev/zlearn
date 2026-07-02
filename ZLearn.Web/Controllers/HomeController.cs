@@ -1,9 +1,7 @@
-﻿using MediatR;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Xml.Linq;
-using ZLearn.Application.Categories.Queries.GetAllCateSlugs;
-using ZLearn.Application.Quizzes.Queries.GetAllQuestionSlugs;
-using ZLearn.Application.Quizzes.Queries.GetAllQuizSlugs;
+using Zlearn.V2.Application.Common.Queries;
 
 namespace ZLearn.Web.Controllers
 {
@@ -82,6 +80,12 @@ namespace ZLearn.Web.Controllers
             );
             var xml = new XDocument(new XDeclaration("1.0", "utf-8", "yes"), urlset);
             return Content(xml.ToString(), "application/xml");
+        }
+
+        [Route("test-ui")]
+        public IActionResult TestUi()
+        {
+            return View();
         }
     }
 }

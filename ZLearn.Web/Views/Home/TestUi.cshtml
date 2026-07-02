@@ -1,0 +1,283 @@
+@{
+    ViewBag.Title = "Thử nghiệm Pagination UI";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+    ViewBag.Breadcrumbs = new List<(string Text, string Url)>
+    {
+        ("Trang chủ", "/"),
+        ("Test UI Pagination", "")
+    };
+}
+
+<div class="container my-4" style="min-height: 80vh;">
+    <div class="card card-body rounded-0 shadow-sm border-0 mb-4 pt-4">
+        <h3 class="fw-bold mb-1 text-dark"><i class="fa-solid fa-sliders me-2 text-secondary"></i>Thử nghiệm Hợp phần Phân trang (Pagination UI Test)</h3>
+        <p class="text-secondary fw-light">Trang này minh họa 2 loại phân trang đang được áp dụng trong hệ thống ZLearn.</p>
+        <hr />
+
+        <div class="row g-4">
+            <!-- Cột 1: Phân trang truyền thống -->
+            <div class="col-lg-6">
+                <div class="border p-4 bg-light shadow-sm" style="min-height: 480px;">
+                    <h5 class="fw-bold mb-3 text-dark"><i class="fa-solid fa-list-ol me-2 text-primary"></i>1. Phân trang truyền thống (Standard Pagination)</h5>
+                    <p class="small text-muted mb-3">Dùng cho danh sách dạng bảng dữ liệu quản trị (Admin Dashboard). Sử dụng Bootstrap 5 `.pagination` kết hợp với các nút vuông `.rounded-0` phẳng.</p>
+                    
+                    <!-- Bảng dữ liệu mẫu -->
+                    <div class="table-responsive" style="min-height: 250px;">
+                        <table class="table table-bordered table-striped align-middle bg-white mb-3" id="standard-table">
+                            <thead class="table-light">
+                                <tr>
+                                    <th style="width: 70px;">ID</th>
+                                    <th>Tên Đề Thi</th>
+                                    <th>Mức Độ</th>
+                                    <th>Số câu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dữ liệu nạp qua JS -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Phân trang Bootstrap 5 -->
+                    <nav class="d-flex justify-content-center mt-3">
+                        <ul class="pagination pagination-sm mb-0 rounded-0" id="standard-pagination">
+                            <!-- Nút phân trang tạo qua JS -->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Cột 2: Infinity Scroll / View more -->
+            <div class="col-lg-6">
+                <div class="border p-4 bg-light shadow-sm" style="min-height: 480px;">
+                    <h5 class="fw-bold mb-3 text-dark"><i class="fa-solid fa-angles-down me-2 text-primary"></i>2. Tải thêm / Cuộn vô hạn (Infinity Scroll / View more)</h5>
+                    <p class="small text-muted mb-3">Dùng cho feed đề trắc nghiệm gợi ý ở trang chủ, bài viết, hoặc bình luận. Sử dụng nút bấm phẳng viền xám "Xem thêm".</p>
+                    
+                    <!-- Danh sách hiển thị mẫu -->
+                    <div id="infinity-list" class="d-flex flex-column gap-2 mb-3" style="min-height: 280px;">
+                        <!-- Dữ liệu nạp qua JS -->
+                    </div>
+
+                    <!-- Khu vực nút Xem thêm -->
+                    <div class="d-flex flex-column align-items-center mt-3">
+                        <div id="load-container-test"></div>
+                        <button id="viewMoreTest" onclick="loadMoreTest()" class="btn rounded-0 bg-white highlight-hover border py-1 px-4 fw-light">
+                            <i class="fa-solid fa-caret-down me-1"></i> Xem thêm
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script asp-append-version="true">
+        // ==========================================
+        // MOCK DATA FOR STANDARD PAGINATION
+        // ==========================================
+        const standardData = [
+            { id: 1, name: "Đề thi giữa kỳ môn Toán lớp 12", level: "Khó", count: 50 },
+            { id: 2, name: "Đề thi THPT Quốc gia môn Vật lý", level: "Trung bình", count: 40 },
+            { id: 3, name: "Đề ôn tập Hóa học hữu cơ chương 1", level: "Dễ", count: 25 },
+            { id: 4, name: "Kiểm tra Tiếng Anh unit 5", level: "Trung bình", count: 30 },
+            { id: 5, name: "Trắc nghiệm Lịch sử Việt Nam cận đại", level: "Khó", count: 45 },
+            
+            { id: 6, name: "Đại số tuyến tính đề số 2", level: "Khó", count: 35 },
+            { id: 7, name: "Vật lý lý thuyết chương Cơ học", level: "Dễ", count: 20 },
+            { id: 8, name: "Hóa học vô cơ nâng cao", level: "Khó", count: 50 },
+            { id: 9, name: "Đọc hiểu tiếng Anh B1", level: "Dễ", count: 15 },
+            { id: 10, name: "Địa lý tự nhiên thế giới", level: "Trung bình", count: 30 },
+            
+            { id: 11, name: "Giải tích 1 trường Bách Khoa", level: "Khó", count: 60 },
+            { id: 12, name: "Quang học và quang phổ lớp 11", level: "Trung bình", count: 25 },
+            { id: 13, name: "Phản ứng hạt nhân vật lý hạt", level: "Khó", count: 40 },
+            { id: 14, name: "Từ vựng tiếng Anh chủ đề Công nghệ", level: "Dễ", count: 30 },
+            { id: 15, name: "Triết học Mác - Lênin chương 2", level: "Trung bình", count: 40 }
+        ];
+
+        const standardPageSize = 5;
+        let standardCurrentPage = 1;
+        const totalStandardPages = Math.ceil(standardData.length / standardPageSize);
+
+        // ==========================================
+        // MOCK DATA FOR INFINITY SCROLL
+        // ==========================================
+        const infinityData = [
+            { id: 101, name: "Toán cao cấp 1 - Đề số 1", author: "Thầy Hùng", attempts: 1200 },
+            { id: 102, name: "Vật lý đại cương - Đề ôn thi cuối kỳ", author: "Cô Liên", attempts: 850 },
+            { id: 103, name: "Hóa học phân tích - Lý thuyết cơ bản", author: "Thầy Hưng", attempts: 430 },
+            { id: 104, name: "Ngữ pháp tiếng Anh IELTS - Reading & Writing", author: "Ms. Hoa", attempts: 2100 },
+            
+            { id: 105, name: "Lý thuyết mạch điện 1 - Đề số 2", author: "Thầy Dũng", attempts: 320 },
+            { id: 106, name: "Sinh học tế bào - Trắc nghiệm chương 3", author: "Cô Hà", attempts: 580 },
+            { id: 107, name: "Tin học văn phòng MOS Excel 2019", author: "Trung tâm MOS", attempts: 1540 },
+            { id: 108, name: "Lập trình C++ căn bản cho người mới bắt đầu", author: "Admin ZLearn", attempts: 3200 },
+            
+            { id: 109, name: "Kinh tế vĩ mô nâng cao", author: "PGS.TS Nguyễn Văn A", attempts: 750 },
+            { id: 110, name: "Giải phẫu học người - Hệ vận động", author: "Khoa Y", attempts: 980 },
+            { id: 111, name: "Pháp luật đại cương - Đề thi trắc nghiệm", author: "Thầy Bình", attempts: 1620 },
+            { id: 112, name: "Lịch sử văn minh thế giới", author: "Cô Lan", attempts: 540 }
+        ];
+
+        const infinityPageSize = 4;
+        let infinityCurrentPage = 1;
+        const totalInfinityPages = Math.ceil(infinityData.length / infinityPageSize);
+
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
+        $(document).ready(() => {
+            // Render Standard Pagination
+            renderStandardTable();
+            renderStandardPagination();
+
+            // Render Infinity Scroll Initial Items
+            renderInfinityItems(1);
+        });
+
+        // ==========================================
+        // STANDARD PAGINATION FUNCTIONS
+        // ==========================================
+        function renderStandardTable() {
+            const tbody = $('#standard-table tbody');
+            tbody.empty();
+
+            const startIdx = (standardCurrentPage - 1) * standardPageSize;
+            const endIdx = startIdx + standardPageSize;
+            const pageData = standardData.slice(startIdx, endIdx);
+
+            pageData.forEach(item => {
+                let badgeClass = "gray-tag";
+                if (item.level === "Khó") badgeClass = "error-tag";
+                if (item.level === "Trung bình") badgeClass = "info-tag";
+                if (item.level === "Dễ") badgeClass = "success-tag";
+
+                tbody.append(`
+                    <tr>
+                        <td><strong>#${item.id}</strong></td>
+                        <td><span class="fw-semibold text-dark">${item.name}</span></td>
+                        <td><span class="${badgeClass} fw-bold" style="font-size: 11px; padding: 2px 5px;">${item.level}</span></td>
+                        <td>${item.count} câu</td>
+                    </tr>
+                `);
+            });
+        }
+
+        function renderStandardPagination() {
+            const pagUl = $('#standard-pagination');
+            pagUl.empty();
+
+            // Nút Trước
+            const prevDisabled = standardCurrentPage === 1 ? 'disabled' : '';
+            const prevLi = $(`<li class="page-item ${prevDisabled}"><a class="page-link rounded-0" href="#" aria-label="Previous"><i class="fa-solid fa-angle-left"></i></a></li>`);
+            prevLi.click(e => {
+                e.preventDefault();
+                if (standardCurrentPage > 1) {
+                    standardCurrentPage--;
+                    renderStandardTable();
+                    renderStandardPagination();
+                }
+            });
+            pagUl.append(prevLi);
+
+            // Nút các trang
+            for (let i = 1; i <= totalStandardPages; i++) {
+                const activeClass = i === standardCurrentPage ? 'active' : '';
+                const li = $(`<li class="page-item ${activeClass}"><a class="page-link rounded-0" href="#">${i}</a></li>`);
+                
+                // Style Active Page to use Primary Deep Teal
+                if (i === standardCurrentPage) {
+                    li.find('a').css({
+                        'background-color': 'var(--main-color)',
+                        'border-color': 'var(--main-color)',
+                        'color': 'white'
+                    });
+                } else {
+                    li.find('a').css({
+                        'color': 'var(--main-color)'
+                    });
+                }
+
+                li.click(e => {
+                    e.preventDefault();
+                    standardCurrentPage = i;
+                    renderStandardTable();
+                    renderStandardPagination();
+                });
+                pagUl.append(li);
+            }
+
+            // Nút Sau
+            const nextDisabled = standardCurrentPage === totalStandardPages ? 'disabled' : '';
+            const nextLi = $(`<li class="page-item ${nextDisabled}"><a class="page-link rounded-0" href="#" aria-label="Next"><i class="fa-solid fa-angle-right"></i></a></li>`);
+            nextLi.click(e => {
+                e.preventDefault();
+                if (standardCurrentPage < totalStandardPages) {
+                    standardCurrentPage++;
+                    renderStandardTable();
+                    renderStandardPagination();
+                }
+            });
+            pagUl.append(nextLi);
+        }
+
+        // ==========================================
+        // INFINITY SCROLL / VIEW MORE FUNCTIONS
+        // ==========================================
+        function renderInfinityItems(page) {
+            const startIdx = (page - 1) * infinityPageSize;
+            const endIdx = startIdx + infinityPageSize;
+            const pageData = infinityData.slice(startIdx, endIdx);
+            const container = $('#infinity-list');
+
+            pageData.forEach(q => {
+                container.append(`
+                    <div class="card card-body rounded-0 highlight-hover border py-2 px-3 bg-white">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div>
+                                <div class="fw-semibold text-dark text-truncate" style="max-width: 320px;">${q.name}</div>
+                                <div class="text-muted small fw-light">Tạo bởi: ${q.author}</div>
+                            </div>
+                            <div class="text-end">
+                                <span class="info-tag fw-bold text-nowrap" style="font-size: 11px; padding: 2px 6px;">
+                                    <i class="fa-solid fa-users me-1"></i>${q.attempts.toLocaleString('vi-VN')} lượt làm
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                `);
+            });
+        }
+
+        function loadMoreTest() {
+            if (infinityCurrentPage < totalInfinityPages) {
+                // Hiển thị Spinner Loading
+                $('#viewMoreTest').hide();
+                $('#load-container-test').empty().append(`
+                    <div class="d-flex align-items-center my-3 text-secondary">
+                        <i class="fa-solid fa-spinner fa-spin me-2 fs-5"></i>
+                        <span class="small fw-light">Đang tải dữ liệu...</span>
+                    </div>
+                `);
+
+                // Giả lập độ trễ mạng 600ms
+                setTimeout(() => {
+                    infinityCurrentPage++;
+                    renderInfinityItems(infinityCurrentPage);
+                    
+                    $('#load-container-test').empty();
+                    
+                    if (infinityCurrentPage === totalInfinityPages) {
+                        // Ẩn hoàn toàn nút Xem thêm nếu đã hết trang
+                        $('#viewMoreTest').hide();
+                        showMess("Đã hiển thị toàn bộ đề thi.", true);
+                    } else {
+                        $('#viewMoreTest').show();
+                    }
+                }, 600);
+            }
+        }
+    </script>
+}

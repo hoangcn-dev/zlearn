@@ -1,0 +1,22 @@
+using Zlearn.V2.Application.Quizzes.DTOs;
+
+namespace Zlearn.V2.Application.Exams.DTOs
+{
+    public class ExamContentDto
+    {
+        public string Id { get; set; }
+        public string ExamName { get; set; }
+        public string Alias { get; set; }
+        public string ParticipantName { get; set; }
+        public string? ParticipantCode { get; set; }
+        public DateTimeOffset StartTime { get; set; }
+        public DateTimeOffset? EndTime { get; set; }
+        public long RemainingTimeToEnd => EndTime == null ? -1 : (long) (EndTime.Value - DateTimeOffset.Now).TotalMilliseconds;
+        public bool MixQuestions { get; set; }
+        public bool MixAnswers { get; set; }
+        public List<QuestionContentDto> Questions { get; set; }
+    }
+}
+
+
+

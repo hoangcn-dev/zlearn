@@ -1,4 +1,4 @@
-﻿const scrollTo = (selector, offset = 50) => {
+const scrollTo = (selector, offset = 50) => {
     window.scrollTo({
         top: $(selector).offset().top - offset,
         behavior: 'smooth'
@@ -80,6 +80,14 @@ function saveSessionData() {
             $('#avt').attr('src', res.data.imagePath);
             $('#userName').text(sessionStorage.getItem('lastName') + " " + sessionStorage.getItem('firstName'));
             $('#roles').text(res.data.roles.join());
+            
+            const roles = res.data.roles || [];
+            if (roles.includes('Admin')) {
+                $('.admin-only').removeClass('d-none');
+            } else {
+                $('.admin-only').addClass('d-none');
+            }
+            
             $('#loggedInContainer').removeClass('d-none');
 
             showMess(`Đăng nhập thành công, xin chào ${res.data.firstName}!`, true);
@@ -121,6 +129,15 @@ function getSessionData() {
         $('#avt').attr('src', sessionStorage.getItem('imagePath'));
         $('#userName').text(sessionStorage.getItem('lastName') + " " + sessionStorage.getItem('firstName'));
         $('#roles').text(sessionStorage.getItem('roles'));
+        
+        const rolesStr = sessionStorage.getItem('roles') || '';
+        const roles = rolesStr.split(',');
+        if (roles.includes('Admin')) {
+            $('.admin-only').removeClass('d-none');
+        } else {
+            $('.admin-only').addClass('d-none');
+        }
+        
         $('#btnLogin').hide();
         $('#loggedInContainer').removeClass('d-none');
         return true;
@@ -135,6 +152,8 @@ function removeSessionData() {
     sessionStorage.removeItem('roles');
     sessionStorage.removeItem('firstName');
     sessionStorage.removeItem('lastName');
+
+    $('.admin-only').addClass('d-none');
 
     $.ajax({
         url: "/auth/sign-out",
@@ -155,7 +174,7 @@ function showMess(msg, isSuccess = true) {
         : '<i class="fa-solid fa-triangle-exclamation" style="color: red;"></i>';
     const uniqueId = `msg-${Date.now()}`;
     const div = $(`
-        <div id="${uniqueId}" class="position-fixed start-50 top-0 translate-middle-x shadow-sm" style="margin-top: 40px; z-index: 101;">
+        <div id="${uniqueId}" class="position-fixed start-50 top-0 translate-middle-x shadow-sm" style="margin-top: 40px; z-index: 9999;">
             <div class="d-flex bg-white align-items-center px-2 py-1">
                 ${iconHtml}
                 <div class="mx-2" style="font-size: 14px;">${msg}</div>
