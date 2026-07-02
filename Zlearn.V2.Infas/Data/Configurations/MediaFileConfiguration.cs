@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ZLearn.Domain.Constants;
-using ZLearn.Domain.Entities;
+using Zlearn.V2.Domain.FileContext.MediaFiles;
 
 namespace Zlearn.V2.Infas.Data.Configurations
 {

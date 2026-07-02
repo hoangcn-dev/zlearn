@@ -71,22 +71,6 @@ namespace Zlearn.V2.Infas.Data.Interceptors
                     }
                 }
             }
-
-            // 2. Xử lý cho V1 AuditableEntity (cho các thực thể dùng chung như MediaFile, Category)
-            foreach (var entry in context.ChangeTracker.Entries<ZLearn.Domain.Common.AuditableEntity>())
-            {
-                if (entry.State is EntityState.Added or EntityState.Modified ||
-                    entry.HasChangedOwnedEntities())
-                {
-                    if (entry.State is EntityState.Added)
-                    {
-                        entry.Entity.CreatedBy = userId ?? "unknown";
-                        entry.Entity.CreatedAt = current;
-                    }
-                    entry.Entity.ModifiedBy = userId ?? "unknown";
-                    entry.Entity.LastModifiedAt = current;
-                }
-            }
         }
     }
 

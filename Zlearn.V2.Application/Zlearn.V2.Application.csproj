@@ -2,13 +2,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Zlearn.V2.Domain\Zlearn.V2.Domain.csproj" />
-    <ProjectReference Include="..\ZLearn.Domain\ZLearn.Domain.csproj" />
-    <ProjectReference Include="..\ZLearn.Application\ZLearn.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="MediatR" Version="12.5.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
   </ItemGroup>
 
   <PropertyGroup>

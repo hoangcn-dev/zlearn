@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Zlearn.V2.Application.Files;
-using ZLearn.Domain.Entities;
+using Zlearn.V2.Domain.FileContext.MediaFiles;
 
 namespace Zlearn.V2.Infas.Data.Repositories
 {
-    public class FileRepo : BaseRepo<MediaFile>, IFileRepo
+    public class FileRepo : WriteRepo<MediaFile>, IFileRepo
     {
         private readonly IMediaStoreService _mediaStoreService;
 
@@ -47,7 +47,7 @@ namespace Zlearn.V2.Infas.Data.Repositories
             {
                 await _mediaStoreService.RemoveFile(e.SourceUrl, e.Type);
             }
-            base.Delete(files);
+            _context.Set<MediaFile>().RemoveRange(files);
         }
 
         public async Task<int> Cleanup(TimeSpan limit)

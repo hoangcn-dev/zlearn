@@ -5,8 +5,7 @@ using Microsoft.Extensions.Logging;
 using Zlearn.V2.Application.Common.Utils;
 using Zlearn.V2.Application.Files;
 using Zlearn.V2.Application.Files.DTOs;
-using ZLearn.Domain.Entities;
-using ZLearn.Domain.Enums;
+using Zlearn.V2.Domain.FileContext.MediaFiles;
 
 namespace Zlearn.V2.Infas.External.CloudinaryStore
 {

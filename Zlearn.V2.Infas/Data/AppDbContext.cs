@@ -1,6 +1,9 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Zlearn.V2.Infas.Data.Outbox;
 using Zlearn.V2.Infas.Data.Configurations;
+using Zlearn.V2.Infas.Identity;
 using Zlearn.V2.Domain.CatalogContext.Categories;
 using Zlearn.V2.Domain.CatalogContext.Quizzes;
 using Zlearn.V2.Domain.CatalogContext.Questions;
@@ -14,7 +17,7 @@ using Tag = Zlearn.V2.Domain.CatalogContext.Tags.Tag;
 
 namespace Zlearn.V2.Infas.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<AppIdentityUser, AppIdentityRole, string>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -26,12 +29,23 @@ namespace Zlearn.V2.Infas.Data
         public DbSet<Answer> Answers => Set<Answer>();
         public DbSet<Tag> Tags => Set<Tag>();
         public DbSet<OutboxEvent> OutboxEvents => Set<OutboxEvent>();
-        public DbSet<ZLearn.Domain.Entities.MediaFile> MediaFiles => Set<ZLearn.Domain.Entities.MediaFile>();
-        public DbSet<ZLearn.Domain.Entities.Exam> Exams => Set<ZLearn.Domain.Entities.Exam>();
+        public DbSet<Zlearn.V2.Domain.FileContext.MediaFiles.MediaFile> MediaFiles => Set<Zlearn.V2.Domain.FileContext.MediaFiles.MediaFile>();
+        public DbSet<Zlearn.V2.Domain.ExamContext.Exams.Exam> Exams => Set<Zlearn.V2.Domain.ExamContext.Exams.Exam>();
+        public DbSet<Zlearn.V2.Domain.ExamContext.Participants.ExamParticipant> ExamParticipants => Set<Zlearn.V2.Domain.ExamContext.Participants.ExamParticipant>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<AppIdentityUser>().ToTable("Users");
+            modelBuilder.Entity<AppIdentityRole>().ToTable("Roles");
+            modelBuilder.Entity<IdentityUserRole<string>>().ToTable("UserRoles");
+            modelBuilder.Entity<IdentityUserClaim<string>>().ToTable("UserClaims");
+            modelBuilder.Entity<IdentityUserLogin<string>>().ToTable("UserLogins");
+            modelBuilder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims");
+            modelBuilder.Entity<IdentityUserToken<string>>().ToTable("UserTokens");
+
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
             
             // Cấu hình bảng Categories của V2 trỏ vào bảng "Categories" hiện tại của Postgres
             modelBuilder.Entity<Category>(builder =>
@@ -107,6 +121,8 @@ namespace Zlearn.V2.Infas.Data
 
             // Cấu hình bảng MediaFiles sử dụng MediaFileConfiguration
             modelBuilder.ApplyConfiguration(new MediaFileConfiguration());
+            modelBuilder.ApplyConfiguration(new ExamConfiguration());
+            modelBuilder.ApplyConfiguration(new ExamParticipantConfiguration());
         }
     }
 }
