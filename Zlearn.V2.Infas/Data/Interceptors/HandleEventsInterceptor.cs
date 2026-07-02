@@ -92,7 +92,8 @@ namespace Zlearn.V2.Infas.Data.Interceptors
                 Id = @event.EventId,
                 OccurredOn = DateTimeOffset.UtcNow,
                 Type = @event.GetType().AssemblyQualifiedName ?? @event.GetType().FullName ?? string.Empty,
-                Content = JsonConvert.SerializeObject(@event)
+                Content = JsonConvert.SerializeObject(@event),
+                AggregateId = @event.AggregateId
             }).ToList();
 
             // 3. Lưu vào DbSet OutboxEvents

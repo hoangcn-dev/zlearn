@@ -10,10 +10,21 @@ namespace Zlearn.V2.Domain.ExamContext.Exams.Events
         string QuizId,
         DateTimeOffset StartTime,
         DateTimeOffset? EndTime,
-        string Status
+        string Status,
+        string? Note,
+        string? JoinPass,
+        bool LockAccess,
+        bool ShowAnswerAndKey,
+        bool MixQuestions,
+        bool MixAnswers,
+        bool RequireJoinWithCode,
+        bool RequireJoinWithName,
+        bool AllowLateSubmit,
+        int MaxParticipants
     ) : DomainEvent, ICreatedAuditEvent
     {
         public string CreatedBy { get; set; } = string.Empty;
         public DateTimeOffset CreatedAt { get; set; }
+        public override string AggregateId => ExamId;
     }
 }

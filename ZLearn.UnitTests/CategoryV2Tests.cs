@@ -99,7 +99,8 @@ namespace ZLearn.UnitTests
                 .Options;
             using var context = new AppDbContext(options);
 
-            var handler = new SyncCategoryToMongoHandler(mockDatabase.Object, context);
+            var fallbackHelper = new OutboxFallbackHelper(context, new Mock<IMediator>().Object);
+            var handler = new SyncCategoryToMongoHandler(mockDatabase.Object, context, fallbackHelper);
             
             var domainEvent = new CategoryCreatedEvent(
                 "CAT123", 

@@ -16,15 +16,20 @@ namespace Zlearn.V2.Infas.Services.Projections
     {
         private readonly IMongoCollection<CategoryDocument> _collection;
         private readonly AppDbContext _dbContext;
+        private readonly OutboxFallbackHelper _fallbackHelper;
 
-        public SyncCategoryToMongoHandler(IMongoDatabase database, AppDbContext dbContext)
+        public SyncCategoryToMongoHandler(IMongoDatabase database, AppDbContext dbContext, OutboxFallbackHelper fallbackHelper)
         {
             _collection = database.GetCollection<CategoryDocument>("Categories");
             _dbContext = dbContext;
+            _fallbackHelper = fallbackHelper;
         }
 
         public async Task Handle(OutboxEvent notification, CancellationToken cancellationToken)
         {
+            // Fallback: Xử lý các sự kiện bị miss trước đó của AggregateId này
+            await _fallbackHelper.ProcessMissedEventsBeforeAsync(notification, cancellationToken);
+
             var type = Type.GetType(notification.Type);
             if (type == null) return;
 

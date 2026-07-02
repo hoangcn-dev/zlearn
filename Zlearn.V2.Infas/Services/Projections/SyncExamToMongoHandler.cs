@@ -16,15 +16,20 @@ namespace Zlearn.V2.Infas.Services.Projections
     {
         private readonly IMongoCollection<ExamDocument> _collection;
         private readonly AppDbContext _dbContext;
+        private readonly OutboxFallbackHelper _fallbackHelper;
 
-        public SyncExamToMongoHandler(IMongoDatabase database, AppDbContext dbContext)
+        public SyncExamToMongoHandler(IMongoDatabase database, AppDbContext dbContext, OutboxFallbackHelper fallbackHelper)
         {
             _collection = database.GetCollection<ExamDocument>("Exams");
             _dbContext = dbContext;
+            _fallbackHelper = fallbackHelper;
         }
 
         public async Task Handle(OutboxEvent notification, CancellationToken cancellationToken)
         {
+            // Fallback: Xử lý các sự kiện bị miss trước đó của AggregateId này
+            await _fallbackHelper.ProcessMissedEventsBeforeAsync(notification, cancellationToken);
+
             var type = Type.GetType(notification.Type);
             if (type == null) return;
 
@@ -47,21 +52,16 @@ namespace Zlearn.V2.Infas.Services.Projections
                     SyncedAt = DateTimeOffset.UtcNow
                 };
 
-                // Lấy thông tin chi tiết từ DB Postgres nếu cần điền thêm các trường tùy chọn khác
-                var dbExam = await _dbContext.Exams.FindAsync(new object[] { createdEvent.ExamId }, cancellationToken);
-                if (dbExam != null)
-                {
-                    document.Note = dbExam.Note;
-                    document.JoinPass = dbExam.JoinPass;
-                    document.LockAccess = dbExam.LockAccess;
-                    document.ShowAnswerAndKey = dbExam.ShowAnswerAndKey;
-                    document.MixQuestions = dbExam.MixQuestions;
-                    document.MixAnswers = dbExam.MixAnswers;
-                    document.RequireJoinWithCode = dbExam.RequireJoinWithCode;
-                    document.RequireJoinWithName = dbExam.RequireJoinWithName;
-                    document.AllowLateSubmit = dbExam.AllowLateSubmit;
-                    document.MaxParticipants = dbExam.MaxParticipants;
-                }
+                document.Note = createdEvent.Note;
+                document.JoinPass = createdEvent.JoinPass;
+                document.LockAccess = createdEvent.LockAccess;
+                document.ShowAnswerAndKey = createdEvent.ShowAnswerAndKey;
+                document.MixQuestions = createdEvent.MixQuestions;
+                document.MixAnswers = createdEvent.MixAnswers;
+                document.RequireJoinWithCode = createdEvent.RequireJoinWithCode;
+                document.RequireJoinWithName = createdEvent.RequireJoinWithName;
+                document.AllowLateSubmit = createdEvent.AllowLateSubmit;
+                document.MaxParticipants = createdEvent.MaxParticipants;
 
                 var filter = Builders<ExamDocument>.Filter.Eq(doc => doc.Id, document.Id);
                 await _collection.ReplaceOneAsync(filter, document, new ReplaceOptions { IsUpsert = true }, cancellationToken);

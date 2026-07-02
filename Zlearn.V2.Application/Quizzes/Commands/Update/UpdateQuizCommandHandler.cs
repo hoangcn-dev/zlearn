@@ -57,8 +57,8 @@ namespace Zlearn.V2.Application.Quizzes.Commands.Update
             var data = request.Data;
 
             // Check category existence
-            if (!await _cateRepo.AnyAsync(c => c.Id == data.CategoryId))
-                throw new ArgumentException($"Category with ID {data.CategoryId} does not exist.");
+            var category = await _cateRepo.GetByIdAsync(data.CategoryId)
+                ?? throw new ArgumentException($"Category with ID {data.CategoryId} does not exist.");
 
             // Check uniqueness constraints
             if (quiz.Name != data.Name && await _quizWriteRepo.AnyAsync(q => q.Name == data.Name && q.CategoryId == data.CategoryId))
@@ -233,6 +233,9 @@ namespace Zlearn.V2.Application.Quizzes.Commands.Update
             {
                 quiz.Questions.Add(q);
             }
+
+            // Publish update event with full payload
+            quiz.PublishUpdateEvent(category.Name, category.Slug);
 
             _quizWriteRepo.Update(quiz);
             await _quizWriteRepo.SaveChangesAsync(cancellationToken);

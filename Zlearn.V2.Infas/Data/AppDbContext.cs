@@ -9,11 +9,9 @@ using Zlearn.V2.Domain.CatalogContext.Quizzes;
 using Zlearn.V2.Domain.CatalogContext.Questions;
 using Zlearn.V2.Domain.CatalogContext.Answers;
 using Zlearn.V2.Domain.CatalogContext.Tags;
-using Category = Zlearn.V2.Domain.CatalogContext.Categories.Category;
-using Quiz = Zlearn.V2.Domain.CatalogContext.Quizzes.Quiz;
-using Question = Zlearn.V2.Domain.CatalogContext.Questions.Question;
-using Answer = Zlearn.V2.Domain.CatalogContext.Answers.Answer;
-using Tag = Zlearn.V2.Domain.CatalogContext.Tags.Tag;
+using Zlearn.V2.Domain.FileContext.MediaFiles;
+using Zlearn.V2.Domain.ExamContext.Exams;
+using Zlearn.V2.Domain.ExamContext.Participants;
 
 namespace Zlearn.V2.Infas.Data
 {
@@ -29,9 +27,9 @@ namespace Zlearn.V2.Infas.Data
         public DbSet<Answer> Answers => Set<Answer>();
         public DbSet<Tag> Tags => Set<Tag>();
         public DbSet<OutboxEvent> OutboxEvents => Set<OutboxEvent>();
-        public DbSet<Zlearn.V2.Domain.FileContext.MediaFiles.MediaFile> MediaFiles => Set<Zlearn.V2.Domain.FileContext.MediaFiles.MediaFile>();
-        public DbSet<Zlearn.V2.Domain.ExamContext.Exams.Exam> Exams => Set<Zlearn.V2.Domain.ExamContext.Exams.Exam>();
-        public DbSet<Zlearn.V2.Domain.ExamContext.Participants.ExamParticipant> ExamParticipants => Set<Zlearn.V2.Domain.ExamContext.Participants.ExamParticipant>();
+        public DbSet<MediaFile> MediaFiles => Set<MediaFile>();
+        public DbSet<Exam> Exams => Set<Exam>();
+        public DbSet<ExamParticipant> ExamParticipants => Set<ExamParticipant>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -116,7 +114,9 @@ namespace Zlearn.V2.Infas.Data
                 builder.Property(x => x.Type).IsRequired().HasMaxLength(256);
                 builder.Property(x => x.Content).IsRequired();
                 builder.Property(x => x.OccurredOn).IsRequired();
+                builder.Property(x => x.AggregateId).IsRequired().HasMaxLength(150);
                 builder.HasIndex(x => x.ProcessedOn);
+                builder.HasIndex(x => x.AggregateId);
             });
 
             // Cấu hình bảng MediaFiles sử dụng MediaFileConfiguration

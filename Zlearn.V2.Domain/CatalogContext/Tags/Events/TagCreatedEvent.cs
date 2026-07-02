@@ -7,6 +7,8 @@ namespace Zlearn.V2.Domain.CatalogContext.Tags.Events
         public string TagId { get; }
         public string Name { get; }
 
+        public override string AggregateId => TagId;
+
         public TagCreatedEvent(string tagId, string name)
         {
             TagId = tagId;

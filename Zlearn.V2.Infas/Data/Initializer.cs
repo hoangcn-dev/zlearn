@@ -35,6 +35,10 @@ namespace Zlearn.V2.Infas.Data
             {
                 _logger.LogInformation("Start migrating V2...");
                 await _context.Database.MigrateAsync();
+
+                _logger.LogInformation("Ensure OutboxEvents table has AggregateId column...");
+                await _context.Database.ExecuteSqlRawAsync("ALTER TABLE \"OutboxEvents\" ADD COLUMN IF NOT EXISTS \"AggregateId\" VARCHAR(150) NOT NULL DEFAULT '';");
+                await _context.Database.ExecuteSqlRawAsync("CREATE INDEX IF NOT EXISTS \"IX_OutboxEvents_AggregateId\" ON \"OutboxEvents\" (\"AggregateId\");");
             }
             catch (Exception ex)
             {

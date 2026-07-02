@@ -11,5 +11,6 @@ namespace Zlearn.V2.Infas.Data.Outbox
         public DateTimeOffset OccurredOn { get; set; }
         public DateTimeOffset? ProcessedOn { get; set; }
         public string? Error { get; set; }
+        public string AggregateId { get; set; } = string.Empty;
     }
 }

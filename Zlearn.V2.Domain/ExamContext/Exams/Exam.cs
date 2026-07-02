@@ -75,7 +75,17 @@ namespace Zlearn.V2.Domain.ExamContext.Exams
                 QuizId,
                 StartTime,
                 EndTime,
-                Status.ToString()
+                Status.ToString(),
+                Note,
+                JoinPass,
+                LockAccess,
+                ShowAnswerAndKey,
+                MixQuestions,
+                MixAnswers,
+                RequireJoinWithCode,
+                RequireJoinWithName,
+                AllowLateSubmit,
+                MaxParticipants
             ));
         }
 
