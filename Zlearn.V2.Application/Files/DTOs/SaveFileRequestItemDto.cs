@@ -8,3 +8,4 @@ namespace Zlearn.V2.Application.Files.DTOs
         public string? Name { get; set; }
     }
 }
+

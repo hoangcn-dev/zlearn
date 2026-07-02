@@ -1,6 +1,6 @@
 using System.Security.Claims;
 using MediatR;
-using ZLearn.Application.Common.DTOs;
+using Zlearn.V2.Application.Common.DTOs;
 
 namespace Zlearn.V2.Application.Files.Commands.DeleteFile
 {
@@ -10,3 +10,4 @@ namespace Zlearn.V2.Application.Files.Commands.DeleteFile
         public List<string> FileIds { get; set; }
     }
 }
+

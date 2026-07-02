@@ -11,3 +11,4 @@ namespace Zlearn.V2.Application.Files.DTOs
         public List<string> FileIds { get; set; }
     }
 }
+

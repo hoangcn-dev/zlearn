@@ -1,9 +1,9 @@
 using AutoMapper;
 using MediatR;
-using ZLearn.API.Exceptions;
+using Zlearn.V2.Application.Common.Exceptions;
 using Zlearn.V2.Application.Common.Commands;
-using ZLearn.Application.Common.DTOs;
-using ZLearn.Domain.Entities;
+using Zlearn.V2.Application.Common.DTOs;
+using Zlearn.V2.Domain.FileContext.MediaFiles;
 
 namespace Zlearn.V2.Application.Files.Commands.DeleteFile
 {
@@ -25,12 +25,15 @@ namespace Zlearn.V2.Application.Files.Commands.DeleteFile
             var removedFiles = new List<MediaFile>();
             foreach (var fileId in request.FileIds)
             {
-                var file = await _fileRepo.Get(fileId)
+                var file = await _fileRepo.GetByIdAsync(fileId)
                     ?? throw new NotFoundException(nameof(MediaFile), fileId);
                 removedFiles.Add(file);
             }
-            _fileRepo.Delete(removedFiles);
-            await _fileRepo.SaveChanges();
+            foreach (var file in removedFiles)
+            {
+                _fileRepo.Delete(file);
+            }
+            await _fileRepo.SaveChangesAsync(cancellationToken);
 
             foreach (var file in removedFiles)
             {
@@ -45,3 +48,4 @@ namespace Zlearn.V2.Application.Files.Commands.DeleteFile
         }
     }
 }
+

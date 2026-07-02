@@ -5,9 +5,7 @@ using FluentValidation.Results;
 using Microsoft.AspNetCore.Http;
 using Zlearn.V2.Application.Common.Commands;
 using Zlearn.V2.Application.Files.DTOs;
-using ZLearn.Domain.Constants;
-using ZLearn.Domain.Entities;
-using ZLearn.Domain.Enums;
+using Zlearn.V2.Domain.FileContext.MediaFiles;
 
 namespace Zlearn.V2.Application.Files.Commands.SaveFile
 {
@@ -52,8 +50,11 @@ namespace Zlearn.V2.Application.Files.Commands.SaveFile
 
                 if (mediaFiles.Count != 0)
                 {
-                    _fileRepo.CreateRange(mediaFiles);
-                    await _fileRepo.SaveChanges();
+                    foreach (var mediaFile in mediaFiles)
+                    {
+                        _fileRepo.Create(mediaFile);
+                    }
+                    await _fileRepo.SaveChangesAsync(cancellationToken);
                 }
                 return new ListSavedFileDto
                 {
@@ -94,3 +95,4 @@ namespace Zlearn.V2.Application.Files.Commands.SaveFile
         }
     }
 }
+

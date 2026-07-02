@@ -1,6 +1,5 @@
 using AutoMapper;
-using ZLearn.Domain.Entities;
-using ZLearn.Domain.Enums;
+using Zlearn.V2.Domain.FileContext.MediaFiles;
 
 namespace Zlearn.V2.Application.Files.DTOs
 {
@@ -27,3 +26,4 @@ namespace Zlearn.V2.Application.Files.DTOs
         }
     }
 }
+

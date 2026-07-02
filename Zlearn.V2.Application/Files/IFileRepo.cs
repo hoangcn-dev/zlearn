@@ -1,9 +1,9 @@
-using ZLearn.Application.Common.Interfaces;
-using ZLearn.Domain.Entities;
+using Zlearn.V2.Application.Common.Interfaces;
+using Zlearn.V2.Domain.FileContext.MediaFiles;
 
 namespace Zlearn.V2.Application.Files
 {
-    public interface IFileRepo : IBaseRepo<MediaFile>
+    public interface IFileRepo : IWriteRepo<MediaFile>
     {
         Task<Dictionary<string, MediaFile>> GetFileUrlsAsync(List<string> fileIds);
         Task CheckExistingByFileUrls(HashSet<string> fileUrls);
@@ -13,3 +13,4 @@ namespace Zlearn.V2.Application.Files
         Task<int> Cleanup(TimeSpan limit);
     }
 }
+

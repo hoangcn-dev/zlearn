@@ -5,3 +5,4 @@ namespace Zlearn.V2.Application.Files.DTOs
         public List<SavedFileDto> Files { get; set; }
     }
 }
+
