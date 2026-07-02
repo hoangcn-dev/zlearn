@@ -14,3 +14,4 @@ namespace Zlearn.V2.Application.Common.Interfaces
         Task<bool> AnyAsync(Expression<Func<TDocument, bool>> filter);
     }
 }
+

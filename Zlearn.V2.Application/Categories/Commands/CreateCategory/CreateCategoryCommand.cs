@@ -11,3 +11,5 @@ namespace Zlearn.V2.Application.Categories.Commands.CreateCategory
         public string ThumbnailUrl { get; set; } = string.Empty;
     }
 }
+
+

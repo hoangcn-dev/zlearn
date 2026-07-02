@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 
 namespace Zlearn.V2.Application.Common.Utils
 {
@@ -14,3 +14,4 @@ namespace Zlearn.V2.Application.Common.Utils
         }
     }
 }
+

@@ -1,5 +1,5 @@
 using MediatR;
-using ZLearn.Application.Categories.DTOs;
+using Zlearn.V2.Application.Categories.DTOs;
 
 namespace Zlearn.V2.Application.Categories.Queries.GetCategoryById
 {
@@ -9,3 +9,5 @@ namespace Zlearn.V2.Application.Categories.Queries.GetCategoryById
         public string? Slug { get; set; }
     }
 }
+
+

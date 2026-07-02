@@ -10,3 +10,5 @@ namespace Zlearn.V2.Application.Categories.Commands.UpdateCategory
         string? ThumbnailUrl
     ) : IRequest<CreateResponseDto>;
 }
+
+

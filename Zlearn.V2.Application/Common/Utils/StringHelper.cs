@@ -138,3 +138,4 @@ namespace Zlearn.V2.Application.Common.Utils
         public static string GetJobId(string prefix, string typeName) => $"{prefix}_{typeName}";
     }
 }
+

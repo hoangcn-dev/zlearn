@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
-using ZLearn.API.Exceptions;
+using Zlearn.V2.Application.Common.Exceptions;
 using Zlearn.V2.Application.Common.Commands;
 using Zlearn.V2.Application.Common.DTOs;
 using Zlearn.V2.Application.Common.Interfaces;
@@ -65,3 +65,5 @@ namespace Zlearn.V2.Application.Categories.Commands.UpdateCategory
         }
     }
 }
+
+

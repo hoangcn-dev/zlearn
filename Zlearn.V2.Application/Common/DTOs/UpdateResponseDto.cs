@@ -6,6 +6,7 @@ namespace Zlearn.V2.Application.Common.DTOs
     public class UpdateResponseDto
     {
         public string Id { get; set; } = string.Empty;
+        public DateTimeOffset UpdatedAt { get; set; }
     }
 
     public class UpdateResponseMapping : Profile
@@ -16,3 +17,4 @@ namespace Zlearn.V2.Application.Common.DTOs
         }
     }
 }
+

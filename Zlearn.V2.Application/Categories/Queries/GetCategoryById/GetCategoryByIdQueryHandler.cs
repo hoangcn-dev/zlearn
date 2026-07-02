@@ -3,8 +3,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
-using ZLearn.API.Exceptions;
-using ZLearn.Application.Categories.DTOs;
+using Zlearn.V2.Application.Common.Exceptions;
+using Zlearn.V2.Application.Categories.DTOs;
 using CategoryDocumentV2 = Zlearn.V2.Application.Categories.DTOs.CategoryDocument;
 using Zlearn.V2.Application.Common.Interfaces;
 using Zlearn.V2.Application.Common.Queries;
@@ -61,3 +61,5 @@ namespace Zlearn.V2.Application.Categories.Queries.GetCategoryById
         }
     }
 }
+
+

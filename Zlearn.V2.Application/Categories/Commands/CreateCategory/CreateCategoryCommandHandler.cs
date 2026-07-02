@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Http;
-using ZLearn.API.Exceptions;
+using Zlearn.V2.Application.Common.Exceptions;
 using Zlearn.V2.Application.Common.Commands;
 using Zlearn.V2.Application.Common.DTOs;
 using Zlearn.V2.Application.Common.Interfaces;
@@ -45,7 +45,7 @@ namespace Zlearn.V2.Application.Categories.Commands.CreateCategory
             if (await _writeRepo.AnyAsync(c => c.Slug == slug))
                 throw new DuplicateEntryException(nameof(Category), nameof(Category.Slug));
 
-            if (!await _fileRepo.Any(f => f.SourceUrl == request.ThumbnailUrl))
+            if (!await _fileRepo.AnyAsync(f => f.SourceUrl == request.ThumbnailUrl))
                 throw new NotFoundException(nameof(File), request.ThumbnailUrl);
 
             var userId = _contextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier) ?? "unknown";
@@ -81,3 +81,5 @@ namespace Zlearn.V2.Application.Categories.Commands.CreateCategory
         }
     }
 }
+
+

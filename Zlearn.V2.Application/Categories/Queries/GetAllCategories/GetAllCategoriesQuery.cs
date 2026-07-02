@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using MediatR;
-using ZLearn.Application.Categories.DTOs;
+using Zlearn.V2.Application.Categories.DTOs;
 
 namespace Zlearn.V2.Application.Categories.Queries.GetAllCategories
 {
@@ -8,3 +8,5 @@ namespace Zlearn.V2.Application.Categories.Queries.GetAllCategories
     {
     }
 }
+
+

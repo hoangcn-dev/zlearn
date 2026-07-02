@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
-using ZLearn.API.Exceptions;
+using Zlearn.V2.Application.Common.Exceptions;
 using Zlearn.V2.Application.Common.Commands;
 using Zlearn.V2.Application.Common.Interfaces;
 using Zlearn.V2.Application.Files;
@@ -53,3 +53,5 @@ namespace Zlearn.V2.Application.Categories.Commands.DeleteCategory
         }
     }
 }
+
+

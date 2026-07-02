@@ -1,4 +1,4 @@
-﻿using System.Linq.Expressions;
+using System.Linq.Expressions;
 
 namespace Zlearn.V2.Application.Common.Utils
 {
@@ -78,3 +78,4 @@ namespace Zlearn.V2.Application.Common.Utils
         }
     }
 }
+
