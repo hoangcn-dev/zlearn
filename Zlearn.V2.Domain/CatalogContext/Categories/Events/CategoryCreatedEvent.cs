@@ -13,5 +13,6 @@ namespace Zlearn.V2.Domain.CatalogContext.Categories.Events
     {
         public string CreatedBy { get; set; } = string.Empty;
         public DateTimeOffset CreatedAt { get; set; }
+        public override string AggregateId => CategoryId;
     }
 }

@@ -160,7 +160,8 @@ namespace ZLearn.UnitTests
             context.Exams.Add(examSeed);
             await context.SaveChangesAsync();
 
-            var handler = new SyncExamToMongoHandler(mockDatabase.Object, context);
+            var fallbackHelper = new OutboxFallbackHelper(context, new Mock<IMediator>().Object);
+            var handler = new SyncExamToMongoHandler(mockDatabase.Object, context, fallbackHelper);
 
             var createdEvent = new ExamCreatedEvent(
                 ExamId: examId,
@@ -169,7 +170,17 @@ namespace ZLearn.UnitTests
                 QuizId: "QZ_999",
                 StartTime: DateTimeOffset.UtcNow,
                 EndTime: DateTimeOffset.UtcNow.AddHours(1),
-                Status: "InProgress"
+                Status: "InProgress",
+                Note: "Note test",
+                JoinPass: null,
+                LockAccess: false,
+                ShowAnswerAndKey: false,
+                MixQuestions: false,
+                MixAnswers: false,
+                RequireJoinWithCode: false,
+                RequireJoinWithName: false,
+                AllowLateSubmit: false,
+                MaxParticipants: 100
             );
 
             var outboxEvent = new OutboxEvent

@@ -41,8 +41,8 @@ namespace Zlearn.V2.Application.Quizzes.Commands.Create
             var data = request.Data;
 
             // Check category existence
-            if (!await _cateRepo.AnyAsync(c => c.Id == data.CategoryId))
-                throw new ArgumentException("Danh mục không tồn tại.");
+            var category = await _cateRepo.GetByIdAsync(data.CategoryId)
+                ?? throw new ArgumentException("Danh mục không tồn tại.");
 
             // Check quiz name uniqueness in the category
             if (await _quizWriteRepo.AnyAsync(q => q.Name == data.Name && q.CategoryId == data.CategoryId))
@@ -115,6 +115,9 @@ namespace Zlearn.V2.Application.Quizzes.Commands.Create
 
             // Set tags
             await _quizWriteRepo.SetQuestionsTagAsync(quiz, data.Tags);
+
+            // Publish create event with full payload
+            quiz.PublishCreateEvent(category.Name, category.Slug);
 
             _quizWriteRepo.Create(quiz);
             await _quizWriteRepo.SaveChangesAsync(cancellationToken);

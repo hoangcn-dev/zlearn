@@ -23,17 +23,22 @@ namespace Zlearn.V2.Infas.Services.Projections
         private readonly IMongoDatabase _mongoDatabase;
         private readonly AppDbContext _dbContext;
         private readonly IMapper _mapper;
+        private readonly OutboxFallbackHelper _fallbackHelper;
 
-        public SyncQuizToMongoHandler(IMongoDatabase database, AppDbContext dbContext, IMapper mapper)
+        public SyncQuizToMongoHandler(IMongoDatabase database, AppDbContext dbContext, IMapper mapper, OutboxFallbackHelper fallbackHelper)
         {
             _collection = database.GetCollection<QuizDocument>("Quizzes");
             _mongoDatabase = database;
             _dbContext = dbContext;
             _mapper = mapper;
+            _fallbackHelper = fallbackHelper;
         }
 
         public async Task Handle(OutboxEvent notification, CancellationToken cancellationToken)
         {
+            // Fallback: Xử lý các sự kiện bị miss trước đó của AggregateId này
+            await _fallbackHelper.ProcessMissedEventsBeforeAsync(notification, cancellationToken);
+
             var type = Type.GetType(notification.Type);
             if (type == null) return;
 
@@ -45,54 +50,94 @@ namespace Zlearn.V2.Infas.Services.Projections
 
             if (domainEvent is QuizCreatedEvent createdEvent)
             {
-                var quiz = await _dbContext.Quizzes
-                    .Include(q => q.Category)
-                    .Include(q => q.Questions)
-                        .ThenInclude(q => q.Answers)
-                    .Include(q => q.Tags)
-                    .FirstOrDefaultAsync(q => q.Id == createdEvent.QuizId, cancellationToken);
-
-                if (quiz != null)
+                var document = new QuizDocument
                 {
-                    var document = _mapper.Map<QuizDocument>(quiz);
-                    document.SyncedAt = DateTimeOffset.UtcNow;
+                    Id = createdEvent.QuizId,
+                    Name = createdEvent.Name,
+                    Slug = createdEvent.Slug,
+                    CategoryId = createdEvent.CategoryId,
+                    CategoryName = createdEvent.CategoryName,
+                    CategorySlug = createdEvent.CategorySlug,
+                    IsPublic = createdEvent.IsPublic,
+                    QuestionCount = createdEvent.Questions.Count,
+                    SyncedAt = DateTimeOffset.UtcNow,
+                    CreatedBy = createdEvent.CreatedBy,
+                    CreatedAt = createdEvent.CreatedAt,
+                    Questions = createdEvent.Questions.Select(q => new QuestionDocumentItem
+                    {
+                        Id = q.Id,
+                        Slug = q.Slug,
+                        StringContent = q.StringContent,
+                        MediaFileUrls = q.MediaFileUrls,
+                        Explanation = q.Explanation,
+                        Order = q.Order,
+                        Answers = q.Answers.Select(a => new AnswerDocumentItem
+                        {
+                            Id = a.Id,
+                            Key = a.Key,
+                            StringContent = a.StringContent,
+                            MediaFileUrls = a.MediaFileUrls,
+                            IsCorrect = a.IsCorrect
+                        }).ToList()
+                    }).ToList(),
+                    Tags = createdEvent.Tags
+                };
 
-                    var filter = Builders<QuizDocument>.Filter.Eq(doc => doc.Id, document.Id);
-                    await _collection.ReplaceOneAsync(filter, document, new ReplaceOptions { IsUpsert = true }, cancellationToken);
-                    
-                    categoryIdToUpdate = quiz.CategoryId;
-                    isHandled = true;
-                }
+                var filter = Builders<QuizDocument>.Filter.Eq(doc => doc.Id, document.Id);
+                await _collection.ReplaceOneAsync(filter, document, new ReplaceOptions { IsUpsert = true }, cancellationToken);
+                
+                categoryIdToUpdate = createdEvent.CategoryId;
+                isHandled = true;
             }
             else if (domainEvent is QuizUpdatedEvent updatedEvent)
             {
-                // Retrieve the old category before replacement to update QuizCount if changed
                 var quizFilter = Builders<QuizDocument>.Filter.Eq(doc => doc.Id, updatedEvent.QuizId);
                 var oldDoc = await _collection.Find(quizFilter).FirstOrDefaultAsync(cancellationToken);
                 var oldCategoryId = oldDoc?.CategoryId;
 
-                var quiz = await _dbContext.Quizzes
-                    .Include(q => q.Category)
-                    .Include(q => q.Questions)
-                        .ThenInclude(q => q.Answers)
-                    .Include(q => q.Tags)
-                    .FirstOrDefaultAsync(q => q.Id == updatedEvent.QuizId, cancellationToken);
-
-                if (quiz != null)
+                var document = new QuizDocument
                 {
-                    var document = _mapper.Map<QuizDocument>(quiz);
-                    document.SyncedAt = DateTimeOffset.UtcNow;
-
-                    await _collection.ReplaceOneAsync(quizFilter, document, new ReplaceOptions { IsUpsert = true }, cancellationToken);
-                    
-                    categoryIdToUpdate = quiz.CategoryId;
-                    if (oldCategoryId != null && oldCategoryId != quiz.CategoryId)
+                    Id = updatedEvent.QuizId,
+                    Name = updatedEvent.Name,
+                    Slug = updatedEvent.Slug,
+                    CategoryId = updatedEvent.CategoryId,
+                    CategoryName = updatedEvent.CategoryName,
+                    CategorySlug = updatedEvent.CategorySlug,
+                    IsPublic = updatedEvent.IsPublic,
+                    QuestionCount = updatedEvent.Questions.Count,
+                    SyncedAt = DateTimeOffset.UtcNow,
+                    CreatedAt = oldDoc?.CreatedAt ?? (updatedEvent.LastModifiedAt ?? DateTimeOffset.UtcNow),
+                    CreatedBy = oldDoc?.CreatedBy ?? "unknown",
+                    LastModifiedAt = updatedEvent.LastModifiedAt,
+                    ModifiedBy = updatedEvent.ModifiedBy,
+                    Questions = updatedEvent.Questions.Select(q => new QuestionDocumentItem
                     {
-                        // Update old category count as well
-                        await UpdateCategoryQuizCount(oldCategoryId, cancellationToken);
-                    }
-                    isHandled = true;
+                        Id = q.Id,
+                        Slug = q.Slug,
+                        StringContent = q.StringContent,
+                        MediaFileUrls = q.MediaFileUrls,
+                        Explanation = q.Explanation,
+                        Order = q.Order,
+                        Answers = q.Answers.Select(a => new AnswerDocumentItem
+                        {
+                            Id = a.Id,
+                            Key = a.Key,
+                            StringContent = a.StringContent,
+                            MediaFileUrls = a.MediaFileUrls,
+                            IsCorrect = a.IsCorrect
+                        }).ToList()
+                    }).ToList(),
+                    Tags = updatedEvent.Tags
+                };
+
+                await _collection.ReplaceOneAsync(quizFilter, document, new ReplaceOptions { IsUpsert = true }, cancellationToken);
+                
+                categoryIdToUpdate = updatedEvent.CategoryId;
+                if (oldCategoryId != null && oldCategoryId != updatedEvent.CategoryId)
+                {
+                    await UpdateCategoryQuizCount(oldCategoryId, cancellationToken);
                 }
+                isHandled = true;
             }
             else if (domainEvent is DeletedEvent deletedEvent)
             {

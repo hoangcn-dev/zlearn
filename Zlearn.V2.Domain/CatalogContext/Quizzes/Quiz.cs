@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Zlearn.V2.Domain.CatalogContext.Categories;
 using Zlearn.V2.Domain.CatalogContext.Questions;
 using Zlearn.V2.Domain.CatalogContext.Tags;
@@ -35,8 +37,6 @@ namespace Zlearn.V2.Domain.CatalogContext.Quizzes
             CategoryId = categoryId;
             IsPublic = isPublic;
             DownloadCount = 0;
-
-            RaiseEvent(new QuizCreatedEvent(Id, Name, Slug, CategoryId, IsPublic));
         }
 
         public void Update(
@@ -49,8 +49,52 @@ namespace Zlearn.V2.Domain.CatalogContext.Quizzes
             Slug = slug;
             CategoryId = categoryId;
             IsPublic = isPublic;
+        }
 
-            RaiseEvent(new QuizUpdatedEvent(Id, Name, Slug, CategoryId, IsPublic));
+        public void PublishCreateEvent(string categoryName, string categorySlug)
+        {
+            var questionPayloads = Questions.Select(q => new QuestionPayload(
+                q.Id,
+                q.Order,
+                q.Slug,
+                q.StringContent,
+                q.MediaFileUrls,
+                q.Explanation,
+                q.Answers.Select(a => new AnswerPayload(
+                    a.Id,
+                    a.Key,
+                    a.StringContent,
+                    a.MediaFileUrls,
+                    a.IsCorrect
+                )).ToList()
+            )).ToList();
+
+            var tagNames = Tags.Select(t => t.Name).ToList();
+
+            RaiseEvent(new QuizCreatedEvent(Id, Name, Slug, CategoryId, categoryName, categorySlug, IsPublic, questionPayloads, tagNames));
+        }
+
+        public void PublishUpdateEvent(string categoryName, string categorySlug)
+        {
+            var questionPayloads = Questions.Select(q => new QuestionPayload(
+                q.Id,
+                q.Order,
+                q.Slug,
+                q.StringContent,
+                q.MediaFileUrls,
+                q.Explanation,
+                q.Answers.Select(a => new AnswerPayload(
+                    a.Id,
+                    a.Key,
+                    a.StringContent,
+                    a.MediaFileUrls,
+                    a.IsCorrect
+                )).ToList()
+            )).ToList();
+
+            var tagNames = Tags.Select(t => t.Name).ToList();
+
+            RaiseEvent(new QuizUpdatedEvent(Id, Name, Slug, CategoryId, categoryName, categorySlug, IsPublic, questionPayloads, tagNames));
         }
 
         public void Delete()

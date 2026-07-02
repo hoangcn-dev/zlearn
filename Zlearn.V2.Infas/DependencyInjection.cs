@@ -98,6 +98,7 @@ namespace Zlearn.V2.Infas
             services.AddScoped<Zlearn.V2.Application.Common.Interfaces.IIdentityService, IdentityService>();
             services.AddScoped<Zlearn.V2.Application.Exams.IExamTrackingService, ExamTrackingService>();
             services.AddScoped<Zlearn.V2.Application.Common.Interfaces.IExamSessionService, ExamSessionService>();
+            services.AddScoped<Zlearn.V2.Infas.Services.Projections.OutboxFallbackHelper>();
             services.AddTransient<LogMiddleware>();
             services.AddScoped<Initializer>();
             services.AddHttpClient();

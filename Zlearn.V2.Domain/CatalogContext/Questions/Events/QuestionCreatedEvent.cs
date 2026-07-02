@@ -10,6 +10,8 @@ namespace Zlearn.V2.Domain.CatalogContext.Questions.Events
         public int Order { get; }
         public string QuizId { get; }
 
+        public override string AggregateId => QuestionId;
+
         public QuestionCreatedEvent(string questionId, string slug, string? stringContent, int order, string quizId)
         {
             QuestionId = questionId;
