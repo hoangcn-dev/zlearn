@@ -14,3 +14,4 @@ namespace Zlearn.V2.Application.Quizzes.DTOs
         public string Url => $"/cau-hoi-trac-nghiem/{Slug}";
     }
 }
+

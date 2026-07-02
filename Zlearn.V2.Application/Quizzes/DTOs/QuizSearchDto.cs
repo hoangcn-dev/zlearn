@@ -1,4 +1,4 @@
-using ZLearn.Application.Common.DTOs;
+using Zlearn.V2.Application.Common.DTOs;
 
 namespace Zlearn.V2.Application.Quizzes.DTOs
 {
@@ -9,3 +9,4 @@ namespace Zlearn.V2.Application.Quizzes.DTOs
         public string? Tag { get; set; }
     }
 }
+

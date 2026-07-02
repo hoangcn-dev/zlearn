@@ -9,3 +9,4 @@ namespace Zlearn.V2.Application.Quizzes.Queries.GetUpdateQuizContent
         public string OwnerId { get; set; } = string.Empty;
     }
 }
+

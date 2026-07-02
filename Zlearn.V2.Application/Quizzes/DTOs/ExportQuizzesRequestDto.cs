@@ -8,3 +8,4 @@ namespace Zlearn.V2.Application.Quizzes.DTOs
         public string Format { get; set; } // "word" or "pdf"
     }
 }
+

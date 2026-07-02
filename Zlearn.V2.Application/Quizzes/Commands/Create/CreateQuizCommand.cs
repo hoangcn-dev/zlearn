@@ -9,3 +9,4 @@ namespace Zlearn.V2.Application.Quizzes.Commands.Create
         public CreateQuizDto Data { get; set; } = new();
     }
 }
+

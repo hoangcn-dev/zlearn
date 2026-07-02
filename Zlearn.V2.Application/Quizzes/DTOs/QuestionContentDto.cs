@@ -1,4 +1,3 @@
-using ZLearn.Domain.Entities;
 
 namespace Zlearn.V2.Application.Quizzes.DTOs
 {
@@ -27,3 +26,4 @@ namespace Zlearn.V2.Application.Quizzes.DTOs
         public List<string> ImageUrls { get; set; } = new List<string>();
     }
 }
+

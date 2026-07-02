@@ -1,5 +1,5 @@
 using MediatR;
-using ZLearn.Application.Common.DTOs;
+using Zlearn.V2.Application.Common.DTOs;
 using Zlearn.V2.Application.Quizzes.DTOs;
 
 namespace Zlearn.V2.Application.Quizzes.Queries.GetMyQuiz
@@ -10,3 +10,4 @@ namespace Zlearn.V2.Application.Quizzes.Queries.GetMyQuiz
         public QuizSearchDto Params { get; set; } = new();
     }
 }
+

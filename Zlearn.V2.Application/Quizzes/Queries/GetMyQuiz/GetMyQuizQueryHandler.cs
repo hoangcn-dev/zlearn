@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
-using ZLearn.Application.Common.DTOs;
+using Zlearn.V2.Application.Common.DTOs;
 using Zlearn.V2.Application.Common.Queries;
 using Zlearn.V2.Application.Common.Interfaces;
 using Zlearn.V2.Application.Quizzes.DTOs;
@@ -65,3 +65,4 @@ namespace Zlearn.V2.Application.Quizzes.Queries.GetMyQuiz
         }
     }
 }
+

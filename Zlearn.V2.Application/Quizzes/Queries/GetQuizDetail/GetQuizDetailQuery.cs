@@ -9,3 +9,4 @@ namespace Zlearn.V2.Application.Quizzes.Queries.GetQuizDetail
         public string? Slug { get; set; }
     }
 }
+

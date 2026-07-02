@@ -21,3 +21,4 @@ namespace Zlearn.V2.Application.Quizzes.DTOs
         public string? StringContent { get; set; }
     }
 }
+

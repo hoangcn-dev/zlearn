@@ -7,7 +7,7 @@ using Zlearn.V2.Application.Quizzes;
 using Zlearn.V2.Domain.CatalogContext.Quizzes;
 using Zlearn.V2.Domain.CatalogContext.Tags;
 using Zlearn.V2.Infas.Data;
-using ZLearn.Domain.Enums;
+using Zlearn.V2.Domain.ExamContext.Exams;
 
 namespace Zlearn.V2.Infas.Data.Repositories
 {

@@ -7,3 +7,4 @@ namespace Zlearn.V2.Application.Quizzes.Queries.GetAllTags
     {
     }
 }
+

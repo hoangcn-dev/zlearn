@@ -13,3 +13,4 @@ namespace Zlearn.V2.Application.Quizzes
         Task<bool> HasOngoingExamsAsync(string quizId);
     }
 }
+

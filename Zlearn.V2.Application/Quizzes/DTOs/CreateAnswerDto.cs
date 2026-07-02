@@ -8,3 +8,4 @@ namespace Zlearn.V2.Application.Quizzes.DTOs
         public bool IsCorrect { get; set; }
     }
 }
+

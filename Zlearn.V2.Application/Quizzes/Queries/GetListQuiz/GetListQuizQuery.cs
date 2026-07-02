@@ -1,5 +1,5 @@
 using MediatR;
-using ZLearn.Application.Common.DTOs;
+using Zlearn.V2.Application.Common.DTOs;
 using Zlearn.V2.Application.Quizzes.DTOs;
 
 namespace Zlearn.V2.Application.Quizzes.Queries.GetListQuiz
@@ -11,3 +11,4 @@ namespace Zlearn.V2.Application.Quizzes.Queries.GetListQuiz
         public string? ExcludeId { get; set; }
     }
 }
+

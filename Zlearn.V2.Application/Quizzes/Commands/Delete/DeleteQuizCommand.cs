@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using MediatR;
-using ZLearn.Application.Common.DTOs;
+using Zlearn.V2.Application.Common.DTOs;
 
 namespace Zlearn.V2.Application.Quizzes.Commands.Delete
 {
@@ -10,3 +10,4 @@ namespace Zlearn.V2.Application.Quizzes.Commands.Delete
         public string OwnerId { get; set; } = string.Empty;
     }
 }
+
