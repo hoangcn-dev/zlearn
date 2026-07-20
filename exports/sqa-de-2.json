@@ -1,0 +1,1302 @@
+[
+  {
+    "StringContent": "Mục tiêu của 'Configuration Test' là gì?",
+    "Explanation": "Kiểm thử cấu hình đảm bảo phần mềm tương thích với nhiều môi trường vận hành khác nhau.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phân tích hệ thống với các thiết lập phần cứng/phần mềm khác nhau.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kiểm tra tốc độ gõ phím của người dùng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm tra xem máy tính có đủ mạnh không.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cài đặt lại hệ điều hành Windows.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đâu là khía cạnh thuộc 'Product Transition' trong mô hình McCall?",
+    "Explanation": "Portability (Khả năng di động/thích nghi môi trường) thuộc nhóm chuyển giao sản phẩm [1, 47].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Flexibility (Linh hoạt).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Portability (Khả năng di động).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Efficiency (Hiệu quả).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Reliability (Tin cậy).",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Lỗi 'Rounding error' (làm tròn) trong hệ thống Patriot xảy ra do đâu?",
+    "Explanation": "Việc biểu diễn các giá trị thời gian bằng số thực dấu phẩy động gây ra sai số tích lũy nhỏ, sau nhiều giờ vận hành dẫn đến sai lệch lớn [7].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Do hệ thống bị hết pin.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Do máy tính không thể biểu diễn chính xác một số thập phân trong hệ nhị phân.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Do virus tấn công vào bộ nhớ đệm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Do lập trình viên nhập sai số Pi.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đặc tả (Specification) không tốt sẽ dẫn đến hậu quả gì?",
+    "Explanation": "Đặc tả là nền tảng, nếu sai sẽ dẫn tới chuỗi lỗi ở các pha sau.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phân tích, thiết kế sai và công sức SQA trở nên lãng phí.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chỉ làm tăng dung lượng file cài đặt.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phần mềm chạy nhanh hơn nhưng khó dùng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không ảnh hưởng gì vì lập trình viên có thể tự sửa.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khái niệm 'Maintainability' (Khả năng bảo trì) yêu cầu điều gì từ phía lập trình viên?",
+    "Explanation": "Khả năng bảo trì phụ thuộc vào nỗ lực xác định nguyên nhân lỗi và sửa lỗi, đòi hỏi code sạch và tài liệu đầy đủ [31, 42].",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chỉ cần phần mềm chạy đúng yêu cầu lúc đó.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phải sử dụng các thuật toán thông minh nhất.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phải viết code thật ngắn gọn, không cần comment.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phải tuân thủ cấu trúc module, viết tài liệu chương trình và hướng dẫn rõ ràng.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong mô hình Waterfall, việc bàn giao sản phẩm thường diễn ra vào lúc nào?",
+    "Explanation": "Waterfall là mô hình nặng (heavy-weight), chỉ bàn giao sản phẩm hoàn chỉnh ở cuối quy trình.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Ngay sau khi ký hợp đồng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bất cứ khi nào lập trình viên thấy xong.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vào cuối giai đoạn phát triển và kiểm thử.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Sau mỗi tuần làm việc.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quy trình kiểm thử 'End-to-End' thường sử dụng công cụ nào để mô tả?",
+    "Explanation": "Lược đồ chuyển trạng thái giúp theo dõi một thực thể từ lúc khởi tạo đến khi kết thúc vòng đời.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lược đồ chuyển trạng thái.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Bảng cân đối kế toán.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bảng màu.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sơ đồ tổ chức nhân sự.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Sự khác biệt chính giữa Alpha Test và Beta Test là gì?",
+    "Explanation": "Alpha test có sự kiểm soát của nhà phát triển, Beta test là thử nghiệm thực tế.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Alpha test không tìm lỗi, chỉ có Beta test mới tìm lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Alpha test diễn ra tại nơi phát triển; Beta test diễn ra tại môi trường thực của người dùng.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Alpha test do Dev làm; Beta test do Tester làm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Beta test chỉ dành cho game.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mục tiêu chính của việc rà soát hợp đồng (Contract Review) trong SQA là gì?",
+    "Explanation": "Rà soát hợp đồng giúp cải thiện ngân sách, lịch trình và phát hiện rủi ro tiềm năng từ đầu.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để ép giá khách hàng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để đảm bảo ngân sách và thời gian biểu thực tế, nhận diện rủi ro sớm.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Để viết code mẫu cho khách hàng xem.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để tuyển dụng thêm nhân sự cho dự án.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong SQA Đặc tả, nội dung 'Intended use' mô tả điều gì?",
+    "Explanation": "Đây là phần đặc tả mục tiêu sử dụng thực tế của sản phẩm đối với người dùng.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tên các lập trình viên.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Địa chỉ văn phòng công ty.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các yêu cầu hoặc mục đích sử dụng mà sản phẩm cần thỏa mãn.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mã nguồn của chương trình.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử 'Volume Test' khác gì với 'Load Test'?",
+    "Explanation": "Volume test kiểm tra hiệu năng khi hệ thống phải xử lý một lượng bản ghi khổng lồ.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Volume test tập trung vào kích thước dữ liệu cực lớn trong database.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Load test đo tiếng ồn, Volume test đo âm lượng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Volume test chỉ dành cho file Excel.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giống nhau hoàn toàn.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hành động 'Audit' (Kiểm tra định kỳ) trong kế hoạch SQA nhằm mục đích gì?",
+    "Explanation": "Audit tập trung vào việc đánh giá sự tuân thủ các quy chuẩn và quy trình đã thiết lập.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để tìm lỗi trong code.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để kiểm tra tốc độ internet.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để xác định mức độ tuân thủ quy trình của đội ngũ phát triển.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Để cài đặt phần mềm cho khách hàng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Giả định hiệu quả lọc lỗi của mỗi hoạt động QA là bao nhiêu?",
+    "Explanation": "Mỗi hoạt động QA được giả định loại bỏ ít nhất 40% lỗi hiện có tại thời điểm đó.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khoảng 90%.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tối đa 20%.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "100%.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ít nhất 40%.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Bước đầu tiên trong quy trình kiểm thử phần mềm là gì?",
+    "Explanation": "Quy trình bắt đầu bằng lập kế hoạch để xác định mục tiêu, phạm vi và nguồn lực.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thực thi kiểm thử (Execution).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Báo cáo lỗi (Reporting).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thiết kế trường hợp kiểm thử (Test Case Design).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lập kế hoạch kiểm thử (Test Planning).",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử hệ thống (System Test) tập trung vào việc đánh giá điều gì?",
+    "Explanation": "System Test kiểm tra toàn bộ hệ thống để đảm bảo đáp ứng các yêu cầu kỹ thuật đã đặt ra.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tuân thủ các yêu cầu kỹ thuật (cả chức năng và phi chức năng).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chỉ kiểm tra mã nguồn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thái độ của khách hàng khi dùng thử.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sự tương tác giữa 2 module.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Công cụ 'Walkthroughs' trong pha lập trình là gì?",
+    "Explanation": "Walkthrough là một hình thức rà soát không quá khắt khe giúp tìm lỗi logic và chia sẻ kiến thức.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Buổi rà soát nơi tác giả trình bày code/thiết kế để người khác đóng góp ý kiến.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Việc kiểm tra lỗi chính tả trên giao diện.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Việc cài đặt phần mềm tự động.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đi bộ xung quanh văn phòng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tại sao SQA lại nhấn mạnh vào việc đào tạo nhân viên?",
+    "Explanation": "Trình độ chuyên môn và kinh nghiệm của team là yếu tố ảnh hưởng trực tiếp đến chất lượng sản phẩm.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vì con người là nguồn gốc gây lỗi; nâng cao trình độ giúp giảm thiểu sai sót từ đầu.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vì đây là yêu cầu bắt buộc của luật pháp.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để nhân viên không có thời gian nghỉ ngơi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để nâng cao giá bán phần mềm.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mức độ kiểm thử nào kiểm tra các thành phần nhỏ nhất của mã nguồn như hàm, lớp?",
+    "Explanation": "Kiểm thử đơn vị (Unit Test) kiểm tra thành phần nhỏ nhất của mã nguồn.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Integration Test.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "System Test.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Unit Test.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Acceptance Test.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mục tiêu chính của Kiểm thử tích hợp (Integration Test) là gì?",
+    "Explanation": "Kiểm thử tích hợp nhằm phát hiện lỗi giao tiếp giữa các thành phần sau khi kết hợp.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tìm lỗi cú pháp trong code.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phát hiện lỗi giao tiếp giữa các thành phần khi kết hợp lại.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Xác nhận phần mềm đáp ứng yêu cầu kinh doanh.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm tra giao diện người dùng có đẹp không.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tại sao khách hàng nên tham gia vào quá trình kiểm thử hệ thống?",
+    "Explanation": "Sự tham gia sớm của khách hàng giúp sản phẩm bám sát kỳ vọng và giảm thiểu rủi ro bị từ chối bàn giao.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để tránh hiểu sai yêu cầu và tiết kiệm thời gian cho pha Acceptance Test sau này.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Để tiết kiệm tiền thuê Tester cho công ty phần mềm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để giảm bớt số lượng tài liệu thiết kế.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để khách hàng tự sửa code nếu muốn.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mô hình phát triển nào nhấn mạnh vào khả năng tái sử dụng (re-usability)?",
+    "Explanation": "Mô hình này sử dụng các đối tượng và thành phần phần mềm có sẵn để tạo hệ thống mới.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Mô hình tuyến tính.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mô hình Thác nước.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mô hình hướng đối tượng (Object-Oriented).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mô hình Chữ V.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mô hình Xoắn ốc (Spiral Model) đặc biệt chú trọng vào yếu tố nào?",
+    "Explanation": "Mô hình Xoắn ốc sử dụng phương pháp lặp để giải quyết rủi ro trong các giai đoạn phát triển.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tốc độ bàn giao sản phẩm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sử dụng các đối tượng có sẵn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quản trị rủi ro.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Giảm bớt tài liệu hướng dẫn.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong SQA Đặc tả, rà soát ngang hàng (Peer Review) có vai trò gì?",
+    "Explanation": "Peer review giúp phát hiện những lỗi mà chính người viết tài liệu thường bỏ qua.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để khách hàng ký tên duyệt.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để các đồng nghiệp chỉ trích nhau.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để tăng lương cho người viết đặc tả.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để những người có trình độ tương đương kiểm tra lỗi và tính đầy đủ của tài liệu.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo thống kê, nguồn gốc lỗi phần mềm lớn nhất (40%) thường đến từ đâu?",
+    "Explanation": "Giai đoạn lập trình/tích hợp chiếm tỷ lệ lỗi cao nhất (40%).",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thiết kế hệ thống.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đặc tả yêu cầu.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tài liệu hướng dẫn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lập trình và tích hợp.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong kiểm thử tích hợp, 'Big Bang' là chiến lược gì?",
+    "Explanation": "Big Bang tích hợp mọi thứ cùng lúc, thường khó xác định nguyên nhân lỗi nằm ở module nào.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Test từ trên xuống dưới.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ test các module quan trọng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đợi tất cả module xong rồi mới tích hợp và test toàn bộ một lúc.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Test từng module một.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Ưu điểm của kiểm thử Bottom-up là gì?",
+    "Explanation": "Bottom-up dễ thực hiện hơn vì các module dưới đáy thường đã hoàn thiện và ít phụ thuộc.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thực hiện tương đối dễ vì các module mức thấp thường đơn giản.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Thay thế được cho System Test.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không cần lập kế hoạch.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phát hiện lỗi logic hệ thống rất nhanh.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong Agile, một vòng lặp phát triển ngắn (thường từ 1-4 tuần) được gọi là gì?",
+    "Explanation": "Mô hình Agile phát triển qua các vòng lặp ngắn gọi là Sprint.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Spiral.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sprint.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cycle.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Step.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quản lý thay đổi (Change Management) giúp ích gì trong SQA Lập trình?",
+    "Explanation": "Việc thay đổi code không kiểm soát là nguồn gốc gây ra lỗi phát sinh (regression bugs).",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Giảm bớt số lượng lập trình viên.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm soát các thay đổi không được phê duyệt gây ra lỗi mới.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Giúp code chạy nhanh hơn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thay thế cho việc viết comment code.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tài liệu 'Test Case' cần chỉ định rõ các yếu tố nào?",
+    "Explanation": "Một test case hoàn chỉnh phải có đầu vào, quy trình và kỳ vọng kết quả để so sánh.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tất cả các yếu tố trên.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kết quả đầu ra mong muốn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các bước thực hiện.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dữ liệu đầu vào.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Lỗi 'Deadlock' trong kiểm thử đồng thời (Concurrent Testing) là gì?",
+    "Explanation": "Deadlock xảy ra khi nhiều luồng cùng tranh chấp tài nguyên mà không có cơ chế giải phóng hợp lý.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lỗi nhập sai mật khẩu.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi do mất kết nối mạng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi do ổ cứng bị đầy.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tình trạng các tiến trình chờ đợi nhau vô hạn dẫn đến treo hệ thống.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Thuật ngữ 'Vòng đời lỗi' (Bug Life Cycle) trạng thái 'Deferred' nghĩa là gì?",
+    "Explanation": "Deferred là trạng thái lỗi được ghi nhận nhưng chưa ưu tiên sửa trong phiên bản hiện tại.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lỗi được hoãn lại để sửa sau.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lỗi đã được sửa xong.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi bị từ chối vì không phải là lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi trùng lặp.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hoạt động 'Positive Test' trong kiểm thử chức năng là gì?",
+    "Explanation": "Positive test xác nhận hệ thống chạy đúng trong điều kiện bình thường và không thử các ngoại lệ.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cố gắng làm treo hệ thống.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhập dữ liệu sai để xem lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm tra xem chức năng hoạt động đúng như đặc tả với dữ liệu hợp lệ.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kiểm tra sự hài lòng của lập trình viên.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử 'Parallel Testing' thường được thực hiện bằng cách nào hiệu quả nhất?",
+    "Explanation": "Công cụ tự động giúp giả lập số lượng lớn người dùng ảo mà không cần nhân lực thực tế lớn.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tắt bớt máy chủ để tiết kiệm điện.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhờ nhiều người cùng vào trang web cùng lúc.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sử dụng công cụ kiểm thử tự động để mô phỏng hàng nghìn người dùng.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chỉ test trên 1 trình duyệt duy nhất.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Công cụ nào giúp người phân tích đảm bảo tính đầy đủ của đặc tả?",
+    "Explanation": "Checklist giúp rà soát mọi khía cạnh để tránh bỏ sót các yêu cầu chức năng và phi chức năng.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Danh sách kiểm tra (Checklist).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Bàn phím.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Máy in.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trình duyệt web.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Pha phân tích còn được gọi là gì trong quy trình thiết kế?",
+    "Explanation": "Phân tích xác định kiến trúc, module và các cách tiếp cận tổng thể (mức cao).",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kiểm thử chấp nhận.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thiết kế chi tiết (Detailed Design).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thiết kế mức cao (High Level Design).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lập trình mẫu.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tại sao chi phí loại bỏ lỗi lại tăng mạnh ở giai đoạn cuối dự án?",
+    "Explanation": "Lỗi ở giai đoạn muộn đòi hỏi nhiều công sức để sửa chữa và kiểm tra lại toàn bộ các phần liên quan.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vì lập trình viên đòi tăng lương.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì khách hàng không cho phép sửa lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì lỗi đã lan truyền và ảnh hưởng sâu đến toàn bộ cấu trúc hệ thống.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vì các công cụ kiểm thử tự động rất đắt tiền.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong chiến lược kiểm thử tích hợp 'Top-down', thành phần nào được dùng để thay thế cho các module mức thấp chưa hoàn thành?",
+    "Explanation": "Stub là module giả thay thế cho các module phụ ở mức thấp chưa sẵn sàng trong kiểm thử Top-down.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Emulator.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Robot.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Driver.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Stub.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong đặc tả phi chức năng, 'Khả năng chịu tải' thường được mô tả như thế nào?",
+    "Explanation": "Chịu tải là chỉ số đo lường khả năng vận hành của hệ thống dưới áp lực số lượng người dùng hoặc dữ liệu.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Giao diện có màu xanh hay đỏ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phần mềm có bao nhiêu dòng code.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ví dụ: 100 người dùng có thể cùng thao tác một lúc.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Phần mềm có giá bao nhiêu.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Ưu điểm chính của kiểm thử Top-down là gì?",
+    "Explanation": "Top-down kiểm tra các luồng điều khiển chính ở mức trên trước, giúp phát hiện lỗi thuật toán sớm.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tiết kiệm chi phí hơn Bottom-up.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không cần dùng Stub.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Rất dễ thực hiện.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chứng minh được các chức năng chính của chương trình sớm.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Hoạt động nào sau đây thuộc phạm vi của QA nhưng KHÔNG phải là Kiểm thử?",
+    "Explanation": "QA bao gồm cả các hoạt động quản lý tiến trình như quản lý cấu hình, tiêu chuẩn phát triển.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chạy thử test case.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ghi log lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm tra tính đúng đắn của hàm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quản lý cấu hình và kiểm soát phiên bản.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Hoạt động 'Negative Test' nhằm mục đích gì?",
+    "Explanation": "Negative test đảm bảo các sai sót khi sử dụng không làm hỏng hệ thống hoặc mất dữ liệu.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để làm hài lòng khách hàng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để kiểm tra tốc độ mạng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sử dụng phần mềm theo cách sai/ngoại lệ để phát hiện lỗi ẩn.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Để chứng minh phần mềm không có lỗi.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử hiệu năng (Performance Test) đánh giá yếu tố nào?",
+    "Explanation": "Performance test xác định hệ thống thực hiện khối lượng công việc nhanh thế nào và tối ưu tài nguyên ra sao.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thời gian phản hồi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các phương án trên.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Việc phân bổ tài nguyên hệ thống (CPU, RAM).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thời gian xuất báo cáo.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử hồi quy (Regression Testing) được thực hiện khi nào?",
+    "Explanation": "Kiểm thử hồi quy đảm bảo các thay đổi không làm hỏng những chức năng vốn đang chạy ổn định.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chỉ khi khách hàng yêu cầu.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sau khi sửa lỗi hoặc thay đổi mã nguồn để đảm bảo không gây lỗi mới.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Trước khi dự án bắt đầu.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khi máy tính bị hỏng phần cứng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Ai là người chịu trách nhiệm chính thực hiện Unit Test?",
+    "Explanation": "Unit Test do lập trình viên thực hiện vì đòi hỏi hiểu biết về thiết kế chương trình và code.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quản lý dự án.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lập trình viên.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kiểm thử viên độc lập.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khách hàng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một trong những mục tiêu chính khi rà soát bản dự thảo đề xuất là gì?",
+    "Explanation": "Làm rõ các yêu cầu mập mờ trong RFP là mục tiêu sống còn để tránh sai lệch dự án,.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để cài đặt phần mềm cho khách hàng dùng thử.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để kiểm tra lỗi chính tả trong code.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để đào tạo kỹ năng lập trình Java cho khách hàng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để giải thích chi tiết các yêu cầu mập mờ của khách hàng.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Mật độ phát hiện thiếu sót (Defect density) được tính như thế nào?",
+    "Explanation": "Đây là thước đo hiệu quả của peer review dựa trên khối lượng tài liệu đã rà soát.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tổng chi phí dự án chia cho số bug.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Số lỗi chia cho số lập trình viên.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Số giờ làm việc chia cho số lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Số thiếu sót trung bình trên một trang tài liệu.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Hoạt động SQA trước bảo trì cần hoàn thành bước quan trọng nào?",
+    "Explanation": "Chuẩn bị kỹ lưỡng về hợp đồng và kế hoạch là nền tảng cho chất lượng bảo trì.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Xem xét lại hợp đồng bảo trì.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các nội dung trên.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Xác định các loại hình dịch vụ ký kết.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xây dựng kế hoạch bảo trì.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đâu là một thành phần quan trọng của hạ tầng SQA cho bảo trì?",
+    "Explanation": "Hạ tầng SQA bảo trì yêu cầu quy trình chặt chẽ về cấu hình, nhân sự và hành động khắc phục.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tất cả các phương án trên.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Các hoạt động ngăn ngừa và sửa lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quản lý cấu hình (Configuration management).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đào tạo và cấp chứng chỉ cho đội bảo trì.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bảo trì phần mềm thường chiếm bao nhiêu phần trăm tài nguyên suốt vòng đời hệ thống?",
+    "Explanation": "Theo Pressman và các nghiên cứu, bảo trì chiếm phần lớn tài nguyên (thường từ 60-75%).",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Dưới 10%.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trên 60%.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chỉ chiếm 5%.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khoảng 20-30%.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kế hoạch SQA bao gồm nội dung quan trọng nào sau đây?",
+    "Explanation": "Kế hoạch SQA phải bao gồm tiêu chuẩn, chỉ số, hoạt động kiểm soát và lịch trình audit.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Các chỉ số chất lượng (metrics).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lịch trình kiểm tra (Audits).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các nội dung trên.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Các tiêu chuẩn mã hóa và thiết kế.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  }
+]

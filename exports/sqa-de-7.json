@@ -1,0 +1,262 @@
+[
+  {
+    "StringContent": "Hoạt động 'r' (reference) trong kiểm thử luồng dữ liệu xảy ra khi nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khi tham khảo giá trị của biến thông qua biểu thức hoặc lệnh điều kiện",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Khi biến bị xóa khỏi phạm vi truy xuất",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khi gán một giá trị mới cho biến",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khi biến vừa được khai báo",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong mô hình McCabe, mỗi nút trong đồ thị CFG đại diện cho điều gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Một yêu cầu từ người dùng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một lỗi được phát hiện",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một hoặc một nhóm các câu lệnh thực thi liên tiếp",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Một biến dữ liệu",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong JUnit, để kiểm tra một giá trị trả về có phải là 'True' hay không, ta dùng hàm nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "assertTrue()",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "assertNotNull()",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "assertSame()",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "fail()",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tại sao Unit Test cần được vận hành lặp lại nhiều lần một cách tự động?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để kiểm tra độ bền của phần cứng máy tính",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để đảm bảo các thay đổi mới không làm hỏng các tính năng cũ đã chạy đúng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vì lập trình viên thường quên kết quả của lần test trước",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để đáp ứng yêu cầu về số lượng giờ làm việc của dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong JUnit, nếu so sánh địa chỉ vùng nhớ của hai tham chiếu đối tượng, ta dùng hàm nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "assertTrue()",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "assertSame()",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "assertNull()",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "assertEquals()",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử theo luồng (Thread Testing) trong tích hợp hộp trắng nhằm mục đích gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kiểm tra xem biến có bị trùng tên không",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đảm bảo mã nguồn không có virus",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm tra tốc độ của từng dòng code",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xác minh khả năng của các chức năng chính thông qua một chuỗi các unit",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Phát biểu nào sau đây đúng về kiểm thử hộp trắng?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nó giúp phát hiện các thuật toán thực thi không hiệu quả",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Nó thường được thực hiện ở giai đoạn cuối cùng của dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nó tập trung hoàn toàn vào giao diện người dùng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nó không yêu cầu người kiểm thử phải biết lập trình",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "White-box Testing thường được ưu tiên áp dụng cho loại module nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Các module đã được mua sẵn từ bên ngoài (COTS)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các module chỉ chứa văn bản hướng dẫn tĩnh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các module giao diện đơn giản như màn hình giới thiệu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các module quan trọng, thực hiện các tính toán chính của hệ thống",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử hộp trắng (White-box Testing) dựa trên cơ sở nào để xác định module hoạt động chính xác?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thuật toán cụ thể và cấu trúc dữ liệu bên trong module",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Đầu vào (input) và đầu ra (output) mà không cần biết code",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các tài liệu yêu cầu (requirements) từ khách hàng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giao diện người dùng và các luồng nghiệp vụ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khái niệm 'Đường thực thi' (Execution path) trong WBT được định nghĩa như thế nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quá trình dữ liệu di chuyển từ cơ sở dữ liệu lên giao diện",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trình tự các ca kiểm thử trong kế hoạch kiểm thử",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Danh sách có thứ tự các lệnh được thực hiện cho một lần chạy cụ thể từ điểm vào đến điểm dừng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Sơ đồ các màn hình mà người dùng đi qua trong ứng dụng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  }
+]

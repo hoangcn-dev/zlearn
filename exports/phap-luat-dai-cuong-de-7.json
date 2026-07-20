@@ -1,0 +1,158 @@
+[
+  {
+    "StringContent": "Người lao động có nghĩa vụ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hoàn thành những công việc được giao trong mọi trường hợp ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tuân theo sự điều động của người sử dụng lao động trong mọi trường hợp ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chấp hành đúng quy định về an toàn lao động ",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "A yêu và làm lễ đính hôn với B, sau đó A lại yêu và kết hôn với C. Việc làm của A là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vừa vi phạm pháp luật, vừa vi phạm đạo đức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vi phạm Luật Hôn nhân và gia đình",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không vi phạm Luật Hôn nhân và gia đình",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cả a và c đều đúng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tìm đáp án sai trong nhận định sau: Người có quyền chiếm hữu hợp pháp đối với tài sản là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cả a và c ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ có thể là chủ sở hữu đối với tài sản đó",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Người được ủy quyền hợp pháp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ sở hữu đối với tài sản đó ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Luật Lao động quy định: Thời gian thử việc là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Không được quá 40 ngày đối với lao động khác ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không được quá 90 ngày đối với lao đông chuyên môn kĩ thuật cao ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không được quá 60 ngày đối với lao động khác ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không được quá 60 ngày đối với lao động chuyên môn kĩ thuật cao",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "A kết hôn với B, có 2 con chung là C và D (C đã kết hôn, D 15 tuổi). Tài sản của vợ chồng A là 400 triệu. A chết để lại di chúc cho bà E 200 triệu đồng. Hỏi trong tình huống trên những người nào được hưởng di sản thừa kế của A? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "E, B, C, D được hưởng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chỉ hai con của A là C và D được hưởng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "E, C, D được hưởng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ bà E được hưởng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chọn phương án đúng nhất điền vào chỗ trống: .....của quy phạm pháp luật chứa đựng mệnh lệnh của Nhà nước?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Bộ phận quy định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bộ phận chế tài",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bộ phận quy định và bộ phận chế tài",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Bộ phận giả định",
+        "IsCorrectAnswer": false
+      }
+    ]
+  }
+]

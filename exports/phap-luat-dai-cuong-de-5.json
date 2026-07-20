@@ -1,0 +1,1302 @@
+[
+  {
+    "StringContent": "Hiến pháp được thông qua khi ít nhất có?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Một trăm phần trăm tổng số đại biểu Quốc hội biểu quyết tán thành",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ba phần tư tổng số đại biểu Quốc hội biểu quyết tán thành",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một phần hai tổng số đại biểu Quốc hội biểu quyết tán thành",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hai phần ba tổng số đại biểu Quốc hội biểu quyết tán thành",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Chức năng của Viện Kiểm sát nhân dân các cấp?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Gồm b và c",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kiểm sát hoạt động tư pháp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thực hành quyền công tố theo quy định của pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm sát hoạt động của tất cả các cơ quan Nhà nước",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Vị trí của Chủ tịch nước Cộng hòa XHCN Việt Nam?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Là nguyên thủ quốc gia, có quyền quyết định những vấn đề quan trọng nhất của đất nước",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả b và c",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Là người đứng đầu Nhà nước",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thay mặt Nhà nước về đối nội và đối ngoại",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Phương pháp điều chỉnh của Luật Hành chính là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phương pháp bình đẳng, thỏa thuận",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phương pháp thỏa thuận trong 1 số trường hợp đặc biệt(QĐ liên tịch, kí kết,...)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "b & c đúng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Phương pháp mệnh lệnh phục tùng với các các QHXH mang tính chất chấp  hành và điều hành",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cơ quan Hành chính Nhà nước cấp tỉnh bao gồm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Ủy ban nhân dân, Hội đồng nhân dân, các tổ chức Đảng, đoàn thể cấp tỉnh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ủy ban nhân dân tỉnh, Hội đồng nhân dân tỉnh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hội đồng nhân dân, Ủy ban nhân dân, các Sở, phòng, ban cấp tỉnh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ủy ban nhân dân tỉnh, các Sở, phòng, ban thuộc Ủy ban nhân dân tỉnh",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Tìm đáp án sai trong nhận định sau: Quan hệ xã hội mà Luật Hành chính điều chỉnh có đặc trưng?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Mang tính chất chấp hành và điều hành phát sinh trong hoạt động xây dựng, tổ chức công tác nội bộ của các cơ quan nhà nước khác ( như Tòa án, Viện kiểm sát )",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mang tính chất chấp hành và điều hành phát sinh trong hoạt động của các cơ quan nhà nước khác hoặc các tổ chức xã hội khi được nhà nước trao quyền thực hiện chức năng quản lý nhà nước",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mang tính chất chấp hành và điều hành phát sinh trong hoạt động của các cơ quan quản lý nhà nước",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả A, B, C",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Đặc điểm cơ bản của vi phạm hành chính?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hành vi có lỗi do cá nhân, tổ chức thực hiện",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hành vi trái pháp luật xâm phạm các quy tắc quản lý Nhà nước",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hành vi đó không phải là tội phạm và theo quy định của pháp luật phải bị xử lý hành chính",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tìm đáp án đúng trong nhận định sau: C là người chưa thành niên thực hiện hành vi vi phạm hành chính?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "C không phải chịu trách nhiệm hành chính",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "C chỉ phải chịu trách nhiệm hành chính khi C đủ 16 tuổi trở lên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "C sẽ phải chịu trách nhiệm hành chính do lỗi cố ý nếu tuổi C từ đủ 14 đến dưới 16. Nếu C từ đủ 16 tuổi trở lên, có thể phải chịu trách nhiệm hành chính trong mọi trường hợp vi phạm",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "C phải chịu trách nhiệm hành chính trong mọi trường hợp vi phạm",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tòa án nhân dân cấp huyện có thẩm quyền giải quyết khiếu kiện gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khiếu kiện quyết định hành chính của cơ quan đại diện ngoại giao",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khiếu kiện quyết định hành chính của cơ quan cấp tỉnh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": " Khiếu kiện quyết định hành chính của Bộ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khiếu kiện quyết định hành chính của cơ quan thuộc một trong các cơ quan nhà nước quy định",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Độ tuổi bắt đầu chịu trách nhiệm hành chính?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "16 tuổi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "14 tuổi",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "15 tuổi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "18 tuổi",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đảng lãnh đạo cơ quan Hành chính Nhà nước bằng phương pháp?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thuyết phục và cưỡng chế",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cưỡng chế",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thuyết phục",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả đều sai",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Các cơ quan Hành chính Nhà nước ở Trung ương bao gồm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chính phủ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bộ, Cơ quan ngang Bộ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cơ quan thuộc Chính phủ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả đáp án",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Thời hiệu khởi kiện vụ án hành chính về quyết định xử lý vụ việc cạnh tranh là bao lâu?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "6 tháng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "90 ngày",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "30 ngày",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": " 1 năm",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi nào cá nhân có quyền khởi kiện vụ án hành chính về danh sách cử tri bầu cử đại biểu quốc hội?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khi không đồng ý với quyết định kỷ luật buộc thôi việc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khi đã khiếu nại với cơ quan có thẩm quyền nhưng không được giải quyết",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Khi nhận được quyết định hành chính",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": " hi có quyết định xử lý vụ việc cạnh tranh",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khiếu kiện quyết định hành chính của cơ quan thuộc Chính phủ thuộc thẩm quyền giải quyết của Tòa án nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": " Tòa án nhân dân cấp huyện",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tòa án nhân dân tối cao",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tòa án quân sự",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tòa án nhân dân cấp tỉnh",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Những khiếu kiện nào thuộc thẩm quyền giải quyết của Tòa án?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khiếu kiện về danh sách cử tri bầu cử Đại biểu quốc hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khiếu kiện quyết định kỷ luật buộc thôi việc công chức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": " Khiếu kiện quyết định hành chính",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các đáp án trên",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Tìm đáp án đúng trong nhận định sau: Hình thức xử phạt vi phạm hành chính khi vi phạm hành chính là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khiển trách, xử lý hình sự",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cảnh cáo, lập biên bản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cảnh cáo, phạt tiền, tước quyền sử dụng giấy phép, chứng chỉ hành nghề, tịch thu tang vật, trục xuất",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Phạt tiền",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "A 15 tuổi thực hiện hành vi vi phạm hành chính với lỗi cố ý. Trách nhiệm hành chính đối với A như thế nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "A dưới 16 tuổi nên chưa phải chịu trách nhiệm hành chính",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cha mẹ hoặc người giám hộ của A phải chịu trách nhiệm thay vì A chưa thành niên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Có thể phạt cảnh cáo hoặc phạt tiền theo quy định của pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ có thể phạt cảnh cáo theo quy định của pháp luật",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Tham nhũng là hành vi nào sau đây?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": " Lạm dụng chức vụ quyền hạn để trục lợi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các đáp án trên",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Sử dụng công quỹ vào mục đích cá nhân",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không thực hiện đúng quy định pháp luật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tìm đáp án đúng trong nhận định sau: T 17 tuổi thực hiện hành vi vi phạm hành chính và bị xử phạt tiền?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Mức tiền phạt đối với T không được quá 1/2 mức phạt đối với người thành niên. Trường hợp T không có tiền nộp phạt thì cha mẹ hoặc người giám hộ T phải nộp phạt thay",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mức tiền phạt đối với T giống như mức phạt đối với người thành niên ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trong mọi trường hợp, cha mẹ hoặc người giám hộ T phải nộp thay",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trường hợp T không có tiền nộp phạt thì áp dụng hình thức phạt cảnh cáo với T",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Thời hiệu khởi kiện đối với quyết định kỷ luật buộc thôi việc là bao lâu?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": " 1 năm",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "60 ngày",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "30 ngày",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "90 ngày",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nguyên tắc giao kết hợp đồng dân sự là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Không được vi phạm phong tục tập quán tốt đẹp của dân tộc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a và b đều đúng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tự do giao kết hợp đồng nhưng không trái pháp luật, đạo đức xã hội ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tự nguyện, bình đẳng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quyền sử dụng đối với tài sản là một loại quyền năng của?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quyền sở hữu",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quyền định đoạt",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyền khai thác lợi ích tài sản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyền chiếm hữu",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nguyên tắc giao kết hợp đồng lao động là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Bình đẳng ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tự nguyện ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thỏa thuận ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo quy định tại Bộ luật Dân sự thì những người nào sau đây là người thừa kế không phụ thuộc vào nội dung của di chúc?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cha mẹ đẻ, con đẻ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Con chưa thành niên, cha mẹ đẻ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cha mẹ, vợ, chồng, con thành niên, con chưa thành niên không còn khả năng lao động",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cha mẹ đẻ, vợ, chồng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi tìm hiểu về quyền và nghĩa vụ tài sản của vợ chồng thì khẳng định nào sau đây là đúng?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khi ly hôn thì toàn bộ tài sản của vợ, chồng phải chia đôi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vợ, chồng có quyền có tài sản riêng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vợ, chồng có trách nhiệm ngang nhau đối với tài sản chung và tài sản riêng của vợ, chồng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vợ chồng có quyền ủy quyền cho nhau trong mọi vấn đề",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Luật Lao động quy định: Đối với hợp đồng lao động không xác định thời hạn, người lao động có quyền đơn phương chấm dứt hợp đồng khi?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Do ốm đau, đã điều trị 6 tháng nhưng chưa khỏi ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Báo cho người sử dụng lao động biết trước ít nhất 45 ngày ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Do tai nạn, đã điều trị 6 tháng nhưng chưa khỏi ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Việc chiếm hữu của một người với đối với một tài sản nhưng không biết đó là chiếm hữu bất hợp pháp thì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đều là chiếm hữu bất hợp pháp không ngay tình ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đều là chiếm hữu bất hợp pháp ngay tình",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Đều là chiếm hữu hợp pháp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Có thể là chiếm hữu bất hợp pháp ngay tình hoặc chiếm hữu bất hợp pháp không ngay tình",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cơ quan tiến hành tố tụng hình sự là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Viện Kiểm sát - Tòa án - Cơ quan thi hành án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cơ quan điều tra - Tòa án - Cơ quan thi hành án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tòa án - Viện Kiểm sát - Cơ quan điều tra",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Bộ luật Hình sự Việt Nam 2015 chia tội phạm thành các loại?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tội ít nghiêm trọng và tội nghiêm trọng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tội ít nghiêm trọng; tội nghiêm trọng; tội rất nghiêm trọng và tội đặc biệt nghiêm trọng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tội không nghiêm trọng và tội đặc biệt nghiêm trọng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tội ít nghiêm trọng và tội rất nghiêm trọng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tìm đáp án đúng trong tình huống sau: A và B yêu nhau thắm thiết cùng hẹn ước tiến tới hôn nhân nhưng khi A và B đi đăng ký kết hôn thì UBND xã nơi thường trú của A và B không cho phép A và B kết hôn vì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phát hiện B đang mắc căn bệnh hiểm nghèo",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phát hiện B đã có con riêng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều sai",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Phát hiện B có cùng họ Nguyễn với A ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khách thể của quyền sở hữu bao gồm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tiền và giấy tờ trị giá được bằng tiền",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Các quyền về tài sản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tài sản là vật có thực",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trình tự, thủ tục giải quyết một vụ án dân sự nói chung là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hòa giải - xét xử sơ thẩm - xét xử phúc thẩm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thụ lý vụ án - hòa giải - xét xử - thi hành án dân sự",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Xét xử sơ thẩm - xét xử phúc thẩm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xét xử sơ thẩm - xét xử phúc thẩm - xét lại bản án theo thủ tục giám đốc thẩm, tái thẩm",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "A và B là vợ chồng, đã có con chung. Sau thời gian chung sống phát sinh mâu thuẫn và hai bên thỏa thuận cắt đôi giấy hôn thú, viết cam kết trả tự do cho nhau. Sau đó A yêu C và được UBND xã cho phép đăng ký kết hôn. Việc làm của UBND xã là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Sai, vì UBND xã chưa hòa giải cho A và B mà đã kết hôn cho A và C",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sai,vì A và B vẫn tồn tại hôn nhân hợp pháp",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Sai, vì A và B chưa đến UBND xã xin thỏa thuận ly hôn mà tự cắt đôi giấy hôn thú",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đúng theo quy định của pháp luật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo quy định của pháp luật hình sự hiện hành thì giá trị tài sản tối thiểu trong hành vi trộm cắp phải là bao nhiêu mới bị coi là tội phạm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "1.500.000 đồng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "2.000.000 đồng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "500.000 đồng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "1.000.000 đồng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Người để lại di sản thừa kế là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Người lập di chúc để lại tài sản của mình cho người thân",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tổ chức hoặc cá nhân đã chết có tài sản để lại",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cá nhân đã chết có tài sản để lại",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cá nhân có tài sản muốn để lại cho con cháu và đã lập thành di chúc",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tìm đáp án đúng trong các nhận định sau?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tất cả các hành vi vi phạm pháp luật đều có thể phải chịu hình phạt",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hình phạt chỉ áp dụng cho tội phạm",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hành vi tội phạm được quy định trong nhiều văn bản pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hình thức giao dịch dân sự nào có giá trị pháp lý cao nhất?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hình thức giao dịch bằng văn bản có công chứng, chứng thực ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hình thức giao dịch bằng văn bản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều sai",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hình thức giao dịch bằng hợp đồng miệng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo quy định của Luật Hôn nhân và gia đình Việt Nam, gia đình là những người?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cùng chung sống với nhau dưới một mái nhà",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Gắn bó với nhau do quan hệ hôn nhân, quan hệ huyết thống, quan hệ nuôi dưỡng, có quyền và nghĩa vụ pháp lý theo quy định của pháp luật",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Có cùng huyết thống và cùng chung  sống trong một nhà",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hàng thừa kế thứ nhất theo quy định của pháp luật bao gồm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cha mẹ nuôi, con nuôi ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cha mẹ đẻ, con đẻ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vợ, chồng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Phân biệt tội phạm với các vi phạm pháp luật khác qua các dấu hiệu?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tội phạm phải chịu hình phạt",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tội phạm được quy định trong Luật Hình sự",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tội phạm có tính nguy hiểm đáng kể",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Doanh nghiệp tư nhân là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Doanh nghiệp do một hoặc hai cá nhân làm chủ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Doanh nghiệp do một cá nhân làm chủ và tự chịu trách nhiệm",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mọi quyền lợi và nghĩa vụ của doanh nghiệp do mọi người tham gia vào doanh nghiệp quyết định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Doanh nghiệp do nhiều cá nhân làm chủ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tội phạm và hình phạt được quy định ở đâu?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Trong Luật Hình sự và Luật Hành chính",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ trong Luật Hình sự",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Trong Luật Hiến pháp, Luật Hình sự",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trong nhiều văn bản Luật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Diện những người thừa kế theo pháp luật bao gồm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Những người theo thứ tự hàng thừa kế được quy định tại Điều 676 Bộ luật Dân sự",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vợ, chồng; cha, mẹ; các con; người giám hộ của người để lại di sản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Những người có tên trong nội dung của di chúc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Những người có quan hệ huyết thống trong phạm vi ba đời với người để lại di sản",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo quy định của Luật Lao động thì người lao động được nghỉ bao nhiêu ngày lễ, Tết trong năm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chín ngày  ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mười một ngày  ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Nhà nước sẽ quy định số ngày nghỉ cho năm đó ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tám ngày ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "A là tài xế đi đúng phần đường, đúng tốc độ, kỹ thuật xe bảo đảm an toàn; trong ngõ có một người phóng vụt ra, lao đầu vào xe và chết?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cả a, b, c đều chưa đúng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "A chỉ phải chịu trách nhiệm hình sự khi gia đình nạn nhân khiếu kiện",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "A phải chịu trách nhiệm hình sự vì gây ra tai nạn đặc biệt nghiêm trọng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "A không phải chịu trách nhiệm hình sự vì A không có lỗi trong việc gây ra tai nạn",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Người thừa kế là người được hưởng di sản của người chết để lại theo di chúc hoặc theo quy định của pháp luật. Người thừa kế có thể là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tổ chức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cá nhân",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhà nước",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quyền sở hữu đối với tài sản bao gồm?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cả a, b, c",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quyền nắm giữ, quản lý tài sản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyền khai thác lợi ích tài sản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyền quyết định số phận của tài sản",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Điền đáp án thích hợp vào chỗ trống: Thời hiệu khởi kiện về quyền thừa kế là....., kể từ thời điểm mở thừa kế?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "5 năm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "15 năm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "3 năm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "10 năm",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Kết hôn trái pháp luật là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nam nữ xác lập quan hệ vợ chồng có đăng ký kết hôn nhưng không tổ chức lễ cưới",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nam nữ đăng ký kết hôn không có sự đồng ý của cha mẹ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nam nữ về chung sống với nhau như vợ, chồng nhưng không có đăng ký kết hôn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Việc xác lập quan hệ vợ chồng có đăng ký kết hôn nhưng vi phạm điều kiện kết hôn do pháp luật quy định",
+        "IsCorrectAnswer": true
+      }
+    ]
+  }
+]

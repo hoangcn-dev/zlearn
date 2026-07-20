@@ -1,0 +1,1302 @@
+[
+  {
+    "StringContent": "Pháp luật là sản phẩm của?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tôn giáo",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đạo đức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhà nước",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Đảng phái chính trị",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quyền hành pháp được hiểu là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quyền bảo vệ pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyền ban hành và triển khai thực hiện pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyền ban hành pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyền tổ chức thực hiện pháp luật",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo quan điểm của chủ nghĩa Mác-Lênin thì nguyên nhân pháp luật ra đời là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Do các thành viên trong xã hội ban hành",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Do có sự chia rẽ trong xã hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Do có sự phân hóa giai cấp và đấu tranh giai cấp trong xã hội",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Do thượng đế tạo ra",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quyền tư pháp được hiểu là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quyền tổ chức thực hiện pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyền bảo vệ pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyền xét xử",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quyền ban hành pháp luật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tổ chức thị tộc trong xã hội Cộng sản nguyên thủy là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Một tổ chức kinh tế",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một xã hội độc lập",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một tập đoàn người có cùng quan hệ huyết thống ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Một đơn vị độc lập",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tính quy phạm của pháp luật thể hiện giới hạn cần thiết để các chủ thể pháp luật tự do xử sự trong khuôn khổ Nhà nước quy định, giới hạn đó xác định ở các khía cạnh sau?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Bắt buộc thực hiện",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cấm đoán thực hiện",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bao gồm các đáp án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cho phép thực hiện",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chọn phương án đúng điền vào chỗ trống: .....là cách thức mà giai cấp thống trị sử dụng để nâng ý chí của giai cấp mình lên thành pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kiểu pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hình thức văn bản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hình thức Nhà nước",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hình thức pháp luật",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong một quốc gia, tổ chức duy nhất được quyền phát hành tiền?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nhà nước",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quốc hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chính phủ ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các tổ chức chính trị - xã hội",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khẳng định nào sau đây đúng khi đề cập về bản chất Nhà nước?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Bất cứ Nhà nước nào cũng đều mang bản chất giai cấp và bản chất xã hội",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mọi Nhà nước đều là bộ máy dùng để duy trì sự thống trị của giai cấp này đối với giai cấp khác",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhà nước nào cũng chỉ mang bản chất xã hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bất cứ Nhà nước nào cũng thể hiện bản chất xã hội rõ nét hơn bản chất giai cấp",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hình thức chính thể của Nhà nước bao gồm các loại?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chính thể quân chủ tuyệt đối và quân chủ tương đối",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chính thể cộng hòa tổng thống và cộng hòa đại nghị",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chính thể quân chủ và cộng hòa dân chủ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chính thể quân chủ và cộng hòa",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Pháp luật quy định và bảo đảm thực hiện trên thực tế quyền tự do dân chủ của nhân dân; hạn chế sự bóc lột, bảo vệ quyền lợi của nhân dân. Đây là đặc điểm của kiểu pháp luật nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Pháp luật chủ nô",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Pháp luật tư sản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các đáp án đều sai",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Pháp luật phong kiến",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi nghiên cứu về nguồn gốc Nhà nước, xem Nhà nước là hiện tượng siêu nhiên, vĩnh cửu, đó là quan điểm của?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thuyết gia trưởng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thuyết thần học",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Thuyết bạo lực",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thuyết khế ước xã hội",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nhận định nào sau đây là sai khi đề cập về tập quán pháp?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hình thức pháp luật xuất hiện sớm nhất là tập quán pháp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tập quán pháp là hình thức Nhà nước thừa nhận một số tập quán lưu truyền trong xã hội và quy định thành cách xử sự chung, được Nhà nước bảo đảm thực hiện ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các tập quán đều trở thành pháp luật",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hiện nay hình thức tập quán pháp được sử dụng hạn chế tại một số nước",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đáp án nào sau đây không thuộc kiểu pháp luật chủ nô?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quốc triều hình luật",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Bộ luật Manu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Luật Đôracông",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bộ luật Hammurabi",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đề cập về mối quan hệ giữa pháp luật và kinh tế, khẳng định nào sau đây là sai?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Pháp luật có tính độc lập tương đối và tác động mạnh mẽ đến kinh tế",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đó là mối quan hệ giữa cơ sở thượng tầng và hạ tầng kiến trúc",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kinh tế giữ vai trò quyết định đối với pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Pháp luật tác động đến kinh tế theo hướng tích cực hoặc tiêu cực",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Những quy phạm xã hội tồn tại trong xã hội cộng sản nguyên thủy là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đạo đức, tập quán, pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tập quán, tín điều tôn giáo, luật pháp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tín điều tôn giáo, tập quán pháp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đạo đức, tập quán, tín điều tôn giáo",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Nhà nước có mấy thuộc tính?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "3",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "5",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "2",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "4",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong lịch sử xã hội không tồn tại các hình thức pháp luật nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tiền lệ pháp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Án lệ pháp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tập quán pháp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các đáp án đều sai",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểu pháp luật..... thể hiện rõ sự bất bình đẳng giữa hai cấp đối kháng trong xã hội, công khai thừa nhận nô lệ không phải là công dân, họ là tài sản của.....?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phong kiến - giai cấp địa chủ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ nô - giai cấp phong kiến",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tư sản - giai cấp thống trị ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ nô - giai cấp chủ nô",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Nhận định nào sau đây là sai?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Xã hội cộng sản nguyên thủy đã tồn tại quyền lực Nhà nước",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hội đồng thị tộc là tổ chức quyền lực cao nhất của thị tộc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cơ sở kinh tế đặc trưng của xã hội cộng sản nguyên thủy là chế độ sở hữu chung về tư liệu sản xuất và sản phẩm lao động",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyền lực trong xã hội cộng sản nguyên thủy là quyền lực xã hội, chưa mang tính giai cấp",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi nghiên cứu về nguồn gốc Nhà nước, khẳng định nào sau đây là sai?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nhà nước là hiện tượng xã hội mang tính lịch sử ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhà nước ra đời, tồn tại cùng với lịch sử xã hội loài người ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Nhà nước chưa xuất hiện trong chế độ cộng sản nguyên thủy",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhà nước ra đời trong điều kiện xã hội có giai cấp và đấu tranh giai cấp ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nhà nước chưa tồn tại trong hình thái kinh tế - xã hội nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hình thái kinh tế - xã hội Cộng sản nguyên thủy",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hình thái kinh tế - xã hội Chiếm hữu nô lệ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hình thái kinh tế - xã hội Công xã nguyên thủy",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hình thái kinh tế - xã hội Cộng sản chủ nghĩa",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Người lao động đình công theo quy định pháp luật đòi tăng lương, giảm giờ làm, thể hiện vai trò nào sau đây của pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Pháp luật là phương tiện để Nhà nước quản lý mọi mặt đời sống xã hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Pháp luật là phương tiện để bảo vệ các quyền, lợi ích hợp pháp của công dân",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Pháp luật là cơ sở để tạo lập mối quan hệ đối ngoại",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Pháp luật làm ổn định những quan hệ mới",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong các quan điểm phi mácxít về nguồn gốc Nhà nước thì quan điểm nào được coi là tiến bộ nhất?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quan điểm của những nhà nghiên cứu theo thuyết gia trưởng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan điểm của những nhà nghiên cứu theo thuyết khế ước xã hội",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quan điểm của những nhà nghiên cứu theo thuyết bạo lực",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan điểm của những nhà nghiên cứu theo thuyết thần học",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nhận định nào sau đây đúng khi bàn về sự ra đời của pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Ý chí chủ quan của Nhà nước được nâng thành pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Pháp luật ra đời do nhu cầu khách quan của xã hội mà không cần đến vai trò của Nhà nước",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Pháp luật là sản phẩm của xã hội có giai cấp và đấu tranh giai cấp",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Pháp luật là sự thỏa hiệp về ý chí của mọi người trong xã hội",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Pháp luật công khai quy định về chế độ bóc lột nô lệ, thể hiện sự bất bình đẳng giữa chủ nô và nô lệ, đây là đặc điểm của kiểu pháp luật nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Pháp luật tư sản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bao gồm các đáp án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Pháp luật chủ nô",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Pháp luật phong kiến",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quyền lực trong xã hội cộng sản nguyên thủy mới chỉ là quyền lực xã hội vì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Do toàn xã hội tổ chức ra và phục vụ lợi ích cho cả cộng đồng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bao gồm các đáp án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chưa mang tính giai cấp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyền lực gắn liền với xã hội, hòa nhập với xã hội",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nhận định nào sau đây là sai?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Văn bản quy phạm pháp luật là hình thức pháp luật tiến bộ nhất",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hình thức tập quán pháp được sử dụng nhiều trong Nhà nước xã hội chủ nghĩa",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hình thức tiền lệ pháp còn gọi là án lệ pháp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tập quán pháp là hình thức Nhà nước thừa nhận một số tập quán lưu truyền trong xã hội và quy định thành cách xử sự chung, được Nhà nước bảo đảm thực hiện ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hình thức Nhà nước thừa nhận một số tập quán lưu truyền trong xã hội và quy định thành cách xử sự chung là hình thức pháp luật nào sau đây?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tiền lệ pháp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Văn bản quy phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tiền lệ pháp và tập quán pháp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tập quán pháp",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Pháp luật quy định đẳng cấp trong xã hội và đặc quyền, đặc lợi của địa chủ, phong kiến. Đây là đặc trưng của kiểu pháp luật nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Pháp luật XHCN",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Pháp luật tư sản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Pháp luật chủ nô",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Pháp luật phong kiến",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Đề cập đến quá trình phát triển, thay đổi của xã hội loài người, nhận định nào sau đây là sai?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lần phân công lao động thứ nhất: ngành chăn nuôi ra đời",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lần phân công lao động thứ ba làm cho những mâu thuẫn trong xã hội ngày càng trở nên gay gắt",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lần phân công lao động thứ ba: ngành thương nghiệp ra đời",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lần phân công lao động thứ hai: ngành trồng trọt và tiểu thủ công nghiệp ra đời",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Những quan hệ nảy sinh trong đời sống xã hội, được các quy phạm pháp luật điều chỉnh trong đó các chủ thể có những quyền và nghĩa vụ pháp lý nhất định, các quan hệ này là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quan hệ kinh tế",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ pháp luật",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ xã hội",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi nghiên cứu về chủ thể quan hệ pháp luật thì khẳng định nào sau đây là đúng?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tất cả mọi tổ chức đều có thể trở thành chủ thể của quan hệ pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các cơ quan, đơn vị, tổ chức và cá nhân trong xã hội đều có thể trở thành chủ thể của quan hệ pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả mọi cá nhân đều có thể trở thành chủ thể của quan hệ pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả mọi cá nhân và tổ chức có đủ những điều kiện do pháp luật quy định đều có thể trở thành chủ thể của quan hệ pháp luật",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Để quan hệ xã hội trở thành quan hệ pháp luật cần phải có?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chủ thể và khách thể quan hệ pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sự điều chỉnh của pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyền và nghĩa vụ quy định trong quy phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy phạm pháp luật và sự kiện pháp lý",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Quy phạm pháp luật và quy phạm xã hội?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vừa có điểm giống nhau, vừa có điểm khác nhau",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hoàn toàn khác nhau",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hoàn toàn giống nhau",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Là hai khái niệm đồng nhất",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đặc điểm của quan hệ pháp luật là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quan hệ mang tính ý chí",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quan hệ do Nhà nước quy định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các quan hệ trong sản xuất và kinh doanh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các quan hệ trong cuộc sống",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quan hệ nào sau đây là quan hệ pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quan hệ tình yêu nam nữ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ bạn bè",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ vợ chồng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Thời điểm có hiệu lực của văn bản quy phạm pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kể từ ngày ký ban hành văn bản quy phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Được quy định trong văn bản quy phạm pháp luật nhưng không sớm hơn bốn mươi lăm ngày, kể từ ngày công bố hoặc ký ban hành",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kể từ ngày công bố văn bản quy phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Được quy định trong văn bản quy phạm pháp luật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi nghiên cứu về quyền chủ thể trong quan hệ pháp luật, thì khẳng định nào sau đây là đúng?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khả năng được lựa chọn những xử sự theo ý muốn chủ quan của mình",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khả năng yêu cầu các chủ thể khác thực hiện nghĩa vụ để bảo đảm việc thực hiện quyền của mình",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khả năng yêu cầu cơ quan Nhà nước có thẩm quyền bảo vệ quyền của mình khi bị phía chủ thể bên kia vi phạm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Quan hệ pháp luật là hình thức đặc biệt của?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quan hệ xã hội",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quan hệ lao động",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ chính trị",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khách thể của quan hệ pháp luật là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lợi ích vật chất mà các chủ thể của quan hệ đó hướng tới khi tham gia quan hệ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Các lợi ích vật chất hoặc tinh thần",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các quy định của cơ quan Nhà nước",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Yếu tố thúc đẩy chủ thể tham gia quan hệ pháp luật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nội dung của quan hệ pháp luật được thể hiện?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chủ thể tham gia phải thực hiện nghĩa vụ theo quy định của pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ thể tham gia là các cá nhân hoặc tổ chức có đủ tư cách pháp lý",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ thể tham gia có những quyền và nghĩa vụ do pháp luật quy định",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chủ thể tham gia thực hiện quyền theo quy định của pháp luật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khả năng Nhà nước thừa nhận cho chủ thể  bằng hành vi của mình có thể xác lập và thực hiện quyền hoặc nghĩa vụ pháp lý, gọi là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Năng lực pháp lý",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Năng lực pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khả năng hành vi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Năng lực hành vi",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Quy phạm pháp luật là quy tắc xử sự mang tính..... do..... ban hành và bảo đảm thực hiện, thể hiện ý chí và bảo vệ lợi ích của giai cấp thống trị để điều chỉnh các.....?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Bắt buộc chung - Nhà nước - quan hệ pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bắt buộc chung - Nhà nước - quan hệ xã hội",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Bắt buộc - Nhà nước - quan hệ xã hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bắt buộc chung - Quốc hội - quan hệ xã hội",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong xã hội có giai cấp, quy phạm nào sau đây có vai trò quan trọng nhất đối với việc duy trì trật tự xã hội?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quy phạm tôn giáo",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy phạm đạo đức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy phạm pháp luật",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quy phạm tập quán",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Những biện pháp cưỡng chế Nhà nước dự liệu áp dụng đối với chủ thể không thực hiện đúng pháp luật được ghi nhận tại bộ phận..... của quy phạm pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quy định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chế tài",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Giả định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chế định",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một cá nhân trở thành chủ thể của quan hệ pháp luật cần phải?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thực hiện nghĩa vụ pháp lý do pháp luật quy định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không mắc bệnh tâm thần",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Có năng lực pháp luật và năng lực hành vi",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi nghiên cứu về đặc điểm của quan hệ pháp luật thì khẳng định nào sau đây là sai?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quan hệ pháp luật luôn gắn liền với sự kiện pháp lý",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ pháp luật xuất hiện dựa trên cơ sở quy phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ pháp luật là loại quan hệ có ý chí",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ pháp luật do Nhà nước quy định",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Quy phạm pháp luật chỉ có thể làm nảy sinh quan hệ pháp luật giữa các chủ thể khi gắn liền với?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Sự kiện pháp lý",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Nhà nước",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bao gồm các đáp án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nghĩa vụ pháp lý",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Văn bản quy phạm pháp luật là văn bản do?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quốc hội ban hành",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cơ quan Nhà nước có thẩm quyền ban hành",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chính phủ ban hành",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ tịch nước ban hành",
+        "IsCorrectAnswer": false
+      }
+    ]
+  }
+]

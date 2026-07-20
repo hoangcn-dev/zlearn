@@ -1,0 +1,1302 @@
+[
+  {
+    "StringContent": "Phương pháp thích hợp nhất để quyết định liệu rủi ro xác định có được cụ thể hoá hay không là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ác định xem liệu dấu hiệu rủi ro có đạt được hay không",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ây dựng kế hoạch quản lý rủi ro",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "uyệt sổ ghi vấn đề.PQST",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ùng phân tích độ nhạy cảm.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Những vấn đề còn tồn tại lâu dài đã bắt đầu dính líu và ảnh hưởng tới nhiều người, do đó tạo ra nhiều sự phụ thuộc. Giám đốc dự án tốt nhất nên xử lý tình huống này như thếnào? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đặt cơ sở lịch trình dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ách vấn đề thành những vấn đề nhỏ theo lôgíc",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Đưa nó cho quản lý cấp cao hơn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hực hiện quản lý rủi ro.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Phát biểu nào sau đây mô tả tốt nhất ước lượng dưới lên?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ó đòi hỏi một hoạt động hay sự kiện riêng lẻ có sự phụ thuộc lẫn nhau đối với người tiền nhiệm, người thành công cũng như các hoạt động hay sự kiện song song",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ó đòi hỏi người lập kế hoạch phải sử dụng càng nhiều chi tiết càng tốt nhằm phân chia dự án thành các gói công việc đủ nhỏ để cho phép ước tính chi phí chính xác",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đó là phương pháp đơn giản nhất để ước tính chi phí trong một dự án với nhiều điểm tương đồng với các dự án thành công khác",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ó có thể được mô tả bề ngoài trong Kỹ thuật duyệt và đánh giá chương trình hoặc sơ đồ Gantt.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chức năng nòng cốt của giám đốc dự án là gì? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đảm bảo chất lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ích hợp dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "iao diện khách",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hiết kế hệ thống",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Phạm vi dự án do khách hàng yêu cầu sau khi chấp thuận thiết kế có khả năng ảnh hưởng tới một số thành phần của dự án. Điều gì sau đây là câu trả lời tốt nhất của giám đốc dự án?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đưa ra những thay đổi then chốt bất chấp chi phí và ảnh hưởng của nó, đồng thời thông báo cho ban quản lý thay đổ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hực hiện phân tích ảnh hưởng chi tiết tới chi phí và lịch trình, đồng thời triệu tập một cuộc họp đội dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ước tính ảnh hưởng tới chi phí và lịch trình và phê duyệt trước khi tiến hành",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "huyết phục khách hàng hoãn thay đổi",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mặc dù những thay đổi nhỏ có thể được hút vào trong dự án mà không cần điều chỉnh phạm vi nhưng tổ chức nào sau đây nên chú trọng tới những thay đổi quan trọng đối với phạm vi?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hà quản lý hợp đồng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iám đốc chất lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iám đốc chức năng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "an quản lý thay đổi",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Hành động nào dưới đây xảy ra trong khi lên kế hoạch cho việc thu mua? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ạo ra các yêu cầu vềcác tài liệu đềnghịhoặc tài liệu thầu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "uyết định làm hay bán (make-or-buy)",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ạo ra các điều kiện và điều khoản trong hợp đồng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "rảlời câu hỏi của người bán vềcác tài liệu thầu",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Giám đốc dự án được chỉ định cho một dự án lớn đã và đang được thực hiện một số lần. Đội dự án vừa hoàn tất giai đoạn thiết kế của dự án và đang tiến hành trong giai đoạn triển khai. Tại điểm này, thay đổi nào có thể xẩy ra mà không phải gánh chịu rủi ro của việc tiến hành lại toàn bộ giai đoạn thiết kế? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hạm vi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hiết kế chi tiết",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "gày tháng chuyển giao",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hiệm vụ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Căn cứ vào báo cáo phạm vi và các giả định dự án được chỉ ra trong triển lãm thì điều gì phải được hoàn tất đầu tiên? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "o sánh với số tiền phải trả cho nhân viên trong ba tháng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để số tiền phải trả cho nhân viên sau ngày 31 tháng 11.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Để số tiền phải trả cho nhân viên với độ chính xác 100% trong tháng 1.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đổi dữ liệu về số tiền phải trả cho nhân viên vào tháng 12.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Ai có trách nhiệm chuẩn bị báo cáo đánh giá sau triển khai?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ỹ sư cao cấp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iám đốc dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hà tài trợ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "gười sử dụng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nhân tố nào có ảnh hưởng lớn nhất tới chi phí lao động theo ước tính trên đơn vị cho dự án. ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ác quy trình kiểm soát thay đổi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hông tin lịch sử",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ử dụng các nhà cung cấp bên ngoài.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác yêu cầu mức độ kỹ năng nguồn nhân lực",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Đánh giá điểm kiểm soát trong kế hoạch dự án chỉ ra: ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "uộc họp kiểm soát thay đổi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "gày tháng cho người sử dụng ký kết hoàn tất theo kế hoạch",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "áo cáo trạng thái đến kỳ hạn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác quyết định đi hay không đi",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Giám đốc dự án ưu tiên rủi ro như thế nào? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ằng ảnh hưởng về tài chính.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ằng ảnh hưởng đường thời gian.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ằng toàn bộ ảnh hưởng lên dự án.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ằng các ưu tiên về thực thi.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nhiệm vụ cần thiết trong việc chuẩn bị ở giai đoạn hoàn thiện là",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "uyệt dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iểm soát thay đổi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "uản lý cấu hình.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Đánh giá rủi ro.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Các đánh giá sau hợp đồng quan trọng bởi vì: ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ầu hết các hợp đồng đều yêu cầu chúng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "húng được yêu cầu về mặt pháp lý trong nhiều quyền hạn xét xử",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "húng xác lập cơ sở lịch sử cho sự lựa chọn của nhà thầu",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hù lao gắn liền với hiệu quả của nhà thầu",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quy trình để thay đổi điều khoản hợp đồng .............hệ thống quản lý thay đổi dự án.",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ích hợp với",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hông liên quan tới",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "à đầu vào",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ương tự như",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chi phí thuê phòng sẽ được dùng cho cuộc họp dự án là ví dụ minh hoạ cho loại chi phí nào? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hi phí không được dự kiến",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hi phí cố định",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hi phí biến động",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hi phí tất yếu",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Phát biểu nào về kiểm thử chấp thuận người dùng là đúng? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "iểm thử người dùng nên được thực hiện như một phần của giai đoạn đào tạo triển khai hệ thống.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iểm thử người dùng tạo cơ hội cho người dùng cải thiện nhu cầu của họ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iểm thử người dùng nên chứng tỏ rằng hệ thống vận hành các yêu cầu đã được xác định.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "iểm thử người dùng tạo cơ hội tốt để nhận biết các sai sót trong mã đã được xây dựng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kỹ thuật truyền đạt nào sau đây sẽ cải thiện tốt nhất cách hiểu của các đối tượng liên quan về dự án? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hững phản kháng của đối tượng liên quan trong đội quản lý dự án.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác cuộc họp điều hành với các đối tượng liên quan để giải thích những mục tiêu dự án và các kết quả mong muốn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác cuộc họp toà thị chính với đội dự án cung cấp thông tin và các đối tượng liên quan có khả năng đề nghị các câu hỏi",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hư điện tử về việc thực thi cho tất cả nhân viên về những mục tiêu dự án và các kết quả mong muốn",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nhân tố nào ảnh hưởng lớn nhất tới thời đoạn thực tế của các nhiệm vụ dự án? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hi phí nhiệm vụ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hả năng về nguồn lực",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hông tin lịch sử.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hững người đi trước và người thành công",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Các nhóm nào sau đây xác định rõ nhất ai là các đối tượng liên quan trong dự án? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đội ngũ thành viên dự án, nhân viên điều hành công ty bạn, nhân viên điều hành của khách hàng và các trưởng bộ phận chức năng của công ty bạn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đội ngũ thành viên dự án, các nhà tài trợ, nhân viên điều hành của công ty bạn và nhân viên điều hành của khách hàng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đội ngũ thành viên dự án, các nhà cung cấp, đại diện từ công ty của khách hàng là người sẽ sử dụng phần có thể chuyển giao",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đội ngũ thành viên dự án, nhà tài trợ, nhà cung cấp, đại diện từ công ty của khách hàng là người sẽ sử dụng phần có thể chuyển giao và các trưởng bộ phận chức năng của công ty bạn",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "chọn đội ngũ không chỉ là chức năng tìm kiếm những người là chuyên gia kỹ thuật hay hành chính. Nhà tài trợ dự án chỉ đạo một dự án có tính minh bạch cao sẽ mong đợi gì ở một giám đốc dự án?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hân tích các kỹ năng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hát triển nhân sự chủ chốt",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ãnh đạo các chuyên gia về kỹ thuật.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iao thiệp với khách hàng/ nhà tài trợ.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Một công ty quyết định không cạnh tranh trong một gói thầu. Lý do được giám đốc đưa ra là cơ hội hoàn tất dự án trong khung thời gian dự định là rất mong manh. Đây là chiến lược giải quyết rủi ro nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "huyển giao rủi ro",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hấp thuận rủi ro.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hấp thuận rủi ro.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "iảm thiểu rủi ro",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nếu dự án của bạn có 5 đội ngũ thành viên thì bạn có bao nhiêu kênh truyền thông? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "10",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "6",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "5",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "25",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Điều chỉnh lịch trình nhiệm vụ để triển khai nguồn nhân lực hiệu quả hơn được gọi là: ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ải nguồn lực",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Điều chỉnh nguồn lực",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ối ưu hoá nguồn lực",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ăng tốc nguồn lực",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mục nào thể hiện mốc quan trọng? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hần mềm đã hoàn tất việc kiểm thử chấp thuận người dùng.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hà tài trợ điều hành ký kết hoàn tất các yêu cầu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ập hợp đội ngũ thành viên.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ua trang thiết bị cơ sở hạ tầngg",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn là giám đốc một dự án đã bắt đầu cách đây 4 tháng. Dự án đã được bảo vệ khoảng một năm bởi phó chủ tịch bộ phận nhưng việc quản lý tài chính và trách nhiệm của nhà tài trợ đã được giao phó cho một trong những trưởng bộ phận. Một vài giám đốc khác cũng nằm trong danh sách phê chuẩn các tài liệu dự án chính. Tài liệu dự án ban đầu đã được hoàn tất và phê duyệt và dự án nằm trong lịch trình. Các yêu cầu đã được xác định, lập tài liệu và đệ trình để được sự chấp thuận trách nhiệm của nhà tài trợ. Những phê duyệt theo yêu cầu đã nhận được vào cuối ngày được phân bổ theo vòng phê duyệt. Tuy nhiên phê duyệt của một giám đốc phụ thuộc vào việc thêm ba yêu cầu quan trọng. Các yêu cầu này không lường trước được trong phạm vi dự án ban đầu cũng không phải chúng được khám phá trong suốt giai đoạn phân tích yêu cầu. Rủi ro nào bạn chắc chắn cần phải chú trọng nhất? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hay đổi ngân quỹ dự án.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hay đổi phạm vi dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hay đổi lịch trình dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ất sự hỗ trợ của nhà tài trợ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn sẽ tìm các thủ tục và chính sách xác định truyền thông thực tiễn nhất có thể chấp nhận được đối với một dự án tích cực ở đâu? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ách chỉ dẫn các thủ tục và chính sách của công ty",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ảng kê công việc (SOW)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ài liệu vai trò và trách nhiệm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ách dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn đang quản lý đội kỹ thuật là những người lao động bán thời gian. Phần lớn những người lao động này là sinh viên và có những cam kết khác trong suốt năm học. Năm ngoái bạn đã chậm trễ trong một vài dự án bởi vì bạn đã sắp xếp các dự án được hoàn tất trong suốt kỳ thi tốt nghiệp của sinh viên. Hiện nay bạn đang bắt đầu thực hiện một kế hoạch cho các dự án sắp tới và có thời hạn cuối cùng khác trong suốt giai đoạn thi tốt nghiệp. Bạn nên làm gì để ngăn chặn xung đột này?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ử dụng nhiều nguồn lực hơn và rút ngắn lịch trình dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "huê thêm sinh viên để trợ giúp trong suốt giai đoạn thi tốt nghiệp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ử dụng các nguồn lực khác trong suốt giai đoạn thi tốt nghiệp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ắp xếp dự án được hoàn tất sau giai đoạn thi tốt nghiệp",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Dự án chậm hơn lịch trình do xung đột giữa các thành viên. Sau khi giải quyết xung đột, để đáp ứng được ngày tháng chuyển giao thì giám đốc dự án nên xem xét",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ối ưu hoá lịch trình.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hiển trách về việc chuyển giao muộn trong đội ngũ thành viên.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Điều chỉnh nguồn lực.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hân chia lại nguồn lực.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "kế hoạch truyền thông dự án thường liên quan chặt chẽ với: ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ập kế hoạch nguồn lực",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ây dựng kinh phí",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ác định đối tượng liên quan dự án.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ập kế hoạch tổ chức.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Giám đốc dự án đang xây dựng kế hoạch cho dự án. Giám đốc dự án đã xác định các nhiệm vụ và chỉ định nguồn lực thích hợp. Công cụ được sử dụng thông báo rằng một vài nguồn lực được phân bổ xong. Bước tiếp theo của giám đốc dự án sẽ là gì? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "i chuyển các nguồn lực.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Điều chỉnh nguồn lực",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "êu cầu thêm nguồn lực.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ự thảo ngân sách ngoài giờ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Dự án được thực hiện tốt theo kinh phí; tuy nhiên để đáp ứng các phần chuyển giao của khách hàng thì ngày tháng chuyển giao tới khách hàng sẽ bị muộn hơn 2 tuần. Không có nguồn lực phụ phân công cho dự án. Giám đốc dự án nên làm gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hay đổi phạm vi các đặc tính của khách hàng để chuyển giao sản phẩm vào ngày tháng chuyển giao đã hứa",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hi dự án nằm trong giới hạn kinh phí thì bạn chẳng phải làm gì cả.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hông báo cho khách hàng về việc trễ hạn và tìm kiếm sự ủng hộ thích hợp bằng tài liệu.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "uân theo quy trình thay đổi được phác thảo trong quy định dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Phương pháp nào là cách tiếp cận hiệu quả để xây dựng ước tính thời đoạn nhiệm vụ dự án? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Ước lượng trên xuống",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ý kiến chuyên gia",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ỹ thuật giá trị",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ước lượng ngẫu nhiên",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cái nào sau đây là sản phẩm của quy trình khởi tạo dự án? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "BS (Cấu trúc chi tiết công việc).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ế hoạch dự án với các nguồn lực đã được phân bổ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iệt kê nhiệm vụ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "uy định dự án",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Giám đốc dự án được khách hàng đề nghị thực hiện những thay đổi quan trọng cho dự án. Những thay đổi này không được chú tâm trong Tài liệu thiết kế hay Phạm vi dự án. Cách tốt nhất để giám đốc dự án đáp lại yêu cầu là gì? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "riển khai các thay đổi theo yêu cầu ngay lập tức.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hiết kế lại toàn bộ dự án từ vạch xuất phát.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "rình yêu cầu thay đổi lên Ban quản lý thay đổi.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hông báo với khách hàng rằng thay đổi phạm vi là không được phép.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn đang xây dựng phạm vi công việc cho một dự án sẽ sử dụng các nguồn lực kỹ thuật giới hạn. Thay đổi đã được một trong số các nguồn lực kỹ thuật yêu cầu để điều chỉnh màn ảnh đầu vào của người dùng. Cá nhân nào phải phê chuẩn yêu cầu này?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "iám đốc dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hà tài trợ dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ãnh đạo đội xây dựng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đại diện của những người dùng cuối",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "đội ngũ thành viên, các nhiệm vụ theo lịch trình và kế hoạch đào tạo là bộ phận của... ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "uy định dự án.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ấu trúc chi tiết công việc (WBS)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ế hoạch truyền thống.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ế hoạch dự án.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Một trong các quy trình nào sau đây là quan trọng nhất để đáp ứng các mục tiêu quản lý chất lượng? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "iểm định chất lượng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hân tích xu hướng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "em xét kỹ lưỡng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ập kế hoạch.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Tại sao giám đốc dự án cần có một nhà tài trợ điều hành? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để cung cấp sự giúp đỡ bí mật với cam kết và hỗ trợ về tổ chức",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Để ký kết hoàn tất trong các yêu cầu người dùng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để giữ đội dự án tập trung vào công việc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để đàm phán hợp đồng với các nhà cung cấp bên ngoài",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Điều nào sau đây là kết quả có hiệu lực của quy trình quản lý thay đổi? ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "huyến khích thay đổi thường xuyên trong suốt vòng đời dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iảm tới mức tối thiểu sự mất mát năng suất trong suốt dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ân bằng giữa rủi ro và chi phí dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "ấm hoàn toàn bất cứ sự thay đổi phạm vi nào trong suốt toàn bộ dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cái nào sau đây đúng ",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "iểu đồ mạng sẽ thay đổi mỗi khi thời gian kết thúc thay đổi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "1 dự án không bao giờ có trễ phủ định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hỉ có thể có 1 đường thiết yếu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "1 đường thiết yếu có thể chạy trên mô hình giả",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Vai trò của giám đốc đường lối trong kế hoạch dự án là gì?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "ung cấp nguồn lực cho dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "iểm soát kinh phí dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đề nghị những thay đổi yêu cầu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "iải quyết các xung đột trong đội",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một người quản lý dự án mới đang được cố vấn bởi 1 chuyên gia có nhiều năm kinh nghiệm trong việc quản lý dự án(PMP). Người quản lý dự án nhận thấy thật khó khăn để có đủ thời gian trong việc quản lý dự án bởi vì sản phẩm và phạm vi của dự án thì đang được chi tiết hóa. Sự cố vấn của PMP cái mà là công cụ cơ bản cho việc quản lý dự án, như là cấu trúc phân rã công việc, có thể sử dụng trong suốt quá trình thực thi dự án để hỗ trợ dự án. Theo như trên thì khi nào WBS được sử dụng?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "iao tiếp với khách hàng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "hỉ ra ngày thực hiện cho mỗi gói công việc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hỉ ra nghiệp vụ cần thiết cho dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hỉ ra các chức năng quản lý cho mỗi thành viên của đội dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Phụ thuộc mà yêu cầu giai đoạn thiết kế phải được hoàn thành trước khi triển khai có thể bắt đầu là loại phụ thuộc nào ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "hụ thuộc phạm vi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hụ thuộc tùy ý",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hụ thuộc bên ngoài",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hụ thuộc bắt buộc",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Giám đốc dự án nhận được 1 cuộc gọi từ một thành viên đội, lưu ý anh ra rằng có mâu thuẫn giữa tốc độ của hệ thống trong dự án và tốc độ mong muốn (hoặc tốc độ đề ra). Nếu giám đốc dự án sau đó đánh giá xem mâu thuẫn đó có cần phải đối phó hay không, thì anh ta đang ở trong pha nào của tiến trình quản lý dự án?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "initiating",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "executing",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "closing (giám sát và kiểm soát)",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "monitoring and controlling",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một trong những bên liên quan của dự án liên hệ với PM để thảo luận về việc mở rộng phạm vi dự án.Người quản lý dự án yêu cầu chi tiết phải được viết ra và sau đó làm việc với các tiến trình kiểm soát phạm vi.Nguời quản lý dự án nên làm gì tiếp theo sau khi đánh giá về yêu cầu phạm vi đã được hoàn thành..",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đảm bảo rằng các tác động của những thay đổi có thể hiểu được bởi các bên liên quan",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "êu cầu bên liên quan nếu có nhiều thay đổi hơn dự kiến",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "oàn thành việc kiểm soát thay đổi tích hợp",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "ìm ra nguyên nhân chính tại sao phạm vi không được phát hiện trong quá trình lập kế hoạch dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bạn là 1 PM mới mà trước đây chưa bao giờ bạn quản lý 1 dự án nào. Bạn đã được yêu cầu lên kế hoạch 1 dự án mới. Điều gì là tốt nhất trong tình hình này dựa vào ______ quá trình lập kế hoạch để cải thiện cơ hội thành công",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quản lý cấu hình",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thông tin về lịch sử",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Sự hiểu biết và training của bạn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phân tích các bên liên quan",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kế hoạch quản lý dự án nên bị hiện thực trong việc quản lý dự án. Phương pháp nào sau đây để đạt được tính hiện thực trong việc quản lý dự án",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "uản lý dự án tạo ra kế hoạch quản lý dự án dựa trên đầu vào từ ngượi quản lý cấp cao hơn",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "uản lý dự án tạo ra kế hoạch quản lý dự án dựa trên đầu vào là từ đội dự án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "uản lý chức năng được tạo ra trong kế hoạch quản lý dự án dựa trên đầu vào từ người quản lý dự án",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hà tài trợ vạch ra kế hoạch quản lý dự án dựa trên đầu vào từ người quản lý dự án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cái nào dưới đây thường được mô tả bởi biểu đồ thanh (hay là biểu đồ Gantt) thì sẽ tốt hơn là sơ đồ mạng:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATF709381E16BC"
+    ],
+    "Answers": [
+      {
+        "StringContent": "iến độ hay trạng thái",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Điều phối tài nguyên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "hững mối quan hệ mang tính logic",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đường thiết yếu",
+        "IsCorrectAnswer": false
+      }
+    ]
+  }
+]

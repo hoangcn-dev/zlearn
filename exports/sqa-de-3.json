@@ -1,0 +1,1302 @@
+[
+  {
+    "StringContent": "Tại sao rà soát được coi là công cụ phát hiện lỗi hiệu quả hơn kiểm thử ở các pha sớm?",
+    "Explanation": "Rà soát tập trung vào các sản phẩm trung gian (tài liệu), giúp chặn lỗi ngay từ đầu chu trình.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Vì rà soát không tốn kém tài nguyên nhân lực.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì nó cho phép kiểm tra tài liệu phân tích/thiết kế khi chưa có code để chạy.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Vì khách hàng không thích hoạt động kiểm thử.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì rà soát có thể thay thế hoàn toàn việc viết code.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tính 'chính trực' (Integrity) trong tiêu chí chất lượng McCall liên quan đến:",
+    "Explanation": "Integrity giải quyết vấn đề an ninh hệ thống và phân quyền truy cập,.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Số lượng module có thể tái sử dụng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bảo mật và ngăn chặn truy cập trái phép.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Khả năng chạy trên nhiều hệ điều hành.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tốc độ xử lý của CPU.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chi phí nào phát sinh do thiếu nhân viên bảo trì hoặc bảo trì sai gây thiệt hại?",
+    "Explanation": "Lỗi quản lý bao gồm các thiệt hại do phân bổ nhân sự không đúng hoặc xử lý sai quy trình quản lý.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chi phí đánh giá.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chi phí lỗi quản lý (Managerial failure costs).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chi phí ngăn ngừa.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chi phí lỗi nội bộ.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đâu là một mục tiêu gián tiếp của hoạt động rà soát?",
+    "Explanation": "Mục tiêu gián tiếp mang tính chất chung như đào tạo và trao đổi kỹ thuật,.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phê duyệt các sản phẩm thiết kế.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xác định các rủi ro mới ảnh hưởng dự án.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm tra sự sai lệch so với biểu mẫu quy định.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tạo diễn đàn trao đổi kiến thức chuyên môn giữa các thành viên.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Thuật ngữ 'Action Items' trong báo cáo Review nghĩa là gì?",
+    "Explanation": "Đây là các nhiệm vụ cụ thể được giao sau buổi review để khắc phục các vấn đề đã thảo luận.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Danh sách các hành động cần thực hiện để sửa lỗi hoặc hoàn thiện.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Các món quà tặng cho khách hàng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tên các phần mềm được dùng để test.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Danh sách các tính năng mới của phần mềm.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong bảo trì sửa lỗi, dịch vụ hỗ trợ người dùng giải quyết vấn đề gì?",
+    "Explanation": "Dịch vụ hỗ trợ (help desk) giải quyết mọi khó khăn của người dùng, từ lỗi kỹ thuật đến hướng dẫn sử dụng.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lỗi code khiến phần mềm thất bại.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Người dùng thiếu kiến thức vận hành hệ thống.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi tài liệu hướng dẫn mập mờ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các vấn đề trên.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Vai trò của Review Leader tốt nhất nên là ai?",
+    "Explanation": "Review Leader nên là người độc lập (ngoài nhóm) để đảm bảo tính khách quan,.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lập trình viên viết ra sản phẩm đó.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ nhiệm dự án (Project Manager).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhân viên mới cần được đào tạo.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Người ngoài nhóm dự án có kinh nghiệm tương đương PM.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Giai đoạn nào trong quy trình rà soát nhằm xác minh các lỗi đã được sửa?",
+    "Explanation": "Giai đoạn Follow-up dùng để kiểm tra việc sửa lỗi trước khi chính thức kết thúc hoạt động rà soát.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Buổi rà soát (Session).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Theo dõi (Follow-up).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chuẩn bị (Preparation).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Báo cáo Review.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hoạt động bảo trì nào làm phần mềm thích ứng với điều kiện môi trường thay đổi?",
+    "Explanation": "Bảo trì thích ứng giúp phần mềm phù hợp với yêu cầu mới và thay đổi của môi trường.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Bảo trì hoàn thiện (Perfective).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bảo trì thích ứng (Adaptive).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Bảo trì phòng ngừa (Preventive).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bảo trì sửa lỗi (Corrective).",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mục tiêu của 'Rà soát hợp đồng' trong SQA là gì?",
+    "Explanation": "Rà soát hợp đồng giúp đảm bảo tính thực tế của kế hoạch và tài chính, tránh rủi ro sau này,.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để tìm lỗi lập trình trong mã nguồn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để ký kết hợp đồng nhanh nhất có thể.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để cải thiện ngân sách, thời gian biểu và nhận diện rủi ro sớm.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Để tuyển dụng thêm nhân sự cho dự án.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Một buổi rà soát (Review Session) không nên kéo dài quá bao lâu?",
+    "Explanation": "Nguyên tắc rà soát quy định mỗi buổi không nên quá 2 giờ để đảm bảo sự tập trung.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cả ngày làm việc.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "1 giờ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "2 giờ.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "4 giờ.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chi phí phát hiện lỗi bởi nhóm SQA trong bảo trì thuộc loại chi phí nào?",
+    "Explanation": "Chi phí đánh giá bao gồm việc xem xét các dịch vụ bảo trì và điều tra sự thỏa mãn khách hàng.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chi phí lỗi nội bộ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chi phí ngăn ngừa.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chi phí lỗi bên ngoài.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chi phí đánh giá chất lượng (Appraisal costs).",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Việc thay thế một nhóm khách hàng đang dùng phiên bản cũ bằng phiên bản mới gọi là gì?",
+    "Explanation": "Quản lý cấu hình hỗ trợ việc nâng cấp đồng loạt cho các nhóm khách hàng dùng cùng phiên bản.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Rà soát đề xuất.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thay thế nhóm (Group replacement).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Bảo trì sửa lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sửa lỗi đơn lẻ.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Dữ liệu (Data) trong thành phần phần mềm bao gồm những gì?",
+    "Explanation": "Dữ liệu phục vụ cả vận hành thực tế và quá trình kiểm soát chất lượng.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chuẩn dữ liệu test.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Danh sách tên đặc tả cho người dùng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các phương án trên.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tham số đầu vào.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đâu là khía cạnh thuộc 'Product Revision' (Sửa đổi sản phẩm) theo McCall?",
+    "Explanation": "Maintainability cùng với Flexibility và Testability thuộc khía cạnh sửa đổi sản phẩm.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hiệu quả (Efficiency).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khả năng di động (Portability).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tính đúng đắn (Correctness).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khả năng bảo trì (Maintainability).",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi nào nên sử dụng ý kiến chuyên gia (Expert opinion)?",
+    "Explanation": "Chuyên gia bên ngoài cung cấp cái nhìn độc lập và chuyên sâu cho các tình huống khó khăn.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khi các thành viên cao cấp trong công ty không thống nhất được giải pháp.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các trường hợp trên.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Khi nhóm dự án thiếu kiến thức sâu về một lĩnh vực đặc thù.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khi tổ chức quá nhỏ, không đủ người để lập đội rà soát ngang hàng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Sự khác biệt giữa Verification và Validation là gì?",
+    "Explanation": "Verification là 'Are we building it right?' còn Validation là 'Are we building the right thing?',.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Verification chỉ dành cho code; Validation dành cho tài liệu.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Verification do khách hàng làm; Validation do lập trình viên làm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Verification kiểm tra tính nhất quán với pha trước; Validation kiểm tra sự thỏa mãn yêu cầu khách hàng.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cả hai đều giống hệt nhau.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Qualification tập trung vào khía cạnh nào của sản phẩm?",
+    "Explanation": "Qualification xác định sự phù hợp của hệ thống đối với vận hành và bảo trì dài hạn,.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hợp đồng có đắt không.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sản phẩm có phù hợp với việc sử dụng thực tế và bảo trì không.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mã nguồn có đẹp không.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dự án có hoàn thành đúng hạn không.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Báo cáo Review leader thực hiện sau phiên thảo luận bao gồm nội dung gì?",
+    "Explanation": "Báo cáo này là cơ sở pháp lý và kỹ thuật để nhóm dự án triển khai các bước tiếp theo.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tổng kết các thảo luận.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyết định về sự tiếp tục của dự án.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Danh sách các hành động cần thiết phải làm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các nội dung trên.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Tại sao tài liệu bảo trì (maintenance documentation) lại quan trọng?",
+    "Explanation": "Tài liệu bảo trì là 'tài liệu cho người phát triển' để họ hiểu và sửa đổi hệ thống an toàn.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để quảng cáo sản phẩm cho người dùng mới.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để thay thế cho việc viết code.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để khách hàng tự sửa lỗi mà không cần trả tiền.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cung cấp thông tin về mã nguồn và cấu trúc module để tìm nguyên nhân lỗi.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Chi phí sửa lỗi phần mềm trong chu kỳ bảo hành (warranty) được tính là:",
+    "Explanation": "Trong thời gian bảo hành, mọi lỗi code phát sinh là trách nhiệm trực tiếp của nhà phát triển và được coi là lỗi bên ngoài.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chi phí dịch vụ chính thức.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chi phí lỗi bên ngoài (External failure costs).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chi phí ngăn ngừa.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chi phí đánh giá.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi nào rà soát ngang hàng (Peer Review) được coi là hiệu quả?",
+    "Explanation": "Hiệu quả được đo lường qua các độ đo như mật độ lỗi phát hiện trên trang tài liệu.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khi mật độ lỗi phát hiện đạt mức chuẩn của tổ chức.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Khi buổi họp kéo dài cả ngày.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khi lập trình viên cảm thấy vui vẻ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khi không tìm thấy bất kỳ lỗi nào.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nguyên tắc 'Giữ đúng chương trình nghị sự (agenda)' trong Review nhằm mục đích gì?",
+    "Explanation": "Việc giữ agenda giúp cuộc họp tập trung vào mục tiêu kỹ thuật, chuyên môn thay vì lạc đề hoặc công kích cá nhân.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để mọi người có thể nói chuyện tự do.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để không ai được phép đặt câu hỏi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để tránh tranh luận cá nhân và lãng phí thời gian.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Để khách hàng cảm thấy sợ hãi.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cơ sở hạ tầng bảo trì bao gồm 'Thông tin lịch sử'. Nó dùng để làm gì?",
+    "Explanation": "Thông tin lịch sử giúp đội bảo trì hiểu bối cảnh và các vấn đề lặp lại của hệ thống tại site khách hàng.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Theo dõi các lỗi đã xảy ra với từng khách hàng để phục vụ ngăn ngừa.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Để biết sinh nhật của khách hàng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để tính tiền lương cho nhân viên bảo trì.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để xóa bỏ các phiên bản cũ.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bảo trì phòng ngừa (Preventive maintenance) nhằm mục đích gì?",
+    "Explanation": "Bảo trì phòng ngừa tập trung vào hạ tầng và độ tin cậy để tối ưu hóa việc bảo trì lâu dài.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cải thiện độ tin cậy để việc bảo trì trong tương lai dễ dàng hơn.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Thay thế hoàn toàn phần cứng máy chủ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thêm các tính năng mới theo yêu cầu khách hàng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sửa các lỗi code do người dùng báo về.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Ủy ban CAB (Corrective Action Board) có vai trò gì trong bảo trì?",
+    "Explanation": "CAB điều khiển và phân tích các phát hiện lỗi để đóng góp cải thiện hệ thống hiện tại và tương lai.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đào tạo kỹ năng mềm cho nhân viên.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phân tích các bản ghi lỗi và đưa ra gợi ý cải thiện tiến trình.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Trực tiếp sửa code cho lập trình viên.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ký kết hợp đồng với khách hàng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong bảo trì, lỗi được phát hiện bởi đội bảo trì TRƯỚC KHI khách hàng báo về gọi là gì?",
+    "Explanation": "Lỗi nội bộ/bên trong là lỗi do đội bảo trì tự tìm thấy trước khi có yêu cầu từ khách hàng.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lỗi quản lý.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi bên trong (Internal failure costs).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lỗi rà soát.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lỗi bên ngoài.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Dự án lớn và phức tạp thường yêu cầu nhóm thành viên bên ngoài nào tham gia?",
+    "Explanation": "Các dự án lớn thường chia nhỏ và chuyển giao cho nhiều bên để tối ưu kỹ thuật và kinh tế,.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nhà thầu phụ (Outsourcing).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các nhóm trên.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Khách hàng tham gia một phần việc phát triển.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhà cung cấp phần mềm COTS/module tái sử dụng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Kế hoạch bảo trì phần mềm KHÔNG bao gồm nội dung nào sau đây?",
+    "Explanation": "Kế hoạch tập trung vào tổ chức, rủi ro, hạ tầng và tài chính hơn là chi tiết mã nguồn,,.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Ngân sách bảo trì.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mã nguồn chi tiết của toàn bộ hệ thống.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mô tả tổ chức của nhóm bảo trì.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Danh sách các rủi ro dịch vụ bảo trì.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Theo dõi việc hiệu chỉnh lỗi sau Review thường do ai chịu trách nhiệm?",
+    "Explanation": "Review Leader chịu trách nhiệm đảm bảo các lỗi ghi nhận trong buổi review đã được sửa đúng đắn.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nhân viên bảo vệ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Review Leader.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Khách hàng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giám đốc tài chính.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Sự khác biệt chính giữa Rà soát chính thức và Inspection là gì?",
+    "Explanation": "Rà soát hình thức (DRs) là mốc phê duyệt chuyển pha, trong khi Inspection khắt khe hơn trong việc lọc lỗi quy trình,.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Inspection chỉ dành cho code, Rà soát chính thức chỉ dành cho hợp đồng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Rà soát chính thức do khách hàng làm, Inspection do Dev làm.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Rà soát chính thức tập trung vào phê chuẩn, Inspection tập trung vào phát hiện lỗi chi tiết bằng checklist.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Không có sự khác biệt nào.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong CoQ bảo trì, chi phí đào tạo đội ngũ bảo trì được xếp vào loại nào?",
+    "Explanation": "Đào tạo giúp ngăn ngừa lỗi xảy ra từ khâu vận hành ban đầu.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chi phí chuẩn bị.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chi phí ngăn ngừa (Prevention costs).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chi phí đánh giá.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chi phí lỗi quản lý.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "TPR (Test Plan Review) tập trung vào việc rà soát cái gì?",
+    "Explanation": "TPR là hoạt động rà soát kế hoạch kiểm thử để đảm bảo độ bao phủ và tài nguyên phù hợp.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Rà soát giao diện người dùng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Rà soát mã nguồn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Rà soát tiến độ dự án.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Rà soát kế hoạch kiểm thử.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Mục tiêu trực tiếp của hoạt động rà soát là gì?",
+    "Explanation": "Mục tiêu trực tiếp liên quan mật thiết đến việc chỉnh sửa lỗi kịp thời và phê chuẩn để chuyển giai đoạn,.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đào tạo nhân viên mới về quy trình phát triển.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Ghi chép lỗi để phục vụ phân tích xu hướng tương lai.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tạo diễn đàn trao đổi kiến thức chuyên môn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phát hiện lỗi phân tích, thiết kế và phê chuẩn sản phẩm.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Kiểm thử Stress Test khác Load Test ở điểm nào?",
+    "Explanation": "Stress test đẩy hệ thống vào các tình huống bất thường để xem mức độ phản hồi.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Load test chỉ dành cho máy tính cá nhân.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Stress test dễ làm hơn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không có sự khác biệt giữa hai loại này.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Stress test thực thi trong điều kiện tài nguyên hệ thống không đáp ứng đủ (như ngắt mạng, thiếu RAM).",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Mục đích của Positive Test trong kiểm thử chức năng là gì?",
+    "Explanation": "Positive test tập trung vào việc xác nhận các luồng nghiệp vụ chạy đúng như mong đợi.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Xác nhận chức năng hoạt động đúng với dữ liệu hợp lệ theo đặc tả.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cố gắng làm treo hệ thống.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhập dữ liệu sai để xem thông báo lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm tra sự vui vẻ của khách hàng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Yếu tố nào sau đây được dùng để xác định mức độ ưu tiên test cho một module?",
+    "Explanation": "Kế hoạch test dựa trên đánh giá rủi ro và thiệt hại tiềm tàng.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Xác suất xuất hiện thất bại (mức rủi ro).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Độ phức tạp và độ lớn của module.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các yếu tố trên.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mức thiệt hại nếu module đó thất bại.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hình thức rà soát nào được coi là khắt khe nhất và sử dụng checklist?",
+    "Explanation": "Inspection là hình thức đánh giá khắt khe nhất, dùng checklist để phát hiện lỗi và sai lệch chuẩn.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Management Review.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Walk-through.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Technical Review.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Inspection.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Tác phẩm \"Dế Mèn phiêu lưu ký\" được viết bởi:",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tô Hoài",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Lê Ngọc Trà",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nguyễn Du",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nguyễn Huy Thiệp",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Vai trò của 'Thủ tục' (Procedures) trong phần mềm là gì?",
+    "Explanation": "Quy trình/Thủ tục đảm bảo hệ thống được vận hành đúng trình tự và có người chịu trách nhiệm rõ ràng.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để khách hàng tự viết code.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dùng để lưu trữ các biến dữ liệu.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dùng để thay thế cho hướng dẫn sử dụng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Định nghĩa thứ tự, lịch biểu và phương thức triển khai khi thực thi chương trình.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Yếu tố nào quan trọng nhất quyết định 'tuổi thọ' và sự thành công của một gói phần mềm?",
+    "Explanation": "Bảo trì chất lượng là yếu tố then chốt giúp phần mềm phục vụ người dùng lâu dài.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Bảo trì chất lượng cao.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Số lượng dòng code lớn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giá thành phần mềm rẻ nhất.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giao diện màu sắc đẹp.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Lỗi 'Deadlock' thường được phát hiện trong loại kiểm thử nào?",
+    "Explanation": "Stress test mô phỏng tình trạng tài nguyên không đáp ứng để phát hiện deadlock hoặc treo máy.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kiểm thử đơn vị.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử giao diện (GUI).",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử Stress (Stress Testing).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kiểm thử cài đặt.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "DPR (Development Plan Review) thuộc nhóm hoạt động rà soát nào?",
+    "Explanation": "DPR là một phần của rà soát thiết kế hình thức để phê duyệt kế hoạch phát triển.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Rà soát thiết kế chính thức.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kiểm thử hộp đen.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Rà soát mã nguồn tự động.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Rà soát ngang hàng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong phương pháp Walk-through, ai là người trình bày sản phẩm?",
+    "Explanation": "Trong Walk-through, tác giả trực tiếp trình bày để các thành viên khác đặt câu hỏi và góp ý.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khách hàng.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tác giả của sản phẩm.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Review Leader.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Một kiểm thử viên độc lập.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hành động nào giúp tiết kiệm tài nguyên và tạo ra module chất lượng cao hơn thông qua việc dùng lại?",
+    "Explanation": "Tái sử dụng module giúp tận dụng các phần đã được QA kỹ lưỡng từ trước, giảm công sức phát triển.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Khả năng tái sử dụng (Reusability).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Viết lại code từ đầu mỗi khi có dự án mới.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tăng lương cho lập trình viên.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sử dụng nhiều máy chủ hơn.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong kiểm thử hiệu năng, 'Load Test' nhằm mục đích gì?",
+    "Explanation": "Load test đo lường hành vi hệ thống dưới tải trọng dự kiến của người dùng.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đánh giá phần mềm quản lý nhiều yêu cầu cùng lúc như thế nào trong giới hạn cho phép.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kiểm tra pin của thiết bị di động.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm tra tốc độ download file.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm tra khả năng phục hồi sau thảm họa.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Mục tiêu của 'Rà soát thiết kế chi tiết' (DBDR) là gì?",
+    "Explanation": "DBDR đảm bảo các module và giao diện được thiết kế đủ chi tiết để lập trình viên sử dụng,.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Phê duyệt kế hoạch bàn giao.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phê duyệt ngân sách dự án.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phê duyệt đặc tả yêu cầu.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phê duyệt chi tiết từng đơn vị chương trình, màn hình, báo cáo.",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Nghịch lý thuốc trừ sâu (Pesticide paradox) trong kiểm thử khuyên chúng ta điều gì?",
+    "Explanation": "Nếu lặp lại các bài test giống nhau, chúng sẽ mất hiệu quả trong việc phát hiện lỗi mới.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cần xem xét và cập nhật các bài kiểm tra thường xuyên để tìm lỗi mới.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Không nên dùng lại các test case cũ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Sử dụng công cụ tự động sẽ diệt được hết lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chỉ nên kiểm thử các phần quan trọng nhất.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khái niệm 'Mini-testing' thường được áp dụng cho hoạt động nào?",
+    "Explanation": "Mini-testing dùng cho các thay đổi nhỏ trong code để đảm bảo việc sửa lỗi nhanh nhưng vẫn chất lượng.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Xử lý các bản sửa lỗi nhỏ (repair patch).",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Kiểm thử hệ thống quy mô lớn.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Rà soát thiết kế kiến trúc.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kiểm thử chấp nhận người dùng.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tại sao việc ghi log lỗi cần phải ngắn gọn và rõ ràng?",
+    "Explanation": "Ghi log hiệu quả giúp đẩy nhanh quá trình sửa lỗi và giao tiếp trong team.",
+    "Level": 1,
+    "CategoryIds": [
+      "CATE23A72482B69"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Để lập trình viên dễ hiểu và tiết kiệm thời gian tái hiện lỗi.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Để giảm dung lượng ổ cứng của máy chủ quản lý lỗi.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vì hệ thống không cho phép viết quá 10 chữ.",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Để khách hàng không đọc được các chi tiết kỹ thuật.",
+        "IsCorrectAnswer": false
+      }
+    ]
+  }
+]

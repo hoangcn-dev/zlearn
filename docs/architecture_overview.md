@@ -4,70 +4,68 @@ Dự án **ZLearn** được xây dựng dựa trên nguyên lý kiến trúc s�
 
 ---
 
-## 🏗️ Cấu trúc các Lớp (Clean Architecture Layers)
+## Cấu trúc các Lớp (Clean Architecture Layers)
 
 Mã nguồn được tổ chức thành các project C# sau:
 
 ```mermaid
 graph TD
-    Web[ZLearn.Web - MVC & API] --> App[ZLearn.Application - Use Cases]
-    Desktop[ZLearn.AdminDesktopApp - WPF] --> App
-    Infras[ZLearn.Infras - DB, Caching, External] --> App
-    App --> Domain[ZLearn.Domain - Core Entities & Events]
+    Web[ZLearn.Web - MVC & API] --> App[Zlearn.V2.Application - Use Cases]
+    Infras[Zlearn.V2.Infas - DB, Caching, External] --> App
+    App --> Domain[Zlearn.V2.Domain - Core Entities & Events]
 ```
 
-### 1. Lớp Nhân (Core) - [ZLearn.Domain](file:///d:/projects/zlearn/ZLearn.Domain)
-*   **Mô tả**: Đây là trung tâm của kiến trúc, độc lập hoàn toàn với bất kỳ framework hay cơ sở dữ liệu nào.
-*   **Thành phần**: Chứa các thực thể (Entities), Enum, Constants, các ngoại lệ nghiệp vụ (Exceptions), và Domain Events.
-*   **Đặc điểm**: Không tham chiếu đến bất kỳ project nào khác trong solution.
+### 1. Lớp Nhân (Core) - [Zlearn.V2.Domain](file:///d:/projects/zlearn/Zlearn.V2.Domain)
+- **Mô tả**: Đây là trung tâm của kiến trúc, độc lập hoàn toàn với các framework hay cơ sở dữ liệu bên ngoài.
+- **Thành phần**: Được chia theo các Bounded Contexts (như `CatalogContext`, `ExamContext`, `FileContext`, `IdentityContext`) và thư mục `Common`. Chứa các thực thể (`Quiz`, `Question`, `Exam`, v.v.), AggregateRoots, Value Objects, Domain Events và cấu trúc định danh thực thể.
+- **Đặc điểm**: Không tham chiếu đến bất kỳ project nào khác trong solution.
 
-### 2. Lớp Ứng dụng - [ZLearn.Application](file:///d:/projects/zlearn/ZLearn.Application)
-*   **Mô tả**: Định nghĩa các nghiệp vụ cốt lõi của hệ thống (Use Cases) theo mô hình CQRS.
-*   **Thành phần**: Commands, Queries, Handlers, DTOs, Validators (FluentValidation), AutoMapper Profiles, và các interface trừu tượng như `IAppDbContext`, `IBaseRepo<>`, `IQuizRepo`, v.v.
-*   **Đặc điểm**: Chỉ tham chiếu đến [ZLearn.Domain](file:///d:/projects/zlearn/ZLearn.Domain).
+### 2. Lớp Ứng dụng - [Zlearn.V2.Application](file:///d:/projects/zlearn/Zlearn.V2.Application)
+- **Mô tả**: Định nghĩa các nghiệp vụ cốt lõi của hệ thống (Use Cases) theo mô hình CQRS.
+- **Thành phần**: Commands, Queries, Handlers, DTOs, Validators (FluentValidation), AutoMapper Profiles, và các interface trừu tượng như `IReadRepo<>` và `IWriteRepo<>`.
+- **Đặc điểm**: Chỉ tham chiếu đến [Zlearn.V2.Domain](file:///d:/projects/zlearn/Zlearn.V2.Domain).
 
-### 3. Lớp Cơ sở hạ tầng - [ZLearn.Infras](file:///d:/projects/zlearn/ZLearn.Infras)
-*   **Mô tả**: Hiện thực hóa (Implement) các interfaces định nghĩa ở lớp Application. Tương tác trực tiếp với Database, Cache, các dịch vụ bên ngoài (AI, Storage), và cung cấp các dịch vụ hệ thống nền.
-*   **Thành phần**: EF Core AppDbContext, Repositories concrete classes, RedisService, Identity services, SignalR Hubs, Hangfire/Quartz Schedulers, Serilog.
-*   **Đặc điểm**: Tham chiếu đến [ZLearn.Application](file:///d:/projects/zlearn/ZLearn.Application) và [ZLearn.Domain](file:///d:/projects/zlearn/ZLearn.Domain).
+### 3. Lớp Cơ sở hạ tầng - [Zlearn.V2.Infas](file:///d:/projects/zlearn/Zlearn.V2.Infas)
+- **Mô tả**: Hiện thực hóa (Implement) các interfaces định nghĩa ở lớp Application. Tương tác trực tiếp với Database, Cache, các dịch vụ bên ngoài (AI, Storage), và cung cấp các dịch vụ hệ thống nền.
+- **Thành phần**: EF Core `AppDbContext` (PostgreSQL write model), MongoDB Read Repository implementation, Outbox Event Interceptors, Redis Service, Identity services, SignalR Hubs, Hangfire/Quartz Schedulers, Serilog.
+- **Đặc điểm**: Tham chiếu đến [Zlearn.V2.Application](file:///d:/projects/zlearn/Zlearn.V2.Application) và [Zlearn.V2.Domain](file:///d:/projects/zlearn/Zlearn.V2.Domain).
 
-### 4. Lớp Trình diễn (Presentation Layers)
-Gồm hai ứng dụng, cùng chia sẻ lớp nghiệp vụ cốt lõi:
-*   [ZLearn.Web](file:///d:/projects/zlearn/ZLearn.Web): Ứng dụng ASP.NET Core MVC (có view, controller, asset) đồng thời cũng đóng vai trò là API endpoint chính hỗ trợ realtime SignalR (đã tích hợp các REST API endpoints).
-*   [ZLearn.AdminDesktopApp](file:///d:/projects/zlearn/ZLearn.AdminDesktopApp): Ứng dụng quản trị dành cho máy tính (WPF) phát triển theo mô hình MVVM (CommunityToolkit.Mvvm).
+### 4. Lớp Trình diễn (Presentation Layer)
+- [ZLearn.Web](file:///d:/projects/zlearn/ZLearn.Web): Ứng dụng ASP.NET Core MVC (Razor views) đồng thời cũng đóng vai trò là API endpoint chính hỗ trợ realtime SignalR (đã tích hợp các REST API endpoints).
 
 ---
 
-## 🛠️ Công nghệ Sử dụng (Technology Stack)
+## Công nghệ Sử dụng (Technology Stack)
 
 | Thành phần | Công nghệ / Thư viện chính |
 | :--- | :--- |
 | **Framework chính** | .NET 8.0 SDK |
-| **Cơ sở dữ liệu** | PostgreSQL (truy xuất qua EF Core + Npgsql) |
-| **Caching** | Redis (qua StackExchange.Redis) |
+| **Cơ sở dữ liệu Ghi (Write Db)** | PostgreSQL (truy xuất qua EF Core + Npgsql) |
+| **Cơ sở dữ liệu Đọc (Read Db)** | MongoDB (truy xuất qua MongoDB.Driver và `IReadRepo<>` read repository) |
+| **Đồng bộ PostgreSQL & MongoDB** | Transactional Outbox Pattern (qua `HandleEventsInterceptor` và `OutboxProcessorJob`) |
+| **Caching** | Redis (qua StackExchange.Redis) và MemoryCache cục bộ |
 | **CQRS / Mediator** | MediatR (đăng ký qua Assembly Scanning) |
 | **Validation** | FluentValidation (xử lý tự động qua MediatR Pipeline Behavior) |
 | **Ánh xạ Dữ liệu** | AutoMapper |
 | **Xử lý Real-time** | ASP.NET Core SignalR (Access Tracking & Exam Tracking Hubs) |
 | **Lập lịch & Tác vụ nền** | Quartz.NET (dùng Postgres Store), Hangfire (Memory Storage), IHostedService |
 | **Đăng nhập / Phân quyền** | ASP.NET Core Identity, JWT Bearer Token, Cookie Authentication, Google OAuth |
+| **Xuất Bản Đề Thi / Kết Quả** | QuestPDF, OpenXml (xử lý kết xuất tài liệu PDF & Word) |
 | **Tích hợp AI** | Groq AI (Chat Completion) |
 | **Lưu trữ Tệp** | Cloudinary Store API |
-| **Giao diện Desktop** | WPF (.NET 8.0), CommunityToolkit.Mvvm |
 | **Logging** | Serilog (ghi Console & Rolling Files) + Custom LogMiddleware |
 
 ---
 
-## 🔄 Luồng Đi của Dữ liệu (Request/Data Flow)
+## Luồng Đi của Dữ liệu (Request/Data Flow)
 
-1.  **Request Client** gửi tới Controllers của `ZLearn.Web` (các trang Web MVC hoặc REST API).
-2.  **Controller** không trực tiếp gọi Business logic mà gửi một **Command** hoặc **Query** qua MediatR (`_mediator.Send(...)`).
-3.  **MediatR Pipeline** tự động chạy qua:
-    *   `ValidationBehaviour`: Quét qua toàn bộ Validator tương ứng. Nếu sai, ném ngay lập tức exception.
-4.  **Handler** đón nhận Command/Query:
-    *   Tương tác với database qua các Repositories (ví dụ: `IQuizRepo`, `IExamRepo`).
-    *   Tác động dữ liệu vào các Domain Entity. Nếu Entity sinh ra các Event nghiệp vụ, Entity sẽ lưu chúng tại danh sách `Events` nội bộ.
-5.  **DbContext Interceptor**: Khi Handler gọi `SaveChanges()` / `SaveChangesAsync()`:
-    *   `AuditableEntityInterceptor` tự động ghi nhận thời gian và người tạo/sửa đổi.
-    *   `DispatchEventsInterceptor` tự động lấy các Domain Events từ Entity, xóa chúng và publish qua MediatR để các EventHandlers xử lý bất đồng bộ.
-6.  **Handler** trả về DTO tương ứng. Controller nhận kết quả và trả về cho Client.
+1. **Request Client** gửi tới Controllers của `ZLearn.Web` (các trang Web Razor hoặc REST API).
+2. **Controller** không trực tiếp gọi Business logic mà gửi một **Command** hoặc **Query** qua MediatR (`_mediator.Send(...)`).
+3. **MediatR Pipeline** tự động chạy qua `ValidationBehaviour` để kiểm tra dữ liệu đầu vào.
+4. **Handler** đón nhận Command/Query:
+   - **Với Query**: Truy vấn dữ liệu cực nhanh từ MongoDB thông qua `IReadRepo<TDocument>`.
+   - **Với Command**: Lấy entity từ PostgreSQL qua `IWriteRepo<TEntity>`, thực thi phương thức nghiệp vụ trên entity (nâng Domain Events), lưu thay đổi.
+5. **DbContext Interceptor (Transactional Outbox)**: Khi Handler gọi `SaveChangesAsync()`:
+   - `AuditableEntityInterceptor` tự động ghi nhận thời gian và người tạo/sửa đổi.
+   - `HandleEventsInterceptor` tự động quét các Domain Events từ `AggregateRoot`, chuyển chúng thành các bản ghi `OutboxEvent` lưu vào PostgreSQL trong cùng một transaction.
+6. Background Job (`OutboxProcessorJob`) sẽ quét các outbox event chưa xử lý, publish chúng qua MediatR để các handlers đồng bộ (sync) dữ liệu sang MongoDB và thực thi các tác vụ bất đồng bộ khác.

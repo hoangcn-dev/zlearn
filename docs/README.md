@@ -4,7 +4,7 @@ Chào mừng bạn đến với hệ thống tài liệu kiến trúc của dự
 
 ---
 
-## 🗺️ Bản đồ Tài liệu (Documentation Map)
+## Bản đồ Tài liệu (Documentation Map)
 
 Hãy bấm trực tiếp vào các liên kết dưới đây để xem chi tiết từng thành phần:
 
@@ -39,7 +39,7 @@ Hãy bấm trực tiếp vào các liên kết dưới đây để xem chi tiế
 
 ---
 
-## 💡 Hướng dẫn nhanh cho AI khi nhận nhiệm vụ mới (AI Prompt & Context Guideline)
+## Hướng dẫn nhanh cho AI khi nhận nhiệm vụ mới (AI Prompt & Context Guideline)
 
 Mỗi lần thực hiện nâng cấp hoặc phát triển một tính năng mới trong dự án này, AI **phải tuân thủ** các bước sau:
 1.  **Đọc lớp Domain đầu tiên**: Truy cập [domain_layer.md](file:///d:/projects/zlearn/docs/domain_layer.md) để xác định xem thực thể nghiệp vụ đã có chưa. Nếu cần thêm/sửa Entity, định nghĩa nó trước.

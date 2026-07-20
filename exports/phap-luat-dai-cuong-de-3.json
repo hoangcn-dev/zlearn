@@ -1,0 +1,1302 @@
+[
+  {
+    "StringContent": "Quy phạm pháp luật tồn tại trong xã hội nào?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Xã hội có tư hữu",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xã hội có Nhà nước",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Xã hội có giai cấp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các đáp án đều đúng",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Một tổ chức có tư cách pháp nhân khi có điều kiện?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nhân danh mình tham gia các quan hệ pháp luật một cách độc lập",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Được thành lập hợp pháp, có cơ cấu tổ chức chặt chẽ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Có tài sản độc lập với cá nhân, tổ chức khác",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quy phạm pháp luật là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Các quy phạm xã hội được lưu truyền từ xưa đến nay để điều chỉnh các quan hệ xã hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy tắc xử sự chung tồn tại từ xã hội nguyên thủy đến nay để điều chỉnh các quan hệ xã hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy tắc được hình thành dựa trên nhận thức về các quy luật tự nhiên, điều chỉnh mối quan hệ giữa người và máy móc",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Những quy tắc xử sự chung do Nhà nước ban hành và bảo đảm thực hiện để điều chỉnh các quan hệ xã hội theo định hướng và nhằm đạt được những mục đích nhất định",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Các cơ quan được phép ban hành Nghị quyết?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cả a, b, c đều đúng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hội đồng nhân dân",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quốc hội; Ủy ban Thường vụ Quốc hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hội đồng Thẩm phán TANDTC",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Thủ tướng Chính phủ không có quyền ban hành?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quyết định; chỉ thị",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều sai",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Nghị quyết; Quyết định; Chỉ thị",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyết định",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi nghiên cứu về năng lực chủ thể quan hệ pháp luật, thì khẳng định nào sau đây là sai?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Năng lực pháp luật là khả năng có quyền và nghĩa vụ pháp lý mà nhà nước quy định cho các tổ chức, cá nhân nhất định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Năng lực pháp luật là tiền đề cho năng lực hành vi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Năng lực pháp luật của người thành niên thì rộng hơn người chưa thành niên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Năng lực pháp luật của cá nhân chỉ được quy định trong các văn bản luật",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Khi nghiên cứu về chủ thể quan hệ pháp luật thì khẳng định nào sau đây là đúng?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Mọi cá nhân đều có năng lực hành vi như nhau",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mọi cá nhân đạt độ tuổi do luật định được tham gia vào tất cả quan hệ pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mọi chủ thể tham gia vào quan hệ pháp luật đều có quyền và nghĩa vụ nhất định",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Mọi tổ chức đều được tham gia vào tất cả quan hệ pháp luật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Các đáp án sau đều là quy phạm pháp luật, ngoại trừ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nghị quyết Ủy ban Thường vụ Quốc hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyết định của Thủ tướng Chính phủ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thông tư của Bộ trưởng Bộ Tài chính",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Điều lệ Hội Cựu chiến binh",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Năng lực pháp luật của cá nhân xuất hiện từ khi?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cá nhân tham gia vào quan hệ pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cá nhân đủ 18 tuổi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cá nhân có khả năng nhận thức và điều khiển hành vi của mình",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cá nhân sinh ra",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Trường hợp Chính phủ ban hành một Nghị định mới thay thế cho một Nghị định đã được ban hành trước đó thì Nghị định đã ban hành trước đây sẽ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tiếp tục có hiệu lực",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Phát sinh hiệu lực",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chấm dứt hiệu lực",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Ngưng hiệu lực",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tính thứ bậc của các loại văn bản pháp luật được xác định theo thứ tự?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Pháp lệnh - Hiến pháp - Các bộ luật, đạo luật - Các văn bản dưới luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hiến pháp - Pháp lệnh - Các bộ luật, đạo luật - Các văn bản dưới luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hiến pháp - Các bộ luật, đạo luật - Các văn bản dưới luật",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Các bộ luật, đạo luật - Hiến pháp - Pháp lệnh - Các văn bản dưới luật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Năng lực hành vi của cá nhân chỉ xuất hiện khi?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Được Nhà nước quy định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cá nhân đủ 18 tuổi, không mắc bệnh tâm thần",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cá nhân đủ 16 tuổi, có trí óc bình thường",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cá nhân đã đến độ tuổi nhất định và có những điều kiện nhất định",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Một quy phạm pháp luật thông thường cấu trúc gồm có các bộ phận?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Giả định, quy định, chế tài",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Giả định, chế định, chế tài",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giả thuyết, quy định, chế tài",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giả định, chế tài ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trong một quy phạm pháp luật, bộ phận quan trọng nhất là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Bộ phận giả định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bộ phận chế tài",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bộ phận quy định",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Bộ phận quy định và bộ phận chế tài",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Văn bản quy phạm pháp luật do Hội đồng nhân dân ban hành?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quyết định; Nghị quyết",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyết định; Thông tư",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nghị quyết",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quyết định; Chỉ thị",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Đặc điểm khác biệt nhất của quy phạm pháp luật so với các quy phạm xã hội khác là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nội dung của quy phạm pháp luật quy định quyền và nghĩa vụ pháp lý của các bên tham gia quan hệ xã hội mà nó điều chỉnh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy phạm pháp luật có tính hệ thống",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy phạm pháp luật là quy tắc xử sự chung",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy phạm pháp luật do các cơ quan Nhà nước có thẩm quyền ban hành và bảo đảm thực hiện",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "“Quyền lực Nhà nước là thống nhất, có sự phân công và phối hợp chặt chẽ giữa các_x000d_\ncơ quan Nhà nước trong việc thực hiện các quyền lập pháp, hành pháp và tư pháp” là_x000d_\nmột trong những đặc trưng của?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nhà nước pháp quyền XHCN Việt Nam",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Cả 3 Nhà nước trên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhà nước dân chủ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": " Nhà nước pháp quyền TBCN",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Bộ trưởng có quyền ban hành?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quyết định; Nghị quyết; Chỉ thị",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thông tư",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quyết định; Chỉ thị; Thông tư",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyết định; Chỉ thị; Lệnh",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quan hệ pháp luật là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quan hệ kinh tế, quan hệ chính trị, quan hệ gia đình",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quan hệ nảy sinh trong xã hội được các quy phạm pháp luật điều chỉnh",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quan hệ xã hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Những quan hệ phát sinh khi có hành vi vi phạm pháp luật xảy ra",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tìm đáp án sai trong các nhận định sau?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Trong mối quan hệ giữa pháp luật với pháp chế thì pháp luật là yếu tố tìền đề",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tôn trọng tính tối cao của Hiến pháp và pháp luật là một trong những yêu cầu của pháp chế XHCN",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": " Pháp luật và pháp chế có mối quan hệ mật thiết với nhau",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Pháp chế đồng nghĩa với cưỡng chế",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Những điều kiện, hoàn cảnh có thể xảy ra trong thực tế cuộc sống mà Nhà nước dự liệu và dùng pháp luật tác động, được ghi nhận tại bộ phận..... của quy phạm pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quy định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giả định",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Giả thuyết",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giả định và quy định",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cấu trúc pháp lý của một quan hệ pháp luật gồm các yếu tố cơ bản như sau?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Năng lực pháp luật và năng lực hành vi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bao gồm cả a, b, c ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyền và nghĩa vụ của các bên",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ thể, khách thể và nội dung",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Những quy tắc xử sự chung do Nhà nước ban hành và bảo đảm thực hiện để điều chỉnh các quan hệ xã hội theo định hướng và nhằm đạt được những mục đích nhất định, các quy tắc đó gọi là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Văn bản pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy phạm pháp luật",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quy phạm luật pháp",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Các đáp án sau đều là quy phạm pháp luật, ngoại trừ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quyết định của Chủ tịch nước",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nghị quyết của Quốc hội ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Điều lệ Đoàn Thanh niên Cộng sản Hồ Chí Minh",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Nghị quyết của Hội đồng nhân dân",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khả năng chủ thể có quyền hoặc có nghĩa vụ pháp lý do Nhà nước quy định, gọi là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Năng lực hành vi",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Khả năng pháp lý",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Năng lực pháp luật",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Bao gồm các đáp án",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quan hệ pháp luật phát sinh, thay đổi, chấm dứt dưới tác động của?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quy phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Năng lực chủ thể",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": " Cả a, b, c đều đúng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Sự kiện pháp lý",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quan hệ pháp luật là quan hệ xã hội được điều chỉnh bởi?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nghị quyết của Đảng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Pháp luật",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quy tắc tôn giáo",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhà nước",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Sự kiện pháp lý là những sự kiện xảy ra?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cả a, b, c đều đúng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Từ hành vi xử sự của con người",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Từ thực tiễn đời sống xã hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trong thực tiễn đời sống mà sự xuất hiện hay mất đi của nó được pháp luật gắn với việc hình thành, thay đổi hay chấm dứt quan hệ pháp luật ",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Bộ phận nào sau đây không thể thiếu trong một quy phạm pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Bộ phận chế tài",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bộ phận quy định",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Bộ phận giả định và bộ phận chế tài",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Bộ phận giả định ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quan hệ pháp luật là quan hệ xã hội có ý chí, ý chí đó là của?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cá nhân và tổ chức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Các đáp án đều sai",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhà nước",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhà nước và các chủ thể tham gia vào quan hệ pháp luật",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Khẳng định nào sau đây là đúng?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hiệu lực hồi tố của văn bản quy phạm pháp luật được Nhà nước thừa nhận và áp dụng phổ biến",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trong những trường hợp thật cần thiết, phù hợp với nguyên tắc nhân đạo XHCN, Nhà nước cho phép sử dụng hiệu lực hồi tố trong một số quy phạm cụ thể.",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hiệu lực hồi tố của văn bản quy phạm pháp luật cho phép quy định trách nhiệm pháp lý mới đối với hành vi mà vào thời điểm thực hiện hành vi đó pháp luật không quy định trách nhiệm pháp lý",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trong mọi trường hợp đều không áp dụng hiệu lực hồi tố của văn bản quy phạm pháp luật",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Viện trưởng Viện Kiểm sát nhân dân tối cao không có quyền ban hành?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Thông tư",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quyết định; chỉ thị; thông tư",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nghị quyết",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Nghị quyết; thông tư",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Giả định nêu lên nhiều điều kiện, hoàn cảnh và giữa chúng có mối liên hệ với nhau, gọi là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Giả định đơn giản",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giả thuyết phức tạp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giả định phức hợp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giả định phức tạp",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Bộ phận nào của quy phạm pháp luật nhằm bảo đảm cho pháp luật được thực hiện nghiêm chỉnh?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cả a, b, c đều đúng",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chế tài",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Giả định",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Giới hạn Nhà nước đưa ra cho phép, cấm đoán, bắt buộc các chủ thể thực hiện hành vi hoặc tiến hành một công việc nhất định được ghi nhận tại bộ phận..... của quy phạm pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Quy định",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chế định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chế tài",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giả định",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chủ thể phổ biến nhất tham gia vào quan hệ pháp luật là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Pháp nhân",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cá nhân",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Tổ chức",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hộ gia đình",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Cấu trúc pháp lý của một quy phạm pháp luật thông thường gồm có các bộ phận?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chế tài",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy định ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": " Bao gồm các đáp án",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Giả định",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Trình tự trình bày các bộ phận giả định, quy định, chế tài của quy phạm pháp luật là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Giả định - Quy định - Chế tài",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Giả định - Chế tài - Quy định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy định - Chế tài - Giả định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không nhất thiết phải như a, b, c",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Nghĩa vụ pháp lý của chủ thể gồm có?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chủ thể phải tiến hành một số hành vi nhất định do pháp luật quy định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chủ thể phải chịu trách nhiệm pháp lý khi không thực hiện theo cách xử sự bắt buộc mà pháp luật đã quy định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ thể phải tự kiềm chế, không được thực hiện một số hành vi nhất định ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chủ tịch nước được quyền ban hành?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lệnh; Nghị quyết",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nghị quyết; Nghị định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Lệnh, Quyết định",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Quyết định; Chỉ thị; Thông tư",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Khẳng định nào sau đây là sai?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Năng lực pháp luật và năng lực hành vi là những thuộc tính tự nhiên của mỗi cá nhân, có sẵn khi cá nhân sinh ra",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Năng lực chủ thể pháp luật luôn mang tính giai cấp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Năng lực hành vi đầy đủ chỉ có ở những chủ thể đáp ứng đầy đủ các điều kiện do pháp luật quy định",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Năng lực pháp luật là tiền đề của năng lực hành vi",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chủ thể của quan hệ pháp luật là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Cá nhân hay tổ chức có năng lực chủ thể tham gia vào quan hệ pháp luật",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Những tổ chức có tiềm lực kinh tế",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Những cá nhân từ đủ 18 tuổi trở lên và có trí óc bình thường",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nhà nước, tất cả mọi cá nhân và tổ chức trong xã hội",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Quan hệ xã hội và quan hệ pháp luật có điểm giống nhau là?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Đều là những quan hệ nảy sinh trong lĩnh vực kinh tế, văn hóa",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Đều là những quan hệ nảy sinh trong đời sống xã hội",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Đều là những quan hệ được pháp luật điều chỉnh",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Cả a, b, c đều đúng",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Các đáp án sau đều là quy phạm pháp luật, ngoại trừ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Nghị quyết Ủy ban Thường vụ Quốc hội",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nghị quyết của Đảng Cộng sản ",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Nghị quyết của Hội đồng Thẩm phán Tòa án nhân dân Tối cao",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Nghị quyết của Hội đồng nhân dân Tp. Hồ Chí Minh",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Hành vi nào sau đây là vi phạm pháp luật dân sự?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Kinh doanh sai ngành nghề đã đăng ký",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Không trả tiền thuê nhà",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Buôn bán phụ nữ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tuyên truyền văn hóa phẩm đồi trụy",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Nguyên nhân của vi phạm pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tàn dư, tập tục đã lỗi thời của xã hội cũ còn rơi rớt lại",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mâu thuẫn giữa quan hệ sản xuất và lực lượng sản xuất ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Trình độ dân trí và ý thức pháp luật thấp của nhiều tầng lớp dân cư                      ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tất cả các phương án đều đúng  ",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Khẳng định nào đúng khi nghiên cứu về mặt chủ quan của vi phạm pháp luật?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Lỗi là thái độ tâm lý của chủ thể đối với hành vi trái pháp luật mà mình đã thực hiện ",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mục đích của hành vi vi phạm pháp luật là yếu tố bắt buộc trong mọi cấu thành vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Tùy thuộc vào trách nhiệm pháp lý áp dụng đối với chủ thể để xác định lỗi của chủ thể vi phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Mục đích là cái mốc đạt đến của chủ thể thực hiện hành vi vi phạm pháp luật",
+        "IsCorrectAnswer": true
+      }
+    ]
+  },
+  {
+    "StringContent": "Ông A vận chuyển gia cầm bị bệnh, bị cơ quan có thẩm quyền phát hiện và buộc phải tiêu hủy hết số gia cầm bị bệnh này. Đây là biện pháp chế tài?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Hành chính",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Hình sự",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Dân sự",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Kỷ luật ",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Chủ thể phải chịu trách nhiệm pháp lý về hành vi vi phạm pháp luật của mình khi?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Chủ thể đó đã đạt đến độ tuổi nhất định và có khả năng nhận thức và điều khiển hành vi của mình",
+        "IsCorrectAnswer": true
+      },
+      {
+        "StringContent": "Chủ thể đó đủ 16 tuổi và có trí óc bình thường",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Thông thường là 18 tuổi và không mắc bệnh tâm thần",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Chủ thể đó đủ 18 tuổi và không mắc bệnh tâm thần",
+        "IsCorrectAnswer": false
+      }
+    ]
+  },
+  {
+    "StringContent": "Tìm đáp án đúng điền vào chỗ trống trong câu sau: .....là hành vi trái pháp luật, có lỗi, do chủ thể có năng lực trách nhiệm pháp lí thực hiện, xâm hại đến các quan hệ xã hội được pháp luật bảo vệ?",
+    "Explanation": "",
+    "Level": 1,
+    "CategoryIds": [
+      "CAT62D3AF06DD90"
+    ],
+    "Answers": [
+      {
+        "StringContent": "Tội phạm",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Hành vi bất hợp pháp",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Quy phạm pháp luật",
+        "IsCorrectAnswer": false
+      },
+      {
+        "StringContent": "Vi phạm pháp luật",
+        "IsCorrectAnswer": true
+      }
+    ]
+  }
+]
