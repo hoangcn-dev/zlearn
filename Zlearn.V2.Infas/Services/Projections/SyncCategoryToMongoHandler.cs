@@ -15,13 +15,11 @@ namespace Zlearn.V2.Infas.Services.Projections
     public class SyncCategoryToMongoHandler : INotificationHandler<OutboxEvent>
     {
         private readonly IMongoCollection<CategoryDocument> _collection;
-        private readonly AppDbContext _dbContext;
         private readonly OutboxFallbackHelper _fallbackHelper;
 
-        public SyncCategoryToMongoHandler(IMongoDatabase database, AppDbContext dbContext, OutboxFallbackHelper fallbackHelper)
+        public SyncCategoryToMongoHandler(IMongoDatabase database, OutboxFallbackHelper fallbackHelper)
         {
             _collection = database.GetCollection<CategoryDocument>("Categories");
-            _dbContext = dbContext;
             _fallbackHelper = fallbackHelper;
         }
 
@@ -35,8 +33,6 @@ namespace Zlearn.V2.Infas.Services.Projections
 
             var domainEvent = JsonConvert.DeserializeObject(notification.Content, type);
             if (domainEvent == null) return;
-
-            bool isHandled = false;
 
             if (domainEvent is CategoryCreatedEvent createdEvent)
             {
@@ -57,7 +53,6 @@ namespace Zlearn.V2.Infas.Services.Projections
 
                 var filter = Builders<CategoryDocument>.Filter.Eq(doc => doc.Id, document.Id);
                 await _collection.ReplaceOneAsync(filter, document, new ReplaceOptions { IsUpsert = true }, cancellationToken);
-                isHandled = true;
             }
             else if (domainEvent is CategoryUpdatedEvent updatedEvent)
             {
@@ -80,24 +75,11 @@ namespace Zlearn.V2.Infas.Services.Projections
                 };
 
                 await _collection.ReplaceOneAsync(filter, document, new ReplaceOptions { IsUpsert = true }, cancellationToken);
-                isHandled = true;
             }
             else if (domainEvent is DeletedEvent deletedEvent && deletedEvent.Id.StartsWith("CAT"))
             {
                 var filter = Builders<CategoryDocument>.Filter.Eq(doc => doc.Id, deletedEvent.Id);
                 await _collection.DeleteOneAsync(filter, cancellationToken);
-                isHandled = true;
-            }
-
-            // Nếu đã xử lý sự kiện tương ứng thành công, đánh dấu Outbox Event là đã xử lý
-            if (isHandled)
-            {
-                var outboxEvent = await _dbContext.OutboxEvents.FindAsync(new object[] { notification.Id }, cancellationToken);
-                if (outboxEvent != null)
-                {
-                    outboxEvent.ProcessedOn = DateTimeOffset.UtcNow;
-                    await _dbContext.SaveChangesAsync(cancellationToken);
-                }
             }
         }
     }

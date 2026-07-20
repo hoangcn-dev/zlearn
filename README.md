@@ -31,8 +31,9 @@ graph TD
 ### 3. Infrastructure Layer
 *   **Responsibility**: Implements interfaces defined in the Application layer. Manages database interactions (EF Core PostgreSQL, MongoDB), external services (Redis, Cloudinary, Groq AI), security, and Background Jobs (Quartz.NET, Hangfire).
 *   **Core Components**:
-    *   **Outbox Pattern**: [HandleEventsInterceptor](file:///d:/projects/zlearn/Zlearn.V2.Infas/Data/Interceptors/HandleEventsInterceptor.cs) intercepts and persists domain events (`DomainEvent`) as `OutboxEvent` in PostgreSQL before publishing them via MediatR, ensuring atomicity.
-    *   **MongoDB Projections**: Listens to `OutboxEvent` (`SyncExamToMongoHandler`, `SyncQuizToMongoHandler`, etc.) to update and project data to MongoDB as the Read Model.
+    *   **Outbox Pattern**: [HandleEventsInterceptor](file:///d:/projects/zlearn/Zlearn.V2.Infas/Data/Interceptors/HandleEventsInterceptor.cs) intercepts domain events (`DomainEvent`) and persists them as `OutboxEvent` with `TransactionId` in PostgreSQL. [OutboxProcessorJob](file:///d:/projects/zlearn/Zlearn.V2.Infas/Data/Services/OutboxProcessorJob.cs) executes transaction-aware batch processing asynchronously to dispatch events to MongoDB without blocking HTTP requests.
+    *   **Automated Retention Cleanup**: [OutboxCleanupBackgroundService](file:///d:/projects/zlearn/Zlearn.V2.Infas/Data/Services/OutboxCleanupBackgroundService.cs) periodically deletes processed outbox events older than 7 days for auditability and storage optimization.
+    *   **MongoDB Projections**: Listens to `OutboxEvent` (`SyncExamToMongoHandler`, `SyncQuizToMongoHandler`, `SyncCategoryToMongoHandler`) to update and project data to MongoDB as the Read Model.
 
 ### 4. Presentation Layer
 *   **Responsibility**: Entry points of the system (API Controllers, Razor Views, SignalR Hubs), cookie management, and authorization.
