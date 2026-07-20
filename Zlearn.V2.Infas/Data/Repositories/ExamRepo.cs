@@ -203,15 +203,11 @@ namespace Zlearn.V2.Infas.Data.Repositories
                 }
 
                 examJson = JsonSerializer.Serialize(rawData);
-
-                var redisTtl = TimeSpan.FromHours(12);
+                var redisTtl = TimeSpan.FromHours(2);
                 if (exam.EndTime.HasValue)
                 {
                     var diff = exam.EndTime.Value - DateTimeOffset.UtcNow;
-                    if (diff.TotalSeconds > 0)
-                    {
-                        redisTtl = diff;
-                    }
+                    redisTtl = diff.TotalSeconds > 0 ? diff : TimeSpan.FromSeconds(1);
                 }
                 await _redisService.Set(RedisKeys.EXAM_RAW_CONTENT, alias, examJson, redisTtl);
                 _memoryCache.Set(cacheKey, examJson, TimeSpan.FromMinutes(2));
@@ -609,6 +605,7 @@ namespace Zlearn.V2.Infas.Data.Repositories
                 .Where(e => e.Id == examId)
                 .Select(e => new
                 {
+                    e.EndTime,
                     Questions = e.Quiz.Questions.Select(q => new { q.Id, CorrectKeys = q.Answers.Where(a => a.IsCorrect).Select(a => a.Key).ToList() })
                 })
                 .FirstOrDefaultAsync();
@@ -617,7 +614,13 @@ namespace Zlearn.V2.Infas.Data.Repositories
 
             var dbKeys = exam.Questions.ToDictionary(q => q.Id, q => q.CorrectKeys);
             var json = JsonSerializer.Serialize(dbKeys);
-            await _redisService.Set(RedisKeys.EXAM_GRADING_KEYS, examId, json, TimeSpan.FromHours(12));
+            var redisTtl = TimeSpan.FromHours(2);
+            if (exam.EndTime.HasValue)
+            {
+                var diff = exam.EndTime.Value - DateTimeOffset.UtcNow;
+                redisTtl = diff.TotalSeconds > 0 ? diff : TimeSpan.FromSeconds(1);
+            }
+            await _redisService.Set(RedisKeys.EXAM_GRADING_KEYS, examId, json, redisTtl);
             _memoryCache.Set(cacheKey, dbKeys, TimeSpan.FromMinutes(5));
             return dbKeys;
         }

@@ -62,6 +62,8 @@ namespace Zlearn.V2.Infas.Services.Projections
                 document.RequireJoinWithName = createdEvent.RequireJoinWithName;
                 document.AllowLateSubmit = createdEvent.AllowLateSubmit;
                 document.MaxParticipants = createdEvent.MaxParticipants;
+                document.CreatedBy = createdEvent.CreatedBy;
+                document.CreatedAt = createdEvent.CreatedAt;
 
                 var filter = Builders<ExamDocument>.Filter.Eq(doc => doc.Id, document.Id);
                 await _collection.ReplaceOneAsync(filter, document, new ReplaceOptions { IsUpsert = true }, cancellationToken);

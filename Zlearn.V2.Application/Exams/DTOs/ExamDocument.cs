@@ -21,6 +21,8 @@ namespace Zlearn.V2.Application.Exams.DTOs
         public string Status { get; set; } = string.Empty;
         public string QuizId { get; set; } = string.Empty;
         public int MaxParticipants { get; set; }
+        public string CreatedBy { get; set; } = string.Empty;
+        public DateTimeOffset CreatedAt { get; set; }
         public DateTimeOffset SyncedAt { get; set; }
     }
 }
