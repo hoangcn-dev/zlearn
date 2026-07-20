@@ -45,7 +45,6 @@ namespace Zlearn.V2.Infas.Services.Projections
             var domainEvent = JsonConvert.DeserializeObject(notification.Content, type);
             if (domainEvent == null) return;
 
-            bool isHandled = false;
             string? categoryIdToUpdate = null;
 
             if (domainEvent is QuizCreatedEvent createdEvent)
@@ -183,17 +182,6 @@ namespace Zlearn.V2.Infas.Services.Projections
             if (categoryIdToUpdate != null)
             {
                 await UpdateCategoryQuizCount(categoryIdToUpdate, cancellationToken);
-            }
-
-            // Mark Outbox Event as processed
-            if (isHandled)
-            {
-                var outboxEvent = await _dbContext.OutboxEvents.FindAsync(new object[] { notification.Id }, cancellationToken);
-                if (outboxEvent != null)
-                {
-                    outboxEvent.ProcessedOn = DateTimeOffset.UtcNow;
-                    await _dbContext.SaveChangesAsync(cancellationToken);
-                }
             }
         }
 

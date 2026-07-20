@@ -115,7 +115,14 @@ namespace Zlearn.V2.Infas.External.SignalR
             }
 
             var answersJson = JsonSerializer.Serialize(mergedAnswers);
-            await _redisService.Set(RedisKeys.EXAM_TEMP_ANSWERS, tempAnswersKey, answersJson, TimeSpan.FromHours(12));
+            var tempAnswersTtl = TimeSpan.FromHours(2);
+            var examInfoForAnswers = await _examRepo.Get(e => e.Id == data.ExamId, e => new { e.EndTime });
+            if (examInfoForAnswers?.EndTime != null)
+            {
+                var remaining = examInfoForAnswers.EndTime.Value - DateTimeOffset.UtcNow;
+                tempAnswersTtl = remaining.TotalSeconds > 0 ? remaining : TimeSpan.FromSeconds(1);
+            }
+            await _redisService.Set(RedisKeys.EXAM_TEMP_ANSWERS, tempAnswersKey, answersJson, tempAnswersTtl);
 
             var taskPayload = new GradingTask
             {
@@ -151,14 +158,22 @@ namespace Zlearn.V2.Infas.External.SignalR
                     var userId = session.u;
                     var examId = session.e;
 
-                    if (await _examRepo.AnyAsync(e => e.Id == examId && e.Status == ExamStatus.Ended))
+                    var examInfo = await _examRepo.Get(e => e.Id == examId, e => new { e.EndTime, e.Status });
+                    if (examInfo is null || examInfo.Status == ExamStatus.Ended)
                     {
                         Context.Abort();
                         return;
                     }
 
+                    var mapTtl = TimeSpan.FromHours(2);
+                    if (examInfo.EndTime.HasValue)
+                    {
+                        var remaining = examInfo.EndTime.Value - DateTimeOffset.UtcNow;
+                        mapTtl = remaining.TotalSeconds > 0 ? remaining : TimeSpan.FromSeconds(1);
+                    }
+
                     await Groups.AddToGroupAsync(Context.ConnectionId, GetExamParticipantGroupName(examId));
-                    await _redisService.Set(RedisKeys.EXAM_PARTICIPANT_MAP, userId, examId, TimeSpan.FromHours(12));
+                    await _redisService.Set(RedisKeys.EXAM_PARTICIPANT_MAP, userId, examId, mapTtl);
                     await _redisService.Delete(RedisKeys.EXAM_SESSION_DISCONNECT, userId);
 
                     await Clients.Caller.SendAsync("Connected", "Connected!");

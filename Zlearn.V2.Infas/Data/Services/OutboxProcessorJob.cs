@@ -49,33 +49,46 @@ namespace Zlearn.V2.Infas.Data.Services
             var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
             var mediator = scope.ServiceProvider.GetRequiredService<IMediator>();
 
+            // 1. Lấy danh sách Top 10 TransactionId chưa xử lý và có RetryCount < 5
+            var targetTxIds = await dbContext.OutboxEvents
+                .Where(e => e.ProcessedOn == null && e.RetryCount < 5)
+                .Select(e => e.TransactionId)
+                .Distinct()
+                .Take(10)
+                .ToListAsync(stoppingToken);
+
+            if (!targetTxIds.Any()) return;
+
+            // 2. Kéo toàn bộ các OutboxEvent thuộc các TransactionId đó để đảm bảo tính toàn vẹn (chống phân mảnh giao dịch)
             var outboxEvents = await dbContext.OutboxEvents
-                .Where(e => e.ProcessedOn == null)
+                .Where(e => targetTxIds.Contains(e.TransactionId) && e.ProcessedOn == null && e.RetryCount < 5)
                 .OrderBy(e => e.OccurredOn)
-                .Take(50)
                 .ToListAsync(stoppingToken);
 
             if (!outboxEvents.Any()) return;
 
-            _logger.LogInformation("V2: Found {Count} unprocessed outbox events.", outboxEvents.Count);
+            _logger.LogInformation("V2: Found {Count} unprocessed outbox events across {TxCount} transactions.", outboxEvents.Count, targetTxIds.Count);
 
-            foreach (var outboxEvent in outboxEvents)
+            var groupedByTx = outboxEvents.GroupBy(e => e.TransactionId);
+
+            foreach (var group in groupedByTx)
             {
-                try
+                foreach (var outboxEvent in group)
                 {
-                    // Publish trực tiếp OutboxEvent qua MediatR để các handlers xử lý
-                    await mediator.Publish(outboxEvent, stoppingToken);
-
-                    // Nếu các handler chưa gán ProcessedOn (do không có handler tương ứng), tự động gán
-                    if (outboxEvent.ProcessedOn == null)
+                    try
                     {
+                        // Publish trực tiếp OutboxEvent qua MediatR để các Sync Handlers cập nhật Read Model (MongoDB)
+                        await mediator.Publish(outboxEvent, stoppingToken);
+
                         outboxEvent.ProcessedOn = DateTimeOffset.UtcNow;
+                        outboxEvent.Error = null;
                     }
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogError(ex, "Error processing V2 outbox event with ID: {Id}", outboxEvent.Id);
-                    outboxEvent.Error = ex.ToString();
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "Error processing V2 outbox event with ID: {Id}, TransactionId: {TxId}", outboxEvent.Id, outboxEvent.TransactionId);
+                        outboxEvent.Error = ex.ToString();
+                        outboxEvent.RetryCount += 1;
+                    }
                 }
             }
 

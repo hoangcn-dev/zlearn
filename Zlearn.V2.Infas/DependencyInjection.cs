@@ -111,6 +111,7 @@ namespace Zlearn.V2.Infas
             }
             services.AddHostedService<Zlearn.V2.Infas.Data.Services.ExamGradingBackgroundService>();
             services.AddHostedService<OutboxProcessorJob>();
+            services.AddHostedService<OutboxCleanupBackgroundService>();
 
             // 5. Đăng ký Projection Handler cho V2
             services.AddTransient<INotificationHandler<OutboxEvent>, SyncCategoryToMongoHandler>();

@@ -1,11 +1,11 @@
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Zlearn.V2.Application.Common.Exceptions;
+using Zlearn.V2.Application.Common.Interfaces;
 using Zlearn.V2.Application.Exams.DTOs;
-using Zlearn.V2.Application.Exams;
-using Zlearn.V2.Domain.ExamContext.Exams;
 
 namespace Zlearn.V2.Application.Exams.Queries.GetWaitExamInfo
 {
@@ -17,35 +17,35 @@ namespace Zlearn.V2.Application.Exams.Queries.GetWaitExamInfo
 
     public class GetWaitExamInfoQueryHandler : IRequestHandler<GetWaitExamInfoQuery, WaitExamInfoDto>
     {
-        private readonly IExamRepo _examRepo;
+        private readonly IReadRepo<ExamDocument> _readRepo;
         private readonly IConfiguration _configuration;
 
         public GetWaitExamInfoQueryHandler(
-            IExamRepo examRepo,
+            IReadRepo<ExamDocument> readRepo,
             IConfiguration configuration)
         {
-            _examRepo = examRepo;
+            _readRepo = readRepo;
             _configuration = configuration;
         }
 
         public async Task<WaitExamInfoDto> Handle(GetWaitExamInfoQuery request, CancellationToken cancellationToken)
         {
-            var data = await _examRepo.Get(
-                filter: e => e.Alias == request.Alias,
-                projector: e => new WaitExamInfoDto
-                {
-                    Id = e.Id,
-                    Name = e.Name,
-                    StartTime = e.StartTime,
-                    EndTime = e.EndTime,
-                    Alias = e.Alias,
-                    JoinUrl = $"{_configuration["Common:BaseUrl"]}/bai-kiem-tra/join?alias={e.Alias}",
-                    Note = e.Note ?? string.Empty,
-                    RequireJoinWithCode = e.RequireJoinWithCode,
-                    RequireJoinWithName = e.RequireJoinWithName,
-                    RequirePassword = !string.IsNullOrEmpty(e.JoinPass)
-                });
-            return data ?? throw new NotFoundException(nameof(Exam));
+            var docs = await _readRepo.GetAllAsync(e => e.Alias == request.Alias);
+            var doc = docs.FirstOrDefault() ?? throw new NotFoundException(nameof(ExamDocument));
+
+            return new WaitExamInfoDto
+            {
+                Id = doc.Id,
+                Name = doc.Name,
+                StartTime = doc.StartTime,
+                EndTime = doc.EndTime,
+                Alias = doc.Alias,
+                JoinUrl = $"{_configuration["Common:BaseUrl"]}/bai-kiem-tra/join?alias={doc.Alias}",
+                Note = doc.Note ?? string.Empty,
+                RequireJoinWithCode = doc.RequireJoinWithCode,
+                RequireJoinWithName = doc.RequireJoinWithName,
+                RequirePassword = !string.IsNullOrEmpty(doc.JoinPass)
+            };
         }
     }
 }
