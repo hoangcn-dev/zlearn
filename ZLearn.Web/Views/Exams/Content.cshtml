@@ -163,8 +163,16 @@
         $(document).ready(() => {
             setActiveQuestion(1);
 
-            // Restore answers from sessionStorage (L1 Client Cache)
-            const savedAnswers = sessionStorage.getItem("exam_answers_" + "@Model.Id");
+            // Clear other exams cache from localStorage
+            for (let i = localStorage.length - 1; i >= 0; i--) {
+                const key = localStorage.key(i);
+                if (key && key.startsWith("exam_answers_") && key !== "exam_answers_" + "@Model.Id") {
+                    localStorage.removeItem(key);
+                }
+            }
+
+            // Restore answers from localStorage (L1 Client Cache)
+            const savedAnswers = localStorage.getItem("exam_answers_" + "@Model.Id");
             if (savedAnswers) {
                 Object.assign(selectedAns, JSON.parse(savedAnswers));
                 for (const [qId, key] of Object.entries(selectedAns)) {
@@ -299,8 +307,8 @@
         function selectAnswer(qIndex, key, qId) {
             selectedAns[qId] = key;
             $('.qMapItem').eq(qIndex).addClass('selected');
-            // Save to sessionStorage
-            sessionStorage.setItem("exam_answers_" + "@Model.Id", JSON.stringify(selectedAns));
+            // Save to localStorage
+            localStorage.setItem("exam_answers_" + "@Model.Id", JSON.stringify(selectedAns));
             
             syncSeq++;
             unsyncedAns[qId] = { key: key, seq: syncSeq };
@@ -323,7 +331,7 @@
                 }))
             }
             postJsonData('/exams/submit', submitData, () => {
-                sessionStorage.removeItem("exam_answers_" + "@Model.Id");
+                localStorage.removeItem("exam_answers_" + "@Model.Id");
                 window.location.replace(`/bai-kiem-tra/result?alias=@Model.Alias`);
             });
         }
