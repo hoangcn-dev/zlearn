@@ -56,7 +56,7 @@ namespace ZLearn.UnitTests
 
             var options = new DbContextOptionsBuilder<AppDbContext>()
                 .UseInMemoryDatabase(databaseName: "ZLearnTestDb_Exam_" + Guid.NewGuid())
-                .AddInterceptors(new AuditableEntityInterceptor(mockHttpContextAccessor.Object), new HandleEventsInterceptor(new Mock<IMediator>().Object))
+                .AddInterceptors(new AuditableEntityInterceptor(mockHttpContextAccessor.Object), new HandleEventsInterceptor())
                 .Options;
 
             using var context = new AppDbContext(options);
@@ -161,7 +161,7 @@ namespace ZLearn.UnitTests
             await context.SaveChangesAsync();
 
             var fallbackHelper = new OutboxFallbackHelper(context, new Mock<IMediator>().Object);
-            var handler = new SyncExamToMongoHandler(mockDatabase.Object, context, fallbackHelper);
+            var handler = new SyncExamToMongoHandler(mockDatabase.Object, fallbackHelper);
 
             var createdEvent = new ExamCreatedEvent(
                 ExamId: examId,
@@ -205,10 +205,9 @@ namespace ZLearn.UnitTests
                     It.IsAny<CancellationToken>()),
                 Times.Once);
 
-            // OutboxEvent should be marked processed
+            // OutboxEvent should exist in DB
             var outboxInDb = await context.OutboxEvents.FindAsync(outboxEvent.Id);
             Assert.NotNull(outboxInDb);
-            Assert.NotNull(outboxInDb.ProcessedOn);
         }
     }
 }

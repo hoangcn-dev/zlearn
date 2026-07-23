@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Zlearn.V2.Domain.ExamContext.Participants;
+using Zlearn.V2.Infas.Identity;
 
 namespace Zlearn.V2.Infas.Data.Configurations
 {
@@ -15,6 +16,13 @@ namespace Zlearn.V2.Infas.Data.Configurations
                 .WithMany(e => e.Participants)
                 .HasForeignKey(ep => ep.ExamId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne<AppIdentityUser>()
+                .WithMany()
+                .HasForeignKey(ep => ep.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasIndex(ep => new { ep.ExamId, ep.UserId }).IsUnique();
         }
     }
 }

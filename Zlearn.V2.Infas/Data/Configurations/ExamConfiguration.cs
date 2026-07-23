@@ -17,7 +17,7 @@ namespace Zlearn.V2.Infas.Data.Configurations
             builder.HasOne(e => e.Quiz)
                 .WithMany()
                 .HasForeignKey(e => e.QuizId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
             builder.HasIndex(e => e.Alias).IsUnique();
         }
     }

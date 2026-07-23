@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using MongoDB.Driver;
 using Moq;
 using Xunit;
-using ZLearn.API.Exceptions;
+using Zlearn.V2.Application.Common.Exceptions;
 using Zlearn.V2.Application.Files;
 using Zlearn.V2.Application.Categories.Commands.CreateCategory;
 using Zlearn.V2.Application.Categories.Queries.GetCategoryById;
@@ -46,7 +46,7 @@ namespace ZLearn.UnitTests
             var mockHttpContextAccessor = new Mock<IHttpContextAccessor>();
             var options = new DbContextOptionsBuilder<AppDbContext>()
                 .UseInMemoryDatabase(databaseName: "ZLearnTestDb_" + Guid.NewGuid())
-                .AddInterceptors(new AuditableEntityInterceptor(mockHttpContextAccessor.Object), new HandleEventsInterceptor(new Mock<IMediator>().Object)) // Tự động chụp audit và outbox
+                .AddInterceptors(new AuditableEntityInterceptor(mockHttpContextAccessor.Object), new HandleEventsInterceptor()) // Tự động chụp audit và outbox
                 .Options;
 
             using var context = new AppDbContext(options);
@@ -100,7 +100,7 @@ namespace ZLearn.UnitTests
             using var context = new AppDbContext(options);
 
             var fallbackHelper = new OutboxFallbackHelper(context, new Mock<IMediator>().Object);
-            var handler = new SyncCategoryToMongoHandler(mockDatabase.Object, context, fallbackHelper);
+            var handler = new SyncCategoryToMongoHandler(mockDatabase.Object, fallbackHelper);
             
             var domainEvent = new CategoryCreatedEvent(
                 "CAT123", 
@@ -139,10 +139,9 @@ namespace ZLearn.UnitTests
                 Times.Once
             );
 
-            // Assert: Đảm bảo outbox event đã được lưu vết ProcessedOn
+            // Assert: Đảm bảo outbox event đã được tạo trong DB
             var updatedOutbox = await context.OutboxEvents.FindAsync(outboxEvent.Id);
             Assert.NotNull(updatedOutbox);
-            Assert.NotNull(updatedOutbox.ProcessedOn);
         }
 
         [Fact]

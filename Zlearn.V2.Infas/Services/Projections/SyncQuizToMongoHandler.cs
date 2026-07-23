@@ -46,6 +46,7 @@ namespace Zlearn.V2.Infas.Services.Projections
             if (domainEvent == null) return;
 
             string? categoryIdToUpdate = null;
+            bool isHandled = false;
 
             if (domainEvent is QuizCreatedEvent createdEvent)
             {
