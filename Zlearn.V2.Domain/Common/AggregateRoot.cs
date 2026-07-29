@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Zlearn.V2.Domain.Common
 {
-    public abstract class AggregateRoot : AuditableEntity
+    public abstract class AggregateRoot
     {
         private readonly List<DomainEvent> _uncommittedEvents = [];
 

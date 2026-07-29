@@ -51,13 +51,8 @@ namespace Zlearn.V2.Application.Categories.Commands.CreateCategory
             var userId = _contextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier) ?? "unknown";
             var now = DateTimeOffset.UtcNow;
 
-            var cate = new Category
+            var cate = new Category(request.Name, slug, request.Description, request.ThumbnailUrl)
             {
-                Id = IdGenerator.Generate("CAT"),
-                Name = request.Name,
-                Slug = slug,
-                ThumbnailUrl = request.ThumbnailUrl,
-                Description = request.Description,
                 CreatedAt = now,
                 CreatedBy = userId,
                 LastModifiedAt = now,
@@ -65,14 +60,6 @@ namespace Zlearn.V2.Application.Categories.Commands.CreateCategory
             };
 
             await _fileRepo.SetUsing(new List<string> { cate.ThumbnailUrl });
-
-            // Phát sinh Domain Event dạng IDomainEvent V2 với các thông tin nghiệp vụ chính
-            cate.RaiseEvent(new CategoryCreatedEvent(
-                cate.Id, 
-                cate.Name, 
-                cate.Slug, 
-                cate.Description, 
-                cate.ThumbnailUrl));
 
             _writeRepo.Create(cate);
             await _writeRepo.SaveChangesAsync(cancellationToken);

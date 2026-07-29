@@ -54,7 +54,6 @@ namespace Zlearn.V2.Application.Exams.Commands.CreateExam
             }
 
             var exam = new Exam(
-                IdGenerator.Generate("EXA"),
                 request.Data.Name,
                 alias,
                 request.Data.QuizId,

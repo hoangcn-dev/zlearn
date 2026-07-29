@@ -81,7 +81,6 @@ namespace Zlearn.V2.Application.Quizzes.Commands.Create
 
             // Create Quiz Domain entity
             var quiz = new Quiz(
-                IdGenerator.Generate("QUI"),
                 data.Name,
                 slug,
                 data.CategoryId,
@@ -95,7 +94,6 @@ namespace Zlearn.V2.Application.Quizzes.Commands.Create
                 var q = sortedQuestions[i];
                 var question = new Question
                 {
-                    Id = IdGenerator.Generate("QUE"),
                     Order = i + 1,
                     Slug = StringHelper.GenerateUniqueSlug(q.StringContent ?? $"Câu hỏi {i + 1}"),
                     StringContent = q.StringContent,
@@ -103,7 +101,6 @@ namespace Zlearn.V2.Application.Quizzes.Commands.Create
                     Explanation = q.Explanation,
                     Answers = q.Answers.Select(a => new Answer
                     {
-                        Id = IdGenerator.Generate("ANS"),
                         Key = a.Key,
                         StringContent = a.StringContent,
                         MediaFileUrls = a.MediaFileUrls != null ? string.Join(",", a.MediaFileUrls) : string.Empty,

@@ -10,7 +10,7 @@ using Zlearn.V2.Domain.Common;
 
 namespace Zlearn.V2.Domain.CatalogContext.Quizzes
 {
-    public class Quiz : AggregateRoot
+    public class Quiz : AuditableEntity
     {
         public string Name { get; set; } = string.Empty;
         public string Slug { get; set; } = string.Empty;
@@ -25,13 +25,13 @@ namespace Zlearn.V2.Domain.CatalogContext.Quizzes
         public Quiz() { }
 
         public Quiz(
-            string quizId,
             string name,
             string slug,
             string categoryId,
-            bool isPublic)
+            bool isPublic,
+            string? quizId = null)
         {
-            Id = quizId;
+            Id = string.IsNullOrEmpty(quizId) ? IdGenerator.Generate("QUI") : quizId;
             Name = name;
             Slug = slug;
             CategoryId = categoryId;

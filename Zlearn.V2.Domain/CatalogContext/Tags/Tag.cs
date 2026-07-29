@@ -4,12 +4,12 @@ using Zlearn.V2.Domain.Common;
 
 namespace Zlearn.V2.Domain.CatalogContext.Tags
 {
-    public class Tag : AggregateRoot
+    public class Tag : AuditableEntity
     {
         public Tag() {}
-        public Tag(string id, string name)
+        public Tag(string name, string? id = null)
         {
-            Id = id;
+            Id = string.IsNullOrEmpty(id) ? IdGenerator.Generate("TAG") : id;
             Name = name;
             RaiseEvent(new Events.TagCreatedEvent(Id, Name));
         }
