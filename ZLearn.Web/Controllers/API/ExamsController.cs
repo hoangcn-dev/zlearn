@@ -6,6 +6,15 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Caching.Memory;
+using Zlearn.V2.Application.Exams;
+using Zlearn.V2.Domain.CatalogContext.Categories;
+using Zlearn.V2.Domain.CatalogContext.Quizzes;
+using Zlearn.V2.Domain.CatalogContext.Questions;
+using Zlearn.V2.Domain.CatalogContext.Answers;
+using Zlearn.V2.Domain.ExamContext.Exams;
+using Zlearn.V2.Infas.Data;
+using Microsoft.EntityFrameworkCore;
 using Zlearn.V2.Application.Exams.Commands.ChangeExamStatus;
 using Zlearn.V2.Application.Exams.Commands.CreateExam;
 using Zlearn.V2.Application.Exams.Commands.JoinExam;
@@ -151,5 +160,149 @@ namespace ZLearn.Web.Controllers.API
             });
             return Ok(Result<object>.Success("", new { participantId }));
         }
+
+        /*
+        [HttpPost("sim-seed")]
+        public async Task<IActionResult> SeedExamData([FromServices] AppDbContext context)
+        {
+            var existing = await context.Set<Exam>().FirstOrDefaultAsync(e => e.Alias == "danh-gia-nang-luc-toan-hoc");
+            if (existing != null)
+            {
+                return Ok("Database already seeded.");
+            }
+
+            // Create Category
+            var category = new Category("Toán Học", "toan-hoc", "Môn Toán Học");
+            context.Set<Category>().Add(category);
+
+            // Create Quiz
+            var quiz = new Quiz("Đánh giá năng lực toán học", "danh-gia-nang-luc-toan-hoc", category.Id, true);
+            context.Set<Quiz>().Add(quiz);
+
+            // Create Questions and Answers
+            for (int i = 1; i <= 10; i++)
+            {
+                var question = new Question
+                {
+                    QuizId = quiz.Id,
+                    Order = i,
+                    Slug = $"cau-hoi-{i}",
+                    StringContent = $"Câu hỏi {i}: Tính giá trị của biểu thức {i} x 5 + {i}?",
+                    Explanation = $"Lời giải chi tiết câu hỏi {i}."
+                };
+                context.Set<Question>().Add(question);
+
+                for (int j = 1; j <= 4; j++)
+                {
+                    var answer = new Answer
+                    {
+                        QuestionId = question.Id,
+                        Key = j,
+                        StringContent = $"Đáp án {j} của câu hỏi {i}",
+                        IsCorrect = (j == 1) // default option 1 is correct
+                    };
+                    context.Set<Answer>().Add(answer);
+                }
+            }
+
+            // Create Exam
+            var exam = new Exam(
+                name: "Thi thử Đánh giá năng lực toán học",
+                alias: "danh-gia-nang-luc-toan-hoc",
+                quizId: quiz.Id,
+                joinPass: null,
+                startTime: DateTimeOffset.UtcNow.AddMinutes(-10),
+                endTime: DateTimeOffset.UtcNow.AddDays(10),
+                status: ExamStatus.InProgress,
+                showAnswerAndKey: true,
+                maxParticipants: 1000,
+                mixAnswers: true,
+                mixQuestions: true,
+                requireJoinWithCode: false,
+                requireJoinWithName: false,
+                allowLateSubmit: true,
+                note: "Đề thi thử phục vụ kiểm tra hiệu năng",
+                id: null
+            );
+            context.Set<Exam>().Add(exam);
+
+            await context.SaveChangesAsync();
+            return Ok("Seeding completed successfully.");
+        }
+
+        [HttpGet("sim-list-aliases")]
+        public async Task<IActionResult> ListExamAliases([FromServices] IExamRepo examRepo)
+        {
+            var aliases = await examRepo.GetAll(e => true, e => e.Alias);
+            return Ok(aliases);
+        }
+
+        [HttpGet("sim-nocache")]
+        public async Task<IActionResult> GetExamContentSimNocache([FromQuery] string alias, [FromServices] IExamRepo examRepo)
+        {
+            if (string.IsNullOrEmpty(alias))
+            {
+                return BadRequest("Alias is required.");
+            }
+
+            var examContent = await examRepo.GetExamContentSimulatedAsync(alias);
+            if (examContent == null)
+            {
+                return NotFound($"Exam with alias '{alias}' not found.");
+            }
+
+            return Ok(examContent);
+        }
+
+        [HttpGet("sim-cached")]
+        public async Task<IActionResult> GetExamContentSimCached(
+            [FromQuery] string alias, 
+            [FromServices] IExamRepo examRepo,
+            [FromServices] Microsoft.Extensions.Caching.Memory.IMemoryCache memoryCache,
+            [FromServices] IRedisService redisService)
+        {
+            if (string.IsNullOrEmpty(alias))
+            {
+                return BadRequest("Alias is required.");
+            }
+
+            string cacheKey = $"EXAM_SIM_CONTENT_{alias}";
+
+            if (memoryCache.TryGetValue(cacheKey, out ExamContentSimDto? cachedContent))
+            {
+                return Ok(cachedContent);
+            }
+
+            try
+            {
+                cachedContent = await redisService.GetObject<ExamContentSimDto>("EXAM_SIM_CONTENT", alias);
+                if (cachedContent != null)
+                {
+                    memoryCache.Set(cacheKey, cachedContent, TimeSpan.FromMinutes(2));
+                    return Ok(cachedContent);
+                }
+            }
+            catch
+            {
+            }
+
+            var examContent = await examRepo.GetExamContentSimulatedAsync(alias);
+            if (examContent == null)
+            {
+                return NotFound($"Exam with alias '{alias}' not found.");
+            }
+
+            try
+            {
+                memoryCache.Set(cacheKey, examContent, TimeSpan.FromMinutes(2));
+                await redisService.SetObject("EXAM_SIM_CONTENT", alias, examContent, TimeSpan.FromMinutes(5));
+            }
+            catch
+            {
+            }
+
+            return Ok(examContent);
+        }
+        */
     }
 }

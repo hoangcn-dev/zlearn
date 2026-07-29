@@ -140,6 +140,9 @@ namespace Zlearn.V2.Infas.Migrations
 
                     b.HasIndex("TagsId");
 
+                    b.HasIndex("QuizzesId", "TagsId")
+                        .IsUnique();
+
                     b.ToTable("QuizTag");
                 });
 
@@ -501,7 +504,10 @@ namespace Zlearn.V2.Infas.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ExamId");
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("ExamId", "UserId")
+                        .IsUnique();
 
                     b.ToTable("ExamParticipant", (string)null);
                 });
@@ -589,11 +595,20 @@ namespace Zlearn.V2.Infas.Migrations
                     b.Property<string>("Error")
                         .HasColumnType("text");
 
+                    b.Property<bool>("IsDeadLetter")
+                        .HasColumnType("boolean");
+
                     b.Property<DateTimeOffset>("OccurredOn")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTimeOffset?>("ProcessedOn")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("RetryCount")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid?>("TransactionId")
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Type")
                         .IsRequired()
@@ -828,7 +843,7 @@ namespace Zlearn.V2.Infas.Migrations
                     b.HasOne("Zlearn.V2.Domain.CatalogContext.Quizzes.Quiz", "Quiz")
                         .WithMany()
                         .HasForeignKey("QuizId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Quiz");
@@ -840,6 +855,12 @@ namespace Zlearn.V2.Infas.Migrations
                         .WithMany("Participants")
                         .HasForeignKey("ExamId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Zlearn.V2.Infas.Identity.AppIdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Exam");

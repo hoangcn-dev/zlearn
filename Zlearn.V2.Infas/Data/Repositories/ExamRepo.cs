@@ -22,6 +22,7 @@ using Zlearn.V2.Domain.FileContext.MediaFiles;
 using ParticipantStatus = Zlearn.V2.Domain.ExamContext.Participants.ParticipantStatus;
 using ExamStatus = Zlearn.V2.Domain.ExamContext.Exams.ExamStatus;
 using MediaType = Zlearn.V2.Domain.FileContext.MediaFiles.MediaType;
+using Zlearn.V2.Domain.Common;
 
 namespace Zlearn.V2.Infas.Data.Repositories
 {
@@ -78,7 +79,6 @@ namespace Zlearn.V2.Infas.Data.Repositories
                 .FirstOrDefaultAsync(e => e.Id == data.ExamId)
                 ?? throw new NotFoundException("Bài kiểm tra không tồn tại hoặc đã hết thời gian cho phép tham gia.");
 
-            var participantId = IdGenerator.Generate("EPA");
             var userId = user.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
             var participantName = data.ParticipantName ?? $"{user.FindFirstValue("LastName")} {user.FindFirstValue("FirstName")}";
 
@@ -86,7 +86,7 @@ namespace Zlearn.V2.Infas.Data.Repositories
             ExamParticipant participant;
             try
             {
-                participant = exam.AddParticipant(participantId, userId, participantName, data.ParticipantCode, data.Password);
+                participant = exam.AddParticipant(userId, participantName, data.ParticipantCode, data.Password);
             }
             catch (InvalidOperationException ex)
             {
@@ -686,6 +686,39 @@ namespace Zlearn.V2.Infas.Data.Repositories
             {
                 await PerformFinalExamCleanupAndResultCachingAsync(examId);
             }
+        }
+
+        public async Task<ExamContentSimDto?> GetExamContentSimulatedAsync(string alias)
+        {
+            return await _context.Set<Exam>()
+                .AsNoTracking()
+                .Where(e => e.Alias == alias)
+                .Select(e => new ExamContentSimDto
+                {
+                    ExamId = e.Id,
+                    Name = e.Name,
+                    Alias = e.Alias,
+                    QuizId = e.QuizId,
+                    QuizName = e.Quiz != null ? e.Quiz.Name : string.Empty,
+                    CategoryId = e.Quiz != null ? e.Quiz.CategoryId : string.Empty,
+                    CategoryName = (e.Quiz != null && e.Quiz.Category != null) ? e.Quiz.Category.Name : string.Empty,
+                    Note = e.Note ?? string.Empty,
+                    Questions = e.Quiz != null ? e.Quiz.Questions.OrderBy(q => q.Order).Select(q => new QuestionSimDto
+                    {
+                        QuestionId = q.Id,
+                        Content = q.StringContent ?? string.Empty,
+                        Explanation = q.Explanation ?? string.Empty,
+                        Order = q.Order,
+                        Answers = q.Answers.Select(a => new AnswerSimDto
+                        {
+                            AnswerId = a.Id,
+                            Key = a.Key,
+                            Content = a.StringContent ?? string.Empty,
+                            IsCorrect = a.IsCorrect
+                        }).ToList()
+                    }).ToList() : new List<QuestionSimDto>()
+                })
+                .FirstOrDefaultAsync();
         }
     }
 }

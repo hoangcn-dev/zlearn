@@ -14,6 +14,14 @@ namespace Zlearn.V2.Infas.Data.Interceptors
 {
     public class HandleEventsInterceptor : SaveChangesInterceptor
     {
+        private readonly IOutboxSignalChannel _signalChannel;
+        private bool _hasNewOutboxEvents;
+
+        public HandleEventsInterceptor(IOutboxSignalChannel signalChannel)
+        {
+            _signalChannel = signalChannel;
+        }
+
         public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
         {
             UpdateOutbox(eventData.Context);
@@ -24,6 +32,26 @@ namespace Zlearn.V2.Infas.Data.Interceptors
         {
             UpdateOutbox(eventData.Context);
             return await base.SavingChangesAsync(eventData, result, cancellationToken);
+        }
+
+        public override int SavedChanges(SaveChangesCompletedEventData eventData, int result)
+        {
+            if (_hasNewOutboxEvents)
+            {
+                _hasNewOutboxEvents = false;
+                _signalChannel.Notify();
+            }
+            return base.SavedChanges(eventData, result);
+        }
+
+        public override async ValueTask<int> SavedChangesAsync(SaveChangesCompletedEventData eventData, int result, CancellationToken cancellationToken = default)
+        {
+            if (_hasNewOutboxEvents)
+            {
+                _hasNewOutboxEvents = false;
+                _signalChannel.Notify();
+            }
+            return await base.SavedChangesAsync(eventData, result, cancellationToken);
         }
 
         private void UpdateOutbox(DbContext? context)
@@ -47,7 +75,7 @@ namespace Zlearn.V2.Infas.Data.Interceptors
             {
                 Id = @event.EventId,
                 TransactionId = transactionId,
-                OccurredOn = DateTimeOffset.UtcNow,
+                OccurredOn = @event.OccurredOn,
                 Type = @event.GetType().AssemblyQualifiedName ?? @event.GetType().FullName ?? string.Empty,
                 Content = JsonConvert.SerializeObject(@event),
                 AggregateId = @event.AggregateId,
@@ -56,6 +84,7 @@ namespace Zlearn.V2.Infas.Data.Interceptors
 
             // 3. Lưu vào DbSet OutboxEvents
             context.Set<OutboxEvent>().AddRange(outboxEvents);
+            _hasNewOutboxEvents = true;
 
             // 4. Xóa các sự kiện đã xử lý để tránh lưu trùng lặp khi SaveChanges được gọi lại
             aggregates.ForEach(a => a.ClearUncommittedEvents());

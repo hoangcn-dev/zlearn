@@ -58,7 +58,7 @@ namespace Zlearn.V2.Infas.Data
                     var createRoleResult = await _roleManager.CreateAsync(new AppIdentityRole
                     {
                         Name = nameof(UserRole.Admin),
-                        Id = IdGenerator.Generate("ROL"),
+                        Id = Zlearn.V2.Domain.Common.IdGenerator.Generate("ROL"),
                     });
                     if (!createRoleResult.Succeeded)
                         throw new Exception("Failed to create default admin role.");
@@ -70,7 +70,7 @@ namespace Zlearn.V2.Infas.Data
                     var createRoleResult = await _roleManager.CreateAsync(new AppIdentityRole
                     {
                         Name = nameof(UserRole.User),
-                        Id = IdGenerator.Generate("ROL"),
+                        Id = Zlearn.V2.Domain.Common.IdGenerator.Generate("ROL"),
                     });
                     if (!createRoleResult.Succeeded)
                         throw new Exception("Failed to create default user role.");
@@ -82,7 +82,7 @@ namespace Zlearn.V2.Infas.Data
                     var createRoleResult = await _roleManager.CreateAsync(new AppIdentityRole
                     {
                         Name = nameof(UserRole.Student),
-                        Id = IdGenerator.Generate("ROL"),
+                        Id = Zlearn.V2.Domain.Common.IdGenerator.Generate("ROL"),
                     });
                     if (!createRoleResult.Succeeded)
                         throw new Exception("Failed to create default student role.");
@@ -94,7 +94,7 @@ namespace Zlearn.V2.Infas.Data
                     var createRoleResult = await _roleManager.CreateAsync(new AppIdentityRole
                     {
                         Name = nameof(UserRole.Teacher),
-                        Id = IdGenerator.Generate("ROL"),
+                        Id = Zlearn.V2.Domain.Common.IdGenerator.Generate("ROL"),
                     });
                     if (!createRoleResult.Succeeded)
                         throw new Exception("Failed to create default teacher role.");
@@ -117,7 +117,7 @@ namespace Zlearn.V2.Infas.Data
                     {
                         var adminAccount = new AppIdentityUser
                         {
-                            Id = IdGenerator.Generate("ACC"),
+                            Id = Zlearn.V2.Domain.Common.IdGenerator.Generate("ACC"),
                             UserName = "Admin",
                             FirstName = "Admin",
                             LastName = "System",

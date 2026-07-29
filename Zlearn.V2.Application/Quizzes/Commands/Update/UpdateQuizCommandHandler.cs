@@ -150,7 +150,6 @@ namespace Zlearn.V2.Application.Quizzes.Commands.Update
                 {
                     newQuestions.Add(new Question
                     {
-                        Id = IdGenerator.Generate("QUE"),
                         Order = i + 1,
                         StringContent = q.StringContent,
                         Explanation = q.Explanation,
@@ -158,7 +157,6 @@ namespace Zlearn.V2.Application.Quizzes.Commands.Update
                         MediaFileUrls = q.MediaFileUrls != null ? string.Join(",", q.MediaFileUrls) : string.Empty,
                         Answers = q.Answers.Select(a => new Answer
                         {
-                            Id = IdGenerator.Generate("ANS"),
                             Key = a.Key,
                             StringContent = a.StringContent,
                             MediaFileUrls = a.MediaFileUrls != null ? string.Join(",", a.MediaFileUrls) : string.Empty,
@@ -191,7 +189,6 @@ namespace Zlearn.V2.Application.Quizzes.Commands.Update
                         {
                             var newAnswer = new Answer
                             {
-                                Id = IdGenerator.Generate("ANS"),
                                 Key = a.Key,
                                 StringContent = a.StringContent,
                                 MediaFileUrls = a.MediaFileUrls != null ? string.Join(",", a.MediaFileUrls) : string.Empty,

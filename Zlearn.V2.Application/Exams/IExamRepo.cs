@@ -6,8 +6,6 @@ using Zlearn.V2.Application.Exams.DTOs;
 using Zlearn.V2.Domain.ExamContext.Exams;
 using Zlearn.V2.Domain.ExamContext.Participants;
 using Zlearn.V2.Application.Common.Interfaces;
-using Zlearn.V2.Domain.ExamContext.Exams;
-using Zlearn.V2.Domain.ExamContext.Participants;
 
 namespace Zlearn.V2.Application.Exams
 {
@@ -33,6 +31,7 @@ namespace Zlearn.V2.Application.Exams
         Task<Dictionary<string, List<int>>> GetExamGradingKeysAsync(string examId);
         Task<string?> GetSelectedAnswersAsync(string examId, string userId);
         Task FinalizeExamIfAllCompletedAsync(string examId);
+        Task<ExamContentSimDto?> GetExamContentSimulatedAsync(string alias);
     }
 }
 

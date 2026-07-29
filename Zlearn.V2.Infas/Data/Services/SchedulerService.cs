@@ -6,6 +6,7 @@ using MediatR;
 using Quartz;
 using Zlearn.V2.Application.Common.Interfaces;
 using Zlearn.V2.Application.Common.Utils;
+using Zlearn.V2.Domain.Common;
 using Zlearn.V2.Infas.External.Quartz.Jobs;
 
 namespace Zlearn.V2.Infas.Data.Services

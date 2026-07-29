@@ -9,17 +9,20 @@ using Microsoft.Extensions.Logging;
 using MediatR;
 using Newtonsoft.Json;
 using Zlearn.V2.Infas.Data.Outbox;
+using Zlearn.V2.Infas.Messaging;
 
 namespace Zlearn.V2.Infas.Data.Services
 {
     public class OutboxProcessorJob : BackgroundService
     {
         private readonly IServiceProvider _serviceProvider;
+        private readonly IOutboxSignalChannel _signalChannel;
         private readonly ILogger<OutboxProcessorJob> _logger;
 
-        public OutboxProcessorJob(IServiceProvider serviceProvider, ILogger<OutboxProcessorJob> logger)
+        public OutboxProcessorJob(IServiceProvider serviceProvider, IOutboxSignalChannel signalChannel, ILogger<OutboxProcessorJob> logger)
         {
             _serviceProvider = serviceProvider;
+            _signalChannel = signalChannel;
             _logger = logger;
         }
 
@@ -38,8 +41,16 @@ namespace Zlearn.V2.Infas.Data.Services
                     _logger.LogError(ex, "Error processing V2 outbox events.");
                 }
 
-                // Chờ 2 giây trước khi quét tiếp
-                await Task.Delay(2000, stoppingToken);
+                try
+                {
+                    using var cts = CancellationTokenSource.CreateLinkedTokenSource(stoppingToken);
+                    cts.CancelAfter(TimeSpan.FromSeconds(2));
+                    await _signalChannel.WaitToReadAsync(cts.Token);
+                }
+                catch (OperationCanceledException) when (!stoppingToken.IsCancellationRequested)
+                {
+                    // Polling 2 giây mặc định khi không có tín hiệu mới
+                }
             }
         }
 
@@ -51,7 +62,7 @@ namespace Zlearn.V2.Infas.Data.Services
 
             // 1. Lấy danh sách Top 10 TransactionId chưa xử lý và có RetryCount < 5
             var targetTxIds = await dbContext.OutboxEvents
-                .Where(e => e.ProcessedOn == null && e.RetryCount < 5)
+                .Where(e => e.ProcessedOn == null && !e.IsDeadLetter && e.RetryCount < 5)
                 .Select(e => e.TransactionId)
                 .Distinct()
                 .Take(10)
@@ -61,7 +72,7 @@ namespace Zlearn.V2.Infas.Data.Services
 
             // 2. Kéo toàn bộ các OutboxEvent thuộc các TransactionId đó để đảm bảo tính toàn vẹn (chống phân mảnh giao dịch)
             var outboxEvents = await dbContext.OutboxEvents
-                .Where(e => targetTxIds.Contains(e.TransactionId) && e.ProcessedOn == null && e.RetryCount < 5)
+                .Where(e => targetTxIds.Contains(e.TransactionId) && e.ProcessedOn == null && !e.IsDeadLetter && e.RetryCount < 5)
                 .OrderBy(e => e.OccurredOn)
                 .ToListAsync(stoppingToken);
 
@@ -77,17 +88,43 @@ namespace Zlearn.V2.Infas.Data.Services
                 {
                     try
                     {
-                        // Publish trực tiếp OutboxEvent qua MediatR để các Sync Handlers cập nhật Read Model (MongoDB)
-                        await mediator.Publish(outboxEvent, stoppingToken);
+                        var eventType = Type.GetType(outboxEvent.Type) 
+                            ?? throw new InvalidOperationException($"Cannot resolve event type: '{outboxEvent.Type}'");
+
+                        var domainEvent = JsonConvert.DeserializeObject(outboxEvent.Content, eventType) as INotification
+                            ?? throw new InvalidOperationException($"Failed to deserialize outbox event content for type: '{outboxEvent.Type}'");
+
+                        var publisher = scope.ServiceProvider.GetService<IRabbitMQPublisherService>();
+                        if (publisher != null)
+                        {
+                            await publisher.PublishEventAsync(outboxEvent);
+                        }
+                        else
+                        {
+                            // Publish strongly-typed domain event via MediatR (fallback cho Unit Tests)
+                            await mediator.Publish(domainEvent, stoppingToken);
+                        }
 
                         outboxEvent.ProcessedOn = DateTimeOffset.UtcNow;
                         outboxEvent.Error = null;
                     }
                     catch (Exception ex)
                     {
-                        _logger.LogError(ex, "Error processing V2 outbox event with ID: {Id}, TransactionId: {TxId}", outboxEvent.Id, outboxEvent.TransactionId);
                         outboxEvent.Error = ex.ToString();
                         outboxEvent.RetryCount += 1;
+
+                        if (outboxEvent.RetryCount >= 5)
+                        {
+                            outboxEvent.IsDeadLetter = true;
+                            _logger.LogCritical(ex, "ALERT: Outbox Event {Id} (Type: '{Type}', AggregateId: '{AggregateId}') failed after {RetryCount} retries and is moved to DEAD LETTER status.", outboxEvent.Id, outboxEvent.Type, outboxEvent.AggregateId, outboxEvent.RetryCount);
+                        }
+                        else
+                        {
+                            _logger.LogError(ex, "Error processing V2 outbox event with ID: {Id}, TransactionId: {TxId}, RetryCount: {RetryCount}", outboxEvent.Id, outboxEvent.TransactionId, outboxEvent.RetryCount);
+                        }
+
+                        // Dừng xử lý các event tiếp theo trong cùng Transaction để đảm bảo thứ tự (Causal Ordering)
+                        break;
                     }
                 }
             }

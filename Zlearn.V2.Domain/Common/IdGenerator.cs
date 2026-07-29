@@ -1,4 +1,4 @@
-namespace Zlearn.V2.Application.Common.Utils
+namespace Zlearn.V2.Domain.Common
 {
     public abstract class IdGenerator
     {

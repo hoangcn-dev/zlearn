@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
@@ -21,9 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ZLearn.Application\ZLearn.Application.csproj" />
-    <ProjectReference Include="..\ZLearn.Domain\ZLearn.Domain.csproj" />
-    <ProjectReference Include="..\ZLearn.Infras\ZLearn.Infras.csproj" />
     <ProjectReference Include="..\Zlearn.V2.Infas\Zlearn.V2.Infas.csproj" />
     <ProjectReference Include="..\Zlearn.V2.Application\Zlearn.V2.Application.csproj" />
     <ProjectReference Include="..\Zlearn.V2.Domain\Zlearn.V2.Domain.csproj" />

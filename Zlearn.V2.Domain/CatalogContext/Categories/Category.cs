@@ -3,7 +3,7 @@ using Zlearn.V2.Domain.Common;
 
 namespace Zlearn.V2.Domain.CatalogContext.Categories
 {
-    public class Category : AggregateRoot
+    public class Category : AuditableEntity
     {
         public string Name { get; set; } = string.Empty;
         public string Slug { get; set; } = string.Empty;
@@ -13,13 +13,13 @@ namespace Zlearn.V2.Domain.CatalogContext.Categories
         public Category() { }
 
         public Category(
-            string categoryId,
             string name,
             string slug,
-            string? description,
-            string? thumbnailUrl)
+            string? description = null,
+            string? thumbnailUrl = null,
+            string? categoryId = null)
         {
-            Id = categoryId; 
+            Id = string.IsNullOrEmpty(categoryId) ? IdGenerator.Generate("CAT") : categoryId; 
             Name = name;
             Slug = slug;
             Description = description;
