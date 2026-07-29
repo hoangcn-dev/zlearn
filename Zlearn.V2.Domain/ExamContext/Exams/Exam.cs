@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Zlearn.V2.Domain.Common;
 using Zlearn.V2.Domain.CatalogContext.Quizzes;
+using Zlearn.V2.Domain.Common;
 using Zlearn.V2.Domain.ExamContext.Participants;
 
 namespace Zlearn.V2.Domain.ExamContext.Exams
 {
-    public class Exam : AggregateRoot
+    public class Exam : AuditableEntity
     {
         public string Name { get; private set; } = string.Empty;
         public string Alias { get; private set; } = string.Empty;
@@ -33,7 +30,6 @@ namespace Zlearn.V2.Domain.ExamContext.Exams
         public Exam() { }
 
         public Exam(
-            string id,
             string name,
             string alias,
             string quizId,
@@ -48,9 +44,10 @@ namespace Zlearn.V2.Domain.ExamContext.Exams
             bool requireJoinWithCode,
             bool requireJoinWithName,
             bool allowLateSubmit,
-            string? note)
+            string? note,
+            string? id = null)
         {
-            Id = id;
+            Id = string.IsNullOrEmpty(id) ? IdGenerator.Generate("EXA") : id;
             Name = name;
             Alias = alias;
             QuizId = quizId;
@@ -90,11 +87,11 @@ namespace Zlearn.V2.Domain.ExamContext.Exams
         }
 
         public ExamParticipant AddParticipant(
-            string participantId,
             string userId,
             string participantName,
             string? participantCode,
-            string? joinPassword)
+            string? joinPassword,
+            string? participantId = null)
         {
             if (Status == ExamStatus.Ended)
                 throw new InvalidOperationException("Bài kiểm tra đã kết thúc.");
@@ -119,7 +116,7 @@ namespace Zlearn.V2.Domain.ExamContext.Exams
             if (RequireJoinWithCode && Participants.Any(p => p.ParticipantCode == participantCode))
                 throw new InvalidOperationException("Mã tham gia đã được sử dụng");
 
-            var participant = new ExamParticipant(participantId, Id, userId, participantName, participantCode);
+            var participant = new ExamParticipant(Id, userId, participantName, participantCode, participantId);
             Participants.Add(participant);
             return participant;
         }
@@ -133,6 +130,7 @@ namespace Zlearn.V2.Domain.ExamContext.Exams
         {
             Status = ExamStatus.InProgress;
             StartTime = startTime;
+            RaiseEvent(new Events.ExamStartedEvent(Id, startTime));
         }
 
         public void SetLockAccess(bool lockAccess)
@@ -160,6 +158,7 @@ namespace Zlearn.V2.Domain.ExamContext.Exams
                     }
                 }
             }
+            RaiseEvent(new Events.ExamEndedEvent(Id, endedAt));
         }
 
         public void Delete()

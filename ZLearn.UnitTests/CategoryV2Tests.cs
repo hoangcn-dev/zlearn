@@ -46,7 +46,7 @@ namespace ZLearn.UnitTests
             var mockHttpContextAccessor = new Mock<IHttpContextAccessor>();
             var options = new DbContextOptionsBuilder<AppDbContext>()
                 .UseInMemoryDatabase(databaseName: "ZLearnTestDb_" + Guid.NewGuid())
-                .AddInterceptors(new AuditableEntityInterceptor(mockHttpContextAccessor.Object), new HandleEventsInterceptor()) // Tự động chụp audit và outbox
+                .AddInterceptors(new AuditableEntityInterceptor(mockHttpContextAccessor.Object), new HandleEventsInterceptor(new OutboxSignalChannel())) // Tự động chụp audit và outbox
                 .Options;
 
             using var context = new AppDbContext(options);
@@ -90,7 +90,14 @@ namespace ZLearn.UnitTests
             // Arrange: Setup mock MongoDB
             var mockCollection = new Mock<IMongoCollection<CategoryDocument>>();
             var mockDatabase = new Mock<IMongoDatabase>();
-            
+
+            var mockCursor = new Mock<IAsyncCursor<CategoryDocument>>();
+            mockCursor.Setup(_ => _.Current).Returns(new List<CategoryDocument>());
+            mockCursor.SetupSequence(_ => _.MoveNext(It.IsAny<CancellationToken>())).Returns(true).Returns(false);
+            mockCursor.SetupSequence(_ => _.MoveNextAsync(It.IsAny<CancellationToken>())).ReturnsAsync(true).ReturnsAsync(false);
+            mockCollection.Setup(c => c.FindAsync(It.IsAny<FilterDefinition<CategoryDocument>>(), It.IsAny<FindOptions<CategoryDocument, CategoryDocument>>(), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(mockCursor.Object);
+
             mockDatabase.Setup(d => d.GetCollection<CategoryDocument>(It.IsAny<string>(), It.IsAny<MongoCollectionSettings>()))
                 .Returns(mockCollection.Object);
 
@@ -99,8 +106,7 @@ namespace ZLearn.UnitTests
                 .Options;
             using var context = new AppDbContext(options);
 
-            var fallbackHelper = new OutboxFallbackHelper(context, new Mock<IMediator>().Object);
-            var handler = new SyncCategoryToMongoHandler(mockDatabase.Object, fallbackHelper);
+            var handler = new SyncCategoryToMongoHandler(mockDatabase.Object);
             
             var domainEvent = new CategoryCreatedEvent(
                 "CAT123", 
@@ -114,19 +120,8 @@ namespace ZLearn.UnitTests
                 CreatedAt = DateTimeOffset.UtcNow
             };
 
-            var outboxEvent = new OutboxEvent
-            {
-                Id = domainEvent.EventId,
-                Type = domainEvent.GetType().AssemblyQualifiedName ?? string.Empty,
-                Content = Newtonsoft.Json.JsonConvert.SerializeObject(domainEvent),
-                OccurredOn = DateTimeOffset.UtcNow
-            };
-
-            context.OutboxEvents.Add(outboxEvent);
-            await context.SaveChangesAsync();
-
             // Act: Chạy Handler xử lý Projection
-            await handler.Handle(outboxEvent, CancellationToken.None);
+            await handler.Handle(domainEvent, CancellationToken.None);
 
             // Assert: Xác nhận Mongo C# Driver ReplaceOneAsync được gọi đúng tham số
             mockCollection.Verify(
@@ -138,10 +133,6 @@ namespace ZLearn.UnitTests
                 ),
                 Times.Once
             );
-
-            // Assert: Đảm bảo outbox event đã được tạo trong DB
-            var updatedOutbox = await context.OutboxEvents.FindAsync(outboxEvent.Id);
-            Assert.NotNull(updatedOutbox);
         }
 
         [Fact]
@@ -175,6 +166,60 @@ namespace ZLearn.UnitTests
             Assert.Equal("CAT456", result.Id);
             Assert.Equal("Ngoại ngữ", result.Name);
             mockReadRepo.Verify(r => r.GetByIdAsync("CAT456"), Times.Once);
+        }
+
+        [Fact]
+        public async Task SyncCategoryToMongoHandler_Should_Skip_Stale_Event()
+        {
+            // Arrange
+            var mockCollection = new Mock<IMongoCollection<CategoryDocument>>();
+            var mockDatabase = new Mock<IMongoDatabase>();
+            var mockCursor = new Mock<IAsyncCursor<CategoryDocument>>();
+
+            var existingDocument = new CategoryDocument
+            {
+                Id = "CAT123",
+                Name = "C# Nâng Cao",
+                SyncedAt = DateTimeOffset.UtcNow.AddMinutes(5) // SyncedAt hiện tại là mới hơn
+            };
+
+            mockCursor.Setup(_ => _.Current).Returns(new List<CategoryDocument> { existingDocument });
+            mockCursor.SetupSequence(_ => _.MoveNext(It.IsAny<CancellationToken>()))
+                .Returns(true)
+                .Returns(false);
+            mockCursor.SetupSequence(_ => _.MoveNextAsync(It.IsAny<CancellationToken>()))
+                .ReturnsAsync(true)
+                .ReturnsAsync(false);
+
+            mockCollection.Setup(c => c.FindAsync(It.IsAny<FilterDefinition<CategoryDocument>>(), It.IsAny<FindOptions<CategoryDocument, CategoryDocument>>(), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(mockCursor.Object);
+
+            mockDatabase.Setup(d => d.GetCollection<CategoryDocument>(It.IsAny<string>(), It.IsAny<MongoCollectionSettings>()))
+                .Returns(mockCollection.Object);
+
+            var handler = new SyncCategoryToMongoHandler(mockDatabase.Object);
+
+            var staleEvent = new CategoryCreatedEvent(
+                "CAT123",
+                "Lập trình C# Cũ",
+                "lap-trinh-c-cu",
+                "Mô tả cũ",
+                null
+            );
+
+            // Act
+            await handler.Handle(staleEvent, CancellationToken.None);
+
+            // Assert: ReplaceOneAsync KHÔNG ĐƯỢC GỌI vì event cũ bị từ chối (Idempotent Guard)
+            mockCollection.Verify(
+                c => c.ReplaceOneAsync(
+                    It.IsAny<FilterDefinition<CategoryDocument>>(),
+                    It.IsAny<CategoryDocument>(),
+                    It.IsAny<ReplaceOptions>(),
+                    It.IsAny<CancellationToken>()
+                ),
+                Times.Never
+            );
         }
     }
 }

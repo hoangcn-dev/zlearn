@@ -11,5 +11,10 @@ namespace Zlearn.V2.Domain.CatalogContext.Answers
         public Question? Question { get; set; }
         public string MediaFileUrls { get; set; } = string.Empty;
         public bool IsCorrect { get; set; }
+
+        public Answer()
+        {
+            Id = IdGenerator.Generate("ANS");
+        }
     }
 }

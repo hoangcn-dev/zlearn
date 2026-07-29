@@ -8,6 +8,7 @@ using Zlearn.V2.Domain.CatalogContext.Quizzes;
 using Zlearn.V2.Domain.CatalogContext.Tags;
 using Zlearn.V2.Infas.Data;
 using Zlearn.V2.Domain.ExamContext.Exams;
+using Zlearn.V2.Domain.Common;
 
 namespace Zlearn.V2.Infas.Data.Repositories
 {
@@ -42,7 +43,7 @@ namespace Zlearn.V2.Infas.Data.Repositories
             quiz.Tags.AddRange(existingTags);
             foreach (var tagName in tags.Except(existingTags.Select(t => t.Name)))
             {
-                var newTag = new Tag(IdGenerator.Generate("TAG"), tagName);
+                var newTag = new Tag(tagName);
                 quiz.Tags.Add(newTag);
             }
         }

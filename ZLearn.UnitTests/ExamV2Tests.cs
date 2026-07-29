@@ -23,6 +23,8 @@ using Zlearn.V2.Infas.Data;
 using Zlearn.V2.Infas.Data.Repositories;
 using Zlearn.V2.Infas.Data.Interceptors;
 using Zlearn.V2.Infas.Data.Outbox;
+using Zlearn.V2.Infas.Data.Services;
+using Microsoft.Extensions.DependencyInjection;
 using Zlearn.V2.Infas.Services.Projections;
 using Zlearn.V2.Domain.ExamContext.Exams;
 using Zlearn.V2.Domain.ExamContext.Exams.Events;
@@ -56,7 +58,7 @@ namespace ZLearn.UnitTests
 
             var options = new DbContextOptionsBuilder<AppDbContext>()
                 .UseInMemoryDatabase(databaseName: "ZLearnTestDb_Exam_" + Guid.NewGuid())
-                .AddInterceptors(new AuditableEntityInterceptor(mockHttpContextAccessor.Object), new HandleEventsInterceptor())
+                .AddInterceptors(new AuditableEntityInterceptor(mockHttpContextAccessor.Object), new HandleEventsInterceptor(new OutboxSignalChannel()))
                 .Options;
 
             using var context = new AppDbContext(options);
@@ -127,6 +129,13 @@ namespace ZLearn.UnitTests
             var mockCollection = new Mock<IMongoCollection<ExamDocument>>();
             var mockDatabase = new Mock<IMongoDatabase>();
 
+            var mockCursor = new Mock<IAsyncCursor<ExamDocument>>();
+            mockCursor.Setup(_ => _.Current).Returns(new List<ExamDocument>());
+            mockCursor.SetupSequence(_ => _.MoveNext(It.IsAny<CancellationToken>())).Returns(true).Returns(false);
+            mockCursor.SetupSequence(_ => _.MoveNextAsync(It.IsAny<CancellationToken>())).ReturnsAsync(true).ReturnsAsync(false);
+            mockCollection.Setup(c => c.FindAsync(It.IsAny<FilterDefinition<ExamDocument>>(), It.IsAny<FindOptions<ExamDocument, ExamDocument>>(), It.IsAny<CancellationToken>()))
+                .ReturnsAsync(mockCursor.Object);
+
             mockDatabase.Setup(d => d.GetCollection<ExamDocument>(It.IsAny<string>(), It.IsAny<MongoCollectionSettings>()))
                 .Returns(mockCollection.Object);
 
@@ -138,7 +147,6 @@ namespace ZLearn.UnitTests
             // Seed an exam in Postgres to fetch additional details
             var examId = "EXA_999";
             var examSeed = new Exam(
-                examId,
                 "Kiểm tra học kỳ II",
                 "alias123",
                 "QZ_999",
@@ -153,15 +161,15 @@ namespace ZLearn.UnitTests
                 false,
                 false,
                 false,
-                "Note test"
+                "Note test",
+                id: examId
             );
             examSeed.CreatedBy = "user_id_123";
             examSeed.CreatedAt = DateTimeOffset.UtcNow;
             context.Exams.Add(examSeed);
             await context.SaveChangesAsync();
 
-            var fallbackHelper = new OutboxFallbackHelper(context, new Mock<IMediator>().Object);
-            var handler = new SyncExamToMongoHandler(mockDatabase.Object, fallbackHelper);
+            var handler = new SyncExamToMongoHandler(mockDatabase.Object);
 
             var createdEvent = new ExamCreatedEvent(
                 ExamId: examId,
@@ -183,18 +191,8 @@ namespace ZLearn.UnitTests
                 MaxParticipants: 100
             );
 
-            var outboxEvent = new OutboxEvent
-            {
-                Id = Guid.NewGuid(),
-                Type = typeof(ExamCreatedEvent).AssemblyQualifiedName!,
-                Content = Newtonsoft.Json.JsonConvert.SerializeObject(createdEvent),
-                OccurredOn = DateTimeOffset.UtcNow
-            };
-            context.OutboxEvents.Add(outboxEvent);
-            await context.SaveChangesAsync();
-
             // Act
-            await handler.Handle(outboxEvent, CancellationToken.None);
+            await handler.Handle(createdEvent, CancellationToken.None);
 
             // Assert
             mockCollection.Verify(
@@ -204,10 +202,193 @@ namespace ZLearn.UnitTests
                     It.IsAny<ReplaceOptions>(),
                     It.IsAny<CancellationToken>()),
                 Times.Once);
+        }
 
-            // OutboxEvent should exist in DB
-            var outboxInDb = await context.OutboxEvents.FindAsync(outboxEvent.Id);
-            Assert.NotNull(outboxInDb);
+        [Fact]
+        public async Task OutboxProcessorJob_Should_Break_Loop_When_Event_In_Same_Transaction_Fails()
+        {
+            // Arrange
+            var options = new DbContextOptionsBuilder<AppDbContext>()
+                .UseInMemoryDatabase(databaseName: "ZLearnTestDb_OutboxBreak_" + Guid.NewGuid())
+                .Options;
+
+            using var context = new AppDbContext(options);
+
+            var txId = Guid.NewGuid();
+            var event1 = new OutboxEvent
+            {
+                Id = Guid.NewGuid(),
+                TransactionId = txId,
+                Type = typeof(ExamCreatedEvent).AssemblyQualifiedName!,
+                Content = "INVALID_JSON_CONTENT_TRIGGERING_EXCEPTION",
+                OccurredOn = DateTimeOffset.UtcNow.AddSeconds(-10)
+            };
+
+            var validEvent = new ExamCreatedEvent("EXA_999", "Exam Test", "alias", "QZ_1", DateTimeOffset.UtcNow, DateTimeOffset.UtcNow.AddHours(1), "Draft", "Note", null, false, false, false, false, false, false, false, 10);
+            var event2 = new OutboxEvent
+            {
+                Id = Guid.NewGuid(),
+                TransactionId = txId,
+                Type = typeof(ExamCreatedEvent).AssemblyQualifiedName!,
+                Content = Newtonsoft.Json.JsonConvert.SerializeObject(validEvent),
+                OccurredOn = DateTimeOffset.UtcNow.AddSeconds(-5)
+            };
+
+            context.OutboxEvents.AddRange(event1, event2);
+            await context.SaveChangesAsync();
+
+            var mockMediator = new Mock<IMediator>();
+            var mockLogger = new Mock<Microsoft.Extensions.Logging.ILogger<OutboxProcessorJob>>();
+            var mockChannel = new Mock<IOutboxSignalChannel>();
+            var serviceProviderMock = new Mock<IServiceProvider>();
+
+            var serviceScopeMock = new Mock<IServiceScope>();
+            var serviceScopeFactoryMock = new Mock<IServiceScopeFactory>();
+
+            serviceScopeMock.Setup(s => s.ServiceProvider).Returns(serviceProviderMock.Object);
+            serviceScopeFactoryMock.Setup(s => s.CreateScope()).Returns(serviceScopeMock.Object);
+
+            serviceProviderMock.Setup(sp => sp.GetService(typeof(IServiceScopeFactory))).Returns(serviceScopeFactoryMock.Object);
+            serviceProviderMock.Setup(sp => sp.GetService(typeof(AppDbContext))).Returns(context);
+            serviceProviderMock.Setup(sp => sp.GetService(typeof(IMediator))).Returns(mockMediator.Object);
+
+            var job = new OutboxProcessorJob(serviceProviderMock.Object, mockChannel.Object, mockLogger.Object);
+
+            // Act: Invoking ProcessOutboxEventsAsync via Reflection
+            var method = typeof(OutboxProcessorJob).GetMethod("ProcessOutboxEventsAsync", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            await (Task)method!.Invoke(job, new object[] { CancellationToken.None })!;
+
+            // Assert
+            var dbEvent1 = await context.OutboxEvents.FindAsync(event1.Id);
+            var dbEvent2 = await context.OutboxEvents.FindAsync(event2.Id);
+
+            Assert.NotNull(dbEvent1?.Error);
+            Assert.Equal(1, dbEvent1.RetryCount);
+            Assert.Null(dbEvent1.ProcessedOn);
+
+            // event2 MUST NOT be processed because loop broke on event1 exception!
+            Assert.Null(dbEvent2?.ProcessedOn);
+            Assert.Equal(0, dbEvent2.RetryCount);
+        }
+
+        [Fact]
+        public async Task OutboxProcessorJob_Should_Move_Event_To_DeadLetter_When_Max_Retries_Exceeded()
+        {
+            // Arrange
+            var options = new DbContextOptionsBuilder<AppDbContext>()
+                .UseInMemoryDatabase(databaseName: "ZLearnTestDb_OutboxDeadLetter_" + Guid.NewGuid())
+                .Options;
+
+            using var context = new AppDbContext(options);
+
+            var failedEvent = new OutboxEvent
+            {
+                Id = Guid.NewGuid(),
+                TransactionId = Guid.NewGuid(),
+                Type = typeof(ExamCreatedEvent).AssemblyQualifiedName!,
+                Content = "INVALID_JSON",
+                OccurredOn = DateTimeOffset.UtcNow,
+                RetryCount = 4 // Retry lần thứ 5 sẽ bị đánh dấu IsDeadLetter = true
+            };
+
+            context.OutboxEvents.Add(failedEvent);
+            await context.SaveChangesAsync();
+
+            var mockMediator = new Mock<IMediator>();
+            var mockLogger = new Mock<Microsoft.Extensions.Logging.ILogger<OutboxProcessorJob>>();
+            var mockChannel = new Mock<IOutboxSignalChannel>();
+            var serviceProviderMock = new Mock<IServiceProvider>();
+
+            var serviceScopeMock = new Mock<IServiceScope>();
+            var serviceScopeFactoryMock = new Mock<IServiceScopeFactory>();
+
+            serviceScopeMock.Setup(s => s.ServiceProvider).Returns(serviceProviderMock.Object);
+            serviceScopeFactoryMock.Setup(s => s.CreateScope()).Returns(serviceScopeMock.Object);
+
+            serviceProviderMock.Setup(sp => sp.GetService(typeof(IServiceScopeFactory))).Returns(serviceScopeFactoryMock.Object);
+            serviceProviderMock.Setup(sp => sp.GetService(typeof(AppDbContext))).Returns(context);
+            serviceProviderMock.Setup(sp => sp.GetService(typeof(IMediator))).Returns(mockMediator.Object);
+
+            var job = new OutboxProcessorJob(serviceProviderMock.Object, mockChannel.Object, mockLogger.Object);
+
+            // Act
+            var method = typeof(OutboxProcessorJob).GetMethod("ProcessOutboxEventsAsync", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            await (Task)method!.Invoke(job, new object[] { CancellationToken.None })!;
+
+            // Assert
+            var dbEvent = await context.OutboxEvents.FindAsync(failedEvent.Id);
+            Assert.NotNull(dbEvent);
+            Assert.Equal(5, dbEvent.RetryCount);
+            Assert.True(dbEvent.IsDeadLetter);
+            Assert.NotNull(dbEvent.Error);
+        }
+
+        [Fact]
+        public async Task OutboxSignalChannel_Should_Notify_And_Signal_Consumer()
+        {
+            // Arrange
+            var channel = new OutboxSignalChannel();
+
+            // Act
+            channel.Notify();
+
+            // Assert
+            var hasData = await channel.WaitToReadAsync(CancellationToken.None);
+            Assert.True(hasData);
+        }
+
+        [Fact]
+        public async Task OutboxProcessorJob_Should_Publish_To_RabbitMQ_When_Publisher_Is_Registered()
+        {
+            // Arrange
+            var options = new DbContextOptionsBuilder<AppDbContext>()
+                .UseInMemoryDatabase(databaseName: "ZLearnTestDb_RabbitMQ_" + Guid.NewGuid())
+                .Options;
+
+            using var context = new AppDbContext(options);
+
+            var validEvent = new ExamCreatedEvent("EXA_100", "Exam RabbitMQ", "alias", "QZ_1", DateTimeOffset.UtcNow, DateTimeOffset.UtcNow.AddHours(1), "Draft", "Note", null, false, false, false, false, false, false, false, 10);
+            var outboxEvent = new OutboxEvent
+            {
+                Id = Guid.NewGuid(),
+                TransactionId = Guid.NewGuid(),
+                Type = typeof(ExamCreatedEvent).AssemblyQualifiedName!,
+                Content = Newtonsoft.Json.JsonConvert.SerializeObject(validEvent),
+                OccurredOn = DateTimeOffset.UtcNow
+            };
+
+            context.OutboxEvents.Add(outboxEvent);
+            await context.SaveChangesAsync();
+
+            var mockPublisher = new Mock<Zlearn.V2.Infas.Messaging.IRabbitMQPublisherService>();
+            mockPublisher.Setup(p => p.PublishEventAsync(It.IsAny<OutboxEvent>())).Returns(Task.CompletedTask);
+
+            var mockMediator = new Mock<IMediator>();
+            var mockLogger = new Mock<Microsoft.Extensions.Logging.ILogger<OutboxProcessorJob>>();
+            var mockChannel = new Mock<IOutboxSignalChannel>();
+            var serviceProviderMock = new Mock<IServiceProvider>();
+
+            var serviceScopeMock = new Mock<IServiceScope>();
+            var serviceScopeFactoryMock = new Mock<IServiceScopeFactory>();
+
+            serviceScopeMock.Setup(s => s.ServiceProvider).Returns(serviceProviderMock.Object);
+            serviceScopeFactoryMock.Setup(s => s.CreateScope()).Returns(serviceScopeMock.Object);
+
+            serviceProviderMock.Setup(sp => sp.GetService(typeof(IServiceScopeFactory))).Returns(serviceScopeFactoryMock.Object);
+            serviceProviderMock.Setup(sp => sp.GetService(typeof(AppDbContext))).Returns(context);
+            serviceProviderMock.Setup(sp => sp.GetService(typeof(IMediator))).Returns(mockMediator.Object);
+            serviceProviderMock.Setup(sp => sp.GetService(typeof(Zlearn.V2.Infas.Messaging.IRabbitMQPublisherService))).Returns(mockPublisher.Object);
+
+            var job = new OutboxProcessorJob(serviceProviderMock.Object, mockChannel.Object, mockLogger.Object);
+
+            // Act
+            var method = typeof(OutboxProcessorJob).GetMethod("ProcessOutboxEventsAsync", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+            await (Task)method!.Invoke(job, new object[] { CancellationToken.None })!;
+
+            // Assert
+            mockPublisher.Verify(p => p.PublishEventAsync(It.Is<OutboxEvent>(e => e.Id == outboxEvent.Id)), Times.Once);
+            var dbEvent = await context.OutboxEvents.FindAsync(outboxEvent.Id);
+            Assert.NotNull(dbEvent?.ProcessedOn);
         }
     }
 }

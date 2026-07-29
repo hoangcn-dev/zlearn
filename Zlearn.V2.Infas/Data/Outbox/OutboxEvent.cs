@@ -13,6 +13,7 @@ namespace Zlearn.V2.Infas.Data.Outbox
         public DateTimeOffset? ProcessedOn { get; set; }
         public string? Error { get; set; }
         public int RetryCount { get; set; }
+        public bool IsDeadLetter { get; set; }
         public string AggregateId { get; set; } = string.Empty;
     }
 }

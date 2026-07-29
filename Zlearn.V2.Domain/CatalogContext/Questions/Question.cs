@@ -16,5 +16,10 @@ namespace Zlearn.V2.Domain.CatalogContext.Questions
         public string QuizId { get; set; } = string.Empty;
         public Quiz? Quiz { get; set; }
         public int AttemptCount { get; set; }
+
+        public Question()
+        {
+            Id = IdGenerator.Generate("QUE");
+        }
     }
 }

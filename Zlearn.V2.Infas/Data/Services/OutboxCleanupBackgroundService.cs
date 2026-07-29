@@ -48,15 +48,13 @@ namespace Zlearn.V2.Infas.Data.Services
 
             var retentionThreshold = DateTimeOffset.UtcNow.AddDays(-7);
 
-            var oldEvents = await dbContext.OutboxEvents
+            var deletedCount = await dbContext.OutboxEvents
                 .Where(e => e.ProcessedOn != null && e.ProcessedOn < retentionThreshold)
-                .ToListAsync(stoppingToken);
+                .ExecuteDeleteAsync(stoppingToken);
 
-            if (oldEvents.Any())
+            if (deletedCount > 0)
             {
-                _logger.LogInformation("Outbox Cleanup: Removing {Count} processed events older than 7 days.", oldEvents.Count);
-                dbContext.OutboxEvents.RemoveRange(oldEvents);
-                await dbContext.SaveChangesAsync(stoppingToken);
+                _logger.LogInformation("Outbox Cleanup: Removed {Count} processed events older than 7 days.", deletedCount);
             }
         }
     }

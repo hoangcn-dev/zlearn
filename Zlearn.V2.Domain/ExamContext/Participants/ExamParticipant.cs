@@ -1,6 +1,7 @@
 using System;
 using Zlearn.V2.Domain.Common;
 using Zlearn.V2.Domain.ExamContext.Exams;
+using Zlearn.V2.Domain.ExamContext.Participants.Events;
 
 namespace Zlearn.V2.Domain.ExamContext.Participants
 {
@@ -23,13 +24,13 @@ namespace Zlearn.V2.Domain.ExamContext.Participants
         public ExamParticipant() { }
 
         public ExamParticipant(
-            string id,
             string examId,
             string userId,
             string participantName,
-            string? participantCode)
+            string? participantCode,
+            string? id = null)
         {
-            Id = id;
+            Id = string.IsNullOrEmpty(id) ? IdGenerator.Generate("EPA") : id;
             ExamId = examId;
             UserId = userId;
             ParticipantName = participantName;
@@ -46,6 +47,7 @@ namespace Zlearn.V2.Domain.ExamContext.Participants
                 FirstCheckIn = checkInTime;
             }
             Status = ParticipantStatus.InProgress;
+            RaiseEvent(new ParticipantCheckedInEvent(Id, ExamId, UserId, checkInTime));
         }
 
         public void Submit(
@@ -62,6 +64,7 @@ namespace Zlearn.V2.Domain.ExamContext.Participants
             SelectedAnswers = selectedAnswers;
             LastCheckOut = checkOutTime;
             Status = submitStatus;
+            RaiseEvent(new ParticipantSubmittedEvent(Id, ExamId, UserId, completed, correct, score, submitStatus, checkOutTime));
         }
 
         public void TimeoutWithReset(DateTimeOffset checkOutTime)
@@ -84,12 +87,14 @@ namespace Zlearn.V2.Domain.ExamContext.Participants
         {
             IsBanned = true;
             Status = ParticipantStatus.NotAllowed;
+            RaiseEvent(new ParticipantBannedEvent(Id, ExamId, UserId));
         }
 
         public void Unban()
         {
             IsBanned = false;
             Status = ParticipantStatus.ConnectionLost;
+            RaiseEvent(new ParticipantUnbannedEvent(Id, ExamId, UserId));
         }
 
         public void ChangeStatus(ParticipantStatus status)
