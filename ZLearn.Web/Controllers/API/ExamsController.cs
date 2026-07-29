@@ -161,6 +161,7 @@ namespace ZLearn.Web.Controllers.API
             return Ok(Result<object>.Success("", new { participantId }));
         }
 
+        /*
         [HttpPost("sim-seed")]
         public async Task<IActionResult> SeedExamData([FromServices] AppDbContext context)
         {
@@ -302,5 +303,6 @@ namespace ZLearn.Web.Controllers.API
 
             return Ok(examContent);
         }
+        */
     }
 }

@@ -65,6 +65,20 @@ namespace ZLearn.Web
                     throw new ValidationErrorException(firstError);
                 };
             });
+            builder.Services.AddRateLimiter(options =>
+            {
+                options.RejectionStatusCode = 429;
+                options.AddPolicy("ip-limiter", context =>
+                    System.Threading.RateLimiting.RateLimitPartition.GetFixedWindowLimiter(
+                        partitionKey: context.Connection.RemoteIpAddress?.ToString() ?? "anonymous",
+                        factory: _ => new System.Threading.RateLimiting.FixedWindowRateLimiterOptions
+                        {
+                            AutoReplenishment = true,
+                            PermitLimit = 100,
+                            QueueLimit = 0,
+                            Window = TimeSpan.FromSeconds(10)
+                        }));
+            });
 
             var app = builder.Build();
             app.UseExceptionMiddleware();
@@ -76,6 +90,7 @@ namespace ZLearn.Web
             }
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseRateLimiter();
             app.UseAuthentication();
             app.UseV2LogMiddleware();
             
@@ -86,7 +101,7 @@ namespace ZLearn.Web
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}");
-            app.MapControllers();
+            app.MapControllers().RequireRateLimiting("ip-limiter");
             
             await app.InitializeV2Database();
             
