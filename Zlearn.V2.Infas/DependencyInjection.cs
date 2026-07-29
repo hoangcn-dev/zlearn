@@ -12,6 +12,7 @@ using Zlearn.V2.Infas.Data.Interceptors;
 using Zlearn.V2.Infas.Data.Outbox;
 using Zlearn.V2.Infas.Data.Repositories;
 using Zlearn.V2.Infas.Data.Services;
+using Zlearn.V2.Infas.Messaging;
 using Zlearn.V2.Infas.Services.Projections;
 using Zlearn.V2.Application.Files;
 using Zlearn.V2.Infas.External.CloudinaryStore;
@@ -48,7 +49,8 @@ namespace Zlearn.V2.Infas
     {
         public static IServiceCollection AddV2Services(this IServiceCollection services)
         {
-            // 1. Đăng ký AppDbContext cho V2 (dùng chung Connection String PostgreSQL)
+            // 1. Đăng ký AppDbContext và Outbox Signal Channel cho V2
+            services.AddSingleton<IOutboxSignalChannel, OutboxSignalChannel>();
             services.AddScoped<HandleEventsInterceptor>();
             services.AddScoped<AuditableEntityInterceptor>();
             services.AddDbContext<AppDbContext>((sp, options) =>
@@ -60,10 +62,13 @@ namespace Zlearn.V2.Infas
                 options.UseNpgsql(V2Utils.EnvVariableHelper.GetValue(V2Utils.EnvVariableNames.CONNECTION_STRING_POSTGRES));
             });
 
-            // Đăng ký MediatR cho các handlers của V2 Application
+            // Đăng ký MediatR cho các handlers của V2 Application và Infas
             services.AddMediatR(config =>
             {
-                config.RegisterServicesFromAssembly(typeof(Zlearn.V2.Application.Categories.Commands.CreateCategory.CreateCategoryCommand).Assembly);
+                config.RegisterServicesFromAssemblies(
+                    typeof(Zlearn.V2.Application.Categories.Commands.CreateCategory.CreateCategoryCommand).Assembly,
+                    typeof(SyncCategoryToMongoHandler).Assembly
+                );
             });
 
             // Cấu hình AutoMapper cho V2
@@ -98,7 +103,6 @@ namespace Zlearn.V2.Infas
             services.AddScoped<Zlearn.V2.Application.Common.Interfaces.IIdentityService, IdentityService>();
             services.AddScoped<Zlearn.V2.Application.Exams.IExamTrackingService, ExamTrackingService>();
             services.AddScoped<Zlearn.V2.Application.Common.Interfaces.IExamSessionService, ExamSessionService>();
-            services.AddScoped<Zlearn.V2.Infas.Services.Projections.OutboxFallbackHelper>();
             services.AddTransient<LogMiddleware>();
             services.AddScoped<Initializer>();
             services.AddHttpClient();
@@ -109,14 +113,11 @@ namespace Zlearn.V2.Infas
             {
                 services.Remove(v1GradingServiceDescriptor);
             }
+            services.AddSingleton<IRabbitMQPublisherService, RabbitMQPublisherService>();
             services.AddHostedService<Zlearn.V2.Infas.Data.Services.ExamGradingBackgroundService>();
             services.AddHostedService<OutboxProcessorJob>();
             services.AddHostedService<OutboxCleanupBackgroundService>();
-
-            // 5. Đăng ký Projection Handler cho V2
-            services.AddTransient<INotificationHandler<OutboxEvent>, SyncCategoryToMongoHandler>();
-            services.AddTransient<INotificationHandler<OutboxEvent>, SyncQuizToMongoHandler>();
-            services.AddTransient<INotificationHandler<OutboxEvent>, SyncExamToMongoHandler>();
+            services.AddHostedService<RabbitMQConsumerBackgroundService>();
 
             return services;
         }
@@ -222,11 +223,15 @@ namespace Zlearn.V2.Infas
         {
             services.AddQuartz(q =>
             {
-                q.UsePersistentStore(store =>
+                var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+                if (env != "Development")
                 {
-                    store.UsePostgres(V2Utils.EnvVariableHelper.GetValue(V2Utils.EnvVariableNames.CONNECTION_STRING_POSTGRES));
-                    store.UseNewtonsoftJsonSerializer();
-                });
+                    q.UsePersistentStore(store =>
+                    {
+                        store.UsePostgres(V2Utils.EnvVariableHelper.GetValue(V2Utils.EnvVariableNames.CONNECTION_STRING_POSTGRES));
+                        store.UseNewtonsoftJsonSerializer();
+                    });
+                }
             });
             services.AddQuartzHostedService(opt =>
             {
